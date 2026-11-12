@@ -54,6 +54,15 @@
     [/^\/psych\/interp$/, V.psychInterp, 'psych'],
     [/^\/psych\/listen$/, V.psychListen, 'psych'],
     [/^\/psych\/point$/, V.psychPoint, 'psych'],
+    [/^\/psych\/sud$/, V.sud, 'psych'],
+    [/^\/psych\/mood$/, V.moodEpisode, 'psych'],
+    [/^\/psych\/withdrawal$/, V.withdrawal, 'psych'],
+    [/^\/psych\/deesc$/, V.deesc, 'psych'],
+    [/^\/psych\/discharge$/, V.discharge, 'psych'],
+    [/^\/psych\/dcases$/, V.dischargeCases, 'psych'],
+    [/^\/psych\/mcases$/, V.mseCases, 'psych'],
+    [/^\/psych\/mcase\/(?<id>[\w-]+)$/, V.mseCase, 'psych'],
+    [/^\/psych\/dcase\/(?<id>[\w-]+)$/, V.dischargeCase, 'psych'],
     [/^\/kana$/, V.kana, 'kana'],
     [/^\/verbs$/, V.verbs, 'verbs'],
     [/^\/verbs\/(?<kind>v|a)\/(?<i>\d+)$/, V.verbPage, 'verbs'],
@@ -72,13 +81,14 @@
     ['', [['home', '#/', 'Home', icons.home], ['practice', '#/practice', 'Practice', icons.target]]],
     ['nav.learn', [['lessons', '#/lessons', 'Lessons', icons.lesson], ['kana', '#/kana', 'Kana trainer', icons.affix], ['reading', '#/reading', 'Reading', icons.read], ['speak', '#/speak', 'Speaking', icons.speak], ['dict', '#/dict', 'Dictionary', icons.book]]],
     ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['placement', '#/placement', 'Placement test', icons.target]]],
-    ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-point', '#/psych/point', 'Point board', icons.speak]]],
+    ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-mcases', '#/psych/mcases', 'Admission MSE practice', icons.eye], ['p-dcases', '#/psych/dcases', 'Discharge practice', icons.check]]],
+    ['nav.tools', [['p-point', '#/psych/point', 'Point board', icons.speak], ['p-mood', '#/psych/mood', 'Mood episode checker', icons.chart], ['p-sud', '#/psych/sud', 'Substance use screen', icons.target], ['p-wd', '#/psych/withdrawal', 'Withdrawal and agitation', icons.spark], ['p-deesc', '#/psych/deesc', 'De-escalation', icons.speak], ['p-discharge', '#/psych/discharge', 'Discharge assessment', icons.check]]],
     ['nav.app', [['progress', '#/progress', 'Progress', icons.chart], ['settings', '#/settings', 'Settings', icons.gear], ['new', '#/new', "What's New", icons.spark], ['about', '#/about', 'About', icons.info]]]
   ];
   App.NAV = NAV;
   const NAV_HREFS = NAV.reduce((a, g) => a.concat(g[1].map((i) => i[1])), []);
   // Deep pages light up their list page in the menu.
-  const PARENT = { '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null };
+  const PARENT = { '/psych/dcase': ['Discharge practice', '#/psych/dcases'], '/psych/mcase': ['Admission MSE practice', '#/psych/mcases'], '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null };
   function activeHref(path) {
     if (NAV_HREFS.includes('#' + path)) return '#' + path;
     const segs = path.split('/').filter(Boolean);
@@ -161,7 +171,7 @@
     dict: HAS.dict ? App.DICT.length + ' words with furigana; search in kanji, kana, romaji or English' : later, flash: 'Spaced repetition across every deck',
     lessons: HAS.lessons ? (window.LESSONS || []).length + ' grammar lessons from zero, each with a quiz' : later, kana: 'Hiragana and katakana charts with sound, and a drill', reading: HAS.reading ? 'Graded passages with furigana' : later, speak: HAS.speak ? 'Dialogues with listening and recording' : later,
     verbs: 'Conjugation tables and drills for verbs and adjectives', particles: 'A guide to each particle and a fill-in drill',
-    practice: 'Every drill on one page', psych: (window.PSYCH_SECTIONS || []).length + ' interview sections, polite and plain', 'p-cases': (window.PSYCH_CASES || []).length + ' branching interviews with feedback', 'p-interp': 'Idioms and indirect statements, and what to ask next', 'p-listen': 'Hear a patient reply, choose the meaning', 'p-point': 'The patient points to a reply; the phone speaks it',
+    practice: 'Every drill on one page', psych: (window.PSYCH_SECTIONS || []).length + ' interview sections, polite and plain', 'p-cases': (window.PSYCH_CASES || []).length + ' branching interviews with feedback', 'p-interp': 'Idioms and indirect statements, and what to ask next', 'p-listen': 'Hear a patient reply, choose the meaning', 'p-mcases': 'Document an admission MSE from a simulated interview', 'p-dcases': 'Interview on the day of discharge and document it', 'p-mood': 'Depressive and manic episode criteria as questions', 'p-sud': 'DSM-5-TR criteria, severity, brief intervention', 'p-wd': 'Alcohol, cannabis and opioid withdrawal; agitation', 'p-deesc': 'A 12-step checklist with what to say', 'p-discharge': 'Field by field, with what to ask', 'p-point': 'The patient points to a reply; the phone speaks it',
     placement: HAS.placement ? '20 questions to find where to start' : later, progress: 'Streak, stats, backup', settings: 'Furigana, romaji, voice, theme', new: 'What changed in each version', about: 'Credits and disclaimers'
   };
   V.practice = (el) => {

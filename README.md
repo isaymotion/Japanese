@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.2.0** (2026-11-12): the learn track, the full 27-section interview, case simulations. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.3.0** (2026-11-13): the learn track, the full interview, case simulations and the clinical tools. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -36,11 +36,13 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Psychiatry Japanese** | 27 interview sections, 352 phrases, in the same order and with the same phrase numbers as Usap Tayo: opening, consent, chief complaint and HPI, depression, mania, anxiety, trauma, hallucinations, delusions, suicide risk, violence risk, de-escalation, substances, history, family history, social history, collateral, the MSE (cognition; abstraction, judgment and insight; describing observations), explaining diagnosis and treatment, medication, admission and discharge, children, elderly patients, closing, and Shea's validity techniques. Each phrase has a polite (です/ます) form and a plain form, with notes. |
 | **Case simulations** | 7 branching interviews (psychosis, depression with suicide risk, mania, delirium, alcohol withdrawal, an agitated patient, over-the-counter medicine misuse) with feedback on every choice and a findings summary. |
 | **What is the patient saying?** | 32 idioms and indirect statements with their clinical meaning and the next question to ask. |
+| **Clinical tools** | Mood episode checker (DSM-5-TR criteria as questions, PHQ-9 and MDQ interview paraphrases); substance use screen with severity, codes and a guided motivational interview; withdrawal and agitation guide (PAWSS, CIWA-Ar, COWS scorers, nurse script, practice cases); de-escalation checklist with drills; discharge assessment field by field. Nothing typed into a tool is saved. The forms are generic: set your hospital's name and form numbers in `data/hospital.js`. |
+| **Practice with simulated patients** | Two admission MSE cases and four discharge cases, with the same patients as the case simulations. |
 | **Point board** | The patient taps a reply, the phone speaks it and the interviewer reads the English. General replies, a 0 to 10 scale and likely replies for each section (314 replies). |
 | **Listening drill** | Hear a patient reply, choose its meaning from four, then see the Japanese. |
 | **You** | Streaks, XP, progress, backup export / import with undo, settings, What's New, About. |
 
-Not in this version (planned next, as in Hablemos): the clinical tools (mood episode checker, substance use screener, withdrawal and agitation guide, de-escalation checklist, discharge assessment), printable handouts, a kanji study module, and a recorded audio pack.
+Not in this version: printable handouts and the MSE sheet (the PDF generator needs a Japanese font), the fifth discharge practice case, a kanji study module, and a recorded audio pack.
 
 ## Audio
 
@@ -69,6 +71,8 @@ js/kana.js              kana trainer
 js/grammar.js           verb / adjective trainer and particle drill
 js/psych-views.js       psychiatry hub and phrase sections
 js/point-listen.js      point board and listening drill
+js/mood.js, sud.js, withdrawal.js, deesc.js, discharge.js   clinical tools
+js/mse-practice.js, discharge-practice.js                   practice with simulated patients
 js/app.js               routing, menu, theme, text size, reading aids, search, backup
 js/data/*.js            all content
 data/app-meta.js        name, version, attribution
@@ -97,6 +101,7 @@ After editing any data file run `node tools/check-ja.js`. It must report 0 error
 - **Verbs and adjectives** (`verbs.js`): dictionary form plus group (`ru`, `u`, `suru`, `kuru`) or type (`i`, `na`); the forms are generated.
 - **Particles** (`particles.js`), **readings** (`reading.js`), **dialogues** (`dialogues.js`), **placement** (`meta.js`).
 - **Psychiatry phrases** (`psych-phrases-1.js` to `-6.js`): `P(english, polite, plain, note)`. Phrase numbers are IDs: append only, never insert or reorder. The display order of sections is `sectionOrder` in `js/lang.js`. **Patient replies**: `psych-answers.js`, `psych-answers-2.js`. **Cases and the interpretation drill**: `psych-cases-1.js`, `psych-cases-2.js`. **Technique links**: `psych-shea.js`.
+- **Clinical tools** (`psych-mood.js`, `psych-sud.js`, `psych-withdrawal.js`, `psych-deesc.js`, `psych-discharge.js`, `psych-admit-mse.js`) and **practice cases** (`psych-mse-cases.js`, `psych-discharge-cases-1.js`, `-2.js`): same shapes as in Usap Tayo and Hablemos; each file's header describes its fields. Only the patient-facing lines are Japanese; criteria, scores and reference text are English.
 - **What's New**: add an entry at the top of `data/changelog.js`, then set the same `version` in `data/app-meta.js` and `VERSION` in `sw.js`.
 
 The service worker only deletes caches whose names start with `hanashimasho-`; never change that rule, because every isaymotion app shares the same site. Progress is stored in the browser under `hanashimasho.v1`.

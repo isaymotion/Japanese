@@ -7,7 +7,7 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
     id: 'tetsuo',
     title: 'Alcohol withdrawal and motivation',
     level: 'N3',
-    setting: 'Medical unit, day 1 after an emergency visit. Tetsuo Yamamoto, 52, a construction worker who lives alone, is sweaty and shaky. His daughter, Misaki, drove him in. Staff address him as Yamamoto-san.',
+    setting: 'Medical unit, day 1 after an emergency visit. Tetsuo Yamamoto, 52, a construction worker who lives alone, is sweaty and shaky. His daughter, Haruka, drove him in. Staff address him as Yamamoto-san.',
     steps: [
       {
         who: 'Tetsuo',
@@ -29,7 +29,7 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
       },
       {
         who: 'Tetsuo',
-        line: [`ええ、 何年《なんねん》 か 前《まえ》 に けいれん を 起《お》こした こと が あって、 昨日《きのう》 も また。 本当《ほんとう》 に 怖《こわ》かった。 娘《むすめ》 の 美咲《みさき》 が ずいぶん 泣《な》いて…。`, `Yes, I had fits a few years ago, and again yesterday. It really scared me. My daughter Misaki cried so much...`],
+        line: [`ええ、 何年《なんねん》 か 前《まえ》 に けいれん を 起《お》こした こと が あって、 昨日《きのう》 も また。 本当《ほんとう》 に 怖《こわ》かった。 娘《むすめ》 の 遥《はるか》 が ずいぶん 泣《な》いて…。`, `Yes, I had fits a few years ago, and again yesterday. It really scared me. My daughter Haruka cried so much...`],
         choices: [
           { tl: `その 怖《こわ》さ は、 山本《やまもと》さん に とって 大《おお》きな こと だった ん です ね。 ゼロ から 十《じゅう》 で 言《い》う と、 お酒《さけ》 を やめる こと は どれくらい 大切《たいせつ》 です か。 もっと 低《ひく》い 数字《すうじ》 では ない の は、 どうして です か。`, en: `That scare clearly mattered to you. From 0 to 10, how important is it to you to stop drinking? And why is it not a lower number?`, score: 2, fb: `Good. You reflect his feeling, use the importance ruler, and ask why not lower, so he argues for change in his own words (motivational interviewing).` },
           { tl: `娘《むすめ》さん が 一緒《いっしょ》 に いて くれて よかった です ね。`, en: `It's good your daughter was with you.`, score: 1, fb: `Supportive, but you missed the chance to explore his own motivation.` },
