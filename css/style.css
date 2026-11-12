@@ -852,3 +852,86 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 
 /* Lesson examples: Japanese, then English under it, both in the first column; the speaker button sits in the second. */
 .lesson-body .ex > b, .lesson-body .ex > span { grid-column: 1; min-width: 0; }
+
+/* Printable handout: furigana and romaji follow the handout's own switches, whatever the app-wide reading aids say */
+.ho-paper rt { display: revert; visibility: visible; color: var(--p-muted); }
+.ho-paper .rj { display: inline; color: var(--p-muted); font-size: .8em; }
+.ho-paper .rj-b { display: block; }
+.ho-paper.ho-nofu rt { display: none; }
+.ho-paper.ho-norj .rj { display: none; }
+.ho-paper .ja .w { white-space: nowrap; }
+@media print { .ho-paper .ho-ph, .ho-paper .ho-step, .ho-paper tr, .ho-paper .ho-flow li { break-inside: avoid; } .ho-paper h2 { break-after: avoid; } }
+@media print {
+  /* Pocket card: one side per A6 page, no screen frame */
+  .ho-paper.ho-A6 { background: none; padding: 0; }
+  .hc-wrap { display: block; }
+  .hc-card { aspect-ratio: auto; overflow: visible; box-shadow: none; padding: 0; font-size: 10.4px; break-after: page; page-break-after: always; }
+  .hc-card:last-child { break-after: auto; page-break-after: auto; }
+  .hc-top, .hc-n, .hc-esc { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Kanji study list (also printed) */
+.kj-list-head { display: none; }
+.kj-table td { vertical-align: top; }
+.kj-table .kj-tk { white-space: nowrap; }
+.kj-table .kj-tk a { font: 600 1.7rem/1.1 var(--font-tl); text-decoration: none; color: inherit; display: block; }
+.kj-table .kj-tk small { color: var(--ink-3); font-size: .7rem; }
+.kj-table .kj-gl { color: var(--muted); font-size: .88em; }
+.kj-table td div + div { margin-top: 3px; }
+
+/* Printing an ordinary page (App.printPage adds .pr-page): a lesson, a reading passage, the kanji list */
+@media print {
+  html.pr-page #view > h1, html.pr-page #view > h2, html.pr-page #view > p { display: block !important; }
+  html.pr-page #view .noprint, html.pr-page .say, html.pr-page .pin, html.pr-page #lq, html.pr-page #rq, html.pr-page .prevnext, html.pr-page .seg, html.pr-page #view > .row, html.pr-page .pill, html.pr-page .btn { display: none !important; }
+  html.pr-page #view > h2:has(+ #lq), html.pr-page #view > h2:has(+ #rq) { display: none !important; }
+  html.pr-page #view { font-size: 10.5pt; }
+  html.pr-page #view > h1 { font-size: 16pt; margin: 0 0 6pt; }
+  html.pr-page .lesson-body .ex, html.pr-page tr, html.pr-page .note, html.pr-page .gloss span { break-inside: avoid; }
+  html.pr-page h2, html.pr-page h3 { break-after: avoid; }
+  html.pr-page .tablewrap { overflow: visible; }
+  html.pr-page .card, html.pr-page .notice { border: 0; box-shadow: none; padding-left: 0; padding-right: 0; background: none; }
+  html.pr-page .lesson-body .ex { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html.pr-page .kj-list-head { display: flex; justify-content: space-between; gap: 12pt; align-items: baseline; border-bottom: 1pt solid #333; padding-bottom: 3pt; font-size: 9pt; }
+  html.pr-page .kj-list-head b { font-size: 13pt; }
+  html.pr-page .kj-table { font-size: 9.5pt; }
+  html.pr-page .kj-table a { color: #000; }
+  html.pr-page a { color: inherit; text-decoration: none; }
+  html.pr-page #view::after { content: "Hanashimashō · App created by Isabella Navarro, MD · isaymotion@gmail.com · Draft Japanese, pending review by a native speaker"; display: block; margin-top: 12pt; padding-top: 4pt; border-top: .6pt solid #999; font-size: 7.5pt; color: #555; }
+}
+@media print {
+  html.pr-page #view > h1:has(~ * .kj-list) { display: none !important; }
+  html.pr-page .kj-list-head { display: block; } html.pr-page .kj-list-head span { display: block; font-size: 7.5pt; color: #555; }
+  html.pr-page .kj-list h2 { font-size: 11pt; margin: 8pt 0 2pt; }
+  html.pr-page .kj-table th, html.pr-page .kj-table td { padding: 2pt 6pt 2pt 0; }
+  html.pr-page .kj-table .kj-tk a { font-size: 16pt; display: inline; } html.pr-page .kj-table .kj-tk small { margin-left: 3pt; }
+  html.pr-page .kj-table td:last-child div { display: inline; margin-right: 8pt; }
+  html.pr-page .kj-table td div + div { margin-top: 0; }
+  html.pr-page .kj-list .tablewrap { border: 0; }
+}
+
+/* MSE interviewer sheet in Japanese: headings and notes never carry romaji; the questions follow the sheet's own switches */
+.ms-sheet h2 .rj, .ms-sheet h3 .rj, .ms-title .rj, .ms-sub .rj, .ms-right .rj, .ms-note .rj, .ms-foot .rj, .ms-obs .rj, .ms-sub-opts .rj { display: none; }
+.ms-sheet.ms-norj .rj { display: none; }
+.ms-sheet.ms-nofu rt { display: none; }
+.ms-sheet:not(.ms-nofu) rt { display: revert; visibility: visible; }
+@media print {
+  /* Japanese with furigana is taller than the Spanish sheet this layout came from, so pages are not a fixed height:
+     the three columns flow on to as many sheets of paper as they need, and a question is never split across columns. */
+  .ms-page, .ms-en-on .ms-page { height: auto; overflow: visible; display: block; }
+  .ms-cols { display: block; column-count: 3; column-gap: 5mm; }
+  .ms-col { display: contents; }
+  .ms-sec { break-inside: auto; page-break-inside: auto; font-size: 8pt; line-height: 1.5; }
+  .ms-sec li, .ms-obs span, .ms-note { break-inside: avoid; }
+  .ms-sec h2, .ms-sec h3 { break-after: avoid; }
+  .ms-sec h2 { text-transform: none; letter-spacing: 0; font-size: 9.5pt; }
+  .ms-sec li { font-size: 8pt; line-height: 1.55; margin-bottom: 1.6pt; }
+  .ms-sheet rt { font-size: .52em; color: #4a5160; }
+  .ms-sheet .rj { font-size: 6.2pt; color: #5b6472; }
+}
+@media print {
+  /* The sheet's four parts follow one another without wasted paper. */
+  .ms-sheet .ms-page { break-after: auto; page-break-after: auto; margin-bottom: 5mm; }
+}
+/* The observed-MSE rows are spans; the furigana spans inside them must stay inline */
+.ms-obs span span { display: inline; padding: 0; border: 0; margin: 0; text-indent: 0; font-size: inherit; }
+@media print { .ms-obs span span { display: inline; padding: 0; border: 0; margin: 0; text-indent: 0; font-size: inherit; } }

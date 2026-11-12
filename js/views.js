@@ -259,11 +259,12 @@
     const l = LESSONS.find((x) => x.id === p.id);
     if (!l) { el.innerHTML = '<p>Lesson not found.</p>'; return; }
     const idx = LESSONS.indexOf(l), next = LESSONS[idx + 1], prev = LESSONS[idx - 1];
-    el.innerHTML = crumb([['Lessons', '#/lessons'], [l.title]]) + '<div class="row">' + lvPill(l.level) + '<span class="muted small">' + esc(l.unit) + '</span></div><h1 style="margin-top:6px">' + esc(l.title) + '</h1>' +
+    el.innerHTML = crumb([['Lessons', '#/lessons'], [l.title]]) + '<div class="row">' + lvPill(l.level) + '<span class="muted small">' + esc(l.unit) + '</span><button class="btn sm noprint" id="lprint" style="margin-left:auto">' + icons.book + ' Print</button></div><h1 style="margin-top:6px">' + esc(l.title) + '</h1>' +
       (l.draft ? '<div class="notice warn" style="margin-bottom:12px">Draft for review: the ' + esc(LANG.name) + ' lines in this lesson are practice wording pending review by a native Japanese speaker.</div>' : '') +
       '<div class="lesson-body">' + l.body.replace(/<table>/g, '<div class="tablewrap"><table>').replace(/<\/table>/g, '</table></div>') + '</div>' +
       '<h2 style="margin-top:20px">Check yourself</h2><div id="lq"></div>' +
       '<div class="spread prevnext" style="margin-top:16px">' + (prev ? '<a class="btn" href="#/lessons/' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/lessons/' + next.id + '">' + esc(next.title) + ' →</a>' : '') + '</div>';
+    el.querySelector('#lprint').onclick = () => App.printPage();
     // speak buttons for examples
     el.querySelectorAll('.lesson-body .ex').forEach((ex) => { const b = ex.querySelector('b'); if (b) { ex.style.gridTemplateColumns = 'minmax(0,1fr) auto'; const btn = document.createElement('div'); btn.innerHTML = App.sayBtn(b.textContent); btn.style.gridRow = '1 / span 2'; btn.style.gridColumn = '2'; ex.appendChild(btn.firstChild); } });
     App.runQuiz(el.querySelector('#lq'), l.quiz.map(([q, opts, a, exp]) => ({ q, opts, a, exp })), {
@@ -272,9 +273,16 @@
   };
 
   /* ---------- Reading ---------- */
-  V.reading = (el) => {
-    el.innerHTML = '<h1>Reading</h1>' + (READING.length ? '' : soon(LANG.name + ' reading passages')) + '<p class="muted">Read the ' + esc(LANG.name) + ' first. Reveal the translation only when you need it, then answer the questions. Passages marked <span class="pill warn">clinical</span> practice psychiatric content.</p><div class="grid">' +
-      READING.map((r) => '<a class="tile" href="#/reading/' + r.id + '"><div class="row">' + lvPill(r.level) + (r.psych ? '<span class="pill warn">clinical</span>' : '') + (S().done.reading[r.id] != null ? '<span class="pill good">' + S().done.reading[r.id] + '%</span>' : '') + '</div><h3 class="tl" style="margin-top:6px">' + esc(r.title) + '</h3><p>' + esc(r.titleEn) + '</p></a>').join('') + '</div>';
+  V.reading = (el, p, q) => {
+    // Level filter (?lv=N4 …), remembered like the one on the lessons page.
+    const lvs = LANG.levels.filter((k) => READING.some((r) => r.level === k));
+    q = q || {};
+    const lv = q.lv === 'all' ? '' : lvs.includes(q.lv) ? q.lv : lvs.includes(S().readingLevel) && !q.lv ? S().readingLevel : '';
+    if ((S().readingLevel || '') !== lv) { S().readingLevel = lv; App.save(); }
+    const doneN = READING.filter((r) => (!lv || r.level === lv) && S().done.reading[r.id] != null).length, allN = READING.filter((r) => !lv || r.level === lv).length;
+    el.innerHTML = '<h1>Reading</h1>' + (READING.length ? '' : soon(LANG.name + ' reading passages')) + '<p class="muted">Read the ' + esc(LANG.name) + ' first. Reveal the translation only when you need it, then answer the questions. Passages marked <span class="pill warn">clinical</span> practice psychiatric content.</p>' +
+      (lvs.length > 1 ? '<div class="row" style="flex-wrap:wrap;gap:8px;margin-bottom:10px"><div class="seg" role="group" aria-label="Level">' + [['', 'All']].concat(lvs.map((k) => [k, k])).map(([k, t]) => '<a role="button" href="#/reading?lv=' + (k || 'all') + '" class="' + (lv === k ? 'on' : '') + '">' + esc(t) + '</a>').join('') + '</div><span class="pill">' + doneN + ' / ' + allN + ' done</span></div>' : '') + '<div class="grid">' +
+      READING.filter((r) => !lv || r.level === lv).map((r) => '<a class="tile" href="#/reading/' + r.id + '"><div class="row">' + lvPill(r.level) + (r.psych ? '<span class="pill warn">clinical</span>' : '') + (S().done.reading[r.id] != null ? '<span class="pill good">' + S().done.reading[r.id] + '%</span>' : '') + '</div><h3 class="tl" style="margin-top:6px">' + esc(r.title) + '</h3><p>' + esc(r.titleEn) + '</p></a>').join('') + '</div>';
   };
   V.passage = (el, p) => {
     const r = READING.find((x) => x.id === p.id);
@@ -285,12 +293,13 @@
       el.querySelector('#trbtn').textContent = showTr ? 'Hide translation' : 'Show translation';
     };
     el.innerHTML = crumb([['Reading', '#/reading'], [r.title]]) + '<div class="row">' + lvPill(r.level) + '</div><h1 class="tl" style="margin-top:6px">' + esc(r.title) + '</h1><p class="muted">' + esc(r.titleEn) + '</p>' +
-      '<div class="row"><button class="btn" id="readall">' + icons.sound + ' Listen</button><button class="btn" id="trbtn"></button></div>' +
+      '<div class="row noprint"><button class="btn" id="readall">' + icons.sound + ' Listen</button><button class="btn" id="trbtn"></button><button class="btn" id="rprint">' + icons.book + ' Print</button></div>' +
       '<div class="card passage" id="pbody" style="margin-top:12px"></div>' +
       '<h2 style="margin-top:16px">Glossary</h2><div class="gloss">' + r.gloss.map(([t, e]) => '<span><b>' + esc(t) + '</b> — ' + esc(e) + '</span>').join('') + '</div>' +
       '<h2 style="margin-top:16px">Questions</h2><div id="rq"></div>';
     el.querySelector('#trbtn').onclick = () => { showTr = !showTr; draw(); };
     el.querySelector('#readall').onclick = () => App.speakAll(r.tl, 350);
+    el.querySelector('#rprint').onclick = () => App.printPage();
     draw();
     App.runQuiz(el.querySelector('#rq'), r.q.map(([q, opts, a, exp]) => ({ q, opts, a, exp, tlq: JA.hasJa(q) && !/[A-Za-z]{3}/.test(q) })), {
       onDone: (rt, n) => { S().done.reading[r.id] = Math.max(Math.round((100 * rt) / n), S().done.reading[r.id] || 0); App.activity(10); }

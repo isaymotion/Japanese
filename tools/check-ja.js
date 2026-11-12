@@ -43,6 +43,9 @@ function walk(o, where, seen) {
   if (Array.isArray(o)) o.forEach((x, i) => walk(x, where + '[' + i + ']', seen));
   else Object.keys(o).forEach((k) => walk(o[k], where + '.' + k, seen));
 }
+// Dictionary columns 3 and 4 (js/core.js: POS and App.CATS)
+const DICT_POS = /^(n|v1|v5|vs|vi|ai|an|adv|pron|part|conj|interj|num|ctr|q|pre|suf|phr)$/;
+const DICT_CAT = /^(basics|grammar|pronouns|questions|numbers|counters|time|people|family|body|food|home|money|places|travel|nature|adjectives|verbs|adverbs|emotions|health|mind|risk|substance|meds|hospital|clinical|mimetic|idioms|society)$/;
 // Kanji files: 字 | meanings | on | kun | strokes | group | words | note   (tools/AUTHORING.md)
 const kanjiSeen = new Map();
 function checkKanji(blocks, f) {
@@ -85,7 +88,7 @@ files.forEach((f) => {
   const names = Object.keys(ctx).filter((k) => !before.has(k) || (k === 'DICT_RAW' && /dict-/.test(f)) || (k === 'PSYCH_SECTIONS' && /psych-phrases/.test(f)) || (k === 'LESSONS' && /lessons/.test(f)));
   names.forEach((n) => {
     const v = ctx[n];
-    if (n === 'DICT_RAW') v.join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
+    if (n === 'DICT_RAW') v.join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); { const t = c.map((x) => x.trim()); if (!DICT_POS.test(t[2] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown part of speech "' + t[2] + '": ' + line); } if (!DICT_CAT.test(t[3] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown category "' + t[3] + '": ' + line); } if (t[4] && !/^(N5|N4|N3|C)$/.test(t[4])) { errors++; console.log('ERROR ' + f + ' dict: level must be N5, N4, N3 or C: ' + line); } if (/[《》]/.test(t[1] || '') || !(t[1] || '').trim()) { errors++; console.log('ERROR ' + f + ' dict: English column missing or has readings in it: ' + line); } } if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
     else if (n === 'KANJI_RAW') checkKanji(v, f);
     else walk(v, f + ':' + n, new Set());
   });

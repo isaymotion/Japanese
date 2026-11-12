@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.7.0', date: '2026-11-13', title: 'Printable handouts',
+    items: [
+      { type: 'feature', text: 'Printable handout (Psychiatry → Print): build a reference sheet from the interview flow, the key or full phrases of any section, the MSE table, the 32 "what the patient may be saying" expressions, the de-escalation checklist, the discharge guide and a blank MSE write-up form. Seven ready-made sets, including a pocket booklet on A5 and a de-escalation pocket card on A6. Choose polite or plain form, English shown, hidden or as an answer key, furigana on or off, romaji on or off, paper and text size.' },
+      { type: 'feature', text: 'MSE interviewer sheet: the screening questions for the clinic and wards in polite Japanese, with pages for substance use screening and brief intervention. Furigana, romaji and English can each be switched on or off before printing.' },
+      { type: 'feature', text: 'Print button on every lesson and reading passage, and a new List view in Kanji that prints the kanji of a level as a table with readings and example words.' },
+      { type: 'update', text: 'Printing uses the browser\'s own print window, so there is nothing to download: choose a printer, or "Save as PDF" to make a PDF file. Japanese prints with the fonts already on the phone or computer.' },
+      { type: 'content', text: 'The interview-flow tips were rewritten for Japanese-speaking patients. All Japanese on the sheets is a draft for review by a native Japanese-speaking clinician; the sheets print no hospital name or crisis line unless data/hospital.js is filled in.' }
+    ]
+  },
+  {
     version: '0.6.0', date: '2026-11-13', title: 'N3 grammar',
     items: [
       { type: 'content', text: 'A new N3 level with 24 lessons in eight units, each with a six-question quiz: Time and sequence (〜間 に, 〜うち に, 〜たび に, 〜とおり, 〜ついで に, 〜て 以来, 〜た とたん, 〜次第); Limits and extent (だけ, しか, ばかり, さえ, こそ, ほど, くらい, compound verbs such as 〜始める and 〜続ける); Causes and obligations (〜おかげ で, 〜せい で, わけ, べき, もの だ, こと だ); Conditions and relations (なら, 〜ば よかった, 〜さえ 〜ば, and compound particles such as 〜に ついて, 〜に 対して, 〜に とって, 〜に よって, 〜と して, 〜に 比べて); Contrast and concession (〜一方, 〜わり に, 〜くせ に, たとえ 〜ても, 〜と して も); Hearsay and judgement (〜そう だ, 〜との こと, 〜に 違いない, 〜おそれ が ある, 〜がち, 〜気味, 〜っぽい, 〜と いう); Feelings and attempts (〜て たまらない, 〜ず に, 〜よう と する, patterns with こと); and Casual and written styles.' },

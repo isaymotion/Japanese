@@ -41,6 +41,23 @@
   App.importState = (obj) => { App.state = state = Object.assign(defaults(), obj); state.settings = Object.assign(defaults().settings, obj.settings || {}); App.save(); };
 
   // Activity: streaks and XP
+  // Print the current page on a given paper size ('A4' | 'LETTER' | 'A5' | 'A6') and margin. The browser's print window
+  // is also how a PDF is made ("Save as PDF"), so the app needs no PDF library or embedded Japanese font.
+  App.printWith = (size, margin) => {
+    let st = document.getElementById('pagecss');
+    if (!st) { st = document.createElement('style'); st.id = 'pagecss'; document.head.appendChild(st); }
+    st.textContent = '@media print { @page { size: ' + (size === 'LETTER' ? 'letter' : size === 'A6' ? '105mm 148mm' : size || 'A4') + '; margin: ' + (margin || '14mm') + '; } }';
+    window.print();
+  };
+  // Print an ordinary page (a lesson, a reading passage, the kanji list): light colours, no buttons, the page's own
+  // heading kept. The class is removed when the print window closes.
+  App.printPage = () => {
+    const root = document.documentElement, theme = root.getAttribute('data-theme');
+    root.classList.add('pr-page'); root.setAttribute('data-theme', 'light');
+    const done = () => { root.classList.remove('pr-page'); if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme'); window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    App.printWith('A4', '14mm');
+  };
   App.activity = (xp) => {
     const t = today();
     if (state.streak.last !== t) {
@@ -70,7 +87,13 @@
   App.POS = POS;
   const seen = new Map();
   const DICT = [];
-  (window.DICT_RAW || []).join('\n').split('\n').forEach((line) => {
+  // Word ids must not change when words are added, because flashcards and the mistakes deck store them.
+  // The first four blocks (dict-core, -everyday, -clinical, -more: the dictionary up to version 0.6.0) keep the ids they
+  // always had: their position in kana order among themselves. Every later block (dict-kanji-*, dict-n3-* …) is
+  // APPEND ONLY and gets the next numbers in file order. So: never add or remove lines in the first four files, and
+  // only add lines at the end of the later ones.
+  const LEGACY_BLOCKS = 4;
+  (window.DICT_RAW || []).forEach((block, bi) => String(block).split('\n').forEach((line) => {
     line = line.trim();
     if (!line || line.startsWith('#')) return;
     const [tl, en, pos, cat, lv, note] = line.split('|').map((s) => (s || '').trim());
@@ -78,10 +101,12 @@
     const k = flat(tl) + '|' + norm(en);
     if (seen.has(k)) return;
     seen.set(k, 1);
-    DICT.push({ id: 'd' + DICT.length, tl, en, pos: pos || '', cat: cat || 'other', lv: lv || '', root: '', note: note || '', ftl: flat(tl), kn: hira(tl), rj: flat(JA.romaji(tl)), nen: norm(en) });
-  });
+    DICT.push({ id: '', seq: DICT.length, old: bi < LEGACY_BLOCKS, tl, en, pos: pos || '', cat: cat || 'other', lv: lv || '', root: '', note: note || '', ftl: flat(tl), kn: hira(tl), rj: flat(JA.romaji(tl)), nen: norm(en) });
+  }));
+  const nOld = DICT.filter((e) => e.old).length;
+  DICT.forEach((e) => { if (!e.old) e.id = 'd' + e.seq; });          // later blocks: file order (seq continues after the first four)
   DICT.sort((a, b) => a.kn.localeCompare(b.kn, 'ja') || a.ftl.localeCompare(b.ftl, 'ja'));
-  DICT.forEach((e, i) => (e.id = 'd' + i));
+  { let i = 0; DICT.forEach((e) => { if (e.old) e.id = 'd' + i++; }); if (i !== nOld) console.warn('dictionary ids'); }
   App.DICT = DICT;
   App.dictById = Object.fromEntries(DICT.map((e) => [e.id, e]));
 
@@ -119,7 +144,7 @@
     basics: 'Basics & greetings', grammar: 'Particles & grammar words', pronouns: 'Pronouns & forms of address', questions: 'Question words',
     numbers: 'Numbers', counters: 'Counters', time: 'Time & dates', people: 'People', family: 'Family', body: 'Body',
     food: 'Food & drink', home: 'Home & things', money: 'Work, school & money', places: 'Places & directions', travel: 'Getting around', nature: 'Weather & nature',
-    adjectives: 'Describing words', verbs: 'Common verbs', adverbs: 'Adverbs',
+    adjectives: 'Describing words', verbs: 'Common verbs', adverbs: 'Adverbs', society: 'Society, ideas & abstract words',
     emotions: 'Emotions', health: 'Health & symptoms', mind: 'Mind & perception', risk: 'Risk & safety (clinical)', substance: 'Alcohol & substances',
     meds: 'Medication', hospital: 'Hospital & care', clinical: 'Clinical terms', mimetic: 'Sound-symbolic words (イライラ, ドキドキ…)', idioms: 'Expressions of distress (気, 心, 胸…)'
   };

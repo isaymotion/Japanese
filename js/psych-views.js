@@ -37,7 +37,7 @@
         (has('PSYCH_DISCHARGE') ? T('#/psych/discharge', 'Ward', 'Discharge assessment', 'Each discharge summary field: what to ask and how to document it.') : '') + '</div>',
       print: (has('PSYCH_MSE_SHEET') || PSYCH_SECTIONS.length ? '' : soon('The printable sheets and handouts')) + '<div class="grid" style="margin-top:14px">' +
         (has('PSYCH_MSE_SHEET') ? T('#/psych/mse-sheet', 'Print', 'MSE interviewer sheet', 'Every ' + esc(LANG.name) + ' screening question for the clinic and wards, on a few pages.') : '') +
-        
+        (PSYCH_SECTIONS.length && has('PSYCH_FLOW') ? T('#/psych/handout', 'Print', 'Printable handout', 'Interview flow, phrases and the MSE table, with or without English, furigana and romaji.') : '') +
         (has('PSYCH_DEESC') ? T('#/psych/handout?deesccard=1', 'Print', 'De-escalation pocket card', 'A6 card for the ward.') : '') +
         (has('PSYCH_DISCHARGE') ? T('#/psych/handout?discharge=1', 'Print', 'Discharge guide', 'The discharge assessment as a printable guide.') : '') + '</div>'
     };

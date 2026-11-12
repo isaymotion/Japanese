@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.6.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations and the clinical tools. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.7.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -39,11 +39,12 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **What is the patient saying?** | 32 idioms and indirect statements with their clinical meaning and the next question to ask. |
 | **Clinical tools** | Mood episode checker (DSM-5-TR criteria as questions, PHQ-9 and MDQ interview paraphrases); substance use screen with severity, codes and a guided motivational interview; withdrawal and agitation guide (PAWSS, CIWA-Ar, COWS scorers, nurse script, practice cases); de-escalation checklist with drills; discharge assessment field by field. Nothing typed into a tool is saved. The forms are generic: set your hospital's name and form numbers in `data/hospital.js`. |
 | **Practice with simulated patients** | Two admission MSE cases and four discharge cases, with the same patients as the case simulations. |
+| **Printable handouts** | A handout builder (interview flow, key or full phrases by section, MSE table, "what the patient may be saying", de-escalation checklist, discharge guide, blank MSE form) with seven ready-made sets, including an A5 pocket booklet and an A6 de-escalation card; and the MSE interviewer sheet. Options for polite or plain form, English, furigana, romaji, paper and text size. Lessons, reading passages and the kanji list (Kanji → List) have a Print button too. Printing uses the browser's print window; choose "Save as PDF" there to make a PDF. Routes `#/psych/handout`, `#/psych/mse-sheet`. |
 | **Point board** | The patient taps a reply, the phone speaks it and the interviewer reads the English. General replies, a 0 to 10 scale and likely replies for each section (314 replies). |
 | **Listening drill** | Hear a patient reply, choose its meaning from four, then see the Japanese. |
 | **You** | Streaks, XP, progress, backup export / import with undo, settings, What's New, About. |
 
-Not in this version: printable handouts and the MSE sheet (the PDF generator needs a Japanese font), the fifth discharge practice case, and a recorded audio pack.
+Not in this version: the fifth discharge practice case, and a recorded audio pack.
 
 ## Audio
 
@@ -75,6 +76,7 @@ js/psych-views.js       psychiatry hub and phrase sections
 js/point-listen.js      point board and listening drill
 js/mood.js, sud.js, withdrawal.js, deesc.js, discharge.js   clinical tools
 js/mse-practice.js, discharge-practice.js                   practice with simulated patients
+js/handout.js, mse-sheet.js                                 printable handout builder and MSE interviewer sheet (browser print, no PDF library)
 js/app.js               routing, menu, theme, text size, reading aids, search, backup
 js/data/*.js            all content
 data/app-meta.js        name, version, attribution

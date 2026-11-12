@@ -25,7 +25,7 @@
   V.kanji = (el, p, q) => {
     if (!ALL.length) return App.notYet(el, 'Kanji', 'The kanji study module');
     let lv = LEVELS.some(([k]) => k === q.lv) ? q.lv : (S().kanjiLevel && LEVELS.some(([k]) => k === S().kanjiLevel) ? S().kanjiLevel : LEVELS[0][0]);
-    let tab = q.tab === 'drill' ? 'drill' : 'chart';
+    let tab = q.tab === 'drill' ? 'drill' : q.tab === 'list' ? 'list' : 'chart';
     let mode = 'meaning', picked = null;
     const defaultGroups = () => {
       const open = groupsOf(lv).filter((g) => ofLevel(lv).some((x) => x.group === g && !learned(x.k)));
@@ -36,6 +36,13 @@
       return '<div class="spread" style="margin-top:18px"><h2 style="margin:0">' + esc(g) + '</h2><span class="muted small">' + n + ' / ' + ks.length + '</span></div><div class="kj-grid" data-noja>' +
         ks.map((x) => '<a class="kj-cell' + (learned(x.k) ? ' known' : '') + '" href="' + href(x.k) + '" aria-label="' + esc(x.k + ': ' + x.mean.join(', ')) + '"><b lang="ja">' + esc(x.k) + '</b><small>' + esc(x.mean[0] || '') + '</small></a>').join('') + '</div>';
     }).join('') + '<p class="small muted" style="margin-top:14px">Tap a kanji for its readings and example words. Green kanji are ones you have answered correctly three times in a row in the drill.</p>';
+    // A study list to read or print: one table per group, with readings and example words.
+    const list = () => '<div class="row noprint" style="margin:10px 0 0"><button class="btn sm primary" id="kjprint">' + icons.book + ' Print or save as PDF</button><span class="small muted">Prints the ' + esc(LV_NAME[lv] || lv) + ' list with the furigana and romaji settings you have now.</span></div>' +
+      '<div class="kj-list"><div class="kj-list-head"><b>' + esc(APP_META.name) + ': ' + esc(LV_NAME[lv] || lv) + ' kanji</b><span>' + ofLevel(lv).length + ' kanji · draft for review · ' + esc(APP_META.attribution) + '</span></div>' +
+      groupsOf(lv).map((g) => '<h2>' + esc(g) + '</h2><div class="tablewrap"><table class="kj-table"><tr><th>Kanji</th><th>Meaning</th><th>Readings</th><th>Words</th></tr>' +
+        ofLevel(lv).filter((x) => x.group === g).map((x) => '<tr><td class="kj-tk" data-noja><a href="' + href(x.k) + '" lang="ja">' + esc(x.k) + '</a><small>' + x.strokes + '</small></td><td>' + esc(x.mean.join(', ')) + '</td><td data-noja lang="ja">' +
+          (x.on.length ? '<div>' + esc(x.on.join('・')) + '</div>' : '') + (x.kun.length ? '<div>' + x.kun.map(kunHTML).join('、 ') + '</div>' : '') + '</td><td>' +
+          x.words.map((w) => '<div>' + esc(w.tl) + ' <span class="kj-gl">' + esc(w.en) + '</span></div>').join('') + '</td></tr>').join('') + '</table></div>').join('') + '</div>';
     const drill = () => {
       if (!picked) picked = defaultGroups();
       return '<div class="card stack"><div class="spread"><b>Groups to practise</b><span class="row"><button class="btn sm" data-all="1">All</button><button class="btn sm" data-all="0">Next unlearned</button></span></div>' +
@@ -98,15 +105,16 @@
     };
     const draw = () => {
       const ks = ofLevel(lv), n = ks.filter((x) => learned(x.k)).length;
-      el.innerHTML = '<h1>Kanji</h1><p class="muted">Kanji carry meaning, and most have more than one reading. Learn each one inside real words: open a kanji to see its readings and example words, then drill a group at a time. Lesson: <a href="#/lessons/' + ((window.LESSONS || []).some((l) => l.id === 'kanji-basics') ? 'kanji-basics">How kanji work' : 'writing-systems">The three scripts') + '</a>.</p>' +
+      el.innerHTML = '<h1>Kanji</h1><p class="muted noprint">Kanji carry meaning, and most have more than one reading. Learn each one inside real words: open a kanji to see its readings and example words, then drill a group at a time. Lesson: <a href="#/lessons/' + ((window.LESSONS || []).some((l) => l.id === 'kanji-basics') ? 'kanji-basics">How kanji work' : 'writing-systems">The three scripts') + '</a>.</p>' +
         '<div class="row" style="flex-wrap:wrap;gap:8px"><div class="seg" role="group" aria-label="Level">' + LEVELS.map(([k, t]) => '<button data-lv="' + k + '" class="' + (lv === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
-        '<div class="seg" role="group" aria-label="View">' + [['chart', 'Chart'], ['drill', 'Drill']].map(([k, t]) => '<button data-tab="' + k + '" class="' + (tab === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
+        '<div class="seg" role="group" aria-label="View">' + [['chart', 'Chart'], ['drill', 'Drill'], ['list', 'List']].map(([k, t]) => '<button data-tab="' + k + '" class="' + (tab === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
         '<span class="pill ' + (n === ks.length ? 'good' : '') + '">' + esc(LV_NAME[lv] || lv) + ': ' + n + ' / ' + ks.length + ' learned</span>' +
         '<a class="btn sm" href="#/flash/kanji-' + lv + '">' + icons.cards + ' Flashcards</a></div>' +
         (lv === 'C' ? '<p class="small muted" style="margin:10px 0 0">Kanji beyond N3 that appear often in this app\'s psychiatry phrases.</p>' : '') +
-        '<div style="margin-top:8px">' + (tab === 'chart' ? chart() : drill()) + '</div>' +
+        '<div style="margin-top:8px">' + (tab === 'chart' ? chart() : tab === 'list' ? list() : drill()) + '</div>' +
         '<p class="small muted" style="margin-top:14px">Draft for review: readings, meanings and example words are pending review by a native Japanese speaker. JLPT levels for kanji are approximate; there is no official list.</p>';
       el.querySelectorAll('[data-lv]').forEach((b) => (b.onclick = () => { lv = b.dataset.lv; S().kanjiLevel = lv; App.save(); picked = null; draw(); }));
+      const kp = el.querySelector('#kjprint'); if (kp) kp.onclick = () => App.printPage();
       el.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { tab = b.dataset.tab; draw(); }));
       el.querySelectorAll('[data-mode]').forEach((b) => (b.onclick = () => { mode = b.dataset.mode; el.querySelectorAll('[data-mode]').forEach((x) => x.classList.toggle('on', x === b)); }));
       el.querySelectorAll('[data-grp]').forEach((c) => (c.onchange = () => { picked = [...el.querySelectorAll('[data-grp]:checked')].map((x) => x.dataset.grp); }));
