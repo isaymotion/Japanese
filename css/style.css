@@ -848,4 +848,7 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 
 /* Previous / next lesson buttons: long titles wrap instead of pushing the page wider than the phone */
 .prevnext { flex-wrap: wrap; gap: 8px; }
-.prevnext .btn { max-width: 100%; min-width: 0; height: auto; min-height: 44px; padding-top: 8px; padding-bottom: 8px; white-space: normal; text-align: left; line-height: 1.3; }
+.prevnext .btn { display: block; max-width: 100%; min-width: 0; height: auto; min-height: 44px; padding-top: 8px; padding-bottom: 8px; white-space: normal; text-align: left; line-height: 1.3; }
+
+/* Lesson examples: Japanese, then English under it, both in the first column; the speaker button sits in the second. */
+.lesson-body .ex > b, .lesson-body .ex > span { grid-column: 1; min-width: 0; }

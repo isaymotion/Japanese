@@ -302,6 +302,8 @@
       const bc = view.querySelector('.breadcrumb'); const sec = bc ? [...bc.querySelectorAll('a')].map((a) => a.textContent).pop() || '' : App._section; App._section = sec; b.className = 'pin'; b.type = 'button';
       const draw = () => { const on = App.isPinned(hash); b.innerHTML = (on ? icons.starOn : icons.star); b.title = on ? 'Unpin from Home' : 'Pin to Home'; b.setAttribute('aria-label', b.title); b.classList.toggle('on', on); };
       b.onclick = () => { App.togglePin(hash, title, sec); draw(); App.toast(App.isPinned(hash) ? 'Pinned to Home' : 'Unpinned'); };
+      // The title goes in one wrapper so a Japanese title (several spans) wraps as text beside the pin instead of becoming a row of flex items.
+      const tw = document.createElement('span'); tw.style.minWidth = '0'; while (h1.firstChild) tw.appendChild(h1.firstChild); h1.appendChild(tw);
       draw(); h1.classList.add('has-pin'); h1.appendChild(b);
     }
   };

@@ -3,6 +3,15 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.5.0', date: '2026-11-13', title: 'N4 grammar, in full',
+    items: [
+      { type: 'content', text: '24 new N4 lessons in eight units, each with a six-question quiz: Clauses and descriptions (describing a noun with a sentence, の and こと, questions inside sentences, 〜やすい / 〜にくい / 〜すぎる); How things seem (〜そう, 〜よう, 〜みたい, 〜らしい; でしょう, かも しれません, はず); Giving and receiving (あげる, くれる, もらう and their て-forms); More て-forms (〜て しまう, 〜て おく, 〜て みる, 〜て いく, 〜て くる, 〜て ある, transitive and intransitive pairs, 〜ながら, 〜た まま, ところ, 〜た ばかり); Plans, advice and rules (the volitional form, 〜こと に する / なる, 〜よう に する / なる, advice, commands and signs); Purpose and contrast (〜ため に, 〜よう に, 〜ても, 〜の に, 〜し); Passive and causative (four lessons); and Respect language (honorific and humble forms).' },
+      { type: 'content', text: 'About a third of the examples in the new lessons are lines for the clinic or ward. The app now has 62 lessons. Like the rest of the Japanese, they are a draft for review by a native Japanese speaker.' },
+      { type: 'correction', text: 'On phones, a long lesson title and the previous and next lesson buttons now wrap instead of running off the side of the screen.' },
+      { type: 'correction', text: 'Lesson examples now show the English under the Japanese sentence at full width. Before, the two sat side by side and long sentences were squeezed into a narrow column.' }
+    ]
+  },
+  {
     version: '0.4.0', date: '2026-11-13', title: 'Kanji study',
     items: [
       { type: 'feature', text: 'Kanji study: 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3 and a clinical set of 106 that the psychiatry phrases use), grouped by theme. Each kanji has its own page with meanings, on and kun readings, stroke count, example words with furigana and sound, and more words from the dictionary.' },
