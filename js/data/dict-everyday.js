@@ -331,12 +331,12 @@ window.DICT_RAW.push(`
 いくら です か | How much is it? | phr | travel | N5
 これ を ください | Please give me this | phr | travel | N5 | Point at the item while saying it
 英語《えいご》 の メニュー は あります か | Do you have an English menu? | phr | travel | N4
-お会計《かいけい》 お願《ねが》い します | The bill, please | phr | travel | N4 | Said to the staff when ready to pay
+お会計《かいけい》 お願《ねが》いします | The bill, please | phr | travel | N4 | Said to the staff when ready to pay
 写真《しゃしん》 を 撮《と》って も いい です か | May I take a photo? | phr | travel | N4
 道《みち》 に 迷《まよ》いました | I got lost | phr | travel | N4
 助《たす》けて ください | Please help me | phr | travel | N4 | Use to call for help in an emergency
 一番《いちばん》 近《ちか》い 駅《えき》 は どこ です か | Where is the nearest station? | phr | travel | N4
-〜 まで お願《ねが》い します | To ..., please | phr | travel | N4 | Said to a taxi driver; add the place name first
+〜 まで お願《ねが》いします | To ..., please | phr | travel | N4 | Said to a taxi driver; add the place name first
 # nature
 天気《てんき》 | weather | n | nature | N5
 雨《あめ》 | rain | n | nature | N5

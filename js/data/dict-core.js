@@ -471,7 +471,7 @@ window.DICT_RAW.push(`
 若《わか》い | young | ai | adjectives | N4
 狭《せま》い | narrow, small (room) | ai | adjectives | N4
 広《ひろ》い | wide, spacious | ai | adjectives | N5
-太《ふと》い | fat, thick | ai | adjectives | N4
+太《ふと》い | thick (not used for a person's body weight) | ai | adjectives | N4
 細《ほそ》い | thin, slender | ai | adjectives | N4
 厚《あつ》い | thick | ai | adjectives | N4
 薄《うす》い | thin; weak (taste) | ai | adjectives | N4
@@ -559,7 +559,7 @@ window.DICT_RAW.push(`
 会《あ》う | to meet | v5 | verbs | N5
 待《ま》つ | to wait | v5 | verbs | N5
 分《わ》かる | to understand | v5 | verbs | N5
-知《し》る | to get to know; to learn | v5 | verbs | N5 | 知《し》って います = know
+知《し》る | to get to know; to come to know | v5 | verbs | N5 | 知《し》って います = know
 思《おも》う | to think | v5 | verbs | N5
 覚《おぼ》える | to remember; to memorize | v1 | verbs | N4
 忘《わす》れる | to forget | v1 | verbs | N5

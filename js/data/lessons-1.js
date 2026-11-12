@@ -341,7 +341,7 @@ window.LESSONS.push(
 <h3>Places and polite こちら</h3>
 <p>ここ, そこ, あそこ and どこ are places. こちら and its partners mean "this way" and are also polite words for "here" and "this person", so they are used when guiding or introducing patients: こちら へ どうぞ (this way, please).</p>
 <h3>Pointing to the body</h3>
-<p>When you touch or point to a spot on your own body, it is ここ. When the patient points to a spot on their body, you refer to it as そこ. To ask where the pain is, use どこ. Question words such as どこ and どれ take が, not は.</p>
+<p>When you touch or point to a spot on your own body, it is ここ. When the patient points to a spot on their body, you refer to it as そこ. To ask where the pain is, use どこ. When a question word such as どこ or どれ is the subject, it takes が, not は.</p>
 <div class="ex"><b>これ は 何《なん》 です か。</b><span>What is this?</span></div>
 <div class="ex"><b>それ は 睡眠薬《すいみんやく》 です。</b><span>That is a sleeping pill.</span></div>
 <div class="ex"><b>あれ は 薬局《やっきょく》 です。</b><span>That (over there) is the pharmacy.</span></div>
@@ -402,7 +402,7 @@ window.LESSONS.push(
 <div class="note"><b>Tip:</b> with patients, prefer the polite forms どなた and いかが. And a question word is never followed by は: say どこ が 痛《いた》い です か, not どこ は.</div>`,
     quiz: [
       [`Which is the polite word for "who"?`, [`どれ`, `どこ`, `どなた`], 2, `どなた is the polite form of だれ.`],
-      [`How is the word for "what time" read?`, [`なにじ`, `なんじ`, `なんどき`], 1, `何《なん》 is read なん before a counter such as 時《じ》.`],
+      [`How is the word for "what time" read?`, [`なにじ`, `なんじ`, `なんじかん`], 1, `何《なん》 is read なん before a counter such as 時《じ》.`],
       [`Which phrase means "anything" in "Is there anything you are worried about?"`, [`何《なに》 か`, `何《なに》 も`, `何《なん》 です か`], 0, `Question word + か makes an indefinite word: something, anything.`],
       [`Fill in the polite "how": 気分《きぶん》 は ＿ です か。`, [`いつ`, `いかが`, `いくら`], 1, `いかが is the polite way to ask "how".`],
       [`How do you ask "since when"?`, [`どこ から`, `何《なに》 から`, `いつ から`], 2, `いつ (when) + から (from) means "since when".`],
@@ -451,7 +451,7 @@ window.LESSONS.push(
 <div class="ex"><b>診察料《しんさつりょう》 は 千五百円《せんごひゃくえん》 です。</b><span>The consultation fee is 1,500 yen.</span></div>
 <div class="ex"><b>お薬《くすり》 は 三千円《さんぜんえん》 です。</b><span>The medicine is 3,000 yen.</span></div>
 <div class="ex"><b>全部《ぜんぶ》 で 八千円《はっせんえん》 です。</b><span>It is 8,000 yen altogether.</span></div>
-<div class="ex"><b>一万円《いちまんえん》 から で いい です か。</b><span>Is it all right if I pay with a 10,000-yen note?</span></div>
+<div class="ex"><b>一万円《いちまんえん》 でも いい です か。</b><span>Is it all right if I pay with a 10,000-yen note?</span></div>
 <div class="ex"><b>電話番号《でんわばんごう》 は ゼロ きゅう ゼロ の いち に さん よん の ご ろく なな はち です。</b><span>My phone number is 090-1234-5678.</span></div>
 <div class="note"><b>Common mistake:</b> saying 10,000 as "ten thousand". Japanese switches to 万《まん》 at ten thousand: 一万《いちまん》 is 10,000 and 十万《じゅうまん》 is 100,000.</div>`,
     quiz: [

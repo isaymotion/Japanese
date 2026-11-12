@@ -4,7 +4,7 @@
 window.JA_PARTICLES = {
   guide: [
     { p: "は", name: "topic", uses: ["Marks what the sentence is about (\"as for ...\").", "Marks contrast with something else.", "Often used with negatives to show contrast."], ex: [["私《わたし》 は 医者《いしゃ》 です。", "I am a doctor."], ["お酒《さけ》 は 飲《の》みません。", "Alcohol, I do not drink."]] },
-    { p: "が", name: "subject", uses: ["Marks the subject, especially new information.", "Comes after question words such as 誰《だれ》 and 何《なに》 when they are the subject.", "Marks the object of 好《す》き, 分《わ》かる, ある, いる, 欲《ほ》しい and similar words."], ex: [["誰《だれ》 が 来《き》ました か。", "Who came?"], ["頭《あたま》 が 痛《いた》い です。", "I have a headache."], ["猫《ねこ》 が 好《す》き です。", "I like cats."]] },
+    { p: "が", name: "subject", uses: ["Marks the subject, especially new information.", "Comes after question words such as 誰《だれ》 and 何《なに》 when they are the subject.", "Marks what is liked, understood, wanted or had with 好《す》き, 分《わ》かる, 欲《ほ》しい, ある, いる and similar words."], ex: [["誰《だれ》 が 来《き》ました か。", "Who came?"], ["頭《あたま》 が 痛《いた》い です。", "I have a headache."], ["猫《ねこ》 が 好《す》き です。", "I like cats."]] },
     { p: "を", name: "direct object", uses: ["Marks the direct object of an action.", "Marks the place you move through or along.", "Marks the place you leave."], ex: [["薬《くすり》 を 飲《の》みます。", "I take medicine."], ["公園《こうえん》 を 歩《ある》きます。", "I walk through the park."], ["家《いえ》 を 出《で》ます。", "I leave the house."]] },
     { p: "に", name: "time, place, target", uses: ["Marks a specific point in time.", "Marks where something or someone exists.", "Marks a destination or the person who receives something.", "Marks the result of change with なる."], ex: [["七時《しちじ》 に 起《お》きます。", "I get up at seven."], ["トイレ は 二階《にかい》 に あります。", "The toilet is on the second floor."], ["医者《いしゃ》 に なりたい です。", "I want to become a doctor."]] },
     { p: "で", name: "place of action, means", uses: ["Marks the place where an action happens.", "Marks the means, tool or language used.", "Marks a cause or reason.", "Marks a total or a limit, such as a price or a number of people."], ex: [["病院《びょういん》 で 働《はたら》いて います。", "I work at a hospital."], ["バス で 来《き》ました。", "I came by bus."], ["風邪《かぜ》 で 休《やす》みました。", "I was off because of a cold."]] },
@@ -64,7 +64,7 @@ window.JA_PARTICLES = {
     { s: "バス ＿ 乗《の》ります。", a: "に", opts: ["を", "で", "に", "が"], en: "I get on the bus.", why: "乗《の》る takes the vehicle with に.", lv: "N5" },
     { s: "大学《だいがく》 ＿ 入《はい》りました。", a: "に", opts: ["を", "が", "で", "に"], en: "I entered university.", why: "入《はい》る takes the place you enter with に.", lv: "N5" },
     { s: "一日《いちにち》 ＿ 三回《さんかい》 飲《の》んで ください。", a: "に", opts: ["に", "を", "が", "へ"], en: "Please take it three times a day.", why: "に marks the period in \"so many times per day\".", lv: "N5" },
-    { s: "先生《せんせい》 ＿ 電話《でんわ》しました。", a: "に", opts: ["を", "に", "から", "で"], en: "I phoned the doctor.", why: "に marks the person you call.", lv: "N5" },
+    { s: "先生《せんせい》 ＿ 電話《でんわ》しました。", a: "に", opts: ["を", "に", "の", "で"], en: "I phoned the doctor.", why: "に marks the person you call.", lv: "N5" },
     { s: "母《はは》 は 東京《とうきょう》 ＿ 住《す》んで います。", a: "に", opts: ["を", "が", "に", "へ"], en: "My mother lives in Tokyo.", why: "住《す》む takes the place of living with に.", lv: "N5" },
     { s: "図書館《としょかん》 ＿ 勉強《べんきょう》します。", a: "で", opts: ["を", "に", "で", "へ"], en: "I study at the library.", why: "で marks the place where an action happens.", lv: "N5" },
     { s: "バス ＿ 病院《びょういん》 に 来《き》ました。", a: "で", opts: ["を", "で", "に", "へ"], en: "I came to the hospital by bus.", why: "で marks the means of transport.", lv: "N5" },

@@ -23,7 +23,7 @@ window.LESSONS.push(
 <div class="ex"><b>母《はは》 は 毎日《まいにち》 病院《びょういん》 に 来《き》ます。</b><span>My mother comes to the hospital every day.</span></div>
 <div class="ex"><b>朝《あさ》ご飯《はん》 を 食《た》べました か。</b><span>Did you eat breakfast?</span></div>
 <h3>No future tense</h3>
-<p>〜ます means both "I do (habitually)" and "I will do". Context or a time word tells you which. Time words that are relative to today, such as 今日《きょう》, 明日《あした》, 昨日《きのう》, 毎日《まいにち》, 今朝《けさ》 and 来週《らいしゅう》, take no particle. Clock times and days of the week take に.</p>
+<p>〜ます means both "I do (habitually)" and "I will do". Context or a time word tells you which. Time words that are relative to today, such as 今日《きょう》, 明日《あした》, 昨日《きのう》, 今朝《けさ》 and 来週《らいしゅう》, and words such as 毎日《まいにち》 "every day", take no particle. Clock times and days of the week take に.</p>
 <div class="ex"><b>明日《あした》 また 来《き》ます。</b><span>I will come again tomorrow.</span></div>
 <div class="ex"><b>月曜日《げつようび》 に 病院《びょういん》 に 行《い》きます。</b><span>I will go to the hospital on Monday.</span></div>
 <div class="ex"><b>毎日《まいにち》 少《すこ》し 散歩《さんぽ》 します。</b><span>I take a short walk every day.</span></div>
@@ -46,7 +46,7 @@ window.LESSONS.push(
       [`How do you say "I did not eat"?`, [`食《た》べました`, `食《た》べません でした`, `食《た》べません`], 1, `The past negative is 〜ません followed by でした.`],
       [`明日《あした》 病院《びょういん》 に 行《い》きます。 What time does 行《い》きます refer to here?`, [`The future`, `The past`, `Only a habit, never the future`], 0, `〜ます covers the future; 明日《あした》 "tomorrow" makes it clear.`],
       [`Where does the verb go in a Japanese sentence?`, [`First`, `After the subject`, `At the end`], 2, `Japanese puts the verb last, and か comes after it in a question.`],
-      [`Which time word needs に after it?`, [`明日《あした》`, `毎朝《まいあさ》`, `七時《しちじ》`, `昨日《きのう》`], 2, `Clock times take に; words relative to today such as 明日《あした》 and 毎朝《まいあさ》 do not.`],
+      [`Which time word needs に after it?`, [`明日《あした》`, `毎朝《まいあさ》`, `七時《しちじ》`, `昨日《きのう》`], 2, `Clock times take に; words such as 明日《あした》 and 毎朝《まいあさ》 do not.`],
       [`What does 薬《くすり》 を 飲《の》みました か mean?`, [`Did you take the medicine?`, `Will you buy the medicine?`, `Is this the medicine?`], 0, `飲《の》む is used for taking medicine, and 〜ました か asks about the past.`],
       [`Which is the polite negative of します?`, [`しません`, `しないです`, `しましません`], 0, `Replace ます with ません: しません.`]
     ] },
@@ -83,7 +83,7 @@ window.LESSONS.push(
       [`バス ＿ 来《き》ました。 "I came by bus." Which particle fits?`, [`を`, `へ`, `で`], 2, `The means of transport takes で.`],
       [`What does 妹《いもうと》 と 来《き》ました mean?`, [`I came to my younger sister.`, `I came with my younger sister.`, `My younger sister came alone.`], 1, `と after a person means "together with".`],
       [`How is the particle へ pronounced?`, [`he`, `e`, `ha`], 1, `As a particle, へ is said e.`],
-      [`Which particle can NOT replace に in 病院《びょういん》 に 行《い》きます?`, [`へ`, `で`, `と`], 1, `へ also marks direction, but で marks where an action happens and と means "with", so neither can mark where you go.`]
+      [`Which particle can replace に in 病院《びょういん》 に 行《い》きます with almost no change in meaning?`, [`で`, `へ`, `と`], 1, `へ also marks direction, but で marks where an action happens and と means "with", so neither can mark where you go.`]
     ] },
 
   { id: 'wa-vs-ga', level: 'N5', unit: 'Verbs', title: `は and が`, summary: `は sets the topic, が marks the subject, especially new information, question words and certain predicates.`, draft: true,
@@ -429,7 +429,7 @@ window.LESSONS.push(
 <div class="ex"><b>母《はは》 は 今《いま》 外《そと》 で 待《ま》って います。</b><span>My mother is waiting outside now.</span></div>
 <div class="ex"><b>雨《あめ》 が 降《ふ》って います。</b><span>It is raining.</span></div>
 <h3>A state that continues</h3>
-<p>With verbs that describe a change, 〜て います describes the state after the change: married, living somewhere, knowing, working at a job.</p>
+<p>With verbs that describe a change, 〜て います describes the state after the change: married, living somewhere, knowing. An ongoing situation such as working at a job is also said with 〜て います.</p>
 <div class="ex"><b>結婚《けっこん》 して います か。</b><span>Are you married?</span></div>
 <div class="ex"><b>姉《あね》 は 大阪《おおさか》 に 住《す》んで います。</b><span>My older sister lives in Osaka.</span></div>
 <div class="ex"><b>兄《あに》 は 銀行《ぎんこう》 で 働《はたら》いて います。</b><span>My older brother works at a bank.</span></div>

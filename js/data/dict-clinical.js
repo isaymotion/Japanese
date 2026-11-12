@@ -445,7 +445,7 @@ window.DICT_RAW.push(`
 心的外傷後《しんてきがいしょうご》ストレス障害《しょうがい》 | post-traumatic stress disorder | n | clinical | C | PTSD; usually said as the abbreviation
 適応障害《てきおうしょうがい》 | adjustment disorder | n | clinical | C
 摂食障害《せっしょくしょうがい》 | eating disorder | n | clinical | C
-アルコール使用障害《しようしょうがい》 | alcohol use disorder | n | clinical | C | アルコール依存症《いぞんしょう》 is the everyday term
+アルコール使用障害《しようしょうがい》 | alcohol use disorder | n | clinical | C | アルコール依存症《いぞんしょう》 is the everyday term; DSM-5-TR Japanese uses アルコール使用症《しようしょう》
 パーソナリティ障害《しょうがい》 | personality disorder | n | clinical | C
 せん妄《もう》 | delirium | n | clinical | C
 不眠症《ふみんしょう》 | insomnia | n | clinical | C
@@ -487,7 +487,7 @@ window.DICT_RAW.push(`
 予後《よご》 | prognosis | n | clinical | C
 予防《よぼう》 | prevention | vs | clinical | C
 休養《きゅうよう》 | rest | vs | clinical | C | 休養《きゅうよう》 が 必要《ひつよう》 です = you need rest
-休職《きゅうしょく》 | sick leave | vs | clinical | C
+休職《きゅうしょく》 | leave of absence from work (e.g. medical leave) | vs | clinical | C
 復職《ふくしょく》 | return to work | vs | clinical | C
 支援《しえん》 | support | vs | clinical | C
 障害者手帳《しょうがいしゃてちょう》 | disability certificate | n | clinical | C | for mental illness: 精神障害者《せいしんしょうがいしゃ》 保健福祉手帳《ほけんふくしてちょう》
