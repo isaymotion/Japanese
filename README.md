@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.7.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.8.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -29,9 +29,9 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Kanji** | 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3, and a clinical set of 106 used in the psychiatry phrases), grouped by theme. Each kanji has a page with meanings, on and kun readings, stroke count, example words with furigana and sound, and more words from the dictionary. A drill a group at a time in four modes (kanji to meaning, meaning to kanji, word to reading, word to meaning), flashcard decks by level, and kanji links on every dictionary word page. Route `#/kanji`. JLPT levels for kanji are approximate. |
 | **Verb and adjective trainer** | 100 verbs and 60 adjectives. Each has a full table of forms made by rule (ます, ません, ました, て, ない, た, potential, volitional, たら, ば, passive, causative; adjective present, negative, past, て, adverb) and example sentences. Three drills: choose the form, name the form, type the form (kana or romaji). Route `#/verbs`. |
 | **Particle drill** | A guide to 18 particles with examples, and 130 fill-in sentences. Route `#/particles`. |
-| **Dictionary** | About 1,600 words with furigana. Search in kanji, kana, romaji or English; filter by topic, JLPT level or kana row. Verb and adjective entries show their conjugation. |
+| **Dictionary** | About 3,440 words with furigana (N5 about 700, N4 about 700, N3 about 1,560, clinical and advanced about 480), including every example word on the kanji pages, 72 N3 grammar patterns and ward and chart vocabulary. Search in kanji, kana, romaji or English; filter by topic, JLPT level or kana row. Verb and adjective entries show their conjugation. |
 | **Flashcards** | Spaced repetition. Decks by topic, by JLPT level, by psychiatry section, and an automatic "My mistakes" deck. |
-| **Reading** | 10 graded passages (Starter to N4) with glossaries and questions; four are clinical. |
+| **Reading** | 24 graded passages (Starter 2, N5 4, N4 7, N3 11) with translations, glossaries and questions, a level filter and a Print button; 15 are clinical, including a letter with keigo, a casual chat, nursing notes in chart style and a formal ward notice. |
 | **Speaking** | 10 dialogues with Listen, Shadow and Role-play modes, speech recognition where the browser has it, and record-and-compare. |
 | **Placement test** | 20 questions from the kana to N4 that point to the right unit to start. |
 | **Psychiatry Japanese** | 27 interview sections, 352 phrases, in the same order and with the same phrase numbers as Usap Tayo: opening, consent, chief complaint and HPI, depression, mania, anxiety, trauma, hallucinations, delusions, suicide risk, violence risk, de-escalation, substances, history, family history, social history, collateral, the MSE (cognition; abstraction, judgment and insight; describing observations), explaining diagnosis and treatment, medication, admission and discharge, children, elderly patients, closing, and Shea's validity techniques. Each phrase has a polite (です/ます) form and a plain form, with notes. |

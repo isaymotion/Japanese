@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.8.0', date: '2026-11-13', title: 'More reading and a bigger dictionary',
+    items: [
+      { type: 'content', text: 'The dictionary has more than doubled, from 1,600 to about 3,440 words. New: every example word on the kanji pages now has its own dictionary entry (about 1,130 words), about 350 N3 verbs, adjectives, adverbs, linking words and sound-symbolic words, about 150 N3 nouns, 72 N3 grammar patterns with an example each, and about 130 words for the ward and for reading charts (for example 申し送り, 所見, 訴え, 検温, 付き添い, 不穏, 独語).' },
+      { type: 'content', text: '14 new reading passages, for 24 in all (Starter 2, N5 4, N4 7, N3 11). N4: a convenience store, a first visit to a clinic, a sister\'s diary. N3: commuting, stress at work, a hometown, sleep habits, a first admission, a mother\'s letter to the ward, a patient thinking about alcohol, getting ready to go home, a chat between friends in casual speech, a day of nursing notes, and a ward notice in formal written style. Each has a translation, a glossary and five questions.' },
+      { type: 'feature', text: 'Reading has a level filter, and the dictionary\'s level menu and the flashcard decks by level now include N3. A new dictionary topic, "Society, ideas and abstract words".' },
+      { type: 'update', text: 'Words you already saved as flashcards keep their place: word ids no longer change when the dictionary grows.' },
+      { type: 'content', text: 'As with the rest of the Japanese, the new words and passages were written and then checked by a second AI reviewer, and are a draft until a native Japanese speaker reviews them.' }
+    ]
+  },
+  {
     version: '0.7.0', date: '2026-11-13', title: 'Printable handouts',
     items: [
       { type: 'feature', text: 'Printable handout (Psychiatry → Print): build a reference sheet from the interview flow, the key or full phrases of any section, the MSE table, the 32 "what the patient may be saying" expressions, the de-escalation checklist, the discharge guide and a blank MSE write-up form. Seven ready-made sets, including a pocket booklet on A5 and a de-escalation pocket card on A6. Choose polite or plain form, English shown, hidden or as an answer key, furigana on or off, romaji on or off, paper and text size.' },

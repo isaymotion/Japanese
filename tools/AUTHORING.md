@@ -98,3 +98,16 @@ KANJI_RAW.push({ level: 'N5', text: `
 
 Level is `N5`, `N4`, `N3` or `C` (clinical set). JLPT levels for kanji are approximate: there is no official list.
 `node tools/check-ja.js js/data/<file>.js` validates every field.
+
+## Dictionary files: ids, order and checks
+
+- A word's id is what flashcards and the mistakes deck store, so ids must never change.
+  `dict-core.js`, `dict-everyday.js`, `dict-clinical.js` and `dict-more.js` are **frozen**: do not add or remove lines
+  (their ids are their kana order among themselves). Fix a line in place only if its reading does not change.
+- Every later file (`dict-kanji-1..5.js`, `dict-n3-1.js`, `dict-n3-2.js`, and any new one) is **append only**: add new
+  words at the end of the last file or in a new file loaded after the others; never reorder or delete published lines.
+- `check-ja.js` checks each line's part of speech, category and level against the lists in `js/core.js`
+  (`POS`, `App.CATS`, `App.LEVELS`). Categories now include `society` (society, ideas and abstract words); school words
+  go in `money`.
+- Before adding words, check they are not already there under another spelling (kana or kanji):
+  `grep -n "WORD" js/data/dict-*.js`. An entry whose Japanese and English both equal an earlier entry is dropped at load.
