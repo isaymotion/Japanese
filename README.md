@@ -11,6 +11,10 @@ Branch `dev-tools` of isaymotion/Japanese. The site is on `main`; this branch on
   - `tools.py` every clinical tool and practice case (expect `errors []`, no Spanish)
   - `flows.py` lesson quiz, verb / particle / kana drills, flashcards, reading-aid switches, menu
   - `clickthrough.py` clicks every control on each tool (expect `new errors 0`)
+  - `kanji.py` kanji chart, every kanji page, the four drill modes, flashcards, search (expect `errors []`)
+  - `lessons.py` every lesson page at phone width, lesson links and quiz keys (expect `bad []`, `errors []`)
+  - `all.sh` runs every check, with one result line each: `bash <dev-tools>/qa/all.sh` from the main checkout
+- `write/` — briefs for writer and reviewer subagents (lessons, kanji), `xcheck.js` (kanji readings and stroke counts against a reference list), `release.py` (version bump + changelog entry), `reg.py` (register lesson files).
 - `port/` — for porting a Hablemos (Spanish) data file to Japanese.
   - `TOOLS-BRIEF.md` the translator brief
   - `cmp-struct.js` structure compare: run from the main checkout,
