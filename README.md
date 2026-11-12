@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.5.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations and the clinical tools. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.6.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations and the clinical tools. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -24,7 +24,7 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 
 | Section | What it does |
 |---|---|
-| **Lessons** | 62 grammar lessons with quizzes in 18 units, with a level filter (Starter 6, N5 21, N4 35). Starter and N5: Foundations (scripts, sounds, hiragana, katakana, how kanji work), First sentences, Numbers and time, Verbs, Adjectives, The te-form. N4: Plain forms, Saying more, Politeness and culture, Clinical Japanese, Clauses and descriptions, How things seem, Giving and receiving, More て-forms, Plans, advice and rules, Purpose and contrast, Passive and causative, Respect language. |
+| **Lessons** | 86 grammar lessons with quizzes in 26 units, with a level filter (Starter 6, N5 21, N4 35, N3 24). Starter and N5: Foundations (scripts, sounds, hiragana, katakana, how kanji work), First sentences, Numbers and time, Verbs, Adjectives, The te-form. N4: Plain forms, Saying more, Politeness and culture, Clinical Japanese, Clauses and descriptions, How things seem, Giving and receiving, More て-forms, Plans, advice and rules, Purpose and contrast, Passive and causative, Respect language. N3: Time and sequence, Limits and extent, Causes and obligations, Conditions and relations, Contrast and concession, Hearsay and judgement, Feelings and attempts, Casual and written styles (understanding casual patient speech; reading chart and notice Japanese). |
 | **Kana trainer** | Hiragana and katakana charts with sound (basic 46, voiced, combinations) and a drill a row at a time: see the kana and choose the sound, see the sound and choose the kana, or listen and choose. Route `#/kana`. |
 | **Kanji** | 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3, and a clinical set of 106 used in the psychiatry phrases), grouped by theme. Each kanji has a page with meanings, on and kun readings, stroke count, example words with furigana and sound, and more words from the dictionary. A drill a group at a time in four modes (kanji to meaning, meaning to kanji, word to reading, word to meaning), flashcard decks by level, and kanji links on every dictionary word page. Route `#/kanji`. JLPT levels for kanji are approximate. |
 | **Verb and adjective trainer** | 100 verbs and 60 adjectives. Each has a full table of forms made by rule (ます, ません, ました, て, ない, た, potential, volitional, たら, ば, passive, causative; adjective present, negative, past, て, adverb) and example sentences. Three drills: choose the form, name the form, type the form (kana or romaji). Route `#/verbs`. |

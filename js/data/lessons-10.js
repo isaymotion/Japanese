@@ -36,7 +36,7 @@ window.LESSONS.push(
 <h3>〜くせ に: even though (and I blame you for it)</h3>
 <p>くせ に means "even though", with contempt or blame aimed at a person: "you know, and still you don't tell me". The subject of both parts is the same person, and it is said about someone else, not about yourself. You will hear it from family members in conflict, and from patients describing how they were spoken to. It is a useful sign of criticism at home. A clinician does not use it: to point out an unexpected contrast, use 〜の に or が.</p>
 <div class="ex"><b>「一日中《いちにちじゅう》 家《いえ》 に いる くせ に、 何《なに》 も 手伝《てつだ》わない ん です」 と お母《かあ》さん は 言《い》いました。</b><span>His mother said, "He's at home all day, and still he doesn't help with anything."</span></div>
-<div class="ex"><b>父《ちち》 に は いつも 「男《おとこ》 の くせ に 泣《な》く な」 と 言《い》われて いました。</b><span>My father always told me, "Don't cry, you're a boy."</span></div>
+<div class="ex"><b>患者《かんじゃ》さん は 子供《こども》 の ころ、 お父《とう》さん に よく 「男《おとこ》 の くせ に 泣《な》く な」 と 言《い》われた そう です。</b><span>The patient says that as a child he was often told by his father, "Don't cry, you're a boy."</span></div>
 <div class="ex"><b>知《し》って いる くせ に、 何《なに》 も 教《おし》えて くれない。</b><span>He knows, and he won't tell me anything.</span></div>
 <h3>Choosing between them</h3>
 <ul><li>Two different things compared: 〜の に 対《たい》して or 〜一方《いっぽう》.</li>
@@ -60,16 +60,16 @@ window.LESSONS.push(
 <table><tr><th>Word class</th><th>たとえ 〜ても</th><th>〜と して も</th><th>〜に して も</th><th>〜から と いって</th></tr>
 <tr><td>Verb</td><td>たとえ 失敗《しっぱい》 して も</td><td>急《いそ》いだ と して も</td><td>知《し》らなかった に して も</td><td>飲《の》んで いる から と いって</td></tr>
 <tr><td>い-adjective</td><td>たとえ つらくて も</td><td>高《たか》い と して も</td><td>忙《いそが》しい に して も</td><td>若《わか》い から と いって</td></tr>
-<tr><td>な-adjective</td><td>たとえ 大変《たいへん》 でも</td><td>大変《たいへん》 だ と して も</td><td>大変《たいへん》 に して も</td><td>元気《げんき》 だ から と いって</td></tr>
-<tr><td>Noun</td><td>たとえ 夜中《よなか》 でも</td><td>冗談《じょうだん》 だ と して も</td><td>冗談《じょうだん》 に して も</td><td>病気《びょうき》 だ から と いって</td></tr></table>
-<p>Note where だ appears: 〜と して も and 〜から と いって keep だ after a noun or な-adjective; 〜に して も and 〜でも do not.</p>
+<tr><td>な-adjective</td><td>たとえ 大変《たいへん》 でも</td><td>大変《たいへん》 だ と して も</td><td>大変《たいへん》 に して も / 大変《たいへん》 である に して も</td><td>元気《げんき》 だ から と いって</td></tr>
+<tr><td>Noun</td><td>たとえ 夜中《よなか》 でも</td><td>冗談《じょうだん》 だ と して も</td><td>冗談《じょうだん》 に して も / 冗談《じょうだん》 である に して も</td><td>病気《びょうき》 だ から と いって</td></tr></table>
+<p>Note where だ appears: 〜と して も and 〜から と いって keep だ after a noun or な-adjective; 〜に して も and 〜でも do not (in formal speech and writing, である can come before に して も).</p>
 <h3>たとえ 〜ても: even if</h3>
 <p>たとえ at the start adds emphasis: "even if, however unlikely". It is only a booster, so the ても (でも after a noun or な-adjective) is still needed. A request or advice can follow, so it suits safety-plan instructions.</p>
 <div class="ex"><b>たとえ 夜中《よなか》 でも、 つらく なったら 病院《びょういん》 に 連絡《れんらく》 して ください。</b><span>Even if it is the middle of the night, please contact the hospital if things get hard.</span></div>
 <div class="ex"><b>たとえ 症状《しょうじょう》 が 消《き》えて も、 自分《じぶん》 の 判断《はんだん》 で 薬《くすり》 を やめないで ください。</b><span>Even if the symptoms go away, please don't stop the medicine on your own judgement.</span></div>
 <div class="ex"><b>たとえ 家族《かぞく》 に 反対《はんたい》 されて も、 留学《りゅうがく》 したい です。</b><span>Even if my family opposes it, I want to study abroad.</span></div>
 <h3>どんなに 〜ても: no matter how</h3>
-<p>どんなに 〜ても is "no matter how (much)". It is close to いくら 〜ても, which you already know, and often sounds a little more emotional.</p>
+<p>どんなに 〜ても is "no matter how (much)". It is close to いくら 〜ても, which you already know.</p>
 <div class="ex"><b>どんなに 忙《いそが》しくて も、 食事《しょくじ》 は きちんと 取《と》って ください。</b><span>No matter how busy you are, please eat properly.</span></div>
 <div class="ex"><b>どんなに 説明《せつめい》 して も、 夫《おっと》 は わかって くれません。</b><span>No matter how much I explain, my husband doesn't understand.</span></div>
 <h3>〜と して も: even supposing</h3>
@@ -127,7 +127,7 @@ window.LESSONS.push(
 <div class="ex"><b>朝《あさ》 日光《にっこう》 を 浴《あ》びる と、 夜《よる》 眠《ねむ》りやすく なる と 言《い》われて います。</b><span>It is said that getting sunlight in the morning makes it easier to sleep at night.</span></div>
 <div class="ex"><b>この お寺《てら》 は 千年《せんねん》 以上《いじょう》 前《まえ》 に 建《た》てられた と 言《い》われて います。</b><span>This temple is said to have been built more than a thousand years ago.</span></div>
 <h3>〜って: casual hearsay</h3>
-<p>Among friends and family, plain form + って at the end of a sentence means "they say", "I heard". After a noun or な-adjective, use だ って. Patients and relatives use it; do not use it in a handover.</p>
+<p>Among friends and family, plain form + って at the end of a sentence means "they say", "I heard". After a noun or な-adjective, use だ って. って also replaces the quoting と before 言《い》う, as in the second example. Patients and relatives use it; do not use it in a handover.</p>
 <div class="ex"><b>田中《たなか》さん、 今日《きょう》 は 休《やす》む って。</b><span>Tanaka says she's taking today off.</span></div>
 <div class="ex"><b>母《はは》 が、 父《ちち》 は 最近《さいきん》 お酒《さけ》 の 量《りょう》 が 増《ふ》えた って 言《い》って いました。</b><span>My mother was saying that Dad has been drinking more lately.</span></div>
 <h3>〜と 聞《き》きました / 〜と 聞《き》いて います: I heard</h3>
@@ -147,7 +147,7 @@ window.LESSONS.push(
     quiz: [
       ["How do you say \"I hear she was a teacher\"?", ["先生《せんせい》 そう でした。", "先生《せんせい》 だった そう です。", "先生《せんせい》 だ そう でした。"], 1, "The past goes inside: 先生《せんせい》 だった, then そう です, which never changes."],
       ["Which sentence means \"I hear it hurts\"?", ["痛《いた》そう です。", "痛《いた》そう な 顔《かお》 です。", "痛《いた》い そう です。"], 2, "Hearsay そう です follows the full plain form; 痛《いた》そう means \"looks painful\"."],
-      ["Which is the most suitable way for a ward clerk to pass on a family's phone message to the doctor?", ["明日《あした》 は 来《こ》られない との こと です。", "明日《あした》 は 来《こ》られない って。", "明日《あした》 は 来《こ》られない そう な 方《かた》 です。"], 0, "との こと です is the formal way to relay a message; って is casual and そう な + noun is not hearsay."],
+      ["A ward clerk passes on a family's phone message: they cannot come tomorrow. Which sentence is correct?", ["明日《あした》 は 来《こ》られない との こと です。", "明日《あした》 は 来《こ》られない そう でした。", "明日《あした》 は 来《こ》られない そう な 方《かた》 です。"], 0, "との こと です relays a message; hearsay そう です never goes into the past, and そう な + noun is not hearsay."],
       ["運動《うんどう》 は 気分《きぶん》 に いい と 言《い》われて います means:", ["I want to exercise for my mood.", "Exercise is said to be good for mood.", "I said that exercise is good for mood."], 1, "〜と 言《い》われて います reports a general belief: \"it is said\"."],
       ["天気予報《てんきよほう》 ＿ よる と、 明日《あした》 は 雪《ゆき》 だ そう です。", ["に", "で", "を"], 0, "The source is marked with 〜に よる と, \"according to\"."],
       ["明日《あした》 は 雨《あめ》 だ って。 means:", ["It will rain tomorrow, I'm sure of it.", "Tomorrow, whether it rains or not.", "They say it'll rain tomorrow."], 2, "Sentence-final って is casual hearsay: \"they say\"."]
@@ -179,7 +179,7 @@ window.LESSONS.push(
 <div class="ex"><b>必《かなら》ずしも 入院《にゅういん》 が 必要《ひつよう》 だ と は 限《かぎ》りません。</b><span>Admission is not necessarily needed.</span></div>
 <div class="ex"><b>有名《ゆうめい》 な 店《みせ》 が おいしい と は 限《かぎ》りません。</b><span>A famous restaurant isn't necessarily good.</span></div>
 <h3>〜おそれ が ある: there is a risk that</h3>
-<p>Formal: news, warnings, consent explanations, nursing notes. It is used only for unwelcome outcomes. It follows the dictionary form of a verb, or noun + の. It is usually written in kana in these uses.</p>
+<p>Formal: news, warnings, consent explanations, nursing notes. It is used only for unwelcome outcomes. It follows the plain non-past form of a verb, positive or negative (間《ま》に合《あ》わない おそれ), or noun + の. It is also written in kanji, 恐《おそ》れ; this lesson uses kana.</p>
 <div class="ex"><b>台風《たいふう》 の 影響《えいきょう》 で、 電車《でんしゃ》 が 止《と》まる おそれ が あります。</b><span>Because of the typhoon, there is a risk the trains will stop.</span></div>
 <div class="ex"><b>この 薬《くすり》 を 急《きゅう》に やめる と、 体調《たいちょう》 が 悪《わる》く なる おそれ が あります。</b><span>If you stop this medicine suddenly, there is a risk you will feel unwell.</span></div>
 <div class="ex"><b>ふらつき が ある ため、 転倒《てんとう》 の おそれ が あります。</b><span>She is unsteady on her feet, so there is a risk of falls.</span></div>
@@ -197,7 +197,7 @@ window.LESSONS.push(
       ["A patient says どうせ 失敗《しっぱい》 する に 決《き》まって います. This means:", ["I might fail, I'm not sure.", "I have decided to fail.", "I'm bound to fail anyway."], 2, "に 決《き》まって いる means \"obviously, bound to\", not \"I decided\"."],
       ["Which is correct?", ["本物《ほんもの》 に 違《ちが》いない。", "本物《ほんもの》 だ に 違《ちが》いない。", "本物《ほんもの》 の に 違《ちが》いない。"], 0, "A noun goes straight before に 違《ちが》いない, with no だ or の."],
       ["Which sentence uses おそれ correctly?", ["よく なる おそれ が あります。", "転倒《てんとう》 の おそれ が あります。", "合格《ごうかく》 する おそれ が あります。"], 1, "おそれ が ある is only for unwelcome outcomes, and a noun takes の."],
-      ["A patient says, \"Everyone will laugh at me.\" Which is the gentlest reply?", ["みんな が 笑《わら》う と は 限《かぎ》りません よ。", "みんな が 笑《わら》う に 違《ちが》いありません ね。", "みんな が 笑《わら》う に 決《き》まって います。"], 0, "と は 限《かぎ》りません questions the certainty; the others agree with it."],
+      ["A patient says, \"Everyone will laugh at me.\" Which reply gently questions that certainty?", ["みんな が 笑《わら》う と は 限《かぎ》りません よ。", "みんな が 笑《わら》う に 違《ちが》いありません ね。", "みんな が 笑《わら》う に 決《き》まって います。"], 0, "と は 限《かぎ》りません questions the certainty; the others agree with it."],
       ["疲《つか》れて いる に 違《ちが》いない means:", ["She is not necessarily tired.", "There is a risk she will get tired.", "She must be tired."], 2, "に 違《ちが》いない is a strong conclusion: \"must be\"."]
     ] },
 
@@ -205,7 +205,7 @@ window.LESSONS.push(
     body: `<p>Patients rarely say "I have symptom X". They say "I tend to skip meals", "I've had a bit of a cold", "I've become forgetful", "my life is full of failures". These four suffixes are how tendencies and mild states are put into words, in the clinic and in daily life. They attach directly to a word and then behave like an adjective or a noun.</p>
 <h3>How to make it</h3>
 <table><tr><th>Suffix</th><th>Attaches to</th><th>Example</th><th>Then behaves like</th></tr>
-<tr><td>〜がち</td><td>verb stem, some nouns</td><td>休《やす》む → 休《やす》みがち; 病気《びょうき》がち</td><td>な-adjective: がち です, がち な 人《ひと》</td></tr>
+<tr><td>〜がち</td><td>verb stem, some nouns</td><td>休《やす》む → 休《やす》みがち; 病気《びょうき》がち</td><td>な-adjective: がち です; before a noun がち な or がち の (休《やす》みがち な 人《ひと》)</td></tr>
 <tr><td>〜気味《ぎみ》</td><td>verb stem, noun</td><td>疲《つか》れる → 疲《つか》れ気味《ぎみ》; 風邪気味《かぜぎみ》</td><td>noun: 気味《ぎみ》 です, 気味《ぎみ》 の 人《ひと》</td></tr>
 <tr><td>〜っぽい</td><td>noun, verb stem, い-adjective stem</td><td>子供《こども》っぽい; 忘《わす》れる → 忘《わす》れっぽい; 安《やす》い → 安《やす》っぽい</td><td>い-adjective: っぽく なる, っぽかった</td></tr>
 <tr><td>〜だらけ</td><td>noun</td><td>間違《まちが》いだらけ; 泥《どろ》だらけ</td><td>noun: だらけ です, だらけ の 部屋《へや》</td></tr></table>
@@ -216,7 +216,7 @@ window.LESSONS.push(
 <div class="ex"><b>忙《いそが》しい と、 食事《しょくじ》 が 不規則《ふきそく》 に なりがち です。</b><span>When I'm busy, my meals tend to become irregular.</span></div>
 <div class="ex"><b>今週《こんしゅう》 は 曇《くも》りがち な 天気《てんき》 が 続《つづ》きます。</b><span>This week the weather will stay mostly cloudy.</span></div>
 <h3>〜気味《ぎみ》: a touch of, slightly</h3>
-<p>気味《ぎみ》 means "a slight sign of", "a bit". It usually describes a state the speaker notices in themselves, often physical and temporary, and usually unwelcome. It is polite enough for the clinic.</p>
+<p>気味《ぎみ》 means "a slight sign of", "a bit". It usually describes a mild state, often physical and temporary, and usually unwelcome. It is polite enough for the clinic.</p>
 <div class="ex"><b>少《すこ》し 風邪気味《かぜぎみ》 なので、 マスク を して います。</b><span>I have a bit of a cold, so I'm wearing a mask.</span></div>
 <div class="ex"><b>最近《さいきん》 仕事《しごと》 が 忙《いそが》しくて、 疲《つか》れ気味《ぎみ》 です。</b><span>Work has been busy lately, and I'm a bit worn out.</span></div>
 <div class="ex"><b>寝不足気味《ねぶそくぎみ》 で、 昼間《ひるま》 に 眠《ねむ》く なります。</b><span>I'm a little short of sleep, so I get drowsy in the daytime.</span></div>
@@ -266,7 +266,7 @@ window.LESSONS.push(
 <div class="ex"><b>「もう 頑張《がんば》れない」 と いう 気持《きも》ち が ずっと 続《つづ》いて います。</b><span>The feeling that "I can't keep going any more" has been there all along.</span></div>
 <h3>〜と いう の は: what X means is</h3>
 <p>X と いう の は (shorter and more formal: X と は) introduces a definition, which usually ends in 〜の こと です or 〜と いう こと です. It is also how you ask a patient what they mean by their own word.</p>
-<div class="ex"><b>「パニック 発作《ほっさ》」 と いう の は、 急《きゅう》に 強《つよ》い 不安《ふあん》 と 動悸《どうき》 など が 起《お》こる こと です。</b><span>A "panic attack" is when strong anxiety and a pounding heart come on suddenly.</span></div>
+<div class="ex"><b>「パニック 発作《ほっさ》」 と いう の は、 急《きゅう》に 強《つよ》い 不安《ふあん》 や 恐怖《きょうふ》 が 起《お》こり、 動悸《どうき》 や 息苦《いきぐる》しさ など が 出《で》る こと です。</b><span>A "panic attack" is when intense anxiety or fear comes on suddenly, with symptoms such as a pounding heart or difficulty breathing.</span></div>
 <div class="ex"><b>「もやもや する」 と いう の は、 どんな 感《かん》じ です か。</b><span>When you say "it feels murky", what is that like?</span></div>
 <h3>〜と いう こと: the fact that; so you mean</h3>
 <p>A clause + と いう こと turns a whole statement into a noun: "the fact that …". At the end of a question, 〜と いう こと です か checks your understanding: "so you mean …?". 〜と いう こと です ね summarises. (As hearsay, 〜と いう こと です was covered in <a href="#/lessons/hearsay">I hear that</a>.)</p>

@@ -4,7 +4,7 @@ window.LESSONS = window.LESSONS || [];
 window.LESSONS.push(
 
   { id: 'strong-feelings', level: 'N3', unit: 'Feelings and attempts', title: `Strong feelings: 〜て たまらない, 〜て しかた が ない, 〜て ならない, 〜ず に は いられない`, summary: `Understand and use the patterns people use to say a feeling is unbearable or that they cannot stop themselves doing something.`, draft: true,
-    body: `<p>Patients rarely say "my anxiety is eight out of ten". They say 不安《ふあん》 で たまらない (I'm so anxious I can't stand it) or 気《き》 に なって しかた が ない (I can't stop worrying about it). These patterns tell you how intense a feeling is and whether it feels out of the person's control, so you will hear them in almost every assessment. Each one follows a て-form and ends in a negative that literally says "it cannot be borne" or "nothing can be done about it".</p>
+    body: `<p>Patients rarely say "my anxiety is eight out of ten". They say 不安《ふあん》 で たまらない (I'm so anxious I can't stand it) or 気《き》 に なって しかた が ない (I can't stop worrying about it). These patterns tell you how intense a feeling is and whether it feels out of the person's control, so you will hear them in almost every assessment. The first three follow a て-form and end in a negative that literally says "it cannot be borne" or "nothing can be done about it"; 〜ず に は いられない follows a verb and means "cannot keep from doing".</p>
 <h3>How to make it</h3>
 <p>Put the feeling word in its て-form: い-adjectives change い to くて, な-adjectives and nouns take で, verbs use their て-form, and 〜たい becomes 〜たくて. Then add the ending. In polite speech the endings become たまりません, しかた が ありません, しょう が ありません and なりません.</p>
 <table><tr><th>Word</th><th>て-form</th><th>With an ending</th></tr>
@@ -33,7 +33,7 @@ window.LESSONS.push(
 <div class="ex"><b>母《はは》 の 体《からだ》 が 心配《しんぱい》 で なりません。</b><span>I'm deeply worried about my mother's health.</span></div>
 <p>Do not confuse it with 〜なければ なりません (must) from <a href="#/lessons/nai-form">the ない-form</a>: 〜て ならない follows a positive て-form and states a feeling.</p>
 <h3>〜ず に は いられない: can't help doing</h3>
-<p>This one is about an action, not a feeling. Take the ない-form, drop ない and add ず (する becomes せず; see <a href="#/lessons/without-doing">Without doing</a>), then add に は いられない. The spoken variant is 〜ないで は いられない. It describes an urge the person cannot resist, so you will hear it when patients describe repeated checking or washing.</p>
+<p>This one is about an action, not a feeling. Take the ない-form, drop ない and add ず (する becomes せず; see <a href="#/lessons/without-doing">Without doing</a>), then add に は いられない. The variant 〜ないで は いられない means the same and sounds a little less formal. It describes an urge the person cannot resist, so you will hear it when patients describe repeated checking or washing.</p>
 <div class="ex"><b>何度《なんど》 も 鍵《かぎ》 を 確《たし》かめず に は いられません。</b><span>I can't stop myself checking the lock again and again.</span></div>
 <div class="ex"><b>手《て》 を 洗《あら》わないで は いられない ん です。</b><span>I just can't keep from washing my hands.</span></div>
 <div class="ex"><b>その 話《はなし》 を 聞《き》いて、 泣《な》かず に は いられません でした。</b><span>When I heard that story, I couldn't help crying.</span></div>
@@ -87,7 +87,7 @@ window.LESSONS.push(
 <tr><td>Why: a negative cause</td><td>〜なくて</td><td>眠《ねむ》れなくて つらい です</td></tr>
 <tr><td>Asking someone not to</td><td>〜ないで ください</td><td>心配《しんぱい》 しないで ください</td></tr>
 <tr><td>It is not necessary</td><td>〜なくて も いい</td><td>来《こ》なくて も いい です</td></tr></table>
-<p>The common mistakes: a cause takes なくて, so say 眠《ねむ》れなくて つらい, not 眠《ねむ》れないで つらい; "came without eating" takes ないで, so say 食《た》べないで 来《き》ました, not 食《た》べなくて 来《き》ました; and a request is always 〜ないで ください, never 〜なくて ください.</p>
+<p>The common mistakes: the standard form for a cause is なくて, so say 眠《ねむ》れなくて つらい; 眠《ねむ》れないで つらい is sometimes heard in casual speech but is not the form to learn or write; "came without eating" takes ないで, so say 食《た》べないで 来《き》ました, not 食《た》べなくて 来《き》ました; and a request is always 〜ないで ください, never 〜なくて ください.</p>
 <h3>On the ward</h3>
 <div class="ex"><b>薬《くすり》 を やめる とき は、 自分《じぶん》 で 決《き》めないで、 まず 相談《そうだん》 して ください。</b><span>If you want to stop a medicine, please don't decide alone; talk to us first.</span></div>
 <div class="ex"><b>昨日《きのう》 の 夜《よる》 は、 ほとんど 寝《ね》ず に 起《お》きて いた そう です。</b><span>Apparently he stayed up most of last night without sleeping.</span></div>
@@ -114,7 +114,7 @@ window.LESSONS.push(
 <tr><td>〜た つもり</td><td>た-form</td><td>飲《の》んだ つもり</td><td>believed one had done</td></tr>
 <tr><td>〜よう に して いる</td><td>dictionary / ない-form</td><td>歩《ある》く よう に して いる</td><td>make a habit of</td></tr></table>
 <h3>〜よう と する: try to, be about to</h3>
-<p>An attempt, often one that did not succeed, so 〜よう と した is usually followed by が or けど. 〜よう と した とき means "just as I was about to".</p>
+<p>An attempt, often one that did not succeed, so 〜よう と した is often followed by が or けど. 〜よう と した とき means "just as I was about to".</p>
 <div class="ex"><b>起《お》きよう と しました が、 体《からだ》 が 動《うご》きません でした。</b><span>I tried to get up, but my body wouldn't move.</span></div>
 <div class="ex"><b>忘《わす》れよう と して も、 その こと ばかり 考《かんが》えて しまいます。</b><span>Even when I try to forget, I end up thinking only about that.</span></div>
 <div class="ex"><b>電車《でんしゃ》 に 乗《の》ろう と した とき、 急《きゅう》に 息《いき》 が 苦《くる》しく なりました。</b><span>Just as I was about to get on the train, I suddenly found it hard to breathe.</span></div>
@@ -161,7 +161,7 @@ window.LESSONS.push(
 <tr><td>〜こと に して いる</td><td>dictionary / ない-form</td><td>毎朝《まいあさ》 歩《ある》く こと に して いる</td><td>I make it a rule to</td></tr>
 <tr><td>〜と いう こと に なる</td><td>plain sentence</td><td>寝《ね》て いない と いう こと に なる</td><td>that means</td></tr></table>
 <h3>〜た こと が ある: experience</h3>
-<p>You met this in <a href="#/lessons/ta-form-plain">the た-form</a>. In interviews the question often uses は instead of が, 〜た こと は あります か, which makes it sound a little gentler. "Never" is 〜た こと は ありません or 一度《いちど》 も ありません.</p>
+<p>You met this in <a href="#/lessons/ta-form-plain">the た-form</a>. Questions and answers often use は instead of が: 〜た こと は あります か, 〜た こと は ありません. "Never" is 〜た こと は ありません or 一度《いちど》 も ありません.</p>
 <div class="ex"><b>以前《いぜん》 に 精神科《せいしんか》 に かかった こと は あります か。</b><span>Have you ever seen a psychiatrist before?</span></div>
 <div class="ex"><b>カウンセリング を 受《う》けた こと は ありません。</b><span>I've never had counselling.</span></div>
 <div class="ex"><b>富士山《ふじさん》 に 登《のぼ》った こと が あります か。</b><span>Have you ever climbed Mount Fuji?</span></div>
@@ -172,11 +172,11 @@ window.LESSONS.push(
 <div class="ex"><b>誰《だれ》 も いない の に、 声《こえ》 が 聞《き》こえる こと は あります か。</b><span>Do you ever hear voices when no one is there?</span></div>
 <p>Compare 飲《の》んだ こと が あります (I have taken it before) with 飲《の》む こと が あります (I sometimes take it). Mixing these two is the most common mistake.</p>
 <h3>〜こと は ない: there is no need to</h3>
-<p>Dictionary form + こと は ない (polite こと は ありません) reassures: "you don't need to". It sounds warmer and more definite than 〜なくて も いい です. Use it to reassure, not to refuse.</p>
+<p>Dictionary form + こと は ない (polite こと は ありません) reassures: "you don't need to". It says more firmly than 〜なくて も いい です that something is unnecessary. Use it to reassure, not to refuse.</p>
 <div class="ex"><b>謝《あやま》る こと は ありません よ。</b><span>There's no need to apologize.</span></div>
 <div class="ex"><b>一人《ひとり》 で 我慢《がまん》 する こと は ありません。</b><span>You don't have to put up with this alone.</span></div>
 <div class="ex"><b>そんな に 急《いそ》ぐ こと は ない よ。</b><span>There's no need to rush like that. (to a friend)</span></div>
-<p>Watch the context: as the answer to a "sometimes" question, 〜こと は ない is simply "it never happens". 眠《ねむ》れない こと は ありません means "I never have nights when I can't sleep".</p>
+<p>Watch the context: as the answer to a "sometimes" question, dictionary form + こと は ない is simply "it never happens". 夜中《よなか》 に 目《め》 が 覚《さ》める こと は ありません means "I never wake up in the night". Be careful after a ない-form: 〜ない こと は ない is a separate pattern meaning "it is not that ... not", so 眠《ねむ》れない こと は ありません usually means "it's not that I can't sleep" (I can sleep, more or less), not "I always sleep".</p>
 <h3>〜こと に なって いる and 〜こと に して いる</h3>
 <p>Both were introduced in <a href="#/lessons/koto-ni-suru-naru">Decisions, rules and change</a>. なって いる is a rule set by others (the ward, the clinic, custom); して いる is a rule you have set for yourself. 〜よう に して いる (trying, effort) is softer than 〜こと に して いる.</p>
 <div class="ex"><b>この 病棟《びょうとう》 で は、 面会《めんかい》 の 前《まえ》 に 受付《うけつけ》 で 名前《なまえ》 を 書《か》く こと に なって います。</b><span>On this ward, visitors write their name at reception before visiting.</span></div>

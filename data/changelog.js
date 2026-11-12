@@ -3,6 +3,14 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.6.0', date: '2026-11-13', title: 'N3 grammar',
+    items: [
+      { type: 'content', text: 'A new N3 level with 24 lessons in eight units, each with a six-question quiz: Time and sequence (〜間 に, 〜うち に, 〜たび に, 〜とおり, 〜ついで に, 〜て 以来, 〜た とたん, 〜次第); Limits and extent (だけ, しか, ばかり, さえ, こそ, ほど, くらい, compound verbs such as 〜始める and 〜続ける); Causes and obligations (〜おかげ で, 〜せい で, わけ, べき, もの だ, こと だ); Conditions and relations (なら, 〜ば よかった, 〜さえ 〜ば, and compound particles such as 〜に ついて, 〜に 対して, 〜に とって, 〜に よって, 〜と して, 〜に 比べて); Contrast and concession (〜一方, 〜わり に, 〜くせ に, たとえ 〜ても, 〜と して も); Hearsay and judgement (〜そう だ, 〜との こと, 〜に 違いない, 〜おそれ が ある, 〜がち, 〜気味, 〜っぽい, 〜と いう); Feelings and attempts (〜て たまらない, 〜ず に, 〜よう と する, patterns with こと); and Casual and written styles.' },
+      { type: 'content', text: 'Two of the N3 lessons are for the ward: understanding casual patient speech (〜ちゃう, 〜てる, 〜なきゃ, 〜っけ, 〜もん), and reading chart and notice Japanese (the である style, noun-ending notes, 〜あり / 〜なし, formal words).' },
+      { type: 'content', text: 'The app now has 86 lessons: 6 Starter, 21 at N5, 35 at N4 and 24 at N3. The lessons page has an N3 filter. All of the Japanese is a draft for review by a native Japanese speaker.' }
+    ]
+  },
+  {
     version: '0.5.0', date: '2026-11-13', title: 'N4 grammar, in full',
     items: [
       { type: 'content', text: '24 new N4 lessons in eight units, each with a six-question quiz: Clauses and descriptions (describing a noun with a sentence, の and こと, questions inside sentences, 〜やすい / 〜にくい / 〜すぎる); How things seem (〜そう, 〜よう, 〜みたい, 〜らしい; でしょう, かも しれません, はず); Giving and receiving (あげる, くれる, もらう and their て-forms); More て-forms (〜て しまう, 〜て おく, 〜て みる, 〜て いく, 〜て くる, 〜て ある, transitive and intransitive pairs, 〜ながら, 〜た まま, ところ, 〜た ばかり); Plans, advice and rules (the volitional form, 〜こと に する / なる, 〜よう に する / なる, advice, commands and signs); Purpose and contrast (〜ため に, 〜よう に, 〜ても, 〜の に, 〜し); Passive and causative (four lessons); and Respect language (honorific and humble forms).' },

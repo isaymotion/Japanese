@@ -21,7 +21,7 @@ window.LESSONS.push(
 <div class="ex"><b>寝《ね》て いる 間《あいだ》 に 地震《じしん》 が ありました。</b><span>There was an earthquake while I was asleep.</span></div>
 <div class="ex"><b>留守《るす》 の 間《あいだ》 に 母《はは》 から 電話《でんわ》 が ありました。</b><span>My mother called while I was out.</span></div>
 <div class="ex"><b>入院《にゅういん》 して いる 間《あいだ》 に、 体重《たいじゅう》 が 三《さん》キロ 減《へ》りました。</b><span>During the hospital stay, I lost three kilos.</span></div>
-<p>The most common mistake is to leave out に before a single event. 寝《ね》て いる 間《あいだ》、 地震《じしん》 が ありました sounds as if the earthquake went on all night.</p>
+<p>The most common mistake is to leave out に before a single event. Write 寝《ね》て いる 間《あいだ》 に 地震《じしん》 が ありました; without に, the sentence reads as if the event filled the whole period, and textbooks and the JLPT count it as wrong.</p>
 <h3>〜うち に: while you still can</h3>
 <p>うち に says "do it while the present state lasts, because it will change". Use it when the point is not to miss the chance.</p>
 <div class="ex"><b>若《わか》い うち に、 いろいろ な 国《くに》 に 行《い》きたい です。</b><span>I want to go to many countries while I'm still young.</span></div>
@@ -65,7 +65,7 @@ window.LESSONS.push(
 <div class="ex"><b>薬《くすり》 を 飲《の》む たび に、 気持《きも》ち が 悪《わる》く なる ん です。</b><span>Every time I take the medicine, I feel sick.</span></div>
 <p>Use the dictionary form before たび に, even about the past: 会《あ》う たび に 泣《な》いて いました "I cried every time we met".</p>
 <h3>〜とおり (に) / 〜どおり: exactly as</h3>
-<p>Something is done or turns out exactly in the way said, shown, planned or expected. Before a verb you can say とおり に or just とおり; at the start of a sentence, とおり、.</p>
+<p>Something is done or turns out exactly in the way said, shown, planned or expected. Before the main verb you can say とおり に or just とおり; when the phrase is set off with a comma at the start of the sentence, it is usually とおり、 (思《おも》った とおり、 ...).</p>
 <div class="ex"><b>私《わたし》 が 言《い》う とおり に、 ゆっくり 息《いき》 を 吸《す》って ください。</b><span>Please breathe in slowly, just as I say.</span></div>
 <div class="ex"><b>説明《せつめい》 の とおり、 朝《あさ》 と 夜《よる》 に 飲《の》んで ください。</b><span>Please take it morning and night, as explained.</span></div>
 <div class="ex"><b>予定《よてい》どおり、 来週《らいしゅう》 退院《たいいん》 できます。</b><span>You can be discharged next week, as planned.</span></div>
@@ -76,7 +76,7 @@ window.LESSONS.push(
 <div class="ex"><b>コンビニ に 行《い》く ついで に、 牛乳《ぎゅうにゅう》 を 買《か》って きて もらえます か。</b><span>Since you're going to the convenience store, could you pick up some milk?</span></div>
 <div class="ex"><b>東京《とうきょう》 に 出張《しゅっちょう》 した ついで に、 友達《ともだち》 に 会《あ》いました。</b><span>While I was in Tokyo on business, I also met a friend.</span></div>
 <div class="ex"><b>今日《きょう》 は 診察《しんさつ》 の ついで に、 血液検査《けつえきけんさ》 も して おきましょう。</b><span>Since you're here for your appointment today, let's do a blood test too.</span></div>
-<div class="ex"><b>ついで に、 睡眠《すいみん》 の こと も 聞《き》いて いい です か。</b><span>While we're at it, may I also ask about your sleep?</span></div>
+<div class="ex"><b>ついで に、 睡眠《すいみん》 の こと も 聞《き》いて も いい です か。</b><span>While we're at it, may I also ask about your sleep?</span></div>
 <h3>Look-alikes</h3>
 <ul><li>〜たび に versus と: 一人《ひとり》 で いる と 不安《ふあん》 に なります states a general pattern; 〜たび に stresses each single occasion.</li>
 <li>〜ついで に versus 〜ながら: 〜ながら is two actions at the same moment (music while studying); 〜ついで に is an extra errand added to a trip or task you are doing anyway.</li></ul>
@@ -124,7 +124,7 @@ window.LESSONS.push(
 <tr><td>Time</td><td>past events</td><td>future plans</td></tr>
 <tr><td>Second clause</td><td>sudden, not chosen</td><td>the speaker's action or a request</td></tr>
 <tr><td>Form before it</td><td>た-form</td><td>ます-stem</td></tr></table>
-<p>The common mistake is 着《つ》いた とたん、 電話《でんわ》 します for "I'll call as soon as I arrive". Say 着《つ》き次第《しだい》、 電話《でんわ》 します, or 着《つ》いたら すぐ 電話《でんわ》 します. After a noun, 次第《しだい》 means "depending on": 結果《けっか》次第《しだい》 です "it depends on the results".</p>
+<p>The common mistake is 着《つ》いた とたん、 電話《でんわ》 します for "I'll call as soon as I arrive". Say 着《つ》き次第《しだい》、 電話《でんわ》 します, or 着《つ》いたら すぐ 電話《でんわ》 します. After an ordinary noun, 次第《しだい》 usually means "depending on": 結果《けっか》次第《しだい》 です "it depends on the results".</p>
 <div class="note">以来《いらい》 needs a state that continues to now. とたん is for sudden past events; 次第《しだい》 is for what you will do next. Do not use とたん for your own plans.</div>`,
     quiz: [
       [`退院《たいいん》 して ＿、 毎朝《まいあさ》 散歩《さんぽ》 を 続《つづ》けて います。`, [`とたん`, `以来《いらい》`, `次第《しだい》`], 1, `A state that has continued since an event takes 〜て 以来《いらい》.`],
@@ -139,9 +139,9 @@ window.LESSONS.push(
     body: `<p>Much of a symptom history is about amount and emphasis: "I only slept two hours", "he does nothing but play games", "I can't even drink water", "this time I really want to stop". These five particles attach to a word and change how much weight it carries. They are small, frequent and easy to confuse.</p>
 <h3>How to make it</h3>
 <table><tr><th>Particle</th><th>Attaches to</th><th>With が and を</th><th>With other particles</th></tr>
-<tr><td>だけ</td><td>noun, number, plain verb or adjective</td><td>replaces them (or だけ を)</td><td>に だけ, で だけ</td></tr>
+<tr><td>だけ</td><td>noun, number, plain verb or adjective</td><td>replaces them, or comes before them (だけ が, だけ を)</td><td>に だけ, で だけ</td></tr>
 <tr><td>しか 〜ない</td><td>noun, number; verb must be negative</td><td>replaces them</td><td>に しか, で しか, から しか</td></tr>
-<tr><td>ばかり</td><td>noun; て-form + ばかり いる</td><td>replaces them</td><td>に ばかり</td></tr>
+<tr><td>ばかり</td><td>noun; て-form + ばかり いる</td><td>usually replaces them</td><td>に ばかり</td></tr>
 <tr><td>さえ</td><td>noun; noun + で さえ</td><td>replaces them</td><td>に さえ</td></tr>
 <tr><td>こそ</td><td>noun or phrase</td><td>replaces them</td><td>から こそ</td></tr></table>
 <h3>だけ: only (neutral)</h3>
@@ -154,7 +154,7 @@ window.LESSONS.push(
 <div class="ex"><b>ゆうべ は 二時間《にじかん》 しか 眠《ねむ》れません でした。</b><span>Last night I only managed two hours of sleep.</span></div>
 <div class="ex"><b>話《はな》せる 人《ひと》 は 母《はは》 しか いません。</b><span>The only person I can talk to is my mother.</span></div>
 <div class="ex"><b>この こと は 看護師《かんごし》さん に しか 話《はな》して いません。</b><span>I've told only the nurse about this.</span></div>
-<p>Compare: 二時間《にじかん》 だけ 寝《ね》ました "I slept for two hours" (a plain fact) and 二時間《にじかん》 しか 寝《ね》られません でした "I could sleep only two hours" (too little). The common mistake is a positive verb after しか: say 母《はは》 しか いません, never 母《はは》 しか います.</p>
+<p>Compare: 二時間《にじかん》 だけ 寝《ね》ました "I slept just two hours" (a plain limit) and 二時間《にじかん》 しか 寝《ね》られません でした "I could sleep only two hours" (too little). The common mistake is a positive verb after しか: say 母《はは》 しか いません, never 母《はは》 しか います.</p>
 <h3>ばかり: nothing but</h3>
 <p>Noun + ばかり means "nothing but, all", usually with a sense of too much. 〜て ばかり いる means "do nothing but". This is a different ばかり from 〜た ばかり "only just" in <a href="#/lessons/nagara-mama-tokoro-bakari">〜ながら, 〜た まま, ところ, 〜た ばかり</a>.</p>
 <div class="ex"><b>最近《さいきん》 は 甘《あま》い もの ばかり 食《た》べて います。</b><span>Lately I've been eating nothing but sweet things.</span></div>
@@ -164,13 +164,14 @@ window.LESSONS.push(
 <p>さえ picks out the most basic or extreme case: if even this is so, everything else is too. With が and を it replaces them; after a noun as subject you often hear で さえ. 〜さえ 〜ば means "if only".</p>
 <div class="ex"><b>水《みず》 さえ 飲《の》めない 日《ひ》 が ありました。</b><span>There were days I couldn't even drink water.</span></div>
 <div class="ex"><b>最近《さいきん》 は お風呂《ふろ》 に 入《はい》る の さえ つらい です。</b><span>Lately even taking a bath is hard.</span></div>
+<div class="ex"><b>家族《かぞく》 で さえ、 私《わたし》 の 変化《へんか》 に 気《き》づきません でした。</b><span>Even my family didn't notice the change in me.</span></div>
 <div class="ex"><b>時間《じかん》 さえ あれば、 もっと 運動《うんどう》 したい です。</b><span>If only I had the time, I'd like to exercise more.</span></div>
 <h3>こそ: this one, for sure</h3>
-<p>こそ puts strong stress on one word: "this very one", "precisely". Its most common use is the reply こちら こそ "the pleasure is mine".</p>
-<div class="ex"><b>こちら こそ、 よろしく お願《ねが》い します。</b><span>Likewise, I look forward to working with you.</span></div>
+<p>こそ puts strong stress on one word: "this very one", "precisely". Its most common use is the reply こちら こそ "it is I who should say that; likewise", said back to a thank-you or a greeting.</p>
+<div class="ex"><b>こちら こそ、 よろしく お願《ねが》い します。</b><span>Likewise. I look forward to working with you too.</span></div>
 <div class="ex"><b>今度《こんど》 こそ お酒《さけ》 を やめたい です。</b><span>This time I really want to stop drinking.</span></div>
 <div class="ex"><b>つらい とき こそ、 一人《ひとり》 で 抱《かか》え込《こ》まないで ください。</b><span>It's exactly when things are hard that you shouldn't keep it all to yourself.</span></div>
-<div class="note">しか needs a negative verb; だけ does not. ばかり means "nothing but" (too much), さえ means "even" (the extreme case), and こそ means "this one, for sure". With しか, ばかり, さえ and こそ, drop が and を: 水《みず》 さえ, not 水《みず》 を さえ.</div>`,
+<div class="note">しか needs a negative verb; だけ does not. ばかり means "nothing but" (too much), さえ means "even" (the extreme case), and こそ means "this one, for sure". With しか, さえ and こそ, drop が and を: 水《みず》 さえ, not 水《みず》 を さえ.</div>`,
     quiz: [
       [`ゆうべ は 二時間《にじかん》 ＿ 眠《ねむ》れません でした。 ("I could sleep only two hours.")`, [`だけ`, `しか`, `さえ`], 1, `"Only" with a negative verb and a sense of too little is しか 〜ない.`],
       [`息子《むすこ》 は 部屋《へや》 で ゲーム を して ばかり います means:`, [`My son does nothing but play games in his room.`, `My son has just started playing games in his room.`, `My son plays games in his room only a little.`], 0, `〜て ばかり いる means "do nothing but".`],
@@ -188,7 +189,7 @@ window.LESSONS.push(
 <tr><td>い-adjective</td><td>痛《いた》い ほど</td><td>早《はや》ければ 早《はや》い ほど</td></tr>
 <tr><td>な-adjective</td><td>+ な: 心配《しんぱい》 な ほど</td><td>なら + な ほど: 静《しず》か なら 静《しず》か な ほど</td></tr>
 <tr><td>noun, number</td><td>一週間《いっしゅうかん》 ほど, 三十分《さんじゅっぷん》 くらい</td><td>(rare)</td></tr></table>
-<p>くらい and ぐらい are the same word; after a noun or number both are common. For a point on the clock, use ごろ: 三時《さんじ》 ごろ "around three o'clock".</p>
+<p>くらい and ぐらい are the same word; after a noun or number both are common. For a point on the clock, ごろ is the usual word: 三時《さんじ》 ごろ "around three o'clock" (三時《さんじ》 ぐらい is also common in speech). For a length of time, use ぐらい or ほど, never ごろ: 三時間《さんじかん》 ぐらい, not 三時間《さんじかん》 ごろ.</p>
 <h3>About: rough amounts</h3>
 <p>After a number or amount, ほど and くらい mean "about". ほど sounds a little more formal.</p>
 <div class="ex"><b>一日《いちにち》 に 何時間《なんじかん》 くらい 寝《ね》て います か。</b><span>About how many hours a day do you sleep?</span></div>
@@ -223,7 +224,7 @@ window.LESSONS.push(
       [`How do you say "the more I think about it"?`, [`考《かんが》える ほど 考《かんが》えれば`, `考《かんが》えれば 考《かんが》える ほど`, `考《かんが》えれば 考《かんが》えた ほど`], 1, `The pattern is ば-form, then the dictionary form of the same verb, then ほど.`],
       [`夜《よる》 も 眠《ねむ》れない ほど 心配《しんぱい》 でした means:`, [`I was worried, so I slept all night.`, `I worried about not sleeping at night.`, `I was so worried I couldn't sleep at night.`], 2, `A ほど B: B was so strong that A happened.`],
       [`電話《でんわ》 くらい して ください means:`, [`Please at least give us a call.`, `Please call about this many times.`, `Please call as often as possible.`], 0, `くらい here makes the request sound small: "at least".`],
-      [`Which means "about three hours"?`, [`三時間《さんじかん》 ごろ`, `三時間《さんじかん》 ぐらい`, `三時間《さんじかん》 まで`], 1, `ぐらい gives a rough length; ごろ is for a point on the clock, and まで means "until".`],
+      [`Which means "about three hours"?`, [`三時間《さんじかん》 ごろ`, `三時間《さんじかん》 ぐらい`, `三時間《さんじかん》 まで`], 1, `ぐらい gives a rough length of time; ごろ is only for a point in time, and まで means "until".`],
       [`思《おも》った ＿ 難《むずか》しく なかった です。 ("It wasn't as hard as I thought.")`, [`しか`, `ばかり`, `ほど`], 2, `〜ほど 〜ない means "not as ... as".`]
     ] },
 
@@ -246,7 +247,7 @@ window.LESSONS.push(
 <div class="ex"><b>書《か》き終《お》わったら、 受付《うけつけ》 に 出《だ》して ください。</b><span>When you've finished writing, please hand it in at reception.</span></div>
 <p>〜終《お》わる simply means the action is finished. 〜て しまう (<a href="#/lessons/te-shimau-oku-miru">〜て しまう, 〜て おく, 〜て みる</a>) adds completion with a feeling, often regret.</p>
 <h3>〜出《だ》す: burst out</h3>
-<p>〜出《だ》す is a sudden, often unexpected start. Because it is not planned, it is not used in requests or suggestions: for "please start taking it", say 飲《の》み始《はじ》めて ください, not 飲《の》み出《だ》して ください.</p>
+<p>〜出《だ》す is a sudden, often unexpected start. In this meaning it is not normally used in requests, suggestions or plans (words like 思《おも》い出《だ》す "remember" and 取《と》り出《だ》す "take out" are separate verbs and are fine): for "please start taking it", say 飲《の》み始《はじ》めて ください, not 飲《の》み出《だ》して ください.</p>
 <div class="ex"><b>お母《かあ》さん の 話《はなし》 に なる と、 患者《かんじゃ》さん は 急《きゅう》に 泣《な》き出《だ》しました。</b><span>When the talk turned to her mother, the patient suddenly burst into tears.</span></div>
 <div class="ex"><b>急《きゅう》に 雨《あめ》 が 降《ふ》り出《だ》しました。</b><span>It suddenly started to rain.</span></div>
 <h3>〜かける: partway</h3>
@@ -268,7 +269,7 @@ window.LESSONS.push(
     quiz: [
       [`How do you say "I started taking it"?`, [`飲《の》む始《はじ》めました。`, `飲《の》み始《はじ》めました。`, `飲《の》んで 始《はじ》めました。`], 1, `A compound verb joins the ます-stem 飲《の》み to 始《はじ》める.`],
       [`患者《かんじゃ》さん は 急《きゅう》に 泣《な》き出《だ》しました means:`, [`The patient suddenly burst into tears.`, `The patient finished crying.`, `The patient kept on crying.`], 0, `〜出《だ》す is a sudden start.`],
-      [`Which is natural for "Please start taking it from tonight"?`, [`今夜《こんや》 から 飲《の》み出《だ》して ください。`, `今夜《こんや》 から 飲《の》み終《お》わって ください。`, `今夜《こんや》 から 飲《の》み始《はじ》めて ください。`], 2, `〜出《だ》す is not used in requests; a planned start is 〜始《はじ》める.`],
+      [`Which is natural for "Please start taking it from tonight"?`, [`今夜《こんや》 から 飲《の》み出《だ》して ください。`, `今夜《こんや》 から 飲《の》み終《お》わって ください。`, `今夜《こんや》 から 飲《の》み始《はじ》めて ください。`], 2, `〜出《だ》す "burst out" is not used in requests; a planned start is 〜始《はじ》める, and 飲《の》み終《お》わる means finish.`],
       [`"I got the name wrong, so I wrote it again." 名前《なまえ》 を 間違《まちが》えた ので、 ＿。`, [`書《か》き直《なお》しました`, `書《か》き合《あ》いました`, `書《か》き出《だ》しました`], 0, `〜直《なお》す means do again.`],
       [`ご家族《かぞく》 と 話《はな》し合《あ》って ください means:`, [`Please finish talking to your family.`, `Please talk it over with your family.`, `Please start talking to your family.`], 1, `〜合《あ》う means doing something with or to each other.`],
       [`疲《つか》れ切《き》って います means:`, [`I'm a little tired.`, `I'm about to get tired.`, `I'm completely exhausted.`], 2, `〜切《き》る means completely, to the end.`]
