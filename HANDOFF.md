@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.8.0)
+# Hanashimashō — handoff (13 Nov 2026, after version 0.8.1)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -73,7 +73,7 @@ python3 $SK/scripts/check_sw.py .                  # PASS
 node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 ```
 
-## 6. Status (version 0.8.0, pushed)
+## 6. Status (version 0.8.1, pushed)
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
@@ -87,15 +87,20 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Clinical tools | mood, substance use, withdrawal and agitation, de-escalation, discharge |
 | Practice cases | 2 admission MSE, 4 discharge |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
-Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary.
+Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes (current, pushed).
 Not done: fifth discharge case (opioid, deliberately skipped), recorded audio pack (GitHub Action in Hablemos; AudioKey must hash `JA.speak(text)`), Japanese shell language (`data/strings.js` `tl: {}` is empty), N3 placement questions, N3 dialogues, stroke-order diagrams.
 
 ## 7. Next steps
-Ask Dr. Navarro which is next:
-1. Audio pack (the last item of the original list).
-2. N3 placement questions (`meta.js` PLACEMENT stops at N4) and N3 dialogues (`dialogues.js` has 10).
-3. More verbs and adjectives in the trainer (`verbs.js` has 100 / 60; the dictionary now has several hundred).
-4. Stroke-order diagrams (needs a licensed data set such as KanjiVG, CC BY-SA).
+**Next (chosen by Dr. Navarro, 13 Nov): the recorded audio pack. Next version 0.9.0.** Model: `isaymotion/Hablemos` (`.github/workflows/audio-pack.yml`, `tools/collect-texts.js`, `tools/make_audio_pack.py`, README section "Audio pack"). The app side is already there: `App.loadAudioPack` reads `audio/manifest.json`, and `App.speakAsync` plays `audio/<AudioKey(JA.speak(text))>.mp3` when the key is in the manifest, else the device voice (`js/core.js` near line 290; setting `voiceSource`).
+1. `tools/collect-texts.js`: load `js/ja.js` in node (check it loads without a DOM, as `tools/check-ja.js` does) and every data file; collect every string the app can speak, as the Hablemos collector does, plus what is new here: dictionary headwords (11 files), lesson `.ex` lines, readings (3 files), dialogues, kana trainer items, verb/adjective examples (`verbs.js`), particle items, kanji example words (`kanji-*.js`), psych phrases f and c, replies, cases, interpretation, tools data, practice cases, MSE sheet `tl` lines, `LANG.testLine`. Write `tools/texts.json` as `[{ key, text }]` with `text = JA.speak(notation)` and `key = AudioKey(text)`; skip strings with the blank `＿`.
+2. `tools/make_audio_pack.py`: copy from Hablemos; `speakable()` must accept kana and kanji; voices `ja-JP-NanamiNeural` (default) and `ja-JP-KeitaNeural` via `edge-tts`. Decide what text is sent to the voice: the kanji text reads most naturally, but ambiguous kanji (何, 方, 辛い, 今日, 一日, counters) can be misread; consider sending the kana reading for single dictionary words and short phrases, or a per-string override map. Whatever is sent, the file name stays the hash of `JA.speak(text)`.
+3. Workflow `.github/workflows/audio-pack.yml` (rename to Japanese; same triggers). The sandbox cannot reach the voice service, so clips are recorded on GitHub: after the push, check the Actions run (or ask her to press Run workflow). A push that adds a workflow file may be refused if the session token lacks the workflow permission; if so, give her the file to add in the GitHub web editor.
+4. Expect roughly 8,000 to 9,000 clips (Hablemos: 4,877 clips, 112 MB). Check the size against GitHub Pages limits (1 GB site); use a lower bitrate or leave long reading paragraphs to the device voice if needed. `sw.js` must not precache `audio/`.
+5. README section, changelog 0.9.0, Settings text for the voice source, tests (`qa/` script that stubs a manifest and checks the clip path is used).
+Then ask which is next:
+- N3 placement questions (`meta.js` PLACEMENT stops at N4) and N3 dialogues (`dialogues.js` has 10).
+- More verbs and adjectives in the trainer (`verbs.js` has 100 / 60; the dictionary now has several hundred).
+- Stroke-order diagrams (needs a licensed data set such as KanjiVG, CC BY-SA).
 Pending her answers: the clinical-content list in `claude/hanashimasho-build-notes.md`, now including the changes made on the MSE sheet in 0.7.0.
 
 ## 8. Pitfalls learned
