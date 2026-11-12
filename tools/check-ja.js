@@ -43,6 +43,41 @@ function walk(o, where, seen) {
   if (Array.isArray(o)) o.forEach((x, i) => walk(x, where + '[' + i + ']', seen));
   else Object.keys(o).forEach((k) => walk(o[k], where + '.' + k, seen));
 }
+// Kanji files: 字 | meanings | on | kun | strokes | group | words | note   (tools/AUTHORING.md)
+const kanjiSeen = new Map();
+function checkKanji(blocks, f) {
+  const base = path.basename(f);
+  blocks.filter((b) => !b._checked).forEach((b) => {
+    b._checked = true;
+    if (!/^(N5|N4|N3|C)$/.test(b.level || '')) { errors++; console.log('ERROR ' + f + ': kanji block level must be N5, N4, N3 or C'); }
+    String(b.text || '').split('\n').forEach((line) => {
+      line = line.trim(); if (!line || line.startsWith('#')) return;
+      const c = line.split('|').map((x) => x.trim()), where = f + ' ' + (c[0] || '?');
+      const bad = (m) => { errors++; console.log('ERROR ' + where + ': ' + m + '\n      ' + line.slice(0, 160)); };
+      if (c.length < 7 || c.length > 8) return bad('a kanji line has 7 or 8 fields, found ' + c.length);
+      const [k, mean, on, kun, strokes, group, words, note] = c;
+      if ([...k].length !== 1 || !KANJI.test(k)) return bad('field 1 must be a single kanji');
+      if (kanjiSeen.has(k)) bad('kanji already listed in ' + kanjiSeen.get(k)); else kanjiSeen.set(k, base);
+      if (!mean || /[《》]/.test(mean) || JA.hasJa(mean)) bad('meanings must be plain English');
+      if (on !== '-' && !/^[ァ-ヶー]+(・[ァ-ヶー]+)*$/.test(on)) bad('on readings must be katakana separated by ・ (or -)');
+      if (kun !== '-' && !/^[ぁ-ゖー]+(\.[ぁ-ゖー]+)?(, [ぁ-ゖー]+(\.[ぁ-ゖー]+)?)*$/.test(kun)) bad('kun readings must be hiragana, okurigana after a dot, separated by ", " (or -)');
+      if (on === '-' && kun === '-') bad('no reading given');
+      if (!/^\d{1,2}$/.test(strokes)) bad('stroke count must be a number');
+      if (!group) bad('group missing');
+      const ws = (words || '').split(';').map((x) => x.trim()).filter(Boolean);
+      if (ws.length < 2 || ws.length > 4) bad('give two to four example words');
+      ws.forEach((w) => {
+        const at = w.indexOf('=');
+        if (at < 1 || !w.slice(at + 1).trim()) return bad('word needs the form word=gloss: ' + w);
+        const ja = w.slice(0, at).trim(), gl = w.slice(at + 1);
+        if (!JA.plain(ja).includes(k)) bad('example word does not contain the kanji: ' + ja);
+        if (JA.hasJa(gl) || gl.includes('=')) bad('gloss must be plain English: ' + w);
+        check(ja, where + ' word');
+      });
+      if (note) check(note, where + ' note');
+    });
+  });
+}
 files.forEach((f) => {
   const before = new Set(Object.keys(ctx));
   try { vm.runInContext(fs.readFileSync(path.join(rootDir, f), 'utf8'), ctx, { filename: f }); }
@@ -51,6 +86,7 @@ files.forEach((f) => {
   names.forEach((n) => {
     const v = ctx[n];
     if (n === 'DICT_RAW') v.join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
+    else if (n === 'KANJI_RAW') checkKanji(v, f);
     else walk(v, f + ':' + n, new Set());
   });
 });

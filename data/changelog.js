@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.4.0', date: '2026-11-13', title: 'Kanji study',
+    items: [
+      { type: 'feature', text: 'Kanji study: 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3 and a clinical set of 106 that the psychiatry phrases use), grouped by theme. Each kanji has its own page with meanings, on and kun readings, stroke count, example words with furigana and sound, and more words from the dictionary.' },
+      { type: 'feature', text: 'Kanji drill, a group at a time, in four modes: see the kanji and choose the meaning, see the meaning and choose the kanji, see a word and choose its reading, see a word and choose its meaning. A kanji turns green on the chart after three correct answers in a row.' },
+      { type: 'feature', text: 'Kanji flashcard decks for each level, and a button on every kanji page to add it to your cards. Dictionary word pages now list the kanji in the word, and a kanji typed in the search box opens its page.' },
+      { type: 'content', text: 'New lesson in Foundations, "How kanji work": meanings, on and kun readings, okurigana, and how to learn kanji inside words.' },
+      { type: 'update', text: 'Lessons can be filtered by level, and the app remembers the level you chose.' },
+      { type: 'content', text: 'The kanji readings, meanings and example words are a draft for review by a native Japanese speaker. JLPT levels for kanji are approximate, because there is no official list.' }
+    ]
+  },
+  {
     version: '0.3.0', date: '2026-11-13', title: 'Clinical tools',
     items: [
       { type: 'feature', text: 'Mood episode checker: the DSM-5-TR major depressive and manic or hypomanic episode criteria as questions in Japanese, with duration, impairment and specifiers, and interview paraphrases of the PHQ-9 and MDQ.' },

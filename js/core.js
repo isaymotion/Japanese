@@ -27,7 +27,7 @@
   const defaults = () => ({
     settings: { theme: 'system', textSize: '100', register: 'f', voice: '', voiceSource: 'pack', rate: 0.85, cardDir: 'tl-en', newPerDay: 15, furigana: 'on', romaji: true, spacing: true },
     srs: {}, mistakes: [], newToday: { date: '', n: 0 },
-    done: { lessons: {}, reading: {}, cases: {}, dialogues: {}, sections: {} }, kana: {}, drills: {},
+    done: { lessons: {}, reading: {}, cases: {}, dialogues: {}, sections: {} }, kana: {}, kanji: {}, drills: {},
     streak: { last: '', count: 0, best: 0, days: [] },
     stats: { reviews: 0, correct: 0, answered: 0 }, xp: 0, level: '', seenVersion: ''
   });
@@ -94,6 +94,26 @@
   });
   App.byRoot = byRoot; App.byHead = byHead;
 
+  /* ---------- Kanji (js/data/kanji-*.js; format in tools/AUTHORING.md) ----------
+     App.KANJI = [{ k, mean: [..], on: [..], kun: [{ r, o }], strokes, group, lv, words: [{ tl, en }], note }] in file order. */
+  const KANJI = [];
+  (window.KANJI_RAW || []).forEach((b) => String(b.text || '').split('\n').forEach((line) => {
+    line = line.trim();
+    if (!line || line.startsWith('#')) return;
+    const c = line.split('|').map((x) => x.trim());
+    if (c.length < 7 || !c[0] || KANJI.some((x) => x.k === c[0])) return;
+    const list = (v, sep) => (v && v !== '-' ? v.split(sep).map((x) => x.trim()).filter(Boolean) : []);
+    KANJI.push({ k: c[0], mean: list(c[1], ','), on: list(c[2], '・'), kun: list(c[3], ',').map((x) => { const at = x.indexOf('.'); return at < 0 ? { r: x, o: '' } : { r: x.slice(0, at), o: x.slice(at + 1) }; }),
+      strokes: +c[4] || 0, group: c[5] || 'Other', lv: b.level || '', note: c[7] || '',
+      words: list(c[6], ';').map((w) => { const at = w.indexOf('='); return at < 1 ? null : { tl: w.slice(0, at).trim(), en: w.slice(at + 1).trim() }; }).filter(Boolean) });
+  }));
+  App.KANJI = KANJI;
+  App.kanjiBy = Object.fromEntries(KANJI.map((x) => [x.k, x]));
+  App.KANJI_LEVELS = [['N5', 'N5'], ['N4', 'N4'], ['N3', 'N3'], ['C', 'Clinical']].filter(([lv]) => KANJI.some((x) => x.lv === lv));
+  App.kanjiHref = (k) => '#/kanji/k/' + encodeURIComponent(k);
+  // Readings as one line: on-readings in katakana, kun-readings with the okurigana after a middle dot.
+  App.kanjiReadings = (x) => x.on.concat(x.kun.map((r) => r.r + (r.o ? '・' + r.o : ''))).join('、 ');
+
   // Dictionary topics (js/data/dict-*.js category column). Clinical topics feed the "Clinical vocabulary" decks.
   App.CATS = {
     basics: 'Basics & greetings', grammar: 'Particles & grammar words', pronouns: 'Pronouns & forms of address', questions: 'Question words',
@@ -150,7 +170,8 @@
     s.phrases.forEach((p, i) => push('Phrase', p.f, p.en, (p.c || '') + ' ' + (p.n || ''), '#/psych/s/' + s.id + '?p=' + i));
   });
   (window.PSYCH_CASES || []).forEach((c) => push('Case', c.title, c.setting, '', '#/psych/case/' + c.id));
-  [['Flashcards', '#/flash'], ['Kana trainer: hiragana and katakana', '#/kana'], ['Verb trainer: conjugation', '#/verbs'], ['Adjective trainer', '#/verbs?tab=adj'], ['Particle drill', '#/particles'], ['Placement test', '#/placement'], ['Progress', '#/progress'], ['Settings: furigana, romaji, word spacing, voice', '#/settings'], ["What's New", '#/new'], ['About', '#/about'], ['Dictionary', '#/dict'], ['Listening drill', '#/psych/listen'], ['Point board (' + L.point.title + '): patient points to the answer', '#/psych/point'], ['Practice', '#/practice'], ['Lessons', '#/lessons'], ['Reading', '#/reading'], ['Speaking', '#/speak'], ['Psychiatry', '#/psych'], ['More', '#/more']]
+  KANJI.forEach((x) => push('Kanji', x.k, x.mean.join(', '), x.on.join(' ') + ' ' + x.kun.map((r) => r.r + r.o).join(' ') + ' ' + x.words.map((w) => w.tl + ' ' + w.en).join(' '), App.kanjiHref(x.k)));
+  [['Flashcards', '#/flash'], ['Kana trainer: hiragana and katakana', '#/kana'], ['Kanji: chart and drill', '#/kanji'], ['Verb trainer: conjugation', '#/verbs'], ['Adjective trainer', '#/verbs?tab=adj'], ['Particle drill', '#/particles'], ['Placement test', '#/placement'], ['Progress', '#/progress'], ['Settings: furigana, romaji, word spacing, voice', '#/settings'], ["What's New", '#/new'], ['About', '#/about'], ['Dictionary', '#/dict'], ['Listening drill', '#/psych/listen'], ['Point board (' + L.point.title + '): patient points to the answer', '#/psych/point'], ['Practice', '#/practice'], ['Lessons', '#/lessons'], ['Reading', '#/reading'], ['Speaking', '#/speak'], ['Psychiatry', '#/psych'], ['More', '#/more']]
     .forEach(([t, r]) => push('Page', t, '', '', r));
   App.searchAll = (q, limit) => {
     const nq = norm(q);
@@ -162,6 +183,8 @@
       let s = 0;
       for (const w of words) { const ws = score(it.text, w); if (!ws) { s = 0; break; } s += ws; }
       if (norm(it.title).includes(nq)) s += 40;
+      // A kanji typed alone opens its own page first; an exact meaning ("eat") ranks the kanji with the dictionary words.
+      if (s && it.type === 'Kanji') { if (it.title === q.trim()) s += 200; else if (it.sub.toLowerCase().split(/,\s*/).includes(nq)) s += 45; }
       if (s) out.push(Object.assign({ s: s / words.length }, it));
     });
     out.sort((a, b) => b.s - a.s);
@@ -171,6 +194,10 @@
   /* ---------- Cards and decks ---------- */
   App.cardFor = (id) => {
     if (id.startsWith('d')) { const e = App.dictById[id]; return e && { id, tl: e.tl, en: e.en, note: e.note, sub: [POS[e.pos], e.lv].filter(Boolean).join(' · ') }; }
+    if (id.startsWith('k:')) {
+      const x = App.kanjiBy[id.slice(2)];
+      return x && { id, tl: x.k, en: x.mean.join(', '), note: App.kanjiReadings(x), sub: x.words.slice(0, 2).map((w) => w.tl + ' (' + w.en + ')').join('、 '), say: x.words[0] ? x.words[0].tl : x.k };
+    }
     if (id.startsWith('p:')) {
       const [, sid, i] = id.split(':');
       const s = (window.PSYCH_SECTIONS || []).find((x) => x.id === sid);
@@ -191,6 +218,7 @@
     decks.push({ id: 'mistakes', name: 'My mistakes', group: 'Review', ids: state.mistakes.slice() });
     decks.push({ id: 'psych', name: 'Psychiatry phrases (all)', group: 'Psychiatry', ids: psychAll });
     (window.PSYCH_SECTIONS || []).forEach((s) => decks.push({ id: 'ps-' + s.id, name: s.title, group: 'Psychiatry', ids: s.phrases.map((p, i) => 'p:' + s.id + ':' + i) }));
+    App.KANJI_LEVELS.forEach(([lv, label]) => decks.push({ id: 'kanji-' + lv, name: 'Kanji: ' + (lv === 'C' ? 'clinical set' : 'JLPT ' + label), group: 'Kanji', ids: KANJI.filter((x) => x.lv === lv).map((x) => 'k:' + x.k) }));
     const clinicalCats = ['emotions', 'health', 'mind', 'risk', 'substance', 'meds', 'hospital', 'clinical', 'mimetic', 'idioms'];
     const byLv = {};
     DICT.forEach((e) => { if (e.lv) (byLv[e.lv] = byLv[e.lv] || []).push(e.id); });
@@ -358,6 +386,7 @@
     verb: I('<path d="M4 7h16M4 12h10M4 17h6"/><path d="M17 14l3 3-3 3"/>'),
     star: I('<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.9l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"/>'),
     starOn: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.9l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"/></svg>',
+    kanji: I('<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 4v16M4 12h16"/>'),
     affix: I('<rect x="3" y="8" width="5" height="8" rx="1.5"/><rect x="9.5" y="8" width="5" height="8" rx="1.5"/><rect x="16" y="8" width="5" height="8" rx="1.5"/>'),
     lesson: I('<path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c3 2 9 2 12 0v-5"/>'),
     read: I('<path d="M2 5h7a3 3 0 013 3v12a2 2 0 00-2-2H2z"/><path d="M22 5h-7a3 3 0 00-3 3v12a2 2 0 012-2h8z"/>'),

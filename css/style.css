@@ -817,3 +817,35 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 .pguide .ex { margin-top: 8px; }
 .pguide .ex b { font-family: var(--font-tl); font-weight: 600; display: block; }
 .pguide .ex span { color: var(--ink-2); font-size: .93rem; }
+
+/* Kanji study */
+.kj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 6px; margin-top: 8px; }
+.kj-cell { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md); min-height: 74px; padding: 8px 4px 6px; display: grid; place-items: center; text-align: center; text-decoration: none; color: inherit; min-width: 0; }
+.kj-cell:hover, .kj-cell:focus-visible { border-color: var(--accent); }
+.kj-cell b { font: 600 1.7rem/1.15 var(--font-tl); display: block; }
+.kj-cell small { color: var(--ink-3); font-size: .72rem; line-height: 1.2; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kj-cell.known { background: var(--good-bg); border-color: transparent; }
+.kj-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: start; }
+.kj-glyph { font: 500 5.2rem/1 var(--font-tl); min-width: 1.15em; padding: 12px 10px; text-align: center; background: var(--tint); border-radius: var(--r-md); }
+@media (max-width: 520px) { .kj-head { grid-template-columns: minmax(0, 1fr); } .kj-glyph { font-size: 4.4rem; justify-self: start; } }
+.kj-read { border-collapse: collapse; width: 100%; }
+.kj-read th { text-align: left; font-weight: 700; padding: 6px 12px 6px 0; vertical-align: top; width: 9.5em; }
+.kj-read th small { display: block; font-weight: 400; color: var(--muted); font-size: .76rem; line-height: 1.25; }
+.kj-read td { padding: 6px 0; font-size: 1.15rem; }
+.kj-oku { color: var(--ink-3); border-bottom: 1px dotted var(--ink-3); }
+.kj-word { font: 600 2.2rem/1.5 var(--font-tl); text-align: center; padding: 8px 0; }
+.kj-prompt { font-size: 1.25rem; font-weight: 700; text-align: center; padding: 14px 0; }
+.kj-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.kj-chip { display: inline-flex; align-items: baseline; gap: 6px; min-height: 40px; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 20px; background: var(--surface); text-decoration: none; color: inherit; }
+.kj-chip:hover { border-color: var(--accent); }
+.kj-chip b { font: 600 1.25rem/1 var(--font-tl); }
+.kj-chip span { font-size: .82rem; color: var(--muted); }
+
+/* Segmented links (level filters that are real links, so back/forward works) */
+.seg a { min-height: 40px; display: inline-flex; align-items: center; border: 1px solid var(--rule); border-radius: 20px; background: var(--surface); padding: 0 16px; font: 600 .92rem/1.15 var(--sans); text-decoration: none; color: inherit; }
+.seg a:hover { border-color: var(--ink-3); }
+.seg a.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+/* Previous / next lesson buttons: long titles wrap instead of pushing the page wider than the phone */
+.prevnext { flex-wrap: wrap; gap: 8px; }
+.prevnext .btn { max-width: 100%; min-width: 0; height: auto; min-height: 44px; padding-top: 8px; padding-bottom: 8px; white-space: normal; text-align: left; line-height: 1.3; }

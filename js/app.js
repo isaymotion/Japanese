@@ -64,6 +64,8 @@
     [/^\/psych\/mcase\/(?<id>[\w-]+)$/, V.mseCase, 'psych'],
     [/^\/psych\/dcase\/(?<id>[\w-]+)$/, V.dischargeCase, 'psych'],
     [/^\/kana$/, V.kana, 'kana'],
+    [/^\/kanji$/, V.kanji, 'kanji'],
+    [/^\/kanji\/k\/(?<ch>[^/?]+)$/, V.kanjiPage, 'kanji'],
     [/^\/verbs$/, V.verbs, 'verbs'],
     [/^\/verbs\/(?<kind>v|a)\/(?<i>\d+)$/, V.verbPage, 'verbs'],
     [/^\/particles$/, V.particles, 'particles'],
@@ -73,13 +75,13 @@
     [/^\/new$/, V.whatsnew, 'new'],
     [/^\/about$/, V.about, 'about']
   ];
-  const TITLES = { home: '', practice: 'Practice', kana: 'Kana', verbs: 'Verb trainer', particles: 'Particles', dict: 'Dictionary', flash: 'Flashcards', lessons: 'Lessons', reading: 'Reading', speak: 'Speaking', psych: 'Psychiatry', placement: 'Placement', progress: 'Progress', settings: 'Settings', new: "What's New", about: 'About' };
+  const TITLES = { home: '', practice: 'Practice', kana: 'Kana', kanji: 'Kanji', verbs: 'Verb trainer', particles: 'Particles', dict: 'Dictionary', flash: 'Flashcards', lessons: 'Lessons', reading: 'Reading', speak: 'Speaking', psych: 'Psychiatry', placement: 'Placement', progress: 'Progress', settings: 'Settings', new: "What's New", about: 'About' };
 
   /* ---------- Navigation: one grouped list for the desktop rail, the phone drawer (More) and the #/more page ----------
      [key, href, label, icon]. Group labels are shell strings (data/strings.js); item labels are the app's own. */
   const NAV = [
     ['', [['home', '#/', 'Home', icons.home], ['practice', '#/practice', 'Practice', icons.target]]],
-    ['nav.learn', [['lessons', '#/lessons', 'Lessons', icons.lesson], ['kana', '#/kana', 'Kana trainer', icons.affix], ['reading', '#/reading', 'Reading', icons.read], ['speak', '#/speak', 'Speaking', icons.speak], ['dict', '#/dict', 'Dictionary', icons.book]]],
+    ['nav.learn', [['lessons', '#/lessons', 'Lessons', icons.lesson], ['kana', '#/kana', 'Kana trainer', icons.affix], ['kanji', '#/kanji', 'Kanji', icons.kanji], ['reading', '#/reading', 'Reading', icons.read], ['speak', '#/speak', 'Speaking', icons.speak], ['dict', '#/dict', 'Dictionary', icons.book]]],
     ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['placement', '#/placement', 'Placement test', icons.target]]],
     ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-mcases', '#/psych/mcases', 'Admission MSE practice', icons.eye], ['p-dcases', '#/psych/dcases', 'Discharge practice', icons.check]]],
     ['nav.tools', [['p-point', '#/psych/point', 'Point board', icons.speak], ['p-mood', '#/psych/mood', 'Mood episode checker', icons.chart], ['p-sud', '#/psych/sud', 'Substance use screen', icons.target], ['p-wd', '#/psych/withdrawal', 'Withdrawal and agitation', icons.spark], ['p-deesc', '#/psych/deesc', 'De-escalation', icons.speak], ['p-discharge', '#/psych/discharge', 'Discharge assessment', icons.check]]],
@@ -88,7 +90,7 @@
   App.NAV = NAV;
   const NAV_HREFS = NAV.reduce((a, g) => a.concat(g[1].map((i) => i[1])), []);
   // Deep pages light up their list page in the menu.
-  const PARENT = { '/psych/dcase': ['Discharge practice', '#/psych/dcases'], '/psych/mcase': ['Admission MSE practice', '#/psych/mcases'], '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null };
+  const PARENT = { '/psych/dcase': ['Discharge practice', '#/psych/dcases'], '/psych/mcase': ['Admission MSE practice', '#/psych/mcases'], '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null, '/kanji/k': null };
   function activeHref(path) {
     if (NAV_HREFS.includes('#' + path)) return '#' + path;
     const segs = path.split('/').filter(Boolean);
@@ -169,7 +171,7 @@
   const later = 'Coming in a later release';
   const BLURB = {
     dict: HAS.dict ? App.DICT.length + ' words with furigana; search in kanji, kana, romaji or English' : later, flash: 'Spaced repetition across every deck',
-    lessons: HAS.lessons ? (window.LESSONS || []).length + ' grammar lessons from zero, each with a quiz' : later, kana: 'Hiragana and katakana charts with sound, and a drill', reading: HAS.reading ? 'Graded passages with furigana' : later, speak: HAS.speak ? 'Dialogues with listening and recording' : later,
+    lessons: HAS.lessons ? (window.LESSONS || []).length + ' grammar lessons from zero, each with a quiz' : later, kana: 'Hiragana and katakana charts with sound, and a drill', kanji: (App.KANJI || []).length ? App.KANJI.length + ' kanji by level, with readings, example words and a drill' : later, reading: HAS.reading ? 'Graded passages with furigana' : later, speak: HAS.speak ? 'Dialogues with listening and recording' : later,
     verbs: 'Conjugation tables and drills for verbs and adjectives', particles: 'A guide to each particle and a fill-in drill',
     practice: 'Every drill on one page', psych: (window.PSYCH_SECTIONS || []).length + ' interview sections, polite and plain', 'p-cases': (window.PSYCH_CASES || []).length + ' branching interviews with feedback', 'p-interp': 'Idioms and indirect statements, and what to ask next', 'p-listen': 'Hear a patient reply, choose the meaning', 'p-mcases': 'Document an admission MSE from a simulated interview', 'p-dcases': 'Interview on the day of discharge and document it', 'p-mood': 'Depressive and manic episode criteria as questions', 'p-sud': 'DSM-5-TR criteria, severity, brief intervention', 'p-wd': 'Alcohol, cannabis and opioid withdrawal; agitation', 'p-deesc': 'A 12-step checklist with what to say', 'p-discharge': 'Field by field, with what to ask', 'p-point': 'The patient points to a reply; the phone speaks it',
     placement: HAS.placement ? '20 questions to find where to start' : later, progress: 'Streak, stats, backup', settings: 'Furigana, romaji, voice, theme', new: 'What changed in each version', about: 'Credits and disclaimers'
@@ -181,6 +183,7 @@
     el.innerHTML = '<h1>Practice</h1><p class="muted">Short drills you can finish in a few minutes. Scores feed your streak and XP.</p>' +
       '<h2>Reading and grammar</h2><div class="grid" data-norj>' +
       T('#/kana', 'Read', 'Kana trainer', 'Hiragana and katakana, a row at a time.') +
+      ((App.KANJI || []).length ? T('#/kanji?tab=drill', 'Read', 'Kanji drill', 'Meanings and readings, a group at a time.') : '') +
       T('#/particles', 'Grammar', 'Particle drill', 'Choose the particle the sentence needs.') +
       T('#/verbs', 'Grammar', 'Verb trainer', 'The polite, て, ない and other forms, by rule.') +
       T('#/verbs?tab=adj', 'Grammar', 'Adjective trainer', 'Present, negative and past of both adjective types.') +
@@ -208,7 +211,7 @@
   };
   routes.push([/^\/more$/, V.more, 'more']);
   routes.push([/^\/practice$/, V.practice, 'practice']);
-  const MORE_KEYS = ['dict', 'kana', 'verbs', 'particles', 'psych', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
+  const MORE_KEYS = ['dict', 'kana', 'kanji', 'verbs', 'particles', 'psych', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
   App.HAS = HAS;
 
   /* ---------- Header height -> --top (the search drops to a second row on phones) ---------- */

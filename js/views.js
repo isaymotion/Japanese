@@ -66,8 +66,9 @@
     const pins = (s.pins || []).slice().reverse();
     const recent = (s.recent || []).filter((r) => !/^#\/(more|settings|progress|new|about|search)/.test(r.hash) && !App.isPinned(r.hash)).slice(0, 4);
     const sec = (id) => PSYCH_SECTIONS.find((x) => x.id === id);
+    const kanaKnown0 = Object.keys(s.kana || {}).filter((k) => (s.kana[k] || 0) >= 3).length;
     // One quick drill a day, rotating so the Home screen nudges different skills (only drills that have content).
-    const quick = [['#/kana', 'Kana trainer', 'Ten kana, one minute'], ['#/particles', 'Particle drill', 'Ten sentences, one particle each'], ['#/verbs', 'Verb trainer', 'Ten verb forms'],
+    const quick = [['#/kana', 'Kana trainer', 'Ten kana, one minute'], (App.KANJI || []).length && kanaKnown0 >= 46 && ['#/kanji?tab=drill', 'Kanji drill', 'Ten kanji from your next group'], ['#/particles', 'Particle drill', 'Ten sentences, one particle each'], ['#/verbs', 'Verb trainer', 'Ten verb forms'],
       PSYCH_SECTIONS.length && ['#/psych/listen', 'Listening drill', 'Hear 10 replies, pick the meaning'], PSYCH_SECTIONS.length && ['#/flash/psych', 'Psychiatry flashcards', 'A quick review']].filter(Boolean);
     const kanaKnown = Object.keys(s.kana || {}).filter((k) => (s.kana[k] || 0) >= 3).length;
     const qd = quick.length ? quick[Math.floor(Date.now() / 864e5) % quick.length] : null;
@@ -168,7 +169,8 @@
       '<button class="btn sm" data-addcard="' + e.id + '">' + (S().srs[e.id] ? icons.check + ' In deck' : icons.plus + ' Add to flashcards') + '</button></div></div>' +
       '<div class="muted" data-noja>' + esc(JA.compact(JA.kana(e.tl))) + ' · ' + esc(JA.romaji(e.tl)) + '</div>' +
       '<div style="font-size:1.15rem">' + esc(e.en) + '</div><div class="row"><span class="pill">' + esc(App.POS[e.pos] || e.pos) + '</span><a class="pill" href="#/dict?cat=' + e.cat + '">' + esc(App.CATS[e.cat] || e.cat) + '</a>' + (e.lv ? '<a class="pill" href="#/dict?lv=' + e.lv + '">' + esc(e.lv) + '</a>' : '') + '</div>' +
-      (e.note ? '<div class="notice info">' + esc(e.note) + '</div>' : '') + '</div>' +
+      (e.note ? '<div class="notice info">' + esc(e.note) + '</div>' : '') +
+      (App.kanjiChips && App.kanjiChips(e.tl) ? '<div><div class="small muted" style="margin-bottom:6px">Kanji in this word</div>' + App.kanjiChips(e.tl) + '</div>' : '') + '</div>' +
       (conj ? '<h2 style="margin-top:18px">' + (isAdj ? 'Forms' : 'Conjugation') + '</h2><div class="card">' + conj + '</div><p class="small muted">Formed by rule from the dictionary form. Practise these in the <a href="#/verbs' + (isAdj ? '?tab=adj' : '') + '">' + (isAdj ? 'adjective' : 'verb') + ' trainer</a>.</p>' : '') +
       (phrases.length ? '<h2 style="margin-top:18px">In psychiatry phrases</h2><div class="card">' + phrases.slice(0, 8).map(([s, ph, i]) => '<div class="entry"><div class="w"><a href="#/psych/s/' + s.id + '?p=' + i + '">' + esc(ph.f) + '</a></div><div class="d muted">' + esc(ph.en) + '</div></div>').join('') + '</div>' : '');
   };
@@ -216,7 +218,7 @@
       if (!c) { i++; draw(); return; }
       const front = enFirst ? esc(c.en) : esc(c.tl), back = enFirst ? esc(c.tl) : esc(c.en);
       el.innerHTML = crumb([['Flashcards', '#/flash'], [deck.name]]) +
-        '<div class="spread" style="margin-bottom:8px"><span class="muted small">' + (i + 1) + ' / ' + queue.length + (S().srs[c.id] ? '' : ' · <span class="pill">new</span>') + '</span>' + App.sayBtn(c.tl) + '</div>' +
+        '<div class="spread" style="margin-bottom:8px"><span class="muted small">' + (i + 1) + ' / ' + queue.length + (S().srs[c.id] ? '' : ' · <span class="pill">new</span>') + '</span>' + App.sayBtn(c.say || c.tl) + '</div>' +
         '<div class="progress" style="margin-bottom:12px"><i style="width:' + Math.round((100 * i) / queue.length) + '%"></i></div>' +
         '<div class="card flash" id="fc" tabindex="0" role="button" aria-label="Flip card"><div>' +
         '<div class="front" style="' + (enFirst ? 'font-family:var(--font-ui);font-size:1.35rem' : '') + '">' + front + '</div>' +
@@ -224,7 +226,7 @@
         '</div></div>' +
         (flipped ? '<div class="grade" style="margin-top:12px">' + [['again', 'Again', 0], ['', 'Hard', 1], ['good', 'Good', 2], ['', 'Easy', 3]].map(([cls, t, g]) => '<button class="' + cls + '" data-g="' + g + '">' + t + '<small>' + App.nextLabel(c.id, g) + '</small></button>').join('') + '</div><p class="muted small" style="text-align:center">Keys: 1 Again · 2 Hard · 3 Good · 4 Easy</p>' : '');
       const fc = el.querySelector('#fc');
-      fc.onclick = (ev) => { if (ev.target.closest('.say')) return; if (!flipped) { flipped = true; if (!enFirst) App.speak(c.tl); draw(); } };
+      fc.onclick = (ev) => { if (ev.target.closest('.say')) return; if (!flipped) { flipped = true; if (!enFirst) App.speak(c.say || c.tl); draw(); } };
       el.querySelectorAll('[data-g]').forEach((b) => (b.onclick = () => grade(+b.dataset.g, c)));
     };
     const grade = (g, c) => { App.srsGrade(c.id, g); done++; if (g === 0) queue.push(c.id); i++; flipped = false; draw(); };
@@ -237,10 +239,17 @@
   };
 
   /* ---------- Lessons ---------- */
-  V.lessons = (el) => {
+  V.lessons = (el, p, q) => {
+    // Level filter (?lv=N5 …): with many lessons, one level at a time is easier to scan. The choice is remembered.
+    const lvs = LANG.levels.filter((lv) => LESSONS.some((l) => l.level === lv));
+    q = q || {};
+    const lv = q.lv === 'all' ? '' : lvs.includes(q.lv) ? q.lv : lvs.includes(S().lessonLevel) && !q.lv ? S().lessonLevel : '';
+    if ((S().lessonLevel || '') !== lv) { S().lessonLevel = lv; App.save(); }
     const units = {};
-    LESSONS.forEach((l) => (units[l.unit] = units[l.unit] || []).push(l));
+    LESSONS.filter((l) => !lv || l.level === lv).forEach((l) => (units[l.unit] = units[l.unit] || []).push(l));
+    const doneIn = (k) => LESSONS.filter((l) => (!k || l.level === k) && l.id in S().done.lessons).length + ' / ' + LESSONS.filter((l) => !k || l.level === k).length;
     el.innerHTML = '<h1>Lessons</h1>' + (LESSONS.length ? '<p class="muted">Short grammar lessons in order, from the writing system to the forms you need for an interview, each with a quiz. Tap the speaker on any example to hear it.</p>' : soon('The ' + LANG.name + ' lessons')) +
+      (lvs.length > 1 ? '<div class="row" style="flex-wrap:wrap;gap:8px;margin-bottom:4px"><div class="seg" role="group" aria-label="Level">' + [['', 'All']].concat(lvs.map((k) => [k, k])).map(([k, t]) => '<a role="button" href="#/lessons?lv=' + (k || 'all') + '" class="' + (lv === k ? 'on' : '') + '">' + esc(t) + '</a>').join('') + '</div><span class="pill">' + doneIn(lv) + ' done</span></div>' : '') +
       Object.entries(units).map(([u, ls]) => '<h2>' + esc(u) + '</h2><div class="grid">' + ls.map((l) => {
         const sc = S().done.lessons[l.id];
         return '<a class="tile" href="#/lessons/' + l.id + '"><div class="row">' + lvPill(l.level) + (sc != null ? '<span class="pill good">' + icons.check.replace('<svg', '<svg width="12" height="12"') + ' ' + sc + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(l.title) + '</h3><p>' + esc(l.summary) + '</p></a>';
@@ -254,7 +263,7 @@
       (l.draft ? '<div class="notice warn" style="margin-bottom:12px">Draft for review: the ' + esc(LANG.name) + ' lines in this lesson are practice wording pending review by a native Japanese speaker.</div>' : '') +
       '<div class="lesson-body">' + l.body.replace(/<table>/g, '<div class="tablewrap"><table>').replace(/<\/table>/g, '</table></div>') + '</div>' +
       '<h2 style="margin-top:20px">Check yourself</h2><div id="lq"></div>' +
-      '<div class="spread" style="margin-top:16px">' + (prev ? '<a class="btn" href="#/lessons/' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/lessons/' + next.id + '">' + esc(next.title) + ' →</a>' : '') + '</div>';
+      '<div class="spread prevnext" style="margin-top:16px">' + (prev ? '<a class="btn" href="#/lessons/' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/lessons/' + next.id + '">' + esc(next.title) + ' →</a>' : '') + '</div>';
     // speak buttons for examples
     el.querySelectorAll('.lesson-body .ex').forEach((ex) => { const b = ex.querySelector('b'); if (b) { ex.style.gridTemplateColumns = 'minmax(0,1fr) auto'; const btn = document.createElement('div'); btn.innerHTML = App.sayBtn(b.textContent); btn.style.gridRow = '1 / span 2'; btn.style.gridColumn = '2'; ex.appendChild(btn.firstChild); } });
     App.runQuiz(el.querySelector('#lq'), l.quiz.map(([q, opts, a, exp]) => ({ q, opts, a, exp })), {
@@ -418,7 +427,7 @@
         .map(([b, t]) => '<div class="stat"><b>' + esc(b) + '</b><span>' + t + '</span></div>').join('') + '</div>' +
       '<h2 style="margin-top:18px">Last 12 weeks</h2><div class="card"><div style="display:grid;grid-template-columns:repeat(21,1fr);gap:3px;max-width:520px">' + cal + '</div></div>' +
       '<h2 style="margin-top:18px">Completion</h2><div class="card stack">' +
-      [['Lessons', Object.keys(s.done.lessons).length, LESSONS.length], ['Kana learned (hiragana and katakana)', Object.keys(s.kana || {}).filter((k) => s.kana[k] >= 3).length, (window.KANA ? KANA.all.length : 0)], ['Reading passages', Object.keys(s.done.reading).length, READING.length], ['Dialogues', Object.keys(s.done.dialogues).length, DIALOGUES.length + PSYCH_CASES.length], ['Psychiatry sections opened', secSeen, sec]]
+      [['Lessons', Object.keys(s.done.lessons).length, LESSONS.length], ['Kana learned (hiragana and katakana)', Object.keys(s.kana || {}).filter((k) => s.kana[k] >= 3).length, (window.KANA ? KANA.all.length : 0)], ['Kanji learned', App.kanjiLearned ? App.kanjiLearned() : 0, (App.KANJI || []).length], ['Reading passages', Object.keys(s.done.reading).length, READING.length], ['Dialogues', Object.keys(s.done.dialogues).length, DIALOGUES.length + PSYCH_CASES.length], ['Psychiatry sections opened', secSeen, sec]]
         .map(([t, a, b]) => '<div><div class="spread small"><span>' + t + '</span><span class="muted">' + a + ' / ' + b + '</span></div><div class="progress"><i style="width:' + Math.round((100 * a) / Math.max(1, b)) + '%"></i></div></div>').join('') + '</div>' +
       '<h2 style="margin-top:18px">Backup</h2><div class="card stack"><p style="margin:0">Progress is saved on this device. Export a backup file to move it to another phone or browser. The same buttons are in the footer of every page.</p>' +
       '<div class="row"><button class="btn" id="exp">Export backup</button><label class="btn" for="imp">Import backup</label><input type="file" id="imp" class="sr-only" accept="application/json,.json"></div>' +

@@ -69,3 +69,32 @@ so readings matter more than anything else in this app.
   to an adult patient (です/ます, soft requests, 〜ていただけますか, 〜はありますか). They are not translations of validated instruments.
 - Do not copy sentences from textbooks (Genki, Minna no Nihongo, Tae Kim, etc.). Write your own examples.
 - Do not touch files other than the ones you were asked to write.
+
+## Kanji files (`js/data/kanji-*.js`)
+
+Each file adds one block to `window.KANJI_RAW`. One kanji per line, 7 or 8 fields separated by ` | `:
+
+```
+window.KANJI_RAW = window.KANJI_RAW || [];
+KANJI_RAW.push({ level: 'N5', text: `
+食 | eat, food | ショク | た.べる, く.う | 9 | Food and things | 食《た》べる=to eat; 食事《しょくじ》=meal; 食《た》べ物《もの》=food | optional note
+`});
+```
+
+1. **Kanji**: the single character, alone.
+2. **Meanings**: one to three short English keywords, most useful first.
+3. **On readings**: katakana, separated by `・`. Only readings a learner at this level will meet; `-` if none.
+4. **Kun readings**: hiragana, separated by `, `. A dot separates the part written with the kanji from the okurigana
+   (`た.べる`, `おお.きい`, `ひと`). Only common readings; `-` if none.
+5. **Stroke count**: a number.
+6. **Group**: one of the group names given in your brief, spelled exactly.
+7. **Words**: three example words (two to four allowed), separated by `; `, each `word=gloss`. Words are in the normal
+   notation (furigana on every kanji, the reading that is right for that word). Every word must contain the kanji of the line.
+   Choose common words at or below the level of the kanji, and prefer words a clinician meets (and words already in the
+   app's dictionary, `js/data/dict-*.js`). Show different readings of the kanji across the words where they are common.
+   A gloss is short plain English and contains no `;`, `=` or `|`.
+8. **Note** (optional): one short factual sentence a learner needs, such as a look-alike kanji (`Do not confuse with 入《にゅう》 (enter).`),
+   an irregular reading, or how the kanji is used clinically. Any kanji cited in the note needs furigana. Leave it out if there is nothing useful to say.
+
+Level is `N5`, `N4`, `N3` or `C` (clinical set). JLPT levels for kanji are approximate: there is no official list.
+`node tools/check-ja.js js/data/<file>.js` validates every field.

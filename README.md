@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.3.0** (2026-11-13): the learn track, the full interview, case simulations and the clinical tools. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.4.0** (2026-11-13): the learn track with kanji study, the full interview, case simulations and the clinical tools. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -24,8 +24,9 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 
 | Section | What it does |
 |---|---|
-| **Lessons** | 37 grammar lessons with quizzes in ten units: Foundations (scripts, sounds, hiragana, katakana), First sentences, Numbers and time, Verbs, Adjectives, The te-form, Plain forms, Saying more, Politeness and culture, Clinical Japanese. |
+| **Lessons** | 38 grammar lessons with quizzes in ten units, with a level filter: Foundations (scripts, sounds, hiragana, katakana, how kanji work), First sentences, Numbers and time, Verbs, Adjectives, The te-form, Plain forms, Saying more, Politeness and culture, Clinical Japanese. |
 | **Kana trainer** | Hiragana and katakana charts with sound (basic 46, voiced, combinations) and a drill a row at a time: see the kana and choose the sound, see the sound and choose the kana, or listen and choose. Route `#/kana`. |
+| **Kanji** | 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3, and a clinical set of 106 used in the psychiatry phrases), grouped by theme. Each kanji has a page with meanings, on and kun readings, stroke count, example words with furigana and sound, and more words from the dictionary. A drill a group at a time in four modes (kanji to meaning, meaning to kanji, word to reading, word to meaning), flashcard decks by level, and kanji links on every dictionary word page. Route `#/kanji`. JLPT levels for kanji are approximate. |
 | **Verb and adjective trainer** | 100 verbs and 60 adjectives. Each has a full table of forms made by rule (ます, ません, ました, て, ない, た, potential, volitional, たら, ば, passive, causative; adjective present, negative, past, て, adverb) and example sentences. Three drills: choose the form, name the form, type the form (kana or romaji). Route `#/verbs`. |
 | **Particle drill** | A guide to 18 particles with examples, and 130 fill-in sentences. Route `#/particles`. |
 | **Dictionary** | About 1,600 words with furigana. Search in kanji, kana, romaji or English; filter by topic, JLPT level or kana row. Verb and adjective entries show their conjugation. |
@@ -42,7 +43,7 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Listening drill** | Hear a patient reply, choose its meaning from four, then see the Japanese. |
 | **You** | Streaks, XP, progress, backup export / import with undo, settings, What's New, About. |
 
-Not in this version: printable handouts and the MSE sheet (the PDF generator needs a Japanese font), the fifth discharge practice case, a kanji study module, and a recorded audio pack.
+Not in this version: printable handouts and the MSE sheet (the PDF generator needs a Japanese font), the fifth discharge practice case, and a recorded audio pack.
 
 ## Audio
 
@@ -68,6 +69,7 @@ js/lang.js              language pack (voices, register labels, levels)
 js/core.js              storage, dictionary, search, spaced repetition, speech
 js/views.js             home, dictionary, flashcards, lessons, reading, speaking, placement, settings
 js/kana.js              kana trainer
+js/kanji.js             kanji chart, kanji pages and kanji drill (data: js/data/kanji-*.js)
 js/grammar.js           verb / adjective trainer and particle drill
 js/psych-views.js       psychiatry hub and phrase sections
 js/point-listen.js      point board and listening drill

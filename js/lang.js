@@ -34,7 +34,7 @@ window.LANG = {
   letters: 'あ か さ た な は ま や ら わ'.split(' '),
   searchExample: 'e.g., ねむい, 眠い, nemui, sleepy',
   // Lesson and placement levels, easiest first.
-  levels: ['Starter', 'N5', 'N4'],
+  levels: ['Starter', 'N5', 'N4', 'N3'],
   placementLevels: [['S', 'Starter (kana and greetings)'], ['N5a', 'N5, first half'], ['N5b', 'N5, second half'], ['N4', 'N4']],
 
   // Display order of the psychiatry sections (the same order as Usap Tayo). Data files may load in any order.
