@@ -3,6 +3,13 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.8.1', date: '2026-11-13', title: 'Japanese drinks in the alcohol notes',
+    items: [
+      { type: 'content', text: 'Alcohol: the drink-counting note (substance use screen, AUDIT-C, and the printed MSE sheet) now gives Japanese drinks. One standard drink of 14 g is about 120 ml of sake, so one gō (180 ml) is about 1.5; 70 ml of shōchū; 45 ml of whisky, so a single highball is about 0.7 and a double about 1.4; 250 ml of 7% chūhai; 150 ml of umeshu or wine; 350 ml of beer.' },
+      { type: 'content', text: 'The questions about what a patient drinks now name sake, whisky, highballs and umeshu as well as beer, chūhai, shōchū and wine, and the withdrawal question asks for sake in gō (何合).' }
+    ]
+  },
+  {
     version: '0.8.0', date: '2026-11-13', title: 'More reading and a bigger dictionary',
     items: [
       { type: 'content', text: 'The dictionary has more than doubled, from 1,600 to about 3,440 words. New: every example word on the kanji pages now has its own dictionary entry (about 1,130 words), about 350 N3 verbs, adjectives, adverbs, linking words and sound-symbolic words, about 150 N3 nouns, 72 N3 grammar patterns with an example each, and about 130 words for the ward and for reading charts (for example 申し送り, 所見, 訴え, 検温, 付き添い, 不穏, 独語).' },
