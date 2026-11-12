@@ -4,6 +4,12 @@
 (function () {
   const App = (window.App = {});
 
+  // Psychiatry sections are split over several data files; show them in the shared Usap Tayo order (LANG.sectionOrder).
+  if (window.PSYCH_SECTIONS && window.LANG && LANG.sectionOrder) {
+    const at = (id) => { const i = LANG.sectionOrder.indexOf(id); return i < 0 ? 999 : i; };
+    window.PSYCH_SECTIONS = PSYCH_SECTIONS.map((s, i) => [s, i]).sort((a, b) => at(a[0].id) - at(b[0].id) || a[1] - b[1]).map((x) => x[0]);
+  }
+
   /* ---------- Utilities ---------- */
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const norm = (s) => JA.compact(JA.plain(String(s || ''))).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').normalize('NFC').replace(/[’']/g, "'").trim();

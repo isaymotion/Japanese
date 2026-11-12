@@ -19,7 +19,7 @@
   const KANJI = '㐀-䶿一-鿿豈-﫿々〆ヶ';
   const RUBY_SRC = '(?:｜([^《》｜\\s]+)|([' + KANJI + ']+))《([^《》]*)》';
   const rubyRe = () => new RegExp(RUBY_SRC, 'g');
-  const JCH = '぀-ヿ㐀-鿿豈-﫿　-〿！-｠￠-￦';
+  const JCH = '぀-ヿ㐀-鿿豈-﫿　-〿！-｠￠-￦…‥—―';   // kana, kanji, Japanese punctuation, the ellipsis and dashes
   const UNIT = '(?:｜[^《》｜\\s]+《[^《》]*》|[' + JCH + '])';
   const RUN_SRC = UNIT + '+(?: +' + UNIT + '+)*';
   const HAS_JA = /[぀-ヿ㐀-鿿《]/;
@@ -42,7 +42,7 @@
   Object.keys(Y).forEach((k) => { H[k + 'ゃ'] = Y[k] + 'a'; H[k + 'ゅ'] = Y[k] + 'u'; H[k + 'ょ'] = Y[k] + 'o'; });
   Object.assign(H, { しぇ: 'she', じぇ: 'je', ちぇ: 'che', ふぁ: 'fa', ふぃ: 'fi', ふぇ: 'fe', ふぉ: 'fo', てぃ: 'ti', でぃ: 'di', とぅ: 'tu', どぅ: 'du', でゅ: 'dyu', てゅ: 'tyu',
     うぃ: 'wi', うぇ: 'we', うぉ: 'wo', ゔぁ: 'va', ゔぃ: 'vi', ゔぇ: 've', ゔぉ: 'vo', つぁ: 'tsa', つぇ: 'tse', つぉ: 'tso', いぇ: 'ye', くぁ: 'kwa', ぐぁ: 'gwa' });
-  const PUNCT = { '。': '.', '、': ',', '？': '?', '！': '!', '「': '"', '」': '"', '『': '"', '』': '"', '（': '(', '）': ')', '・': ' ', '：': ':', '；': ';', '〜': '~', '～': '~', '　': ' ', '，': ',', '．': '.', '＿': '_', '…': '…', '／': '/' };
+  const PUNCT = { '。': '.', '、': ',', '？': '?', '！': '!', '「': '"', '」': '"', '『': '"', '』': '"', '（': '(', '）': ')', '・': ' ', '：': ':', '；': ';', '〜': '~', '～': '~', '　': ' ', '，': ',', '．': '.', '＿': '_', '…': '…', '‥': '…', '―': '-', '—': '-', '／': '/' };
   const MACRON = { a: 'ā', i: 'ī', u: 'ū', e: 'ē', o: 'ō' };
   const toHira = (s) => s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
   function kanaToRomaji(k) {
@@ -69,7 +69,7 @@
   // Words that end in the particle は / へ, which is said wa / e.
   const WORDS = { は: 'wa', へ: 'e', を: 'o', では: 'dewa', には: 'niwa', とは: 'towa', のは: 'nowa', へは: 'ewa', からは: 'karawa', までは: 'madewa', よりは: 'yoriwa', だけは: 'dakewa',
     こんにちは: 'konnichiwa', こんばんは: 'konbanwa', それでは: 'soredewa', または: 'matawa', あるいは: 'aruiwa', もしくは: 'moshikuwa', へも: 'emo', への: 'eno', じつは: 'jitsuwa', ときは: 'tokiwa' };
-  const EDGE = '[　-〿！-／：-＠［-｀｛-｠]';
+  const EDGE = '[　-〿！-／：-＠［-｀｛-｠…‥—―]';
   function wordRomaji(tok) {
     const m = tok.match(new RegExp('^(' + EDGE + '*)([\\s\\S]*?)(' + EDGE + '*)$')) || [0, '', tok, ''];
     const pre = m[1], core = m[2], post = m[3];
@@ -87,7 +87,7 @@
   /* ---------- Rendering ---------- */
   const SKIP = 'script,style,textarea,input,select,option,title,ruby,.rj,.ja,[data-noja],[contenteditable]';
   const PLAIN_ONLY = 'option,select,title';
-  const BLOCKISH = /[。？！…]$/;
+  const BLOCKISH = /[。？！…」]$/;
   function jaSpan(run) {
     const span = document.createElement('span');
     span.className = 'ja'; span.lang = 'ja';

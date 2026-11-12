@@ -2,12 +2,12 @@
    All isaymotion apps share one origin (isaymotion.github.io), so this worker only ever deletes caches that
    start with its own PREFIX. 'hanashimasho-audio' holds the recorded clips and is kept across versions. */
 const PREFIX = 'hanashimasho-';
-const VERSION = PREFIX + '0.1.0';
+const VERSION = PREFIX + '0.2.0';
 const KEEP = ['hanashimasho-audio'];
 const FILES = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css', 'data/app-meta.js', 'data/changelog.js',
   'data/hospital.js', 'data/strings.js', 'js/ja.js', 'js/conjugate.js', 'js/data/psych-phrases-1.js', 'js/data/psych-phrases-2.js',
-  'js/data/psych-phrases-3.js', 'js/data/psych-answers.js', 'js/data/dict-core.js', 'js/data/dict-everyday.js', 'js/data/dict-clinical.js', 'js/data/dict-more.js', 'js/data/lessons-1.js',
+  'js/data/psych-phrases-3.js', 'js/data/psych-phrases-4.js', 'js/data/psych-phrases-5.js', 'js/data/psych-phrases-6.js', 'js/data/psych-answers.js', 'js/data/psych-answers-2.js', 'js/data/psych-cases-1.js', 'js/data/psych-cases-2.js', 'js/data/psych-shea.js', 'js/data/dict-core.js', 'js/data/dict-everyday.js', 'js/data/dict-clinical.js', 'js/data/dict-more.js', 'js/data/lessons-1.js',
   'js/data/lessons-2.js', 'js/data/lessons-3.js', 'js/data/reading.js', 'js/data/dialogues.js', 'js/data/meta.js', 'js/data/verbs.js',
   'js/data/particles.js', 'js/audio-key.js', 'js/lang.js', 'js/core.js', 'js/views.js', 'js/psych-views.js',
   'js/point-listen.js', 'js/kana.js', 'js/grammar.js', 'js/app.js', 'icons/icon-192.png', 'icons/icon-512.png',
