@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.6.0)
+# Hanashimashō — handoff (13 Nov 2026, after version 0.8.0)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -26,6 +26,7 @@ js/ja.js          furigana + romaji + word spacing (MutationObserver renders the
 js/conjugate.js   verb/adjective forms by rule       js/lang.js  language pack (LANG.sectionOrder = display order)
 js/core.js views.js app.js psych-views.js point-listen.js        shared engine (from Hablemos)
 js/kana.js grammar.js                                            kana trainer; verb/adjective trainer, particle drill
+js/handout.js mse-sheet.js   printable handout builder (#/psych/handout) and MSE interviewer sheet (#/psych/mse-sheet); data psych-flow.js, psych-mse-sheet.js. No PDF library: App.printWith(size, margin) sets @page and calls window.print(); App.printPage() prints a lesson, reading or the kanji list (html.pr-page print rules)
 js/kanji.js       kanji chart (#/kanji?lv=N5|N4|N3|C), kanji page (#/kanji/k/字), four-mode drill (?tab=drill); parser, decks and search entries are in core.js (App.KANJI, ids "k:字", state.kanji)
 js/mood.js sud.js withdrawal.js deesc.js discharge.js mse-practice.js discharge-practice.js   clinical tools
 js/data/*.js      all content        tools/AUTHORING.md  tools/check-ja.js
@@ -33,6 +34,8 @@ js/data/*.js      all content        tools/AUTHORING.md  tools/check-ja.js
 **Japanese notation (every Japanese string):** reading in 《》 after each kanji run, one space between words, particles separate, space after 、。 inside a string, no romaji: `私《わたし》 は 医者《いしゃ》 です。` Non-kanji base: `｜3時《さんじ》`. Blank: `＿`. Full rules: `tools/AUTHORING.md`.
 - Dictionary `dict-*.js`: `食《た》べる | to eat | v1 | verbs | N5 | note` (pos: n v1 v5 vs vi ai an adv pron part conj interj num ctr q pre suf phr).
 - Lessons `lessons-1..11.js` + `lessons-kanji.js` (script order = lesson order; 4–7 are N4, 8–11 are N3): `{ id, level:'Starter'|'N5'|'N4'|'N3', unit, title, summary, draft:true, body:HTML, quiz:[[q,[opts],idx,why]] }`; examples `<div class="ex"><b>JA</b><span>EN</span></div>`.
+- Dictionary ids are stable: the four original files are frozen (no added or removed lines), every later file (`dict-kanji-1..5`, `dict-n3-1`, `dict-n3-2`) is append only (AUTHORING.md, "Dictionary files"). `check-ja.js` validates part of speech, category and level.
+- Reading `reading.js`, `reading-2.js`, `reading-3.js` all push to `READING`.
 - Kanji `kanji-n5|n4|n3a|n3b|n3c|clinical.js`: one line per kanji, `字 | meanings | on | kun (dot before okurigana) | strokes | group | word=gloss; … | note`, pushed to `KANJI_RAW` with `level: 'N5'|'N4'|'N3'|'C'` (AUTHORING.md, "Kanji files"; `check-ja.js` validates every field and rejects duplicates).
 - `verbs.js`: `JA_VERBS {d,g:'ru'|'u'|'suru'|'kuru',en,lv,clin?,ex}`, `JA_ADJ {d,t:'i'|'na',…}`. `particles.js`: `JA_PARTICLES {guide, items:{s,a,opts,en,why,lv}}`.
 - `reading.js`, `dialogues.js`, `meta.js` (PLACEMENT levels S, N5a, N5b, N4).
@@ -42,7 +45,7 @@ js/data/*.js      all content        tools/AUTHORING.md  tools/check-ja.js
 
 ## 4. Per-unit recipe
 1. `git clone` main; clone Hablemos beside it if porting.
-2. Writers (subagents): give each ONE file, the path to `tools/AUTHORING.md`, the exact shape, and the check commands. Ready briefs are in `write/` on this branch: `LESSON-BRIEF.md` + `LESSON-REVIEW.md`, `KANJI-BRIEF.md` + `KANJI-REVIEW.md` (they use the paths /home/claude/japanese and /home/claude/work; copy `write/` to /home/claude/work or edit the paths). Pass the writer's "unsure" list to the reviewer. For a Hablemos port use `port/TOOLS-BRIEF.md` + `port/cmp-struct.js` (copy the source file, translate only target-language strings in place).
+2. Writers (subagents): give each ONE file, the path to `tools/AUTHORING.md`, the exact shape, and the check commands. Ready briefs are in `write/` on this branch: `LESSON-BRIEF.md` + `LESSON-REVIEW.md`, `KANJI-BRIEF.md` + `KANJI-REVIEW.md`, `READING-BRIEF.md` + `READING-REVIEW.md`, `DICT-BRIEF.md` (+ `DICT-KW-TASK.md` for turning kanji example words into entries) + `DICT-REVIEW.md`, with `dictdup.js` (duplicates) and `kwords.js` (kanji words missing from the dictionary) (they use the paths /home/claude/japanese and /home/claude/work; copy `write/` to /home/claude/work or edit the paths). Pass the writer's "unsure" list to the reviewer. For a Hablemos port use `port/TOOLS-BRIEF.md` + `port/cmp-struct.js` (copy the source file, translate only target-language strings in place).
 3. Register new files in `index.html` (data before `js/audio-key.js`; modules after `js/point-listen.js`) and in the `FILES` list of `sw.js`; new section ids go in `LANG.sectionOrder` (`js/lang.js`); routes, `NAV`, `BLURB` in `js/app.js`.
 4. Independent reviewers (fresh subagents, never the writers): fix readings, grammar, naturalness, score/answer keys; remove unverifiable claims.
 5. Bump version (three places), add a changelog entry, update README. `python3 write/release.py <repo> <version> <date> <title> <items.json>` does the three places and the changelog entry; `python3 write/reg.py <repo> <after-n> <n>…` registers lessons-N files in index.html and sw.js.
@@ -56,10 +59,12 @@ for f in js/*.js js/data/*.js data/*.js sw.js; do node --check $f; done
 node tools/check-ja.js                                  # must end "0 error(s)"; ~12 known warnings (long clinical terms) are fine
 python3 -m http.server 8765 &  ;  mkdir -p /tmp/qa-out  # pip install playwright if missing
 bash ../devtools/qa/all.sh          # everything below in one go, one line per check; details in /tmp/qa-out/*.txt
-python3 ../devtools/qa/routes.py   # 42 lines "rawNotation 0 | overflow False", "errors 0"
+python3 ../devtools/qa/routes.py   # 46 lines "rawNotation 0 | overflow False", "errors 0"
 python3 ../devtools/qa/psych.py    # "39 707 7 32 27 314" style counts, "errors []"
 python3 ../devtools/qa/tools.py ; python3 ../devtools/qa/clickthrough.py ; python3 ../devtools/qa/flows.py
 python3 ../devtools/qa/kanji.py    # chart, every kanji page, 4 drill modes, cards, search: "errors []", "pages with problems []"
+python3 ../devtools/qa/handout.py  # every handout preset and the MSE sheet printed to PDF in /tmp/qa-out (page counts): "errors []"
+python3 ../devtools/qa/printpages.py  # lesson, reading and kanji list printing; reading filter
 python3 ../devtools/qa/lessons.py  # every lesson page at phone width, links, quiz keys: "bad []", "dead links []", "errors []"
 SK=$(find /root/.claude/skills -maxdepth 4 -type d -name isaymotion-app-design | head -1)
 python3 $SK/scripts/check_design.py . --browser   # "PASS — design contract met"; then rm -rf _qa
@@ -68,28 +73,30 @@ python3 $SK/scripts/check_sw.py .                  # PASS
 node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 ```
 
-## 6. Status (version 0.6.0, pushed)
+## 6. Status (version 0.8.0, pushed)
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
-| Lessons | 86 in 26 units, with quizzes and a level filter: Starter 6, N5 21, N4 35, N3 24 |
-| Kanji study (0.4.0) | 719 kanji: N5 80, N4 166, N3 367, clinical 106; chart, page per kanji, 4-mode drill, decks, word-page chips, search |
+| Lessons | 86 in 26 units, with quizzes, level filter and Print: Starter 6, N5 21, N4 35, N3 24 |
+| Kanji study | 719 kanji: N5 80, N4 166, N3 367, clinical 106; chart, page per kanji, 4-mode drill, printable list, decks |
 | Kana trainer; verb/adjective trainer; particle drill | 100 verbs, 60 adjectives; 18 particles, 130 items |
-| Dictionary | ~1,600 words, 4 files |
-| Reading / dialogues / placement | 10 / 10 / 20 questions (placement still stops at N4) |
+| Dictionary | 3,437 words in 11 files (N5 ~700, N4 ~700, N3 ~1,560, clinical ~480) |
+| Reading / dialogues / placement | 24 (Starter 2, N5 4, N4 7, N3 11) / 10 / 20 questions (placement still stops at N4) |
 | Psychiatry sections | 39 sections, 707 phrases (27 interview + 12 tool sections) |
 | Replies / cases / interpretation | 314 / 7 / 32 |
 | Clinical tools | mood, substance use, withdrawal and agitation, de-escalation, discharge |
 | Practice cases | 2 admission MSE, 4 discharge |
-Versions this session: 0.4.0 kanji module + "How kanji work" lesson; 0.5.0 24 N4 lessons (lessons-4..7) + fixes to the lesson example layout and title wrapping on phones; 0.6.0 24 N3 lessons (lessons-8..11). Every new file was written by one subagent and corrected by a different one.
-Not done: printable handouts + MSE sheet (`handout.js`, `mse-sheet.js`, `psych-mse-sheet.js`, `psych-flow.js` in Hablemos; pdfmake needs a Japanese font, or use print CSS), fifth discharge case (opioid, deliberately skipped), recorded audio pack (GitHub Action in Hablemos; AudioKey must hash `JA.speak(text)`), Japanese shell language (`data/strings.js` `tl: {}` is empty).
+| Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
+Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary.
+Not done: fifth discharge case (opioid, deliberately skipped), recorded audio pack (GitHub Action in Hablemos; AudioKey must hash `JA.speak(text)`), Japanese shell language (`data/strings.js` `tl: {}` is empty), N3 placement questions, N3 dialogues, stroke-order diagrams.
 
 ## 7. Next steps
-Dr. Navarro chose the kanji module, then N4 and N3 lessons (done). Ask her which is next:
-1. Handouts via print CSS (no PDF font needed).
-2. Audio pack.
-3. Content that would match the new levels: N3 placement questions (`meta.js` PLACEMENT stops at N4), N3 reading passages and dialogues, N3 words in the dictionary (kanji example words that are not in the dictionary have no word page), more verbs for the trainer, stroke-order diagrams for kanji (none yet; would need a licensed data set such as KanjiVG, CC BY-SA).
-Also pending her answers on the clinical-content list in `claude/hanashimasho-build-notes.md` (US opioid practice, CMS wording, reviewer-changed chart details, two source mismatches, whether to restore the opioid case).
+Ask Dr. Navarro which is next:
+1. Audio pack (the last item of the original list).
+2. N3 placement questions (`meta.js` PLACEMENT stops at N4) and N3 dialogues (`dialogues.js` has 10).
+3. More verbs and adjectives in the trainer (`verbs.js` has 100 / 60; the dictionary now has several hundred).
+4. Stroke-order diagrams (needs a licensed data set such as KanjiVG, CC BY-SA).
+Pending her answers: the clinical-content list in `claude/hanashimasho-build-notes.md`, now including the changes made on the MSE sheet in 0.7.0.
 
 ## 8. Pitfalls learned
 - Opus subagents hit a 5-hour usage limit twice with 6–8 running at once. Resume them with SendMessage after the reset; their files are saved. Run fewer at a time.
@@ -105,6 +112,10 @@ Also pending her answers on the clinical-content list in `claude/hanashimasho-bu
 - `.btn` and `h1.has-pin` are flex containers: Japanese text becomes several spans, so anything with a long Japanese title inside one must be wrapped in a single span or set to `display:block` (fixed for lesson titles and previous/next buttons in 0.5.0). `lessons.py` checks every lesson page for overflow; `routes.py` only samples.
 - Lesson `.ex` blocks are a grid with the speaker button in column 2; `b` and `span` are pinned to column 1 in CSS.
 - A kanji's JLPT level is approximate; the lists came from the kanji-data reference set (N5 80 incl. one extra, N4 166, N3 367) and the clinical set is the most frequent beyond-N3 kanji in the psych data files.
+- Printing: Chromium ignores `@page { size: A6 }`, so A6 is written as `105mm 148mm`. `.btn`-like flex rules also bit `.ms-obs span` (every furigana span became a block); nested spans from ja.js need `display:inline` wherever a rule styles `span` generically. The MSE sheet prints in flowing CSS columns (about 8 A4 pages with furigana), not the fixed 4 pages of the Spanish sheet.
+- Background servers and other processes die between turns: restart `http.server` before testing. Do not `git stash` while subagents are writing files.
+- `sed` with multi-byte bracket sets corrupts UTF-8 in this sandbox's locale; use Python or node for text with Japanese.
+- Sonnet did the mechanical dictionary conversion (5 files, ~1 minute each) well; Opus reviewed. Six Opus agents at once ran without hitting the usage limit this time.
 - A long session can be restarted mid-task: check `git status` in /home/claude/japanese for uncommitted work before redoing anything.
 
 ## 9. Files to re-attach

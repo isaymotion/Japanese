@@ -10,6 +10,6 @@ for s in $(grep -o 'src="[^"]*\.js"' index.html | cut -d'"' -f2); do [ -f $s ] |
 for f in js/data/*.js js/*.js; do grep -q "\"$f\"" index.html || echo "NOT IN INDEX $f"; done
 python3 $Q/routes.py > /tmp/qa-out/routes.txt 2>&1; echo "routes: $(grep -c 'rawNotation 0 | overflow False' /tmp/qa-out/routes.txt) clean, $(grep -c 'overflow True\|rawNotation [1-9]' /tmp/qa-out/routes.txt) bad, $(tail -1 /tmp/qa-out/routes.txt)"
 python3 $Q/psych.py > /tmp/qa-out/psych.txt 2>&1; echo "psych: $(grep -E '^[0-9]+ [0-9]+ ' /tmp/qa-out/psych.txt | head -1) $(tail -1 /tmp/qa-out/psych.txt)"
-for t in tools clickthrough flows kanji lessons; do [ -f $Q/$t.py ] && { python3 $Q/$t.py > /tmp/qa-out/$t.txt 2>&1; echo "$t: $(grep -c 'overflow True\|ov True' /tmp/qa-out/$t.txt) overflow, $(grep 'errors' /tmp/qa-out/$t.txt | tr '\n' ' ' | cut -c1-200)"; }; done
+for t in tools clickthrough flows kanji lessons handout printpages; do [ -f $Q/$t.py ] && { python3 $Q/$t.py > /tmp/qa-out/$t.txt 2>&1; echo "$t: $(grep -c 'overflow True\|ov True' /tmp/qa-out/$t.txt) overflow, $(grep 'errors' /tmp/qa-out/$t.txt | tr '\n' ' ' | cut -c1-200)"; }; done
 python3 $SK/scripts/check_design.py . --browser > /tmp/qa-out/design.txt 2>&1; echo "design: $(tail -1 /tmp/qa-out/design.txt)"; rm -rf _qa
 echo "sw: $(python3 $SK/scripts/check_sw.py . 2>&1 | tail -1)"
