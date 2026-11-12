@@ -1,0 +1,37 @@
+{
+  "name": "Hanashimashō: Japanese for Clinicians",
+  "short_name": "Hanashimashō",
+  "description": "Learn Japanese from zero: grammar, vocabulary and the psychiatric interview, with furigana on every kanji. App created by Isabella Navarro, MD.",
+  "start_url": "./#/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#110C18",
+  "theme_color": "#160E20",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "lang": "en"
+}
