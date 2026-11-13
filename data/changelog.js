@@ -3,6 +3,15 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.9.0', date: '2026-11-13', title: 'Recorded Japanese voice',
+    items: [
+      { type: 'feature', text: 'Recorded voice. The app can now play recorded clips of a natural Japanese voice (Nanami) instead of the voice on your device: about 10,100 clips covering every dictionary word, lesson example, reading, dialogue, kana, kanji word, every form of the 100 verbs and 60 adjectives in the trainer, and every interview phrase (polite and plain), patient reply, case and clinical-tool line. The clips are recorded on GitHub after this release; until they arrive, and for anything without a clip, the app uses the device voice as before.' },
+      { type: 'feature', text: 'Settings → Voice shows whether the recorded voice is installed, lets you switch between Recorded Japanese voice and Device voice, and has Save all audio for offline use (about 150 MB). Without saving, each clip is kept after the first time you play it.' },
+      { type: 'update', text: 'The recorded voice follows the furigana. Where a kanji can be read in more than one way (何, 七時, 十分, 方), the voice is given that word in kana, so what you hear matches the reading you see. Words written the same but read differently (方 as かた or ほう, 一日 as いちにち or ついたち) each have their own clip.' },
+      { type: 'correction', text: 'Practice cases: when a simulated patient has no specific answer, the default reply is now Japanese (はい、先生。) instead of a leftover Spanish line; a Spanish example in the goal box of the substance use screen is now English.' }
+    ]
+  },
+  {
     version: '0.8.1', date: '2026-11-13', title: 'Japanese drinks in the alcohol notes',
     items: [
       { type: 'content', text: 'Alcohol: the drink-counting note (substance use screen, AUDIT-C, and the printed MSE sheet) now gives Japanese drinks. One standard drink of 14 g is about 120 ml of sake, so one gō (180 ml) is about 1.5; 70 ml of shōchū; 45 ml of whisky, so a single highball is about 0.7 and a double about 1.4; 250 ml of 7% chūhai; 150 ml of umeshu or wine; 350 ml of beer.' },

@@ -306,9 +306,25 @@
   App.canSpeak = !!synth;
   App.pack = { keys: new Set(), info: null, ready: false };
   App.loadAudioPack = () => fetch('audio/manifest.json', { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).then((m) => {
-    if (m && Array.isArray(m.keys) && m.keys.length) { App.pack.keys = new Set(m.keys); App.pack.info = m; }
+    if (m && Array.isArray(m.keys) && m.keys.length) {
+      App.pack.keys = new Set(m.keys); App.pack.info = m;
+      // Clips keep their file names when the pack is recorded again with another voice or speed: drop saved copies then.
+      const stamp = (m.voice || '') + ' ' + (m.rate || '');
+      try {
+        const was = localStorage.getItem('hanashimasho.audioPack');
+        if (was && was !== stamp && window.caches) caches.delete('hanashimasho-audio');
+        localStorage.setItem('hanashimasho.audioPack', stamp);
+      } catch (e) { /* private mode */ }
+    }
   }).catch(() => {}).finally(() => { App.pack.ready = true; });
-  App.hasClip = (text) => state.settings.voiceSource !== 'device' && App.pack.keys.has(AudioKey(JA.speak(text)));
+  // File name of the recorded clip for a string: the hash of what is spoken. A few words are written the same but
+  // read differently (方 = かた / ほう); the less common reading is recorded under the hash of text + '|' + reading.
+  App.clipKey = (raw) => {
+    const text = JA.speak(raw).trim();
+    const alt = AudioKey(text + '|' + JA.compact(JA.kana(raw)).trim());
+    return App.pack.keys.has(alt) ? alt : AudioKey(text);
+  };
+  App.hasClip = (text) => state.settings.voiceSource !== 'device' && App.pack.keys.has(App.clipKey(text));
   let current = null; // { audio } or { utter }
   const haltCurrent = () => {
     if (current && current.audio) { try { current.audio.pause(); } catch (e) {} }
@@ -320,17 +336,18 @@
   // Speak target-language text; resolves when finished. opts.lang = 'en' speaks English with the device voice.
   App.speakAsync = (text, opts) => new Promise((resolve) => {
     opts = opts || {};
+    const clip = opts.lang !== 'en' && App.hasClip(text) ? App.clipKey(text) : '';
     if (opts.lang !== 'en') text = JA.speak(text);   // readings and word spaces are not spoken
     haltCurrent();
     const rate = opts.rate || state.settings.rate || 0.85;
     let finished = false;
     const done = () => { if (!finished) { finished = true; resolve(); } };
-    if (opts.lang !== 'en' && App.hasClip(text)) {
-      const a = new Audio('audio/' + AudioKey(text) + '.mp3');
+    if (clip) {
+      const a = new Audio('audio/' + clip + '.mp3');
       a.playbackRate = Math.min(1.4, Math.max(0.6, rate / 0.85));
       a.preservesPitch = true;
       current = { audio: a, done };
-      a.onended = done; a.onerror = () => { App.pack.keys.delete(AudioKey(text)); done(); };
+      a.onended = done; a.onerror = () => { App.pack.keys.delete(clip); done(); };
       a.play().catch(done);
       return;
     }

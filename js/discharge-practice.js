@@ -8,7 +8,7 @@
   const ref = (r) => { const [sid, i] = r.split(':'); const s = PSYCH_SECTIONS.find((x) => x.id === sid); return s && s.phrases[+i]; };
   const main = (p) => (S().settings.register === 'c' ? p.c || p.f : p.f);
   const alt = (p) => (S().settings.register === 'c' ? p.f : p.c);
-  const DEFAULT_ANS = ['Sí, doctor.', 'Yes, doctor.'];
+  const DEFAULT_ANS = ['はい、 先生《せんせい》。', 'Yes, doctor.'];
   const store = () => (S().done.dcases = S().done.dcases || {});
 
   // Grade a set of picks against a case field. need: strings or arrays ("any one of").

@@ -501,11 +501,13 @@
     const st = App.audioStatus(), info = App.pack.info;
     const packLine = info
       ? '<span class="pill good">Installed</span> ' + info.count + ' recorded clips · ' + esc(info.voice) + ' · ' + esc(info.generated) + ' · ' + (info.bytes / 1e6).toFixed(0) + ' MB'
-      : (App.pack.ready ? 'Not included in this version. The app uses the Japanese voice on your device, which is good on current phones and computers.' : 'Checking…');
+      : (App.pack.ready ? '<span class="pill warn">Not recorded yet</span> The clips are recorded by a job on GitHub (see "Audio pack" in the README). Until they arrive, the app uses the Japanese voice on your device.' : 'Checking…');
+    const packHelp = info ? '<p class="small muted" style="margin:0">The recorded voice covers the dictionary, lesson examples, readings, dialogues, kana, the verb and adjective trainer, kanji words and every interview phrase and reply. Anything without a clip (for example the conjugation table on a dictionary page) is spoken by the device voice. Choose <b>Device voice</b> to hear everything with the voice on this device.</p>' : '';
     const dev = App.bestVoice();
     const devLine = dev.kind === 'native' || dev.kind === 'chosen' ? LANG.voiceName + ' voice: ' + esc(dev.voice.name) : dev.kind === 'near' ? 'No ' + LANG.voiceName + ' voice on this device. Closest match: ' + esc(dev.voice.name + ' (' + dev.voice.lang + ')') + '.' : 'No usable voice on this device.';
     return (info ? '<div class="seg" role="group" aria-label="Voice source" style="display:flex;flex-wrap:wrap">' + [['pack', 'Recorded ' + LANG.voiceName + ' voice'], ['device', 'Device voice']].map(([k, t]) => '<button data-vsrc="' + k + '" class="' + (s.voiceSource === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' : '') +
       '<div class="small"><b>Audio pack:</b> ' + packLine + '</div>' +
+      packHelp +
       (info ? '<div class="row"><button class="btn sm" id="dlAudio">Save all audio for offline use</button><span class="small muted" id="dlStat"></span></div>' : '') +
       '<div class="small"><b>Device voice:</b> ' + devLine + '</div>' +
       '<details><summary class="small">Choose a device voice</summary><label class="small" style="display:block;margin-top:6px">Voice <select class="input" id="voice"><option value="">Automatic</option>' + voices.map((v) => '<option value="' + esc(v.name) + '"' + (s.voice === v.name ? ' selected' : '') + '>' + esc(v.name + ' (' + v.lang + ')') + '</option>').join('') + '</select></label>' +

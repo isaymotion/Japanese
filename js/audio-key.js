@@ -1,4 +1,5 @@
-/* Maps a Tagalog string to its audio file name. Shared by the app and tools/collect-texts.js.
+/* Maps a Japanese string (as spoken: JA.speak(text)) to its audio file name. Shared by the app,
+   tools/collect-texts.js and tools/make_audio_pack.py.
    Normalizes (NFC, trim, collapse spaces, lowercase), then two 32-bit FNV-1a hashes over UTF-8 bytes. */
 (function (g) {
   function utf8(s) {

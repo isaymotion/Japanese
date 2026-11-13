@@ -1,0 +1,76 @@
+# Records the Japanese audio pack with a natural Japanese voice and commits it to the repo.
+# Runs by itself when app content changes, or by hand: Actions tab → "Build Japanese audio pack" → Run workflow.
+# The pack is large (about 10,000 clips), so one run records for up to 50 minutes and, if clips are still
+# missing and the run made progress, starts the next run by itself.
+name: Build Japanese audio pack
+
+on:
+  workflow_dispatch:
+    inputs:
+      voice:
+        description: 'Voice (Nanami: female, Keita: male)'
+        type: choice
+        default: ja-JP-NanamiNeural
+        options: [ja-JP-NanamiNeural, ja-JP-KeitaNeural]
+      rate:
+        description: 'Speaking rate (e.g. -5%, -15% for slower)'
+        default: '-5%'
+      rebuild:
+        description: 'Record every clip again (use after changing voice or rate)'
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ['js/data/**', 'js/lang.js', 'js/ja.js', 'js/conjugate.js', 'js/kana.js', 'tools/**', '.github/workflows/audio-pack.yml']
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: audio-pack
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    env:
+      VOICE: ${{ inputs.voice || 'ja-JP-NanamiNeural' }}
+      RATE: ${{ inputs.rate || '-5%' }}
+      REBUILD: ${{ inputs.rebuild && '--rebuild' || '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 20 }
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+      - name: Install voice tool and Japanese dictionary
+        run: pip install --upgrade edge-tts fugashi unidic-lite
+      - name: Collect phrases
+        run: node tools/collect-texts.js
+      - name: Record audio
+        run: python tools/make_audio_pack.py --voice="$VOICE" --rate="$RATE" $REBUILD
+      - name: Commit audio pack
+        if: always()
+        run: |
+          [ -f audio/last-run.json ] || exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio tools/texts.json
+          if git diff --cached --quiet; then echo "No audio changes"; exit 0; fi
+          git commit -q -m "Update Japanese audio pack"
+          git pull -q --rebase origin main
+          git push -q
+      - name: Continue if clips are still missing
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f audio/last-run.json ] || exit 0
+          read -r NEW HAVE WANTED < <(python -c "import json; r = json.load(open('audio/last-run.json')); print(r['new'], r['have'], r['wanted'])")
+          echo "recorded $NEW this run; $HAVE of $WANTED clips"
+          if [ "$HAVE" -lt "$WANTED" ] && [ "$NEW" -ge 200 ]; then
+            gh workflow run audio-pack.yml --repo "$GITHUB_REPOSITORY" --ref main -f voice="$VOICE" -f rate="$RATE"
+            echo "Started the next run."
+          fi

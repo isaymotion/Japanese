@@ -10,7 +10,7 @@
   const ref = (r) => { const [sid, i] = r.split(':'); const s = PSYCH_SECTIONS.find((x) => x.id === sid); return s && s.phrases[+i]; };
   const main = (p) => (S().settings.register === 'c' ? p.c || p.f : p.f);
   const alt = (p) => (S().settings.register === 'c' ? p.f : p.c);
-  const DEFAULT_ANS = ['(sin respuesta)', '(no answer)'];
+  const DEFAULT_ANS = ['（返事《へんじ》 なし）', '(no answer)'];
   const store = () => (S().done.mcases = S().done.mcases || {});
   const pillCls = (p) => (p >= 80 ? 'good' : p >= 50 ? 'warn' : 'bad');
   const speak = (t) => { try { Promise.resolve(App.speakAsync(t)).catch(() => {}); } catch (e) { /* no voice */ } };

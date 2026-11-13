@@ -554,7 +554,8 @@
   App.applyTheme();
   setTopVar();
   bkPaint();
-  App.pack.ready = true;   // no recorded audio pack in this version: the device's Japanese voice is used
+  // Recorded audio pack (audio/manifest.json); without it the device's Japanese voice is used.
+  App.loadAudioPack().then(() => { if (/^#\/(settings|speak)/.test(location.hash)) render(); });
   if (!location.hash) { try { history.replaceState({ idx: 0 }, '', '#/'); } catch (e) { location.hash = '#/'; } }
   render();
   // Voices load asynchronously in some browsers; refresh voice-dependent pages once.
