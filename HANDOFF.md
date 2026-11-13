@@ -98,13 +98,13 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Replies / cases / interpretation | 314 / 7 / 32 |
 | Clinical tools | mood, substance use, withdrawal and agitation, de-escalation, discharge |
 | Practice cases | 2 admission MSE, 4 discharge |
-| Audio pack (0.9.0) | COMPLETE: one run (24 minutes) recorded all 10,118 clips, no errors; after 0.11.0 the job added the 96 new dialogue and placement strings by itself (10,214 clips, 212.6 MB) (the 150 MB estimate was low; Pages limit is 1 GB). Nobody has listened to the clips yet |
+| Audio pack (0.9.0) | COMPLETE: one run (24 minutes) recorded all 10,118 clips, no errors; after 0.11.0 the job added the 96 new dialogue and placement strings by itself (10,214 clips, 213.9 MB) (the 150 MB estimate was low; Pages limit is 1 GB). Nobody has listened to the clips yet |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
 Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB; 0.11.0 six N3 dialogues, Speaking level filter, N3 placement questions (current, pushed).
 Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty), more trainer verbs and adjectives.
 
 ## 7. Next steps
-**Audio pack: recorded and verified on 13 Nov** (10,214 of 10,214 clips after 0.11.0, 212.6 MB, `sample_errors` empty, every key in `tools/texts.json` has a file). Still open:
+**Audio pack: recorded and verified on 13 Nov** (10,214 of 10,214 clips after 0.11.0, 213.9 MB, `sample_errors` empty, every key in `tools/texts.json` has a file). Still open:
 1. Dr. Navarro has not listened yet. Sample to hear: a few rows of the kana chart, five or six dictionary words, 方 / 一日 / 何 (two readings each), the single-word cards 時 年 日 月 (sent in kana, pitch accent may be flat), a phrase with a blank (spoken as まるまる), the three-word memory test (the bracketed "(three to five minutes later)" is not spoken, so the recall question follows straight on), one long N3 reading. Fixes: correct the furigana in `js/data/`, or add the spelling to `RISKY` in `tools/make_audio_pack.py`, or add the string to `tools/voice-overrides.json`; the job records only what changed. Full reviewer notes: `write/VOICE-REVIEW-0.9.0.md`.
 2. Not checked from the sandbox: that the live Settings → Voice card says Installed (the files are on main and Pages deployed, so it should).
 3. Possible later: record the dictionary-page conjugation tables (about 1,184 words × up to 20 forms); a Keita (male) pack would replace Nanami, since there is one pack per site.
