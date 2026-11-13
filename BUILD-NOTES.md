@@ -96,7 +96,7 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Tetsuo: his seizure happened in the emergency department in every file.
   - Shigeru Yamada: 78 everywhere.
   - Wording for a native-speaking clinician: 罰 が 当たった as Yumiko's own idea; ご先祖様 に 顔向け できません as her reason not to try again; whether a temple priest would visit her on a psychiatric ward.
-- **0.16.0** (built and tested 13 Nov on branch `wip-0.16.0`; waiting for her OK to publish) — Psychiatry, four things.
+- **0.16.0** (published 13 Nov) — Psychiatry, four things.
   - Nurse view: a Resident / Nurse switch on Psychiatry → Interview. Six nurse sections (125 phrases, each polite and plain, with notes): arriving on the ward (welcome, belongings, routine); giving medicines and checking side effects; sleep, appetite, hygiene and the day; safety checks for suicide risk and agitation, with when to tell the doctor at once; calming things down on the ward; teaching patients and families. 60 likely patient replies for them on the point board and in the listening drill. Pending Nursing Service review.
   - Case simulation: Chiyoko Ito with her son and daughter-in-law (8 steps, level N3): greeting her first, the gradual history (compared with Shigeru's delirium), the theft belief without arguing, the daughter-in-law's strain and safety, explaining the admission. Eight simulations in all.
   - Practice patients complete: admission MSE cases for Daisuke Sato (two hours after the emergency department) and Shigeru Yamada (delirium, medical ward), and a discharge case for Shigeru (day 8). Each of the eight patients now has a simulation, an admission case and a discharge case.
