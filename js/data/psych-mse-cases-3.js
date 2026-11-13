@@ -13,7 +13,7 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
     "chart": [
       "About a week ago she took a handful of her sister's pills, regretted it right away, and called her sister. Medically assessed and cleared for the psychiatric interview.",
       "Since her husband left: weeks of poor sleep, little appetite, crying, and guilt about her three children. She calls it \"自律神経《じりつしんけい》 が おかしい\". Prior depressive episode about 8 years ago; she stopped treatment early.",
-      "Noriko: very worried and asks the team to keep her sister safe. Their brother's hunting rifle is at the family home; asked in general terms about means at home, Yumiko says she knows it is there. Yumiko's faith matters to her."
+      "Noriko: very worried and asks the team to keep her sister safe. Asked in general terms about medicines or anything else at home she could use to hurt herself, Yumiko says there are medicines at the family home (実家《じっか》). Yumiko's faith matters to her: she visits the family temple (お寺《てら》) and her mother's grave (お墓参《はかまい》り)."
     ],
     "cc": {
       "ask": "cc-hpi:0",
@@ -170,7 +170,7 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
           "3": ["子《こ》ども たち は 私《わたし》 が いない 方《ほう》 が いい…… そう と しか 思《おも》えない ん です。", "My children would be better off without me... I can't think of it any other way."],
           "4": ["……子《こ》ども たち は、 寂《さび》しい かも しれません。 でも、 私《わたし》 が いて も 迷惑《めいわく》 を かける だけ です。", "...My children might be lonely. But if I'm there, I only cause trouble."],
           "5": ["はい…… 子《こ》ども たち に 申《もう》し訳《わけ》ない です。 いい 母親《ははおや》 じゃ ない ん です。 夫《おっと》 が 出《で》て いった の も、 私《わたし》 が 悪《わる》い から です。", "Yes... I feel I've failed my children. I'm not a good mother. My husband leaving was my fault, too."],
-          "6": ["自律神経《じりつしんけい》 が おかしい ん だ と 思《おも》います。 それ と…… 私《わたし》 の 信仰《しんこう》 が 足《た》りない から かも しれません。", "I think my autonomic nerves are off. And... maybe it's because my faith isn't strong enough."]
+          "6": ["自律神経《じりつしんけい》 が おかしい ん だ と 思《おも》います。 それ と…… 罰《ばち》 が 当《あ》たった の かも しれません。 悪《わる》い 母親《ははおや》 で、 悪《わる》い 妻《つま》 だった から。", "I think my autonomic nerves are off. And... maybe it's a punishment. For being a bad mother and a bad wife."]
         },
         "key": [3, 4, 5],
         "need": ["No delusions elicited", "Guilt or worthlessness (not delusional)"],
@@ -188,8 +188,8 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
           ],
           "why": "She blames herself as a mother and for her husband leaving. It is not delusional: asked for another explanation, she allows that her children might miss her (\"寂《さび》しい かも しれません\"), so the belief is not completely fixed."
         },
-        "doc": "No delusions elicited. Guilt and worthlessness, not delusional (\"いい 母親《ははおや》 じゃ ない ん です\"; blames herself for her husband leaving); hopelessness and perceived burdensomeness (\"子《こ》ども たち は 私《わたし》 が いない 方《ほう》 が いい\"), not fully fixed. Explains her illness as \"自律神経《じりつしんけい》 が おかしい\" and possibly a lack of faith",
-        "why": "\"Better off without me\" is both a depressive belief and a suicide risk factor. Ask how sure she is and whether there could be another explanation: if she could allow none, think of a mood-congruent delusion. Her idea that her faith is not strong enough is a religious explanation shared by many believers, not a delusion; her priest may help later."
+        "doc": "No delusions elicited. Guilt and worthlessness, not delusional (\"いい 母親《ははおや》 じゃ ない ん です\"; blames herself for her husband leaving); hopelessness and perceived burdensomeness (\"子《こ》ども たち は 私《わたし》 が いない 方《ほう》 が いい\"), not fully fixed. Explains her illness as \"自律神経《じりつしんけい》 が おかしい\" and possibly as 罰《ばち》 (a punishment) for being a bad mother and wife",
+        "why": "\"Better off without me\" is both a depressive belief and a suicide risk factor. Ask how sure she is and whether there could be another explanation: if she could allow none, think of a mood-congruent delusion. Her idea that it is 罰《ばち》 (a punishment) is a folk explanation many people share, not a delusion in itself; it feeds her guilt, so note whether it stays open to other explanations. The priest of her family temple may help later."
       },
       "safety": {
         "ans": {
@@ -197,7 +197,7 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
           "1": ["毎晩《まいばん》、 そう 思《おも》います。", "Every night, I think that."],
           "2": ["……はい。 今《いま》 も 考《かんが》えます。 子《こ》ども たち は 私《わたし》 が いない 方《ほう》 が いい ん です。 先週《せんしゅう》 は、 本当《ほんとう》 に 死《し》のう と 思《おも》いました。 すぐ 後悔《こうかい》 して、 姉《あね》 に 電話《でんわ》 しました けど……。", "...Yes. I still think about it now. My children are better off without me. Last week I really meant to die. I regretted it right away and called my sister, but..."],
           "3": ["いつ とか、 どこ で とか は、 決《き》めて いません。", "I haven't decided when or where."],
-          "4": ["……もう しない、 と は 約束《やくそく》 できません。 神様《かみさま》 は 許《ゆる》さない と 思《おも》います けど……。", "...I can't promise I won't do it again. I don't think God would allow it, but..."],
+          "4": ["……もう しない、 と は 約束《やくそく》 できません。 ご先祖様《せんぞさま》 に 申《もう》し訳《わけ》ない と は 思《おも》います けど……。", "...I can't promise I won't do it again. I know I'd be letting my ancestors down, but..."],
           "5": ["いいえ。 夫《おっと》 に は 腹《はら》 が 立《た》ちます けど、 傷《きず》つけたい と は 思《おも》いません。", "No. I'm angry at my husband, but I don't want to hurt him."]
         },
         "key": [2, 3, 4],
@@ -205,7 +205,7 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
         "ok": ["Passive death wish"],
         "wrong": {
           "Denies suicidal ideation": "She says she still thinks about it now and cannot promise she will not try again.",
-          "Active suicidal ideation with plan": "She has not decided on a time or a place. Knowing that her brother's rifle is at the family home (chart) is not a plan, but it is access to means and raises the risk.",
+          "Active suicidal ideation with plan": "She has not decided on a time or a place. Knowing that there are medicines at the family home (chart) is not a plan, but it is access to means and raises the risk.",
           "Homicidal ideation toward ___": "She is angry at her husband but denies any wish to hurt him."
         },
         "ev": {
@@ -217,8 +217,8 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
           ],
           "why": "Wishing every night not to wake up is a passive death wish. Thinking about suicide now is active ideation; being unable to promise she will not act again is why it is charted as with intent. \"No time or place decided\" tells you there is no plan; it does not lower the risk."
         },
-        "doc": "Active suicidal ideation with intent, no plan (no time or place decided): still thinks her children are better off without her and cannot promise she would not try again (\"もう しない、 と は 約束《やくそく》 できません\"); passive death wish nightly. Suicide attempt by overdose of her sister's pills about a week ago, regretted, called her sister. Knows of her brother's hunting rifle at the family home. Protective factors: her children, her sister, her faith. Denies homicidal ideation; angry at her husband, no wish to harm him",
-        "why": "A suicide attempt a week ago and suicidal thoughts that are still present put her at high risk now; intent she cannot rule out and a firearm she knows of add to it. She needs admission and close observation (follow local law and your hospital's policy). No plan for a time or place does not make her safe. The rifle must be removed from the family home or locked away, and the medicines kept by someone else, before any discharge; at her discharge both were confirmed. Her faith, her children and her sister are protective, but she says herself they are not a promise. Do not accept them in place of a safety plan."
+        "doc": "Active suicidal ideation with intent, no plan (no time or place decided): still thinks her children are better off without her and cannot promise she would not try again (\"もう しない、 と は 約束《やくそく》 できません\"); passive death wish nightly. Suicide attempt by overdose of her sister's pills about a week ago, regretted, called her sister. Knows of medicines at the family home. Protective factors: her children, her sister, her faith. Denies homicidal ideation; angry at her husband, no wish to harm him",
+        "why": "A suicide attempt a week ago and suicidal thoughts that are still present put her at high risk now; intent she cannot rule out and medicines she knows she can reach add to it. She needs admission and close observation (follow local law and your hospital's policy). No plan for a time or place does not make her safe. The medicines at the family home must be cleared out or locked away, and her own medicines kept by someone else, before any discharge; at her discharge both were confirmed. Her faith, her children and her sister are protective, but she says herself they are not a promise. Do not accept them in place of a safety plan."
       },
       "orientation": {
         "ans": {
@@ -232,7 +232,7 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
       },
       "insight": {
         "ans": {
-          "0": ["病気《びょうき》…… でしょう か。 自律神経《じりつしんけい》 が おかしい の か、 私《わたし》 の 信仰《しんこう》 が 足《た》りない の か……。 わかりません。", "An illness... is it? Whether my autonomic nerves are off, or my faith isn't strong enough... I don't know."],
+          "0": ["病気《びょうき》…… でしょう か。 自律神経《じりつしんけい》 が おかしい の か、 罰《ばち》 が 当《あ》たった の か……。 わかりません。", "An illness... is it? Whether my autonomic nerves are off, or it's a punishment... I don't know."],
           "1": ["姉《あね》 が とても 心配《しんぱい》 して いる から です。 あんな こと を して しまった ので……。", "Because my sister is very worried. Because I did that..."],
           "2": ["わかりません。 でも、 眠《ねむ》れる よう に なる なら……。", "I don't know. But if it helps me sleep..."]
         },
@@ -240,19 +240,19 @@ window.PSYCH_MSE_CASES = (window.PSYCH_MSE_CASES || []).concat([
         "wrong": {
           "Good": "She is not sure it is an illness and does not know whether treatment can help.",
           "Poor": "She knows something is wrong in her and is open to help with her sleep.",
-          "Grade 3: blames others/external factors": "She does not blame her husband or anyone else. She looks for the cause in her body and her faith, and says she does not know."
+          "Grade 3: blames others/external factors": "She does not blame her husband or anyone else. She looks for the cause in her body or in a punishment for her own failings, and says she does not know."
         },
         "ev": {
           "find": "Grade 4: aware, cause unknown in self",
           "opts": [
-            ["\"自律神経《じりつしんけい》 が おかしい の か、 私《わたし》 の 信仰《しんこう》 が 足《た》りない の か……。 わかりません。\"", true],
+            ["\"自律神経《じりつしんけい》 が おかしい の か、 罰《ばち》 が 当《あ》たった の か……。 わかりません。\"", true],
             ["\"姉《あね》 が とても 心配《しんぱい》 して いる から です。\"", false],
             ["\"日本語《にほんご》 で お願《ねが》い します。\"", false]
           ],
           "why": "She knows something is wrong in her but does not know what. That is grade 4. Knowing why her sister brought her is not the same as understanding the illness."
         },
-        "doc": "Fair (grade 4): knows something is wrong but unsure it is an illness (\"自律神経《じりつしんけい》 が おかしい\", or a lack of faith); open to treatment for sleep",
-        "why": "Use her own bridge: she wants to sleep. Explaining depression as an illness, not a weakness of faith, may help her accept treatment; at discharge she said her priest and the psychologist had helped with exactly this."
+        "doc": "Fair (grade 4): knows something is wrong but unsure it is an illness (\"自律神経《じりつしんけい》 が おかしい\", or 罰《ばち》, a punishment); open to treatment for sleep",
+        "why": "Use her own bridge: she wants to sleep. Explaining depression as an illness, not a punishment, may help her accept treatment; at discharge she said the priest of her family temple and the psychologist had helped with exactly this."
       },
       "impulse": {
         "obs": "Sits still through the interview. No outbursts.",

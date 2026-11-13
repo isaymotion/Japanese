@@ -254,7 +254,7 @@ window.READING.push(
     id: 'kango-kiroku', level: 'N3', psych: true,
     title: "看護記録《かんごきろく》", titleEn: "Nursing notes",
     tl: [
-      "山田《やまだ》 茂《しげる》、 八十二歳《はちじゅうにさい》、 男性《だんせい》。 入院《にゅういん》 五日目《いつかめ》。 せん妄《もう》 の ため 経過《けいか》 観察中《かんさつちゅう》。",
+      "山田《やまだ》 茂《しげる》、 七十八歳《ななじゅうはっさい》、 男性《だんせい》。 入院《にゅういん》 五日目《いつかめ》。 せん妄《もう》 の ため 経過《けいか》 観察中《かんさつちゅう》。",
       "夜間《やかん》： 二十二時《にじゅうにじ》 頃《ごろ》 入眠《にゅうみん》。 二時《にじ》 に 覚醒《かくせい》し、 「家《いえ》 に 帰《かえ》らなければ ならない」 と の 発言《はつげん》 あり。 ベッド から 起《お》き上《あ》がろう と して いた ため、 付《つ》き添《そ》って 声《こえ》かけ を 行《おこな》う。 約《やく》 三十分《さんじゅっぷん》 後《ご》 に 再《ふたた》び 入眠《にゅうみん》。 転倒《てんとう》 なし。",
       "朝《あさ》： 六時《ろくじ》 起床《きしょう》。 「ここ は どこ だ」 と の 発言《はつげん》 あり。 病院《びょういん》 で ある こと を 説明《せつめい》する と、 納得《なっとく》した 様子《ようす》 であった。 朝食《ちょうしょく》 は 主食《しゅしょく》 五割《ごわり》、 副食《ふくしょく》 八割《はちわり》 摂取《せっしゅ》。",
       "日中《にっちゅう》： 午前中《ごぜんちゅう》 は 見当識《けんとうしき》 が やや 不良《ふりょう》 であった が、 午後《ごご》 は 日付《ひづけ》 及《およ》び 場所《ばしょ》 を 正《ただ》しく 答《こた》えられて おり、 改善《かいぜん》 傾向《けいこう》 に ある。 表情《ひょうじょう》 は 穏《おだ》やか で、 デイルーム で 新聞《しんぶん》 を 読《よ》んで 過《す》ごす。 「少《すこ》し 疲《つか》れた」 と の 訴《うった》え あり。 昼食《ちゅうしょく》 は 全量《ぜんりょう》 摂取《せっしゅ》。",
@@ -263,7 +263,7 @@ window.READING.push(
       "評価《ひょうか》： せん妄《もう》 の 症状《しょうじょう》 は 夕方《ゆうがた》 以降《いこう》 に 出《で》やすい 傾向《けいこう》 が ある。 引《ひ》き続《つづ》き 夜間《やかん》 の 転倒《てんとう》 に 注意《ちゅうい》し、 見当識《けんとうしき》 を 補《おぎな》う 声《こえ》かけ を 継続《けいぞく》する。"
     ],
     en: [
-      "Shigeru Yamada, 82, male. Day 5 of admission. Under observation for delirium.",
+      "Shigeru Yamada, 78, male. Day 5 of admission. Under observation for delirium.",
       "Night: fell asleep at about 22:00. Woke at 2:00 and said, 'I have to go home.' Was trying to get out of bed, so a nurse stayed with him and spoke to him. Fell asleep again about 30 minutes later. No falls.",
       "Morning: got up at 6:00. Asked, 'Where am I?' When it was explained that this is a hospital, he appeared to accept it. Breakfast: ate half of the staple and 80 percent of the side dishes.",
       "Daytime: orientation was somewhat poor in the morning, but in the afternoon he answered the date and place correctly; improving. Calm expression; spent time reading the newspaper in the day room. Said, 'I'm a little tired.' Ate all of his lunch.",

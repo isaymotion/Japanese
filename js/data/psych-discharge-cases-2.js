@@ -313,7 +313,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
    process: {
     obs: "Tells it in order, pausing to find words, but stays on topic.",
     ans: {
-     0: ["毎日《まいにち》 飲《の》んで ました。 焼酎《しょうちゅう》 の 四合瓶《よんごうびん》 を 一本《いっぽん》。 ある 朝《あさ》、 現場《げんば》 で 倒《たお》れて、 体《からだ》 が 震《ふる》えて 止《と》まらなく なって。 娘《むすめ》 が 救急《きゅうきゅう》 に 連《つ》れて 来《き》て くれた ん です。 ここ で 震《ふる》え を 止《と》めて もらって、 もう こんな 生活《せいかつ》 は 嫌《いや》 だ と 思《おも》いました。", "I drank every day, a 720 ml bottle of shochu. One morning I fell at the work site, my body was shaking and I couldn't stop. My daughter took me to the ER. Here they got rid of the shaking and I realized I don't want to go on like this."],
+     0: ["毎日《まいにち》 飲《の》んで ました。 焼酎《しょうちゅう》 の 四合瓶《よんごうびん》 を 一本《いっぽん》。 二日《ふつか》 ほど 飲《の》まないで いたら、 体《からだ》 が 震《ふる》えて、 汗《あせ》 が 止《と》まらなく なって。 娘《むすめ》 が 救急《きゅうきゅう》 に 連《つ》れて 来《き》て くれて、 そこ で けいれん を 起《お》こした そう です。 ここ で 震《ふる》え を 止《と》めて もらって、 もう こんな 生活《せいかつ》 は 嫌《いや》 だ と 思《おも》いました。", "I drank every day, a 720 ml bottle of shochu. After about two days without a drink my body started shaking and the sweating wouldn't stop. My daughter took me to the ER, and I'm told I had a seizure there. Here they got rid of the shaking and I realized I don't want to go on like this."],
      1: ["しばらく 娘《むすめ》 の 家《いえ》 に 行《い》って、 それ から クリニック と AA の ミーティング に 通《かよ》います。 仕事《しごと》 も また 頼《たの》む つもり です けど、 まず は しっかり しない と。", "I'm going to my daughter's for a few days, then to the clinic and the AA meetings. I'm going to ask for work again, but first I need to be steady."]
     },
     need: ["Goal-directed", "Coherent and relevant"],
@@ -449,14 +449,14 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
     obs: "Chart: withdrawal seizure in the ER before admission, lorazepam taper and thiamine. Tremor and sweating gone by day 4. No restraint, no falls, no delirium.",
     ans: {
      0: ["最初《さいしょ》 は 震《ふる》え も 汗《あせ》 も ひどかった。 今《いま》 は ない です。 ナルトレキソン は 始《はじ》めた ばかり で、 特《とく》に 何《なに》 も ない です。", "At first a lot of shaking and sweating. Not anymore. I'm just starting naltrexone and haven't felt anything."],
-     1: ["いや、 何《なに》 も。 来《く》る 前《まえ》 の 発作《ほっさ》 だけ です。", "No, nothing. Only the seizure before I got here."]
+     1: ["いや、 何《なに》 も。 救急《きゅうきゅう》 で の 発作《ほっさ》 だけ です。", "No, nothing. Only the seizure in the ER."]
     },
     key: [0, 1],
     need: ["Withdrawal symptoms"],
     ok: ["Tremor", "Sedation"],
     wrong: {
      None: "Withdrawal with a seizure and CIWA-Ar 18 is the central event of this stay. Document it, even though it is resolved.",
-     "Fall or injury": "He fell at the work site before admission. No falls happened on the unit."
+     "Fall or injury": "His seizure was in the ER before admission, and he did not fall. No falls happened on the unit."
     },
     doc: "Alcohol withdrawal with seizure (before admission) and tremor and sweating on days 1–4, resolved with lorazepam taper and thiamine; no delirium, no restraint, no falls; no side effects from naltrexone so far",
     why: "Adverse events are what happened during the stay, not only drug side effects. The seizure history should travel with him to the next clinic."

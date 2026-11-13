@@ -3,6 +3,15 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.15.1', date: '2026-11-13', title: 'Yumiko, Tetsuo and Shigeru made consistent',
+    items: [
+      { type: 'correction', text: 'Yumiko (case simulation, admission and discharge practice): two details left over from the Spanish app this one was built from are gone. Her brother\'s hunting rifle was the main means to restrict; now it is medicines: her sister keeps and gives Yumiko\'s medicines, and her brother has cleared the medicines out of the family home. Her faith is now her family\'s temple and visits to her mother\'s grave, the priest who visited her is the priest of the family temple, and her guilt is the idea that this is a punishment (罰《ばち》) for being a bad mother, not God\'s.' },
+      { type: 'correction', text: 'Tetsuo\'s discharge practice: his own account and the adverse-event note now agree with the rest of his story: after about two days without a drink he was shaking and sweating, his daughter took him to the emergency department, and the seizure happened there (not a fall at the work site).' },
+      { type: 'correction', text: 'Shigeru Yamada is 78 everywhere: the nursing notes reading said 82.' },
+      { type: 'correction', text: 'Yumiko\'s discharge practice: her sleep is now keyed as frequent awakenings (she wakes at 3 a.m.), not difficulty falling asleep. The crisis line no longer has to "offer help in Japanese"; it is the local line.' }
+    ]
+  },
+  {
     version: '0.15.0', date: '2026-11-13', title: 'Six admission cases, seven discharge cases, stroke order on word cards, more trainer words',
     items: [
       { type: 'content', text: 'Admission MSE practice: three new cases (six in all). Yumiko on the day of her admission, a week after an overdose, with ongoing suicidal thoughts she cannot promise not to act on (level N4); Tetsuo on day 1 of alcohol withdrawal, shaky and low, with a brief illusion he corrects himself and a passive wish not to wake up (level N3); and a new patient, Chiyoko Ito, 79, a retired teacher with Alzheimer\'s disease who believes her daughter-in-law steals her purse and has been leaving the house at night (level N3). Chiyoko\'s case teaches ruling out delirium first and interviewing the family alongside the patient.' },

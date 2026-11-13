@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.15.0** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.15.1** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 

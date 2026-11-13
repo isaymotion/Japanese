@@ -262,19 +262,19 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
   title: "After the attempt, with a safety plan",
   level: "N3",
   dx: "Major depressive disorder, severe",
-  decision: { discharge: true, why: "Discharge today, with a written safety plan in Japanese. She denies current suicidal thoughts and has no plan. Her brother has moved his hunting rifle out of the family home, her sister keeps the medicines, and she can name whom she will call. Follow-up is within a week and the local crisis line is on her phone. If she described intent, a plan, or access to means, discharge would be deferred." },
+  decision: { discharge: true, why: "Discharge today, with a written safety plan. She denies current suicidal thoughts and has no plan. Her brother has cleared the medicines out of the family home and keeps any left there locked away, her sister keeps and gives her medicines, and she can name whom she will call. Follow-up is within a week and the local crisis line is on her phone. If she described intent, a plan, or access to means, discharge would be deferred." },
   setting: "Ward, afternoon before planned discharge. Yumiko, 46, hotel housekeeper, mother of three, separated. Her sister Noriko is visiting. Her brother is coming at 5 p.m.",
   chart: [
    "Admitted 12 days ago after taking a handful of her sister's sleeping pills after her husband left (“もう 限界《げんかい》 でした”). Weeks of poor sleep, “自律神経《じりつしんけい》 が おかしい”, crying, no appetite, guilt about the children. Prior depressive episode about 8 years ago; she stopped treatment early.",
-   "Admission MSE: tearful, psychomotor slowing, depressed mood, constricted affect, hopeless, suicidal thoughts with intent on admission, insight fair. Hunting rifle belonging to her brother at the family home.",
-   "Course: sertraline started and raised to 100 mg. Nausea in week 1, gone. No restraint. No falls. Sleep chart 5 to 6 hours. Her priest visited twice, which she valued.",
-   "Plan (teaching example): sertraline 100 mg tab every morning. Clinic follow-up in 5 days, then psychotherapy in Japanese. Hunting rifle moved out of the family home by her brother (confirmed by phone). Sister keeps and gives the medicines. Written safety plan and local crisis line card."
+   "Admission MSE: tearful, psychomotor slowing, depressed mood, constricted affect, hopeless, suicidal thoughts with intent on admission, insight fair. Means concern: medicines at her home and at the family home (実家《じっか》).",
+   "Course: sertraline started and raised to 100 mg. Nausea in week 1, gone. No restraint. No falls. Sleep chart 5 to 6 hours. The priest of her family temple (お寺《てら》 の 住職《じゅうしょく》さん) visited twice, which she valued.",
+   "Plan (teaching example): sertraline 100 mg tab every morning. Clinic follow-up in 5 days, then psychotherapy. Medicines cleared out of the family home by her brother, any left there kept locked away (confirmed by phone). Sister keeps and gives the medicines. Written safety plan and local crisis line card."
   ],
   fields: {
    behavior: {
     obs: "Clean clothes from home, hair tied back. Sits upright, speaks in a low voice, eye contact fair. A little slow but engaged.",
     ans: {
-     0: ["少《すこ》し いい です、 先生《せんせい》。 子《こ》ども たち に 会《あ》いたい です。", "A little better, doctor. Wanting to see my children."],
+     0: ["少《すこ》し よく なりました、 先生《せんせい》。 子《こ》ども たち に 会《あ》いたい です。", "A little better, doctor. I want to see my children."],
      1: ["はい、 どうぞ。", "Yes, go ahead."]
     },
     need: ["Calm", "Cooperative", ["Well groomed", "Fairly groomed"]],
@@ -320,7 +320,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
      1: ["いいえ。", "No."],
      2: ["いいえ。", "No."],
      3: ["いいえ。 私《わたし》 が 感《かん》じて いた の は、 自分《じぶん》 が 子《こ》ども たち の 重荷《おもに》 だ と いう こと です。 誰《だれ》 か に 傷《きず》つけられる と は 思《おも》って いません でした。", "No. What I felt was that I was a burden to my children, not that someone wanted to hurt me."],
-     4: ["子《こ》ども たち は 私《わたし》 が いない 方《ほう》 が いい と 思《おも》って いました。 でも、 そう じゃ なかった。 子《こ》ども たち、 すごく 寂《さび》しかった みたい です。", "I thought my children would be better off without me. I see now that's not true. They missed me a lot."]
+     4: ["子《こ》ども たち に とって、 私《わたし》 は いない 方《ほう》 が いい と 思《おも》って いました。 でも、 そう じゃ なかった。 子《こ》ども たち、 すごく 寂《さび》しかった みたい です。", "I thought my children would be better off without me. I see now that's not true. They missed me a lot."]
     },
     key: [3, 4],
     need: ["No hallucinations elicited", "Not responding to internal stimuli"],
@@ -351,7 +351,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
    suicide: {
     ans: {
      0: ["いいえ、 先生《せんせい》。 もう ありません。 あんな こと を して、 まだ 恥《は》ずかしい です。 子《こ》ども たち の こと を 考《かんが》えないで やって しまった と、 今《いま》 は 分《わ》かります。", "No, doctor. Not anymore. I'm still ashamed of what I did. I realize I did it without thinking of my children."],
-     1: ["いいえ、 計画《けいかく》 は ありません。 兄《あに》 が もう 猟銃《りょうじゅう》 を 実家《じっか》 から 持《も》ち出《だ》しました。 薬《くすり》 は 全部《ぜんぶ》 姉《あね》 が 持《も》って います。", "No, no plan. My brother already took the hunting rifle out of the family home and my sister has all the pills."],
+     1: ["いいえ、 計画《けいかく》 は ありません。 兄《あに》 が 実家《じっか》 の 薬《くすり》 を 片付《かたづ》けて、 残《のこ》り は 鍵《かぎ》 の かかる ところ に しまって くれました。 私《わたし》 の 薬《くすり》 は 全部《ぜんぶ》 姉《あね》 が 持《も》って います。", "No, no plan. My brother cleared the medicines out of the family home and locked away the rest. My sister has all my pills."],
      2: ["姉《あね》 の 典子《のりこ》 か、 兄《あに》 に 言《い》います。 夜《よる》 なら、 相談窓口《そうだんまどぐち》 に 電話《でんわ》 します。 書《か》いた 計画《けいかく》 に も 入《はい》って います。", "I tell my sister Noriko or my brother. If it's at night, I call the crisis line. It's in my written plan."]
     },
     key: [0, 1, 2],
@@ -360,18 +360,18 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
      "Passive death wish, no plan or intent": "She denies it, and she can explain why. Do not add a symptom she did not report. Do ask, and keep the question open for the follow-up visit.",
      "Active suicidal ideation (reassess discharge)": "She denies active thoughts and has no access to the means she named."
     },
-    doc: "Denies suicidal ideation, plan, or intent; attempt before admission (overdose of sister's medicines); means removed (hunting rifle moved out of the family home by brother, confirmed by phone; medicines kept by sister); reasons for living (children); safety plan made with names and the local crisis line",
+    doc: "Denies suicidal ideation, plan, or intent; attempt before admission (overdose of sister's medicines); means removed (medicines cleared out of the family home by brother, any left there locked away, confirmed by phone; her own medicines kept and given by sister); reasons for living (children); safety plan made with names and the local crisis line",
     why: "Ask all three questions. “No” is only the start: write the means restriction, the protective factors, and the plan she says in her own words. The first weeks after discharge carry the highest risk, so early follow-up matters."
    },
    homicide: {
     ans: {
      0: ["いいえ、 絶対《ぜったい》 に。 私《わたし》 は そういう 人間《にんげん》 では ありません。", "No, never. I'm not like that."],
-     1: ["夫《おっと》 に は すごく 腹《はら》 が 立《た》って いました。 でも、 傷《きず》つけたい と は 思《おも》いません。 もう 放《ほう》って おいて ほしい だけ です。", "I was very angry at my husband, I was furious. But I don't want to hurt him. I just want him to leave me in peace."]
+     1: ["夫《おっと》 に は すごく 腹《はら》 が 立《た》って いました。 でも、 傷《きず》つけたい と は 思《おも》いません。 もう 放《ほう》って おいて ほしい だけ です。", "I was very angry at my husband. But I don't want to hurt him. I just want him to leave me in peace."]
     },
     key: [1],
     need: [["Denies homicidal ideation", "None"]],
     doc: "Denies homicidal ideation; anger at her husband acknowledged, no intent to harm",
-    why: "Anger at a partner after a separation is common. Ask about the specific person, and note that the rifle is out of the family home."
+    why: "Anger at a partner after a separation is common. Ask about the specific person, and note that she separates her anger from any wish to harm him."
    },
    orientation: {
     ans: {
@@ -398,7 +398,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
    insight: {
     ans: {
      0: ["薬《くすり》 を 飲《の》んだ から です。 悲《かな》しさ と 寂《さび》しさ に 耐《た》えられなく なって。", "Because I took the pills. I couldn't bear the sadness and loneliness."],
-     1: ["はい、 うつ病《びょう》 です。 前《まえ》 は 信仰《しんこう》 が 足《た》りない せい だ と 思《おも》って いました。 神父《しんぷ》さん と 心理士《しんりし》 の 先生《せんせい》 が、 これ は 病気《びょうき》 で、 神様《かみさま》 は 怒《おこ》って いない と 説明《せつめい》 して くれました。", "Yes, it's a depression. Before I thought it was a lack of faith. The priest and the psychologist explained it's an illness and that God isn't angry about it."],
+     1: ["はい、 うつ病《びょう》 です。 前《まえ》 は 罰《ばち》 が 当《あ》たった ん だ と 思《おも》って いました。 お寺《てら》 の 住職《じゅうしょく》さん と 心理士《しんりし》 の 先生《せんせい》 が、 これ は 病気《びょうき》 で、 罰《ばち》 では ない と 説明《せつめい》 して くれました。", "Yes, it's depression. Before, I thought it was a punishment. The priest of our family temple and the psychologist explained that it's an illness, not a punishment."],
      2: ["はい、 調子《ちょうし》 が よく なって も 続《つづ》けます。 何年《なんねん》 か 前《まえ》 に 治療《ちりょう》 を やめて、 また 悪《わる》く なりました から。", "Yes, even if I feel better. Years ago I stopped treatment and fell again."],
      3: ["悲《かな》しさ が 戻《もど》って きて、 また 同《おな》じ こと を 考《かんが》えて しまう かも しれない こと です。", "That the sadness returns and I could think of the same thing again."]
     },
@@ -408,8 +408,8 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
      Poor: "She names the illness, the treatment, and the risk of stopping.",
      "Grade 3: blames others/external factors": "She says it is an illness. She does not blame only her husband leaving."
     },
-    doc: "Good (grade 5): recognizes depression as an illness, links stopping treatment to relapse, plans to continue medicine and therapy; faith and illness no longer in conflict for her",
-    why: "Her faith was a barrier at first, and the priest helped. Using a patient's own support network is a strength for the safety plan."
+    doc: "Good (grade 5): recognizes depression as an illness, links stopping treatment to relapse, plans to continue medicine and therapy; no longer sees the illness as 罰《ばち》 (a punishment); her faith now supports treatment",
+    why: "Her belief that the illness was a punishment was a barrier at first, and the priest of her family temple helped. Using a patient's own support network is a strength for the safety plan."
    },
    judgment: {
     ans: {
@@ -430,9 +430,9 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
      2: ["少《すこ》し、 午後《ごご》 に。", "A bit, in the afternoon."],
      3: ["いいえ、 むしろ 疲《つか》れて います。", "No, on the contrary, I feel tired."]
     },
-    need: ["Fair", "Difficulty initiating sleep"],
-    ok: ["Frequent awakenings"],
+    need: ["Fair", "Frequent awakenings"],
     wrong: {
+     "Difficulty initiating sleep": "She falls asleep; her problem is waking at 3 a.m. and not getting back to sleep. The form has no early-waking pick, so mark the closest one and write the early waking in the note.",
      Good: "Five to six hours with early waking is fair at best.",
      "Reduced need for sleep": "She feels tired, not energetic. This is not mania."
     },
@@ -457,7 +457,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
     ans: {
      0: ["うつ病《びょう》 です。 はい、 分《わ》かって います。", "Depression. Yes, I know."],
      1: ["はい、 そう でした。 もう 出口《でぐち》 が ない よう に 見《み》えて いました。", "Yes, that's what happened to me. I saw things as if there were no way out."],
-     2: ["ありがとう ございます。 神様《かみさま》 に 罰《ばつ》 を 与《あた》えられて いる と 思《おも》って いました。 罰《ばつ》 じゃ ない と 聞《き》いて、 少《すこ》し 楽《らく》 に なりました。", "Thank you. I felt God was punishing me. It does me good to hear it is not a punishment."]
+     2: ["ありがとう ございます。 悪《わる》い 母親《ははおや》 で 悪《わる》い 妻《つま》 だった から、 罰《ばち》 が 当《あ》たった ん だ と 思《おも》って いました。 罰《ばち》 じゃ ない と 聞《き》いて、 少《すこ》し 楽《らく》 に なりました。", "Thank you. I thought it was a punishment for being a bad mother and a bad wife. It does me good to hear it is not a punishment."]
     },
     need: ["Major depressive disorder, recurrent"],
     wrong: {
@@ -484,7 +484,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
    aftercare: {
     ans: {
      0: ["はい。 五日後《いつかご》 です。 姉《あね》 が 連《つ》れて いって くれます。", "Yes. In five days. My sister takes me."],
-     1: ["姉《あね》 の 典子《のりこ》 です。 猟銃《りょうじゅう》 の こと は 兄《あに》 が やって くれます。", "My sister Noriko. And my brother takes care of the rifle."],
+     1: ["姉《あね》 の 典子《のりこ》 です。 実家《じっか》 の 薬《くすり》 の こと は 兄《あに》 が やって くれます。", "My sister Noriko. And my brother takes care of the medicines at the family home."],
      2: ["はい。 眠《ねむ》れない とき、 また 出口《でぐち》 が ない と 感《かん》じた とき、 自分《じぶん》 を 傷《きず》つけたい と 思《おも》った とき は、 相談窓口《そうだんまどぐち》 に 電話《でんわ》 する か、 救急外来《きゅうきゅうがいらい》 に 来《き》ます。", "Yes. If I can't sleep, if I feel hopeless again, or if I think of hurting myself, I call the crisis line or come to the emergency room."],
      3: ["もう 携帯《けいたい》 に 登録《とうろく》 しました。 書《か》いた 計画《けいかく》 に も あります。", "I already saved it in my phone. It's in my written plan too."]
     },
@@ -493,7 +493,7 @@ window.PSYCH_DISCHARGE_CASES = (window.PSYCH_DISCHARGE_CASES || []).concat([
     wrong: {
      "Discharge deferred: ___": "She meets safety criteria today, with means removed and a plan in place."
     },
-    doc: "Outpatient follow-up within 1 week (in 5 days, sister drives her), then referred to psychotherapy in Japanese; written safety plan with names, numbers, and the local crisis line given to patient and sister; family oriented on warning signs; hunting rifle out of the family home (brother), medicines kept by sister",
+    doc: "Outpatient follow-up within 1 week (in 5 days, sister drives her), then referred to psychotherapy; written safety plan with names, numbers, and the local crisis line given to patient and sister; family oriented on warning signs; medicines cleared out of the family home and any left there locked away (brother), her own medicines kept and given by sister",
     why: "The first week after discharge is the highest-risk time, so follow-up is within days. A good safety plan names the people, the numbers, and the means restriction. It is written in her own language."
    }
   }

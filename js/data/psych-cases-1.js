@@ -276,10 +276,10 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
         ],
         choices: [
           {
-            tl: `話《はな》して くださって ありがとう ございます。 今《いま》 も 自分《じぶん》 を 傷《きず》つけたい 気持《きも》ち は あります か。 ご自宅《じたく》 や ご家族《かぞく》 の 家《いえ》 に、 薬《くすり》 や 銃《じゅう》 は あります か。`,
-            en: `Thank you for telling me. Do you still feel like hurting yourself? Are there medicines or a gun in your home or your family's home?`,
+            tl: `話《はな》して くださって ありがとう ございます。 今《いま》 も 自分《じぶん》 を 傷《きず》つけたい 気持《きも》ち は あります か。 ご自宅《じたく》 や ご実家《じっか》 に、 お薬《くすり》 など、 自分《じぶん》 を 傷《きず》つける の に 使《つか》えそう な もの は あります か。`,
+            en: `Thank you for telling me. Do you still feel like hurting yourself? Is there anything at your home or your family home, such as medicines, that you could use to hurt yourself?`,
             score: 2,
-            fb: `Good. You thank her, check current intent, and ask the means question about both medicines and firearms.`
+            fb: `Good. You thank her, check current intent, and ask the means question in general terms: medicines or anything else at home and at the family home.`
           },
           {
             tl: `今日《きょう》 の ご気分《きぶん》 は いかが です か。`,
@@ -288,8 +288,8 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
             fb: `A soft question, but it misses the chance to assess current intent and access to means.`
           },
           {
-            tl: `それ は 罪《つみ》 です よ、 由美子《ゆみこ》さん。`,
-            en: `That is a sin, Yumiko.`,
+            tl: `そんな こと を したら、 ご先祖様《せんぞさま》 が 悲《かな》しみます よ、 由美子《ゆみこ》さん。`,
+            en: `Your ancestors would be sad if you did that, Yumiko.`,
             score: 0,
             fb: `Her faith may protect her. Using it to shame her at this moment makes her hide things.`
           }
@@ -298,25 +298,25 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
       {
         who: `Yumiko`,
         line: [
-          `兄《あに》 が 猟《りょう》 を する ので、 実家《じっか》 に 猟銃《りょうじゅう》 が あります。 でも、 私《わたし》 は そんな こと は しません…… 神様《かみさま》 が 許《ゆる》さない と 思《おも》います。`,
-          `My brother hunts, so there is a hunting rifle at our family home. But I wouldn't do anything like that... I don't think God would allow it.`
+          `家《いえ》 の 薬《くすり》 は 姉《あね》 が 全部《ぜんぶ》 持《も》って いきました。 実家《じっか》 に は、 まだ 家族《かぞく》 の 薬《くすり》 が 置《お》いて あります。 でも、 もう そんな こと は しません…… ご先祖様《せんぞさま》 に 顔向《かおむ》け できません から。`,
+          `My sister took all the medicines from my home. There are still family medicines at our family home. But I won't do anything like that again... I couldn't face my ancestors.`
         ],
         choices: [
           {
-            tl: `信仰《しんこう》 は 由美子《ゆみこ》さん の 支《ささ》え に なります ね。 それ でも、 お兄《にい》さん に 猟銃《りょうじゅう》 を 別《べつ》 の 場所《ばしょ》 に 移《うつ》して もらって、 お姉《ねえ》さん に お薬《くすり》 を 預《あず》かって もらう の は いかが です か。 それ から、 二十四時間《にじゅうよじかん》 電話《でんわ》 や メッセージ で 相談《そうだん》 できる 窓口《まどぐち》 の 番号《ばんごう》 を お渡《わた》し します。`,
-            en: `Your faith can be a support for you. Even so, would it be all right to ask your brother to move the rifle somewhere else and your sister to keep the medicines for you? I'll also give you the number of a crisis line you can call or message 24 hours a day.`,
+            tl: `お寺《てら》 や お墓参《はかまい》り は、 由美子《ゆみこ》さん の 支《ささ》え に なります ね。 それ でも、 お兄《にい》さん に 実家《じっか》 の お薬《くすり》 を 片付《かたづ》けて もらって、 お姉《ねえ》さん に お薬《くすり》 を 預《あず》かって もらう の は いかが です か。 それ から、 二十四時間《にじゅうよじかん》 電話《でんわ》 や メッセージ で 相談《そうだん》 できる 窓口《まどぐち》 の 番号《ばんごう》 を お渡《わた》し します。`,
+            en: `Your visits to the temple and to your mother's grave can be a support for you. Even so, would it be all right to ask your brother to clear the medicines out of the family home and your sister to keep your medicines for you? I'll also give you the number of a crisis line you can call or message 24 hours a day.`,
             score: 2,
-            fb: `Good. You use her faith as a strength, plan means restriction with family, and give a 24-hour crisis line. Give her the local number in writing and check that it offers help in Japanese.`
+            fb: `Good. You use her faith as a strength, plan means restriction with family, and give a 24-hour crisis line. Give her the local number in writing.`
           },
           {
             tl: `それ を 聞《き》いて 安心《あんしん》 しました。 また 来週《らいしゅう》 お会《あ》い しましょう。`,
             en: `That reassures me. I'll see you next week.`,
             score: 1,
-            fb: `Follow-up matters, but "God wouldn't allow it" is not a safety plan. Means restriction is still needed.`
+            fb: `Follow-up matters, but ご先祖様《せんぞさま》 に 顔向《かおむ》け できません ("I couldn't face my ancestors") is not a safety plan. Means restriction is still needed.`
           },
           {
-            tl: `神様《かみさま》 を 信《しん》じて いる なら、 心配《しんぱい》 ありません ね。`,
-            en: `If you believe in God, there is nothing to worry about.`,
+            tl: `お寺《てら》 に 通《かよ》って いる なら、 心配《しんぱい》 ありません ね。`,
+            en: `If you go to the temple, there is nothing to worry about.`,
             score: 0,
             fb: `Faith can be protective but does not remove risk, and she has just attempted. Do not take reassurance in place of a plan.`
           }
@@ -327,9 +327,9 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
       findings: [
         `Severe depressive episode after her husband left: low mood, poor sleep and appetite, guilt, hopelessness`,
         `Perceived burdensomeness and a suicide attempt by overdose last week, with regret and a call for help`,
-        `Means: a hunting rifle at the family home (her brother's) and her sister's medicines; remove or lock both`,
+        `Means: medicines (her sister's sleeping medicine, which she took; any antidepressant she is prescribed; medicines at home and at the family home); her sister keeps and gives her medicines, her brother clears the family home`,
         `Protective factors: her children, her sister, her faith`,
-        `Needs a written safety plan in Japanese and a 24-hour crisis line that offers help in Japanese`
+        `Needs a written safety plan and the local 24-hour crisis line in writing`
       ],
       mse: `46F, tired-appearing, tearful, cooperative. Speech soft, slowed. Mood "とても 疲《つか》れて いる" (very tired); affect depressed, congruent. Thought process linear. Thought content: guilt, hopelessness, passive and recent active suicidal thoughts with a recent attempt; no psychotic features elicited. Cognition grossly intact. Insight fair. Judgment fair.`
     }
