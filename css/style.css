@@ -977,6 +977,8 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 .so-chip:hover, .so-chip:focus-visible, .so-chip[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
 .so-fc + .so-kana, .so-lesson + .so-kana { margin-left: auto; margin-right: auto; }
 .so-fc { margin-top: 4px; }
+.so-fc-word { gap: 6px; align-items: center; }
+.so-fc-k { font-size: 1.15rem; min-width: 44px; }
 .so-kana .so-kk { font: 600 1.3rem/1 var(--font-tl); }
 .so-kana .so-main { grid-template-columns: minmax(0, 1fr); }
 .so-kana .so-big { width: 150px; height: 150px; }

@@ -184,6 +184,15 @@
   };
 
   /* ---------- Flashcards ---------- */
+  // Back of a dictionary-word card: one button per kanji of the word that has a stroke-order diagram (0.15.0).
+  // Each opens the same panel as on a kanji card, under this row; a second tap on the same kanji closes it.
+  const wordStrokes = (tl) => {
+    const ks = [...new Set([...String(tl || '').replace(/《[^》]*》/g, '')].filter((ch) => App.kanjiBy && App.kanjiBy[ch] && App.strokes.has(ch)))];
+    if (!ks.length) return '';
+    return '<div class="row so-fc so-fc-word" data-noja style="justify-content:center"><span class="small muted">Stroke order:</span>' +
+      ks.map((ch) => '<button type="button" class="btn sm so-fc-k" lang="ja" data-so-open="' + esc(ch) + '" aria-expanded="false" aria-label="Stroke order of ' + esc(ch) + '">' + esc(ch) + '</button>').join('') + '</div>';
+  };
+
   V.flash = (el) => {
     const decks = App.decks();
     const groups = {};
@@ -226,7 +235,8 @@
         (flipped ? '<div class="back ' + (enFirst ? 'tl' : '') + '">' + back + '</div>' + (c.alt ? '<div class="hint tl">Also: ' + esc(c.alt) + '</div>' : '') + (c.note ? '<div class="hint">' + esc(c.note) + '</div>' : '') + (c.sub ? '<div class="hint">' + esc(c.sub) + '</div>' : '') : '<div class="hint">Tap or press Space to show the answer</div>') +
         '</div></div>' +
         (flipped ? '<div class="grade" style="margin-top:12px">' + [['again', 'Again', 0], ['', 'Hard', 1], ['good', 'Good', 2], ['', 'Easy', 3]].map(([cls, t, g]) => '<button class="' + cls + '" data-g="' + g + '">' + t + '<small>' + App.nextLabel(c.id, g) + '</small></button>').join('') + '</div><p class="muted small" style="text-align:center">Keys: 1 Again · 2 Hard · 3 Good · 4 Easy</p>' +
-          (c.id.startsWith('k:') && App.strokes ? '<div class="row so-fc" style="justify-content:center">' + App.strokes.button(c.id.slice(2), 'Stroke order', 'btn sm') + '</div>' : '') : '');
+          (c.id.startsWith('k:') && App.strokes ? '<div class="row so-fc" style="justify-content:center">' + App.strokes.button(c.id.slice(2), 'Stroke order', 'btn sm') + '</div>' : '') +
+          (c.id.startsWith('d') && App.strokes ? wordStrokes(c.tl) : '') : '');
       const fc = el.querySelector('#fc');
       fc.onclick = (ev) => { if (ev.target.closest('.say')) return; if (!flipped) { flipped = true; if (!enFirst) App.speak(c.say || c.tl); draw(); } };
       el.querySelectorAll('[data-g]').forEach((b) => (b.onclick = () => grade(+b.dataset.g, c)));

@@ -3,6 +3,18 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.15.0', date: '2026-11-13', title: 'Six admission cases, seven discharge cases, stroke order on word cards, more trainer words',
+    items: [
+      { type: 'content', text: 'Admission MSE practice: three new cases (six in all). Yumiko on the day of her admission, a week after an overdose, with ongoing suicidal thoughts she cannot promise not to act on (level N4); Tetsuo on day 1 of alcohol withdrawal, shaky and low, with a brief illusion he corrects himself and a passive wish not to wake up (level N3); and a new patient, Chiyoko Ito, 79, a retired teacher with Alzheimer\'s disease who believes her daughter-in-law steals her purse and has been leaving the house at night (level N3). Chiyoko\'s case teaches ruling out delirium first and interviewing the family alongside the patient.' },
+      { type: 'content', text: 'Discharge practice: two new cases (seven in all). Daisuke Sato ten days after the emergency visit in his case simulation: paranoia gone with abstinence, craving down, a plan built around his trigger (night shifts), and an honest answer when he asks who will be told. Chiyoko Ito after three and a half weeks: calmer nights, a low-dose medicine to be reviewed and stopped, day care, a door sensor, and help for her daughter-in-law as a carer.' },
+      { type: 'feature', text: 'Flashcards: the back of every vocabulary card now has a Stroke order button for each kanji in the word (for example 合 and 鍵 in 合鍵). Each opens the same diagram as the kanji page; tap it again to close.' },
+      { type: 'content', text: 'Dictionary: 120 new words (3,557 in all), 76 verbs and 44 adjectives such as to throw away, to pick up, to wipe, to pack, to visit someone in hospital, to stay with a patient, to ease, to comfort, to look back on; sleepy, queasy, awkward, guilty, listless, oversensitive, forward-looking.' },
+      { type: 'content', text: 'Verb and adjective trainer: 60 more verbs (404 in all) and 43 more adjectives (253 in all), all taken from the new dictionary words, each with example sentences. Words whose "let\'s" or "please" form would sound odd or unkind to a patient (to withdraw from people, to agonise, to endure, to scold, to give in to it) were kept in the dictionary but not added to the trainer.' },
+      { type: 'correction', text: 'Admission MSE practice: the chief-complaint step said to ask a family member even in cases where the patient is the one asked. It now says whom to ask.' },
+      { type: 'update', text: 'The new lines are recorded for the voice pack automatically after this update.' }
+    ]
+  },
+  {
     version: '0.14.0', date: '2026-11-13', title: 'Stroke order in lessons, drills and cards; Japanese headings; Ayaka on admission; more trainer words',
     items: [
       { type: 'feature', text: 'Stroke order in more places. The hiragana and katakana lessons now end with a "How to write them" card: tap any kana to hear it and see its stroke order. In the kanji drill a Stroke order button appears after each answer, and kanji flashcards have the same button on the back of the card. Each opens the same diagram as the kanji page, with a link to a writing practice sheet.' },

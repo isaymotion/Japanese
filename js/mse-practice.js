@@ -65,7 +65,7 @@
     const ccView = () => {
       const p = ref(C.cc.ask), a = C.cc.ans, done = cc.pick !== null;
       return '<div class="card stack ds-field"><div><span class="eyebrow">History · before the MSE</span><h2 style="margin:2px 0 0">Chief complaint</h2></div>' +
-        '<div class="ds-assess"><b>What to document.</b> The reason for consultation in the informant\'s own words. Ask the family member who brought the patient.</div>' +
+        '<div class="ds-assess"><b>What to document.</b> The reason for consultation in the informant\'s own words. ' + (!/\(/.test(a[2] || '') ? 'Ask the patient.' : 'Ask the family member who brought the patient.') + '</div>' +
         '<div><div class="eyebrow" style="margin-bottom:6px">Ask</div>' + (p ? qLine(p, a, cc.asked, 'data-ccask="1"', true) : '') + '</div>' +
         (cc.asked ? '<div><div class="eyebrow" style="margin-bottom:6px">Which entry belongs in the Chief Complaints field?</div><div class="opts">' +
           C.cc.opts.map((o, k) => '<button class="opt' + (done ? (o[1] ? ' right' : k === cc.pick ? ' wrong' : '') : '') + '" data-cc="' + k + '"' + (done ? ' disabled' : '') + '>' + esc(o[0]) + '</button>').join('') + '</div>' +
