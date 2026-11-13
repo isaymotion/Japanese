@@ -1,4 +1,6 @@
-# Phone-menu fix for the sister apps (made 13 Nov 2026, NOT pushed yet)
+# Phone-menu fix for the sister apps: PUSHED on 13 Nov 2026 with Dr. Navarro's go-ahead
+
+Live versions: Usap Tayo 3.1.2, Hablemos 0.6.1, Aklanon 0.1.3 (Aklanon had moved to 0.1.2 by itself, so only the CSS part of its patch was applied and the version was bumped with write/release.py). Each app's HANDOFF.md on its dev-tools branch has a note. The text below is kept as a record; nothing is left to do.
 
 The phone menu (`.rail`) cannot scroll in Usap Tayo (`isaymotion/Tagalog` 3.1.1), Hablemos (0.6.0) and Aklanon (0.1.1),
 the same fault fixed in Hanashimashō 0.12.1. Each patch changes one CSS rule and bumps the version (Tagalog 3.1.2,

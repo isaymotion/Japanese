@@ -7,7 +7,7 @@ async def main():
         pg.on('pageerror', lambda e: errs.append(str(e)))
         await pg.goto('http://localhost:8765/index.html#/psych/sud'); await pg.wait_for_timeout(500)
         await pg.evaluate("App.speak=()=>{};App.speakAsync=()=>Promise.resolve();App.stop=App.stop||(()=>{})")
-        for r in ['#/psych/sud','#/psych/mood','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/mcase/shota','#/psych/mcase/ren','#/psych/dcase/yumiko','#/psych/dcase/tetsuo','#/psych/dcases','#/psych/mcases']:
+        for r in ['#/psych/sud','#/psych/mood','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/mcase/shota','#/psych/mcase/ren','#/psych/dcase/yumiko','#/psych/dcase/tetsuo','#/psych/dcase/ayaka','#/psych/dcases','#/psych/mcases']:
             await pg.evaluate("h=>{location.hash=h}", r); await pg.wait_for_timeout(300)
             n=0; e0=len(errs)
             for i in range(120):
