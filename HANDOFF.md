@@ -94,7 +94,7 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
-| Menu language (0.13.0) | Settings and About: English or Japanese. Japanese menu, tabs, footer, theme and text-size controls, backup messages, with furigana; English under each menu item. 97 strings in `data/strings.js` `tl`, written by the main chat and reviewed by an Opus agent |
+| Menu language (0.13.0) | Settings and About: English or Japanese. Japanese menu, tabs, footer, theme and text-size controls, backup messages, with furigana; English under each menu item. 92 strings in `data/strings.js` `tl`, written by the main chat and reviewed by an Opus agent |
 | Lessons | 86 in 26 units, with quizzes, level filter and Print: Starter 6, N5 21, N4 35, N3 24 |
 | Kanji study | 719 kanji: N5 80, N4 166, N3 367, clinical 106; chart, page per kanji, 4-mode drill, printable list, decks |
 | Stroke order (0.10.0) | diagram on every kanji page and for every kana from the kana chart; KanjiVG data, about 570 KB in 5 files, precached by sw.js |
