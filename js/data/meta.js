@@ -1,4 +1,4 @@
-/* Placement test. PLACEMENT = [[level, question, options, correctIndex]]; level is 'S' (kana and greetings), 'N5a', 'N5b' or 'N4'. DRAFT FOR REVIEW. */
+/* Placement test. PLACEMENT = [[level, question, options, correctIndex]]; level is 'S' (kana and greetings), 'N5a', 'N5b', 'N4' or 'N3'. DRAFT FOR REVIEW. */
 window.PLACEMENT = [
   ['S', "Which of these is written <i>sushi</i>?", ["すき", "すし", "しす"], 1],
   ['S', "What do you say to greet someone in the morning?", ["こんばんは", "おやすみなさい", "おはよう ございます"], 2],
@@ -22,5 +22,11 @@ window.PLACEMENT = [
   ['N4', "What does 日本語《にほんご》 が 少《すこ》し 話《はな》せます mean?", ["I want to speak Japanese.", "I can speak a little Japanese.", "I speak Japanese a lot."], 1],
   ['N4', "What does 眠《ねむ》れなかったら、 電話《でんわ》して ください mean?", ["Because you cannot sleep, please call.", "Even if you cannot sleep, do not call.", "If you cannot sleep, please call."], 2],
   ['N4', "Choose the best word: 熱《ねつ》 が ある ＿、 今日《きょう》 は 休《やす》みます。", ["のに", "ので", "けど"], 1],
-  ['N4', "Which is the respectful (sonkeigo) way to ask 'What will you eat?'", ["何《なに》 を 召《め》し上《あ》がります か。", "何《なに》 を いただきます か。", "何《なに》 を 食《た》べる か。"], 0]
+  ['N4', "Which is the respectful (sonkeigo) way to ask 'What will you eat?'", ["何《なに》 を 召《め》し上《あ》がります か。", "何《なに》 を いただきます か。", "何《なに》 を 食《た》べる か。"], 0],
+
+  ['N3', "What does 薬《くすり》 を 飲《の》む たび に、 気持《きも》ち が 悪《わる》く なります mean?", ["Every time I take the medicine, I feel sick.", "After I stopped the medicine, I felt sick.", "I feel sick, so I take the medicine."], 0],
+  ['N3', "Choose the best word: 寝不足《ねぶそく》 の ＿、 朝《あさ》 から 頭《あたま》 が 痛《いた》い です。", ["うち に", "せい で", "かわり に"], 1],
+  ['N3', "What does 看護師《かんごし》さん に よると、 山田《やまだ》さん は 昨日《きのう》 の 夜《よる》 よく 眠《ねむ》れた そう です mean?", ["It looks as if Mr. Yamada will sleep well tonight.", "The nurse wants Mr. Yamada to sleep well.", "According to the nurse, Mr. Yamada slept well last night."], 2],
+  ['N3', "Choose the best word for 'before you forget': 忘《わす》れない ＿、 メモ して ください。", ["たび に", "うち に", "ばかり に"], 1],
+  ['N3', "What does 薬《くすり》 を 飲《の》めば すぐ 治《なお》る わけ では ありません mean?", ["It does not mean that you will get better right away if you take the medicine.", "There is no reason to take the medicine.", "If you take the medicine, you will certainly get better right away."], 0]
 ];

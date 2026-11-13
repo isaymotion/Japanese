@@ -35,7 +35,7 @@ window.LANG = {
   searchExample: 'e.g., ねむい, 眠い, nemui, sleepy',
   // Lesson and placement levels, easiest first.
   levels: ['Starter', 'N5', 'N4', 'N3'],
-  placementLevels: [['S', 'Starter (kana and greetings)'], ['N5a', 'N5, first half'], ['N5b', 'N5, second half'], ['N4', 'N4']],
+  placementLevels: [['S', 'Starter (kana and greetings)'], ['N5a', 'N5, first half'], ['N5b', 'N5, second half'], ['N4', 'N4'], ['N3', 'N3']],
 
   // Display order of the psychiatry sections (the same order as Usap Tayo). Data files may load in any order.
   sectionOrder: ['opening', 'consent', 'cc-hpi', 'depression', 'mania', 'anxiety', 'trauma', 'hallucinations', 'delusions', 'suicide', 'violence', 'deescalation', 'substance', 'history', 'family-hx', 'social', 'collateral', 'mse-cog', 'mse-abstract', 'mse-describe', 'explain', 'meds', 'admission', 'child', 'elderly', 'closing', 'shea-techniques',

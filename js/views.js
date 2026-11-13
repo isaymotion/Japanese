@@ -88,7 +88,7 @@
       (due ? tile('#/flash/due', 'Review', due + ' cards due', 'Spaced repetition keeps words fresh.') : tile('#/flash', 'Flashcards', 'Start a deck', 'Vocabulary and psychiatry phrases.')) +
       (qd ? tile(qd[0], 'Quick practice', qd[1], qd[2]) : '') +
       (nextLesson ? tile('#/lessons/' + nextLesson.id, 'Next lesson · ' + esc(nextLesson.level), esc(nextLesson.title), esc(nextLesson.summary)) : '') +
-      (!s.level && PLACEMENT.length ? tile('#/placement', 'Studied before?', 'Take the placement test', '20 questions to find where to start.') : '') +
+      (!s.level && PLACEMENT.length ? tile('#/placement', 'Studied before?', 'Take the placement test', PLACEMENT.length + ' questions to find where to start.') : '') +
       '</div>' +
       (pins.length ? '<h2 style="margin-top:22px">Pinned</h2><div class="grid">' + pins.map((p) => tile(esc(p.hash), esc(p.sec || 'Pinned'), esc(p.title))).join('') + '</div>' : '') +
       (recent.length ? '<h2 style="margin-top:22px">Continue</h2><div class="grid">' + recent.map((r) => tile(esc(r.hash), esc(r.sec || 'Recent'), esc(r.title))).join('') + '</div>' : '') +
@@ -307,10 +307,17 @@
   };
 
   /* ---------- Speaking ---------- */
-  V.speak = (el) => {
+  V.speak = (el, p, q) => {
+    // Level filter (?lv=N3 …), remembered like the ones on the lessons and reading pages. It applies to the dialogues, not the clinical cases.
+    q = q || {};
+    const lvs = LANG.levels.filter((k) => DIALOGUES.some((d) => d.level === k));
+    const lv = q.lv === 'all' ? '' : lvs.includes(q.lv) ? q.lv : lvs.includes(S().speakLevel) && !q.lv ? S().speakLevel : '';
+    if ((S().speakLevel || '') !== lv) { S().speakLevel = lv; App.save(); }
+    const shown = DIALOGUES.filter((d) => !lv || d.level === lv), doneN = shown.filter((d) => S().done.dialogues[d.id] != null).length;
     el.innerHTML = '<h1>Speaking</h1>' + (DIALOGUES.length || PSYCH_CASES.length ? '' : soon(LANG.name + ' dialogues')) + speechSupportNote() +
-      '<p class="muted">Each dialogue has three modes: <b>Listen</b> to the whole conversation, <b>Shadow</b> each line after the audio, and <b>Role-play</b>, where your lines are hidden and you say them from the English cue. </p><div class="grid">' +
-      DIALOGUES.map((d) => '<a class="tile" href="#/speak/' + d.id + '"><div class="row">' + lvPill(d.level) + (S().done.dialogues[d.id] != null ? '<span class="pill good">' + S().done.dialogues[d.id] + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(d.title) + '</h3><p>' + d.lines.length + ' lines · you are ' + esc(d.roles[d.you]) + '</p></a>').join('') + '</div>' +
+      '<p class="muted">Each dialogue has three modes: <b>Listen</b> to the whole conversation, <b>Shadow</b> each line after the audio, and <b>Role-play</b>, where your lines are hidden and you say them from the English cue. </p>' +
+      (lvs.length > 1 ? '<div class="row" style="flex-wrap:wrap;gap:8px;margin-bottom:10px"><div class="seg" role="group" aria-label="Level">' + [['', 'All']].concat(lvs.map((k) => [k, k])).map(([k, t]) => '<a role="button" href="#/speak?lv=' + (k || 'all') + '" class="' + (lv === k ? 'on' : '') + '">' + esc(t) + '</a>').join('') + '</div><span class="pill">' + doneN + ' / ' + shown.length + ' done</span></div>' : '') + '<div class="grid">' +
+      shown.map((d) => '<a class="tile" href="#/speak/' + d.id + '"><div class="row">' + lvPill(d.level) + (S().done.dialogues[d.id] != null ? '<span class="pill good">' + S().done.dialogues[d.id] + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(d.title) + '</h3><p>' + d.lines.length + ' lines · you are ' + esc(d.roles[d.you]) + '</p></a>').join('') + '</div>' +
       (PSYCH_CASES.length ? '<h2 style="margin-top:18px">Clinical dialogues</h2><div class="grid">' + PSYCH_CASES.map((c) => '<a class="tile" href="#/speak/case-' + c.id + '"><div class="row">' + lvPill(c.level) + '<span class="pill warn">clinical</span></div><h3 style="margin-top:6px">' + esc(c.title) + '</h3><p>Role-play the best-practice interview lines.</p></a>').join('') + '</div>' : '');
   };
   function speechSupportNote() {
@@ -393,7 +400,7 @@
   V.placement = (el) => {
     if (!PLACEMENT.length) { el.innerHTML = '<h1>Placement test</h1>' + soon('The placement test'); return; }
     const LV = LANG.placementLevels, keys = LV.map((x) => x[0]);
-    el.innerHTML = '<h1>Placement test</h1><p class="muted">20 questions from the kana to JLPT N4. If you are new to Japanese, skip this and start with Lesson 1. Choose "I don\'t know" rather than guessing; guessing only hides your real level.</p><div id="pq" data-norj></div>';
+    el.innerHTML = '<h1>Placement test</h1><p class="muted">' + PLACEMENT.length + ' questions from the kana to JLPT N3. If you are new to Japanese, skip this and start with Lesson 1. Choose "I don\'t know" rather than guessing; guessing only hides your real level.</p><div id="pq" data-norj></div>';
     const qs = PLACEMENT.map(([lv, q, opts, a]) => ({ lv, q, opts: opts.concat(["I don't know"]), a }));
     let i = 0; const got = {}, tot = {};
     keys.forEach((k) => { got[k] = 0; tot[k] = 0; });
@@ -404,11 +411,11 @@
         // Your level is the first band you have not yet mastered (80% for the starter band, 60% after).
         let n = 0;
         while (n < keys.length && tot[keys[n]] && got[keys[n]] / tot[keys[n]] >= (n === 0 ? 0.8 : 0.6)) n++;
-        const level = n === 0 ? 'Starter' : n <= 2 ? 'N5' : n === 3 ? 'N4' : 'N4+';
+        const level = n === 0 ? 'Starter' : n <= 2 ? 'N5' : n === 3 ? 'N4' : n === 4 ? 'N3' : 'N3+';
         S().level = level; App.activity(20);
         const firstOf = (unit) => { const l = LESSONS.find((x) => x.unit === unit); return l ? '#/lessons/' + l.id : '#/lessons'; };
         const rec = [['#/lessons/writing-systems', 'Start with the first lessons and the kana trainer.'], [firstOf('First sentences'), 'You can read kana. Start at First sentences and work through the particles.'], [firstOf('Adjectives'), 'Review adjectives and the て-form, then the plain forms.'],
-          [firstOf('Plain forms'), 'Work through the plain forms and Saying more, then open the psychiatry track.'], ['#/psych', 'You are ready for the psychiatry track. Use the lessons as review.']][n];
+          [firstOf('Plain forms'), 'Work through the plain forms and Saying more, then open the psychiatry track.'], [firstOf('Time and sequence'), 'You have the N4 grammar. Start the N3 lessons at Time and sequence; you can open the psychiatry track alongside them.'], ['#/psych', 'You are ready for the psychiatry track. Use the N3 lessons and readings as review.']][n];
         box.innerHTML = '<div class="card stack"><span class="eyebrow">Your level</span><h2 style="margin:0">' + level + '</h2>' +
           '<div class="tablewrap"><table><tr><th>Band</th><th>Score</th></tr>' + LV.map(([k, name]) => '<tr><td>' + esc(name) + '</td><td>' + got[k] + ' / ' + tot[k] + '</td></tr>').join('') + '</table></div>' +
           '<p>' + rec[1] + '</p><div class="row"><a class="btn primary" href="' + rec[0] + '">Go there</a><a class="btn" href="#/">Home</a></div></div>';

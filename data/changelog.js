@@ -3,6 +3,15 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.11.0', date: '2026-11-13', title: 'N3 dialogues and N3 placement questions',
+    items: [
+      { type: 'content', text: 'Six N3 dialogues on the Speaking page, each with Listen, Shadow and Role-play: handover to the night nurse, explaining to a patient\'s mother, a patient who wants to stop her medicine, presenting a patient at the morning conference, a friend who is not sleeping (casual speech), and a phone call about a late appointment. There are now 16 dialogues.' },
+      { type: 'feature', text: 'The Speaking page has a level filter (All, Starter, N5, N4, N3), like Lessons and Reading.' },
+      { type: 'content', text: 'The placement test now goes up to N3: five new questions (25 in all). If you pass the N4 questions it sends you to the first N3 unit, Time and sequence; if you pass N3 as well, to the psychiatry track.' },
+      { type: 'update', text: 'The new dialogue lines are drafts for review, like the rest of the Japanese. Their recorded voice clips are added automatically a few minutes after this update; until then the device voice reads them.' }
+    ]
+  },
+  {
     version: '0.10.1', date: '2026-11-13', title: 'Recorded voice pack complete',
     items: [
       { type: 'correction', text: 'The recorded voice pack is complete: all 10,118 clips are installed. Its real size is about 210 MB, not the 150 MB estimated in the notes for 0.9.0; Save all audio for offline use downloads that much.' }
