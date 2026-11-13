@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+/* Checks the 0.17.0 data files. usage: node chk-017.js <repo> [extra data file …]
+   Extra files (e.g. a writer's draft in work/new) are loaded after the repo's data, so their entries are checked too. */
+const fs = require('fs'), path = require('path'), vm = require('vm');
+const root = path.resolve(process.argv[2] || '.');
+const ctx = { console, TextEncoder, Buffer }; ctx.window = ctx; vm.createContext(ctx);
+const load = (f) => vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
+const ih = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const scripts = [...ih.matchAll(/src="([^"]+\.js)"/g)].map((m) => m[1]);
+['js/ja.js', 'js/conjugate.js', 'js/lang.js'].concat(scripts.filter((s) => /^js\/data\//.test(s))).forEach((f) => load(path.join(root, f)));
+process.argv.slice(3).forEach((f) => load(path.resolve(f)));
+const errs = [], warn = [];
+const keys = new Set();
+(ctx.DICT_RAW || []).forEach((b) => String(b).split('\n').forEach((l) => { l = l.trim(); if (!l || l.startsWith('#')) return; const c = l.split('|').map((x) => x.trim()); if (c[1]) keys.add(c[0] + '|' + c[1]); }));
+const ts = ctx.TOPIC_SETS || [];
+const tids = new Set();
+ts.forEach((s) => { if (tids.has(s.id)) errs.push('topic set id twice: ' + s.id); tids.add(s.id);
+  if (!s.title || !Array.isArray(s.words)) errs.push('topic set shape: ' + s.id);
+  const seen = new Set(); (s.words || []).forEach((w) => { if (!keys.has(w)) errs.push('topic ' + s.id + ': not a dictionary key: ' + w); if (seen.has(w)) errs.push('topic ' + s.id + ': twice: ' + w); seen.add(w); });
+  if ((s.words || []).length < 8) warn.push('topic ' + s.id + ' has fewer than 8 words'); });
+const ex = ctx.DICT_EX || [], exk = new Map();
+ex.forEach((e, i) => { if (!Array.isArray(e) || e.length < 3) return errs.push('example ' + i + ' shape');
+  if (!keys.has(e[0])) errs.push('example: not a dictionary key: ' + e[0]);
+  if (exk.has(e[0])) errs.push('example twice for ' + e[0]); exk.set(e[0], 1);
+  if (!/[。？！]$/.test(e[1].trim())) warn.push('example does not end with 。？！: ' + e[1]);
+  if (/[぀-ヿ㐀-鿿]/.test(e[2])) errs.push('Japanese in English: ' + e[2]); });
+const sp = ctx.SOUND_PAIRS || { guide: [], items: [] }, types = new Set((sp.guide || []).map((g) => g[0])), pairSeen = new Set();
+(sp.items || []).forEach((it, i) => { if (it.length !== 5) return errs.push('pair ' + i + ' shape');
+  if (!types.has(it[0])) errs.push('pair type not in guide: ' + it[0]);
+  if (it[1] === it[3]) errs.push('pair with the same word twice: ' + it[1]);
+  const a = ctx.JA.speak(it[1]), b = ctx.JA.speak(it[3]); const k = [a, b].sort().join('/'); if (pairSeen.has(k)) errs.push('pair twice: ' + k); pairSeen.add(k);
+  const ka = ctx.JA.compact(ctx.JA.kana(it[1])), kb = ctx.JA.compact(ctx.JA.kana(it[3])); if (ka === kb) errs.push('pair sounds the same: ' + it[1] + ' / ' + it[3]); });
+const ids = new Set([...(ctx.DIALOGUES || []).map((d) => d.id), ...(ctx.READING || []).map((r) => r.id)]);
+const lq = ctx.LISTEN_Q || {};
+Object.entries(lq).forEach(([id, qs]) => { if (!ids.has(id)) errs.push('listen questions for unknown id ' + id);
+  qs.forEach((q, i) => { if (q.length < 4 || !Array.isArray(q[1]) || !(q[2] >= 0 && q[2] < q[1].length)) errs.push(id + ' q' + i + ' shape or answer index');
+    if (/[぀-ヿ㐀-鿿]/.test(q[0] + q[1].join(''))) warn.push(id + ' q' + i + ' has Japanese in the question or options (needs furigana)'); }); });
+const missingQ = [...ids].filter((id) => !lq[id]); if (Object.keys(lq).length) warn.push('dialogues/readings without questions: ' + missingQ.join(', '));
+const jc = ctx.JA_COUNTERS || { groups: [] }, gid = new Set();
+(jc.groups || []).forEach((g) => { if (gid.has(g.id)) errs.push('counter group twice: ' + g.id); gid.add(g.id);
+  (g.rows || []).forEach((r, i) => { if (!r[0] || !r[1]) errs.push(g.id + ' row ' + i + ' shape'); });
+  const lab = new Set(); (g.rows || []).forEach((r) => { if (lab.has(r[0])) errs.push(g.id + ': label twice ' + r[0]); lab.add(r[0]); }); });
+(jc.clinical || []).forEach((c, i) => { if (c.length !== 5 || !Array.isArray(c[4]) || c[4].length !== 3) errs.push('clinical ' + i + ' shape'); else if (c[4].includes(c[3])) errs.push('clinical ' + i + ' answer among wrong'); if (c[1] && /[぀-ヿ㐀-鿿]/.test(c[1] + c[2] + c[3] + c[4])) errs.push('clinical ' + i + ': Japanese in an English field'); });
+console.log('topic sets', ts.length, 'words', ts.reduce((n, s) => n + s.words.length, 0), '| examples', ex.length, '| sound pairs', (sp.items || []).length, '| listen-question items', Object.keys(lq).length, 'questions', Object.values(lq).reduce((n, q) => n + q.length, 0), '| counter groups', (jc.groups || []).length, 'rows', (jc.groups || []).reduce((n, g) => n + g.rows.length, 0), 'clinical', (jc.clinical || []).length);
+warn.forEach((w) => console.log('warning: ' + w)); errs.forEach((e) => console.log('ERROR: ' + e));
+console.log(errs.length + ' error(s)');

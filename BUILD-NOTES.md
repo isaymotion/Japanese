@@ -26,6 +26,10 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 - Gap check (0.16.0): Hanashimashō already had every interview section and tool of Usap Tayo, and more practice cases. Usap Tayo's Resident / Nurse switch exists only inside its substance use and withdrawal tools, and Hanashimashō had inherited the same. The nurse features described for Usap Tayo (medicines and side effects, daily care, risk screening with escalation, de-escalation, education) were in neither app, so they were built here as a Nurse view; Usap Tayo was not changed.
 - Nurse view (0.16.0): one switch, "I am a Resident / Nurse", on the Psychiatry Interview tab, saved with the settings and shared with the nurse scripts in the substance use and withdrawal tools. The Nurse view shows the six nurse sections and then six resident sections nurses use most (de-escalation, suicide risk, violence risk, medication, admission, elderly patients); the Resident view does not show the nurse sections. Flashcards, search, the point board and the listening drill include the nurse sections for everyone. Every nurse page says the content is pending Nursing Service review. The nurse in the phrases is called 木村 (Kimura), a placeholder: 佐藤 and 田中 are patients' names in the app.
 - Shigeru Yamada's two new cases (0.16.0) were placed on a medical ward with the psychiatry liaison team, because his simulation and nursing notes are set on a medical floor: delirium from a urinary tract infection with dehydration, his sleeping pill tapered and stopped, no antipsychotic, home to his daughter's house on day 8 with a memory assessment about three months later. This was decided in the build; please confirm.
+- 14 Nov (after midnight): after confirming the 0.16.0 recording, she chose more vocabulary and listening practice, all eight items offered (done in 0.17.0, not yet published): a vocabulary quiz, numbers and counters, an example sentence for each core word, topic matching; a listening drill for the whole course, dictation with kana tiles, a sound-pair drill, questions on the dialogues and readings.
+- Example sentences (0.17.0): 802 words have one: every N5 noun, verb, adjective and adverb (472) and 330 N4 words, chosen health, hospital, feelings, mind, body, medicine, family and people first. Risk words were not given sentences in this round. Sentences keep to the word's level (N5 grammar for N5 words).
+- Sound pairs (0.17.0): no pitch-accent pairs, because the machine voice cannot be trusted for pitch. Only common words; the youon set is small (8) because there are few real common pairs.
+- Numbers and counters (0.17.0): the clinic sentences count tablets (錠) only as "the doctor told me to take one after dinner"; no medicine names or strengths.
 - Kanji levels: there is no official JLPT kanji list, so the levels are approximate (80 at N5, 166 at N4, 367 at N3). The clinical set (106) is the most frequent kanji beyond N3 in the app's own psychiatry phrases.
 - Handouts print through the browser's print window ("Save as PDF" makes the file). No PDF library, because it would need a Japanese font of several megabytes. Default paper is A4; Letter, A5 and A6 are options.
 - Audio pack (0.9.0): the recorded voice is Microsoft's Nanami (female); Keita (male) can be chosen when the job is run by hand, but there is one pack per site. The clips are recorded on GitHub, not in the chat, because the chat's sandbox cannot reach the voice service.
@@ -103,6 +107,13 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Interpretation drill: 16 more lines (48). 30 more replies to existing interview sections.
   - Fixed: Daisuke's simulation summary said his perception was "not clear"; it now records the footsteps and his name called.
 
+- **0.17.0** (built 14 Nov, on branch wip-0.17.0, not yet published) — vocabulary and listening.
+  - Vocabulary quiz (`#/vocab`): any deck, three modes (Meaning, Recall, Reading in kanji without furigana); misses go to My mistakes. Topic matching: 14 sets, 219 words.
+  - Example sentences for 802 dictionary words, on the word page and the back of the word card.
+  - Listening practice (`#/listen`): Hear (words, or about 1,950 recorded sentences, by level and speed), Dictation with kana tiles or typing, Sound pairs (104), Dialogues and readings (120 questions on all 40).
+  - Numbers and counters (`#/numbers`): 21 tables with sound changes, a quiz, and 40 clinic sentences.
+  - About 994 new lines to record when published.
+
 ## Sister apps
 - The phone-menu fault found in Hanashimashō 0.12.0 was also in the three sister apps, because they share the engine. The same one-rule fix is live since 13 Nov 2026: Usap Tayo 3.1.2, Hablemos 0.6.1, Mag-istorya Kita (Aklanon) 0.1.3. Each was tested at three screen sizes before the push, and each app's own handoff has a note.
 
@@ -176,6 +187,8 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Still open between older files: Shigeru's evening restlessness starts "about five" in the handover dialogue and "about seven" in the nursing notes; his simulation says mood was not assessed.
   - Wording for a native-speaking clinician or nurse is listed in the handoff (section 7).
 
+- 0.17.0. Please check: the main readings in the numbers tables (alternatives are in each table's note); the clinic number sentences; that a pet's death is an acceptable example for 死ぬ (to die). Wording for a native speaker is listed in the handoff (section 7).
+
 ## Status
 - All Japanese is a draft: written and second-checked by AI, not yet reviewed by a native Japanese-speaking clinician. This includes every kanji reading, dictionary entry, reading passage, dialogue, trainer word, handout line, the fifth discharge case and the Japanese menu.
 - Audio: the recorded voice pack is complete: 18,803 clips, about 340 MB, well under GitHub Pages' 1 GB limit (the first run recorded 10,118 clips in 24 minutes with no errors; later builds were recorded automatically, the last one, 1,976 lines for 0.15.0, in about four minutes with no errors). It is a machine voice reading draft Japanese, so a clip can have a wrong reading or accent. Still to confirm on a phone: Settings → Voice says Installed.
@@ -198,4 +211,5 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 6. Try the Japanese headings on a phone and say whether having the English under each one is what you want.
 7. Read the five new 0.15.0 cases once (Psychiatry → Admission MSE practice: Yumiko, Tetsuo, Chiyoko; Discharge practice: Daisuke, Chiyoko) and say whether the clinical choices above are right, especially Chiyoko's risperidone plan and Daisuke's confidentiality answer.
 8. Read the 0.16.0 points above, and ask the Nursing Service to review the six nurse sections (Psychiatry → Interview → Nurse).
+10. Say whether to publish 0.17.0 (vocabulary quiz, listening practice, numbers and counters), and try the three new pages on a phone.
 9. Optional next: nurse-side case simulations, a printable nurse pocket card, new presentations as simulations, or more words through new dictionary entries.

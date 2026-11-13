@@ -1,0 +1,10 @@
+# Write /home/claude/work/new/examples-N.js (one example sentence per dictionary word)
+Read COMMON-WRITE.md first. Seed and shape: /home/claude/japanese/js/data/examples-1.js (copy its header; your file uses the same wrapper `window.DICT_EX = (window.DICT_EX || []).concat([ … ]);`). N and your word list are in your task message; the list is /home/claude/work/new/ex-words-N.txt: one word a line, `<key>  [part of speech, category, level, note]`. The key (before the two spaces) is the dictionary key you copy EXACTLY into the first field.
+For EVERY word in your list write one entry `['<key>', '<Japanese sentence>', '<English>']`:
+- The sentence uses the word (a verb or adjective may be conjugated; a noun may take お/ご if natural) in the meaning the English gloss gives — if the gloss has several meanings, use the first.
+- Level: an N5 word's sentence uses only N5 grammar and vocabulary (です/ます, past and negative, 〜て ください, 〜たい, 〜ましょう, basic particles; no passive, no causative, no 〜ば, no keigo beyond いらっしゃいます / お〜ください); an N4 word's sentence may use N4 grammar. Keep the other words at or below the level; avoid kanji beyond the level unless it is the word itself (they still get furigana).
+- 4 to 12 words, one sentence, polite です/ます (a quoted plain line is fine for a family member), ends with 。 or ？ (Japanese question sentences end with か。 normally; use ？ only in casual speech).
+- Natural, everyday Japanese a teacher would write. About one sentence in three set in a clinic, ward or health context when that is natural for the word (asking a patient, a nurse explaining, a patient describing); the rest everyday life. Vary subjects and sentence types (statements, questions, requests). Do not make every sentence 私は…. Each sentence teaches the word: the context should make its meaning clear.
+- English: a natural translation of the sentence (not a gloss), no Japanese characters.
+- Respect the note field if it says how the word is used.
+Write the file in chunks if it is long (it has about 200 entries). Check with the commands in COMMON-WRITE.md. In the report list words whose sentence you were unsure of.
