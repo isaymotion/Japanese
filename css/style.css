@@ -1034,3 +1034,65 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
   .ws-name { display: block; }
   .ws-dot, .ws-n, .ws-p, .ws-g { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* 0.17.0 numbers */
+.num-table td { vertical-align: middle; }
+.num-table .num-label { font-size: 1.1rem; font-weight: 600; white-space: nowrap; }
+.num-table .num-read { font-size: 1.05rem; }
+.num-table .num-say { width: 48px; text-align: right; }
+.num-table tr.num-irr td { background: color-mix(in srgb, var(--accent) 9%, var(--surface)); }
+.num-table tr.num-irr td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.num-table tr.num-playing td { background: color-mix(in srgb, var(--gold) 22%, var(--surface)); }
+.num-pill { font-size: .7rem; font-weight: 600; vertical-align: middle; white-space: nowrap; }
+@media (max-width: 420px) { .num-table th, .num-table td { padding: 7px 6px; } .num-table .num-label { white-space: normal; } }
+
+/* 0.17.0 listen */
+.lp-ctl { flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.lp-tabs { margin-bottom: 8px; }
+.lp-built { min-height: 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 8px 10px; border: 1px dashed var(--rule); border-radius: var(--r-md); background: var(--surface-2); }
+.lp-ch { min-width: 40px; height: 44px; border: 0; border-radius: 8px; background: var(--surface); color: var(--ink); font: 600 1.4rem/1 var(--font-tl); cursor: default; padding: 0 4px; }
+.lp-ch[data-pop] { cursor: pointer; box-shadow: inset 0 -3px 0 var(--accent); }
+.lp-ch:disabled { opacity: 1; }
+.lp-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 8px; }
+.lp-tile { height: 54px; border: 1px solid var(--rule); border-radius: var(--r-md); background: var(--surface); color: var(--ink); font: 600 1.45rem/1 var(--font-tl); cursor: pointer; }
+.lp-tile:hover:not(:disabled) { border-color: var(--ink-3); }
+.lp-tile:disabled { opacity: .3; cursor: default; }
+.lp-ans { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+.lp-kana { font: 700 1.5rem/1.2 var(--font-tl); }
+.lp-word { font-size: 1.12rem; font-weight: 600; }
+.lp-yours { font-family: var(--font-tl); font-weight: 600; }
+.lp-guide { margin-bottom: 12px; }
+.lp-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.lp-pick { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 104px; text-align: center; }
+.lp-pick .lp-pw { display: block; font-size: 1.4rem; font-weight: 600; }
+.lp-pick .lp-pw span { display: inline; }
+.lp-pick .lp-pe { display: block; color: var(--muted); font-size: .9rem; }
+.lp-para { margin-bottom: 10px; }
+.lp-para .tr { margin: 4px 0 0 44px; }
+.lp-now { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 10px; }
+@media (max-width: 400px) { .lp-tiles { grid-template-columns: repeat(auto-fill, minmax(46px, 1fr)); } .lp-pick .lp-pw { font-size: 1.2rem; } }
+
+/* 0.17.0 vocabulary quiz, topic matching, example sentences */
+.seg button .vq-best { font-weight: 500; opacity: .8; margin-left: 2px; }
+.vm-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.vm-col { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.vm-col .opt { min-height: 52px; min-width: 0; overflow-wrap: anywhere; }
+.vm-snd { display: flex; align-items: center; gap: 8px; }
+.vm-snd svg { width: 18px; height: 18px; flex: none; color: var(--link); }
+.vm-snd .vm-n { font-weight: 700; min-width: 1.1em; color: var(--muted); }
+.vm-snd .vm-w { display: block; min-width: 0; font-family: var(--font-tl); font-weight: 600; }
+.vm-snd .vm-w span { display: inline; }
+.vm-snd.sel { border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: -1px; }
+.vm-show input { width: 18px; height: 18px; margin: 0; }
+.word-ex { border-top: 1px solid var(--rule); padding-top: 10px; display: grid; gap: 4px; }
+.word-ex-ja, .fc-ex-ja { flex-wrap: nowrap; gap: 8px; align-items: center; }
+.word-ex-ja .tl { font-size: 1.05rem; min-width: 0; }
+.fc-ex { margin-top: 12px; font-size: .9rem; display: grid; gap: 2px; justify-items: center; }
+.fc-ex-ja { justify-content: center; }
+.fc-ex-ja .tl { min-width: 0; }
+.fc-ex .say { width: 30px; height: 30px; }
+@media (max-width: 420px) {
+  .vm-grid { gap: 6px; }
+  .vm-col .opt { padding: 10px 8px; font-size: .86rem; }
+  .vm-snd { gap: 5px; }
+}

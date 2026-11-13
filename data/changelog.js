@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.17.0', date: '2026-11-14', title: 'Vocabulary quiz, listening practice, numbers and counters',
+    items: [
+      { type: 'feature', text: 'Vocabulary quiz (Practice, and Drills in the menu): choose any deck (a JLPT level, a topic, the clinical vocabulary or My mistakes) and a mode: Meaning (Japanese to English), Recall (English to Japanese) or Reading (the word in kanji without furigana; choose its reading in kana). 10 or 20 questions, best score per mode; misses go to My mistakes.' },
+      { type: 'feature', text: 'Topic matching: 14 sets (body parts, physical symptoms, feelings, pain and sensation words such as ズキズキ and チクチク, sleep, the hospital, medicine words, family, time, food, the house, places in town, everyday verbs, describing words). Tap a sound, then its meaning; Show words makes it easier.' },
+      { type: 'content', text: 'Example sentences: 802 dictionary words (all N5 words and the most useful N4 words) now have an example sentence with its English, on the word page and on the back of the word\'s flashcard. About a third are set in a clinic or on a ward.' },
+      { type: 'feature', text: 'Listening practice (new page): Hear (a word or one of about 1,900 recorded sentences by level: choose the meaning, at slower, natural or fast speed); Dictation (hear a word and build it from kana tiles, or type it in kana or romaji); Sound pairs (104 pairs: long vowels, small っ, ん, small ゃゅょ and voicing, such as 病院 and 美容院); Dialogues and readings (hear a whole dialogue or reading, then answer three questions; 120 questions on all 16 dialogues and 24 readings, linked from each dialogue and reading page).' },
+      { type: 'feature', text: 'Numbers and counters (new page): 21 tables (numbers, hundreds and thousands, times, dates, months, lengths of time, weekdays, ages, people, things, and the counters 本, 錠, 回, 杯, 階, 枚, 匹, 時間) with every sound change marked and spoken; a Read and Listen quiz; and In the clinic, 40 sentences from patients and nurses where you catch the number (how many times she wakes at night, since the 14th, two tablets after meals).' },
+      { type: 'update', text: 'About 990 new lines (example sentences, sound pairs, numbers) are recorded in the same voice as the rest of the app.' }
+    ]
+  },
+  {
     version: '0.16.0', date: '2026-11-13', title: 'Nurse view and a complete set of practice patients',
     items: [
       { type: 'feature', text: 'Nurse view: Psychiatry → Interview now has a Resident / Nurse switch (shared with the substance use and withdrawal tools). The Nurse view shows six new nurse sections — arriving on the ward, giving medicines and checking side effects, sleep, appetite and hygiene, safety checks for suicide risk and agitation, calming things down on the ward, and teaching patients and families — then the resident sections nurses use most. 125 phrases and 60 likely replies; pending Nursing Service review.' },

@@ -12,6 +12,16 @@
   const soon = (what) => '<div class="notice info">' + esc(what) + ' arrives in a later release of ' + esc(APP_META.name) + '. ' + esc(LANG.review) + '</div>';
   const lvPill = (lv) => '<span class="pill lv">' + esc(lv) + '</span>';
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
+  // 0.17.0: example sentence of a dictionary word (window.DICT_EX, key "tl|en" = the first two fields of its line),
+  // [ja, en] or null. Indexed on first use; the first sentence for a key wins.
+  let exIdx = null;
+  App.exampleFor = (e) => {
+    if (!e) return null;
+    if (!exIdx) { exIdx = new Map(); (window.DICT_EX || []).forEach((x) => { if (x && x[0] && x[1] && !exIdx.has(x[0])) exIdx.set(x[0], [x[1], x[2] || '']); }); }
+    return exIdx.get(e.tl + '|' + e.en) || null;
+  };
+  // Links a dialogue or reading to its listening questions (window.LISTEN_Q, 0.17.0), if it has any.
+  const listenLink = (id) => (window.LISTEN_Q && Array.isArray(LISTEN_Q[id]) && LISTEN_Q[id].length ? '<a class="btn" href="#/listen?tab=story&id=' + encodeURIComponent(id) + '">' + icons.ear + ' Listening questions</a>' : '');
 
   /* ---------- Reusable quiz ---------- */
   // qs: [{q, opts, a, exp, cardId}]
@@ -164,12 +174,14 @@
     if (e.ftl.length > 1) PSYCH_SECTIONS.forEach((s) => s.phrases.forEach((ph, i) => { if (App.flat(ph.f + ' ' + (ph.c || '')).includes(e.ftl)) phrases.push([s, ph, i]); }));
     // Verbs and adjectives get their conjugation table from the rules in js/conjugate.js.
     const vg = JConj.groupFor(e.tl, e.pos), isAdj = e.pos === 'ai' || e.pos === 'an';
+    const ex = App.exampleFor(e);
     const conj = vg && !/ /.test(e.tl) ? App.conjTable(JConj.verb(e.pos === 'vs' ? e.tl + 'する' : e.tl, vg), JConj.VERB_FORMS, 2) : isAdj && !/ /.test(e.tl) ? App.conjTable(JConj.adj(e.tl, e.pos === 'ai' ? 'i' : 'na'), JConj.ADJ_FORMS, 2) : '';
     el.innerHTML = crumb([['Dictionary', '#/dict'], [JA.speak(e.tl)]]) +
       '<div class="card stack"><div class="spread"><h1 class="tl" style="margin:0">' + esc(e.tl) + '</h1><div class="row">' + App.sayBtn(e.tl) +
       '<button class="btn sm" data-addcard="' + e.id + '">' + (S().srs[e.id] ? icons.check + ' In deck' : icons.plus + ' Add to flashcards') + '</button></div></div>' +
       '<div class="muted" data-noja>' + esc(JA.compact(JA.kana(e.tl))) + ' · ' + esc(JA.romaji(e.tl)) + '</div>' +
       '<div style="font-size:1.15rem">' + esc(e.en) + '</div><div class="row"><span class="pill">' + esc(App.POS[e.pos] || e.pos) + '</span><a class="pill" href="#/dict?cat=' + e.cat + '">' + esc(App.CATS[e.cat] || e.cat) + '</a>' + (e.lv ? '<a class="pill" href="#/dict?lv=' + e.lv + '">' + esc(e.lv) + '</a>' : '') + '</div>' +
+      (ex ? '<div class="word-ex"><span class="eyebrow">Example</span><div class="row word-ex-ja"><span class="tl">' + esc(ex[0]) + '</span>' + App.sayBtn(ex[0], ex[0]) + '</div><div class="muted">' + esc(ex[1]) + '</div></div>' : '') +
       (e.note ? '<div class="notice info">' + esc(e.note) + '</div>' : '') +
       (App.kanjiChips && App.kanjiChips(e.tl) ? '<div><div class="small muted" style="margin-bottom:6px">Kanji in this word</div>' + App.kanjiChips(e.tl) + '</div>' : '') + '</div>' +
       (conj ? '<h2 style="margin-top:18px">' + (isAdj ? 'Forms' : 'Conjugation') + '</h2><div class="card">' + conj + '</div><p class="small muted">Formed by rule from the dictionary form. Practise these in the <a href="#/verbs' + (isAdj ? '?tab=adj' : '') + '">' + (isAdj ? 'adjective' : 'verb') + ' trainer</a>.</p>' : '') +
@@ -227,12 +239,13 @@
       const c = App.cardFor(queue[i]);
       if (!c) { i++; draw(); return; }
       const front = enFirst ? esc(c.en) : esc(c.tl), back = enFirst ? esc(c.tl) : esc(c.en);
+      const cex = c.id.startsWith('d') ? App.exampleFor(App.dictById[c.id]) : null;
       el.innerHTML = crumb([['Flashcards', '#/flash'], [deck.name]]) +
         '<div class="spread" style="margin-bottom:8px"><span class="muted small">' + (i + 1) + ' / ' + queue.length + (S().srs[c.id] ? '' : ' · <span class="pill">new</span>') + '</span>' + App.sayBtn(c.say || c.tl) + '</div>' +
         '<div class="progress" style="margin-bottom:12px"><i style="width:' + Math.round((100 * i) / queue.length) + '%"></i></div>' +
         '<div class="card flash" id="fc" tabindex="0" role="button" aria-label="Flip card"><div>' +
         '<div class="front" style="' + (enFirst ? 'font-family:var(--font-ui);font-size:1.35rem' : '') + '">' + front + '</div>' +
-        (flipped ? '<div class="back ' + (enFirst ? 'tl' : '') + '">' + back + '</div>' + (c.alt ? '<div class="hint tl">Also: ' + esc(c.alt) + '</div>' : '') + (c.note ? '<div class="hint">' + esc(c.note) + '</div>' : '') + (c.sub ? '<div class="hint">' + esc(c.sub) + '</div>' : '') : '<div class="hint">Tap or press Space to show the answer</div>') +
+        (flipped ? '<div class="back ' + (enFirst ? 'tl' : '') + '">' + back + '</div>' + (cex ? '<div class="fc-ex"><div class="row fc-ex-ja"><span class="tl">' + esc(cex[0]) + '</span>' + App.sayBtn(cex[0], cex[0]) + '</div><div class="muted">' + esc(cex[1]) + '</div></div>' : '') + (c.alt ? '<div class="hint tl">Also: ' + esc(c.alt) + '</div>' : '') + (c.note ? '<div class="hint">' + esc(c.note) + '</div>' : '') + (c.sub ? '<div class="hint">' + esc(c.sub) + '</div>' : '') : '<div class="hint">Tap or press Space to show the answer</div>') +
         '</div></div>' +
         (flipped ? '<div class="grade" style="margin-top:12px">' + [['again', 'Again', 0], ['', 'Hard', 1], ['good', 'Good', 2], ['', 'Easy', 3]].map(([cls, t, g]) => '<button class="' + cls + '" data-g="' + g + '">' + t + '<small>' + App.nextLabel(c.id, g) + '</small></button>').join('') + '</div><p class="muted small" style="text-align:center">Keys: 1 Again · 2 Hard · 3 Good · 4 Easy</p>' +
           (c.id.startsWith('k:') && App.strokes ? '<div class="row so-fc" style="justify-content:center">' + App.strokes.button(c.id.slice(2), 'Stroke order', 'btn sm') + '</div>' : '') +
@@ -306,7 +319,7 @@
       el.querySelector('#trbtn').textContent = showTr ? 'Hide translation' : 'Show translation';
     };
     el.innerHTML = crumb([['Reading', '#/reading'], [r.title]]) + '<div class="row">' + lvPill(r.level) + '</div><h1 class="tl" style="margin-top:6px">' + esc(r.title) + '</h1><p class="muted">' + esc(r.titleEn) + '</p>' +
-      '<div class="row noprint"><button class="btn" id="readall">' + icons.sound + ' Listen</button><button class="btn" id="trbtn"></button><button class="btn" id="rprint">' + icons.book + ' Print</button></div>' +
+      '<div class="row noprint"><button class="btn" id="readall">' + icons.sound + ' Listen</button><button class="btn" id="trbtn"></button><button class="btn" id="rprint">' + icons.book + ' Print</button>' + listenLink(r.id) + '</div>' +
       '<div class="card passage" id="pbody" style="margin-top:12px"></div>' +
       '<h2 style="margin-top:16px">Glossary</h2><div class="gloss">' + r.gloss.map(([t, e]) => '<span><b>' + esc(t) + '</b> — ' + esc(e) + '</span>').join('') + '</div>' +
       '<h2 style="margin-top:16px">Questions</h2><div id="rq"></div>';
@@ -402,7 +415,7 @@
         try { rec = await App.record(); q('#rec').innerHTML = '<span class="recdot"></span> Stop'; } catch (e) { App.toast('Microphone unavailable or permission denied.'); }
       };
     };
-    el.innerHTML = crumb([['Speaking', '#/speak'], [d.title]]) + '<div class="row">' + lvPill(d.level) + '</div><h1 style="margin-top:6px">' + esc(d.title) + '</h1>' + (d.setting ? '<p class="muted">' + esc(d.setting) + '</p>' : '') + speechSupportNote() +
+    el.innerHTML = crumb([['Speaking', '#/speak'], [d.title]]) + '<div class="row">' + lvPill(d.level) + '</div><h1 style="margin-top:6px">' + esc(d.title) + '</h1>' + (d.setting ? '<p class="muted">' + esc(d.setting) + '</p>' : '') + (listenLink(d.id) ? '<div class="row noprint" style="margin-bottom:12px">' + listenLink(d.id) + '</div>' : '') + speechSupportNote() +
       '<div class="seg" role="group" aria-label="Mode" style="margin-bottom:12px">' + [['listen', 'Listen'], ['shadow', 'Shadow'], ['role', 'Role-play']].map(([k, t]) => '<button data-m="' + k + '" class="' + (mode === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
       '<div class="dlg" id="dlg"></div><div class="row" id="dctl" style="margin-top:14px;position:sticky;bottom:calc(70px + env(safe-area-inset-bottom,0px));background:var(--bg);padding:8px 0"></div>';
     el.querySelectorAll('[data-m]').forEach((b) => (b.onclick = () => { mode = b.dataset.m; step = 0; scores = []; recUrl = {}; el.querySelectorAll('[data-m]').forEach((x) => x.classList.toggle('on', x === b)); draw(); const c = d.lines[0]; if (mode === 'role' && c[0] !== d.you) setTimeout(() => App.speak(textOf(c)), 250); }));

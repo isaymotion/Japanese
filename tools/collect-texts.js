@@ -61,6 +61,10 @@ from('lesson examples', () => (ctx.LESSONS || []).forEach((l) => {
 }));
 from('readings', () => (ctx.READING || []).forEach((r) => (r.tl || []).forEach(add)));
 from('dialogues', () => (ctx.DIALOGUES || []).forEach((d) => d.lines.forEach((l) => { add(l[1]); if (l[3]) add(l[3]); })));
+// 0.17.0: example sentences for dictionary words, sound pairs, numbers and counters (tables and clinic sentences).
+from('word examples', () => (ctx.DICT_EX || []).forEach((e) => add(e[1])));
+from('sound pairs', () => ((ctx.SOUND_PAIRS || {}).items || []).forEach((it) => { add(it[1]); add(it[3]); }));
+from('numbers and counters', () => { const c = ctx.JA_COUNTERS || {}; (c.groups || []).forEach((g) => g.rows.forEach((r) => add(r[1]))); (c.clinical || []).forEach((x) => add(x[0])); });
 from('kana', () => {
   // The kana chart is in js/kana.js (a view module): take the rows from its source.
   const rows = [...read('js/kana.js').matchAll(/R\('[^']*',\s*'[^']*',\s*'[^']*',\s*'([^']*)'\)/g)].map((m) => m[1]).join(' ').split(/\s+/).filter((x) => x && x !== '-');
