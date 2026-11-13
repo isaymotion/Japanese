@@ -96,6 +96,25 @@
     ['nav.app', [['progress', '#/progress', 'Progress', icons.chart], ['settings', '#/settings', 'Settings', icons.gear], ['new', '#/new', "What's New", icons.spark], ['about', '#/about', 'About', icons.info]]]
   ];
   App.NAV = NAV;
+  /* Page headings in the second shell language (0.14.0). A heading or tile title whose English text is a menu label
+     (item.<key>) or has a 'head.<English text>' string is shown in Japanese with the English underneath, as in the
+     menu. Views keep writing English; this runs after every render and whenever a view redraws itself. The English
+     stays in data-en, which pins, breadcrumbs and the recent list read. */
+  const HEAD = {};
+  NAV.forEach((g) => g[1].forEach(([k, , l]) => { HEAD[l] = 'item.' + k; }));
+  Object.keys(STR.tl || {}).forEach((k) => { if (k.indexOf('head.') === 0) HEAD[k.slice(5)] = k; });
+  App.heads = (root) => {
+    if (lang() === 'en' || !root) return;
+    root.querySelectorAll('h1, h2, .tile h3').forEach((h) => {
+      if (h.dataset.en || h.children.length) return;
+      const en = h.textContent.trim(), key = own(HEAD, en) ? HEAD[en] : '', ja = key && own(STR.tl, key) ? STR.tl[key] : '';
+      if (!ja) return;
+      h.dataset.en = en;
+      h.innerHTML = '<span class="hd-tx" data-norj><span>' + esc(ja) + '</span><small class="hd-en">' + esc(en) + '</small></span>';
+    });
+  };
+  const headText = (h1) => (h1.dataset.en || JA.speak(JA.textOf(h1))).trim();
+  if (window.MutationObserver) new MutationObserver(() => App.heads(view)).observe(view, { childList: true });
   const NAV_HREFS = NAV.reduce((a, g) => a.concat(g[1].map((i) => i[1])), []);
   // Deep pages light up their list page in the menu.
   const PARENT = { '/psych/dcase': ['Discharge practice', '#/psych/dcases'], '/psych/mcase': ['Admission MSE practice', '#/psych/mcases'], '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null, '/kanji/k': null };
@@ -273,10 +292,11 @@
     const act = activeHref(path);
     document.querySelectorAll('#railBody .nav-item').forEach((a) => { const on = a.getAttribute('href') === act; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.querySelectorAll('#tabbar [data-nav]').forEach((a) => a.classList.toggle('on', a.dataset.nav === key || (a.dataset.nav === 'more' && MORE_KEYS.includes(key))));
-    document.title = (TITLES[key] ? TITLES[key] + ' · ' : '') + (META.name || 'Hanashimashō');
+    App.heads(view);
+    document.title = (TITLES[key] ? plainStr(lbl('item.' + key, TITLES[key])) + ' · ' : '') + (META.name || 'Hanashimashō');
     App.decorate(view, path, q, key);
     if (key && key !== 'home' && key !== 'more' && key !== '') { // remember the last pages visited for the More screen and drawer
-      const h1 = view.querySelector('h1'); const title = (h1 ? JA.speak(JA.textOf(h1)) : TITLES[key] || key).trim().slice(0, 40);
+      const h1 = view.querySelector('h1'); const title = (h1 ? headText(h1) : TITLES[key] || key).trim().slice(0, 40);
       const hash = '#' + path + (q && Object.keys(q).length && !q.p ? '?' + new URLSearchParams(q) : '');
       App.state.recent = [{ hash, title, sec: App._section || '' }].concat((App.state.recent || []).filter((r) => r.hash !== hash)).slice(0, 8); App.save();
     }
@@ -302,12 +322,12 @@
     if (h1 && !view.querySelector('.breadcrumb') && segs.length >= 2) {
       const top = TITLES[key] || segs[0];
       const mid = PARENT['/' + segs.slice(0, 2).join('/')];
-      const items = [[top, '#/' + segs[0]]].concat(mid ? [mid] : [], [[JA.speak(JA.textOf(h1)).trim().slice(0, 48)]]);
+      const items = [[top, '#/' + segs[0]]].concat(mid ? [mid] : [], [[headText(h1).slice(0, 48)]]);
       h1.insertAdjacentHTML('beforebegin', '<div class="breadcrumb">' + items.map(([tt, h]) => (h ? '<a href="' + h + '">' + esc(tt) + '</a>' : esc(tt))).join(' / ') + '</div>');
     }
     if (h1 && !NO_PIN.has(key)) {
       const hash = '#' + path + (q && Object.keys(q).length && !q.p ? '?' + new URLSearchParams(q) : '');
-      const title = JA.speak(JA.textOf(h1)).trim().slice(0, 40);
+      const title = headText(h1).slice(0, 40);
       const b = document.createElement('button');
       const bc = view.querySelector('.breadcrumb'); const sec = bc ? [...bc.querySelectorAll('a')].map((a) => a.textContent).pop() || '' : App._section; App._section = sec; b.className = 'pin'; b.type = 'button';
       const draw = () => { const on = App.isPinned(hash); b.innerHTML = (on ? icons.starOn : icons.star); b.title = on ? 'Unpin from Home' : 'Pin to Home'; b.setAttribute('aria-label', b.title); b.classList.toggle('on', on); };

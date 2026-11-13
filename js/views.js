@@ -225,7 +225,8 @@
         '<div class="front" style="' + (enFirst ? 'font-family:var(--font-ui);font-size:1.35rem' : '') + '">' + front + '</div>' +
         (flipped ? '<div class="back ' + (enFirst ? 'tl' : '') + '">' + back + '</div>' + (c.alt ? '<div class="hint tl">Also: ' + esc(c.alt) + '</div>' : '') + (c.note ? '<div class="hint">' + esc(c.note) + '</div>' : '') + (c.sub ? '<div class="hint">' + esc(c.sub) + '</div>' : '') : '<div class="hint">Tap or press Space to show the answer</div>') +
         '</div></div>' +
-        (flipped ? '<div class="grade" style="margin-top:12px">' + [['again', 'Again', 0], ['', 'Hard', 1], ['good', 'Good', 2], ['', 'Easy', 3]].map(([cls, t, g]) => '<button class="' + cls + '" data-g="' + g + '">' + t + '<small>' + App.nextLabel(c.id, g) + '</small></button>').join('') + '</div><p class="muted small" style="text-align:center">Keys: 1 Again · 2 Hard · 3 Good · 4 Easy</p>' : '');
+        (flipped ? '<div class="grade" style="margin-top:12px">' + [['again', 'Again', 0], ['', 'Hard', 1], ['good', 'Good', 2], ['', 'Easy', 3]].map(([cls, t, g]) => '<button class="' + cls + '" data-g="' + g + '">' + t + '<small>' + App.nextLabel(c.id, g) + '</small></button>').join('') + '</div><p class="muted small" style="text-align:center">Keys: 1 Again · 2 Hard · 3 Good · 4 Easy</p>' +
+          (c.id.startsWith('k:') && App.strokes ? '<div class="row so-fc" style="justify-content:center">' + App.strokes.button(c.id.slice(2), 'Stroke order', 'btn sm') + '</div>' : '') : '');
       const fc = el.querySelector('#fc');
       fc.onclick = (ev) => { if (ev.target.closest('.say')) return; if (!flipped) { flipped = true; if (!enFirst) App.speak(c.say || c.tl); draw(); } };
       el.querySelectorAll('[data-g]').forEach((b) => (b.onclick = () => grade(+b.dataset.g, c)));
@@ -263,6 +264,7 @@
     el.innerHTML = crumb([['Lessons', '#/lessons'], [l.title]]) + '<div class="row">' + lvPill(l.level) + '<span class="muted small">' + esc(l.unit) + '</span><button class="btn sm noprint" id="lprint" style="margin-left:auto">' + icons.book + ' Print</button></div><h1 style="margin-top:6px">' + esc(l.title) + '</h1>' +
       (l.draft ? '<div class="notice warn" style="margin-bottom:12px">Draft for review: the ' + esc(LANG.name) + ' lines in this lesson are practice wording pending review by a native Japanese speaker.</div>' : '') +
       '<div class="lesson-body">' + l.body.replace(/<table>/g, '<div class="tablewrap"><table>').replace(/<\/table>/g, '</table></div>') + '</div>' +
+      (App.strokes && App.strokes.kanaCard ? App.strokes.kanaCard(l) : '') +
       '<h2 style="margin-top:20px">Check yourself</h2><div id="lq"></div>' +
       '<div class="spread prevnext" style="margin-top:16px">' + (prev ? '<a class="btn" href="#/lessons/' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/lessons/' + next.id + '">' + esc(next.title) + ' →</a>' : '') + '</div>';
     el.querySelector('#lprint').onclick = () => App.printPage();

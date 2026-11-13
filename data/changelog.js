@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.14.0', date: '2026-11-13', title: 'Stroke order in lessons, drills and cards; Japanese headings; Ayaka on admission; more trainer words',
+    items: [
+      { type: 'feature', text: 'Stroke order in more places. The hiragana and katakana lessons now end with a "How to write them" card: tap any kana to hear it and see its stroke order. In the kanji drill a Stroke order button appears after each answer, and kanji flashcards have the same button on the back of the card. Each opens the same diagram as the kanji page, with a link to a writing practice sheet.' },
+      { type: 'feature', text: 'Menu language: when the menu is set to Japanese, page headings, the section headings on Home, Practice and Settings, and the titles on the tiles are now in Japanese with furigana too, each with its English underneath. Explanations and lesson text stay in English. 34 new labels.' },
+      { type: 'content', text: 'Admission MSE practice: a third case, Ayaka Nakamura on the evening of her admission (over-the-counter medicine misuse, level N3). She is frightened, tearful and restless, denies any wish to die, and is not ready to talk about a past event; the case teaches asking about suicide directly even when an overdose is described as unintentional, and not pressing about the event. No product names or doses appear. The same patient is in the case simulations and the discharge practice.' },
+      { type: 'content', text: 'Verb and adjective trainer: 44 more verbs (344 in all) and 30 more adjectives (210 in all), each with example sentences. Thirty of the new verbs are everyday words (to quit, to pass an exam, to climb, to fly, to stop, to hand over, to try, to check, to turn down); fourteen are for the interview and the ward (to hope for, to grieve, to plan, to rest, to avoid, to snack, to give up alcohol). The adjectives include light (sleep), worn out, vague, specific, careful and sudden.' },
+      { type: 'correction', text: 'Admission MSE practice: four help lines under the domains still mentioned Spanish from the app this one was built from. They now describe Japanese-speaking patients.' },
+      { type: 'update', text: 'The new words and the new case are recorded for the voice pack automatically after this update.' }
+    ]
+  },
+  {
     version: '0.13.0', date: '2026-11-13', title: 'Japanese menu, more trainer words, a fifth discharge case',
     items: [
       { type: 'feature', text: 'Menu language: in Settings (and on About) the app\'s own menu can now be shown in Japanese. The menu, the tabs at the bottom, the footer, the theme and text-size controls and the backup messages are in Japanese with furigana, and each menu item shows its English meaning underneath. Lessons and tools are unchanged. The Japanese labels are a draft.' },

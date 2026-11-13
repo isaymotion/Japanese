@@ -3,7 +3,9 @@
    strokes/build-strokes.py. A set is loaded the first time one of its characters is shown.
    STROKES[字] = "path|path|…@x,y x,y …" on a 109 x 109 grid: strokes in writing order, then where each number sits.
    Use: put App.strokes.slot('食') in a page's HTML, then call App.strokes.mount(el). The kana chart (js/kana.js) is
-   not changed: a tap on a chart cell is caught here and the diagram opens under that table. */
+   not changed: a tap on a chart cell is caught here and the diagram opens under that table.
+   App.strokes.button(字) makes a button that opens the same panel anywhere (kanji drill feedback, kanji flashcards);
+   App.strokes.kanaCard(lesson) is the tap-a-kana card under the Starter kana lessons. */
 (function () {
   const { esc } = App;
   const NS = 'http://www.w3.org/2000/svg';
@@ -109,23 +111,52 @@
     mount: (root) => Promise.all([...(root || document).querySelectorAll('.so[data-so]:empty')].map(fill))
   };
 
+  /* A panel with the stroke order of one or more characters, placed after `anchor`. Asking for the panel that is
+     already open there closes it. Used by the kana chart, the kanji drill, kanji flashcards and the kana lessons. */
+  const SMALL = /[ぁぃぅぇぉっゃゅょゎァィゥェォッャュョヮー]/;
+  const openPanel = (anchor, text, sound) => {
+    const chars = [...text].filter((c) => setOf(c));
+    if (!chars.length || !anchor) return null;
+    const key = chars.join(''), old = anchor.nextElementSibling;
+    const same = old && old.classList.contains('so-kana') && old.dataset.soFor === key;
+    document.querySelectorAll('.so-kana').forEach((p) => p.remove());
+    document.querySelectorAll('[data-so-open][aria-expanded="true"]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+    if (same) return null;
+    const kana = isKana(chars[0]);
+    const panel = document.createElement('div');
+    panel.className = 'card so-kana'; panel.setAttribute('data-noja', ''); panel.dataset.soFor = key;
+    panel.innerHTML = '<div class="spread"><b>How to write <span lang="ja" class="so-kk">' + esc(text) + '</span>' + (sound ? ' (' + esc(sound) + ')' : '') + '</b><button type="button" class="btn sm" data-so-close>Close</button></div>' +
+      (kana && chars.length > 1 ? '<p class="small muted" style="margin:0">Two kana: the second is written small, at about half size.</p>' : '') +
+      chars.map((c) => App.strokes.slot(c)).join('') +
+      (App.views.write ? '<p class="small so-sheet" style="margin:0"><a href="#/write?c=' + encodeURIComponent(key) + '">Writing practice sheet for this ' + (kana ? 'kana' : 'kanji') + '</a>' +
+        (kana ? ' · <a href="#/write?set=' + (/[ァ-ヺ]/.test(chars[0]) ? 'k' : 'h') + '">for whole rows</a>' : '') + '</p>' : '');
+    anchor.insertAdjacentElement('afterend', panel);
+    App.strokes.mount(panel).then(() => { if (panel.isConnected && panel.scrollIntoView) panel.scrollIntoView({ block: 'nearest', behavior: reduced() ? 'auto' : 'smooth' }); });
+    return panel;
+  };
+  // A button that opens the panel for `text` after the nearest [data-so-anchor] (or after the button's own row).
+  App.strokes.button = (text, label, cls) => ([...text].some((c) => setOf(c)) ? '<button type="button" class="' + (cls || 'btn') + '" data-so-open="' + esc(text) + '" aria-expanded="false">' + (label || 'Stroke order') + '</button>' : '');
+  // Card for a Starter lesson that teaches a kana chart: every kana of the lesson's tables, to tap for its stroke order.
+  App.strokes.kanaCard = (l) => {
+    if (!l || l.level !== 'Starter') return '';
+    const seen = [], re = /<td>([^<]*)<\/td>/g; let m;
+    while ((m = re.exec(l.body))) { const t = m[1].replace(/[\s、・]/g, ''); if (t && /^[ぁ-ゖァ-ヺー]+$/.test(t)) for (const c of t) if (!SMALL.test(c) && !seen.includes(c)) seen.push(c); }
+    if (seen.length < 20) return '';
+    return '<div class="noprint"><h2 style="margin-top:20px">How to write them</h2><div class="card so-lesson" data-noja data-so-anchor><p class="small muted" style="margin:0 0 10px">Tap a kana to hear it and see its stroke order. The small kana (such as ゃ and っ) are written the same way at about half size.</p>' +
+      '<div class="so-chips">' + seen.map((c) => '<button type="button" class="so-chip" lang="ja" data-say="' + esc(c) + '" data-so-open="' + esc(c) + '" aria-expanded="false">' + esc(c) + '</button>').join('') + '</div></div></div>';
+  };
+
   /* Kana chart: a tap on a cell (which also says the kana) opens its stroke order under that table. */
   document.addEventListener('click', (e) => {
     const close = e.target.closest('[data-so-close]');
-    if (close) { const p = close.closest('.so-kana'); if (p) p.remove(); return; }
+    if (close) { const p = close.closest('.so-kana'); if (p) p.remove(); document.querySelectorAll('[data-so-open][aria-expanded="true"]').forEach((b) => b.setAttribute('aria-expanded', 'false')); return; }
+    const op = e.target.closest('[data-so-open]');
+    if (op) { const made = openPanel(op.closest('[data-so-anchor]') || op.parentElement, op.dataset.soOpen, ''); if (made) op.setAttribute('aria-expanded', 'true'); return; }
     const cell = e.target.closest('.kana-cell[data-say]'), grid = cell && cell.closest('.kana-grid');
     if (!grid) return;
-    const kana = cell.dataset.say, chars = [...kana].filter(isKana);
-    if (!chars.length) return;
+    const kana = cell.dataset.say;
+    if (![...kana].some(isKana)) return;
     document.querySelectorAll('.so-kana').forEach((p) => p.remove());
-    const panel = document.createElement('div');
-    panel.className = 'card so-kana'; panel.setAttribute('data-noja', '');
-    const sound = (cell.querySelector('small') || {}).textContent || '';
-    panel.innerHTML = '<div class="spread"><b>How to write <span lang="ja" class="so-kk">' + esc(kana) + '</span>' + (sound ? ' (' + esc(sound) + ')' : '') + '</b><button type="button" class="btn sm" data-so-close>Close</button></div>' +
-      (chars.length > 1 ? '<p class="small muted" style="margin:0">Two kana: the second is written small, at about half size.</p>' : '') +
-      chars.map((c) => App.strokes.slot(c)).join('') +
-      (App.views.write ? '<p class="small so-sheet" style="margin:0"><a href="#/write?c=' + encodeURIComponent(chars.join('')) + '">Writing practice sheet for this kana</a> · <a href="#/write?set=' + (/[ァ-ヺ]/.test(chars[0]) ? 'k' : 'h') + '">for whole rows</a></p>' : '');
-    grid.insertAdjacentElement('afterend', panel);
-    App.strokes.mount(panel).then(() => { if (panel.isConnected && panel.scrollIntoView) panel.scrollIntoView({ block: 'nearest', behavior: reduced() ? 'auto' : 'smooth' }); });
+    openPanel(grid, kana, (cell.querySelector('small') || {}).textContent || '');
   }, true);   // capture phase: the app's own [data-say] listener stops the click before it bubbles here
 })();

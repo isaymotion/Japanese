@@ -96,7 +96,7 @@
           if (!ok) b.classList.add('wrong');
           if (qq.say) App.speak(qq.say, { rate: 0.8 });
           box.querySelector('[data-fb]').innerHTML = '<div class="feedback ' + (ok ? 'ok' : 'no') + '"><b>' + (ok ? LANG.quiz.right : LANG.quiz.wrong) + '</b> ' + esc(qq.exp) + '</div>' +
-            '<div class="row" style="margin-top:10px"><button class="btn primary" id="kjnext">' + (i + 1 < qs.length ? 'Next' : 'See score') + '</button><a class="btn" href="' + href(qq.x.k) + '">Open ' + '<span data-noja lang="ja">' + esc(qq.x.k) + '</span></a></div>';
+            '<div class="row" style="margin-top:10px"><button class="btn primary" id="kjnext">' + (i + 1 < qs.length ? 'Next' : 'See score') + '</button><a class="btn" href="' + href(qq.x.k) + '">Open ' + '<span data-noja lang="ja">' + esc(qq.x.k) + '</span></a>' + (App.strokes ? App.strokes.button(qq.x.k) : '') + '</div>';
           box.querySelector('#kjnext').onclick = () => { i++; next(); };
           box.querySelector('#kjnext').focus();
         }));
