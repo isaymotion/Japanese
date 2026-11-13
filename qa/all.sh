@@ -10,7 +10,7 @@ for s in $(grep -o 'src="[^"]*\.js"' index.html | cut -d'"' -f2); do [ -f $s ] |
 for f in js/data/*.js js/*.js; do grep -q "\"$f\"" index.html || echo "NOT IN INDEX $f"; done
 python3 $Q/routes.py > /tmp/qa-out/routes.txt 2>&1; echo "routes: $(grep -c 'rawNotation 0 | overflow False' /tmp/qa-out/routes.txt) clean, $(grep -c 'overflow True\|rawNotation [1-9]' /tmp/qa-out/routes.txt) bad, $(tail -1 /tmp/qa-out/routes.txt)"
 python3 $Q/psych.py > /tmp/qa-out/psych.txt 2>&1; echo "psych: $(grep -E '^[0-9]+ [0-9]+ ' /tmp/qa-out/psych.txt | head -1) $(tail -1 /tmp/qa-out/psych.txt)"
-for t in tools clickthrough flows kanji strokes lessons handout printpages; do [ -f $Q/$t.py ] && { python3 $Q/$t.py > /tmp/qa-out/$t.txt 2>&1; echo "$t: $(grep -c 'overflow True\|ov True' /tmp/qa-out/$t.txt) overflow, $(grep 'errors' /tmp/qa-out/$t.txt | tr '\n' ' ' | cut -c1-200)"; }; done
+for t in tools clickthrough flows kanji strokes writing lessons handout printpages; do [ -f $Q/$t.py ] && { python3 $Q/$t.py > /tmp/qa-out/$t.txt 2>&1; echo "$t: $(grep -c 'overflow True\|ov True' /tmp/qa-out/$t.txt) overflow, $(grep 'errors' /tmp/qa-out/$t.txt | tr '\n' ' ' | cut -c1-200)"; }; done
 node tools/collect-texts.js --quiet > /tmp/qa-out/collect.txt 2>&1; echo "audio texts: $(tail -1 /tmp/qa-out/collect.txt); texts.json $(git status --short tools/texts.json | wc -l) uncommitted change(s)"
 python3 -c "import fugashi" 2>/dev/null && echo "voice text: $(python3 tools/make_audio_pack.py --report 2>&1 >/tmp/qa-out/voice-report.tsv | tail -1)"; rm -rf tools/__pycache__
 python3 $Q/audio.py > /tmp/qa-out/audio.txt 2>&1; echo "audio: $(grep -E '^play checks|^missing|^errors' /tmp/qa-out/audio.txt | tr '\n' ' ' | cut -c1-200)"
