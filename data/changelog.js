@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.16.0', date: '2026-11-13', title: 'Nurse view and a complete set of practice patients',
+    items: [
+      { type: 'feature', text: 'Nurse view: Psychiatry → Interview now has a Resident / Nurse switch (shared with the substance use and withdrawal tools). The Nurse view shows six new nurse sections — arriving on the ward, giving medicines and checking side effects, sleep, appetite and hygiene, safety checks for suicide risk and agitation, calming things down on the ward, and teaching patients and families — then the resident sections nurses use most. 125 phrases and 60 likely replies; pending Nursing Service review.' },
+      { type: 'content', text: 'Case simulation: Chiyoko Ito with her son and daughter-in-law (dementia with a delusion of theft and night wandering; compare Shigeru\'s delirium). Eight simulations in all.' },
+      { type: 'content', text: 'Admission MSE practice: Daisuke Sato on the evening of admission, and Shigeru Yamada with delirium on the medical ward. Discharge practice: Shigeru Yamada on day 8, delirium resolved. Every practice patient now has a full set.' },
+      { type: 'content', text: 'Interpretation drill: 16 more patient and family lines (48 in all). 30 more patient replies on the point board and in the listening drill.' },
+      { type: 'correction', text: 'Daisuke\'s simulation summary now records the footsteps and his name being called, to match his admission and discharge cases.' }
+    ]
+  },
+  {
     version: '0.15.1', date: '2026-11-13', title: 'Yumiko, Tetsuo and Shigeru made consistent',
     items: [
       { type: 'correction', text: 'Yumiko (case simulation, admission and discharge practice): two details left over from the Spanish app this one was built from are gone. Her brother\'s hunting rifle was the main means to restrict; now it is medicines: her sister keeps and gives Yumiko\'s medicines, and her brother has cleared the medicines out of the family home. Her faith is now her family\'s temple and visits to her mother\'s grave, the priest who visited her is the priest of the family temple, and her guilt is the idea that this is a punishment (罰《ばち》) for being a bad mother, not God\'s.' },
