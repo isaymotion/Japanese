@@ -124,7 +124,7 @@ window.PSYCH_CASES = (window.PSYCH_CASES || []).concat([
         'Accepted oral medication after a choice was offered',
         'Next: vitals, glucose, toxicology, medical screening, collateral, and a debrief with him later'
       ],
-      mse: `38M, initially agitated, pacing, sweating, fists clenched. Speech loud, pressured. Mood not stated (said 「つけられてる」, "I'm being followed"); affect fearful and irritable, calmer later. Thought content: persecutory beliefs (being followed). Perception: not clear. Accepted limits and medication choice. Insight poor. Judgment impaired.`
+      mse: `38M, initially agitated, pacing, sweating, fists clenched. Speech loud, pressured. Mood not stated (said 「つけられてる」, "I'm being followed"); affect fearful and irritable, calmer later. Thought content: persecutory beliefs (being followed). Perception: says he hears footsteps behind him and his name called at night when no one is there (auditory hallucinations; explore fully once he is calmer). Accepted limits and medication choice. Insight poor. Judgment impaired.`
     }
   },
   {
