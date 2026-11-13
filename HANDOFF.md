@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.8.1)
+# Hanashimashō — handoff (13 Nov 2026, after version 0.9.0)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -30,6 +30,8 @@ js/handout.js mse-sheet.js   printable handout builder (#/psych/handout) and MSE
 js/kanji.js       kanji chart (#/kanji?lv=N5|N4|N3|C), kanji page (#/kanji/k/字), four-mode drill (?tab=drill); parser, decks and search entries are in core.js (App.KANJI, ids "k:字", state.kanji)
 js/mood.js sud.js withdrawal.js deesc.js discharge.js mse-practice.js discharge-practice.js   clinical tools
 js/data/*.js      all content        tools/AUTHORING.md  tools/check-ja.js
+js/audio-key.js   clip file name      tools/collect-texts.js → tools/texts.json    tools/make_audio_pack.py    tools/voice-overrides.json
+audio/            manifest.json, <16-hex>.mp3, voice-text.json, last-run.json (written by .github/workflows/audio-pack.yml; never edit by hand)
 ```
 **Japanese notation (every Japanese string):** reading in 《》 after each kanji run, one space between words, particles separate, space after 、。 inside a string, no romaji: `私《わたし》 は 医者《いしゃ》 です。` Non-kanji base: `｜3時《さんじ》`. Blank: `＿`. Full rules: `tools/AUTHORING.md`.
 - Dictionary `dict-*.js`: `食《た》べる | to eat | v1 | verbs | N5 | note` (pos: n v1 v5 vs vi ai an adv pron part conj interj num ctr q pre suf phr).
@@ -40,6 +42,7 @@ js/data/*.js      all content        tools/AUTHORING.md  tools/check-ja.js
 - `verbs.js`: `JA_VERBS {d,g:'ru'|'u'|'suru'|'kuru',en,lv,clin?,ex}`, `JA_ADJ {d,t:'i'|'na',…}`. `particles.js`: `JA_PARTICLES {guide, items:{s,a,opts,en,why,lv}}`.
 - `reading.js`, `dialogues.js`, `meta.js` (PLACEMENT levels S, N5a, N5b, N4).
 - Psych phrases `psych-phrases-1..6.js`: `P(en, f /*polite*/, c /*plain*/, n)`. Replies `psych-answers.js`, `-2.js`: `[ja, en, note?]`. Cases `psych-cases-1.js`, `-2.js` (+ `PSYCH_INTERP`). Technique links `psych-shea.js`.
+- **Audio pack (0.9.0).** `collect-texts.js` loads ja.js, conjugate.js, lang.js and every data file in node and writes `texts.json` `[{ key, text, ja }]`: `text = JA.speak(notation)`, `key = AudioKey(text)`, `ja` = the notation. Words written the same but read differently (17: 方, 一日, 何, 時…) get a second entry for each less common reading with `key = AudioKey(text + '|' + kana)`; `App.clipKey(raw)` in core.js looks for that key first, so callers must pass the notation (with furigana) to `App.speak`, not plain text. `make_audio_pack.py` decides what the voice is sent: kanji text, but in kana for (a) words MeCab + UniDic (`fugashi`, `unidic-lite`) reads differently from the furigana, (b) the `RISKY` homograph list, (c) the less common reading of any spelling the app reads two ways; `＿` → まるまる; brackets dropped; leading 〜 dropped; `voice-overrides.json` `{ text: sent }` for single strings. `--report` lists every string sent in a different spelling (1,425 of 10,118) without internet. A clip is recorded again when its sent text, the voice or the rate changes. Not recorded: conjugation tables on dictionary word pages (device voice).
 - Tools data `psych-mood|sud|withdrawal|deesc|discharge|admit-mse.js`; practice `psych-mse-cases.js`, `psych-discharge-cases-1.js`, `-2.js`. Shapes are in each file's header.
 - Fictional patients: Shota Takahashi (psychosis; mother Mrs. Takahashi), Yumiko (depression; sister Noriko), Ren (mania; girlfriend Misaki), Shigeru Yamada (delirium; daughter Keiko), Tetsuo Yamamoto (alcohol; daughter Haruka), Daisuke Sato (agitation), Ayaka Nakamura (over-the-counter medicine misuse).
 
@@ -65,6 +68,9 @@ python3 ../devtools/qa/tools.py ; python3 ../devtools/qa/clickthrough.py ; pytho
 python3 ../devtools/qa/kanji.py    # chart, every kanji page, 4 drill modes, cards, search: "errors []", "pages with problems []"
 python3 ../devtools/qa/handout.py  # every handout preset and the MSE sheet printed to PDF in /tmp/qa-out (page counts): "errors []"
 python3 ../devtools/qa/printpages.py  # lesson, reading and kanji list printing; reading filter
+python3 ../devtools/qa/audio.py    # stubbed manifest: clip paths, two-reading words, device fallback; every Listen button on 1,123 pages + click-through has a clip: "play checks 0 failed", "missing 0", "errors []"
+node tools/collect-texts.js ; python3 tools/make_audio_pack.py --report > /tmp/qa-out/voice-report.tsv   # pip install fugashi unidic-lite
+gh run list --repo isaymotion/Japanese --limit 5 ; gh api repos/isaymotion/Japanese/actions/jobs/<id> --jq '.steps[]|"\(.name) \(.status) \(.conclusion)"'   # recording job
 python3 ../devtools/qa/lessons.py  # every lesson page at phone width, links, quiz keys: "bad []", "dead links []", "errors []"
 SK=$(find /root/.claude/skills -maxdepth 4 -type d -name isaymotion-app-design | head -1)
 python3 $SK/scripts/check_design.py . --browser   # "PASS — design contract met"; then rm -rf _qa
@@ -73,7 +79,7 @@ python3 $SK/scripts/check_sw.py .                  # PASS
 node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 ```
 
-## 6. Status (version 0.8.1, pushed)
+## 6. Status (version 0.9.0, pushed)
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
@@ -86,20 +92,21 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Replies / cases / interpretation | 314 / 7 / 32 |
 | Clinical tools | mood, substance use, withdrawal and agitation, de-escalation, discharge |
 | Practice cases | 2 admission MSE, 4 discharge |
+| Audio pack (0.9.0) | tooling, workflow, app side and tests done; 10,118 strings; first recording run started on push (run 43337914954). CHECK that `audio/manifest.json` on main lists all clips (see section 7) |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
-Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes (current, pushed).
-Not done: fifth discharge case (opioid, deliberately skipped), recorded audio pack (GitHub Action in Hablemos; AudioKey must hash `JA.speak(text)`), Japanese shell language (`data/strings.js` `tl: {}` is empty), N3 placement questions, N3 dialogues, stroke-order diagrams.
+Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack (current, pushed).
+Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty), N3 placement questions, N3 dialogues, stroke-order diagrams.
 
 ## 7. Next steps
-**Next (chosen by Dr. Navarro, 13 Nov): the recorded audio pack. Next version 0.9.0.** Model: `isaymotion/Hablemos` (`.github/workflows/audio-pack.yml`, `tools/collect-texts.js`, `tools/make_audio_pack.py`, README section "Audio pack"). The app side is already there: `App.loadAudioPack` reads `audio/manifest.json`, and `App.speakAsync` plays `audio/<AudioKey(JA.speak(text))>.mp3` when the key is in the manifest, else the device voice (`js/core.js` near line 290; setting `voiceSource`).
-1. `tools/collect-texts.js`: load `js/ja.js` in node (check it loads without a DOM, as `tools/check-ja.js` does) and every data file; collect every string the app can speak, as the Hablemos collector does, plus what is new here: dictionary headwords (11 files), lesson `.ex` lines, readings (3 files), dialogues, kana trainer items, verb/adjective examples (`verbs.js`), particle items, kanji example words (`kanji-*.js`), psych phrases f and c, replies, cases, interpretation, tools data, practice cases, MSE sheet `tl` lines, `LANG.testLine`. Write `tools/texts.json` as `[{ key, text }]` with `text = JA.speak(notation)` and `key = AudioKey(text)`; skip strings with the blank `＿`.
-2. `tools/make_audio_pack.py`: copy from Hablemos; `speakable()` must accept kana and kanji; voices `ja-JP-NanamiNeural` (default) and `ja-JP-KeitaNeural` via `edge-tts`. Decide what text is sent to the voice: the kanji text reads most naturally, but ambiguous kanji (何, 方, 辛い, 今日, 一日, counters) can be misread; consider sending the kana reading for single dictionary words and short phrases, or a per-string override map. Whatever is sent, the file name stays the hash of `JA.speak(text)`.
-3. Workflow `.github/workflows/audio-pack.yml` (rename to Japanese; same triggers). The sandbox cannot reach the voice service, so clips are recorded on GitHub: after the push, check the Actions run (or ask her to press Run workflow). A push that adds a workflow file may be refused if the session token lacks the workflow permission; if so, give her the file to add in the GitHub web editor.
-4. Expect roughly 8,000 to 9,000 clips (Hablemos: 4,877 clips, 112 MB). Check the size against GitHub Pages limits (1 GB site); use a lower bitrate or leave long reading paragraphs to the device voice if needed. `sw.js` must not precache `audio/`.
-5. README section, changelog 0.9.0, Settings text for the voice source, tests (`qa/` script that stubs a manifest and checks the clip path is used).
+**First, finish checking the audio pack (0.9.0).** The sandbox cannot reach the voice service, so no clip was heard and the size is an estimate (about 150 MB).
+1. `git pull` main, then read `audio/last-run.json` and `audio/manifest.json`: `have` should equal `wanted` (10,118). One run records up to 50 minutes and starts the next by itself while it makes progress (at least 200 new clips); if it stopped short, look at `sample_errors` and the run log, then ask Dr. Navarro to press Actions → Build Japanese audio pack → Run workflow, or run `gh workflow run audio-pack.yml --repo isaymotion/Japanese --ref main`.
+2. Check the real size (`bytes` in the manifest) against the 1 GB Pages limit, and that the live Settings → Voice card says Installed.
+3. Ask Dr. Navarro to listen to a sample (kana chart, a few dictionary words, 方 / 一日 / 何, a phrase with a blank, a long reading) and report clips that sound wrong. Fixes: correct the furigana in `js/data/`, or add the spelling to `RISKY` in `tools/make_audio_pack.py`, or add the string to `tools/voice-overrides.json`; the job records only what changed.
+4. Open points from the review of the voice text (full reviewer notes: `write/VOICE-REVIEW-0.9.0.md` on dev-tools; sections B to D were acted on): the memory-test line no longer says its bracketed "(three to five minutes later)", so the recall question follows straight on in the clip; single-word cards of homographs (時, 年, 日, 月, 私《わたくし》) are sent in kana, so their pitch accent may be flat.
+5. Possible later: record the dictionary-page conjugation tables (about 1,184 words × up to 20 forms, far too many now); a Keita (male) pack would replace Nanami, since there is one pack per site.
 Then ask which is next:
 - N3 placement questions (`meta.js` PLACEMENT stops at N4) and N3 dialogues (`dialogues.js` has 10).
-- More verbs and adjectives in the trainer (`verbs.js` has 100 / 60; the dictionary now has several hundred).
+- More verbs and adjectives in the trainer (`verbs.js` has 100 / 60; the dictionary now has several hundred). New trainer words add about 20 clips each automatically.
 - Stroke-order diagrams (needs a licensed data set such as KanjiVG, CC BY-SA).
 Pending her answers: the clinical-content list in `claude/hanashimasho-build-notes.md`, now including the changes made on the MSE sheet in 0.7.0.
 
@@ -121,6 +128,11 @@ Pending her answers: the clinical-content list in `claude/hanashimasho-build-not
 - Background servers and other processes die between turns: restart `http.server` before testing. Do not `git stash` while subagents are writing files.
 - `sed` with multi-byte bracket sets corrupts UTF-8 in this sandbox's locale; use Python or node for text with Japanese.
 - Sonnet did the mechanical dictionary conversion (5 files, ~1 minute each) well; Opus reviewed. Six Opus agents at once ran without hitting the usage limit this time.
+- A fresh session must attach the repo before pushing: the first `git push` is refused ("not in this session's authorized repository set") until the add-repo tool is called for `isaymotion/Japanese` with push access. Pushing a workflow file then worked.
+- The recording job commits to `main` (`audio/`, `tools/texts.json`): always `git pull --rebase origin main` before pushing. Any push that touches `js/data/`, `tools/` or the listed js files starts the job again; it records only missing or changed clips.
+- The port from Hablemos left Spanish strings in engine files, not only data (`DEFAULT_ANS` in the practice modules, a placeholder in sud.js, two strings in data/strings.js; fixed in 0.9.0). `qa/audio.py` fails if anything non-English reaches the device voice while the stubbed pack is loaded, which is how they were found.
+- UniDic (unidic-lite) reads 私 as わたくし, 曜日 as ようひ, 一回 as いちかい and so on, so it over-reports differences; that only means more words go to the voice in kana, which is harmless. It is a detector, not a judge of the furigana (an Opus review of all 1,074 differences found no furigana error).
+- `gh run view --log` shows nothing while a run is in progress; use the jobs API for step status.
 - A long session can be restarted mid-task: check `git status` in /home/claude/japanese for uncommitted work before redoing anything.
 
 ## 9. Files to re-attach
