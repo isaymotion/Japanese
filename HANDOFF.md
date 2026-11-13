@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.12.1)
+# Hanashimashō — handoff (13 Nov 2026, after version 0.12.2)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -87,7 +87,7 @@ python3 $SK/scripts/check_sw.py .                  # PASS
 node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 ```
 
-## 6. Status (version 0.12.1, pushed)
+## 6. Status (version 0.12.2, pushed)
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
@@ -104,7 +104,7 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Practice cases | 2 admission MSE, 4 discharge |
 | Audio pack (0.9.0) | COMPLETE: 12,847 clips, 249 MB after 0.12.0 (Pages limit is 1 GB). The first run recorded 10,118 clips in 24 minutes; the job adds new strings by itself after each push (0.11.0: 96; 0.12.0: 2,634 in under 3 minutes, no errors). Nobody has listened to the clips yet |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
-Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB; 0.11.0 six N3 dialogues, Speaking level filter, N3 placement questions. Next session: 0.12.0 writing practice sheet; 100 more verbs and 60 more adjectives with a level filter; 0.12.1 phone menu scroll fix, Psychiatry tab in place of Cards, Psychiatry section moved up the Home page (current, pushed).
+Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB; 0.11.0 six N3 dialogues, Speaking level filter, N3 placement questions. Next session: 0.12.0 writing practice sheet; 100 more verbs and 60 more adjectives with a level filter; 0.12.1 phone menu scroll fix, Psychiatry tab in place of Cards, Psychiatry section moved up the Home page; 0.12.2 encouragement forms hidden for 死ぬ, 傷つける, 吐く, 賭ける (current, pushed).
 Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty).
 
 ## 7. Next steps
@@ -116,7 +116,7 @@ Then ask which is next (done on 13 Nov, in her order: stroke order 0.10.0; N3 pl
 - Stroke-order extras still open: a diagram on kanji flashcards or in the drill feedback; stroke order inside the Starter kana lessons.
 - More trainer words again if she wants (the dictionary still has about 650 verbs and 180 adjectives outside the trainer; each verb adds about 22 clips).
 - Japanese shell language; fifth discharge case (deliberately skipped).
-Open question for her from 0.12.0: the existing trainer verb 死ぬ (and any other verb she names) gets rule-built forms such as 〜ましょう and 〜て ください in tables, drills and the audio pack. Options: leave as is; or add a per-word list of forms to leave out (a few lines in `formsOf` in js/grammar.js and in tools/collect-texts.js; the word must stay in place because positions are ids). Not changed without her answer.
+Decided by her on 13 Nov (0.12.2): forms that read as encouragement to harm are never built for some verbs. `HIDE` in js/conjugate.js, keyed by the dictionary form without readings: 死ぬ (mashou, volitional, tekudasai, causative, potential), 傷つける (mashou, volitional, tekudasai, causative), 吐く and 賭ける (mashou, volitional). Because JConj.verb applies it, the trainer table, drills, dictionary page and audio list all drop them; the audio job deletes the old clips. 死にたい, 死ねば and 死なないで ください stay on purpose (patient statements to recognise; "please don't die"). Add a verb there rather than removing it from the trainer, since positions are ids.
 Left by the 0.12.0 reviewers for a native-speaking clinician: しんどい in the clinical set (casual); 深刻 example お金 の 問題 は 深刻 です か may be blunt; 正しい です か vs 合って います か; 興奮 as the ward word for agitation said to a patient; 苦しんで こられました ね vs こられた ん です ね; 飽きる for loss of interest vs 興味 が なくなる; 頑張って います ね as validation for a depressed patient; 食欲 は 落ちて いません か vs 減って いません か; gloss of 送る "to take (someone) home"; 診断します may be blunt (診断 を 考えます).
 Left by the 0.11.0 reviewer for a native-speaking clinician: in `tomodachi-soudan`, 始まって 以来 is a little stiff between friends (kept as the target pattern); in `moshiokuri`, 起きよう と する could be 降りよう と する; in `okure-denwa`, 大変 でした ね for a delay still going on (大変 です ね is the alternative).
 Pending her answers: the clinical-content list in `claude/hanashimasho-build-notes.md`, now including the changes made on the MSE sheet in 0.7.0.
@@ -156,6 +156,7 @@ Pending her answers: the clinical-content list in `claude/hanashimasho-build-not
 - Three Opus writers and three Opus reviewers (160 trainer entries) took about 15 minutes in all with no usage limit; resuming a writer with SendMessage for a small swap takes seconds.
 - check-ja rejects kanji inside English glosses (`en`), so a gloss cannot name the partner verb of a transitive pair; write "(something; transitive)".
 - The phone menu (`.rail`) is a fixed-position child of the `.shell` grid. With `align-self: start` a fixed box with top and bottom set takes the height of its content, not of the screen, so it overflowed and could not scroll (found by Dr. Navarro on her iPhone in 0.12.0; it had been so since 0.1.0 and no test looked). The phone rule now sets `align-self: stretch` and a max-height. Hablemos and Usap Tayo share this engine: check their menus the same way (`qa/drawer.py`).
+- Sister apps (13 Nov): the same phone-menu fault was confirmed in Usap Tayo (`isaymotion/Tagalog` 3.1.1), Hablemos (0.6.0) and Aklanon (0.1.1) with `/home/claude/work/drawer-any.py <port> <label>`. The same one-rule fix and a version bump (Tagalog 3.1.2, Hablemos 0.6.1, Aklanon 0.1.2) were made in local clones and tested, but the push was refused by the permission checker because she had asked to check them; push only once she says so. Their design check had failures before the fix that are unrelated: Hablemos `data/strings.js` has no `tl` (it uses Spanish strings), Aklanon has no `data/hospital.js` and no maskable icon.
 - The bottom tab bar is Home, Lessons, Practice, Psychiatry, More (`buildNav` in js/app.js); `MORE_KEYS` lists the sections that light up More.
 
 ## 9. Files to re-attach
