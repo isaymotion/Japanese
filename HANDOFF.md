@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.9.0)
+# Hanashimashō — handoff (13 Nov 2026, after version 0.10.1)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -28,6 +28,8 @@ js/core.js views.js app.js psych-views.js point-listen.js        shared engine (
 js/kana.js grammar.js                                            kana trainer; verb/adjective trainer, particle drill
 js/handout.js mse-sheet.js   printable handout builder (#/psych/handout) and MSE interviewer sheet (#/psych/mse-sheet); data psych-flow.js, psych-mse-sheet.js. No PDF library: App.printWith(size, margin) sets @page and calls window.print(); App.printPage() prints a lesson, reading or the kanji list (html.pr-page print rules)
 js/kanji.js       kanji chart (#/kanji?lv=N5|N4|N3|C), kanji page (#/kanji/k/字), four-mode drill (?tab=drill); parser, decks and search entries are in core.js (App.KANJI, ids "k:字", state.kanji)
+js/strokes.js     stroke-order diagrams: App.strokes.section(字) / slot(字) in a page's HTML, then App.strokes.mount(el); loads strokes/<set>.js on first use; catches taps on the kana chart (capture-phase document listener, because app.js stops [data-say] clicks from bubbling) and opens the diagram under that table, so js/kana.js is untouched
+strokes/          kana.js n5.js n4.js n3.js c.js = stroke data from KanjiVG (CC BY-SA 3.0, LICENSE.md); build-strokes.py rebuilds them (not in tools/, so a change does not start the recording job)
 js/mood.js sud.js withdrawal.js deesc.js discharge.js mse-practice.js discharge-practice.js   clinical tools
 js/data/*.js      all content        tools/AUTHORING.md  tools/check-ja.js
 js/audio-key.js   clip file name      tools/collect-texts.js → tools/texts.json    tools/make_audio_pack.py    tools/voice-overrides.json
@@ -39,6 +41,7 @@ audio/            manifest.json, <16-hex>.mp3, voice-text.json, last-run.json (w
 - Dictionary ids are stable: the four original files are frozen (no added or removed lines), every later file (`dict-kanji-1..5`, `dict-n3-1`, `dict-n3-2`) is append only (AUTHORING.md, "Dictionary files"). `check-ja.js` validates part of speech, category and level.
 - Reading `reading.js`, `reading-2.js`, `reading-3.js` all push to `READING`.
 - Kanji `kanji-n5|n4|n3a|n3b|n3c|clinical.js`: one line per kanji, `字 | meanings | on | kun (dot before okurigana) | strokes | group | word=gloss; … | note`, pushed to `KANJI_RAW` with `level: 'N5'|'N4'|'N3'|'C'` (AUTHORING.md, "Kanji files"; `check-ja.js` validates every field and rejects duplicates).
+- Stroke data `strokes/<set>.js`: `STROKES["日"] = "path|path|…@x,y x,y …"` on a 109 × 109 grid (strokes in writing order, then the position of each stroke number). Set by level: kana, n5, n4, n3, c (`setOf` in js/strokes.js uses `App.kanjiBy[字].lv`). After adding kanji: `git clone --depth 1 https://github.com/KanjiVG/kanjivg ../ref/kanjivg && python3 strokes/build-strokes.py ../ref/kanjivg .` (prints characters KanjiVG lacks and stroke counts that differ from the kanji files: none at 0.10.0).
 - `verbs.js`: `JA_VERBS {d,g:'ru'|'u'|'suru'|'kuru',en,lv,clin?,ex}`, `JA_ADJ {d,t:'i'|'na',…}`. `particles.js`: `JA_PARTICLES {guide, items:{s,a,opts,en,why,lv}}`.
 - `reading.js`, `dialogues.js`, `meta.js` (PLACEMENT levels S, N5a, N5b, N4).
 - Psych phrases `psych-phrases-1..6.js`: `P(en, f /*polite*/, c /*plain*/, n)`. Replies `psych-answers.js`, `-2.js`: `[ja, en, note?]`. Cases `psych-cases-1.js`, `-2.js` (+ `PSYCH_INTERP`). Technique links `psych-shea.js`.
@@ -59,13 +62,14 @@ audio/            manifest.json, <16-hex>.mp3, voice-text.json, last-run.json (w
 git clone https://github.com/isaymotion/japanese && cd japanese
 git worktree add ../devtools origin/dev-tools          # helpers
 for f in js/*.js js/data/*.js data/*.js sw.js; do node --check $f; done
-node tools/check-ja.js                                  # must end "0 error(s)"; ~12 known warnings (long clinical terms) are fine
+node tools/check-ja.js                                  # must end "0 error(s)"; 42 known warnings (long words without spaces, a particle attached to a word) are fine
 python3 -m http.server 8765 &  ;  mkdir -p /tmp/qa-out  # pip install playwright if missing
 bash ../devtools/qa/all.sh          # everything below in one go, one line per check; details in /tmp/qa-out/*.txt
 python3 ../devtools/qa/routes.py   # 46 lines "rawNotation 0 | overflow False", "errors 0"
 python3 ../devtools/qa/psych.py    # "39 707 7 32 27 314" style counts, "errors []"
 python3 ../devtools/qa/tools.py ; python3 ../devtools/qa/clickthrough.py ; python3 ../devtools/qa/flows.py
 python3 ../devtools/qa/kanji.py    # chart, every kanji page, 4 drill modes, cards, search: "errors []", "pages with problems []"
+python3 ../devtools/qa/strokes.py  # stroke order: play, next stroke, step pictures, numbers, kana panel, every kanji's diagram matches its stroke count: "kanji without a matching diagram []", "errors []"
 python3 ../devtools/qa/handout.py  # every handout preset and the MSE sheet printed to PDF in /tmp/qa-out (page counts): "errors []"
 python3 ../devtools/qa/printpages.py  # lesson, reading and kanji list printing; reading filter
 python3 ../devtools/qa/audio.py    # stubbed manifest: clip paths, two-reading words, device fallback; every Listen button on 1,123 pages + click-through has a clip: "play checks 0 failed", "missing 0", "errors []"
@@ -79,12 +83,13 @@ python3 $SK/scripts/check_sw.py .                  # PASS
 node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 ```
 
-## 6. Status (version 0.9.0, pushed)
+## 6. Status (version 0.10.1, pushed)
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
 | Lessons | 86 in 26 units, with quizzes, level filter and Print: Starter 6, N5 21, N4 35, N3 24 |
 | Kanji study | 719 kanji: N5 80, N4 166, N3 367, clinical 106; chart, page per kanji, 4-mode drill, printable list, decks |
+| Stroke order (0.10.0) | diagram on every kanji page and for every kana from the kana chart: numbered strokes, Play, Next stroke, a picture per stroke; KanjiVG data, about 570 KB in 5 files, precached by sw.js |
 | Kana trainer; verb/adjective trainer; particle drill | 100 verbs, 60 adjectives; 18 particles, 130 items |
 | Dictionary | 3,437 words in 11 files (N5 ~700, N4 ~700, N3 ~1,560, clinical ~480) |
 | Reading / dialogues / placement | 24 (Starter 2, N5 4, N4 7, N3 11) / 10 / 20 questions (placement still stops at N4) |
@@ -92,22 +97,21 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Replies / cases / interpretation | 314 / 7 / 32 |
 | Clinical tools | mood, substance use, withdrawal and agitation, de-escalation, discharge |
 | Practice cases | 2 admission MSE, 4 discharge |
-| Audio pack (0.9.0) | tooling, workflow, app side and tests done; 10,118 strings; first recording run started on push (run 43337914954). CHECK that `audio/manifest.json` on main lists all clips (see section 7) |
+| Audio pack (0.9.0) | COMPLETE: one run (24 minutes) recorded all 10,118 clips, no errors; `audio/manifest.json` count 10,118, 210.4 MB (the 150 MB estimate was low; Pages limit is 1 GB). Nobody has listened to the clips yet |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
-Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack (current, pushed).
-Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty), N3 placement questions, N3 dialogues, stroke-order diagrams.
+Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB (current, pushed).
+Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty), N3 placement questions, N3 dialogues, more trainer verbs and adjectives.
 
 ## 7. Next steps
-**First, finish checking the audio pack (0.9.0).** The sandbox cannot reach the voice service, so no clip was heard and the size is an estimate (about 150 MB).
-1. `git pull` main, then read `audio/last-run.json` and `audio/manifest.json`: `have` should equal `wanted` (10,118). One run records up to 50 minutes and starts the next by itself while it makes progress (at least 200 new clips); if it stopped short, look at `sample_errors` and the run log, then ask Dr. Navarro to press Actions → Build Japanese audio pack → Run workflow, or run `gh workflow run audio-pack.yml --repo isaymotion/Japanese --ref main`.
-2. Check the real size (`bytes` in the manifest) against the 1 GB Pages limit, and that the live Settings → Voice card says Installed.
-3. Ask Dr. Navarro to listen to a sample (kana chart, a few dictionary words, 方 / 一日 / 何, a phrase with a blank, a long reading) and report clips that sound wrong. Fixes: correct the furigana in `js/data/`, or add the spelling to `RISKY` in `tools/make_audio_pack.py`, or add the string to `tools/voice-overrides.json`; the job records only what changed.
-4. Open points from the review of the voice text (full reviewer notes: `write/VOICE-REVIEW-0.9.0.md` on dev-tools; sections B to D were acted on): the memory-test line no longer says its bracketed "(three to five minutes later)", so the recall question follows straight on in the clip; single-word cards of homographs (時, 年, 日, 月, 私《わたくし》) are sent in kana, so their pitch accent may be flat.
-5. Possible later: record the dictionary-page conjugation tables (about 1,184 words × up to 20 forms, far too many now); a Keita (male) pack would replace Nanami, since there is one pack per site.
-Then ask which is next:
+**Audio pack: recorded and verified on 13 Nov** (10,118 of 10,118 clips, 210.4 MB, `sample_errors` empty, every key in `tools/texts.json` has a file). Still open:
+1. Dr. Navarro has not listened yet. Sample to hear: a few rows of the kana chart, five or six dictionary words, 方 / 一日 / 何 (two readings each), the single-word cards 時 年 日 月 (sent in kana, pitch accent may be flat), a phrase with a blank (spoken as まるまる), the three-word memory test (the bracketed "(three to five minutes later)" is not spoken, so the recall question follows straight on), one long N3 reading. Fixes: correct the furigana in `js/data/`, or add the spelling to `RISKY` in `tools/make_audio_pack.py`, or add the string to `tools/voice-overrides.json`; the job records only what changed. Full reviewer notes: `write/VOICE-REVIEW-0.9.0.md`.
+2. Not checked from the sandbox: that the live Settings → Voice card says Installed (the files are on main and Pages deployed, so it should).
+3. Possible later: record the dictionary-page conjugation tables (about 1,184 words × up to 20 forms); a Keita (male) pack would replace Nanami, since there is one pack per site.
+Then ask which is next (stroke order was chosen first on 13 Nov so the recording job would not restart; it is done):
 - N3 placement questions (`meta.js` PLACEMENT stops at N4) and N3 dialogues (`dialogues.js` has 10).
 - More verbs and adjectives in the trainer (`verbs.js` has 100 / 60; the dictionary now has several hundred). New trainer words add about 20 clips each automatically.
-- Stroke-order diagrams (needs a licensed data set such as KanjiVG, CC BY-SA).
+- Stroke-order extras, if she wants them: a diagram on kanji flashcards or in the drill feedback, a printable writing-practice sheet, stroke order in the kana lessons.
+Both remaining items change `js/data/`, so pushing them starts the recording job (it records only new strings).
 Pending her answers: the clinical-content list in `claude/hanashimasho-build-notes.md`, now including the changes made on the MSE sheet in 0.7.0.
 
 ## 8. Pitfalls learned
@@ -133,7 +137,13 @@ Pending her answers: the clinical-content list in `claude/hanashimasho-build-not
 - The port from Hablemos left Spanish strings in engine files, not only data (`DEFAULT_ANS` in the practice modules, a placeholder in sud.js, two strings in data/strings.js; fixed in 0.9.0). `qa/audio.py` fails if anything non-English reaches the device voice while the stubbed pack is loaded, which is how they were found.
 - UniDic (unidic-lite) reads 私 as わたくし, 曜日 as ようひ, 一回 as いちかい and so on, so it over-reports differences; that only means more words go to the voice in kana, which is harmless. It is a detector, not a judge of the furigana (an Opus review of all 1,074 differences found no furigana error).
 - `gh run view --log` shows nothing while a run is in progress; use the jobs API for step status.
+- The recording job starts only for pushes that touch `js/data/**`, `js/lang.js`, `js/ja.js`, `js/conjugate.js`, `js/kana.js`, `tools/**` or the workflow file. Work that must not start it (0.10.0) keeps out of those paths: new modules in `js/`, data outside `js/data/`.
+- A whole recording of 10,118 clips took 24 minutes in one run; the job commits `audio/` (210 MB) to main, so the first `git pull` after it is large.
+- `app.js` handles `[data-say]` clicks with stopPropagation on a lower node: a document listener for the same elements must use the capture phase.
+- The global reduced-motion rule removes CSS transitions, so the stroke animation is driven by requestAnimationFrame and, with reduced motion on, shows each stroke at once.
+- A QA loop over pages must wait for an element that belongs to the new page (`.so[data-so="字"] .so-big`), not any `.so-big`, or it reads the previous page.
+- A fresh session's first add-repo call can be refused by the permission checker until Dr. Navarro says in the chat that the session may use the repo.
 - A long session can be restarted mid-task: check `git status` in /home/claude/japanese for uncommitted work before redoing anything.
 
 ## 9. Files to re-attach
-None. Everything needed is in the two repos (`isaymotion/Japanese` both branches, `isaymotion/Hablemos`).
+None. Everything needed is in the two repos (`isaymotion/Japanese` both branches, `isaymotion/Hablemos`). KanjiVG is cloned from GitHub only when the stroke data is rebuilt.
