@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.12.2)
+# Hanashimashō — handoff (13 Nov 2026 midday, after version 0.12.2; main and dev-tools clean, nothing uncommitted)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -102,13 +102,14 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Replies / cases / interpretation | 314 / 7 / 32 |
 | Clinical tools | mood, substance use, withdrawal and agitation, de-escalation, discharge |
 | Practice cases | 2 admission MSE, 4 discharge |
-| Audio pack (0.9.0) | COMPLETE: 12,847 clips, 249 MB after 0.12.0 (Pages limit is 1 GB). The first run recorded 10,118 clips in 24 minutes; the job adds new strings by itself after each push (0.11.0: 96; 0.12.0: 2,634 in under 3 minutes, no errors). Nobody has listened to the clips yet |
+| Audio pack (0.9.0) | COMPLETE: 12,834 clips, about 249 MB after 0.12.2 (13 hidden verb forms removed) (Pages limit is 1 GB). The first run recorded 10,118 clips in 24 minutes; the job adds new strings by itself after each push (0.11.0: 96; 0.12.0: 2,634 in under 3 minutes, no errors). Nobody has listened to the clips yet |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
 Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB; 0.11.0 six N3 dialogues, Speaking level filter, N3 placement questions. Next session: 0.12.0 writing practice sheet; 100 more verbs and 60 more adjectives with a level filter; 0.12.1 phone menu scroll fix, Psychiatry tab in place of Cards, Psychiatry section moved up the Home page; 0.12.2 encouragement forms hidden for 死ぬ, 傷つける, 吐く, 賭ける (current, pushed).
 Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty).
 
 ## 7. Next steps
-**Audio pack: recorded and verified on 13 Nov** (12,847 of 12,847 clips after 0.12.0, 249 MB, `sample_errors` empty, every key in `tools/texts.json` has a file). Still open:
+**First, ask her one thing:** may the phone-menu fix go live in Usap Tayo, Hablemos and Aklanon? It is made and tested but not pushed; patches and steps are in `sister-fixes/README.md` on this branch (attach each repo with push access, clone, `git apply`, run `qa/drawer-any.py`, push `main`). If yes, add a line to each app's handoff if it has one.
+**Audio pack: recorded and verified on 13 Nov** (12,834 of 12,834 clips after 0.12.2, about 249 MB, `sample_errors` empty, every key in `tools/texts.json` has a file). Still open:
 1. Dr. Navarro has not listened yet. Sample to hear: a few rows of the kana chart, five or six dictionary words, 方 / 一日 / 何 (two readings each), the single-word cards 時 年 日 月 (sent in kana, pitch accent may be flat), a phrase with a blank (spoken as まるまる), the three-word memory test (the bracketed "(three to five minutes later)" is not spoken, so the recall question follows straight on), one long N3 reading. Fixes: correct the furigana in `js/data/`, or add the spelling to `RISKY` in `tools/make_audio_pack.py`, or add the string to `tools/voice-overrides.json`; the job records only what changed. Full reviewer notes: `write/VOICE-REVIEW-0.9.0.md`.
 2. Not checked from the sandbox: that the live Settings → Voice card says Installed (the files are on main and Pages deployed, so it should).
 3. Possible later: record the dictionary-page conjugation tables (about 1,184 words × up to 20 forms); a Keita (male) pack would replace Nanami, since there is one pack per site.
@@ -160,4 +161,4 @@ Pending her answers: the clinical-content list in `claude/hanashimasho-build-not
 - The bottom tab bar is Home, Lessons, Practice, Psychiatry, More (`buildNav` in js/app.js); `MORE_KEYS` lists the sections that light up More.
 
 ## 9. Files to re-attach
-None. Everything needed is in the two repos (`isaymotion/Japanese` both branches, `isaymotion/Hablemos`). KanjiVG is cloned from GitHub only when the stroke data is rebuilt.
+None. The sister-app menu patches are in `sister-fixes/` on this branch. Everything needed is in the two repos (`isaymotion/Japanese` both branches, `isaymotion/Hablemos`). KanjiVG is cloned from GitHub only when the stroke data is rebuilt.
