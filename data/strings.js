@@ -1,6 +1,10 @@
-/* UI strings for the shared app shell only: menu group labels, theme and text size, footer, backup, and the
-   backup. The lessons and phrases are already bilingual in their own data
-   and are not translated through this file. t(key) looks up STRINGS[lang][key], then STRINGS.en[key], then the key.
+/* UI strings for the shared app shell only: the menu, the bottom tabs, theme and text size, footer and backup.
+   The lessons and phrases are already bilingual in their own data and are not translated through this file.
+   `tl` is the second shell language (the key name is shared with the sister apps): here it is JAPANESE, written in the
+   app's notation (reading in 《》 after each kanji run, one space between words; tools/AUTHORING.md), so the menu shows
+   furigana like everything else. DRAFT FOR REVIEW by a native Japanese speaker. Choose it in Settings or About.
+   `item.<key>` and `tab.<key>` are the labels of the menu items and bottom tabs (keys as in NAV, js/app.js); they exist
+   only in `tl`, the English labels live in js/app.js. t(key) looks up STRINGS[lang][key], then STRINGS.en[key], then the key.
    Placeholders like {name} are filled in by the code. */
 window.STRINGS = {
   en: {
@@ -34,9 +38,10 @@ window.STRINGS = {
     'foot.disclaimer': 'A Japanese study and interview aid; the Japanese is draft teaching material, not certified interpretation. Progress stays in this browser unless you export it.',
     'about.settings': 'Settings',
     'about.language': 'Language of the menu, footer and backup',
+    'about.langHint': 'In Japanese, each menu item shows its English meaning underneath.',
     'about.langNote': 'Phrases and ward tools already show Japanese and English; this only changes the app’s own labels.',
     'about.langEn': 'English',
-    'about.langTl': '日本語',
+    'about.langTl': '日本語《にほんご》',
     'backup.title': 'Back up your progress',
     'backup.text': 'Your streak, XP, flashcards, finished lessons, pins and settings live only in this browser. Export a backup file to keep them safe, then import it on another phone, tablet or computer to pick up where you left off.',
     'backup.export': 'Export backup',
@@ -63,7 +68,101 @@ window.STRINGS = {
     'backup.restored': 'Previous progress restored. Reloading…'
   },
 
-  // Second shell language (the shared t() hook). Empty in this app: the shell is English only, and every key
-  // falls back to `en`. Add keys here if a translated menu is wanted later.
-  tl: {}
+  // Second shell language: Japanese (draft). Any key missing here falls back to `en`.
+  tl: {
+    'skip': '本文《ほんぶん》 へ 進《すす》む',
+    'menu.title': 'メニュー',
+    'menu.open': 'メニュー を 開《ひら》く',
+    'menu.close': 'メニュー を 閉《と》じる',
+    'menu.main': 'メイン メニュー',
+    'nav.learn': '学《まな》ぶ',
+    'nav.drill': 'ドリル',
+    'nav.interview': '面接《めんせつ》',
+    'nav.tools': '臨床《りんしょう》 ツール',
+    'nav.app': 'アプリ',
+    'nav.recent': '最近《さいきん》 見《み》た ページ',
+    'nav.otherApps': 'ほか の アプリ',
+    'nav.newTab': '（新《あたら》しい タブ で 開《ひら》きます）',
+    'nav.more': 'その他《た》',
+    'theme.label': 'テーマ： {name}',
+    'theme.auto': '端末《たんまつ》 に 合《あ》わせる',
+    'theme.light': 'ライト',
+    'theme.dark': 'ダーク',
+    'textsize.title': '文字《もじ》 の 大《おお》きさ',
+    'textsize.smaller': '小《ちい》さめ',
+    'textsize.default': '標準《ひょうじゅん》',
+    'textsize.larger': '大《おお》きめ',
+    'textsize.largest': '最大《さいだい》',
+    'foot.whatsNew': '更新情報《こうしんじょうほう》',
+    'foot.about': 'この アプリ に ついて',
+    'foot.settings': '設定《せってい》',
+    'foot.disclaimer': '日本語《にほんご》 の 学習《がくしゅう》 と 面接《めんせつ》 の 練習《れんしゅう》 の ため の アプリ です。 日本語《にほんご》 は 下書《したが》き の 教材《きょうざい》 で、 正式《せいしき》 な 通訳《つうやく》 では ありません。 書《か》き出《だ》さない かぎり、 記録《きろく》 は この ブラウザ の 中《なか》 だけ に 残《のこ》ります。',
+    'about.settings': '設定《せってい》',
+    'about.language': 'メニュー、 フッター、 バックアップ の 言語《げんご》',
+    'about.langNote': 'フレーズ や 病棟《びょうとう》 ツール は もともと 日本語《にほんご》 と 英語《えいご》 で 表示《ひょうじ》 されます。 ここ で 変《か》わる の は、 アプリ の メニュー など の 表示《ひょうじ》 だけ です。',
+    'about.langHint': '日本語《にほんご》 に する と、 メニュー の 下《した》 に 英語《えいご》 の 意味《いみ》 が 小《ちい》さく 出《で》ます。',
+    'about.langEn': 'English',
+    'about.langTl': '日本語《にほんご》',
+    'backup.title': '学習《がくしゅう》 の 記録《きろく》 を バックアップ する',
+    'backup.text': '連続《れんぞく》 日数《にっすう》、 XP、 単語《たんご》 カード、 終《お》わった レッスン、 ピン、 設定《せってい》 は、 この ブラウザ の 中《なか》 だけ に 保存《ほぞん》 されて います。 バックアップ ファイル を 書《か》き出《だ》して おく と 安心《あんしん》 です。 ほか の スマホ、 タブレット、 パソコン で 読《よ》み込《こ》む と、 続《つづ》き から 始《はじ》められます。',
+    'backup.export': 'バックアップ を 書《か》き出《だ》す',
+    'backup.import': 'バックアップ を 読《よ》み込《こ》む',
+    'backup.undo': '前回《ぜんかい》 の 読《よ》み込《こ》み を 取《と》り消《け》す',
+    'backup.sum': '単語《たんご》 カード {cards}、 終《お》わった レッスン {lessons}、 XP {xp}',
+    'backup.nothing': 'まだ 何《なに》 も 保存《ほぞん》 されて いません',
+    'backup.onDevice': 'この 端末《たんまつ》： {summary}。',
+    'backup.lastExported': '最後《さいご》 の 書《か》き出《だ》し： {date}。',
+    'backup.notExported': 'まだ 書《か》き出《だ》して いません。',
+    'backup.shareTitle': '{app} の バックアップ',
+    'backup.shared': 'バックアップ が できました。 ほか の 端末《たんまつ》 から 開《ひら》ける 場所《ばしょ》 に 保存《ほぞん》 して ください。',
+    'backup.exportCancelled': '書《か》き出《だ》し を キャンセル しました。',
+    'backup.saved': '{name} を 保存《ほぞん》 しました。 ほか の 端末《たんまつ》 に 移《うつ》して、 そこ で 「バックアップ を 読《よ》み込《こ》む」 を 選《えら》んで ください。',
+    'backup.notBackup': 'これ は {app} の バックアップ ファイル では ありません。',
+    'backup.unreadable': 'この ファイル を 読《よ》み込《こ》めません でした。',
+    'backup.unknownDate': '日付《ひづけ》 不明《ふめい》',
+    'backup.confirmImport': '{date} の バックアップ を 読《よ》み込《こ》みます か？\n\nバックアップ： {backup}。\nこの 端末《たんまつ》 の 今《いま》 の 記録《きろく》： {device}。\n\nこの 端末《たんまつ》 の 記録《きろく》 は 上書《うわが》き されます。 フッター から 取《と》り消《け》す こと が できます。',
+    'backup.importCancelled': '読《よ》み込《こ》み を キャンセル しました。',
+    'backup.importFailed': '読《よ》み込《こ》み に 失敗《しっぱい》 しました。 この ブラウザ は データ を 保存《ほぞん》 できません でした。',
+    'backup.imported': 'バックアップ を 読《よ》み込《こ》みました。 ページ を 再読《さいよ》み込《こ》み します…',
+    'backup.confirmUndo': '前回《ぜんかい》 の 読《よ》み込《こ》み の 前《まえ》 の 記録《きろく》 （{summary}） に 戻《もど》します か？',
+    'backup.undoFailed': '取《と》り消《け》し に 失敗《しっぱい》 しました。',
+    'backup.restored': '前《まえ》 の 記録《きろく》 に 戻《もど》しました。 ページ を 再読《さいよ》み込《こ》み します…',
+
+    // Bottom tabs (short) and menu items
+    'tab.home': 'ホーム',
+    'tab.lessons': 'レッスン',
+    'tab.practice': '練習《れんしゅう》',
+    'tab.psych': '精神科《せいしんか》',
+    'item.home': 'ホーム',
+    'item.practice': '練習《れんしゅう》',
+    'item.lessons': 'レッスン',
+    'item.kana': 'かな の 練習《れんしゅう》',
+    'item.kanji': '漢字《かんじ》',
+    'item.write': '書《か》き順《じゅん》 練習《れんしゅう》 シート',
+    'item.reading': '読《よ》み物《もの》',
+    'item.speak': '会話《かいわ》',
+    'item.dict': '辞書《じしょ》',
+    'item.flash': '単語《たんご》 カード',
+    'item.verbs': '動詞《どうし》 と 形容詞《けいようし》 の 活用《かつよう》 練習《れんしゅう》',
+    'item.particles': '助詞《じょし》 ドリル',
+    'item.placement': 'レベル チェック テスト',
+    'item.psych': '精神科《せいしんか》 の 日本語《にほんご》',
+    'item.p-cases': '症例《しょうれい》 シミュレーション',
+    'item.p-interp': '患者《かんじゃ》さん は 何《なん》 と 言《い》って いる？',
+    'item.p-listen': '聞《き》き取《と》り ドリル',
+    'item.p-mcases': '入院時《にゅういんじ》 の 精神状態《せいしんじょうたい》 検査《けんさ》 練習《れんしゅう》',
+    'item.p-dcases': '退院《たいいん》 評価《ひょうか》 の 練習《れんしゅう》',
+    'item.p-point': '指《ゆび》さし ボード',
+    'item.p-mood': '気分《きぶん》 エピソード チェック',
+    'item.p-sud': '物質《ぶっしつ》 使用《しよう》 スクリーニング',
+    'item.p-wd': '離脱《りだつ》 と 興奮《こうふん》',
+    'item.p-deesc': 'ディエスカレーション',
+    'item.p-discharge': '退院《たいいん》 評価《ひょうか》',
+    'item.p-mse': '精神状態《せいしんじょうたい》 検査《けんさ》 面接《めんせつ》 シート',
+    'item.p-ho': '印刷用《いんさつよう》 配布《はいふ》 資料《しりょう》',
+    'item.progress': '学習《がくしゅう》 の 記録《きろく》',
+    'item.settings': '設定《せってい》',
+    'item.new': '更新情報《こうしんじょうほう》',
+    'item.about': 'この アプリ に ついて'
+  }
 };

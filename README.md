@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.12.2** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.13.0** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -28,7 +28,7 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Kana trainer** | Hiragana and katakana charts with sound (basic 46, voiced, combinations), the stroke order of each kana (tap it on the chart), and a drill a row at a time: see the kana and choose the sound, see the sound and choose the kana, or listen and choose. Route `#/kana`. |
 | **Kanji** | 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3, and a clinical set of 106 used in the psychiatry phrases), grouped by theme. Each kanji has a page with meanings, on and kun readings, stroke count, a stroke-order diagram (numbered strokes, an animation, one stroke at a time, and a picture for each step), example words with furigana and sound, and more words from the dictionary. A drill a group at a time in four modes (kanji to meaning, meaning to kanji, word to reading, word to meaning), flashcard decks by level, and kanji links on every dictionary word page. Route `#/kanji`. JLPT levels for kanji are approximate. |
 | **Writing practice sheet** | A printable sheet for writing by hand: hiragana or katakana rows, kanji groups from any level, or any characters typed in. Each character has a numbered model, a picture for every stroke, grey characters to trace and empty squares; square size, rows, tracing and paper (A4 or Letter) can be chosen. Linked from every kanji page and from the stroke-order panel of the kana chart. Route `#/write` (`?set=h`, `?lv=N5`, `?c=食飲`). |
-| **Verb and adjective trainer** | 200 verbs and 120 adjectives (N5, N4, N3 and a clinical set; 144 are marked clinical), with a level filter. For four verbs (死ぬ, 傷つける, 吐く, 賭ける) the forms that would sound like encouragement (let's, please, make or let, can) are never built (`HIDE` in `js/conjugate.js`). Each has a full table of forms made by rule (ます, ません, ました, て, ない, た, potential, volitional, たら, ば, passive, causative; adjective present, negative, past, て, adverb) and example sentences. Three drills: choose the form, name the form, type the form (kana or romaji). Route `#/verbs`. |
+| **Verb and adjective trainer** | 300 verbs and 180 adjectives (N5 133, N4 185, N3 117 and a clinical set of 45; 234 are marked clinical), with a level filter. For four verbs (死ぬ, 傷つける, 吐く, 賭ける) the forms that would sound like encouragement (let's, please, make or let, can) are never built (`HIDE` in `js/conjugate.js`). Each has a full table of forms made by rule (ます, ません, ました, て, ない, た, potential, volitional, たら, ば, passive, causative; adjective present, negative, past, て, adverb) and example sentences. Three drills: choose the form, name the form, type the form (kana or romaji). Route `#/verbs`. |
 | **Particle drill** | A guide to 18 particles with examples, and 130 fill-in sentences. Route `#/particles`. |
 | **Dictionary** | About 3,440 words with furigana (N5 about 700, N4 about 700, N3 about 1,560, clinical and advanced about 480), including every example word on the kanji pages, 72 N3 grammar patterns and ward and chart vocabulary. Search in kanji, kana, romaji or English; filter by topic, JLPT level or kana row. Verb and adjective entries show their conjugation. |
 | **Flashcards** | Spaced repetition. Decks by topic, by JLPT level, by psychiatry section, and an automatic "My mistakes" deck. |
@@ -39,13 +39,13 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Case simulations** | 7 branching interviews (psychosis, depression with suicide risk, mania, delirium, alcohol withdrawal, an agitated patient, over-the-counter medicine misuse) with feedback on every choice and a findings summary. |
 | **What is the patient saying?** | 32 idioms and indirect statements with their clinical meaning and the next question to ask. |
 | **Clinical tools** | Mood episode checker (DSM-5-TR criteria as questions, PHQ-9 and MDQ interview paraphrases); substance use screen with severity, codes and a guided motivational interview; withdrawal and agitation guide (PAWSS, CIWA-Ar, COWS scorers, nurse script, practice cases); de-escalation checklist with drills; discharge assessment field by field. Nothing typed into a tool is saved. The forms are generic: set your hospital's name and form numbers in `data/hospital.js`. |
-| **Practice with simulated patients** | Two admission MSE cases and four discharge cases, with the same patients as the case simulations. |
+| **Practice with simulated patients** | Two admission MSE cases and five discharge cases, with the same patients as the case simulations. The fifth (0.13.0) is Ayaka Nakamura, over-the-counter medicine misuse: no discharge medicines, the household medicines locked away, an early outpatient appointment; no product names or doses. |
 | **Printable handouts** | A handout builder (interview flow, key or full phrases by section, MSE table, "what the patient may be saying", de-escalation checklist, discharge guide, blank MSE form) with seven ready-made sets, including an A5 pocket booklet and an A6 de-escalation card; and the MSE interviewer sheet. Options for polite or plain form, English, furigana, romaji, paper and text size. Lessons, reading passages and the kanji list (Kanji → List) have a Print button too. Printing uses the browser's print window; choose "Save as PDF" there to make a PDF. Routes `#/psych/handout`, `#/psych/mse-sheet`. |
 | **Point board** | The patient taps a reply, the phone speaks it and the interviewer reads the English. General replies, a 0 to 10 scale and likely replies for each section (314 replies). |
 | **Listening drill** | Hear a patient reply, choose its meaning from four, then see the Japanese. |
 | **You** | Streaks, XP, progress, backup export / import with undo, settings, What's New, About. |
+| **Menu language** | Settings → Menu language (also on About): English or Japanese. In Japanese the menu, bottom tabs, footer, theme and text-size controls and the backup messages are in Japanese with furigana, and each menu item shows its English meaning underneath. The strings are in `data/strings.js` (`tl`), in the same notation as the content; page text stays English. |
 
-Not in this version: the fifth discharge practice case.
 
 ## Audio
 
@@ -59,7 +59,7 @@ The clips are made by a GitHub Actions job (`.github/workflows/audio-pack.yml`) 
 - **Files:** `audio/manifest.json` (voice, date, the list of clips), one `audio/<16-hex>.mp3` per string, `audio/voice-text.json` and `audio/last-run.json` (how the last run went). The pack is about 250 MB; the service worker does not download it in advance, it keeps each clip after its first play.
 - **File names:** the hash of the text as the app speaks it, `AudioKey(JA.speak(text))` (`js/audio-key.js`). A few words are written the same but read differently (方 = かた / ほう, 一日 = いちにち / ついたち): the less common reading has a second clip named from the text plus its reading, and the app plays the one that matches the furigana.
 - **Readings:** the voice is sent ordinary Japanese, but a voice can read a kanji differently from the furigana (何, 七時, 十分). So `tools/make_audio_pack.py` reads every string with a Japanese dictionary (MeCab + UniDic) and, where that reading differs from the furigana, sends those words in kana. The same is done for known homographs (方, 後, 他, 一日) and for the less common reading of any spelling the app reads in two ways. A blank (＿) is said as まるまる; stage directions in brackets are not read. `tools/voice-overrides.json` gives the exact text to send for a string where these rules read badly. What was sent is listed in `audio/voice-text.json`. To see the list without recording: `pip install fugashi unidic-lite`, then `python3 tools/make_audio_pack.py --report`.
-- **Not recorded:** the conjugation table on a dictionary word page (the trainer's 200 verbs and 120 adjectives are recorded in every form). The device voice speaks those.
+- **Not recorded:** the conjugation table on a dictionary word page (the trainer's 300 verbs and 180 adjectives are recorded in every form). The device voice speaks those.
 - **A line the app speaks that is in no data file** goes in `tools/extra-texts/<name>.txt`, one per line, in the app's notation.
 
 The recordings are machine voices reading draft Japanese: a clip can still have a wrong reading or accent. When the furigana of that line is corrected in `js/data/`, the job records the clip again.
@@ -99,7 +99,7 @@ js/data/*.js            all content
 data/app-meta.js        name, version, attribution
 data/changelog.js       What's New
 data/hospital.js        hospital details (generic; fill in for your service)
-data/strings.js         shell labels
+data/strings.js         shell labels, English and Japanese (Settings → Menu language)
 sw.js                   offline cache (prefix hanashimasho-)
 manifest.webmanifest    install details
 icons/                  app icons

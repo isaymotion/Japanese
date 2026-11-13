@@ -111,3 +111,11 @@ Level is `N5`, `N4`, `N3` or `C` (clinical set). JLPT levels for kanji are appro
   go in `money`.
 - Before adding words, check they are not already there under another spelling (kana or kanji):
   `grep -n "WORD" js/data/dict-*.js`. An entry whose Japanese and English both equal an earlier entry is dropped at load.
+
+## Menu language (data/strings.js)
+The app's own labels (menu, bottom tabs, footer, theme and text size, backup messages) can be shown in Japanese
+(Settings → Menu language). The Japanese is the `tl` block of `data/strings.js`, in the same notation as everything else;
+`item.<key>` and `tab.<key>` are the menu items and tabs (keys as in `NAV`, js/app.js). Keep placeholders such as `{name}`
+and the `\n` line breaks. A key missing from `tl` falls back to English. Tab labels must stay very short.
+Check: `node tools/check-ja.js data/strings.js` (it is not in the default file list, which is js/data only).
+

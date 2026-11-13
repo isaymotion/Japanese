@@ -152,6 +152,9 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
 .nav-item.on { background: color-mix(in srgb, var(--accent) 14%, var(--surface)); color: var(--ink); box-shadow: inset 3px 0 0 var(--accent); }
 .nav-item.on svg { color: var(--accent); }
 .nav-item .badge { margin-left: auto; }
+/* Japanese menu (Settings, Menu language): the Japanese label with its English meaning underneath */
+.nav-tx { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nav-en { font: 500 .72rem/1.2 var(--sans); color: var(--ink-3); }
 .badge { display: inline-block; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--gold); color: #4C1A12; font: 700 .72rem/20px var(--sans); text-align: center; font-variant-numeric: tabular-nums; }
 .nav-backdrop { display: none; }
 main {
@@ -762,7 +765,7 @@ mark.vf { background: var(--warn-bg); color: var(--gold-ink); font-weight: 700; 
 .ja { font-family: var(--font-tl); font-feature-settings: "palt" 0; }
 ruby { ruby-align: center; }
 rt { font-size: .56em; font-weight: 500; line-height: 1.1; color: var(--ink-3); font-family: var(--font-tl); letter-spacing: 0; user-select: none; -webkit-user-select: none; }
-.opt.right rt, .opt.wrong rt, .btn.primary rt, .hero rt, .ptile.on rt { color: inherit; opacity: .85; }
+.opt.right rt, .opt.wrong rt, .btn.primary rt, .hero rt, .ptile.on rt, .seg button.on rt, .site-foot rt { color: inherit; opacity: .85; }
 .furi-off rt { display: none; }
 .furi-tap rt { visibility: hidden; }
 .furi-tap ruby { cursor: pointer; text-decoration: underline dotted var(--rule); text-underline-offset: .25em; }

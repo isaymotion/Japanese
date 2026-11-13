@@ -3,6 +3,15 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.13.0', date: '2026-11-13', title: 'Japanese menu, more trainer words, a fifth discharge case',
+    items: [
+      { type: 'feature', text: 'Menu language: in Settings (and on About) the app\'s own menu can now be shown in Japanese. The menu, the tabs at the bottom, the footer, the theme and text-size controls and the backup messages are in Japanese with furigana, and each menu item shows its English meaning underneath. Lessons and tools are unchanged. The Japanese labels are a draft.' },
+      { type: 'content', text: 'Verb and adjective trainer: 100 more verbs (300 in all) and 60 more adjectives (180 in all), each with example sentences. Fifty of the new verbs are everyday N5 and N4 words (to choose, to compare, to move, to order, to introduce); fifty are ward and clinic words (to confirm, to take medicine, to rest, to return to work, to take a temperature, to interpret). About half of the new adjectives are for feelings and clinical descriptions.' },
+      { type: 'content', text: 'Discharge practice: a fifth case, Ayaka Nakamura, 20, over-the-counter medicine misuse. She goes home with no medicines, her mother keeps the household medicines locked away, and she has an outpatient appointment in three days. No product names or doses appear.' },
+      { type: 'update', text: 'The new words and the new case are recorded for the voice pack automatically after this update.' }
+    ]
+  },
+  {
     version: '0.12.2', date: '2026-11-13', title: 'Some verb forms hidden',
     items: [
       { type: 'update', text: 'Verb trainer and dictionary: a few verbs no longer show, drill or speak the forms that would sound like encouragement to harm. For to die (shinu), the let\'s, please, make-or-let and can forms are hidden; for to hurt (kizutsukeru) the let\'s, please and make-or-let forms; for to vomit (haku) and to gamble (kakeru) the let\'s forms. Their other forms stay, including shinitai (I want to die), which a patient may say and a clinician must recognise.' }

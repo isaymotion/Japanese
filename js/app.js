@@ -21,15 +21,20 @@
   /* ---------- Shell strings (data/strings.js). The content is already bilingual; this covers the app's own labels. ---------- */
   const STR = window.STRINGS || {};
   const own = (o, k) => !!o && Object.prototype.hasOwnProperty.call(o, k);
-  const lang = () => 'en';   // the shell is English only in this app; the t() hook stays for a Japanese shell later
+  const lang = () => (App.state.settings.uiLang === 'tl' ? 'tl' : 'en');   // 'tl' = the second shell language, Japanese here (Settings, About)
   const t = (k) => { let s = own(STR[lang()], k) ? STR[lang()][k] : null; if (typeof s !== 'string' || !s) s = own(STR.en, k) ? STR.en[k] : null; return typeof s === 'string' && s ? s : k; };
   const tf = (k, v) => t(k).replace(/\{(\w+)\}/g, (m, x) => (v && own(v, x) ? String(v[x]) : m));
-  App.t = t; App.tf = tf;
+  // Japanese strings are in the app's notation (furigana in 《》, spaces between words). On the page js/ja.js turns it into
+  // ruby; anything that is not page text (attributes, confirm boxes, the share sheet) gets the plain form instead.
+  const plainStr = (s) => (lang() === 'en' ? s : JA.speak(s));
+  // Menu item and tab labels: English lives in NAV below, the second language under 'item.<key>' / 'tab.<key>'.
+  const lbl = (key, en) => (lang() !== 'en' && own(STR[lang()], key) && STR[lang()][key] ? STR[lang()][key] : en);
+  App.t = t; App.tf = tf; App.uiLang = lang;
   function applyStatic() {
     document.querySelectorAll('[data-i18n]').forEach((el) => { const v = t(el.dataset.i18n); if (v !== el.dataset.i18n) el.textContent = v; });
     document.querySelectorAll('[data-i18n-attr]').forEach((el) => el.dataset.i18nAttr.split(';').forEach((pair) => {
       const at = pair.indexOf(':'), key = pair.slice(at + 1);
-      if (at > 0 && t(key) !== key) el.setAttribute(pair.slice(0, at), t(key));
+      if (at > 0 && t(key) !== key) el.setAttribute(pair.slice(0, at), plainStr(t(key)));
     }));
   }
 
@@ -100,7 +105,7 @@
     const mid = PARENT['/' + segs.slice(0, 2).join('/')];
     return mid ? mid[1] : '#/' + (segs[0] || '');
   }
-  const navItem = (k, h, label, ic) => '<li><a class="nav-item' + (k === 'psych' ? ' psy' : '') + '" href="' + h + '" data-nav="' + k + '">' + ic + '<span>' + esc(label) + '</span>' +
+  const navItem = (k, h, label, ic) => '<li><a class="nav-item' + (k === 'psych' ? ' psy' : '') + '" href="' + h + '" data-nav="' + k + '">' + ic + (lbl('item.' + k, label) !== label ? '<span class="nav-tx"><span>' + esc(lbl('item.' + k, label)) + '</span><small class="nav-en">' + esc(label) + '</small></span>' : '<span>' + esc(label) + '</span>') +
     (k === 'new' ? '<span class="badge" data-badge="news" hidden></span>' : '') + '</a></li>';
   function otherApps() {   // off until the apps are interlinked (window.SHOW_OTHER_APPS in data/app-meta.js)
     if (!window.SHOW_OTHER_APPS) return '';
@@ -111,8 +116,8 @@
   function buildNav() {
     $('#railBody').innerHTML = NAV.map(([g, items]) => '<div class="nav-group">' + (g ? '<p class="nav-label">' + esc(t(g)) + '</p>' : '') + '<ul>' + items.map((i) => navItem.apply(null, i)).join('') + '</ul></div>').join('') + otherApps();
     $('#tabbar').innerHTML = [['home', '#/', 'Home', icons.home], ['lessons', '#/lessons', 'Lessons', icons.lesson], ['practice', '#/practice', 'Practice', icons.target], ['psych', '#/psych', 'Psychiatry', icons.brain]]
-      .map(([k, h, l, ic]) => '<a href="' + h + '" data-nav="' + k + '">' + ic + '<span>' + l + '</span></a>').join('') +
-      '<button type="button" id="tabMore" data-nav="more" aria-controls="rail" aria-expanded="' + (document.body.classList.contains('drawer-open') ? 'true' : 'false') + '">' + icons.info + '<span>More</span><span class="badge tab-badge" data-badge="news" hidden></span></button>';
+      .map(([k, h, l, ic]) => '<a href="' + h + '" data-nav="' + k + '">' + ic + '<span>' + esc(lbl('tab.' + k, l)) + '</span></a>').join('') +
+      '<button type="button" id="tabMore" data-nav="more" aria-controls="rail" aria-expanded="' + (document.body.classList.contains('drawer-open') ? 'true' : 'false') + '">' + icons.info + '<span>' + esc(t('nav.more')) + '</span><span class="badge tab-badge" data-badge="news" hidden></span></button>';
     $('#tabMore').onclick = () => (document.body.classList.contains('drawer-open') ? closeDrawer(true) : openDrawer());
     updateBadges();
   }
@@ -210,8 +215,8 @@
     const pins = (App.state.pins || []).slice().reverse();
     el.innerHTML = '<h1>More</h1>' +
       (pins.length ? '<h2>Pinned</h2><div class="row" style="margin-bottom:6px">' + pins.map((p) => '<a class="btn sm" href="' + esc(p.hash) + '">' + icons.starOn + ' ' + esc(p.title) + '</a>').join('') + '</div>' : '') +
-      (recent.length ? '<h2>' + esc(t('nav.recent')) + '</h2><div class="row" style="margin-bottom:6px">' + recent.slice(0, 6).map((r) => '<a class="btn sm" href="' + esc(r.hash) + '">' + esc(r.title) + '</a>').join('') + '</div>' : '') +
-      NAV.map(([g, items]) => '<section class="more-grp">' + (g ? '<h2>' + esc(t(g)) + '</h2>' : '') + '<div class="grid">' + items.map(([k, h, l, ic]) => '<a class="tile" href="' + h + '"><h3 class="row" style="gap:8px">' + ic + esc(l) + '</h3>' + (BLURB[k] ? '<p>' + esc(BLURB[k]) + '</p>' : '') + '</a>').join('') + '</div></section>').join('') +
+      (recent.length ? '<h2 data-norj>' + esc(t('nav.recent')) + '</h2><div class="row" style="margin-bottom:6px">' + recent.slice(0, 6).map((r) => '<a class="btn sm" href="' + esc(r.hash) + '">' + esc(r.title) + '</a>').join('') + '</div>' : '') +
+      NAV.map(([g, items]) => '<section class="more-grp">' + (g ? '<h2 data-norj>' + esc(t(g)) + '</h2>' : '') + '<div class="grid">' + items.map(([k, h, l, ic]) => '<a class="tile" href="' + h + '"><h3 class="row" data-norj style="gap:8px">' + ic + '<span>' + esc(lbl('item.' + k, l)) + '</span></h3>' + (BLURB[k] ? '<p>' + esc(BLURB[k]) + '</p>' : '') + '</a>').join('') + '</div></section>').join('') +
       '<section class="more-grp"><div class="grid"><a class="tile" href="#/psych"><h3>All psychiatry sections and phrases</h3></a></div></section>';
   };
   routes.push([/^\/more$/, V.more, 'more']);
@@ -326,10 +331,10 @@
     root.style.fontSize = TEXT_SIZES.some(([k]) => k === v) && v !== '100' ? v + '%' : '';
     setTopVar();
   };
-  App.textSizeSeg = () => '<div class="seg" role="group" aria-label="' + esc(t('textsize.title')) + '">' + TEXT_SIZES.map(([k, l], i) => '<button type="button" data-ts="' + k + '" aria-pressed="' + ((App.state.settings.textSize || '100') === k) + '" class="' + ((App.state.settings.textSize || '100') === k ? 'on' : '') + '" style="font-size:' + (0.82 + i * 0.1).toFixed(2) + 'rem">' + esc(t(l)) + '</button>').join('') + '</div>';
+  App.textSizeSeg = () => '<div class="seg" data-norj role="group" aria-label="' + esc(plainStr(t('textsize.title'))) + '">' + TEXT_SIZES.map(([k, l], i) => '<button type="button" data-ts="' + k + '" aria-pressed="' + ((App.state.settings.textSize || '100') === k) + '" class="' + ((App.state.settings.textSize || '100') === k ? 'on' : '') + '" style="font-size:' + (0.82 + i * 0.1).toFixed(2) + 'rem">' + esc(t(l)) + '</button>').join('') + '</div>';
   (() => {
     const btn = $('#textSizeBtn'), panel = $('#textSizePanel');
-    const build = () => { panel.setAttribute('aria-label', t('textsize.title')); panel.innerHTML = '<span class="eyebrow">' + esc(t('textsize.title')) + '</span>' + App.textSizeSeg() + '<span class="eyebrow" style="display:block;margin-top:12px">Reading aids</span>' + App.aidsHTML(); App.bindAids(panel, build); panel.querySelectorAll('[data-ts]').forEach((b) => (b.onclick = () => { App.state.settings.textSize = b.dataset.ts; App.save(); App.applyTextSize(); build(); const on = panel.querySelector('.on'); if (on) on.focus(); })); };
+    const build = () => { panel.setAttribute('aria-label', plainStr(t('textsize.title'))); panel.innerHTML = '<span class="eyebrow">' + esc(t('textsize.title')) + '</span>' + App.textSizeSeg() + '<span class="eyebrow" style="display:block;margin-top:12px">Reading aids</span>' + App.aidsHTML(); App.bindAids(panel, build); panel.querySelectorAll('[data-ts]').forEach((b) => (b.onclick = () => { App.state.settings.textSize = b.dataset.ts; App.save(); App.applyTextSize(); build(); const on = panel.querySelector('.on'); if (on) on.focus(); })); };
     const open = () => { build(); panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); const on = panel.querySelector('.on'); if (on) on.focus(); };
     const close = () => { if (panel.hidden) return; panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
     btn.onclick = (e) => { e.stopPropagation(); if (panel.hidden) open(); else close(); };
@@ -355,7 +360,7 @@
     const meta = $('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', getComputedStyle(root).getPropertyValue('--night').trim() || (dark ? '#160E20' : '#421C6E'));
     const b = $('#themeBtn'), label = tf('theme.label', { name: App.themeName(m) });
-    b.innerHTML = THEME_ICONS[m]; b.title = label; b.setAttribute('aria-label', label);
+    b.innerHTML = THEME_ICONS[m]; b.title = plainStr(label); b.setAttribute('aria-label', plainStr(label));
   };
   $('#themeBtn').onclick = () => {
     App.state.settings.theme = { system: 'light', light: 'dark', dark: 'system' }[themeMode()];
@@ -417,7 +422,7 @@
     let file = null; try { file = new File([json], name, { type: 'application/json' }); } catch (e) {}
     if (standalone && file && navigator.canShare && navigator.canShare({ files: [file] })) {
       // Installed apps on phones cannot always download files; the share sheet can save to Files or send it on.
-      navigator.share({ files: [file], title: tf('backup.shareTitle', { app: META.name }) }).then(() => { bkStatus(t('backup.shared')); bkPaint(); }).catch(() => bkStatus(t('backup.exportCancelled')));
+      navigator.share({ files: [file], title: plainStr(tf('backup.shareTitle', { app: META.name })) }).then(() => { bkStatus(t('backup.shared')); bkPaint(); }).catch(() => bkStatus(t('backup.exportCancelled')));
       return payload;
     }
     const url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
@@ -447,7 +452,7 @@
     const p = bkParse(text, fallbackDate);
     if (!p) { bkStatus(bad, true); App.toast(bad); return false; }
     const msg = tf('backup.confirmImport', { date: bkDate(p.exported) || t('backup.unknownDate'), backup: bkSummary(p.data), device: bkSummary(bkCollect()) });
-    if (!window.confirm(msg)) { bkStatus(t('backup.importCancelled')); return false; }
+    if (!window.confirm(plainStr(msg))) { bkStatus(t('backup.importCancelled')); return false; }
     try {
       localStorage.setItem(BK_UNDO, JSON.stringify({ saved: new Date().toISOString(), data: bkCollect() }));
       App.frozen = true;
@@ -467,7 +472,7 @@
   function bkUndo() {
     let snap; try { snap = JSON.parse(localStorage.getItem(BK_UNDO)); } catch (e) {}
     if (!snap || !snap.data) { bkPaint(); return; }
-    if (!window.confirm(tf('backup.confirmUndo', { summary: bkSummary(snap.data) }))) return;
+    if (!window.confirm(plainStr(tf('backup.confirmUndo', { summary: bkSummary(snap.data) })))) return;
     try { App.frozen = true; bkReplace(snap.data); localStorage.removeItem(BK_UNDO); } catch (e) { App.frozen = false; bkStatus(t('backup.undoFailed'), true); return; }
     bkStatus(t('backup.restored')); App.toast(t('backup.restored'));
     setTimeout(() => location.reload(), 700);
@@ -496,6 +501,16 @@
     App.state.settings[k] = k === 'furigana' ? v : v === 'true';
     App.save(); App.applyAids(); redraw && redraw();
   }));
+
+  /* ---------- Language of the shell (Settings and About): English or Japanese ---------- */
+  App.setLang = (l) => {
+    App.state.settings.uiLang = l === 'tl' ? 'tl' : 'en'; App.save();
+    applyStatic(); buildNav(); fillRecent(); App.applyTheme(); bkPaint(); render();
+  };
+  App.langSeg = () => '<div data-norj><div class="seg" role="group" aria-label="' + esc(plainStr(t('about.language'))) + '">' +
+    [['en', 'about.langEn'], ['tl', 'about.langTl']].map(([k, l]) => '<button type="button" data-lang="' + k + '" aria-pressed="' + (lang() === k) + '" class="' + (lang() === k ? 'on' : '') + '">' + esc(t(l)) + '</button>').join('') + '</div>' +
+    '<p class="muted small" style="margin:8px 0 0">' + esc(t('about.langNote')) + ' ' + esc(t('about.langHint')) + '</p></div>';
+  App.bindLang = (el) => el.querySelectorAll('[data-lang]').forEach((b) => (b.onclick = () => App.setLang(b.dataset.lang)));
 
   /* ---------- Universal search ---------- */
   const gs = $('#gsearch'), sug = $('#gsuggest');

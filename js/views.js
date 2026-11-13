@@ -462,7 +462,8 @@
     const s = S().settings;
     const voices = App.voices();
     el.innerHTML = '<h1>Settings</h1><div class="stack">' +
-      '<div class="card stack"><h2 style="margin:0">Appearance</h2><div class="seg" role="group" aria-label="Theme">' + ['system', 'light', 'dark'].map((k) => '<button type="button" data-theme="' + k + '" aria-pressed="' + ((s.theme || 'system') === k) + '" class="' + ((s.theme || 'system') === k ? 'on' : '') + '">' + esc(App.themeName(k)) + '</button>').join('') + '</div><p class="muted small" style="margin:10px 0 6px">Text size (also under the <b>Aa</b> button in the top bar)</p>' + App.textSizeSeg() + '</div>' +
+      '<div class="card stack"><h2 style="margin:0">Appearance</h2><div class="seg" data-norj role="group" aria-label="Theme">' + ['system', 'light', 'dark'].map((k) => '<button type="button" data-theme="' + k + '" aria-pressed="' + ((s.theme || 'system') === k) + '" class="' + ((s.theme || 'system') === k ? 'on' : '') + '">' + esc(App.themeName(k)) + '</button>').join('') + '</div><p class="muted small" style="margin:10px 0 6px">Text size (also under the <b>Aa</b> button in the top bar)</p>' + App.textSizeSeg() + '</div>' +
+      '<div class="card stack"><h2 style="margin:0">Menu language</h2><p class="muted" data-norj style="margin:0">' + esc(App.t('about.language')) + '</p>' + App.langSeg() + '</div>' +
       '<div class="card stack"><h2 style="margin:0">Reading aids</h2><p class="muted" style="margin:0">Three helpers for reading Japanese. Start with all of them on; switch romaji off first, then word spacing, then set furigana to show on tap.</p>' + App.aidsHTML() + '</div>' +
       '<div class="card stack"><h2 style="margin:0">Register</h2><p class="muted" style="margin:0">Which version of each psychiatry phrase to show first. ' + LANG.registers.f.short + ' ' + LANG.registers.f.help + '. ' + LANG.registers.c.short + ' ' + LANG.registers.c.help + '.</p>' +
       '<div class="seg" role="group" aria-label="Register">' + [['f', LANG.registers.f.label], ['c', LANG.registers.c.label]].map(([k, t]) => '<button data-reg="' + k + '" class="' + (s.register === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div></div>' +
@@ -501,6 +502,7 @@
     if (App.installPrompt) { const b = el.querySelector('#install'); b.hidden = false; b.onclick = () => App.installPrompt.prompt(); }
     el.querySelector('#reset1').onclick = () => { el.querySelector('#reset2').hidden = false; };
     el.querySelector('#resetno').onclick = () => { el.querySelector('#reset2').hidden = true; };
+    App.bindLang(el);
     el.querySelector('#resetyes').onclick = () => { App.reset(); App.applyTheme(); App.applyTextSize(); JA.apply(S().settings); App.backup.paint(); App.updateBadges(); App.toast('Progress erased.'); V.settings(el); };
     if (!voices.length && App.canSpeak) setTimeout(() => { if (App.voices().length && location.hash.startsWith('#/settings')) V.settings(el); }, 600);
   };
@@ -542,7 +544,7 @@
     el.innerHTML = '<div class="card stack" style="text-align:center;align-items:center;justify-items:center"><img src="icons/icon-192.png" alt="' + esc(APP_META.name) + ' icon" width="96" height="96" style="border-radius:22px"><h1 style="margin:0">' + esc(APP_META.name) + '</h1><p class="muted" style="margin:0">' + esc(APP_META.tagline) + ' · version ' + esc(APP_META.version) + '</p>' +
       '<p style="margin:8px 0 0"><b>App created by ' + esc(APP_META.author) + '.</b><br>Latest version ' + esc(APP_META.updated) + '.<br><a href="mailto:' + esc(APP_META.email) + '">' + esc(APP_META.email) + '</a></p>' +
       '<div class="row" style="justify-content:center"><a class="btn" href="#/new">What\'s New</a><button class="btn" id="copymail">Copy email</button></div></div>' +
-      '<h2 style="margin-top:18px">' + esc(App.t('about.settings')) + '</h2><div class="card stack">' +
+      '<h2 data-norj style="margin-top:18px">' + esc(App.t('about.settings')) + '</h2><div class="card stack"><div><p data-norj style="margin:0 0 8px;font-weight:600">' + esc(App.t('about.language')) + '</p>' + App.langSeg() + '</div>' +
         '<p class="small" style="margin:0">Furigana, romaji, word spacing, theme, text size, voice and register: <a href="#/settings">Settings</a>.</p></div>' +
       '<h2 style="margin-top:18px">About the content</h2><div class="card stack"><p style="margin:0"><span>話《はな》しましょう</span> means "let\'s talk." The app is the Japanese sister of <a href="https://isaymotion.github.io/Tagalog/" target="_blank" rel="noopener">Usap Tayo</a> (Tagalog) and Hablemos (Spanish): the same engine, with a learn track that starts from zero. ' + esc(LANG.variety) + '</p>' +
       '<p style="margin:0"><b>Reading aids.</b> Every kanji carries furigana (its reading in small hiragana). The romaji line under a sentence and the spaces between words are added by the app for beginners; Japanese is normally written without either. Romaji follows the kana spelling (<i>ou</i>, <i>ei</i>, <i>uu</i>), with a macron only for the katakana long mark.</p>' +
@@ -554,6 +556,7 @@
       (crisis.number ? '<p style="margin:0">Crisis line: ' + esc(crisis.name) + ' <b>' + esc(crisis.number) + '</b>. ' + esc(crisis.note || '') + ' Verify current numbers locally; edit data/hospital.js for your own service.</p>' : '') +
       (H.name ? '<p style="margin:0">Configured for ' + esc(H.name) + (H.program ? ', ' + esc(H.program) : '') + '.</p>' : '') + '</div>' +
       '<h2 style="margin-top:18px">Keyboard shortcuts</h2><div class="card"><p style="margin:0"><span class="kbd">/</span> search · <span class="kbd">Alt</span>+<span class="kbd">←</span>/<span class="kbd">→</span> back/forward · <span class="kbd">Space</span> flip flashcard · <span class="kbd">1</span>–<span class="kbd">4</span> grade card</p></div>';
+    App.bindLang(el);
     el.querySelector('#copymail').onclick = () => { navigator.clipboard && navigator.clipboard.writeText(APP_META.email).then(() => App.toast('Email copied.'), () => App.toast(APP_META.email)); };
   };
 })();
