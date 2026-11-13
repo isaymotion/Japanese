@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.8.1** (2026-11-13): the learn track with kanji study, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.10.0** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -25,8 +25,8 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | Section | What it does |
 |---|---|
 | **Lessons** | 86 grammar lessons with quizzes in 26 units, with a level filter (Starter 6, N5 21, N4 35, N3 24). Starter and N5: Foundations (scripts, sounds, hiragana, katakana, how kanji work), First sentences, Numbers and time, Verbs, Adjectives, The te-form. N4: Plain forms, Saying more, Politeness and culture, Clinical Japanese, Clauses and descriptions, How things seem, Giving and receiving, More て-forms, Plans, advice and rules, Purpose and contrast, Passive and causative, Respect language. N3: Time and sequence, Limits and extent, Causes and obligations, Conditions and relations, Contrast and concession, Hearsay and judgement, Feelings and attempts, Casual and written styles (understanding casual patient speech; reading chart and notice Japanese). |
-| **Kana trainer** | Hiragana and katakana charts with sound (basic 46, voiced, combinations) and a drill a row at a time: see the kana and choose the sound, see the sound and choose the kana, or listen and choose. Route `#/kana`. |
-| **Kanji** | 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3, and a clinical set of 106 used in the psychiatry phrases), grouped by theme. Each kanji has a page with meanings, on and kun readings, stroke count, example words with furigana and sound, and more words from the dictionary. A drill a group at a time in four modes (kanji to meaning, meaning to kanji, word to reading, word to meaning), flashcard decks by level, and kanji links on every dictionary word page. Route `#/kanji`. JLPT levels for kanji are approximate. |
+| **Kana trainer** | Hiragana and katakana charts with sound (basic 46, voiced, combinations), the stroke order of each kana (tap it on the chart), and a drill a row at a time: see the kana and choose the sound, see the sound and choose the kana, or listen and choose. Route `#/kana`. |
+| **Kanji** | 719 kanji on a chart by level (80 at JLPT N5, 166 at N4, 367 at N3, and a clinical set of 106 used in the psychiatry phrases), grouped by theme. Each kanji has a page with meanings, on and kun readings, stroke count, a stroke-order diagram (numbered strokes, an animation, one stroke at a time, and a picture for each step), example words with furigana and sound, and more words from the dictionary. A drill a group at a time in four modes (kanji to meaning, meaning to kanji, word to reading, word to meaning), flashcard decks by level, and kanji links on every dictionary word page. Route `#/kanji`. JLPT levels for kanji are approximate. |
 | **Verb and adjective trainer** | 100 verbs and 60 adjectives. Each has a full table of forms made by rule (ます, ません, ました, て, ない, た, potential, volitional, たら, ば, passive, causative; adjective present, negative, past, て, adverb) and example sentences. Three drills: choose the form, name the form, type the form (kana or romaji). Route `#/verbs`. |
 | **Particle drill** | A guide to 18 particles with examples, and 130 fill-in sentences. Route `#/particles`. |
 | **Dictionary** | About 3,440 words with furigana (N5 about 700, N4 about 700, N3 about 1,560, clinical and advanced about 480), including every example word on the kanji pages, 72 N3 grammar patterns and ward and chart vocabulary. Search in kanji, kana, romaji or English; filter by topic, JLPT level or kana row. Verb and adjective entries show their conjugation. |
@@ -84,6 +84,8 @@ js/core.js              storage, dictionary, search, spaced repetition, speech
 js/views.js             home, dictionary, flashcards, lessons, reading, speaking, placement, settings
 js/kana.js              kana trainer
 js/kanji.js             kanji chart, kanji pages and kanji drill (data: js/data/kanji-*.js)
+js/strokes.js           stroke-order diagrams on kanji pages and the kana chart
+strokes/*.js            stroke data for the kana and the 719 kanji, from KanjiVG (CC BY-SA 3.0; strokes/LICENSE.md); rebuilt by strokes/build-strokes.py
 js/grammar.js           verb / adjective trainer and particle drill
 js/psych-views.js       psychiatry hub and phrase sections
 js/point-listen.js      point board and listening drill
@@ -126,6 +128,10 @@ After editing any data file run `node tools/check-ja.js`. It must report 0 error
 - **What's New**: add an entry at the top of `data/changelog.js`, then set the same `version` in `data/app-meta.js` and `VERSION` in `sw.js`.
 
 The service worker only deletes caches whose names start with `hanashimasho-`; never change that rule, because every isaymotion app shares the same site. Progress is stored in the browser under `hanashimasho.v1`.
+
+## Stroke-order data and its licence
+
+The stroke-order diagrams use data from [KanjiVG](https://kanjivg.tagaini.net), copyright (C) 2009-2011 Ulrich Apel, under the [Creative Commons Attribution-Share Alike 3.0](https://creativecommons.org/licenses/by-sa/3.0/) licence. The five data files in `strokes/` are an adaptation (paths copied, coordinates rounded) and are shared under the same licence; the rest of the app is not covered by it. Details: `strokes/LICENSE.md`. To rebuild after adding kanji: clone KanjiVG and run `python3 strokes/build-strokes.py <kanjivg folder> .`; it also reports any kanji whose stroke count in the app differs from KanjiVG (none at present).
 
 ## Important note on the content
 

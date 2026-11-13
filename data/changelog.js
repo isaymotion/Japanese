@@ -3,6 +3,14 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.10.0', date: '2026-11-13', title: 'Stroke order for kanji and kana',
+    items: [
+      { type: 'feature', text: 'Stroke order for kanji. Every kanji page (all 719) now has a Stroke order card: a large diagram with numbered strokes, Play to watch the kanji being written, Next stroke to go one stroke at a time, and a row of small pictures, one for each stroke, with a dot where the stroke starts. Tap a small picture to see the kanji up to that stroke.' },
+      { type: 'feature', text: 'Stroke order for kana. In the Kana trainer, tapping a hiragana or katakana on the chart still says it, and now also opens How to write under the table, with the same diagram. Combinations such as きゃ show both kana.' },
+      { type: 'update', text: 'The diagrams work offline once the app has been opened online, and print with the kanji page. Stroke data comes from KanjiVG by Ulrich Apel (Creative Commons Attribution-Share Alike 3.0); the credit is on each diagram and on the About page.' }
+    ]
+  },
+  {
     version: '0.9.0', date: '2026-11-13', title: 'Recorded Japanese voice',
     items: [
       { type: 'feature', text: 'Recorded voice. The app can now play recorded clips of a natural Japanese voice (Nanami) instead of the voice on your device: about 10,100 clips covering every dictionary word, lesson example, reading, dialogue, kana, kanji word, every form of the 100 verbs and 60 adjectives in the trainer, and every interview phrase (polite and plain), patient reply, case and clinical-tool line. The clips are recorded on GitHub after this release; until they arrive, and for anything without a clip, the app uses the device voice as before.' },

@@ -935,3 +935,36 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 /* The observed-MSE rows are spans; the furigana spans inside them must stay inline */
 .ms-obs span span { display: inline; padding: 0; border: 0; margin: 0; text-indent: 0; font-size: inherit; }
 @media print { .ms-obs span span { display: inline; padding: 0; border: 0; margin: 0; text-indent: 0; font-size: inherit; } }
+
+/* ---------- Stroke-order diagrams (js/strokes.js; data from KanjiVG) ---------- */
+.so + .so { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.so-main { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: center; }
+.so-big { width: 172px; height: 172px; display: block; background: var(--surface); border-radius: var(--r-md); }
+.so svg path, .so svg rect { fill: none; }
+.so-g { stroke: var(--rule); stroke-width: 1.2; }
+.so-gd { stroke-dasharray: 3 4; }
+.so-ghost { stroke: var(--tint); stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+.so-p { stroke: var(--ink); stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+.so-p.so-cur { stroke: var(--accent); }
+.so-dot { fill: var(--accent); opacity: .85; }
+.so-n { font: 600 7.5px/1 var(--font-ui, system-ui, sans-serif); fill: var(--ink-3); }
+.so-n.so-cur { fill: var(--accent); }
+.so-side { display: grid; gap: 10px; min-width: 0; }
+.so-count { font-weight: 700; }
+.so-tip { margin: 0; }
+.so [aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.so-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 6px; margin-top: 14px; }
+.so-step { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-sm); padding: 3px 3px 2px; cursor: pointer; display: grid; justify-items: center; min-width: 0; color: inherit; font: inherit; }
+.so-step:hover, .so-step:focus-visible, .so-step.on { border-color: var(--accent); }
+.so-step svg { width: 100%; height: auto; display: block; }
+.so-step .so-p { stroke: var(--ink-3); stroke-width: 4.5; }
+.so-step .so-p.so-cur { stroke: var(--accent); }
+.so-step .so-g { stroke-width: 2; }
+.so-step small { font-size: .7rem; color: var(--ink-3); line-height: 1.3; }
+.so-credit { margin: 12px 0 0; }
+.so-kana { margin-top: 10px; max-width: 460px; display: grid; gap: 10px; }
+.so-kana .so-kk { font: 600 1.3rem/1 var(--font-tl); }
+.so-kana .so-main { grid-template-columns: minmax(0, 1fr); }
+.so-kana .so-big { width: 150px; height: 150px; }
+@media (max-width: 520px) { .so-main { grid-template-columns: minmax(0, 1fr); } .so-big { width: 160px; height: 160px; } }
+@media print { .so [data-so-act], .so-tip, .so-kana [data-so-close] { display: none !important; } .so-steps { grid-template-columns: repeat(10, 1fr); } .so-step { break-inside: avoid; } }

@@ -541,6 +541,7 @@
       '<p style="margin:0">' + esc(LANG.review) + ' Lessons, vocabulary and readings are original teaching material written for this app; they are drafts until a native speaker has checked them.</p>' +
       '<p style="margin:0">Psychiatry phrases are practice phrasings written for training. They are <b>not</b> validated translations of research instruments; use the published Japanese versions where a scale is required. Confirm wording with your supervisors, interpreters and patients.</p>' +
       '<p style="margin:0">' + esc(LANG.interpreter) + '</p>' +
+      '<p style="margin:0"><b>Stroke order.</b> The stroke-order diagrams for kanji and kana use data from <a href="https://kanjivg.tagaini.net" target="_blank" rel="noopener">KanjiVG</a>, copyright Ulrich Apel, under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">Creative Commons Attribution-Share Alike 3.0</a> licence. The stroke data files in the app (folder <code>strokes/</code>) are shared under the same licence.</p>' +
       '<p style="margin:0">The cognitive questions are bedside items written for this app and do not reproduce copyrighted tests.</p>' +
       (crisis.number ? '<p style="margin:0">Crisis line: ' + esc(crisis.name) + ' <b>' + esc(crisis.number) + '</b>. ' + esc(crisis.note || '') + ' Verify current numbers locally; edit data/hospital.js for your own service.</p>' : '') +
       (H.name ? '<p style="margin:0">Configured for ' + esc(H.name) + (H.program ? ', ' + esc(H.program) : '') + '.</p>' : '') + '</div>' +

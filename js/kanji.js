@@ -149,11 +149,13 @@
       '<div class="row"><button class="btn sm" data-addcard="' + esc(id) + '">' + (S().srs[id] ? icons.check + ' In deck' : icons.plus + ' Add to flashcards') + '</button>' +
       '<button class="btn sm" id="kjknow">' + (n >= 3 ? 'Mark as not learned' : 'I know this one') + '</button></div></div></div>' +
       (x.note ? '<div class="notice info" style="margin-top:12px">' + esc(x.note) + '</div>' : '') +
+      (App.strokes ? App.strokes.section(x.k) : '') +
       '<h2 style="margin-top:18px">Example words</h2><div class="card">' + x.words.map((w) => wordRow(w.tl, w.en, dictFor(w))).join('') + '</div>' +
       (more.length ? '<h2 style="margin-top:18px">More words in the dictionary</h2><div class="card">' + more.map((e) => wordRow(e.tl, e.en, e)).join('') + '</div>' + (dict.length - listed.size > more.length ? '<p class="small muted"><a href="#/search?q=' + encodeURIComponent(x.k) + '">Search every word with this kanji</a></p>' : '') : '') +
       (phrases.length ? '<h2 style="margin-top:18px">In psychiatry phrases</h2><div class="card">' + phrases.map(([s, ph, i]) => '<div class="entry"><div class="w"><a href="#/psych/s/' + s.id + '?p=' + i + '">' + esc(ph.f) + '</a></div><div class="d muted">' + esc(ph.en) + '</div></div>').join('') + '</div>' : '') +
       '<div class="spread" style="margin-top:16px" data-noja>' + (prev ? '<a class="btn" href="' + href(prev.k) + '">← <span lang="ja">' + esc(prev.k) + '</span> ' + esc(prev.mean[0] || '') + '</a>' : '<span></span>') + (next ? '<a class="btn" href="' + href(next.k) + '">' + esc(next.mean[0] || '') + ' <span lang="ja">' + esc(next.k) + '</span> →</a>' : '') + '</div>' +
       '<p class="small muted" style="margin-top:14px">Draft for review, pending a native Japanese speaker. The dotted part of a kun reading is written in kana after the kanji (okurigana).</p>';
+    if (App.strokes) App.strokes.mount(el);
     el.querySelector('#kjknow').onclick = () => { prog()[x.k] = n >= 3 ? 0 : 3; App.save(); V.kanjiPage(el, p); };
   };
 })();
