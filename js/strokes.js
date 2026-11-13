@@ -101,6 +101,8 @@
 
   App.strokes = {
     has: (ch) => !!setOf(ch),
+    // Parsed strokes of one character ({ paths, nums }), or null when there is no diagram. Rejects when the set cannot be loaded.
+    data: (ch) => { const set = setOf(ch); return set ? load(set).then(() => { const raw = (window.STROKES || {})[ch]; return raw ? parse(raw) : null; }) : Promise.resolve(null); },
     slot: (ch) => (setOf(ch) ? '<div class="so" data-so="' + esc(ch) + '" data-noja></div>' : ''),
     // Heading and card for a page; empty when the character has no diagram.
     section: (ch) => (setOf(ch) ? '<div data-so-wrap><h2 style="margin-top:18px">Stroke order</h2><div class="card">' + App.strokes.slot(ch) + '</div></div>' : ''),
@@ -121,7 +123,8 @@
     const sound = (cell.querySelector('small') || {}).textContent || '';
     panel.innerHTML = '<div class="spread"><b>How to write <span lang="ja" class="so-kk">' + esc(kana) + '</span>' + (sound ? ' (' + esc(sound) + ')' : '') + '</b><button type="button" class="btn sm" data-so-close>Close</button></div>' +
       (chars.length > 1 ? '<p class="small muted" style="margin:0">Two kana: the second is written small, at about half size.</p>' : '') +
-      chars.map((c) => App.strokes.slot(c)).join('');
+      chars.map((c) => App.strokes.slot(c)).join('') +
+      (App.views.write ? '<p class="small so-sheet" style="margin:0"><a href="#/write?c=' + encodeURIComponent(chars.join('')) + '">Writing practice sheet for this kana</a> · <a href="#/write?set=' + (/[ァ-ヺ]/.test(chars[0]) ? 'k' : 'h') + '">for whole rows</a></p>' : '');
     grid.insertAdjacentElement('afterend', panel);
     App.strokes.mount(panel).then(() => { if (panel.isConnected && panel.scrollIntoView) panel.scrollIntoView({ block: 'nearest', behavior: reduced() ? 'auto' : 'smooth' }); });
   }, true);   // capture phase: the app's own [data-say] listener stops the click before it bubbles here

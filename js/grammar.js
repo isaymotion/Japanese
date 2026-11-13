@@ -18,13 +18,14 @@
   };
 
   V.verbs = (el, p, q) => {
-    let kind = q.tab === 'adj' ? 'a' : 'v', set = SETS[kind][0][0], mode = 'make', clinOnly = false;
+    let kind = q.tab === 'adj' ? 'a' : 'v', set = SETS[kind][0][0], mode = 'make', clinOnly = false, lvf = '';
+    const LVS = [['', 'All levels'], ['N5', 'N5'], ['N4', 'N4'], ['N3', 'N3'], ['C', 'Clinical set']];
     const list = () => (kind === 'a' ? ADJS : VERBS);
     if (!VERBS.length && !ADJS.length) { el.innerHTML = '<h1>Verb trainer</h1><div class="notice info">The verb list arrives in a later release.</div>'; return; }
     const runDrill = () => {
       const box = el.querySelector('#vq');
       const defs = defsOf(kind), wanted = (SETS[kind].find((x) => x[0] === set) || [])[2];
-      const src = list().filter((it) => !clinOnly || it.clin);
+      const src = list().filter((it) => (!clinOnly || it.clin) && (!lvf || it.lv === lvf));
       if (src.length < 3) { box.innerHTML = '<div class="notice">Not enough words with this filter.</div>'; return; }
       const items = pick(src, Math.min(10, src.length)).map((it) => {
         const f = formsOf(it, kind);
@@ -80,15 +81,17 @@
       const groups = kind === 'a' ? [['i', 'い-adjectives'], ['na', 'な-adjectives']] : [['ru', 'る-verbs (ichidan)'], ['u', 'う-verbs (godan)'], ['suru', 'する verbs'], ['kuru', 'Irregular']];
       el.innerHTML = '<h1>' + (kind === 'a' ? 'Adjective trainer' : 'Verb trainer') + '</h1>' +
         '<p class="muted">' + (kind === 'a' ? 'Japanese adjectives change for negative and past, like verbs. There are two types.' : 'Every form is made by rule from the dictionary form once you know the verb\'s group. Open a verb for its full table, or drill below.') +
-        ' Lessons: ' + (kind === 'a' ? '<a href="#/lessons/i-adjectives">い-adjectives</a>, <a href="#/lessons/na-adjectives">な-adjectives</a>' : '<a href="#/lessons/verb-groups">Verb groups</a>, <a href="#/lessons/te-form">the て-form</a>, <a href="#/lessons/nai-form">the ない-form</a>') + '.</p>' +
+        ' Choose a level to shorten the list; the drill uses the same choice. Lessons: ' + (kind === 'a' ? '<a href="#/lessons/i-adjectives">い-adjectives</a>, <a href="#/lessons/na-adjectives">な-adjectives</a>' : '<a href="#/lessons/verb-groups">Verb groups</a>, <a href="#/lessons/te-form">the て-form</a>, <a href="#/lessons/nai-form">the ない-form</a>') + '.</p>' +
         '<div class="seg" role="group" aria-label="Word type" style="margin-bottom:12px">' + [['v', 'Verbs (' + VERBS.length + ')'], ['a', 'Adjectives (' + ADJS.length + ')']].map(([k, t]) => '<button data-kind="' + k + '" class="' + (kind === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
         '<div class="card stack"><b>Drill</b><div class="seg" role="group" aria-label="Forms" style="display:flex;flex-wrap:wrap" data-norj>' + SETS[kind].map(([k, t]) => '<button data-set="' + k + '" class="' + (set === k ? 'on' : '') + '">' + esc(t) + '</button>').join('') + '</div>' +
         '<div class="seg" role="group" aria-label="Drill type" style="display:flex;flex-wrap:wrap">' + [['make', 'Choose the form'], ['name', 'Name the form'], ['type', 'Type the form']].map(([k, t]) => '<button data-mode="' + k + '" class="' + (mode === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
+        '<div class="seg" role="group" aria-label="Level" style="display:flex;flex-wrap:wrap">' + LVS.filter(([k]) => !k || L.some((it) => it.lv === k)).map(([k, t]) => '<button data-lv="' + k + '" class="' + (lvf === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
         '<label class="small"><input type="checkbox" id="vclin"' + (clinOnly ? ' checked' : '') + '> Clinical words only</label>' +
         '<div class="row"><button class="btn primary" id="vstart">Start (10 questions)</button></div></div><div id="vq" style="margin-top:12px"></div>' +
-        groups.map(([g, title]) => { const items = L.map((it, i) => [it, i]).filter(([it]) => (kind === 'a' ? it.t : it.g) === g); return items.length ? '<h2 style="margin-top:18px">' + esc(title) + ' <span class="muted small">' + items.length + '</span></h2><div class="card">' + items.map(([it, i]) =>
-          '<div class="entry"><div class="w"><a href="#/verbs/' + kind + '/' + i + '">' + esc(it.d) + '</a></div><div class="acts">' + App.sayBtn(it.d) + '</div><div class="d">' + esc(it.en) + ' <span class="muted small">' + esc(it.lv || '') + (it.clin ? ' · clinical' : '') + '</span></div></div>').join('') + '</div>' : ''; }).join('');
-      el.querySelectorAll('[data-kind]').forEach((b) => (b.onclick = () => { kind = b.dataset.kind; set = SETS[kind][0][0]; draw(); }));
+        groups.map(([g, title]) => { const items = L.map((it, i) => [it, i]).filter(([it]) => (kind === 'a' ? it.t : it.g) === g && (!lvf || it.lv === lvf)); return items.length ? '<h2 style="margin-top:18px">' + esc(title) + ' <span class="muted small">' + items.length + '</span></h2><div class="card">' + items.map(([it, i]) =>
+          '<div class="entry"><div class="w"><a href="#/verbs/' + kind + '/' + i + '">' + esc(it.d) + '</a></div><div class="acts">' + App.sayBtn(it.d) + '</div><div class="d">' + esc(it.en) + ' <span class="muted small">' + esc(it.lv === 'C' ? '' : (it.lv || '') + (it.clin ? ' · ' : '')) + (it.clin ? 'clinical' : '') + '</span></div></div>').join('') + '</div>' : ''; }).join('');
+      el.querySelectorAll('[data-kind]').forEach((b) => (b.onclick = () => { kind = b.dataset.kind; set = SETS[kind][0][0]; if (!list().some((it) => it.lv === lvf)) lvf = ''; draw(); }));
+      el.querySelectorAll('[data-lv]').forEach((b) => (b.onclick = () => { lvf = b.dataset.lv; draw(); }));
       el.querySelectorAll('[data-set]').forEach((b) => (b.onclick = () => { set = b.dataset.set; el.querySelectorAll('[data-set]').forEach((x) => x.classList.toggle('on', x === b)); }));
       el.querySelectorAll('[data-mode]').forEach((b) => (b.onclick = () => { mode = b.dataset.mode; el.querySelectorAll('[data-mode]').forEach((x) => x.classList.toggle('on', x === b)); }));
       el.querySelector('#vclin').onchange = (e) => { clinOnly = e.target.checked; };
@@ -106,7 +109,7 @@
     el.innerHTML = crumb([[kind === 'a' ? 'Adjective trainer' : 'Verb trainer', '#/verbs' + (kind === 'a' ? '?tab=adj' : '')], [JA.speak(it.d)]]) +
       '<div class="card stack"><div class="spread"><h1 class="tl" style="margin:0">' + esc(it.d) + '</h1>' + App.sayBtn(it.d) + '</div>' +
       '<div class="muted" data-noja>' + esc(JA.compact(JA.kana(it.d))) + ' · ' + esc(JA.romaji(it.d)) + '</div>' +
-      '<div style="font-size:1.15rem">' + esc(it.en) + '</div><div class="row"><span class="pill">' + esc(info[0]) + '</span>' + (it.lv ? '<span class="pill">' + esc(it.lv) + '</span>' : '') + (it.clin ? '<span class="pill warn">clinical</span>' : '') + (d ? '<a class="pill" href="#/dict/' + d.id + '">Dictionary entry</a>' : '') + '</div>' +
+      '<div style="font-size:1.15rem">' + esc(it.en) + '</div><div class="row"><span class="pill">' + esc(info[0]) + '</span>' + (it.lv && it.lv !== 'C' ? '<span class="pill">' + esc(it.lv) + '</span>' : '') + (it.clin ? '<span class="pill warn">clinical</span>' : '') + (d ? '<a class="pill" href="#/dict/' + d.id + '">Dictionary entry</a>' : '') + '</div>' +
       '<div class="notice info">' + esc(info[1]) + '</div></div>' +
       '<h2 style="margin-top:18px">' + (kind === 'a' ? 'Forms' : 'Conjugation') + '</h2><div class="card">' + App.conjTable(f, defsOf(kind), 2) + '</div>' +
       ((it.ex || []).length ? '<h2 style="margin-top:18px">In a sentence</h2><div class="card pguide" style="display:block">' + it.ex.map(([ja, en]) => '<div class="entry"><div class="w">' + esc(ja) + '</div><div class="acts">' + App.sayBtn(ja) + '</div><div class="d muted">' + esc(en) + '</div></div>').join('') + '</div>' : '') +

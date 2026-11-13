@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.12.0', date: '2026-11-13', title: 'Writing practice sheets, and twice as many trainer words',
+    items: [
+      { type: 'feature', text: 'Writing practice sheet (Learn menu): print a sheet to practise writing by hand. Choose hiragana or katakana rows, kanji groups from any level, or type your own characters. Each character has a numbered model, a small picture for every stroke, grey characters to trace and empty squares. You choose the square size, the number of rows, how many characters to trace, and A4 or Letter paper. Use Print or save as PDF.' },
+      { type: 'feature', text: 'Every kanji page and the stroke-order panel on the kana chart now link to a writing practice sheet for that character.' },
+      { type: 'content', text: 'Verb and adjective trainer: 100 more verbs (200 in all) and 60 more adjectives (120 in all), each with its full table of forms and example sentences. Half of the new words are clinical: feelings, symptoms, medicines, treatment and ward routines. Some are N3 or from the clinical set.' },
+      { type: 'feature', text: 'The trainer has a level filter (N5, N4, N3, clinical set) for both the word list and the drill.' },
+      { type: 'update', text: 'The new words and sentences are drafts for review, like the rest of the Japanese. Their recorded voice clips are added automatically after this update; until then the device voice reads them.' }
+    ]
+  },
+  {
     version: '0.11.0', date: '2026-11-13', title: 'N3 dialogues and N3 placement questions',
     items: [
       { type: 'content', text: 'Six N3 dialogues on the Speaking page, each with Listen, Shadow and Role-play: handover to the night nurse, explaining to a patient\'s mother, a patient who wants to stop her medicine, presenting a patient at the morning conference, a friend who is not sleeping (casual speech), and a phone call about a late appointment. There are now 16 dialogues.' },
