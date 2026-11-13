@@ -3,6 +3,12 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.12.2', date: '2026-11-13', title: 'Some verb forms hidden',
+    items: [
+      { type: 'update', text: 'Verb trainer and dictionary: a few verbs no longer show, drill or speak the forms that would sound like encouragement to harm. For to die (shinu), the let\'s, please, make-or-let and can forms are hidden; for to hurt (kizutsukeru) the let\'s, please and make-or-let forms; for to vomit (haku) and to gamble (kakeru) the let\'s forms. Their other forms stay, including shinitai (I want to die), which a patient may say and a clinician must recognise.' }
+    ]
+  },
+  {
     version: '0.12.1', date: '2026-11-13', title: 'Menu scrolling fixed; a Psychiatry tab',
     items: [
       { type: 'correction', text: 'The menu that opens from More now scrolls on phones and tablets. Before, it was taller than the screen and could not be scrolled, so everything below the Learn group (the drills, the psychiatry pages, the clinical tools, Settings) could not be reached from it.' },

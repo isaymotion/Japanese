@@ -23,7 +23,23 @@
     const iku = /(行《い》|^い)く$/.test(d);   // 行く is the one く-verb with って / った
     return { i: b + (ARU5.test(d) ? 'い' : row[0]), a: b + row[1], e: b + row[2], o: b + row[3], te: iku ? b + 'って' : b + row[4], ta: iku ? b + 'った' : b + row[5], base: b };
   }
+  // Forms never shown, drilled or recorded for a few verbs, because they would read as encouragement to self-harm, to harm
+  // others or to a disorder behaviour ("let's die", "please die", "let's vomit"). Keyed by the dictionary form without readings.
+  // The other forms stay: 死にたい ("I want to die") and 死ねば ("if I die") are things patients say and must be recognised.
+  // Decided by Dr. Navarro, 13 Nov 2026. A word whose every form is a problem stays out of the trainer instead (殺す, 自殺する).
+  const HIDE = {
+    '死ぬ': ['mashou', 'volitional', 'tekudasai', 'causative', 'potential'],
+    '傷つける': ['mashou', 'volitional', 'tekudasai', 'causative'],
+    '吐く': ['mashou', 'volitional'],
+    '賭ける': ['mashou', 'volitional']
+  };
+  const plainOf = (d) => d.replace(/《[^》]*》/g, '').replace(/[｜\s]/g, '');
   function verb(d, g) {
+    const f = build(d, g);
+    if (f) (HIDE[plainOf(d)] || []).forEach((k) => delete f[k]);
+    return f;
+  }
+  function build(d, g) {
     const s = stems(d, g);
     if (!s) return null;
     const aru = g === 'u' && /(^|[^ぁ-ん])ある$/.test(d) || d === 'ある';
@@ -59,5 +75,5 @@
   ];
   // Group from a dictionary part-of-speech code (js/data/dict-*.js): v1, v5, vi, vs.
   const groupFor = (d, pos) => pos === 'v1' ? 'ru' : pos === 'v5' ? 'u' : pos === 'vs' ? 'suru' : pos === 'vi' ? (/(来《く》|く)る$/.test(d) ? 'kuru' : 'suru') : null;
-  root.JConj = { verb, adj, VERB_FORMS, ADJ_FORMS, groupFor };
+  root.JConj = { verb, adj, VERB_FORMS, ADJ_FORMS, groupFor, HIDE };
 })(typeof window !== 'undefined' ? window : globalThis);
