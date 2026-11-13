@@ -1,0 +1,70 @@
+diff --git a/README.md b/README.md
+index 4004f86..554aa34 100644
+--- a/README.md
++++ b/README.md
+@@ -6,7 +6,7 @@
+ 
+ **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
+ 
+-Version **3.1.1** (2026-11-08): point-board replies for all 38 sections, lesson example box fix. 3.1.0: point board (Ituro), listening drill, interpreter lesson, PHQ-9/MDQ source notes, language pack (`js/lang.js`).
++Version **3.1.2** (2026-11-13): phone menu scrolls again. 3.1.1: point-board replies for all 38 sections, lesson example box fix. 3.1.0: point board (Ituro), listening drill, interpreter lesson, PHQ-9/MDQ source notes, language pack (`js/lang.js`).
+ 
+ ## What's inside
+ 
+diff --git a/css/style.css b/css/style.css
+index b87e885..74068c3 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -163,7 +163,8 @@ main {
+ @media (max-width: 1099px) {
+   .shell { grid-template-columns: minmax(0, 1fr); }
+   .rail {
+-    position: fixed; top: 0; left: 0; bottom: 0; height: auto; z-index: 90; width: min(330px, 88vw);
++    /* align-self: the rail is a child of the .shell grid, where "start" would make this fixed box as tall as its content (so it could not scroll) */
++    position: fixed; top: 0; left: 0; bottom: 0; height: auto; max-height: 100vh; max-height: 100dvh; align-self: stretch; -webkit-overflow-scrolling: touch; z-index: 90; width: min(330px, 88vw);
+     padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+     transform: translateX(-102%); visibility: hidden; transition: transform .25s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .25s;
+   }
+diff --git a/data/app-meta.js b/data/app-meta.js
+index 29e0065..07a789f 100644
+--- a/data/app-meta.js
++++ b/data/app-meta.js
+@@ -3,7 +3,7 @@ window.APP_META = {
+   name: 'Usap Tayo',
+   short: 'Usap Tayo',
+   tagline: 'Tagalog for the psychiatric interview',
+-  version: '3.1.1',
++  version: '3.1.2',
+   repo: 'Tagalog',
+   updated: 'November 2026',
+   author: 'Isabella Navarro, MD',
+diff --git a/data/changelog.js b/data/changelog.js
+index b03bcf1..ca3c827 100644
+--- a/data/changelog.js
++++ b/data/changelog.js
+@@ -3,6 +3,12 @@
+    was not recorded. Item type: feature | update | correction | content.
+    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
+ window.APP_CHANGELOG = [
++  {
++    version: '3.1.2', date: '2026-11-13', title: 'Menu scrolling fixed',
++    items: [
++      { type: 'correction', text: 'The menu that opens from More now scrolls on phones and tablets. Before, it was taller than the screen and could not be scrolled, so the items at the bottom of the list (such as Settings and About) could not be reached from it.' }
++    ]
++  },
+   {
+     version: '3.1.1', date: '2026-11-08', title: 'Replies for every section, lesson example fix',
+     items: [
+diff --git a/sw.js b/sw.js
+index 6db2784..469ba1a 100644
+--- a/sw.js
++++ b/sw.js
+@@ -2,7 +2,7 @@
+    All isaymotion apps share one origin (isaymotion.github.io), so this worker only ever deletes caches that
+    start with its own PREFIX. 'usaptayo-audio' holds the recorded clips and is kept across versions. */
+ const PREFIX = 'usaptayo-';
+-const VERSION = PREFIX + '3.1.1';
++const VERSION = PREFIX + '3.1.2';
+ const KEEP = ['usaptayo-audio'];
+ const FILES = [
+   './', 'index.html', 'manifest.webmanifest', 'css/style.css',

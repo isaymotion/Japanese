@@ -1,0 +1,70 @@
+diff --git a/README.md b/README.md
+index 2b02bd4..d55ba09 100644
+--- a/README.md
++++ b/README.md
+@@ -6,7 +6,7 @@
+ 
+ **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
+ 
+-Version **0.1.0** (2026-11-08): first draft, engine fork from Usap Tayo. It runs entirely in the browser, works offline after the first visit, and can be installed on phones and desktops.
++Version **0.1.2** (2026-11-13): phone menu scrolls again. 0.1.0 (2026-11-08): first draft, engine fork from Usap Tayo. It runs entirely in the browser, works offline after the first visit, and can be installed on phones and desktops.
+ 
+ **Live site:** https://isaymotion.github.io/Aklanon/ (after GitHub Pages is switched on; see below)
+ 
+diff --git a/css/style.css b/css/style.css
+index 7b8f838..16e27d7 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -166,7 +166,8 @@ main {
+ @media (max-width: 1099px) {
+   .shell { grid-template-columns: minmax(0, 1fr); }
+   .rail {
+-    position: fixed; top: 0; left: 0; bottom: 0; height: auto; z-index: 90; width: min(330px, 88vw);
++    /* align-self: the rail is a child of the .shell grid, where "start" would make this fixed box as tall as its content (so it could not scroll) */
++    position: fixed; top: 0; left: 0; bottom: 0; height: auto; max-height: 100vh; max-height: 100dvh; align-self: stretch; -webkit-overflow-scrolling: touch; z-index: 90; width: min(330px, 88vw);
+     padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+     transform: translateX(-102%); visibility: hidden; transition: transform .25s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .25s;
+   }
+diff --git a/data/app-meta.js b/data/app-meta.js
+index 24823c5..382fc3f 100644
+--- a/data/app-meta.js
++++ b/data/app-meta.js
+@@ -3,7 +3,7 @@ window.APP_META = {
+   name: 'Mag-istorya Kita',
+   short: 'Mag-istorya Kita',
+   tagline: 'Aklanon for the psychiatric interview',
+-  version: '0.1.1',
++  version: '0.1.2',
+   repo: 'Aklanon',
+   updated: 'November 2026',
+   author: 'Isabella Navarro, MD',
+diff --git a/data/changelog.js b/data/changelog.js
+index b830442..1448b17 100644
+--- a/data/changelog.js
++++ b/data/changelog.js
+@@ -2,6 +2,12 @@
+    the menu and the footer). date = ISO YYYY-MM-DD. Item type: feature | update | correction | content.
+    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
+ window.APP_CHANGELOG = [
++  {
++    version: '0.1.2', date: '2026-11-13', title: 'Menu scrolling fixed',
++    items: [
++      { type: 'correction', text: 'The menu that opens from More now scrolls on phones and tablets. Before, it was taller than the screen and could not be scrolled, so the items at the bottom of the list (such as Settings and About) could not be reached from it.' }
++    ]
++  },
+   {
+     version: '0.1.1', date: '2026-11-08', title: 'Mania section',
+     items: [
+diff --git a/sw.js b/sw.js
+index b892e45..f8e5679 100644
+--- a/sw.js
++++ b/sw.js
+@@ -2,7 +2,7 @@
+    All isaymotion apps share one origin (isaymotion.github.io), so this worker only ever deletes caches that
+    start with its own PREFIX. 'magistorya-audio' will hold recorded clips (future pack) and is kept across versions. */
+ const PREFIX = 'magistorya-';
+-const VERSION = PREFIX + '0.1.1';
++const VERSION = PREFIX + '0.1.2';
+ const KEEP = ['magistorya-audio'];
+ const FILES = [
+   './', 'index.html', 'manifest.webmanifest', 'css/style.css',
