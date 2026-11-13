@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.10.0** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.10.1** (2026-11-13): the learn track with kanji study and stroke order, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -55,7 +55,7 @@ The app plays recorded clips from `audio/` whenever they exist, and otherwise sp
 The clips are made by a GitHub Actions job (`.github/workflows/audio-pack.yml`) that records every Japanese string the app can speak (about 10,100: dictionary words, lesson examples, readings, dialogues, kana, every form of the trainer's verbs and adjectives, kanji words, interview phrases in both registers, replies, cases and the clinical tools) with a Microsoft neural voice through the open-source `edge-tts` client: `ja-JP-NanamiNeural` (female, the default) or `ja-JP-KeitaNeural` (male).
 
 - **To record or update:** the job runs by itself when files in `js/data/` change. To run it by hand: **Actions → Build Japanese audio pack → Run workflow** (choose the voice and the speed there; tick "Record every clip again" after changing either). One run records for up to 50 minutes; if clips are still missing it starts the next run by itself. The job commits `audio/` to `main`.
-- **Files:** `audio/manifest.json` (voice, date, the list of clips), one `audio/<16-hex>.mp3` per string, `audio/voice-text.json` and `audio/last-run.json` (how the last run went). The pack is about 150 MB; the service worker does not download it in advance, it keeps each clip after its first play.
+- **Files:** `audio/manifest.json` (voice, date, the list of clips), one `audio/<16-hex>.mp3` per string, `audio/voice-text.json` and `audio/last-run.json` (how the last run went). The pack is about 210 MB; the service worker does not download it in advance, it keeps each clip after its first play.
 - **File names:** the hash of the text as the app speaks it, `AudioKey(JA.speak(text))` (`js/audio-key.js`). A few words are written the same but read differently (方 = かた / ほう, 一日 = いちにち / ついたち): the less common reading has a second clip named from the text plus its reading, and the app plays the one that matches the furigana.
 - **Readings:** the voice is sent ordinary Japanese, but a voice can read a kanji differently from the furigana (何, 七時, 十分). So `tools/make_audio_pack.py` reads every string with a Japanese dictionary (MeCab + UniDic) and, where that reading differs from the furigana, sends those words in kana. The same is done for known homographs (方, 後, 他, 一日) and for the less common reading of any spelling the app reads in two ways. A blank (＿) is said as まるまる; stage directions in brackets are not read. `tools/voice-overrides.json` gives the exact text to send for a string where these rules read badly. What was sent is listed in `audio/voice-text.json`. To see the list without recording: `pip install fugashi unidic-lite`, then `python3 tools/make_audio_pack.py --report`.
 - **Not recorded:** the conjugation table on a dictionary word page (the trainer's 100 verbs and 60 adjectives are recorded in every form). The device voice speaks those.

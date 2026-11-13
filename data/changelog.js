@@ -3,6 +3,12 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.10.1', date: '2026-11-13', title: 'Recorded voice pack complete',
+    items: [
+      { type: 'correction', text: 'The recorded voice pack is complete: all 10,118 clips are installed. Its real size is about 210 MB, not the 150 MB estimated in the notes for 0.9.0; Save all audio for offline use downloads that much.' }
+    ]
+  },
+  {
     version: '0.10.0', date: '2026-11-13', title: 'Stroke order for kanji and kana',
     items: [
       { type: 'feature', text: 'Stroke order for kanji. Every kanji page (all 719) now has a Stroke order card: a large diagram with numbered strokes, Play to watch the kanji being written, Next stroke to go one stroke at a time, and a row of small pictures, one for each stroke, with a dot where the stroke starts. Tap a small picture to see the kanji up to that stroke.' },
@@ -14,7 +20,7 @@ window.APP_CHANGELOG = [
     version: '0.9.0', date: '2026-11-13', title: 'Recorded Japanese voice',
     items: [
       { type: 'feature', text: 'Recorded voice. The app can now play recorded clips of a natural Japanese voice (Nanami) instead of the voice on your device: about 10,100 clips covering every dictionary word, lesson example, reading, dialogue, kana, kanji word, every form of the 100 verbs and 60 adjectives in the trainer, and every interview phrase (polite and plain), patient reply, case and clinical-tool line. The clips are recorded on GitHub after this release; until they arrive, and for anything without a clip, the app uses the device voice as before.' },
-      { type: 'feature', text: 'Settings → Voice shows whether the recorded voice is installed, lets you switch between Recorded Japanese voice and Device voice, and has Save all audio for offline use (about 150 MB). Without saving, each clip is kept after the first time you play it.' },
+      { type: 'feature', text: 'Settings → Voice shows whether the recorded voice is installed, lets you switch between Recorded Japanese voice and Device voice, and has Save all audio for offline use (about 210 MB). Without saving, each clip is kept after the first time you play it.' },
       { type: 'update', text: 'The recorded voice follows the furigana. Where a kanji can be read in more than one way (何, 七時, 十分, 方), the voice is given that word in kana, so what you hear matches the reading you see. Words written the same but read differently (方 as かた or ほう, 一日 as いちにち or ついたち) each have their own clip.' },
       { type: 'correction', text: 'Practice cases: when a simulated patient has no specific answer, the default reply is now Japanese (はい、先生。) instead of a leftover Spanish line; a Spanish example in the goal box of the substance use screen is now English.' }
     ]
