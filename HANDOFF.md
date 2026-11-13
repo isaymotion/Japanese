@@ -1,4 +1,4 @@
-# Hanashimashō — handoff (13 Nov 2026, after version 0.12.0)
+# Hanashimashō — handoff (13 Nov 2026, after version 0.12.1)
 
 ## 1. Project and audience
 Hanashimashō (話しましょう, "let's talk") is the Japanese sister app of Usap Tayo (Tagalog) and Hablemos (Spanish), for Dr. Isabella Navarro: Japanese from zero (heavy on grammar and vocabulary, furigana on every kanji) plus the psychiatric interview in Japanese. Learner is a complete beginner.
@@ -71,6 +71,7 @@ python3 ../devtools/qa/psych.py    # "39 707 7 32 27 314" style counts, "errors 
 python3 ../devtools/qa/tools.py ; python3 ../devtools/qa/clickthrough.py ; python3 ../devtools/qa/flows.py
 python3 ../devtools/qa/kanji.py    # chart, every kanji page, 4 drill modes, cards, search: "errors []", "pages with problems []"
 python3 ../devtools/qa/strokes.py  # stroke order: play, next stroke, step pictures, numbers, kana panel, every kanji's diagram matches its stroke count: "kanji without a matching diagram []", "errors []"
+python3 ../devtools/qa/drawer.py   # phone menu is no taller than the screen and scrolls to its last item; Psychiatry tab: "scrolls True" three times, "errors []"
 python3 ../devtools/qa/writing.py  # writing practice sheet: every source and option, links from the kanji page and kana panel, a block for every kanji of each level's first groups, PDFs in A4 and Letter: "levels with a missing block []", "errors []"
 python3 ../devtools/qa/placement.py  # placement test answered 0 / 15 / 20 / 25 right gives Starter / N4 / N3 / N3+; Speaking filter; a new dialogue page (not in all.sh)
 python3 ../devtools/qa/handout.py  # every handout preset and the MSE sheet printed to PDF in /tmp/qa-out (page counts): "errors []"
@@ -86,7 +87,7 @@ python3 $SK/scripts/check_sw.py .                  # PASS
 node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 ```
 
-## 6. Status (version 0.12.0, pushed)
+## 6. Status (version 0.12.1, pushed)
 | Area | Done |
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
@@ -103,7 +104,7 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 | Practice cases | 2 admission MSE, 4 discharge |
 | Audio pack (0.9.0) | COMPLETE: 12,847 clips, 249 MB after 0.12.0 (Pages limit is 1 GB). The first run recorded 10,118 clips in 24 minutes; the job adds new strings by itself after each push (0.11.0: 96; 0.12.0: 2,634 in under 3 minutes, no errors). Nobody has listened to the clips yet |
 | Printables (0.7.0) | handout builder with 7 presets (A4 / Letter / A5 booklet / A6 card), MSE interviewer sheet, Print on lessons and readings, kanji list |
-Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB; 0.11.0 six N3 dialogues, Speaking level filter, N3 placement questions. Next session: 0.12.0 writing practice sheet; 100 more verbs and 60 more adjectives with a level filter (current, pushed).
+Versions this session: 0.4.0 kanji; 0.5.0 N4 lessons; 0.6.0 N3 lessons; 0.7.0 printable handouts; 0.8.0 readings and dictionary; 0.8.1 Japanese drinks in the alcohol notes; 0.9.0 recorded audio pack; 0.10.0 stroke order for kanji and kana; 0.10.1 audio pack size corrected to 210 MB; 0.11.0 six N3 dialogues, Speaking level filter, N3 placement questions. Next session: 0.12.0 writing practice sheet; 100 more verbs and 60 more adjectives with a level filter; 0.12.1 phone menu scroll fix, Psychiatry tab in place of Cards, Psychiatry section moved up the Home page (current, pushed).
 Not done: fifth discharge case (opioid, deliberately skipped), Japanese shell language (`data/strings.js` `tl: {}` is empty).
 
 ## 7. Next steps
@@ -154,6 +155,8 @@ Pending her answers: the clinical-content list in `claude/hanashimasho-build-not
 - A printed sheet is paper-hungry if blocks are a few millimetres too tall: at Medium size four characters with two rows each fit an A4 page only with the 20 mm model and 11 squares a row. Check page counts with `pdfinfo` after any change to `.ws-*` print sizes.
 - Three Opus writers and three Opus reviewers (160 trainer entries) took about 15 minutes in all with no usage limit; resuming a writer with SendMessage for a small swap takes seconds.
 - check-ja rejects kanji inside English glosses (`en`), so a gloss cannot name the partner verb of a transitive pair; write "(something; transitive)".
+- The phone menu (`.rail`) is a fixed-position child of the `.shell` grid. With `align-self: start` a fixed box with top and bottom set takes the height of its content, not of the screen, so it overflowed and could not scroll (found by Dr. Navarro on her iPhone in 0.12.0; it had been so since 0.1.0 and no test looked). The phone rule now sets `align-self: stretch` and a max-height. Hablemos and Usap Tayo share this engine: check their menus the same way (`qa/drawer.py`).
+- The bottom tab bar is Home, Lessons, Practice, Psychiatry, More (`buildNav` in js/app.js); `MORE_KEYS` lists the sections that light up More.
 
 ## 9. Files to re-attach
 None. Everything needed is in the two repos (`isaymotion/Japanese` both branches, `isaymotion/Hablemos`). KanjiVG is cloned from GitHub only when the stroke data is rebuilt.
