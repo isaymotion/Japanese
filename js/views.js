@@ -90,14 +90,15 @@
       (nextLesson ? tile('#/lessons/' + nextLesson.id, 'Next lesson · ' + esc(nextLesson.level), esc(nextLesson.title), esc(nextLesson.summary)) : '') +
       (!s.level && PLACEMENT.length ? tile('#/placement', 'Studied before?', 'Take the placement test', PLACEMENT.length + ' questions to find where to start.') : '') +
       '</div>' +
-      (pins.length ? '<h2 style="margin-top:22px">Pinned</h2><div class="grid">' + pins.map((p) => tile(esc(p.hash), esc(p.sec || 'Pinned'), esc(p.title))).join('') + '</div>' : '') +
-      (recent.length ? '<h2 style="margin-top:22px">Continue</h2><div class="grid">' + recent.map((r) => tile(esc(r.hash), esc(r.sec || 'Recent'), esc(r.title))).join('') + '</div>' : '') +
       '<h2 style="margin-top:22px">Psychiatry in ' + esc(LANG.name) + '</h2><div class="grid">' +
+      tile('#/psych', 'All sections', 'Open the psychiatry track', PSYCH_SECTIONS.length + ' interview sections, the listening drill and the point board.') +
       (sec('hallucinations') ? tile('#/psych/s/hallucinations', 'Interview', 'Hallucinations', esc(sec('hallucinations').intro || '')) : '') +
       (sec('suicide') ? tile('#/psych/s/suicide', 'Risk', 'Suicide risk assessment', 'Direct, respectful questions from ideation to plan.') : '') +
       (PSYCH_SECTIONS.length ? tile('#/psych/point', 'Bedside', 'Point board', 'The patient points to a reply; the phone speaks it.') : '') +
       (window.PSYCH_MSE_CASES && PSYCH_MSE_CASES.length ? tile('#/psych/mcases', 'Ward', 'Admission MSE practice', 'Interview, document, compare with a model answer.') : '') +
-      tile('#/psych', 'All sections', 'Open the psychiatry track', PSYCH_SECTIONS.length + ' interview sections, the listening drill and the point board.') + '</div>' +
+      '</div>' +
+      (pins.length ? '<h2 style="margin-top:22px">Pinned</h2><div class="grid">' + pins.map((p) => tile(esc(p.hash), esc(p.sec || 'Pinned'), esc(p.title))).join('') + '</div>' : '') +
+      (recent.length ? '<h2 style="margin-top:22px">Continue</h2><div class="grid">' + recent.map((r) => tile(esc(r.hash), esc(r.sec || 'Recent'), esc(r.title))).join('') + '</div>' : '') +
       '<p class="muted small" style="margin-top:18px">Every page is listed under <a href="#/more">More</a>, and the search box at the top finds words, phrases and pages from anywhere. Pin any page with the star beside its title to keep it here.</p>';
   };
 

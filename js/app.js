@@ -110,7 +110,7 @@
   }
   function buildNav() {
     $('#railBody').innerHTML = NAV.map(([g, items]) => '<div class="nav-group">' + (g ? '<p class="nav-label">' + esc(t(g)) + '</p>' : '') + '<ul>' + items.map((i) => navItem.apply(null, i)).join('') + '</ul></div>').join('') + otherApps();
-    $('#tabbar').innerHTML = [['home', '#/', 'Home', icons.home], ['lessons', '#/lessons', 'Lessons', icons.lesson], ['practice', '#/practice', 'Practice', icons.target], ['flash', '#/flash', 'Cards', icons.cards]]
+    $('#tabbar').innerHTML = [['home', '#/', 'Home', icons.home], ['lessons', '#/lessons', 'Lessons', icons.lesson], ['practice', '#/practice', 'Practice', icons.target], ['psych', '#/psych', 'Psychiatry', icons.brain]]
       .map(([k, h, l, ic]) => '<a href="' + h + '" data-nav="' + k + '">' + ic + '<span>' + l + '</span></a>').join('') +
       '<button type="button" id="tabMore" data-nav="more" aria-controls="rail" aria-expanded="' + (document.body.classList.contains('drawer-open') ? 'true' : 'false') + '">' + icons.info + '<span>More</span><span class="badge tab-badge" data-badge="news" hidden></span></button>';
     $('#tabMore').onclick = () => (document.body.classList.contains('drawer-open') ? closeDrawer(true) : openDrawer());
@@ -216,7 +216,7 @@
   };
   routes.push([/^\/more$/, V.more, 'more']);
   routes.push([/^\/practice$/, V.practice, 'practice']);
-  const MORE_KEYS = ['dict', 'kana', 'kanji', 'write', 'verbs', 'particles', 'psych', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
+  const MORE_KEYS = ['flash', 'dict', 'kana', 'kanji', 'write', 'verbs', 'particles', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
   App.HAS = HAS;
 
   /* ---------- Header height -> --top (the search drops to a second row on phones) ---------- */

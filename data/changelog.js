@@ -3,6 +3,14 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.12.1', date: '2026-11-13', title: 'Menu scrolling fixed; a Psychiatry tab',
+    items: [
+      { type: 'correction', text: 'The menu that opens from More now scrolls on phones and tablets. Before, it was taller than the screen and could not be scrolled, so everything below the Learn group (the drills, the psychiatry pages, the clinical tools, Settings) could not be reached from it.' },
+      { type: 'update', text: 'Psychiatry has its own tab at the bottom of the screen, in place of Cards. Flashcards are still under Practice and in the menu.' },
+      { type: 'update', text: 'On the Home page, the Psychiatry section is now near the top, right after Today, and starts with a link to the whole psychiatry track.' }
+    ]
+  },
+  {
     version: '0.12.0', date: '2026-11-13', title: 'Writing practice sheets, and twice as many trainer words',
     items: [
       { type: 'feature', text: 'Writing practice sheet (Learn menu): print a sheet to practise writing by hand. Choose hiragana or katakana rows, kanji groups from any level, or type your own characters. Each character has a numbered model, a small picture for every stroke, grey characters to trace and empty squares. You choose the square size, the number of rows, how many characters to trace, and A4 or Letter paper. Use Print or save as PDF.' },
