@@ -5,7 +5,7 @@ window.DICT_RAW = window.DICT_RAW || [];
 window.DICT_RAW.push(`
 # verbs, everyday
 回《まわ》す | to turn, to rotate; to pass round | v5 | verbs | N4
-注《そそ》ぐ | to pour | v5 | food | N3 | お茶《ちゃ》 を 注《そそ》ぐ = to pour tea
+注《そそ》ぐ | to pour | v5 | food | N3 | 水《みず》 を 注《そそ》ぐ = to pour water; pouring a drink into a cup is often つぐ
 炊《た》く | to cook (rice) | v5 | food | N3 | ご飯《はん》 を 炊《た》く = to cook rice
 ゆでる | to boil (food) | v1 | food | N3 | 卵《たまご》 を ゆでる = to boil an egg
 炒《いた》める | to stir-fry, to fry | v1 | food | N3
@@ -29,7 +29,7 @@ window.DICT_RAW.push(`
 予習《よしゅう》 | preparation (before a lesson) | vs | money | N4
 聞《き》き返《かえ》す | to ask again | v5 | verbs | N3
 言《い》い直《なお》す | to say again, to rephrase | v5 | verbs | N3
-話《はな》しかける | to speak to, to start talking to | v1 | verbs | N3 | 患者《かんじゃ》さん に 話《はな》しかける
+話《はな》しかける | to speak to, to start talking to | v1 | verbs | N3 | 患者《かんじゃ》さん に 話《はな》しかける = to speak to a patient
 読《よ》み上《あ》げる | to read aloud, to read out | v1 | verbs | N3
 待《ま》ち合《あ》わせる | to meet up (at an agreed time and place) | v1 | verbs | N4
 応援《おうえん》 | support, cheering on | vs | verbs | N3
@@ -38,7 +38,7 @@ window.DICT_RAW.push(`
 体操《たいそう》 | exercises, calisthenics | vs | verbs | N4
 挑戦《ちょうせん》 | challenge, attempt | vs | verbs | N3
 指差《ゆびさ》す | to point at | v5 | verbs | N3
-振《ふ》る | to wave, to shake | v5 | verbs | N4 | 手《て》 を 振《ふ》る = to wave
+振《ふ》る | to wave, to shake; to sprinkle | v5 | verbs | N4 | 手《て》 を 振《ふ》る = to wave
 合《あ》わせる | to put together; to match, to adjust | v1 | verbs | N4
 組《く》む | to put together; to cross (arms, legs) | v5 | verbs | N3
 羽織《はお》る | to put on (over the shoulders) | v5 | verbs | N3
@@ -59,15 +59,14 @@ window.DICT_RAW.push(`
 挟《はさ》む | to put between, to hold between | v5 | hospital | N3 | 体温計《たいおんけい》 を 脇《わき》 に 挟《はさ》む = to put the thermometer under the arm
 向《む》く | to face, to turn toward | v5 | verbs | N3 | こちら を 向《む》いて ください = please face this way
 控《ひか》える | to cut down on, to refrain from | v1 | health | N3 | お酒《さけ》 を 控《ひか》える = to cut down on alcohol
-覚《さ》ます | to wake (someone or oneself) up | v5 | verbs | N3 | 目《め》 を 覚《さ》ます = to wake up
+覚《さ》ます | to wake (someone) up; to sober up | v5 | verbs | N3 | 目《め》 を 覚《さ》ます = to wake up
 履《は》き替《か》える | to change (shoes, slippers) | v1 | hospital | N3
 起《お》き上《あ》がる | to sit up, to get up | v5 | health | N3
 腰掛《こしか》ける | to sit down (on a chair) | v1 | verbs | N3
-もむ | to massage, to knead | v5 | health | N3 | 肩《かた》 を もむ = to massage the shoulders
 こする | to rub | v5 | verbs | N3 | 目《め》 を こする = to rub one's eyes
-着席《ちゃくせき》 | taking a seat | vs | hospital | N3 | formal; 座《すわ》る in speech
-持参《じさん》 | bringing (with one) | vs | hospital | N3 | formal; ご持参《じさん》 ください = please bring it with you
-署名《しょめい》 | signature | vs | hospital | N3
+着席《ちゃくせき》 | taking a seat | vs | hospital | C | formal; 座《すわ》る in speech
+持参《じさん》 | bringing (with one) | vs | hospital | C | formal; ご持参《じさん》 ください = please bring it with you
+署名《しょめい》 | signature | vs | hospital | C
 共感《きょうかん》 | empathy, sympathy | vs | emotions | N3
 当《あ》てる | to put on, to apply; to hit (a target); to guess | v1 | verbs | N3 | 冷《つめ》たい タオル を 当《あ》てる = to apply a cold towel
 休《やす》める | to rest (the body, the mind) | v1 | health | N3 | 体《からだ》 を 休《やす》める = to rest one's body
@@ -77,7 +76,7 @@ window.DICT_RAW.push(`
 聞《き》き取《と》る | to catch (what is said) | v5 | verbs | N3
 気遣《きづか》う | to be concerned about, to look out for | v5 | emotions | N3
 思《おも》いやる | to be considerate of, to think of (others) | v5 | emotions | N3
-受《う》け付《つ》ける | to accept, to take (requests, applications) | v1 | hospital | N3
+受《う》け付《つ》ける | to accept, to take (requests, applications) | v1 | hospital | N3 | 食《た》べ物《もの》 を 受《う》け付《つ》けない = cannot keep food down
 # adjectives
 分《わ》かりやすい | easy to understand | ai | adjectives | N4
 話《はな》しやすい | easy to talk to | ai | adjectives | N3
@@ -85,13 +84,13 @@ window.DICT_RAW.push(`
 親《した》しみやすい | friendly, approachable | ai | adjectives | N3
 礼儀正《れいぎただ》しい | polite, well-mannered | ai | adjectives | N3
 力強《ちからづよ》い | strong, powerful; reassuring | ai | adjectives | N3
-粘《ねば》り強《づよ》い | persistent, tenacious | ai | adjectives | N3
+粘《ねば》り強《づよ》い | persistent, tenacious | ai | adjectives | C
 注意深《ちゅういぶか》い | careful, attentive | ai | adjectives | N3
-辛抱強《しんぼうづよ》い | patient, persevering | ai | adjectives | N3
+辛抱強《しんぼうづよ》い | patient, persevering | ai | adjectives | C
 黄色《きいろ》い | yellow | ai | adjectives | N5
 茶色《ちゃいろ》い | brown | ai | adjectives | N5
 細長《ほそなが》い | long and thin | ai | adjectives | N3
-分厚《ぶあつ》い | thick | ai | adjectives | N3
+分厚《ぶあつ》い | thick, bulky | ai | adjectives | C
 心地《ここち》よい | comfortable, pleasant | ai | adjectives | N3
 待《ま》ち遠《どお》しい | long-awaited, (something) one can hardly wait for | ai | adjectives | N3
 気難《きむずか》しい | hard to please, fussy | ai | adjectives | N3
@@ -100,20 +99,19 @@ window.DICT_RAW.push(`
 子供《こども》っぽい | childish | ai | adjectives | N3
 忘《わす》れっぽい | forgetful | ai | adjectives | N3
 飽《あ》きっぽい | quick to lose interest | ai | adjectives | N3
-涙《なみだ》もろい | easily moved to tears | ai | adjectives | N3
+涙《なみだ》もろい | easily moved to tears | ai | adjectives | C
 真剣《しんけん》 | serious, earnest | an | adjectives | N3
 誠実《せいじつ》 | sincere, honest | an | adjectives | N3
-素朴《そぼく》 | simple, unpretentious | an | adjectives | N3
-大《おお》らか | easygoing, generous | an | adjectives | N3
-朗《ほが》らか | cheerful, sunny | an | adjectives | N3
-気長《きなが》 | patient, easygoing | an | adjectives | N3
-柔軟《じゅうなん》 | flexible | an | adjectives | N3
-柔《やわ》らか | soft, gentle | an | adjectives | N3 | 柔《やわ》らかい is the more common form
+素朴《そぼく》 | simple, unpretentious | an | adjectives | C
+大《おお》らか | easygoing, big-hearted | an | adjectives | C
+朗《ほが》らか | cheerful, sunny | an | adjectives | C
+気長《きなが》 | patient, unhurried | an | adjectives | C
+柔軟《じゅうなん》 | flexible | an | adjectives | C
 愉快《ゆかい》 | pleasant, fun | an | adjectives | N3
 不快《ふかい》 | unpleasant, uncomfortable | an | adjectives | N3
 順調《じゅんちょう》 | going well, on track | an | adjectives | N3 | 回復《かいふく》 は 順調《じゅんちょう》 です = recovery is going well
 優秀《ゆうしゅう》 | excellent, outstanding | an | adjectives | N3
-物静《ものしず》か | quiet, calm (person) | an | adjectives | N3
+物静《ものしず》か | quiet, calm (person) | an | adjectives | C
 控《ひか》えめ | modest, reserved; moderate | an | adjectives | N3
 頑丈《がんじょう》 | sturdy, solid | an | adjectives | N3
 健康的《けんこうてき》 | healthy | an | adjectives | N3 | 健康的《けんこうてき》 な 生活《せいかつ》 = a healthy lifestyle
