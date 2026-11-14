@@ -31,7 +31,10 @@
     '死ぬ': ['mashou', 'volitional', 'tekudasai', 'causative', 'potential'],
     '傷つける': ['mashou', 'volitional', 'tekudasai', 'causative'],
     '吐く': ['mashou', 'volitional'],
-    '賭ける': ['mashou', 'volitional']
+    '賭ける': ['mashou', 'volitional'],
+    // 0.18.0 (main chat): "make someone swallow / sign" reads as forced medication or forced consent on a ward.
+    '飲み込む': ['causative'],
+    '署名する': ['causative']
   };
   const plainOf = (d) => d.replace(/《[^》]*》/g, '').replace(/[｜\s]/g, '');
   function verb(d, g) {
