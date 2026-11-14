@@ -1,11 +1,13 @@
 import asyncio
 from playwright.async_api import async_playwright
+import os as _os
+PORT = _os.environ.get('QA_PORT', '8765')
 async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch(); pg=await b.new_page(viewport={'width':390,'height':844}); errs=[]
         pg.on('console', lambda m: errs.append(m.text) if m.type=='error' else None)
         pg.on('pageerror', lambda e: errs.append(str(e)))
-        await pg.goto('http://localhost:8765/index.html#/psych/sud'); await pg.wait_for_timeout(500)
+        await pg.goto('http://localhost:' + PORT + '/index.html#/psych/sud'); await pg.wait_for_timeout(500)
         await pg.evaluate("App.speak=()=>{};App.speakAsync=()=>Promise.resolve();App.stop=App.stop||(()=>{})")
         for r in ['#/psych/sud','#/psych/mood','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/mcase/shota','#/psych/mcase/ren','#/psych/mcase/ayaka','#/psych/mcase/yumiko','#/psych/mcase/tetsuo','#/psych/mcase/chiyoko','#/psych/dcase/daisuke','#/psych/dcase/chiyoko','#/psych/dcase/yumiko','#/psych/dcase/tetsuo','#/psych/dcase/ayaka','#/psych/dcases','#/psych/mcases']:
             await pg.evaluate("h=>{location.hash=h}", r); await pg.wait_for_timeout(300)

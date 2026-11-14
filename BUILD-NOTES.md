@@ -54,6 +54,11 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 - Trainer words (0.14.0): the clinical batch was cut by its reviewer from 30 to 14. Removed: staff-side procedures (to operate, to anaesthetise, to give a drug, to extract a tooth), bodily functions whose "let's" and "please" forms are absurd, and two verbs whose forms could read as provoking or coercive. 断酒する (to give up alcohol) was added for addiction histories.
 - Ayaka's admission case (0.14.0): set on the evening of the admission that her discharge case looks back on six days later (a Saturday). Both overdoses are unintentional and she denies suicidal thoughts, plan and intent, but the safety questions are all asked and the teaching point is to ask directly every time. The frightening past event is never described; when a question comes near it she says she is not ready, and the case tells the learner not to press.
 
+- 14 Nov (evening): after a clean re-check of 0.18.0, she chose six items for 0.19.0: practice cases for the four new patients, patient replies from the nurse simulations, nurse scripts in two more tools, the nurse view in Usap Tayo, practice scores in the backup summary and more topic sets; and said to publish both apps when done (done the same day: Hanashimashō 0.19.0, Usap Tayo 3.2.0).
+- Cases for the new patients (0.19.0): each has a first-visit MSE case at the same encounter as the simulation (clinic, or the emergency department for Daiki). Only Daiki has a discharge case, as a discharge from the emergency department the same night: the discharge form is an inpatient one, and the other three are outpatients, so a discharge case would have meant inventing an admission that contradicts their simulations. This was decided in the build; please say if you want "end of treatment" reviews for them instead.
+- Nurse scripts (0.19.0): the Mood episode checker's Nurse view is "Watching mood on the ward" (daily questions in the patient's own words, a mood number from 1 to 10 that is not scored, when to call the doctor at once, a short SBAR call); the MSE interviewer sheet's Nurse view is the "Nursing admission interview" (identity check, allergies, vital signs announced first, daily life, falls and aids, contacts and hopes, one safety question, SBAR report). There is no separate admission tool, so the admission script went to the MSE sheet, the admission interviewing page.
+- Usap Tayo 3.2.0: the six nurse sections were written in Tagalog from the English (not from the Japanese) and adapted to a Philippine ward (CR, PRN order, a prescription or medicine list instead of the Japanese medicine handbook, the bed instead of a single room, 911 or the nearest ER and NCMH 1553). Pending Nursing Service review and her own Tagalog check.
+
 ## How Japanese is written in the data
 - Reading after each kanji run in 《 》: `食《た》べます`. Words separated by one space, particles on their own. No romaji typed; the app generates it.
 - Kanji files: one line per kanji, `字 | meanings | on | kun | strokes | group | word=gloss; … | note`.
@@ -126,7 +131,15 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Example sentences for 1,762 more words (2,564 in all: every N5, N4 and N3 word except risk words). Dictionary +113 words; trainer +71 verbs (475) and +41 adjectives (294).
   - The 4,002 new lines were recorded automatically in about six minutes; the voice pack is now 24,310 clips.
 
+- **0.19.0** (published 14 Nov) — practice cases for the new patients, nurse scripts in two more tools.
+  - Admission MSE practice: first-visit cases for Takumi (OCD), Mariko (after a car crash), Daiki (panic, emergency department) and Hinata, 14, with her mother (12 cases in all).
+  - Discharge practice: Daiki leaving the emergency department the same night (9 cases in all).
+  - Nurse view in the Mood episode checker and the MSE interviewer sheet. Pending Nursing Service review.
+  - 44 patient replies for the nurse sections, in the voices of the nurse simulations; 10 more topic-matching sets (24); practice scores in the backup summary.
+  - The 325 new lines were recorded automatically in 46 seconds; the voice pack is now 24,635 clips.
+
 ## Sister apps
+- Usap Tayo 3.2.0 (14 Nov, live): the Resident / Nurse switch and the six nurse sections (125 phrases, 60 replies) in Tagalog; its voice pack recorded the 309 new lines (5,436 clips).
 - The phone-menu fault found in Hanashimashō 0.12.0 was also in the three sister apps, because they share the engine. The same one-rule fix is live since 13 Nov 2026: Usap Tayo 3.1.2, Hablemos 0.6.1, Mag-istorya Kita (Aklanon) 0.1.3. Each was tested at three screen sizes before the push, and each app's own handoff has a note.
 
 ## For Dr. Navarro to check (clinical content changed during the port)
@@ -202,12 +215,14 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 - 0.18.0. Please read the seven new simulations once. Points decided in the build: the four new patients' facts (see the handoff, section 7); Shota's voice telling him to leave the ward (the nurse tells the doctor at once); Ren's refusal is respected, recorded and reported, with the honest line that refusing is not a reason to be held down and injected; Tetsuo's night stops at early warning signs with the doctor called; Hinata is seen alone with the limits of confidentiality explained ("if you or someone else is in danger … we would talk first about who needs to know"); her wish to disappear is followed up directly (no wish to die, no self-harm). Wording for a native speaker is listed in the handoff (section 7).
 - 0.17.0. Please check: the main readings in the numbers tables (alternatives are in each table's note); the clinic number sentences; that a pet's death is an acceptable example for 死ぬ (to die). Wording for a native speaker is listed in the handoff (section 7).
 
+- 0.19.0. Please read the four first-visit MSE cases and Daiki's emergency-department discharge once. Points decided in the build: Hinata's appearance uses the nearest pick on the adult form ("Adult female") with the details saying she is a 14-year-old girl; her wish to disappear is recorded under the nearest pick, passive death wish, with her own words and her denial of any wish to die; Mariko's insight is keyed Grade 5 only; Daiki's plan is made with him alone (no family present), with no appointment date written because none was set. Wording for a native speaker is listed in the handoff (section 7).
+
 ## Status
 - All Japanese is a draft: written and second-checked by AI, not yet reviewed by a native Japanese-speaking clinician. This includes every kanji reading, dictionary entry, reading passage, dialogue, trainer word, handout line, the fifth discharge case and the Japanese menu.
 - Audio: the recorded voice pack is complete: 18,803 clips, about 340 MB, well under GitHub Pages' 1 GB limit (the first run recorded 10,118 clips in 24 minutes with no errors; later builds were recorded automatically, the last one, 1,976 lines for 0.15.0, in about four minutes with no errors). It is a machine voice reading draft Japanese, so a clip can have a wrong reading or accent. Still to confirm on a phone: Settings → Voice says Installed.
 - Stroke order: all 719 kanji and every hiragana and katakana have a diagram, and any of them can be put on a writing practice sheet. The diagram can be opened from the kanji page, the kana chart, the two kana lessons, the kanji drill, kanji flashcards and (since 0.15.0) vocabulary flashcards.
 - The placement test and the dialogues reach N3. The trainer has 404 verbs and 253 adjectives; the dictionary 3,557 words.
-- Practice cases: eight admission MSE cases and eight discharge cases; each of the eight patients also has a case simulation (0.16.0).
+- Practice cases: twelve admission MSE cases (four of them first-visit cases for the 0.18.0 patients) and nine discharge cases; each of the eight patients also has a case simulation (0.16.0).
 - Nurse view (0.16.0): six nurse sections behind a Resident / Nurse switch; pending Nursing Service review. Not tested on a real phone.
 - The menu and the headings can be shown in Japanese; explanations and lesson text are in English.
 - The printed MSE sheet runs to about eight A4 pages with furigana (the Spanish sheet is four), because Japanese with furigana needs more room.
@@ -225,4 +240,5 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 7. Read the five new 0.15.0 cases once (Psychiatry → Admission MSE practice: Yumiko, Tetsuo, Chiyoko; Discharge practice: Daisuke, Chiyoko) and say whether the clinical choices above are right, especially Chiyoko's risperidone plan and Daisuke's confidentiality answer.
 8. Read the 0.16.0 points above, and ask the Nursing Service to review the six nurse sections (Psychiatry → Interview → Nurse).
 10. Try the three new 0.17.0 pages on a phone (Practice → Vocabulary quiz, Listening practice, Numbers and counters).
+11. 0.19.0 (published 14 Nov): read the new first-visit MSE cases and Daiki's emergency-department discharge, and ask the Nursing Service to review the two new nurse scripts (Mood episode checker and MSE interviewer sheet → Nurse) and the Usap Tayo nurse sections.
 9. 0.18.0 (published 14 Nov): read the seven new simulations once (Psychiatry → Case simulations), print the nurse pocket card, and ask the Nursing Service to review the nurse scripts in De-escalation and Discharge with the six nurse sections.

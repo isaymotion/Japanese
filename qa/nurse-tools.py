@@ -4,7 +4,9 @@ no overflow, no raw notation. Nurse pocket card prints to A6 PDF (page count). E
 Screenshots /tmp/qa-out/nt_*.png, PDF /tmp/qa-out/nt_nursecard.pdf."""
 import asyncio, subprocess, os
 from playwright.async_api import async_playwright
-B = 'http://localhost:8765/index.html'
+import os as _os
+PORT = _os.environ.get('QA_PORT', '8765')
+B = 'http://localhost:' + PORT + '/index.html'
 os.makedirs('/tmp/qa-out', exist_ok=True)
 async def main():
     async with async_playwright() as p:

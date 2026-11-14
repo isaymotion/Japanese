@@ -1,11 +1,13 @@
 import asyncio
 from playwright.async_api import async_playwright
+import os as _os
+PORT = _os.environ.get('QA_PORT', '8765')
 async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch(); pg=await b.new_page(viewport={'width':390,'height':844}); errs=[]
         pg.on('console', lambda m: errs.append(m.text) if m.type=='error' else None)
         pg.on('pageerror', lambda e: errs.append(str(e)))
-        await pg.goto('http://localhost:8765/index.html'); await pg.wait_for_timeout(600)
+        await pg.goto('http://localhost:' + PORT + '/index.html'); await pg.wait_for_timeout(600)
         print(await pg.evaluate("[PSYCH_SECTIONS.length,PSYCH_SECTIONS.reduce((a,s)=>a+s.phrases.length,0),PSYCH_MSE_CASES.length,PSYCH_DISCHARGE_CASES.length].join(' ')"))
         print(await pg.evaluate("PSYCH_SECTIONS.slice(27).map(s=>s.id+':'+s.phrases.length).join(' ')"))
         routes=['#/psych','#/psych?tab=tools','#/psych?tab=cases','#/psych/mood','#/psych/mood?t=mania','#/psych/sud','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/dcases','#/psych/mcases','#/psych/mcase/shota','#/psych/mcase/ren','#/psych/mcase/ayaka','#/psych/mcase/yumiko','#/psych/mcase/tetsuo','#/psych/mcase/chiyoko','#/psych/dcase/daisuke','#/psych/dcase/chiyoko','#/psych/dcase/shota','#/psych/dcase/yumiko','#/psych/dcase/ren','#/psych/dcase/tetsuo','#/psych/dcase/ayaka','#/psych/s/discharge','#/psych/s/mi','#/psych/s/wd-alcohol','#/psych/s/deescalation','#/more','#/practice']
