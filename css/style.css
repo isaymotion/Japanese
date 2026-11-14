@@ -1096,3 +1096,23 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
   .vm-col .opt { padding: 10px 8px; font-size: .86rem; }
   .vm-snd { gap: 5px; }
 }
+
+/* 0.18.0 progress + listen */
+.ps-tw { margin: 0; }
+.ps-table { font-size: .9rem; }
+.ps-table th, .ps-table td { padding: 7px 10px; }
+.ps-table tr:last-child td { border-bottom: 0; }
+.ps-table .ps-n { text-align: right; white-space: nowrap; width: 1%; }
+.ps-block .spread { gap: 8px; flex-wrap: wrap; }
+@media (max-width: 420px) {
+  .ps-table th, .ps-table td { padding: 6px 7px; }
+  .ps-table th { font-size: .7rem; letter-spacing: .03em; }
+}
+
+/* 0.18.0 nurse tools */
+.nt-row { flex-wrap: wrap; gap: 10px; margin: 10px 0 12px; align-items: center; }
+.nt-n { font-size: .8rem; color: var(--muted); font-style: italic; margin-top: 3px; }
+.nc-card { gap: 2px; overflow: visible; }
+.nc-sec { font-weight: 700; color: var(--p-navy); border-bottom: 1px solid var(--p-line); margin-top: 3px; font-size: .95em; }
+.nc-line { padding: 1px 0 2px; break-inside: avoid; page-break-inside: avoid; }
+.nc-line + .nc-line { border-top: 1px dotted var(--p-line); }

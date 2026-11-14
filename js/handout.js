@@ -11,14 +11,26 @@
 
   const ALL_STEPS = () => PSYCH_FLOW.concat(PSYCH_FLOW_EXTRA);
   const PRESETS = {
-    full: { label: 'Full interview + MSE', desc: 'The whole interview in order, key phrases, MSE table, and idioms.', o: { steps: PSYCH_FLOW.map((s) => s.id), depth: 'key', overview: true, mse: true, idioms: true, form: false, deescList: false, deescCard: false, deescAfter: false, dischargeGuide: false, paper: 'A4', size: 'normal' } },
-    mse: { label: 'MSE only', desc: 'All MSE prompts, observation vocabulary, and a blank write-up form.', o: { steps: ['mse'], depth: 'all', overview: false, mse: true, idioms: false, form: true, deescList: false, deescCard: false, deescAfter: false, dischargeGuide: false, paper: 'A4', size: 'normal' } },
-    risk: { label: 'Risk assessment', desc: 'Suicide, violence, and de-escalation phrases, plus the de-escalation checklist.', o: { steps: ['suicide', 'violence', 'deesc'], depth: 'all', overview: false, mse: false, idioms: false, form: false, deescList: true, deescCard: false, deescAfter: true, dischargeGuide: false, paper: 'A4', size: 'normal' } },
-    pocket: { label: 'Pocket booklet', desc: 'A5 pages, small type, key phrases only. Fold or staple for the white coat.', o: { steps: PSYCH_FLOW.map((s) => s.id), depth: 'key', overview: true, mse: true, idioms: false, form: false, deescList: false, deescCard: false, deescAfter: false, dischargeGuide: false, paper: 'A5', size: 'small', notes: false } },
-    discharge: { label: 'Discharge summary guide', desc: 'Each field of the discharge summary form with what to assess, ' + LANG.name + ' questions, and wording to document.', o: { steps: [], depth: 'key', overview: false, mse: false, idioms: false, form: false, deescList: false, deescAfter: false, deescCard: false, dischargeGuide: true, paper: 'A4', size: 'normal' } },
-    deesccard: { label: 'De-escalation pocket card', desc: 'Two A6 sides: the 12 steps with one ' + LANG.name + ' line each, plus what to do if it fails. Print double-sided and laminate.', o: { steps: [], depth: 'key', overview: false, mse: false, idioms: false, form: false, deescList: false, deescAfter: false, dischargeGuide: false, deescCard: true, paper: 'A6', size: 'small' } },
-    everything: { label: 'Complete reference', desc: 'Every section and every phrase, including special populations and the de-escalation checklist.', o: { steps: ALL_STEPS().map((s) => s.id), depth: 'all', overview: true, mse: true, idioms: true, form: true, deescList: true, deescCard: false, deescAfter: true, dischargeGuide: true, paper: 'A4', size: 'normal' } }
+    full: { label: 'Full interview + MSE', desc: 'The whole interview in order, key phrases, MSE table, and idioms.', o: { steps: PSYCH_FLOW.map((s) => s.id), depth: 'key', overview: true, mse: true, idioms: true, form: false, deescList: false, deescCard: false, nurseCard: false, deescAfter: false, dischargeGuide: false, paper: 'A4', size: 'normal' } },
+    mse: { label: 'MSE only', desc: 'All MSE prompts, observation vocabulary, and a blank write-up form.', o: { steps: ['mse'], depth: 'all', overview: false, mse: true, idioms: false, form: true, deescList: false, deescCard: false, nurseCard: false, deescAfter: false, dischargeGuide: false, paper: 'A4', size: 'normal' } },
+    risk: { label: 'Risk assessment', desc: 'Suicide, violence, and de-escalation phrases, plus the de-escalation checklist.', o: { steps: ['suicide', 'violence', 'deesc'], depth: 'all', overview: false, mse: false, idioms: false, form: false, deescList: true, deescCard: false, nurseCard: false, deescAfter: true, dischargeGuide: false, paper: 'A4', size: 'normal' } },
+    pocket: { label: 'Pocket booklet', desc: 'A5 pages, small type, key phrases only. Fold or staple for the white coat.', o: { steps: PSYCH_FLOW.map((s) => s.id), depth: 'key', overview: true, mse: true, idioms: false, form: false, deescList: false, deescCard: false, nurseCard: false, deescAfter: false, dischargeGuide: false, paper: 'A5', size: 'small', notes: false } },
+    discharge: { label: 'Discharge summary guide', desc: 'Each field of the discharge summary form with what to assess, ' + LANG.name + ' questions, and wording to document.', o: { steps: [], depth: 'key', overview: false, mse: false, idioms: false, form: false, deescList: false, deescAfter: false, deescCard: false, nurseCard: false, dischargeGuide: true, paper: 'A4', size: 'normal' } },
+    deesccard: { label: 'De-escalation pocket card', desc: 'Two A6 sides: the 12 steps with one ' + LANG.name + ' line each, plus what to do if it fails. Print double-sided and laminate.', o: { steps: [], depth: 'key', overview: false, mse: false, idioms: false, form: false, deescList: false, deescAfter: false, dischargeGuide: false, deescCard: true, nurseCard: false, paper: 'A6', size: 'small' } },
+    nursecard: { label: 'Nurse pocket card', desc: 'A6 sides with the ward nurse\'s most used ' + LANG.name + ' lines: admission, medicines, sleep and meals, safety checks, calming, going home. Print double-sided.', o: { steps: [], depth: 'key', overview: false, mse: false, idioms: false, form: false, deescList: false, deescAfter: false, dischargeGuide: false, deescCard: false, nurseCard: true, paper: 'A6', size: 'small' } },
+    everything: { label: 'Complete reference', desc: 'Every section and every phrase, including special populations and the de-escalation checklist.', o: { steps: ALL_STEPS().map((s) => s.id), depth: 'all', overview: true, mse: true, idioms: true, form: true, deescList: true, deescCard: false, nurseCard: false, deescAfter: true, dischargeGuide: true, paper: 'A4', size: 'normal' } }
   };
+  /* Nurse pocket card (0.18.0): phrase refs 'sectionId:index' from the six nurse sections (psych-phrases-7.js, -8.js),
+     printed on A6 sides grouped as NURSE_SIDES. */
+  const NURSE_CARD = ['nurse-admit:0', 'nurse-admit:5', 'nurse-admit:6', 'nurse-admit:12',
+    'nurse-meds:0', 'nurse-meds:1', 'nurse-meds:9', 'nurse-meds:10',
+    'nurse-daily:0', 'nurse-daily:5', 'nurse-daily:6', 'nurse-daily:16',
+    'nurse-risk:1', 'nurse-risk:4', 'nurse-risk:6', 'nurse-risk:9',
+    'nurse-calm:0', 'nurse-calm:3', 'nurse-calm:5', 'nurse-calm:13',
+    'nurse-educ:1', 'nurse-educ:4', 'nurse-educ:22'];
+  const NURSE_LABELS = { 'nurse-admit': 'Admission', 'nurse-meds': 'Medicines', 'nurse-daily': 'Sleep, meals, pain', 'nurse-risk': 'Safety check', 'nurse-calm': 'Calming', 'nurse-educ': 'Going home' };
+  const NURSE_SIDES = [['nurse-admit', 'nurse-meds'], ['nurse-daily', 'nurse-risk'], ['nurse-calm', 'nurse-educ']];
+  const isCard = (o) => !!(o.deescCard || o.nurseCard);
   const CARD_LABELS = ['Keep two arms\' length', 'Approach calmly', 'Introduce, orient, reassure', 'Short, simple words', 'Let them talk', 'Listen and reflect', 'Agree, or agree to disagree', 'Set clear limits', 'Reassure: we\'ll help you', 'Coach to stay in control', 'Offer choices', 'Offer medication'];
   const INST = () => (window.APP_META && APP_META.institution) || {};
   const ESC_LINE = () => (window.PSYCH_DEESC && PSYCH_DEESC.escLine) || 'If de-escalation fails, the charge nurse takes over and the physician on duty is notified at all times.';
@@ -76,6 +88,9 @@
         behaviors: PSYCH_DEESC.behaviors.map((b) => b.en.replace(/ \(specify\).*$/, '')), escalation: PSYCH_DEESC.escalation, escLine: ESC_LINE(),
         debrief: (PSYCH_DEESC.debrief || []).map(ref).filter(Boolean).map((p) => phraseModel(p, o))
       } : null,
+      ncard: o.nurseCard && (window.PSYCH_SECTIONS || []).some((x) => x.id === 'nurse-admit') ? NURSE_SIDES.map((ids) => ids.map((sid) => ({
+        label: NURSE_LABELS[sid], say: NURSE_CARD.filter((r) => r.split(':')[0] === sid).map(ref).filter(Boolean).map((p) => phraseModel(p, Object.assign({}, o, { register: o.register === 'c' ? 'c' : 'f' })))
+      }))) : null,
       key: o.english === 'key' ? key : null, o
     };
   }
@@ -89,6 +104,13 @@
       '<div class="hc-card">' + top + c.steps.slice(6).map(line).join('') + '<div class="hc-esc"><b>If it fails:</b> ' + esc(c.escLine) + '</div>' +
       '<div class="hc-sub"><b>Debrief later:</b> ' + c.debrief.map((p) => esc(p.tl) + (showEn ? ' (' + esc(p.en) + ')' : '')).join(' · ') + '</div><div class="hc-foot">' + esc(CRISIS()) + ' · ' + esc(APP_META.name) + '</div></div></div>';
   }
+  function nurseCardHTML(m) {
+    const showEn = m.o.english === 'show', n = m.ncard.length;
+    const top = (i) => '<div class="hc-top"><b>NURSE PHRASES</b><span>' + esc([INST().short || '', n > 1 ? (i + 1) + '/' + n : ''].filter(Boolean).join(' · ')) + '</span></div>';
+    const line = (p) => '<div class="nc-line"><div class="hc-tl">' + esc(p.tl) + '</div>' + (showEn ? '<div class="hc-en">' + esc(p.en) + '</div>' : '') + '</div>';
+    return '<div class="hc-wrap">' + m.ncard.map((side, i) => '<div class="hc-card nc-card">' + top(i) + side.map((g) => '<div class="nc-sec">' + esc(g.label) + '</div>' + g.say.map(line).join('')).join('') +
+      (i === n - 1 ? '<div class="hc-esc"><b>Tell the doctor at once:</b> thoughts of suicide, a plan, violence, injury or a medical emergency.</div><div class="hc-foot">Draft, pending Nursing Service review · ' + esc(CRISIS()) + ' · ' + esc(APP_META.name) + '</div>' : '') + '</div>').join('') + '</div>';
+  }
   /* ---------- HTML preview ---------- */
   function renderHTML(m) {
     const o = m.o, showEn = o.english === 'show', numbered = o.english === 'key';
@@ -97,6 +119,7 @@
       (p.answers.length ? '<small class="ho-ans">Patient may say: ' + p.answers.map((a) => esc(a[0]) + (showEn ? ' (' + esc(a[1]) + ')' : '')).join(' · ') + '</small>' : '') + '</div>' +
       (showEn ? '<div class="ho-en">' + esc(p.en) + '</div>' : '') + '</div>';
     if (m.card) return cardHTML(m);
+    if (m.ncard) return nurseCardHTML(m);
     let h = '<header class="ho-head"><img src="icons/logo-96.png" alt=""><div><h1>' + esc(m.title) + '</h1><p>' + (m.preparedFor ? 'Prepared for ' + esc(m.preparedFor) + ' · ' : '') + esc(m.date) +
       ' · ' + (o.register === 'c' ? 'Plain form' : o.register === 'both' ? 'Polite form (です/ます), with the plain form in italics' : 'Polite form (です/ます)') + '</p></div></header>';
     if (m.overview) {
@@ -148,13 +171,14 @@
   }
 
   /* ---------- Page ---------- */
-  const paperClass = (o) => 'ho-paper ho-' + (o.deescCard ? 'A6' : o.paper) + ' ho-size-' + o.size + (o.furi === 'hide' ? ' ho-nofu' : '') + (o.romaji === 'show' ? '' : ' ho-norj');
+  const paperClass = (o) => 'ho-paper ho-' + (isCard(o) ? 'A6' : o.paper) + ' ho-size-' + o.size + (o.furi === 'hide' ? ' ho-nofu' : '') + (o.romaji === 'show' ? '' : ' ho-norj');
   V.handout = (el, p, q) => {
     if (!(window.PSYCH_SECTIONS || []).length) return App.notYet(el, 'Printable handout', 'The printable handouts', true);
     let o = opts();
     if (q.discharge) o = Object.assign({}, o, PRESETS.discharge.o, { preset: 'discharge', title: 'Discharge Summary Interview Guide' });
     if (q.deesccard) o = Object.assign({}, o, PRESETS.deesccard.o, { preset: 'deesccard', title: 'De-escalation Pocket Card' });
-    if (q.deesc) o = Object.assign({}, o, { preset: 'custom', steps: [], deescList: true, deescAfter: true, deescCard: false, overview: false, mse: false, idioms: false, form: false, title: 'De-escalation Checklist' });
+    if (q.nursecard) o = Object.assign({}, o, PRESETS.nursecard.o, { preset: 'nursecard', title: 'Nurse Pocket Card' });
+    if (q.deesc) o = Object.assign({}, o, { preset: 'custom', steps: [], deescList: true, deescAfter: true, deescCard: false, nurseCard: false, overview: false, mse: false, idioms: false, form: false, title: 'De-escalation Checklist' });
     if (q.s) { // came from a section page: start with just that section
       const st = ALL_STEPS().find((x) => x.sections.includes(q.s));
       if (st) o = Object.assign({}, o, { preset: 'custom', steps: [st.id], depth: 'all', overview: false, mse: q.s.startsWith('mse'), idioms: false, form: false });
@@ -182,18 +206,18 @@
         '<div class="row" style="grid-column:1/-1"><button class="btn sm" data-all="1">Select all</button><button class="btn sm" data-all="0">Clear</button></div></div></details>' +
         '<div class="ho-grid"><label class="small">Title<input class="input" id="hoTitle" value="' + esc(o.title) + '"></label><label class="small">Prepared for (optional)<input class="input" id="hoFor" value="' + esc(o.preparedFor) + '" placeholder="e.g., First-year residents, Dept. of Psychiatry"></label></div>' +
         '<div class="row"><button class="btn primary" id="hoPrint">' + icons.book + ' Print or save as PDF</button><span class="muted small">In the print window, choose your printer or "Save as PDF", and the same paper size as here.</span></div></div>' +
-        (o.deescCard ? '<p class="small muted" style="margin:4px 0 0">The pocket card always prints on A6 (105 × 148 mm), front and back. Print double-sided, trim, and laminate.</p>' : '') + '<h2 style="margin-top:18px">Preview</h2><div class="' + paperClass(o) + '" id="hoPaper"></div>';
+        (isCard(o) ? '<p class="small muted" style="margin:4px 0 0">The pocket card always prints on A6 (105 × 148 mm), front and back. Print double-sided, trim, and laminate.</p>' : '') + '<h2 style="margin-top:18px">Preview</h2><div class="' + paperClass(o) + '" id="hoPaper"></div>';
       bind();
       preview();
     };
     const preview = () => {
       const paper = el.querySelector('#hoPaper');
-      if (!o.steps.length && !o.mse && !o.deescList && !o.deescAfter && !o.deescCard && !o.dischargeGuide) { paper.innerHTML = '<p class="muted">Choose at least one section or the MSE table.</p>'; return; }
+      if (!o.steps.length && !o.mse && !o.deescList && !o.deescAfter && !o.deescCard && !o.nurseCard && !o.dischargeGuide) { paper.innerHTML = '<p class="muted">Choose at least one section or the MSE table.</p>'; return; }
       paper.innerHTML = renderHTML(build(o));
     };
     const update = (patch, redraw) => { o = Object.assign({}, o, patch); saveOpts(o); if (redraw) draw(); else preview(); };
     const bind = () => {
-      el.querySelectorAll('[data-preset]').forEach((b) => (b.onclick = () => { const k = b.dataset.preset; const special = { deesccard: 'De-escalation Pocket Card', discharge: 'Discharge Summary Interview Guide' }; const auto = ['De-escalation Checklist', 'De-escalation Pocket Card', 'Discharge Summary Interview Guide', DEFAULTS.title].includes(o.title); update(Object.assign({ notes: true }, PRESETS[k].o, { preset: k }, auto ? { title: special[k] || DEFAULTS.title } : {}), true); }));
+      el.querySelectorAll('[data-preset]').forEach((b) => (b.onclick = () => { const k = b.dataset.preset; const special = { deesccard: 'De-escalation Pocket Card', nursecard: 'Nurse Pocket Card', discharge: 'Discharge Summary Interview Guide' }; const auto = ['De-escalation Checklist', 'De-escalation Pocket Card', 'Nurse Pocket Card', 'Discharge Summary Interview Guide', DEFAULTS.title].includes(o.title); update(Object.assign({ notes: true }, PRESETS[k].o, { preset: k }, auto ? { title: special[k] || DEFAULTS.title } : {}), true); }));
       el.querySelectorAll('[data-seg]').forEach((b) => (b.onclick = () => {
         el.querySelectorAll('[data-seg="' + b.dataset.seg + '"]').forEach((x) => x.classList.toggle('on', x === b));
         const patch = { [b.dataset.seg]: b.dataset.v };
@@ -211,8 +235,8 @@
       el.querySelector('#hoTitle').oninput = (e) => update({ title: e.target.value });
       el.querySelector('#hoFor').oninput = (e) => update({ preparedFor: e.target.value });
       el.querySelector('#hoPrint').onclick = () => {
-        if (!o.steps.length && !o.mse && !o.deescList && !o.deescAfter && !o.deescCard && !o.dischargeGuide) { App.toast('Choose at least one section first.'); return; }
-        App.printWith(o.deescCard ? 'A6' : o.paper, o.deescCard ? '6mm' : o.paper === 'A5' ? '10mm' : '14mm');
+        if (!o.steps.length && !o.mse && !o.deescList && !o.deescAfter && !o.deescCard && !o.nurseCard && !o.dischargeGuide) { App.toast('Choose at least one section first.'); return; }
+        App.printWith(isCard(o) ? 'A6' : o.paper, isCard(o) ? '6mm' : o.paper === 'A5' ? '10mm' : '14mm');
         App.activity(5);
       };
     };

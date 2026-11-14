@@ -344,7 +344,7 @@
       '<p class="muted">Each dialogue has three modes: <b>Listen</b> to the whole conversation, <b>Shadow</b> each line after the audio, and <b>Role-play</b>, where your lines are hidden and you say them from the English cue. </p>' +
       (lvs.length > 1 ? '<div class="row" style="flex-wrap:wrap;gap:8px;margin-bottom:10px"><div class="seg" role="group" aria-label="Level">' + [['', 'All']].concat(lvs.map((k) => [k, k])).map(([k, t]) => '<a role="button" href="#/speak?lv=' + (k || 'all') + '" class="' + (lv === k ? 'on' : '') + '">' + esc(t) + '</a>').join('') + '</div><span class="pill">' + doneN + ' / ' + shown.length + ' done</span></div>' : '') + '<div class="grid">' +
       shown.map((d) => '<a class="tile" href="#/speak/' + d.id + '"><div class="row">' + lvPill(d.level) + (S().done.dialogues[d.id] != null ? '<span class="pill good">' + S().done.dialogues[d.id] + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(d.title) + '</h3><p>' + d.lines.length + ' lines · you are ' + esc(d.roles[d.you]) + '</p></a>').join('') + '</div>' +
-      (PSYCH_CASES.length ? '<h2 style="margin-top:18px">Clinical dialogues</h2><div class="grid">' + PSYCH_CASES.map((c) => '<a class="tile" href="#/speak/case-' + c.id + '"><div class="row">' + lvPill(c.level) + '<span class="pill warn">clinical</span></div><h3 style="margin-top:6px">' + esc(c.title) + '</h3><p>Role-play the best-practice interview lines.</p></a>').join('') + '</div>' : '');
+      (PSYCH_CASES.length ? '<h2 style="margin-top:18px">Clinical dialogues</h2><div class="grid">' + PSYCH_CASES.map((c) => '<a class="tile" href="#/speak/case-' + c.id + '"><div class="row">' + lvPill(c.level) + '<span class="pill warn">clinical</span>' + (c.role === 'nurse' ? '<span class="pill">nurse</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(c.title) + '</h3><p>Role-play the best-practice interview lines.</p></a>').join('') + '</div>' : '');
   };
   function speechSupportNote() {
     const st = App.audioStatus();
@@ -362,7 +362,7 @@
   App.caseDialogue = (c) => {
     const lines = [];
     c.steps.forEach((s) => { lines.push([1, s.line[0], s.line[1], null, s.who]); const best = s.choices.find((x) => x.score === 2); lines.push([0, best.tl, best.en]); });
-    return { id: 'case-' + c.id, level: c.level, title: c.title + ' (clinical)', roles: ['You (doctor)', 'Patient/family'], you: 0, lines, setting: c.setting };
+    return { id: 'case-' + c.id, level: c.level, title: c.title + ' (clinical)', roles: [c.role === 'nurse' ? 'You (nurse)' : 'You (doctor)', 'Patient/family'], role: c.role === 'nurse' ? 'nurse' : 'doctor', you: 0, lines, setting: c.setting };
   };
   V.dialogue = (el, p) => {
     const d = p.id.startsWith('case-') ? App.caseDialogue(PSYCH_CASES.find((c) => 'case-' + c.id === p.id) || PSYCH_CASES[0]) : DIALOGUES.find((x) => x.id === p.id);
@@ -456,6 +456,52 @@
   };
 
   /* ---------- Progress ---------- */
+  /* Practice scores (0.18.0): best results each practice page keeps in state.done (vocab, listen2, numbers, cases, mcases,
+     dcases). Every read tolerates a missing key (old backups). */
+  const pctPill = (v) => (v == null ? '<span class="muted">—</span>' : '<span class="pill ' + (v >= 80 ? 'good' : v >= 50 ? 'warn' : 'bad') + '">' + v + '%</span>');
+  const avg = (vs) => (vs.length ? Math.round(vs.reduce((a, b) => a + b, 0) / vs.length) : null);
+  const bar = (label, a, b, extra) => '<div><div class="spread small"><span>' + label + '</span><span class="muted">' + a + ' / ' + b + (extra ? ' · ' + extra : '') + '</span></div><div class="progress"><i style="width:' + Math.round((100 * a) / Math.max(1, b)) + '%"></i></div></div>';
+  const tbl = (head, rows) => '<div class="tablewrap ps-tw"><table class="ps-table"><thead><tr>' + head.map((h, k) => '<th' + (k ? ' class="ps-n"' : '') + '>' + esc(h) + '</th>').join('') + '</tr></thead><tbody>' +
+    rows.map((r) => '<tr>' + r.map((c, k) => '<td' + (k ? ' class="ps-n"' : '') + '>' + c + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>';
+  const block = (title, href, linkText, body) => '<div class="card stack ps-block"><div class="spread"><h3 style="margin:0">' + esc(title) + '</h3><a class="btn sm" href="' + href + '">' + esc(linkText) + '</a></div>' +
+    (body || '<p class="muted" style="margin:0">Not tried yet. <a href="' + href + '">Start</a></p>') + '</div>';
+  function practiceScores(s) {
+    const done = s.done || {}, vocab = done.vocab || {}, l2 = done.listen2 || {}, nums = done.numbers || {};
+    const out = [];
+    // Vocabulary quiz: '<deckId>:<mode>' = best %
+    const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading']];
+    const decks = {}; try { App.decks().forEach((d) => (decks[d.id] = d.name)); } catch (e) { /* decks need the dictionary */ }
+    const vd = {};
+    Object.keys(vocab).forEach((k) => { if (k.startsWith('match:') || typeof vocab[k] !== 'number') return; const at = k.lastIndexOf(':'); if (at < 0) return; (vd[k.slice(0, at)] = vd[k.slice(0, at)] || {})[k.slice(at + 1)] = vocab[k]; });
+    const vIds = Object.keys(vd).sort((a, b) => String(decks[a] || a).localeCompare(String(decks[b] || b)));
+    out.push(block('Vocabulary quiz', '#/vocab', 'Open', vIds.length ? '<p class="small muted" style="margin:0">' + vIds.length + (vIds.length === 1 ? ' deck' : ' decks') + ' tried. Best score per mode.</p>' +
+      tbl(['Deck'].concat(MODES.map((m) => m[1])), vIds.map((id) => [esc(decks[id] || id)].concat(MODES.map((m) => pctPill(vd[id][m[0]]))))) : ''));
+    // Topic matching: 'match:<setId>' = { m, t }
+    const sets = window.TOPIC_SETS || [];
+    const mt = sets.filter((x) => vocab['match:' + x.id] && typeof vocab['match:' + x.id] === 'object');
+    out.push(block('Topic matching', '#/vocab?tab=match', 'Open', mt.length ? bar('Sets completed', mt.length, sets.length) +
+      tbl(['Set', 'Misses', 'Time'], mt.map((x) => { const r = vocab['match:' + x.id]; return [esc(x.title), r.m != null ? String(r.m) : '—', r.t != null ? r.t + ' s' : '—']; })) : ''));
+    // Listening: listen2[tab + ':' + variant]
+    const LT = [['hear', 'Hear'], ['dict', 'Dictation'], ['pairs', 'Sound pairs']];
+    const lrows = LT.map(([k, t]) => { const vs = Object.keys(l2).filter((x) => x.startsWith(k + ':')).map((x) => l2[x]).filter((v) => typeof v === 'number'); return vs.length ? [esc(t), String(vs.length), pctPill(Math.max.apply(null, vs)), pctPill(avg(vs))] : null; }).filter(Boolean);
+    const storyIds = App.listenStoryIds ? App.listenStoryIds() : [];
+    const sv = storyIds.filter((id) => typeof l2['story:' + id] === 'number').map((id) => l2['story:' + id]);
+    out.push(block('Listening', '#/listen', 'Open', lrows.length || sv.length ? (lrows.length ? tbl(['Tab', 'Sets tried', 'Best', 'Average'], lrows) : '') +
+      (storyIds.length ? bar('Dialogues, readings and cases with questions', sv.length, storyIds.length, sv.length ? 'average ' + avg(sv) + '%' : '') + '<a class="small" href="#/listen?tab=story">Listening questions</a>' : '') : ''));
+    // Numbers and counters: '<group>:<mode>' and 'clinic'
+    const groups = ((window.JA_COUNTERS || {}).groups || []).concat([{ id: 'mixed', title: 'All groups mixed' }]);
+    const nrows = groups.filter((g) => nums[g.id + ':read'] != null || nums[g.id + ':listen'] != null).map((g) => [esc(g.title), pctPill(nums[g.id + ':read']), pctPill(nums[g.id + ':listen'])]);
+    out.push(block('Numbers and counters', '#/numbers', 'Open', nrows.length || nums.clinic != null ? (nrows.length ? tbl(['Group', 'Read', 'Listen'], nrows) : '') +
+      (nums.clinic != null ? '<div class="spread small"><a href="#/numbers?tab=clinic">In the clinic</a><span>Best ' + pctPill(nums.clinic) + '</span></div>' : '') : ''));
+    // Case simulations, admission MSE, discharge practice: done[store][id] = best %
+    [['Case simulations', 'cases', window.PSYCH_CASES, '#/psych/cases'], ['Admission MSE practice', 'mcases', window.PSYCH_MSE_CASES, '#/psych/mcases'], ['Discharge practice', 'dcases', window.PSYCH_DISCHARGE_CASES, '#/psych/dcases']].forEach(([t, key, list, href]) => {
+      if (!Array.isArray(list) || !list.length) return;
+      const st = done[key] || {}, tried = list.filter((c) => typeof st[c.id] === 'number');
+      out.push(block(t, href, 'Open', tried.length ? bar('Cases done', tried.length, list.length, 'average ' + avg(tried.map((c) => st[c.id])) + '%') +
+        tbl(['Case', 'Best'], tried.map((c) => [esc(c.title), pctPill(st[c.id])])) : ''));
+    });
+    return '<div class="stack ps-scores">' + out.join('') + '</div>';
+  }
   V.progress = (el) => {
     const s = S();
     const learned = Object.keys(s.srs).length;
@@ -471,6 +517,7 @@
       '<h2 style="margin-top:18px">Completion</h2><div class="card stack">' +
       [['Lessons', Object.keys(s.done.lessons).length, LESSONS.length], ['Kana learned (hiragana and katakana)', Object.keys(s.kana || {}).filter((k) => s.kana[k] >= 3).length, (window.KANA ? KANA.all.length : 0)], ['Kanji learned', App.kanjiLearned ? App.kanjiLearned() : 0, (App.KANJI || []).length], ['Reading passages', Object.keys(s.done.reading).length, READING.length], ['Dialogues', Object.keys(s.done.dialogues).length, DIALOGUES.length + PSYCH_CASES.length], ['Psychiatry sections opened', secSeen, sec]]
         .map(([t, a, b]) => '<div><div class="spread small"><span>' + t + '</span><span class="muted">' + a + ' / ' + b + '</span></div><div class="progress"><i style="width:' + Math.round((100 * a) / Math.max(1, b)) + '%"></i></div></div>').join('') + '</div>' +
+      '<h2 style="margin-top:18px">Practice scores</h2>' + practiceScores(s) +
       '<h2 style="margin-top:18px">Backup</h2><div class="card stack"><p style="margin:0">Progress is saved on this device. Export a backup file to move it to another phone or browser. The same buttons are in the footer of every page.</p>' +
       '<div class="row"><button class="btn" id="exp">Export backup</button><label class="btn" for="imp">Import backup</label><input type="file" id="imp" class="sr-only" accept="application/json,.json"></div>' +
       '<p class="small muted" style="margin:0">' + esc(App.t('backup.onDevice').replace('{summary}', App.backup.summary())) + '</p>' +

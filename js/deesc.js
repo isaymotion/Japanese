@@ -9,6 +9,26 @@
   const alt = (p) => (S().settings.register === 'c' ? p.f : p.c);
   const sayLine = (p) => '<div class="dz-line"><div><div class="tl dz-tl">' + esc(main(p)) + '</div>' + (alt(p) && alt(p) !== main(p) ? '<div class="tl small muted">' + esc(alt(p)) + '</div>' : '') + '<div class="small muted">' + esc(p.en) + '</div></div>' + App.sayBtn(main(p)) + '</div>';
 
+  /* Nurse view (0.18.0): the same Resident / Nurse switch (settings.role) as the substance use tool. Lines are
+     { tl (polite), c (plain), en, n? } from PSYCH_NURSE_TOOLS; the register setting picks which form leads. */
+  const NT = () => (window.PSYCH_NURSE_TOOLS || {}).deesc;
+  const isNurse = () => S().settings.role === 'nurse' && !!(NT() && (NT().steps || []).length);
+  const nMain = (p) => (S().settings.register === 'c' ? p.c || p.tl : p.tl);
+  const nAlt = (p) => (S().settings.register === 'c' ? p.tl : p.c);
+  const nLine = (p, showEn) => '<div class="dz-line"><div><div class="tl dz-tl">' + esc(nMain(p)) + '</div>' + (nAlt(p) && nAlt(p) !== nMain(p) ? '<div class="tl small muted">' + esc(nAlt(p)) + '</div>' : '') +
+    (showEn ? '<div class="small muted">' + esc(p.en) + '</div>' : '') + (p.n ? '<div class="nt-n">' + esc(p.n) + '</div>' : '') + '</div>' + App.sayBtn(nMain(p)) + '</div>';
+  const roleRow = (nurse) => '<div class="row nt-row"><div class="seg" role="group" aria-label="Role"><button class="' + (!nurse ? 'on' : '') + '" data-role="resident" aria-pressed="' + !nurse + '">Resident</button><button class="' + (nurse ? 'on' : '') + '" data-role="nurse" aria-pressed="' + nurse + '">Nurse</button></div>' +
+    (nurse ? '<div class="seg" role="group" aria-label="Register">' + [['f', LANG.registers.f.short], ['c', LANG.registers.c.short]].map(([k, t]) => '<button data-nreg="' + k + '" class="' + ((S().settings.register || 'f') === k ? 'on' : '') + '" aria-pressed="' + ((S().settings.register || 'f') === k) + '">' + t + '</button>').join('') + '</div>' +
+      '<label class="ho-chk"><input type="checkbox" id="ntEn"' + (S().settings.nurseEn !== false ? ' checked' : '') + '> <span>English</span></label>' : '') + '</div>';
+  const nurseView = () => {
+    const d = NT(), showEn = S().settings.nurseEn !== false;
+    return '<p class="muted">What the ward nurse says around an incident: calling the doctor, getting help, talking with the patient afterwards, and reassuring the other patients. The 12-step bedside checklist is in the Resident view.</p>' +
+      '<div class="notice">' + esc(d.notice) + '</div><div class="stack" style="margin-top:12px">' +
+      d.steps.map((s, i) => '<div class="card dz-step nt-step"><h2 style="margin:0 0 6px">' + (i + 1) + '. ' + esc(s.title) + '</h2><div class="stack" style="gap:6px">' + s.lines.map((p) => nLine(p, showEn)).join('') + '</div></div>').join('') + '</div>' +
+      '<div class="notice info" style="margin-top:12px"><b>Escalate.</b> ' + esc(d.escalate) + '</div>' +
+      '<p style="margin-top:12px"><a class="btn sm" href="#/psych/handout?nursecard=1">Nurse pocket card (print) →</a></p>';
+  };
+
   // Speak a line and resolve when finished (or after a timeout if speech is unavailable).
   const speakWait = (text, lang) => App.speakAsync(text, { lang, quiet: true });
 
@@ -33,7 +53,8 @@
     const head = () => '<div class="breadcrumb"><a href="#/psych">Psychiatry</a> / <a href="#/psych/s/deescalation">De-escalation</a> / Checklist</div>' +
       '<h1>De-escalation checklist</h1>' +
       (inst.name ? '<p class="dz-inst"><b>' + esc(inst.name) + '</b><br><span class="muted small">' + esc(inst.address || '') + ' · Form ' + esc(inst.deescForm || '') + '</span></p>' : '') +
-      '<div class="seg dz-tabs" role="tablist" aria-label="De-escalation views">' + [['check', 'Checklist'], ['drill', 'Rapid drill'], ['after', 'If it fails'], ['practice', 'Practice']].map(([k, t]) => '<button role="tab" data-tab="' + k + '" aria-selected="' + (tab === k) + '" class="' + (tab === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>';
+      (NT() && (NT().steps || []).length ? roleRow(isNurse()) : '') +
+      (isNurse() ? '' : '<div class="seg dz-tabs" role="tablist" aria-label="De-escalation views">' + [['check', 'Checklist'], ['drill', 'Rapid drill'], ['after', 'If it fails'], ['practice', 'Practice']].map(([k, t]) => '<button role="tab" data-tab="' + k + '" aria-selected="' + (tab === k) + '" class="' + (tab === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>');
 
     const views = {
       check: () => {
@@ -78,7 +99,7 @@
       }
     };
 
-    const draw = () => { stopAll(); el.innerHTML = head() + '<div id="dzBody" style="margin-top:14px">' + views[tab]() + '</div>'; bind(); };
+    const draw = () => { stopAll(); el.innerHTML = head() + '<div id="dzBody" style="margin-top:14px">' + (isNurse() ? nurseView() : views[tab]()) + '</div>'; bind(); };
     const keep = (fn) => { const y = window.scrollY; fn(); window.scrollTo(0, y); };
     const stopAll = () => { if (drill) drill.stop = true; App.stopSpeech(); };
     const drillLines = (set) => {
@@ -88,6 +109,10 @@
     };
 
     const bind = () => {
+      el.querySelectorAll('[data-role]').forEach((b) => (b.onclick = () => { S().settings.role = b.dataset.role; App.save(); keep(draw); }));
+      el.querySelectorAll('[data-nreg]').forEach((b) => (b.onclick = () => { S().settings.register = b.dataset.nreg; App.save(); keep(draw); }));
+      const ne = el.querySelector('#ntEn'); if (ne) ne.onchange = () => { S().settings.nurseEn = ne.checked; App.save(); keep(draw); };
+      if (isNurse()) return;
       el.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { tab = b.dataset.tab; draw(); }));
       const $ = (s) => el.querySelector(s);
       if (tab === 'check') {

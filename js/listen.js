@@ -2,7 +2,8 @@
    hear (default)  words or sentences of a level, hear one and choose the meaning (App.runQuiz with hideQ)
    dict            dictation: hear a word, build it from kana tiles or type it (kana or romaji)
    pairs           sound pairs (window.SOUND_PAIRS): hear one of two near-identical words and choose which
-   story           questions on whole dialogues and readings (window.LISTEN_Q keyed by DIALOGUES / READING id; ?id=)
+   story           questions on whole dialogues, readings and case simulations (window.LISTEN_Q keyed by DIALOGUES / READING id,
+                   or 'case-<case id>' from js/data/listen-questions-2.js, 0.18.0: the best-path dialogue of App.caseDialogue; ?id=)
    Level (Starter, N5, N4, N3) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
    Modelled on V.psychListen (js/point-listen.js). */
 (function () {
@@ -17,7 +18,7 @@
     hear: 'Hear a word or a sentence of your level and choose what it means. The text appears only after you answer.',
     dict: 'Hear a word and spell it in kana: tap the tiles, or type it in kana or romaji. Small ゃ ゅ ょ っ and the long-vowel mark ー are tiles of their own.',
     pairs: 'Words that differ by one sound: a long vowel, a small っ, a voiced sound. Hear one and choose which it was.',
-    story: 'Hear a whole dialogue or reading first, then answer questions about it. Keep the text hidden until you have tried.'
+    story: 'Hear a whole dialogue, reading or case simulation first, then answer questions about it. Keep the text hidden until you have tried.'
   };
   const st = { speed: 'natural', src: 'words', type: '' };
   const rate = () => (SPEEDS.find((s) => s[0] === st.speed) || SPEEDS[1])[2];
@@ -264,39 +265,42 @@
     const out = [];
     (window.DIALOGUES || []).forEach((d) => { if ((LQ()[d.id] || []).length) out.push({ kind: 'd', id: d.id, level: d.level, title: d.title, sub: '', obj: d }); });
     (window.READING || []).forEach((r) => { if ((LQ()[r.id] || []).length) out.push({ kind: 'r', id: r.id, level: r.level, title: r.title, sub: r.titleEn, obj: r }); });
+    (window.PSYCH_CASES || []).forEach((c) => { const id = 'case-' + c.id; if ((LQ()[id] || []).length && App.caseDialogue) out.push({ kind: 'c', id, caseId: c.id, level: c.level, title: c.title, sub: '', nurse: c.role === 'nurse', obj: App.caseDialogue(c) }); });
     return out;
   };
+  App.listenStoryIds = () => storyItems().map((x) => x.id);   // for the Progress page
   const drawStoryList = (box) => {
     const items = storyItems();
     if (!items.length) { box.innerHTML = '<div class="notice">The listening questions are not written yet.</div>'; return; }
     const tile = (x) => {
       const b = bestOf('story:' + x.id);
-      return '<a class="tile" href="#/listen?tab=story&id=' + encodeURIComponent(x.id) + '"><div class="row"><span class="pill lv">' + esc(x.level) + '</span>' + (b != null ? '<span class="pill good">' + b + '%</span>' : '') + '</div>' +
+      return '<a class="tile" href="#/listen?tab=story&id=' + encodeURIComponent(x.id) + '"><div class="row"><span class="pill lv">' + esc(x.level) + '</span>' + (x.kind === 'c' ? '<span class="pill warn">clinical</span>' + (x.nurse ? '<span class="pill">nurse</span>' : '') : '') + (b != null ? '<span class="pill good">' + b + '%</span>' : '') + '</div>' +
         '<h3 style="margin-top:6px"' + (x.kind === 'r' ? ' class="tl"' : '') + '>' + esc(x.title) + '</h3><p>' + (x.sub ? esc(x.sub) + ' · ' : '') + LQ()[x.id].length + ' questions</p></a>';
     };
     const group = (k, title) => { const g = items.filter((x) => x.kind === k); return g.length ? '<h2 style="margin-top:14px">' + title + '</h2><div class="grid">' + g.map(tile).join('') + '</div>' : ''; };
-    box.innerHTML = group('d', 'Dialogues') + group('r', 'Readings');
+    box.innerHTML = group('d', 'Dialogues') + group('r', 'Readings') + group('c', 'Case simulations');
   };
   const drawStory = (box, id) => {
     const x = storyItems().find((s) => s.id === id);
     if (!x) { box.innerHTML = '<div class="notice">There are no listening questions for this item. <a href="#/listen?tab=story">See the list</a>.</div>'; return; }
-    const lines = x.kind === 'd'
+    const dl = x.kind !== 'r';   // dialogues and case simulations are shown as a conversation
+    const lines = dl
       ? x.obj.lines.map((l) => ({ who: l[4] || (x.obj.roles || [])[l[0]] || '', ja: l[1], en: l[2] }))
       : x.obj.tl.map((t, k) => ({ who: '', ja: t, en: (x.obj.en || [])[k] || '' }));
-    const back = x.kind === 'd' ? ['#/speak/' + x.id, 'Open the dialogue'] : ['#/reading/' + x.id, 'Open the reading'];
+    const back = x.kind === 'c' ? ['#/psych/case/' + x.caseId, 'Open the case'] : x.kind === 'd' ? ['#/speak/' + x.id, 'Open the dialogue'] : ['#/reading/' + x.id, 'Open the reading'];
     let shown = false;
-    box.innerHTML = '<div class="row"><span class="pill lv">' + esc(x.level) + '</span><span class="muted small">' + (x.kind === 'd' ? 'Dialogue' : 'Reading') + '</span></div>' +
+    box.innerHTML = '<div class="row"><span class="pill lv">' + esc(x.level) + '</span><span class="muted small">' + (x.kind === 'c' ? 'Case simulation' + (x.nurse ? ' · you are the ward nurse' : '') : x.kind === 'd' ? 'Dialogue' : 'Reading') + '</span></div>' +
       '<h2 style="margin-top:6px"' + (x.kind === 'r' ? ' class="tl"' : '') + '>' + esc(x.title) + '</h2>' + (x.sub ? '<p class="muted">' + esc(x.sub) + '</p>' : '') +
       '<div class="row lp-ctl"><button class="btn primary" id="lpall">' + icons.sound + ' Play all</button><button class="btn" id="lpstop">Stop</button><button class="btn" id="lpshow" aria-expanded="false">Show the text</button><span class="muted small" id="lpstat" aria-live="polite"></span></div>' +
       '<div id="lptext" hidden></div><h2 style="margin-top:16px">Questions</h2><div id="lpq"></div>' +
-      '<div class="row" style="margin-top:12px"><a class="btn" href="' + back[0] + '">' + back[1] + '</a><a class="btn ghost" href="#/listen?tab=story">All dialogues and readings</a></div>';
+      '<div class="row" style="margin-top:12px"><a class="btn" href="' + back[0] + '">' + back[1] + '</a><a class="btn ghost" href="#/listen?tab=story">All listening questions</a></div>';
     const $ = (s) => box.querySelector(s);
-    $('#lptext').innerHTML = '<div class="' + (x.kind === 'd' ? 'dlg' : 'card passage') + '">' + lines.map((l, k) => x.kind === 'd'
+    $('#lptext').innerHTML = '<div class="' + (dl ? 'dlg' : 'card passage') + '">' + lines.map((l, k) => dl
       ? '<div class="line" data-ln="' + k + '"><div class="spread"><span class="who">' + esc(l.who) + '</span>' + App.sayBtn(l.ja) + '</div><div class="t">' + esc(l.ja) + '</div><div class="e">' + esc(l.en) + '</div></div>'
       : '<div class="lp-para" data-ln="' + k + '"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">' + App.sayBtn(l.ja) + '<p class="tl" style="margin:0">' + esc(l.ja) + '</p></div>' + (l.en ? '<p class="tr">' + esc(l.en) + '</p>' : '') + '</div>').join('') + '</div>';
     const mark = (k) => box.querySelectorAll('[data-ln]').forEach((n) => n.classList.toggle('lp-now', +n.dataset.ln === k));
     $('#lpall').onclick = async () => {
-      const done = await speakSeq(lines.map((l) => l.ja), x.kind === 'd' ? 300 : 350, (k) => { mark(k); const s = $('#lpstat'); if (s) s.textContent = (x.kind === 'd' ? 'Line ' : 'Part ') + (k + 1) + ' of ' + lines.length; });
+      const done = await speakSeq(lines.map((l) => l.ja), dl ? 300 : 350, (k) => { mark(k); const s = $('#lpstat'); if (s) s.textContent = (dl ? 'Line ' : 'Part ') + (k + 1) + ' of ' + lines.length; });
       if (!box.isConnected || !$('#lpstat')) return;
       mark(-1); $('#lpstat').textContent = done ? 'Finished.' : '';
     };

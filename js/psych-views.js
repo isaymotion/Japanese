@@ -58,7 +58,7 @@
       '<p class="muted" style="margin-top:4px">Phrases for the psychiatric interview and MSE, ' + LANG.registerIntro + '.</p>' +
       '<div class="ptabs" role="tablist">' + TABS.map(([k, t]) => '<a role="tab" aria-selected="' + (k === tab) + '" class="' + (k === tab ? 'on' : '') + '" href="#/psych?tab=' + k + '">' + t + '</a>').join('') + '</div>' +
       (tab === 'interview' && hasNurse() ? '<div class="row" style="margin-top:12px;gap:10px;flex-wrap:wrap;align-items:center"><span class="muted small">I am a</span>' + App.roleSeg() + '</div>' : '') +
-      (tab === 'interview' && R === 'nurse' ? '<div class="notice warn" style="margin-top:12px">' + esc(NURSE_NOTICE) + '</div>' : '') +
+      (tab === 'interview' && R === 'nurse' ? '<div class="notice warn" style="margin-top:12px">' + esc(NURSE_NOTICE) + '</div><div class="row" style="margin-top:10px"><a class="btn sm" href="#/psych/handout?nursecard=1">Print the nurse pocket card</a></div>' : '') +
       (tab === 'interview' ? '<div class="notice info" style="margin-top:12px">Practice phrasings for training, not validated translations. Confirm wording with your supervisors and adapt to each patient. ' + esc(LANG.variety) + '</div>' : '') +
       body[tab];
     el.querySelectorAll('[data-role]').forEach((b) => (b.onclick = () => { S().settings.role = b.dataset.role; App.save(); V.psych(el, p, q); }));
@@ -127,9 +127,15 @@
     draw();
   };
 
+  /* Cases may be played as the ward nurse (role: 'nurse', 0.18.0): two groups, the nurse group first for the nurse role. */
+  const caseTile = (c) => '<a class="tile" href="#/psych/case/' + c.id + '"><div class="row"><span class="pill lv">' + esc(c.level) + '</span>' + (c.role === 'nurse' ? '<span class="pill">nurse</span>' : '') + (S().done.cases[c.id] != null ? '<span class="pill good">' + S().done.cases[c.id] + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(c.title) + '</h3><p>' + esc(c.setting) + '</p></a>';
+  const caseLQ = (c) => { const q = (window.LISTEN_Q || {})['case-' + c.id]; return Array.isArray(q) && q.length > 0; };
   V.psychCases = (el) => {
-    el.innerHTML = crumb([['Psychiatry', '#/psych'], ['Case simulations']]) + '<h1>Case simulations</h1>' + (PSYCH_CASES.length ? '' : soon('The case simulations')) + '<p class="muted">Read what the patient or family says, then choose your next line. You get feedback on each choice and a findings summary with an MSE at the end. For speaking practice, open the same case in <a href="#/speak">Speaking</a>.</p><div class="grid">' +
-      PSYCH_CASES.map((c) => '<a class="tile" href="#/psych/case/' + c.id + '"><div class="row"><span class="pill lv">' + esc(c.level) + '</span>' + (S().done.cases[c.id] != null ? '<span class="pill good">' + S().done.cases[c.id] + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(c.title) + '</h3><p>' + esc(c.setting) + '</p></a>').join('') + '</div>';
+    const doc = PSYCH_CASES.filter((c) => c.role !== 'nurse'), nur = PSYCH_CASES.filter((c) => c.role === 'nurse');
+    const groups = [['Played as the doctor', doc], ['Played as the nurse', nur]].filter((g) => g[1].length);
+    if (S().settings.role === 'nurse') groups.reverse();
+    el.innerHTML = crumb([['Psychiatry', '#/psych'], ['Case simulations']]) + '<h1>Case simulations</h1>' + (PSYCH_CASES.length ? '' : soon('The case simulations')) + '<p class="muted">Read what the patient or family says, then choose your next line. You get feedback on each choice and a findings summary with an MSE at the end. For speaking practice, open the same case in <a href="#/speak">Speaking</a>.</p>' +
+      (nur.length ? groups.map(([t, list]) => '<h2 style="margin-top:16px">' + t + '</h2><div class="grid">' + list.map(caseTile).join('') + '</div>').join('') : '<div class="grid">' + PSYCH_CASES.map(caseTile).join('') + '</div>');
   };
 
   V.psychCase = (el, p) => {
@@ -148,7 +154,7 @@
         body.innerHTML = '<div class="dlg">' + hist + '</div><div class="card stack" style="margin-top:16px"><div class="spread"><h2 style="margin:0">Case complete</h2><span class="pill ' + (pct >= 80 ? 'good' : pct >= 50 ? 'warn' : 'bad') + '">' + pct + '%</span></div>' +
           '<h3 style="margin:0">Key findings</h3><ul style="margin:0">' + c.summary.findings.map((f) => '<li>' + esc(f) + '</li>').join('') + '</ul>' +
           '<h3 style="margin:0">Mental status exam</h3><p style="margin:0">' + esc(c.summary.mse) + '</p>' +
-          '<div class="row"><button class="btn primary" id="again">Run the case again</button><a class="btn" href="#/speak/case-' + c.id + '">Practice speaking it</a><a class="btn" href="#/psych/cases">Other cases</a></div></div>';
+          '<div class="row"><button class="btn primary" id="again">Run the case again</button><a class="btn" href="#/speak/case-' + c.id + '">Practice speaking it</a>' + (caseLQ(c) ? '<a class="btn" href="#/listen?tab=story&id=case-' + encodeURIComponent(c.id) + '">' + (icons.ear || icons.sound || '') + ' Listening questions</a>' : '') + '<a class="btn" href="#/psych/cases">Other cases</a></div></div>';
         body.querySelector('#again').onclick = () => { i = 0; pts = 0; log.length = 0; draw(); };
         return;
       }
@@ -166,7 +172,7 @@
         const fb = el.querySelectorAll('.feedback'); if (fb.length) fb[fb.length - 1].scrollIntoView({ block: 'center' });
       }));
     };
-    el.innerHTML = crumb([['Psychiatry', '#/psych'], ['Cases', '#/psych/cases'], [c.title]]) + '<h1>' + esc(c.title) + '</h1><div class="notice info">' + esc(c.setting) + '</div><div id="cbody" style="margin-top:14px"></div>';
+    el.innerHTML = crumb([['Psychiatry', '#/psych'], ['Cases', '#/psych/cases'], [c.title]]) + '<h1>' + esc(c.title) + '</h1><div class="notice info">' + esc(c.setting) + '</div>' + (c.role === 'nurse' ? '<p class="small" style="margin:8px 0 0"><span class="pill">nurse</span> You are the ward nurse.</p>' : '') + '<div id="cbody" style="margin-top:14px"></div>';
     draw();
   };
 

@@ -8,6 +8,26 @@
   const ref = (r) => { const [sid, i] = r.split(':'); const s = PSYCH_SECTIONS.find((x) => x.id === sid); return s && s.phrases[+i]; };
   const main = (p) => (S().settings.register === 'c' ? p.c || p.f : p.f);
   const alt = (p) => (S().settings.register === 'c' ? p.f : p.c);
+  /* Nurse view (0.18.0): discharge-day teaching by the ward nurse, behind the same Resident / Nurse switch
+     (settings.role) as the substance use tool. Lines are { tl (polite), c (plain), en, n? } from PSYCH_NURSE_TOOLS. */
+  const NT = () => (window.PSYCH_NURSE_TOOLS || {}).discharge;
+  const hasNT = () => !!(NT() && (NT().steps || []).length);
+  const isNurse = () => S().settings.role === 'nurse' && hasNT();
+  const nMain = (p) => (S().settings.register === 'c' ? p.c || p.tl : p.tl);
+  const nAlt = (p) => (S().settings.register === 'c' ? p.tl : p.c);
+  const nLine = (p, showEn) => '<div class="dz-line"><div><div class="tl dz-tl">' + esc(nMain(p)) + '</div>' + (nAlt(p) && nAlt(p) !== nMain(p) ? '<div class="tl small muted">' + esc(nAlt(p)) + '</div>' : '') +
+    (showEn ? '<div class="small muted">' + esc(p.en) + '</div>' : '') + (p.n ? '<div class="nt-n">' + esc(p.n) + '</div>' : '') + '</div>' + App.sayBtn(nMain(p)) + '</div>';
+  const roleRow = (nurse) => '<div class="row nt-row"><div class="seg" role="group" aria-label="Role"><button class="' + (!nurse ? 'on' : '') + '" data-role="resident" aria-pressed="' + !nurse + '">Resident</button><button class="' + (nurse ? 'on' : '') + '" data-role="nurse" aria-pressed="' + nurse + '">Nurse</button></div>' +
+    (nurse ? '<div class="seg" role="group" aria-label="Register">' + [['f', LANG.registers.f.short], ['c', LANG.registers.c.short]].map(([k, t]) => '<button data-nreg="' + k + '" class="' + ((S().settings.register || 'f') === k ? 'on' : '') + '" aria-pressed="' + ((S().settings.register || 'f') === k) + '">' + t + '</button>').join('') + '</div>' +
+      '<label class="ho-chk"><input type="checkbox" id="ntEn"' + (S().settings.nurseEn !== false ? ' checked' : '') + '> <span>English</span></label>' : '') + '</div>';
+  const nurseView = () => {
+    const d = NT(), showEn = S().settings.nurseEn !== false;
+    return '<p class="muted">Discharge-day teaching by the ward nurse: belongings, medicines with teach-back, the next appointment, warning signs, and the family. The discharge summary fields are in the Resident view.</p>' +
+      '<div class="notice">' + esc(d.notice) + '</div><div class="stack" style="margin-top:12px">' +
+      d.steps.map((s, i) => '<div class="card dz-step nt-step"><h2 style="margin:0 0 6px">' + (i + 1) + '. ' + esc(s.title) + '</h2><div class="stack" style="gap:6px">' + s.lines.map((p) => nLine(p, showEn)).join('') + '</div></div>').join('') + '</div>' +
+      '<div class="notice info" style="margin-top:12px"><b>Escalate.</b> ' + esc(d.escalate) + '</div>' +
+      '<p style="margin-top:12px"><a class="btn sm" href="#/psych/handout?nursecard=1">Nurse pocket card (print) →</a></p>';
+  };
   const KIND = { observe: 'Mostly observe', ask: 'Ask and observe', explain: 'Explain and confirm', sign: 'Sign' };
 
   V.discharge = (el) => {
@@ -70,7 +90,7 @@
           '</div>' + App.sayBtn(main(p)) + '</div>').join('') + '</div></div>' : '') +
         (f.kind === 'sign' ? '<div class="notice info">Sign the paper form. The summary leaves a line for the name and license number.</div>' :
           '<div><div class="eyebrow" style="margin-bottom:6px">Document</div>' +
-          (f.id === 'mood' ? '<label class="small" for="dsQuote">Patient\'s own words (' + LANG.name + ', with translation)</label><input class="input" id="dsQuote" placeholder="e.g., Ya estoy mejor (I\'m better now)" value="' + esc(r.quote) + '" style="margin-bottom:8px">' : '') +
+          (f.id === 'mood' ? '<label class="small" for="dsQuote">Patient\'s own words (' + LANG.name + ', with translation)</label><input class="input" id="dsQuote" placeholder="e.g., もう 大丈夫 です (I\'m better now)" value="' + esc(r.quote) + '" style="margin-bottom:8px">' : '') +
           '<div class="ds-picks">' + f.picks.map((p, k) => '<button class="ds-pick' + (r.picks.has(p) ? ' on' : '') + (/reassess/i.test(p) ? ' risk' : '') + '" data-pick="' + k + '" aria-pressed="' + r.picks.has(p) + '">' + esc(p) + '</button>').join('') + '</div>' +
           '<label class="small" for="dsText" style="display:block;margin-top:8px">Details (optional)</label><textarea class="input" id="dsText" rows="2" placeholder="Add details, e.g., dose or specifics">' + esc(r.text) + '</textarea>' +
           '<div class="ds-preview small"><b>' + esc(f.label) + ':</b> <span id="dsVal">' + esc(value(f) || '—') + '</span></div></div>') +
@@ -84,12 +104,18 @@
     const draw = () => {
       el.innerHTML = '<div class="breadcrumb"><a href="#/psych">Psychiatry</a> / Discharge assessment</div><h1>Discharge assessment</h1>' +
         (inst.name ? '<p class="dz-inst"><b>' + esc(inst.name) + '</b><br><span class="muted small">Discharge Summary' + (D.form ? ' · Form ' + esc(D.form) : '') + '</span></p>' : '') +
+        (hasNT() ? roleRow(isNurse()) : '') + (isNurse() ? nurseView() :
         '<p class="muted">Go through the discharge summary one field at a time: what to assess, what to ask in ' + LANG.name + ', and how to document it. Nothing here is saved, and no patient details are needed.</p>' +
         ((window.PSYCH_DISCHARGE_CASES || []).length ? '<p><a class="btn sm" href="#/psych/dcases">Practice first with a simulated patient →</a></p>' : '') +
-        nav() + '<div style="margin-top:12px">' + (cur < F.length ? fieldView(F[cur], cur) : summaryView()) + '</div>';
+        nav() + '<div style="margin-top:12px">' + (cur < F.length ? fieldView(F[cur], cur) : summaryView()) + '</div>');
       bind();
     };
+    const keep = (fn) => { const y = window.scrollY; fn(); window.scrollTo(0, y); };
     const bind = () => {
+      el.querySelectorAll('[data-role]').forEach((b) => (b.onclick = () => { S().settings.role = b.dataset.role; App.save(); App.stopSpeech(); keep(draw); }));
+      el.querySelectorAll('[data-nreg]').forEach((b) => (b.onclick = () => { S().settings.register = b.dataset.nreg; App.save(); keep(draw); }));
+      const ne = el.querySelector('#ntEn'); if (ne) ne.onchange = () => { S().settings.nurseEn = ne.checked; App.save(); keep(draw); };
+      if (isNurse()) return;
       el.querySelectorAll('[data-go]').forEach((b) => (b.onclick = () => { const n = +b.dataset.go; if (n < 0 || n > F.length) return; cur = n; App.stopSpeech(); draw(); const top = el.querySelector('.ds-field, #dsSum').getBoundingClientRect().top + window.scrollY - 80; if (window.scrollY > top) window.scrollTo(0, top); }));
       const f = F[cur];
       if (cur < F.length && f.kind !== 'sign') {
