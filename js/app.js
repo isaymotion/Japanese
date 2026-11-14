@@ -417,7 +417,10 @@
   function bkSummary(data) {
     let s = null; try { s = data && data.v1 ? JSON.parse(data.v1) : null; } catch (e) {}
     if (!s || typeof s !== 'object') return t('backup.nothing');
-    return tf('backup.sum', { cards: Object.keys(s.srs || {}).length, lessons: Object.keys((s.done && s.done.lessons) || {}).length, xp: +s.xp || 0 });
+    const done = (s.done && typeof s.done === 'object') ? s.done : {};
+    // Practice scores (0.19.0): one per deck/mode, listening set or numbers group with a best result; old backups have none.
+    const n = ['vocab', 'listen2', 'numbers'].reduce((a, k) => a + (done[k] && typeof done[k] === 'object' ? Object.keys(done[k]).filter((x) => done[k][x] != null).length : 0), 0);
+    return tf('backup.sum', { cards: Object.keys(s.srs || {}).length, lessons: Object.keys(done.lessons || {}).length, xp: +s.xp || 0 }) + (n ? tf('backup.sumPractice', { n }) : '');
   }
   function bkDate(v) {
     const d = new Date(v);

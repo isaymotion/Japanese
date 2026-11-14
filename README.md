@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.18.0** (2026-11-14): the learn track with kanji study and stroke order, vocabulary and listening practice, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.19.0** (2026-11-14): the learn track with kanji study and stroke order, vocabulary and listening practice, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -39,6 +39,7 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Nurse-side practice** (0.18.0) | Case simulations played as the ward nurse (`role: 'nurse'` in `js/data/psych-cases-4.js`), nurse scripts in De-escalation and Discharge (`js/data/psych-nurse-tools.js`, Resident / Nurse switch), nurse pocket card (`#/psych/handout?nursecard=1`, A6). Pending Nursing Service review. |
 | **New presentations** (0.18.0) | Simulations for OCD, PTSD, panic disorder and a 14-year-old not going to school, with her mother (`js/data/psych-cases-5.js`). |
 | **Listening on cases, Progress scores** (0.18.0) | Questions on all 15 case simulations in Listening → Dialogues and readings (`js/data/listen-questions-2.js`, keys `case-<id>`); practice scores on the Progress page. |
+| **New-patient cases, more nurse scripts** (0.19.0) | First-visit MSE cases for Takumi, Mariko, Daiki and Hinata (`js/data/psych-mse-cases-6.js`), Daiki's ED discharge (`psych-discharge-cases-6.js`); nurse views in the Mood checker and the MSE interviewer sheet (`psych-nurse-tools-2.js`, shared helper `js/nurse-script.js`); 44 nurse-section replies (`psych-answers-6.js`); 10 more topic sets (`topic-sets-2.js`); practice scores in the backup summary. |
 | **Reading** | 24 graded passages (Starter 2, N5 4, N4 7, N3 11) with translations, glossaries and questions, a level filter and a Print button; 15 are clinical, including a letter with keigo, a casual chat, nursing notes in chart style and a formal ward notice. |
 | **Speaking** | 16 dialogues (Starter 1, N5 6, N4 3, N3 6) with a level filter and Listen, Shadow and Role-play modes, speech recognition where the browser has it, and record-and-compare. |
 | **Placement test** | 25 questions from the kana to N3 that point to the right unit to start. |

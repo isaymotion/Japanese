@@ -65,9 +65,15 @@
     return 'MDQ ' + yes + '/13 yes' + (ans < 13 ? ' (' + (13 - ans) + ' unanswered)' : '') + (st.mdqSame ? ', same period: ' + st.mdqSame : '') + (st.mdqProb ? ', problem: ' + st.mdqProb : '') + ' → ' + (ans === 13 && st.mdqSame && st.mdqProb ? (pos ? 'positive screen' : 'negative screen') : 'incomplete') + '.';
   }
 
+  /* Nurse view (0.19.0): what the ward nurse asks and watches each day, behind the shared Resident / Nurse switch
+     (js/nurse-script.js, data PSYCH_NURSE_TOOLS.mood). Shows only when that data has steps. */
+  const NS = App.nurseScript('mood', { intro: 'What the ward nurse asks and watches each day, and when to tell the doctor. The episode criteria, PHQ-9 and MDQ are in the Resident view.' });
+
   const copyBtn = (id) => '<button class="btn sm primary" data-copy="' + id + '">Copy chart line</button>';
 
   function render(el) {
+    const head = crumb([['Psychiatry', '#/psych'], ['Mood episode']]) + '<span class="eyebrow">Checker · DSM-5-TR</span><h1>Mood episode</h1>' + NS.row();
+    if (NS.on()) { el.innerHTML = head + NS.view(); NS.bind(el, () => render(el)); return; }
     const d = D(); const showEn = S().settings.moodEn !== false;
     let body = '';
     if (st.tab === 'mde') {
@@ -118,12 +124,13 @@
         '<div class="sd-result card" style="margin-top:12px"><p><b>' + esc(mdqLine() || 'MDQ: not started.') + '</b></p><textarea class="input" id="mdqNote" rows="2" style="font-family:ui-monospace,Menlo,monospace;font-size:.85rem">' + esc(mdqLine()) + '</textarea><div class="row" style="margin-top:8px">' + copyBtn('mdqNote') + '<button class="btn sm" data-tab="man">← Back to DIGFAST</button></div></div></div>';
     }
 
-    el.innerHTML = crumb([['Psychiatry', '#/psych'], ['Mood episode']]) + '<span class="eyebrow">Checker · DSM-5-TR</span><h1>Mood episode</h1>' +
+    el.innerHTML = head +
       '<p class="muted">Tap through the criteria for a major depressive episode (depressed mood + SIGECAPS) and a manic or hypomanic episode (elevated, expansive or irritable mood + DIGFAST) in ' + LANG.name + ', then score the PHQ-9 or MDQ. Answers stay on this screen and are cleared when you leave.</p>' +
       '<div class="row" style="flex-wrap:wrap;gap:10px;margin-bottom:12px"><div class="seg" role="group" aria-label="Section">' + [['mde', 'Depressed mood'], ['man', 'Elevated / irritable'], ['phq', 'PHQ-9'], ['mdq', 'MDQ']].map(([k, t]) => '<button class="' + (st.tab === k ? 'on' : '') + '" data-tab="' + k + '">' + t + '</button>').join('') + '</div>' +
       '<label class="ho-chk"><input type="checkbox" id="mdEn"' + (showEn ? ' checked' : '') + '> <span>English</span></label></div>' + body +
       '<div class="notice info" style="margin-top:12px">Criteria paraphrased from DSM-5-TR (depressive and bipolar disorders). Episode criteria are one step; the diagnosis (major depressive disorder, bipolar I or II, other) also needs the history of past episodes and the exclusions. ' + LANG.name + ' lines are practice phrasings, not validated translations; the PHQ-9 and MDQ items here are interview paraphrases for training, not the instruments. <b>Sources:</b> PHQ-9 by Kroenke, Spitzer and Williams (2001), free to use, with a published Japanese version; MDQ by Hirschfeld et al. (2000), © University of Texas Medical Branch, free for clinical and educational use, a screen and not a diagnosis. When the score goes in the chart, administer the published Japanese version of the instrument; paraphrased items do not carry its cut-offs. ' + LANG.interpreter + '</div>';
 
+    NS.bind(el, () => render(el));
     el.querySelectorAll('[data-tab]').forEach((b) => (b.onclick = () => { st.tab = b.dataset.tab; render(el); window.scrollTo(0, 0); }));
     el.querySelectorAll('[data-tab-link]').forEach((b) => (b.onclick = (e) => { e.preventDefault(); st.tab = b.dataset.tabLink; render(el); window.scrollTo(0, 0); }));
     el.querySelectorAll('[data-yn]').forEach((b) => (b.onclick = () => { const k = b.dataset.yn, n = +b.dataset.n, v = b.dataset.v === '1'; const o = st[k]; if (o[n] === v) delete o[n]; else o[n] = v; render(el); }));

@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.19.0', date: '2026-11-14', title: 'Practice cases for the new patients, nurse scripts in two more tools',
+    items: [
+      { type: 'content', text: 'Admission MSE practice: four first-visit cases (12 in all) for the patients added in 0.18.0: Takumi Kobayashi (OCD, clinic), Mariko Inoue (after a car crash, clinic), Daiki Okada (panic attacks, emergency department) and Hinata Matsumoto, 14, with her mother (child and adolescent clinic).' },
+      { type: 'content', text: 'Discharge practice: Daiki Okada leaving the emergency department the same night (nine cases in all).' },
+      { type: 'feature', text: 'Nurse view in the Mood episode checker (watching mood on the ward, and when to tell the doctor) and in the MSE interviewer sheet (the nursing admission interview). Pending Nursing Service review.' },
+      { type: 'content', text: '44 more likely patient replies for the six nurse sections, in the voices of the nurse case simulations: on the point board and in the listening drill.' },
+      { type: 'content', text: 'Topic matching: 10 more sets (24 in all): mind and mood, the ward day, people in the hospital, tests and checks, daily care, weather, getting around, work and school, clothes, hobbies.' },
+      { type: 'update', text: 'The backup summary now also counts your practice scores from the vocabulary, listening and numbers pages.' }
+    ]
+  },
+  {
     version: '0.18.0', date: '2026-11-14', title: 'Nurse-side practice, new patients, more example sentences',
     items: [
       { type: 'content', text: 'Seven new case simulations (15 in all). Played as the ward nurse: Shota arriving on the ward with his mother, Ren refusing his evening medicine, Tetsuo at night in alcohol withdrawal. New patients, played as the doctor: Takumi Kobayashi (washing and checking, OCD), Mariko Inoue (after a car crash, PTSD), Daiki Okada (panic attacks, in the emergency department) and Hinata Matsumoto, 14, with her mother (not going to school). The case list now shows the doctor and nurse cases in two groups.' },
