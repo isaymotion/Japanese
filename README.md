@@ -6,7 +6,7 @@
 
 **App created by Isabella Navarro, MD. Latest version November 2026. isaymotion@gmail.com**
 
-Version **0.17.0** (2026-11-14): the learn track with kanji study and stroke order, vocabulary and listening practice, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
+Version **0.18.0** (2026-11-14): the learn track with kanji study and stroke order, vocabulary and listening practice, the full interview, case simulations, the clinical tools and printable handouts. All Japanese is a **draft for review** by a native Japanese-speaking clinician.
 
 ## Reading aids
 
@@ -33,9 +33,12 @@ Romaji follows the kana spelling (*ou*, *ei*, *uu*), with a macron only for the 
 | **Dictionary** | About 3,560 words with furigana (N5 about 700, N4 about 730, N3 about 1,640, clinical and advanced about 500), including every example word on the kanji pages, 72 N3 grammar patterns and ward and chart vocabulary. Search in kanji, kana, romaji or English; filter by topic, JLPT level or kana row. Verb and adjective entries show their conjugation. |
 | **Flashcards** | Spaced repetition. Decks by topic, by JLPT level, by kanji level, by psychiatry section, and an automatic "My mistakes" deck. The back of a kanji card has a Stroke order button; the back of a vocabulary card has one button for each kanji in the word (0.15.0). |
 | **Vocabulary quiz** (0.17.0) | `#/vocab`: any deck (level, topic, clinical, My mistakes) in three modes: Meaning, Recall, Reading (kanji without furigana → choose the kana). Matching (`?tab=match`): 14 topic sets, tap a sound then its meaning. Data `js/data/topic-sets.js`. |
-| **Example sentences** (0.17.0) | 802 dictionary words (all N5, the most useful N4) have an example sentence on the word page and on the back of the word card. Data `js/data/examples-1..4.js`, keyed by the dictionary line's first two fields. |
+| **Example sentences** (0.17.0) | 2,564 dictionary words (all N5, N4 and N3 words except risk words; 0.18.0 added 1,762) have an example sentence on the word page and on the back of the word card. Data `js/data/examples-1..14.js`, keyed by the dictionary line's first two fields. |
 | **Listening practice** (0.17.0) | `#/listen`: Hear (words, or lesson and example sentences, by level and speed), Dictation (kana tiles or typing in kana or romaji), Sound pairs (104 pairs, `js/data/sound-pairs.js`), Dialogues and readings (3 questions each on all 40, `js/data/listen-questions.js`). |
 | **Numbers and counters** (0.17.0) | `#/numbers`: 21 tables with sound changes marked, a Read / Listen quiz, and 40 clinic sentences to catch the number in. Data `js/data/counters.js`. |
+| **Nurse-side practice** (0.18.0) | Case simulations played as the ward nurse (`role: 'nurse'` in `js/data/psych-cases-4.js`), nurse scripts in De-escalation and Discharge (`js/data/psych-nurse-tools.js`, Resident / Nurse switch), nurse pocket card (`#/psych/handout?nursecard=1`, A6). Pending Nursing Service review. |
+| **New presentations** (0.18.0) | Simulations for OCD, PTSD, panic disorder and a 14-year-old not going to school, with her mother (`js/data/psych-cases-5.js`). |
+| **Listening on cases, Progress scores** (0.18.0) | Questions on all 15 case simulations in Listening → Dialogues and readings (`js/data/listen-questions-2.js`, keys `case-<id>`); practice scores on the Progress page. |
 | **Reading** | 24 graded passages (Starter 2, N5 4, N4 7, N3 11) with translations, glossaries and questions, a level filter and a Print button; 15 are clinical, including a letter with keigo, a casual chat, nursing notes in chart style and a formal ward notice. |
 | **Speaking** | 16 dialogues (Starter 1, N5 6, N4 3, N3 6) with a level filter and Listen, Shadow and Role-play modes, speech recognition where the browser has it, and record-and-compare. |
 | **Placement test** | 25 questions from the kana to N3 that point to the right unit to start. |

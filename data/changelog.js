@@ -3,6 +3,19 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.18.0', date: '2026-11-14', title: 'Nurse-side practice, new patients, more example sentences',
+    items: [
+      { type: 'content', text: 'Seven new case simulations (15 in all). Played as the ward nurse: Shota arriving on the ward with his mother, Ren refusing his evening medicine, Tetsuo at night in alcohol withdrawal. New patients, played as the doctor: Takumi Kobayashi (washing and checking, OCD), Mariko Inoue (after a car crash, PTSD), Daiki Okada (panic attacks, in the emergency department) and Hinata Matsumoto, 14, with her mother (not going to school). The case list now shows the doctor and nurse cases in two groups.' },
+      { type: 'feature', text: 'Nurse scripts in the De-escalation and Discharge tools: the Resident / Nurse switch now also shows what the nurse says when calling the doctor on duty, asking the team for help, talking with the patient and the other patients afterwards, and on discharge day (belongings, medicines with teach-back, the next appointment, warning signs, family). Pending Nursing Service review.' },
+      { type: 'feature', text: 'Nurse pocket card: a printable A6 card (three sides) with the most used phrases of the six nurse sections. Print it from Psychiatry → Interview (Nurse view), the nurse tool pages or the handout builder.' },
+      { type: 'feature', text: 'Listening practice → Dialogues and readings now includes all 15 case simulations (69 questions): hear the interview and answer questions about it. The case result page links to them.' },
+      { type: 'feature', text: 'Progress page: practice scores for the vocabulary quiz, topic matching, listening, numbers and counters, case simulations and the admission and discharge practice.' },
+      { type: 'content', text: 'Example sentences for 1,762 more dictionary words: every N4 and N3 word now has one (2,564 in all), except words about risk, which are left out on purpose.' },
+      { type: 'content', text: 'Dictionary: 113 new words. Trainer: 71 more verbs (475) and 41 more adjectives (294). The \'make someone swallow\' and \'make someone sign\' forms are not shown.' },
+      { type: 'correction', text: 'A leftover Spanish example in the discharge assessment\'s mood field is now Japanese.' }
+    ]
+  },
+  {
     version: '0.17.0', date: '2026-11-14', title: 'Vocabulary quiz, listening practice, numbers and counters',
     items: [
       { type: 'feature', text: 'Vocabulary quiz (Practice, and Drills in the menu): choose any deck (a JLPT level, a topic, the clinical vocabulary or My mistakes) and a mode: Meaning (Japanese to English), Recall (English to Japanese) or Reading (the word in kanji without furigana; choose its reading in kana). 10 or 20 questions, best score per mode; misses go to My mistakes.' },
