@@ -30,7 +30,7 @@ const sp = ctx.SOUND_PAIRS || { guide: [], items: [] }, types = new Set((sp.guid
   if (it[1] === it[3]) errs.push('pair with the same word twice: ' + it[1]);
   const a = ctx.JA.speak(it[1]), b = ctx.JA.speak(it[3]); const k = [a, b].sort().join('/'); if (pairSeen.has(k)) errs.push('pair twice: ' + k); pairSeen.add(k);
   const ka = ctx.JA.compact(ctx.JA.kana(it[1])), kb = ctx.JA.compact(ctx.JA.kana(it[3])); if (ka === kb) errs.push('pair sounds the same: ' + it[1] + ' / ' + it[3]); });
-const ids = new Set([...(ctx.DIALOGUES || []).map((d) => d.id), ...(ctx.READING || []).map((r) => r.id)]);
+const ids = new Set([...(ctx.DIALOGUES || []).map((d) => d.id), ...(ctx.READING || []).map((r) => r.id), ...(ctx.PSYCH_CASES || []).map((c) => 'case-' + c.id)]);
 const lq = ctx.LISTEN_Q || {};
 Object.entries(lq).forEach(([id, qs]) => { if (!ids.has(id)) errs.push('listen questions for unknown id ' + id);
   qs.forEach((q, i) => { if (q.length < 4 || !Array.isArray(q[1]) || !(q[2] >= 0 && q[2] < q[1].length)) errs.push(id + ' q' + i + ' shape or answer index');

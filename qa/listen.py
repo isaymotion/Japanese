@@ -141,7 +141,7 @@ def run(p, name, vp, scheme):
     if os.path.exists(DRAFT_Q): pg.add_script_tag(path=DRAFT_Q)
     else: pg.evaluate("window.LISTEN_Q={hajimemashite:[['Q?',['a','b','c'],0,'why']]}")
     go('#/listen?tab=home'); go('#/listen?tab=story'); pg.wait_for_timeout(300)
-    print(name, 'story tiles', pg.locator('#lpbody .tile').count(), 'expected', pg.evaluate("Object.keys(LISTEN_Q).filter(k=>LISTEN_Q[k].length&&(DIALOGUES.some(d=>d.id===k)||READING.some(r=>r.id===k))).length"), 'h2', pg.evaluate("[...document.querySelectorAll('#lpbody h2')].map(h=>h.dataset.en||h.textContent)"))
+    print(name, 'story tiles', pg.locator('#lpbody .tile').count(), 'expected', pg.evaluate("Object.keys(LISTEN_Q).filter(k=>LISTEN_Q[k].length&&(DIALOGUES.some(d=>d.id===k)||READING.some(r=>r.id===k)||PSYCH_CASES.some(c=>'case-'+c.id===k))).length"), 'h2', pg.evaluate("[...document.querySelectorAll('#lpbody h2')].map(h=>h.dataset.en||h.textContent)"))
     check('story list'); pg.screenshot(path=f'{OUT}/listen_story_list_{name}.png', full_page=True)
     ids = pg.evaluate("[...new Set([...document.querySelectorAll('#lpbody .tile')].map(a=>new URLSearchParams(a.getAttribute('href').split('?')[1]).get('id')))]")
     dlg = pg.evaluate("ids=>ids.find(i=>DIALOGUES.some(d=>d.id===i))", ids)

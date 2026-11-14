@@ -28,6 +28,10 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 - Shigeru Yamada's two new cases (0.16.0) were placed on a medical ward with the psychiatry liaison team, because his simulation and nursing notes are set on a medical floor: delirium from a urinary tract infection with dehydration, his sleeping pill tapered and stopped, no antipsychotic, home to his daughter's house on day 8 with a memory assessment about three months later. This was decided in the build; please confirm.
 - 14 Nov (after midnight): after confirming the 0.16.0 recording, she chose more vocabulary and listening practice, all eight items offered (done in 0.17.0, published 14 Nov): a vocabulary quiz, numbers and counters, an example sentence for each core word, topic matching; a listening drill for the whole course, dictation with kana tiles, a sound-pair drill, questions on the dialogues and readings.
 - 14 Nov (late morning): after a clean re-check of 0.17.0, she chose all eight items offered for the next build (0.18.0, not started): nurse-side case simulations, a printable nurse pocket card, nurse scripts in the de-escalation and discharge tools, new patients or presentations as simulations; more example sentences (the remaining N4 and N3 words), vocabulary, listening and numbers scores on the Progress page, listening questions over Chiyoko's family-interview simulation, and more trainer words through new dictionary entries.
+- 14 Nov (afternoon): she said "Push to repo when done"; 0.18.0 was built and published the same day.
+- New patients (0.18.0), decided by the main chat for the "new presentations" item: an OCD outpatient (Takumi Kobayashi, 34), PTSD after a car crash (Mariko Inoue, 42), panic attacks in the emergency department (Daiki Okada, 27) and a 14-year-old not going to school, seen with her mother (Hinata Matsumoto). They contrast with the eight existing patients (no anxiety-spectrum or child and adolescent case before). Each has a simulation only; admission or discharge cases were not made because they are mostly outpatients.
+- Nurse simulations (0.18.0) use existing patients so the stories join up: Shota arriving on the ward on his admission evening, Ren on day 3 refusing his evening medicine, Tetsuo on his second night in withdrawal. The learner plays the nurse Kimura; anything beyond nursing is passed to the doctor.
+- Trainer (0.18.0): new words came only from the 113 new dictionary entries. Left out or hidden for patients' sake: to shave (an order about grooming, and razors), to massage (touch), and the "make someone swallow" and "make someone sign" forms.
 - Example sentences (0.17.0): 802 words have one: every N5 noun, verb, adjective and adverb (472) and 330 N4 words, chosen health, hospital, feelings, mind, body, medicine, family and people first. Risk words were not given sentences in this round. Sentences keep to the word's level (N5 grammar for N5 words).
 - Sound pairs (0.17.0): no pitch-accent pairs, because the machine voice cannot be trusted for pitch. Only common words; the youon set is small (8) because there are few real common pairs.
 - Numbers and counters (0.17.0): the clinic sentences count tablets (錠) only as "the doctor told me to take one after dinner"; no medicine names or strengths.
@@ -115,6 +119,13 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Numbers and counters (`#/numbers`): 21 tables with sound changes, a quiz, and 40 clinic sentences.
   - The 998 new lines were recorded automatically in 80 seconds; the voice pack is now 20,308 clips.
 
+- **0.18.0** (published 14 Nov) — nurse-side practice, new patients, more words.
+  - Seven new case simulations (15 in all). As the ward nurse: Shota arriving on the ward, Ren refusing his evening medicine, Tetsuo at night in alcohol withdrawal. New patients as the doctor: Takumi (OCD), Mariko (PTSD after a car crash), Daiki (panic attacks, emergency department), Hinata, 14, with her mother (not going to school).
+  - Nurse scripts in De-escalation (calling the doctor on duty, asking the team for help, talking with the patient and the other patients afterwards) and Discharge (belongings, medicines with teach-back, the next appointment, warning signs, family). Printable nurse pocket card (A6, three sides). Pending Nursing Service review.
+  - Listening questions on all 15 simulations (69). Progress page: practice scores.
+  - Example sentences for 1,762 more words (2,564 in all: every N5, N4 and N3 word except risk words). Dictionary +113 words; trainer +71 verbs (475) and +41 adjectives (294).
+  - The 4,002 new lines were recorded automatically in about six minutes; the voice pack is now 24,310 clips.
+
 ## Sister apps
 - The phone-menu fault found in Hanashimashō 0.12.0 was also in the three sister apps, because they share the engine. The same one-rule fix is live since 13 Nov 2026: Usap Tayo 3.1.2, Hablemos 0.6.1, Mag-istorya Kita (Aklanon) 0.1.3. Each was tested at three screen sizes before the push, and each app's own handoff has a note.
 
@@ -188,6 +199,7 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Still open between older files: Shigeru's evening restlessness starts "about five" in the handover dialogue and "about seven" in the nursing notes; his simulation says mood was not assessed.
   - Wording for a native-speaking clinician or nurse is listed in the handoff (section 7).
 
+- 0.18.0. Please read the seven new simulations once. Points decided in the build: the four new patients' facts (see the handoff, section 7); Shota's voice telling him to leave the ward (the nurse tells the doctor at once); Ren's refusal is respected, recorded and reported, with the honest line that refusing is not a reason to be held down and injected; Tetsuo's night stops at early warning signs with the doctor called; Hinata is seen alone with the limits of confidentiality explained ("if you or someone else is in danger … we would talk first about who needs to know"); her wish to disappear is followed up directly (no wish to die, no self-harm). Wording for a native speaker is listed in the handoff (section 7).
 - 0.17.0. Please check: the main readings in the numbers tables (alternatives are in each table's note); the clinic number sentences; that a pet's death is an acceptable example for 死ぬ (to die). Wording for a native speaker is listed in the handoff (section 7).
 
 ## Status
@@ -213,4 +225,4 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 7. Read the five new 0.15.0 cases once (Psychiatry → Admission MSE practice: Yumiko, Tetsuo, Chiyoko; Discharge practice: Daisuke, Chiyoko) and say whether the clinical choices above are right, especially Chiyoko's risperidone plan and Daisuke's confidentiality answer.
 8. Read the 0.16.0 points above, and ask the Nursing Service to review the six nurse sections (Psychiatry → Interview → Nurse).
 10. Try the three new 0.17.0 pages on a phone (Practice → Vocabulary quiz, Listening practice, Numbers and counters).
-9. Next build (0.18.0, chosen 14 Nov): nurse-side case simulations, a nurse pocket card, nurse scripts in De-escalation and Discharge, new presentations as simulations, more example sentences, scores on the Progress page, listening questions on Chiyoko's simulation, more trainer words.
+9. 0.18.0 (published 14 Nov): read the seven new simulations once (Psychiatry → Case simulations), print the nurse pocket card, and ask the Nursing Service to review the nurse scripts in De-escalation and Discharge with the six nurse sections.
