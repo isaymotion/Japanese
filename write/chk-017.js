@@ -30,12 +30,13 @@ const sp = ctx.SOUND_PAIRS || { guide: [], items: [] }, types = new Set((sp.guid
   if (it[1] === it[3]) errs.push('pair with the same word twice: ' + it[1]);
   const a = ctx.JA.speak(it[1]), b = ctx.JA.speak(it[3]); const k = [a, b].sort().join('/'); if (pairSeen.has(k)) errs.push('pair twice: ' + k); pairSeen.add(k);
   const ka = ctx.JA.compact(ctx.JA.kana(it[1])), kb = ctx.JA.compact(ctx.JA.kana(it[3])); if (ka === kb) errs.push('pair sounds the same: ' + it[1] + ' / ' + it[3]); });
-const ids = new Set([...(ctx.DIALOGUES || []).map((d) => d.id), ...(ctx.READING || []).map((r) => r.id), ...(ctx.PSYCH_CASES || []).map((c) => 'case-' + c.id)]);
+const ids = new Set([...(ctx.DIALOGUES || []).map((d) => d.id), ...(ctx.READING || []).map((r) => r.id), ...(ctx.PSYCH_CASES || []).map((c) => 'case-' + c.id),
+  ...(ctx.PSYCH_MSE_CASES || []).map((c) => 'mse-' + c.id), ...(ctx.PSYCH_DISCHARGE_CASES || []).map((c) => 'dis-' + c.id)]);   // 0.20.0: mse-<id>, dis-<id>
 const lq = ctx.LISTEN_Q || {};
 Object.entries(lq).forEach(([id, qs]) => { if (!ids.has(id)) errs.push('listen questions for unknown id ' + id);
   qs.forEach((q, i) => { if (q.length < 4 || !Array.isArray(q[1]) || !(q[2] >= 0 && q[2] < q[1].length)) errs.push(id + ' q' + i + ' shape or answer index');
     if (/[぀-ヿ㐀-鿿]/.test(q[0] + q[1].join(''))) warn.push(id + ' q' + i + ' has Japanese in the question or options (needs furigana)'); }); });
-const missingQ = [...ids].filter((id) => !lq[id]); if (Object.keys(lq).length) warn.push('dialogues/readings without questions: ' + missingQ.join(', '));
+const missingQ = [...ids].filter((id) => !lq[id] && !/^(mse|dis)-/.test(id)); if (Object.keys(lq).length) warn.push('dialogues/readings without questions: ' + missingQ.join(', '));
 const jc = ctx.JA_COUNTERS || { groups: [] }, gid = new Set();
 (jc.groups || []).forEach((g) => { if (gid.has(g.id)) errs.push('counter group twice: ' + g.id); gid.add(g.id);
   (g.rows || []).forEach((r, i) => { if (!r[0] || !r[1]) errs.push(g.id + ' row ' + i + ' shape'); });
