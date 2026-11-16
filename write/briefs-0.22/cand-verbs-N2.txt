@@ -1,0 +1,118 @@
+超《こ》える | to exceed; to go beyond | v1 | verbs | N2
+超過《ちょうか》する | excess; to exceed | vs | numbers | N2
+復帰《ふっき》する | return (to work or school); comeback | vs | society | N2
+採尿《さいにょう》する | urine collection | vs | hospital | N2
+移植《いしょく》する | transplant; to transplant | vs | hospital | N2
+欠航《けっこう》する | cancelled flight; to cancel a flight | vs | travel | N2
+講義《こうぎ》する | lecture | vs | money | N2
+省《はぶ》く | to omit; to save (effort) | v5 | verbs | N2
+編集《へんしゅう》する | editing | vs | society | N2
+設定《せってい》する | setting; to set up | vs | society | N2
+設《もう》ける | to set up; to establish | v1 | verbs | N2
+述《の》べる | to state; to express | v1 | verbs | N2
+記述《きじゅつ》する | description; to describe | vs | society | N2
+前述《ぜんじゅつ》する | the above-mentioned; to mention earlier | vs | society | N2
+導入《どうにゅう》する | introduction; adoption | vs | society | N2
+導《みちび》く | to guide; to lead | v5 | verbs | N2
+補助《ほじょ》する | assistance; support | vs | society | N2
+補《おぎな》う | to make up for; to supplement | v5 | verbs | N2
+製造《せいぞう》する | manufacture; production | vs | money | N2
+換気《かんき》する | ventilation | vs | home | N2
+並行《へいこう》する | parallel; running side by side | vs | society | N2
+捜査《そうさ》する | investigation (by police) | vs | society | N2
+捜索《そうさく》する | search operation | vs | society | N2
+防止《ぼうし》する | prevention | vs | risk | N2
+占《し》める | to occupy; to account for | v1 | verbs | N2
+独占《どくせん》する | monopoly; to monopolize | vs | society | N2
+停止《ていし》する | stop; suspension | vs | society | N2
+輸血《ゆけつ》する | blood transfusion | vs | hospital | N2
+低下《ていか》する | decline; decrease | vs | health | N2
+清掃《せいそう》する | cleaning | vs | home | N2
+油断《ゆだん》する | carelessness; being off guard | vs | mind | N2
+内蔵《ないぞう》する | built-in | vs | home | N2
+委任《いにん》する | delegation; entrustment | vs | society | N2
+総合《そうごう》する | comprehensive; general | vs | society | N2
+改革《かいかく》する | reform | vs | society | N2
+終了《しゅうりょう》する | end; close; to finish | vs | time | N2
+了解《りょうかい》する | understood; to understand, agree | vs | basics | N2
+延長《えんちょう》する | extension; to extend | vs | time | N2
+永住《えいじゅう》する | permanent residence | vs | society | N2
+仲介《ちゅうかい》する | mediation; brokering | vs | society | N2
+敬《うやま》う | to respect; to revere | v5 | verbs | N2
+日光浴《にっこうよく》する | sunbathing | vs | health | N2
+刺《さ》す | to pierce, prick; to sting; to stab | v5 | verbs | N2
+駐在《ちゅうざい》する | being stationed; posting | vs | money | N2
+練《ね》る | to knead; to polish (a plan) | v5 | verbs | N2
+募集《ぼしゅう》する | recruitment, call for applicants | vs | money | N2
+応募《おうぼ》する | application (for a job or contest) | vs | money | N2
+募《つの》る | to recruit; to grow stronger | v5 | verbs | N2
+雇《やと》う | to employ, hire | v5 | money | N2
+雇用《こよう》する | employment; to employ | vs | money | N2
+囲《かこ》む | to surround, enclose | v5 | verbs | N2
+承知《しょうち》する | agreement, understanding; consent | vs | society | N2
+承認《しょうにん》する | approval | vs | society | N2
+承《うけたまわ》る | to hear, receive (humble) | v5 | verbs | N2
+上昇《じょうしょう》する | rise, increase | vs | society | N2
+昇進《しょうしん》する | promotion | vs | money | N2
+昇《のぼ》る | to rise, ascend | v5 | verbs | N2
+開封《かいふう》する | opening (a sealed item) | vs | home | N2
+同封《どうふう》する | enclosing (in a letter) | vs | home | N2
+埋《う》める | to bury; to fill in | v1 | verbs | N2
+埋《う》まる | to be buried; to be filled | v5 | verbs | N2
+埋蔵《まいぞう》する | burial underground; buried deposits | vs | nature | N2
+予測《よそく》する | prediction, forecast | vs | society | N2
+交替《こうたい》する | taking turns, shift change | vs | money | N2
+参照《さんしょう》する | reference, consultation | vs | society | N2
+燃《も》やす | to burn (something) | v5 | verbs | N2
+新築《しんちく》する | newly built | vs | home | N2
+築《きず》く | to build, construct | v5 | verbs | N2
+贈《おく》る | to give as a gift | v5 | verbs | N2
+寄贈《きぞう》する | donation (of goods) | vs | society | N2
+爆発《ばくはつ》する | explosion | vs | society | N2
+爆笑《ばくしょう》する | burst of laughter | vs | emotions | N2
+汚染《おせん》する | pollution, contamination | vs | nature | N2
+全快《ぜんかい》する | complete recovery | vs | health | N2
+荒《あ》れる | to become rough, stormy | v1 | verbs | N2
+複写《ふくしゃ》する | copy, duplicate | vs | money | N2
+薄着《うすぎ》する | light clothing | vs | basics | N2
+傾《かたむ》く | to lean, tilt | v5 | verbs | N2
+反則《はんそく》する | foul, rule violation | vs | society | N2
+栄《さか》える | to prosper, flourish | v1 | verbs | N2
+省略《しょうりゃく》する | omission, abbreviation | vs | society | N2
+貯蓄《ちょちく》する | savings | vs | money | N2
+匹敵《ひってき》する | being a match for; to rival | vs | society | N2
+乾燥《かんそう》する | dryness, drying | vs | health | N2
+枯《か》れる | to wither, die (of plants) | v1 | nature | N2
+枯渇《こかつ》する | depletion, drying up | vs | society | N2
+凍《こお》る | to freeze | v5 | nature | N2
+刷《す》る | to print | v5 | verbs | N2
+増刷《ぞうさつ》する | reprint | vs | money | N2
+機械化《きかいか》する | mechanization | vs | society | N2
+耕《たがや》す | to till, cultivate | v5 | verbs | N2
+耕作《こうさく》する | cultivation | vs | society | N2
+干渉《かんしょう》する | interference | vs | society | N2
+収拾《しゅうしゅう》する | bringing under control | vs | society | N2
+見捨《みす》てる | to abandon, desert | v1 | verbs | N2
+四捨五入《ししゃごにゅう》する | rounding off | vs | numbers | N2
+お祈《いの》りする | prayer | vs | basics | N2
+祈願《きがん》する | prayer for a wish | vs | society | N2
+拝《おが》む | to pray to, worship | v5 | verbs | N2
+参拝《さんぱい》する | visit to a shrine or temple | vs | society | N2
+拝見《はいけん》する | seeing, looking (humble); to see (humble) | vs | grammar | N2
+絶叫《ぜっきょう》する | screaming | vs | emotions | N2
+沈没《ちんぼつ》する | sinking of a ship | vs | society | N2
+沸《わ》く | to boil; to get excited | v5 | verbs | N2
+沸騰《ふっとう》する | boiling | vs | nature | N2
+溶《と》ける | to dissolve, melt | v1 | verbs | N2
+溶《と》かす | to dissolve, melt (something) | v5 | verbs | N2
+研磨《けんま》する | grinding, polishing | vs | society | N2
+掘《ほ》る | to dig | v5 | verbs | N2
+発掘《はっくつ》する | excavation | vs | society | N2
+挟《はさ》まる | to get caught between | v5 | verbs | N2
+満喫《まんきつ》する | enjoying fully; to enjoy to the full | vs | emotions | N2
+召《め》し上《あ》がる | to eat, drink (honorific) | v5 | grammar | N2
+召集《しょうしゅう》する | convocation (of the Diet); call-up (military) | vs | society | N2
+伺《うかが》う | to ask, visit, hear (humble) | v5 | grammar | N2
+脱帽《だつぼう》する | taking off one's hat; admiration | vs | basics | N2
+尊重《そんちょう》する | respect for, valuing | vs | society | N2
+肯定《こうてい》する | affirmation, acceptance | vs | society | N2

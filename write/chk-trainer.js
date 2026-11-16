@@ -19,7 +19,7 @@ for(const file of process.argv.slice(3)){
     if(!it.d||!it.en||!it.lv||!Array.isArray(it.ex)){E(id+': missing d/en/lv/ex');return;}
     const fd=flat(it.d);
     if(have.has(fd))E(id+': already in '+have.get(fd));have.set(fd,path.basename(file));
-    if(!/^(N5|N4|N3|C)$/.test(it.lv))E(id+': lv must be N5, N4, N3 or C');
+    if(!/^(N5|N4|N3|N2|C)$/.test(it.lv))E(id+': lv must be N5, N4, N3, N2 or C');
     if(it.lv==='C'&&!it.clin)E(id+': lv C needs clin: true');
     if('clin' in it&&it.clin!==true)E(id+': clin must be true or absent');
     const dd=dict[fd];
