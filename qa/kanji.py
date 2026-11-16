@@ -9,7 +9,7 @@ async def main():
             errs=[]
             pg.on('console', lambda m: errs.append(m.text) if m.type=='error' and '403' not in m.text else None)
             pg.on('pageerror', lambda e: errs.append(str(e)))
-            await pg.goto('http://localhost:8765/index.html#/kanji'); await pg.wait_for_timeout(500)
+            await pg.goto('http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html#/kanji'); await pg.wait_for_timeout(500)
             async def go(hh):
                 await pg.evaluate("h=>{location.hash=h}",hh); await pg.wait_for_timeout(350)
             async def ov(): return await pg.evaluate("document.documentElement.scrollWidth>innerWidth+1")
@@ -19,6 +19,10 @@ async def main():
             for lv in await pg.evaluate("App.KANJI_LEVELS.map(x=>x[0])"):
                 await go('#/kanji?lv='+lv)
                 print(' chart',lv,'cells',await pg.locator('.kj-cell').count(),'overflow',await ov(),'rj',await pg.locator('.kj-grid .rj').count())
+                if lv=='N2':   # 0.21.0: links to the 37 N2 kanji kept in the clinical set
+                    r=await pg.evaluate("""()=>{const p=[...document.querySelectorAll('#view p')].find(x=>/more N2 kanji are in the Clinical set/.test(x.textContent));if(!p)return 'no line';const g=p.nextElementSibling;const a=[...g.querySelectorAll('a.kj-cell')];return p.textContent.trim()+' links '+a.length+' bad '+a.filter(x=>{const k=decodeURIComponent(x.getAttribute('href').split('/k/')[1]||'');return !App.kanjiBy[k]||App.kanjiBy[k].lv!=='C'}).length}""")
+                    print('  N2 in clinical set:',r)
+                if lv=='C': print('  C note:',await pg.evaluate("([...document.querySelectorAll('#view p.small')].find(p=>/psychiatry phrases/.test(p.textContent))||{}).textContent"))
             # every kanji page renders (desktop only, quick), no raw notation, no overflow
             if name=='desk':
                 bad=await pg.evaluate("""async()=>{const out=[];for(const x of App.KANJI){location.hash=App.kanjiHref(x.k);await new Promise(r=>setTimeout(r,25));

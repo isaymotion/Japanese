@@ -3,7 +3,7 @@ a sound-pairs set, story items with questions. Prints "errors [...]" last."""
 import os
 from playwright.sync_api import sync_playwright
 
-BASE = 'http://localhost:8765/index.html'
+BASE = 'http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html'
 OUT = '/tmp/qa-out'
 DRAFT_Q = '/home/claude/work/new/listen-questions.js'
 DRAFT_P = '/home/claude/work/new/sound-pairs.js'
@@ -45,7 +45,9 @@ def run(p, name, vp, scheme):
         return pg.locator(sel_root + ' h3').first.inner_text().replace('\n', ' ') if pg.locator(sel_root + ' h3').count() else 'no score'
 
     # ---------- Hear ----------
-    for lv in ['Starter', 'N5', 'N4', 'N3']:
+    shown = pg.evaluate("[...document.querySelectorAll('[data-lv]')].map(b=>b.dataset.lv)")   # levels with words (N2 once its words are in)
+    print(name, 'levels', shown)
+    for lv in [x for x in ['Starter', 'N5', 'N4', 'N3', 'N2'] if x in shown]:
         pg.locator(f'[data-lv="{lv}"]').click(); pg.wait_for_timeout(150)
         for src in ['words', 'sentences']:
             pg.locator(f'[data-src="{src}"]').click(); pg.wait_for_timeout(150)
@@ -65,7 +67,7 @@ def run(p, name, vp, scheme):
     pg.locator('[data-sp="natural"]').click()
 
     # ---------- Dictation ----------
-    for lv in ['Starter', 'N4', 'N3', 'N5']:
+    for lv in [x for x in ['Starter', 'N4', 'N3', 'N2', 'N5'] if x in shown]:
         go('#/listen?tab=dict'); pg.locator(f'[data-lv="{lv}"]').click(); pg.wait_for_timeout(300)
         if pg.locator('#lpbody .notice').count(): print(name, 'dict', lv, 'NOTICE'); continue
         print(name, 'dict', lv, 'pool', pg.evaluate(f"App.DICT.filter(e=>e.lv==='{'N5' if lv=='Starter' else lv}').length"), 'tiles', pg.locator('.lp-tile').count())

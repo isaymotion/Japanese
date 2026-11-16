@@ -3,7 +3,7 @@ page and the kana panel, saved choices, every kanji level renders a block per ch
 Expect "errors []", "levels with a missing block []", no overflow. Screenshots and PDFs in /tmp/qa-out/writing_*."""
 import asyncio, urllib.parse, subprocess
 from playwright.async_api import async_playwright
-B='http://localhost:8765/index.html'
+B='http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html'
 async def main():
     async with async_playwright() as p:
         br=await p.chromium.launch(); errors=[]
@@ -43,7 +43,7 @@ async def main():
                 bad=await pg.evaluate("""async()=>{const out=[];for(const [lv] of App.KANJI_LEVELS){App.state.writeSheet={src:'kj',lv,groups:[...new Set(App.KANJI.filter(x=>x.lv===lv).map(x=>x.group))].slice(0,3)};location.hash='#/write?x='+lv;await new Promise(r=>setTimeout(r,900));
                   const want=App.KANJI.filter(x=>x.lv===lv&&App.state.writeSheet.groups.includes(x.group)).slice(0,100);const got=[...document.querySelectorAll('.ws-char')];
                   if(got.length!==want.length||want.some((x,i)=>got[i].dataset.ws!==x.k||got[i].querySelectorAll('.ws-model .ws-p').length!==x.strokes)||document.documentElement.scrollWidth>innerWidth)out.push(lv+' '+got.length+'/'+want.length);}return out}""")
-                print('levels with a missing block',bad)
+                print('levels with a missing block',bad,'| levels tested',await pg.evaluate("App.KANJI_LEVELS.map(x=>x[0]).join(' ')"),'(N2 is tested once kanji-n2*.js have kanji)')
                 await pg.evaluate("App.state.writeSheet={src:'kj',lv:'N3',groups:[...new Set(App.KANJI.filter(x=>x.lv==='N3').map(x=>x.group))]};location.hash='#/write?y=1'"); await pg.wait_for_timeout(2500); print(' over the limit:',await n(),'|',await pg.locator('#wscount').inner_text())
                 for paper,src in [('A4',"{src:'h',rows:['a','ka','sa']}"),('Letter',"{src:'kj',lv:'N5',groups:null,size:'l',lines:3,paper:'LETTER'}"),('A4s',"{src:'own',own:'鬱躁薬眠',size:'s',lines:4,trace:99}")]:
                     await pg.evaluate("App.state.writeSheet="+src+";location.hash='#/write?z="+paper+"'"); await pg.wait_for_timeout(900)

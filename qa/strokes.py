@@ -3,7 +3,7 @@ stroke count matches the app's data, kana chart tap panel (single and combinatio
 Expect "errors []", "kanji without a matching diagram []". Screenshots in /tmp/qa-out/strokes_*.png."""
 import asyncio, urllib.parse
 from playwright.async_api import async_playwright
-B='http://localhost:8765/index.html'
+B='http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html'
 async def main():
     async with async_playwright() as p:
         br=await p.chromium.launch(); errors=[]

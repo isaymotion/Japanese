@@ -62,6 +62,10 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 - End-of-treatment review (0.20.0): the outpatient counterpart of the discharge practice, with its own generic form of nine fields (treatment received, change in target symptoms, mood and affect, suicidal and homicidal ideas, insight, daily functioning, early warning signs and relapse plan, medicines, plan) and a final decision: can regular sessions end today? It uses the same engine and grading as the discharge practice. Three cases at the last planned session: Takumi after 16 sessions of exposure and response prevention, no medicine (end, booster in three months); Mariko after 12 sessions of trauma-focused therapy, no medicine (end, letter to her family doctor, come back if it returns, for example near the anniversary); Hinata after 10 sessions, back at school three full days a week (continue every two weeks, to teach that a review can decide to go on). These choices were made in the build; please say if you want them different.
 - Listening on practice cases (0.20.0): the listening page plays the whole first-visit MSE or discharge interview (every question with an answer, then the answer), which is long (80 to 100 lines, several minutes); questions are only about what the patient says.
 - Topic matching by level (0.20.0): a set at N5 shows only its N5 words, at N4 its N5 and N4 words, and so on; a set with fewer than six words at a level is hidden there. Clinical words of the beyond-N3 set appear only under All.
+- 16 Nov (midday): after a clean re-check of 0.20.0, she asked for comprehensive N2 lessons and kanji, and chose: all N2 kanji with the first 24 N2 lessons now (the second half in the next build), the N2 kanji words in the dictionary, N2 placement questions and N2 in the level filters, and to publish when done (done the same day, 0.21.0).
+- N2 kanji (0.21.0): the reference list has 367 N2 kanji; 37 of them were already in the app's clinical set and stay there, so the N2 chart has 330 and a line under it links to the other 37. The kanji levels are still approximate (there is no official list).
+- N2 lessons (0.21.0): many N2 patterns belong to written or formal Japanese (notices, consent forms, letters, chart notes), so every section says whether it is a form to say or one to understand. Lines about risk stay general (no methods, medicines or doses); admission is worded as a recommendation and "follow local law and your hospital's policy"; ward notices in the lessons are labelled as sample notices. The first-half syllabus was chosen in the build: change and progress, scope, viewpoint and basis, reasons and results, possibility, no choice and strong feeling, もの / こと / ところ, comparison and surprise.
+- N2 dictionary words (0.21.0): 682 words from the new kanji pages; everyday words among them are given their own lower level (N3 or N4), so only 423 are marked N2. Place names were left out.
 
 ## How Japanese is written in the data
 - Reading after each kanji run in 《 》: `食《た》べます`. Words separated by one space, particles on their own. No romaji typed; the app generates it.
@@ -148,6 +152,11 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
   - Interpretation drill: 16 more lines (64), from OCD, trauma, panic and school refusal.
   - Topic matching: a level filter (All, N5, N4, N3) and a Quiz mode on every set; 10 more sets (34).
   - The 113 new lines were recorded automatically in 20 seconds; the voice pack is now 24,748 clips.
+- **0.21.0** (published 16 Nov) — N2, first half.
+  - 24 N2 grammar lessons in eight units (110 lessons in all), each marking forms to say and forms to understand, with clinical examples and quizzes.
+  - 330 N2 kanji (1,049 in all) with pages, stroke order, drills, decks and writing sheets; the N2 chart also links the 37 N2 kanji in the clinical set.
+  - 682 dictionary words from the N2 kanji pages (4,352 in all); five N2 placement questions (30 in all) and an N2 result; N2 in the level filters.
+  - The 1,046 new lines were recorded automatically in 69 seconds; the voice pack is now 25,794 clips.
 
 ## Sister apps
 - Usap Tayo 3.2.0 (14 Nov, live): the Resident / Nurse switch and the six nurse sections (125 phrases, 60 replies) in Tagalog; its voice pack recorded the 309 new lines (5,436 clips).
@@ -227,12 +236,13 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 - 0.17.0. Please check: the main readings in the numbers tables (alternatives are in each table's note); the clinic number sentences; that a pet's death is an acceptable example for 死ぬ (to die). Wording for a native speaker is listed in the handoff (section 7).
 
 - 0.19.0. Please read the four first-visit MSE cases and Daiki's emergency-department discharge once. Points decided in the build: Hinata's appearance uses the nearest pick on the adult form ("Adult female") with the details saying she is a 14-year-old girl; her wish to disappear is recorded under the nearest pick, passive death wish, with her own words and her denial of any wish to die; Mariko's insight is keyed Grade 5 only; Daiki's plan is made with him alone (no family present), with no appointment date written because none was set. Wording for a native speaker is listed in the handoff (section 7).
+- 0.21.0. Please look at: the question 「もう 消える しか ない」 と 思う こと は あります か in the N2 lesson on 〜ざる を 得ない and its short note (treat "there's nothing left but to disappear / die" as possible suicidal thinking); the sample ward notices in the N2 lessons; 希死念慮 (thoughts of wanting to die, chart term) as an example word on the 希 page; the notes on 焦燥感 and 見捨てられ不安 on their kanji pages. Wording for a native speaker is listed in the handoff (section 7).
 
 ## Status
 - All Japanese is a draft: written and second-checked by AI, not yet reviewed by a native Japanese-speaking clinician. This includes every kanji reading, dictionary entry, reading passage, dialogue, trainer word, handout line, the fifth discharge case and the Japanese menu.
 - Audio: the recorded voice pack is complete: 18,803 clips, about 340 MB, well under GitHub Pages' 1 GB limit (the first run recorded 10,118 clips in 24 minutes with no errors; later builds were recorded automatically, the last one, 1,976 lines for 0.15.0, in about four minutes with no errors). It is a machine voice reading draft Japanese, so a clip can have a wrong reading or accent. Still to confirm on a phone: Settings → Voice says Installed.
 - Stroke order: all 719 kanji and every hiragana and katakana have a diagram, and any of them can be put on a writing practice sheet. The diagram can be opened from the kanji page, the kana chart, the two kana lessons, the kanji drill, kanji flashcards and (since 0.15.0) vocabulary flashcards.
-- The placement test and the dialogues reach N3. The trainer has 404 verbs and 253 adjectives; the dictionary 3,557 words.
+- The placement test reaches N2 (0.21.0); the dialogues and readings reach N3. Lessons: N2 first half (24) done, second half to come. The trainer has 404 verbs and 253 adjectives; the dictionary 3,557 words.
 - Practice cases: twelve admission MSE cases (four of them first-visit cases for the 0.18.0 patients) and nine discharge cases; each of the eight patients also has a case simulation (0.16.0).
 - Nurse view (0.16.0): six nurse sections behind a Resident / Nurse switch; pending Nursing Service review. Not tested on a real phone.
 - The menu and the headings can be shown in Japanese; explanations and lesson text are in English.
@@ -252,5 +262,6 @@ Japanese sister app of Usap Tayo. Repo: `isaymotion/Japanese`. Live: https://isa
 8. Read the 0.16.0 points above, and ask the Nursing Service to review the six nurse sections (Psychiatry → Interview → Nurse).
 10. Try the three new 0.17.0 pages on a phone (Practice → Vocabulary quiz, Listening practice, Numbers and counters).
 11. 0.19.0 (published 14 Nov): read the new first-visit MSE cases and Daiki's emergency-department discharge, and ask the Nursing Service to review the two new nurse scripts (Mood episode checker and MSE interviewer sheet → Nurse) and the Usap Tayo nurse sections.
+13. 0.21.0 (published 16 Nov): try a few N2 lessons and the N2 kanji chart on a phone, and read the points listed under 0.21.0 above.
 12. 0.20.0 (published 16 Nov): read the three end-of-treatment review cases (especially Hinata's decision to continue) and try topic matching by level and its Quiz on a phone.
 9. 0.18.0 (published 14 Nov): read the seven new simulations once (Psychiatry → Case simulations), print the nurse pocket card, and ask the Nursing Service to review the nurse scripts in De-escalation and Discharge with the six nurse sections.

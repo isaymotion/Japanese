@@ -1,6 +1,6 @@
 """0.17.0 vocabulary quiz, topic matching, examples, listening links. Expect "errors []" as the last line."""
 from playwright.sync_api import sync_playwright
-URL = 'http://localhost:8765/index.html'
+URL = 'http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html'
 problems = []
 def run(b, w, h, name, dark=False):
     ctx = b.new_context(viewport={'width': w, 'height': h}, color_scheme='dark' if dark else 'light')
@@ -17,7 +17,9 @@ def run(b, w, h, name, dark=False):
         if ov or raw: problems.append(f'{name} {tag} overflow={ov} raw={raw}')
     go('#/vocab'); check('quiz tab')
     pg.screenshot(path=f'/tmp/qa-out/vocab_quiz_{name}.png', full_page=True)
-    for deck in ['lv-N5', 'c-health']:
+    decks = ['lv-N5', 'c-health'] + (['lv-N2'] if pg.locator('#vqdeck option[value="lv-N2"]').count() else [])   # N2 once its words are in
+    print(name, 'decks tested', decks)
+    for deck in decks:
         for mode in ['meaning', 'recall', 'reading']:
             go('#/vocab')
             pg.select_option('#vqdeck', deck); pg.locator(f'[data-vm={mode}]').click(); pg.locator('[data-vc="10"]').click()

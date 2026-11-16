@@ -1,0 +1,704 @@
+N2 | 個 | 一個《いっこ》 | one (small object)
+N2 | 倍 | 二倍《にばい》 | double
+N2 | 倍 | 何倍《なんばい》 | how many times
+N2 | 億 | 一億《いちおく》 | one hundred million
+N2 | 億 | 十億《じゅうおく》 | one billion
+N2 | 億 | 億《おく》 | hundred million
+N2 | 各 | 各自《かくじ》 | each person
+N2 | 各 | 各地《かくち》 | various places
+N2 | 各 | 各病棟《かくびょうとう》 | each ward
+N2 | 比 | 比率《ひりつ》 | ratio
+N2 | 均 | 平均《へいきん》 | average
+N2 | 均 | 均等《きんとう》 | equal
+N2 | 均 | 均一《きんいつ》 | uniform
+N2 | 算 | 予算《よさん》 | budget
+N2 | 算 | 足《た》し算《ざん》 | addition
+N2 | 額 | 金額《きんがく》 | amount of money
+N2 | 額 | 全額《ぜんがく》 | full amount
+N2 | 超 | 超《こ》える | to exceed
+N2 | 超 | 超過《ちょうか》 | excess
+N2 | 超 | 超音波《ちょうおんぱ》 | ultrasound
+N2 | 再 | 再来週《さらいしゅう》 | the week after next
+N2 | 久 | 久《ひさ》しぶり | after a long time
+N2 | 久 | 永久《えいきゅう》 | permanence
+N2 | 久 | 持久力《じきゅうりょく》 | stamina
+N2 | 旧 | 新旧《しんきゅう》 | old and new
+N2 | 旧 | 旧正月《きゅうしょうがつ》 | Lunar New Year
+N2 | 旧 | 旧姓《きゅうせい》 | maiden name
+N2 | 史 | 日本史《にほんし》 | Japanese history
+N2 | 史 | 世界史《せかいし》 | world history
+N2 | 歴 | 学歴《がくれき》 | educational background
+N2 | 将 | 将軍《しょうぐん》 | shogun
+N2 | 将 | 主将《しゅしょう》 | team captain
+N2 | 児 | 児童《じどう》 | child
+N2 | 児 | 育児《いくじ》 | childcare
+N2 | 復 | 復帰《ふっき》 | return (to work or school)
+N2 | 副 | 副院長《ふくいんちょう》 | deputy hospital director
+N2 | 副 | 副詞《ふくし》 | adverb
+N2 | 管 | 血管《けっかん》 | blood vessel
+N2 | 管 | 管理《かんり》 | management
+N2 | 管 | 管《くだ》 | tube
+N2 | 針 | 針《はり》 | needle
+N2 | 針 | 注射針《ちゅうしゃばり》 | injection needle
+N2 | 採 | 採尿《さいにょう》 | urine collection
+N2 | 採 | 採用《さいよう》 | hiring
+N2 | 林 | 林《はやし》 | woods
+N2 | 林 | 森林《しんりん》 | forest
+N2 | 林 | 林業《りんぎょう》 | forestry
+N2 | 森 | 青森《あおもり》 | Aomori
+N2 | 竹 | 竹《たけ》 | bamboo
+N2 | 竹 | 竹《たけ》の子《こ》 | bamboo shoot
+N2 | 竹 | 竹林《ちくりん》 | bamboo grove
+N2 | 島 | 半島《はんとう》 | peninsula
+N2 | 島 | 広島《ひろしま》 | Hiroshima
+N2 | 谷 | 谷《たに》 | valley
+N2 | 谷 | 谷間《たにま》 | ravine
+N2 | 谷 | 渋谷《しぶや》 | Shibuya
+N2 | 河 | 河川《かせん》 | rivers
+N2 | 河 | 運河《うんが》 | canal
+N2 | 河 | 銀河《ぎんが》 | galaxy
+N2 | 岸 | 岸《きし》 | shore
+N2 | 岸 | 海岸《かいがん》 | coast
+N2 | 岸 | 川岸《かわぎし》 | riverbank
+N2 | 湾 | 湾《わん》 | bay
+N2 | 湾 | 東京湾《とうきょうわん》 | Tokyo Bay
+N2 | 湾 | マニラ湾《わん》 | Manila Bay
+N2 | 根 | 根《ね》 | root
+N2 | 根 | 根拠《こんきょ》 | basis, grounds
+N2 | 根 | 大根《だいこん》 | daikon radish
+N2 | 植 | 移植《いしょく》 | transplant
+N2 | 区 | 区役所《くやくしょ》 | ward office
+N2 | 区 | 地区《ちく》 | district
+N2 | 区 | 区別《くべつ》 | distinction
+N2 | 県 | 県《けん》 | prefecture
+N2 | 県 | 県立《けんりつ》 | prefectural
+N2 | 県 | 都道府県《とどうふけん》 | prefectures of Japan
+N2 | 府 | 大阪府《おおさかふ》 | Osaka Prefecture
+N2 | 府 | 京都府《きょうとふ》 | Kyoto Prefecture
+N2 | 州 | 州《しゅう》 | state
+N2 | 州 | 九州《きゅうしゅう》 | Kyushu
+N2 | 州 | 本州《ほんしゅう》 | Honshu
+N2 | 村 | 村《むら》 | village
+N2 | 村 | 農村《のうそん》 | farming village
+N2 | 村 | 市町村《しちょうそん》 | municipalities
+N2 | 戸 | 戸《と》 | door
+N2 | 戸 | 一戸建《いっこだ》て | detached house
+N2 | 戸 | 江戸《えど》 | Edo, old name of Tokyo
+N2 | 辺 | 辺《あた》り | the area around
+N2 | 辺 | 周辺《しゅうへん》 | surroundings
+N2 | 辺 | この辺《へん》 | around here
+N2 | 央 | 中央《ちゅうおう》 | center
+N2 | 央 | 中央区《ちゅうおうく》 | Chuo Ward
+N2 | 橋 | 歩道橋《ほどうきょう》 | pedestrian bridge
+N2 | 橋 | 鉄橋《てっきょう》 | railway bridge
+N2 | 階 | 二階《にかい》 | second floor
+N2 | 階 | 段階《だんかい》 | stage
+N2 | 域 | 区域《くいき》 | zone
+N2 | 域 | 領域《りょういき》 | domain, field
+N2 | 境 | 境《さかい》 | border
+N2 | 境 | 境界《きょうかい》 | boundary
+N2 | 署 | 警察署《けいさつしょ》 | police station
+N2 | 欧 | 欧米《おうべい》 | Europe and America
+N2 | 欧 | 西欧《せいおう》 | Western Europe
+N2 | 欧 | 北欧《ほくおう》 | Northern Europe
+N2 | 航 | 航空《こうくう》 | aviation
+N2 | 航 | 航空券《こうくうけん》 | plane ticket
+N2 | 航 | 欠航《けっこう》 | cancelled flight
+N2 | 課 | 第一課《だいいっか》 | Lesson 1
+N2 | 課 | 課題《かだい》 | task, assignment
+N2 | 講 | 講義《こうぎ》 | lecture
+N2 | 講 | 講師《こうし》 | lecturer
+N2 | 技 | 技《わざ》 | technique
+N2 | 技 | 技師《ぎし》 | technician
+N2 | 営 | 営業中《えいぎょうちゅう》 | open for business
+N2 | 省 | 厚生労働省《こうせいろうどうしょう》 | Ministry of Health, Labour and Welfare
+N2 | 省 | 省《はぶ》く | to omit
+N2 | 編 | 編集《へんしゅう》 | editing
+N2 | 編 | 長編《ちょうへん》 | long work
+N2 | 録 | 録音《ろくおん》 | audio recording
+N2 | 準 | 基準《きじゅん》 | criteria, standard
+N2 | 準 | 水準《すいじゅん》 | level
+N2 | 賞 | 賞《しょう》 | prize
+N2 | 賞 | 賞金《しょうきん》 | prize money
+N2 | 賞 | ノーベル賞《しょう》 | Nobel Prize
+N2 | 貿 | 貿易会社《ぼうえきがいしゃ》 | trading company
+N2 | 農 | 農業《のうぎょう》 | agriculture
+N2 | 農 | 農家《のうか》 | farming household
+N2 | 設 | 設定《せってい》 | setting
+N2 | 設 | 設《もう》ける | to set up
+N2 | 改 | 改札口《かいさつぐち》 | ticket gate
+N2 | 述 | 述《の》べる | to state
+N2 | 述 | 記述《きじゅつ》 | description
+N2 | 述 | 前述《ぜんじゅつ》 | mentioned above
+N2 | 導 | 指導《しどう》 | guidance
+N2 | 導 | 導入《どうにゅう》 | introduction
+N2 | 導 | 導《みちび》く | to guide
+N2 | 補 | 補助《ほじょ》 | assistance
+N2 | 補 | 補《おぎな》う | to make up for
+N2 | 補 | 候補《こうほ》 | candidate
+N2 | 造 | 製造《せいぞう》 | manufacture
+N2 | 造 | 造《つく》る | to build
+N2 | 換 | 換気《かんき》 | ventilation
+N2 | 含 | 含有量《がんゆうりょう》 | amount contained
+N2 | 並 | 並行《へいこう》 | parallel
+N2 | 捜 | 捜《さが》す | to search for
+N2 | 捜 | 捜査《そうさ》 | investigation
+N2 | 捜 | 捜索《そうさく》 | search operation
+N2 | 防 | 防止《ぼうし》 | prevention
+N2 | 占 | 占《し》める | to occupy
+N2 | 占 | 占《うらな》い | fortune telling
+N2 | 占 | 独占《どくせん》 | monopoly
+N2 | 停 | 停止《ていし》 | stop
+N2 | 停 | 停電《ていでん》 | power outage
+N2 | 停 | 心停止《しんていし》 | cardiac arrest
+N2 | 輸 | 輸入《ゆにゅう》 | import
+N2 | 輸 | 輸出《ゆしゅつ》 | export
+N2 | 輸 | 輸血《ゆけつ》 | blood transfusion
+N2 | 暴 | 暴言《ぼうげん》 | verbal abuse
+N2 | 低 | 低下《ていか》 | decline
+N2 | 低 | 低血圧《ていけつあつ》 | low blood pressure
+N2 | 短 | 短期《たんき》 | short term
+N2 | 短 | 短所《たんしょ》 | weak point
+N2 | 細 | 細胞《さいぼう》 | cell
+N2 | 丸 | 丸《まる》 | circle
+N2 | 丸 | 丸薬《がんやく》 | pill
+N2 | 清 | 清掃《せいそう》 | cleaning
+N2 | 清 | 清《きよ》い | pure
+N2 | 極 | 極端《きょくたん》 | extreme
+N2 | 極 | 極《きわ》めて | extremely
+N2 | 型 | 血液型《けつえきがた》 | blood type
+N2 | 型 | 大型《おおがた》 | large size
+N2 | 型 | 典型的《てんけいてき》 | typical
+N2 | 幅 | 幅《はば》 | width
+N2 | 幅 | 大幅《おおはば》 | large, substantial
+N2 | 幅 | 道幅《みちはば》 | road width
+N2 | 般 | 一般《いっぱん》 | general
+N2 | 般 | 全般《ぜんぱん》 | overall
+N2 | 油 | 油《あぶら》 | oil
+N2 | 油 | 石油《せきゆ》 | petroleum
+N2 | 油 | 油断《ゆだん》 | carelessness
+N2 | 鉄 | 鉄《てつ》 | iron
+N2 | 鉄 | 鉄分《てつぶん》 | iron (nutrient)
+N2 | 輪 | 輪《わ》 | ring, loop
+N2 | 輪 | 指輪《ゆびわ》 | finger ring
+N2 | 輪 | 車輪《しゃりん》 | wheel
+N2 | 線 | 線《せん》 | line
+N2 | 線 | 放射線《ほうしゃせん》 | radiation
+N2 | 蔵 | 蔵《くら》 | storehouse
+N2 | 蔵 | 内蔵《ないぞう》 | built-in
+N2 | 券 | 乗車券《じょうしゃけん》 | train ticket
+N2 | 券 | 入場券《にゅうじょうけん》 | admission ticket
+N2 | 装 | 服装《ふくそう》 | clothing, attire
+N2 | 装 | 装置《そうち》 | device
+N2 | 装 | 衣装《いしょう》 | costume
+N2 | 印 | 印《しるし》 | mark
+N2 | 印 | 矢印《やじるし》 | arrow
+N2 | 印 | 印刷《いんさつ》 | printing
+N2 | 被 | 被災者《ひさいしゃ》 | disaster victim
+N2 | 党 | 政党《せいとう》 | political party
+N2 | 党 | 与党《よとう》 | ruling party
+N2 | 党 | 野党《やとう》 | opposition party
+N2 | 協 | 協会《きょうかい》 | association
+N2 | 協 | 協調性《きょうちょうせい》 | cooperativeness
+N2 | 委 | 委員《いいん》 | committee member
+N2 | 委 | 委員会《いいんかい》 | committee
+N2 | 委 | 委任《いにん》 | delegation
+N2 | 団 | 集団《しゅうだん》 | group
+N2 | 団 | 集団療法《しゅうだんりょうほう》 | group therapy
+N2 | 総 | 総合《そうごう》 | comprehensive
+N2 | 総 | 総合病院《そうごうびょういん》 | general hospital
+N2 | 総 | 総理大臣《そうりだいじん》 | prime minister
+N2 | 領 | 大統領《だいとうりょう》 | president
+N2 | 領 | 領収書《りょうしゅうしょ》 | receipt
+N2 | 税 | 消費税《しょうひぜい》 | consumption tax
+N2 | 税 | 税込《ぜいこ》み | tax included
+N2 | 勢 | 姿勢《しせい》 | posture
+N2 | 勢 | 勢《いきお》い | force, momentum
+N2 | 勢 | 大勢《おおぜい》 | many people
+N2 | 革 | 革《かわ》 | leather
+N2 | 革 | 改革《かいかく》 | reform
+N2 | 革 | 革命《かくめい》 | revolution
+N2 | 軍 | 軍隊《ぐんたい》 | armed forces
+N2 | 軍 | 軍人《ぐんじん》 | soldier
+N2 | 軍 | 空軍《くうぐん》 | air force
+N2 | 兵 | 兵士《へいし》 | soldier
+N2 | 兵 | 兵隊《へいたい》 | troops
+N2 | 兵 | 兵庫県《ひょうごけん》 | Hyogo Prefecture
+N2 | 武 | 武士《ぶし》 | samurai
+N2 | 武 | 武道《ぶどう》 | martial arts
+N2 | 武 | 武者《むしゃ》 | warrior
+N2 | 象 | 対象《たいしょう》 | target, subject
+N2 | 象 | 象《ぞう》 | elephant
+N2 | 況 | 状況《じょうきょう》 | situation
+N2 | 況 | 現況《げんきょう》 | present state
+N2 | 況 | 不況《ふきょう》 | recession
+N2 | 諸 | 諸国《しょこく》 | various countries
+N2 | 諸 | 諸島《しょとう》 | islands, archipelago
+N2 | 諸 | 諸問題《しょもんだい》 | various problems
+N2 | 芸 | 芸術《げいじゅつ》 | art
+N2 | 芸 | 芸能人《げいのうじん》 | celebrity
+N2 | 芸 | 園芸《えんげい》 | gardening
+N2 | 劇 | 劇《げき》 | play
+N2 | 劇 | 演劇《えんげき》 | theater
+N2 | 劇 | 劇的《げきてき》 | dramatic
+N2 | 枚 | 一枚《いちまい》 | one sheet
+N2 | 枚 | 二枚《にまい》 | two sheets
+N2 | 枚 | 枚数《まいすう》 | number of sheets
+N2 | 片 | 片手《かたて》 | one hand
+N2 | 双 | 双子《ふたご》 | twins
+N2 | 双 | 双方《そうほう》 | both sides
+N2 | 順 | 手順《てじゅん》 | procedure
+N2 | 巻 | 一巻《いっかん》 | volume one
+N2 | 巻 | 上巻《じょうかん》 | first volume
+N2 | 層 | 高層《こうそう》 | high-rise
+N2 | 層 | 年齢層《ねんれいそう》 | age group
+N2 | 秒 | 一秒《いちびょう》 | one second
+N2 | 秒 | 三十秒《さんじゅうびょう》 | thirty seconds
+N2 | 秒 | 秒針《びょうしん》 | second hand
+N2 | 季 | 四季《しき》 | the four seasons
+N2 | 季 | 冬季《とうき》 | winter season
+N2 | 翌 | 翌朝《よくあさ》 | the next morning
+N2 | 翌 | 翌年《よくねん》 | the following year
+N2 | 了 | 終了《しゅうりょう》 | end, close
+N2 | 了 | 了解《りょうかい》 | understood
+N2 | 延 | 延長《えんちょう》 | extension
+N2 | 永 | 永遠《えいえん》 | eternity
+N2 | 永 | 永住《えいじゅう》 | permanent residence
+N2 | 仲 | 仲良《なかよ》し | good friends
+N2 | 仲 | 仲介《ちゅうかい》 | mediation
+N2 | 童 | 童話《どうわ》 | fairy tale
+N2 | 童 | 童顔《どうがん》 | baby face
+N2 | 齢 | 年齢《ねんれい》 | age
+N2 | 敬 | 敬語《けいご》 | honorific language
+N2 | 敬 | 尊敬《そんけい》 | respect
+N2 | 敬 | 敬《うやま》う | to respect
+N2 | 骨 | 背骨《せぼね》 | spine
+N2 | 患 | 疾患《しっかん》 | disease
+N2 | 患 | 患部《かんぶ》 | affected area
+N2 | 浴 | 日光浴《にっこうよく》 | sunbathing
+N2 | 刺 | 刺《さ》す | to prick, sting
+N2 | 刺 | 名刺《めいし》 | business card
+N2 | 池 | 乾電池《かんでんち》 | dry-cell battery
+N2 | 星 | 流《なが》れ星《ぼし》 | shooting star
+N2 | 星 | 火星《かせい》 | Mars
+N2 | 波 | 電波《でんぱ》 | radio wave, signal
+N2 | 岩 | 岩山《いわやま》 | rocky mountain
+N2 | 岩 | 岩石《がんせき》 | rock, stone
+N2 | 泉 | 温泉《おんせん》 | hot spring
+N2 | 泉 | 泉《いずみ》 | spring
+N2 | 泉 | 源泉《げんせん》 | source, wellspring
+N2 | 砂 | 砂漠《さばく》 | desert
+N2 | 陸 | 陸《りく》 | land
+N2 | 陸 | 大陸《たいりく》 | continent
+N2 | 陸 | 着陸《ちゃくりく》 | landing
+N2 | 羽 | 羽《はね》 | feather, wing
+N2 | 羽 | 羽毛《うもう》 | down feathers
+N2 | 羽 | 一羽《いちわ》 | one bird
+N2 | 温 | 体温《たいおん》 | body temperature
+N2 | 温 | 温度《おんど》 | temperature
+N2 | 宇 | 宇宙《うちゅう》 | outer space
+N2 | 宇 | 宇宙人《うちゅうじん》 | alien
+N2 | 寺 | 寺院《じいん》 | temple
+N2 | 寺 | 東大寺《とうだいじ》 | Todai-ji temple (Nara)
+N2 | 坂 | 坂道《さかみち》 | sloping road
+N2 | 坂 | 上《のぼ》り坂《ざか》 | uphill slope
+N2 | 城 | 城《しろ》 | castle
+N2 | 城 | 大阪城《おおさかじょう》 | Osaka Castle
+N2 | 城 | 城下町《じょうかまち》 | castle town
+N2 | 角 | 三角《さんかく》 | triangle
+N2 | 角 | 四角《しかく》 | square
+N2 | 底 | 底《そこ》 | bottom
+N2 | 底 | 海底《かいてい》 | sea floor
+N2 | 底 | 靴底《くつぞこ》 | sole of a shoe
+N2 | 裏 | 裏《うら》 | back, reverse side
+N2 | 裏 | 裏口《うらぐち》 | back door
+N2 | 裏 | 表裏《ひょうり》 | both sides
+N2 | 奥 | 奥《おく》 | the back, inner part
+N2 | 奥 | 奥歯《おくば》 | back tooth, molar
+N2 | 庁 | 県庁《けんちょう》 | prefectural office
+N2 | 庁 | 官庁《かんちょう》 | government agency
+N2 | 庁 | 気象庁《きしょうちょう》 | Meteorological Agency
+N2 | 庫 | 車庫《しゃこ》 | garage
+N2 | 庫 | 倉庫《そうこ》 | warehouse
+N2 | 郵 | 郵送《ゆうそう》 | sending by mail
+N2 | 駐 | 駐車《ちゅうしゃ》 | parking
+N2 | 駐 | 駐在《ちゅうざい》 | being stationed
+N2 | 跡 | 足跡《あしあと》 | footprint
+N2 | 跡 | 傷跡《きずあと》 | scar
+N2 | 跡 | 遺跡《いせき》 | ruins
+N2 | 卒 | 卒業生《そつぎょうせい》 | graduate
+N2 | 卒 | 新卒《しんそつ》 | new graduate
+N2 | 練 | 訓練《くんれん》 | training
+N2 | 練 | 練《ね》る | to knead, polish
+N2 | 訓 | 訓読《くんよ》み | kun reading
+N2 | 訓 | 教訓《きょうくん》 | lesson, moral
+N2 | 筆 | 筆《ふで》 | writing brush
+N2 | 筆 | 鉛筆《えんぴつ》 | pencil
+N2 | 筆 | 筆記試験《ひっきしけん》 | written exam
+N2 | 章 | 文章《ぶんしょう》 | text, writing
+N2 | 章 | 第一章《だいいっしょう》 | chapter one
+N2 | 章 | 章《しょう》 | chapter
+N2 | 誌 | 日誌《にっし》 | daily log
+N2 | 誌 | 週刊誌《しゅうかんし》 | weekly magazine
+N2 | 刊 | 朝刊《ちょうかん》 | morning paper
+N2 | 刊 | 夕刊《ゆうかん》 | evening paper
+N2 | 刊 | 週刊《しゅうかん》 | weekly (publication)
+N2 | 版 | 出版《しゅっぱん》 | publishing
+N2 | 版 | 第五版《だいごはん》 | fifth edition
+N2 | 版 | 日本語版《にほんごばん》 | Japanese version
+N2 | 著 | 著者《ちょしゃ》 | author
+N2 | 著 | 著書《ちょしょ》 | written work
+N2 | 著 | 著明《ちょめい》 | marked, prominent
+N2 | 績 | 業績《ぎょうせき》 | achievements
+N2 | 績 | 実績《じっせき》 | track record
+N2 | 募 | 募集《ぼしゅう》 | recruitment
+N2 | 募 | 応募《おうぼ》 | application
+N2 | 募 | 募《つの》る | to recruit, grow stronger
+N2 | 雇 | 雇《やと》う | to employ
+N2 | 雇 | 雇用《こよう》 | employment
+N2 | 絡 | 連絡先《れんらくさき》 | contact details
+N2 | 絡 | 脈絡《みゃくらく》 | logical connection
+N2 | 包 | 小包《こづつみ》 | parcel
+N2 | 囲 | 囲《かこ》む | to surround
+N2 | 囲 | 雰囲気《ふんいき》 | atmosphere
+N2 | 届 | 欠席届《けっせきとどけ》 | notice of absence
+N2 | 承 | 承知《しょうち》 | agreement, understanding
+N2 | 承 | 承認《しょうにん》 | approval
+N2 | 承 | 承《うけたまわ》る | to hear, receive (humble)
+N2 | 昇 | 上昇《じょうしょう》 | rise, increase
+N2 | 昇 | 昇進《しょうしん》 | promotion
+N2 | 昇 | 昇《のぼ》る | to rise
+N2 | 封 | 封筒《ふうとう》 | envelope
+N2 | 封 | 開封《かいふう》 | opening (a seal)
+N2 | 封 | 同封《どうふう》 | enclosing
+N2 | 埋 | 埋《う》める | to bury, fill in
+N2 | 埋 | 埋《う》まる | to be filled
+N2 | 埋 | 埋蔵《まいぞう》 | buried deposits
+N2 | 測 | 予測《よそく》 | prediction
+N2 | 替 | 交替《こうたい》 | taking turns, shift change
+N2 | 照 | 照明《しょうめい》 | lighting
+N2 | 照 | 参照《さんしょう》 | reference
+N2 | 詰 | 鼻詰《はなづ》まり | stuffy nose
+N2 | 詰 | 缶詰《かんづめ》 | canned food
+N2 | 燃 | 燃《も》やす | to burn (something)
+N2 | 燃 | 燃料《ねんりょう》 | fuel
+N2 | 築 | 新築《しんちく》 | newly built
+N2 | 築 | 築《きず》く | to build
+N2 | 贈 | 贈《おく》る | to give as a gift
+N2 | 贈 | 贈《おく》り物《もの》 | gift
+N2 | 贈 | 寄贈《きぞう》 | donation
+N2 | 爆 | 爆発《ばくはつ》 | explosion
+N2 | 爆 | 爆笑《ばくしょう》 | burst of laughter
+N2 | 爆 | 爆音《ばくおん》 | roar
+N2 | 巨 | 巨大《きょだい》 | huge
+N2 | 巨 | 巨人《きょじん》 | giant
+N2 | 巨 | 巨額《きょがく》 | huge sum
+N2 | 汚 | 汚染《おせん》 | pollution
+N2 | 快 | 全快《ぜんかい》 | complete recovery
+N2 | 厚 | 厚着《あつぎ》 | wearing heavy clothes
+N2 | 荒 | 荒《あら》い | rough
+N2 | 荒 | 荒《あ》れる | to become rough, stormy
+N2 | 荒 | 肌荒《はだあ》れ | rough skin
+N2 | 純 | 純粋《じゅんすい》 | pure
+N2 | 純 | 純金《じゅんきん》 | pure gold
+N2 | 軽 | 軽傷《けいしょう》 | minor injury
+N2 | 硬 | 硬貨《こうか》 | coin
+N2 | 硬 | 動脈硬化《どうみゃくこうか》 | arteriosclerosis
+N2 | 豊 | 豊作《ほうさく》 | good harvest
+N2 | 複 | 複数《ふくすう》 | several, plural
+N2 | 複 | 複写《ふくしゃ》 | copy
+N2 | 薄 | 薄着《うすぎ》 | light clothing
+N2 | 薄 | 希薄《きはく》 | thin, dilute
+N2 | 賢 | 賢明《けんめい》 | wise, sensible
+N2 | 賢 | 賢者《けんじゃ》 | wise person
+N2 | 簡 | 簡易《かんい》 | simplified
+N2 | 簡 | 簡潔《かんけつ》 | concise
+N2 | 玉 | 玉《たま》 | ball, bead
+N2 | 玉 | 目玉焼《めだまや》き | fried egg
+N2 | 玉 | 十円玉《じゅうえんだま》 | ten-yen coin
+N2 | 布 | 布《ぬの》 | cloth
+N2 | 札 | 千円札《せんえんさつ》 | thousand-yen bill
+N2 | 札 | 名札《なふだ》 | name tag
+N2 | 宝 | 宝《たから》 | treasure
+N2 | 宝 | 宝石《ほうせき》 | jewel
+N2 | 宝 | 国宝《こくほう》 | national treasure
+N2 | 板 | 板《いた》 | board
+N2 | 板 | 看板《かんばん》 | signboard
+N2 | 柱 | 柱《はしら》 | pillar
+N2 | 柱 | 電柱《でんちゅう》 | utility pole
+N2 | 柱 | 円柱《えんちゅう》 | cylinder
+N2 | 香 | 香《かお》り | fragrance
+N2 | 香 | 香水《こうすい》 | perfume
+N2 | 香 | 香辛料《こうしんりょう》 | spice
+N2 | 帯 | 帯《おび》 | sash, belt
+N2 | 貨 | 通貨《つうか》 | currency
+N2 | 貨 | 雑貨《ざっか》 | miscellaneous goods
+N2 | 袋 | 紙袋《かみぶくろ》 | paper bag
+N2 | 袋 | 手袋《てぶくろ》 | gloves
+N2 | 塩 | 食塩《しょくえん》 | table salt
+N2 | 塩 | 塩分《えんぶん》 | salt content
+N2 | 希 | 希少《きしょう》 | scarce
+N2 | 悩 | 苦悩《くのう》 | anguish
+N2 | 傾 | 傾向《けいこう》 | tendency
+N2 | 傾 | 傾《かたむ》く | to lean
+N2 | 傾 | 傾聴《けいちょう》 | attentive listening
+N2 | 像 | 画像《がぞう》 | image, picture
+N2 | 像 | 映像《えいぞう》 | video, footage
+N2 | 仏 | 仏教《ぶっきょう》 | Buddhism
+N2 | 仏 | 仏《ほとけ》 | Buddha
+N2 | 仏 | 大仏《だいぶつ》 | great Buddha statue
+N2 | 則 | 原則《げんそく》 | principle
+N2 | 則 | 反則《はんそく》 | foul
+N2 | 律 | 規律《きりつ》 | discipline
+N2 | 律 | 自律神経《じりつしんけい》 | autonomic nerves
+N2 | 栄 | 栄養失調《えいようしっちょう》 | malnutrition
+N2 | 栄 | 栄《さか》える | to prosper
+N2 | 祭 | お祭《まつ》り | festival
+N2 | 祭 | 文化祭《ぶんかさい》 | school festival
+N2 | 祭 | 祭日《さいじつ》 | national holiday
+N2 | 略 | 省略《しょうりゃく》 | omission
+N2 | 略 | 略語《りゃくご》 | abbreviation
+N2 | 略 | 戦略《せんりゃく》 | strategy
+N2 | 貯 | 貯蓄《ちょちく》 | savings
+N2 | 貯 | 貯金箱《ちょきんばこ》 | piggy bank
+N2 | 損 | 損《そん》 | loss
+N2 | 損 | 損害《そんがい》 | damage
+N2 | 損 | 損傷《そんしょう》 | injury, lesion
+N2 | 群 | 群《む》れ | flock, herd
+N2 | 群 | 群衆《ぐんしゅう》 | crowd
+N2 | 漁 | 漁業《ぎょぎょう》 | fishing industry
+N2 | 漁 | 漁師《りょうし》 | fisherman
+N2 | 漁 | 漁村《ぎょそん》 | fishing village
+N2 | 籍 | 国籍《こくせき》 | nationality
+N2 | 籍 | 戸籍《こせき》 | family register
+N2 | 籍 | 書籍《しょせき》 | books
+N2 | 冊 | 何冊《なんさつ》 | how many books
+N2 | 冊 | 冊子《さっし》 | booklet
+N2 | 匹 | 匹敵《ひってき》 | to be a match for
+N2 | 匹 | 何匹《なんびき》 | how many animals
+N2 | 零 | 零下《れいか》 | below zero
+N2 | 零 | 零点《れいてん》 | zero points
+N2 | 兆 | 一兆《いっちょう》 | one trillion
+N2 | 兆 | 兆候《ちょうこう》 | sign, symptom
+N2 | 兆 | 前兆《ぜんちょう》 | warning sign
+N2 | 隻 | 一隻《いっせき》 | one ship
+N2 | 隻 | 数隻《すうせき》 | several ships
+N2 | 孫 | お孫《まご》さん | your grandchild
+N2 | 孫 | 子孫《しそん》 | descendants
+N2 | 幼 | 幼児《ようじ》 | small child
+N2 | 幼 | 幼稚園《ようちえん》 | kindergarten
+N2 | 姓 | 姓《せい》 | surname
+N2 | 姓 | 姓名《せいめい》 | full name
+N2 | 臣 | 大臣《だいじん》 | minister
+N2 | 臣 | 家臣《かしん》 | retainer
+N2 | 殿 | 宮殿《きゅうでん》 | palace
+N2 | 殿 | 御殿《ごてん》 | mansion
+N2 | 殿 | 殿様《とのさま》 | feudal lord
+N2 | 毛 | 毛《け》 | hair, fur
+N2 | 毛 | 髪《かみ》の毛《け》 | hair of the head
+N2 | 肩 | 肩甲骨《けんこうこつ》 | shoulder blade
+N2 | 肌 | 肌《はだ》 | skin
+N2 | 肌 | 肌着《はだぎ》 | underwear
+N2 | 肌 | 鳥肌《とりはだ》 | goose bumps
+N2 | 胃 | 胃痛《いつう》 | stomachache
+N2 | 胃 | 胃腸《いちょう》 | stomach and intestines
+N2 | 乳 | 母乳《ぼにゅう》 | breast milk
+N2 | 乳 | 乳児《にゅうじ》 | infant
+N2 | 床 | 臨床《りんしょう》 | clinical
+N2 | 床 | 病床《びょうしょう》 | hospital bed
+N2 | 腰 | 腰椎《ようつい》 | lumbar spine
+N2 | 涙 | 涙目《なみだめ》 | teary eyes
+N2 | 涙 | 涙腺《るいせん》 | tear gland
+N2 | 液 | 液体《えきたい》 | liquid
+N2 | 液 | 血液《けつえき》 | blood
+N2 | 液 | 唾液《だえき》 | saliva
+N2 | 脂 | 脂《あぶら》 | fat, grease
+N2 | 脂 | 脂肪《しぼう》 | body fat
+N2 | 脂 | 脂質《ししつ》 | lipids
+N2 | 滴 | 一滴《いってき》 | one drop
+N2 | 滴 | 水滴《すいてき》 | water drop
+N2 | 燥 | 乾燥《かんそう》 | dryness
+N2 | 燥 | 乾燥肌《かんそうはだ》 | dry skin
+N2 | 燥 | 焦燥感《しょうそうかん》 | agitated restlessness
+N2 | 虫 | 虫歯《むしば》 | tooth decay
+N2 | 虫 | 害虫《がいちゅう》 | pest
+N2 | 貝 | 貝《かい》 | shellfish
+N2 | 貝 | 貝殻《かいがら》 | seashell
+N2 | 貝 | 貝柱《かいばしら》 | scallop
+N2 | 氷 | 氷《こおり》 | ice
+N2 | 氷 | 氷枕《こおりまくら》 | ice pillow
+N2 | 氷 | 氷点下《ひょうてんか》 | below freezing
+N2 | 雲 | 雨雲《あまぐも》 | rain cloud
+N2 | 雲 | 雲海《うんかい》 | sea of clouds
+N2 | 曇 | 曇《くも》る | to cloud over
+N2 | 曇 | 曇天《どんてん》 | overcast sky
+N2 | 湖 | 湖水《こすい》 | lake water
+N2 | 湖 | 琵琶湖《びわこ》 | Lake Biwa
+N2 | 枝 | 小枝《こえだ》 | twig
+N2 | 枝 | 枝豆《えだまめ》 | green soybeans
+N2 | 枯 | 枯《か》れる | to wither
+N2 | 枯 | 枯《か》れ木《き》 | dead tree
+N2 | 枯 | 枯渇《こかつ》 | depletion
+N2 | 緑 | 緑《みどり》 | green
+N2 | 緑 | 緑茶《りょくちゃ》 | green tea
+N2 | 緑 | 緑内障《りょくないしょう》 | glaucoma
+N2 | 灰 | 灰《はい》 | ash
+N2 | 灰 | 灰色《はいいろ》 | gray
+N2 | 灰 | 石灰《せっかい》 | lime
+N2 | 泥 | 泥《どろ》 | mud
+N2 | 泥 | 泥棒《どろぼう》 | thief
+N2 | 泥 | 泥酔《でいすい》 | dead drunk
+N2 | 炭 | 炭《すみ》 | charcoal
+N2 | 炭 | 石炭《せきたん》 | coal
+N2 | 炭 | 炭酸《たんさん》 | carbonation
+N2 | 鉱 | 鉱物《こうぶつ》 | mineral
+N2 | 鉱 | 鉱山《こうざん》 | mine
+N2 | 鉱 | 鉱石《こうせき》 | ore
+N2 | 涼 | 涼《すず》しさ | coolness
+N2 | 涼 | 清涼飲料水《せいりょういんりょうすい》 | soft drink
+N2 | 湿 | 湿度《しつど》 | humidity
+N2 | 凍 | 凍《こお》る | to freeze
+N2 | 凍 | 凍傷《とうしょう》 | frostbite
+N2 | 郊 | 近郊《きんこう》 | outskirts
+N2 | 隅 | 隅《すみ》 | corner
+N2 | 隅 | 片隅《かたすみ》 | a corner
+N2 | 隅 | 隅々《すみずみ》 | every corner
+N2 | 塔 | 塔《とう》 | tower
+N2 | 塔 | 五重《ごじゅう》の塔《とう》 | five-story pagoda
+N2 | 塔 | 管制塔《かんせいとう》 | control tower
+N2 | 軒 | 一軒《いっけん》 | one house
+N2 | 軒 | 何軒《なんげん》 | how many houses
+N2 | 軒 | 軒《のき》 | eaves
+N2 | 机 | 勉強机《べんきょうづくえ》 | study desk
+N2 | 机 | 机上《きじょう》 | on paper, in theory
+N2 | 詞 | 名詞《めいし》 | noun
+N2 | 詞 | 動詞《どうし》 | verb
+N2 | 詞 | 形容詞《けいようし》 | adjective
+N2 | 刷 | 刷《す》る | to print
+N2 | 刷 | 増刷《ぞうさつ》 | reprint
+N2 | 械 | 機械化《きかいか》 | mechanization
+N2 | 械 | 機械的《きかいてき》 | mechanical
+N2 | 符 | 音符《おんぷ》 | musical note
+N2 | 符 | 符号《ふごう》 | code, sign
+N2 | 耕 | 耕《たがや》す | to till
+N2 | 耕 | 農耕《のうこう》 | farming
+N2 | 耕 | 耕作《こうさく》 | cultivation
+N2 | 畜 | 家畜《かちく》 | livestock
+N2 | 畜 | 畜産《ちくさん》 | animal farming
+N2 | 畜 | 牧畜《ぼくちく》 | stock raising
+N2 | 干 | 若干《じゃっかん》 | somewhat
+N2 | 干 | 干渉《かんしょう》 | interference
+N2 | 咲 | 咲《さ》く | to bloom
+N2 | 咲 | 早咲《はやざ》き | early blooming
+N2 | 咲 | 遅咲《おそざ》き | late bloomer
+N2 | 拾 | 拾《ひろ》い物《もの》 | a lucky find
+N2 | 拾 | 収拾《しゅうしゅう》 | bringing under control
+N2 | 捨 | 見捨《みす》てる | to abandon
+N2 | 捨 | 四捨五入《ししゃごにゅう》 | rounding off
+N2 | 泊 | 一泊《いっぱく》 | one night stay
+N2 | 祝 | お祝《いわ》い | celebration, gift
+N2 | 祈 | お祈《いの》り | prayer
+N2 | 祈 | 祈願《きがん》 | prayer for a wish
+N2 | 拝 | 拝《おが》む | to pray to
+N2 | 拝 | 参拝《さんぱい》 | visit to a shrine or temple
+N2 | 拝 | 拝見《はいけん》 | to look at (humble)
+N2 | 踊 | 踊《おど》り | dance
+N2 | 踊 | 舞踊《ぶよう》 | traditional dance
+N2 | 叫 | 叫《さけ》び声《ごえ》 | a scream
+N2 | 叫 | 絶叫《ぜっきょう》 | screaming
+N2 | 沈 | 沈没《ちんぼつ》 | sinking of a ship
+N2 | 沸 | 沸《わ》く | to boil
+N2 | 沸 | 沸騰《ふっとう》 | boiling
+N2 | 溶 | 溶《と》ける | to dissolve
+N2 | 溶 | 溶《と》かす | to dissolve something
+N2 | 溶 | 溶液《ようえき》 | solution
+N2 | 乾 | 乾《かわ》く | to become dry
+N2 | 乾 | 乾杯《かんぱい》 | cheers, a toast
+N2 | 蒸 | 蒸気《じょうき》 | steam
+N2 | 塗 | 塗《ぬ》り薬《ぐすり》 | ointment
+N2 | 塗 | 塗料《とりょう》 | paint
+N2 | 磨 | 研磨《けんま》 | grinding
+N2 | 掘 | 掘《ほ》る | to dig
+N2 | 掘 | 発掘《はっくつ》 | excavation
+N2 | 掘 | 掘《ほ》り出《だ》し物《もの》 | a bargain find
+N2 | 挟 | 挟《はさ》まる | to get caught between
+N2 | 喫 | 満喫《まんきつ》 | to enjoy fully
+N2 | 召 | 召《め》し上《あ》がる | to eat (honorific)
+N2 | 召 | 召集《しょうしゅう》 | convening of the Diet
+N2 | 伺 | 伺《うかが》う | to ask, visit (humble)
+N2 | 伺 | お伺《うかが》い | a humble inquiry
+N2 | 甘 | 甘味料《かんみりょう》 | sweetener
+N2 | 黄 | 黄疸《おうだん》 | jaundice
+N2 | 黄 | 黄砂《こうさ》 | yellow dust
+N2 | 紅 | 紅茶《こうちゃ》 | black tea
+N2 | 紅 | 口紅《くちべに》 | lipstick
+N2 | 浅 | 浅瀬《あさせ》 | shallows
+N2 | 浅 | 浅草《あさくさ》 | Asakusa
+N2 | 濃 | 濃度《のうど》 | concentration
+N2 | 濃 | 血中濃度《けっちゅうのうど》 | blood level of a drug
+N2 | 柔 | 柔道《じゅうどう》 | judo
+N2 | 軟 | 軟《やわ》らかい | soft
+N2 | 軟 | 軟膏《なんこう》 | ointment
+N2 | 珍 | 珍《めずら》しく | unusually
+N2 | 珍 | 珍味《ちんみ》 | delicacy
+N2 | 鋭 | 鋭角《えいかく》 | acute angle
+N2 | 鋭 | 鋭《するど》さ | sharpness
+N2 | 鈍 | 鈍痛《どんつう》 | dull pain
+N2 | 鈍 | 鈍感《どんかん》 | insensitive
+N2 | 皿 | 小皿《こざら》 | small plate
+N2 | 皿 | 灰皿《はいざら》 | ashtray
+N2 | 糸 | 糸《いと》 | thread
+N2 | 糸 | 毛糸《けいと》 | wool yarn
+N2 | 糸 | 抜糸《ばっし》 | removal of stitches
+N2 | 衣 | 衣服《いふく》 | clothes
+N2 | 衣 | 衣類《いるい》 | clothing
+N2 | 舟 | 舟《ふね》 | small boat
+N2 | 舟 | 小舟《こぶね》 | little boat
+N2 | 舟 | 渡《わた》し舟《ぶね》 | ferryboat
+N2 | 灯 | 電灯《でんとう》 | electric light
+N2 | 灯 | 灯油《とうゆ》 | kerosene
+N2 | 缶 | 缶《かん》 | can
+N2 | 缶 | 空《あ》き缶《かん》 | empty can
+N2 | 卵 | 生卵《なまたまご》 | raw egg
+N2 | 卵 | 卵巣《らんそう》 | ovary
+N2 | 麦 | 小麦《こむぎ》 | wheat
+N2 | 麦 | 麦茶《むぎちゃ》 | barley tea
+N2 | 麦 | 麦芽《ばくが》 | malt
+N2 | 荷 | 重荷《おもに》 | heavy burden
+N2 | 荷 | 負荷《ふか》 | load, strain
+N2 | 粉 | 小麦粉《こむぎこ》 | wheat flour
+N2 | 菜 | 山菜《さんさい》 | wild vegetables
+N2 | 菜 | 菜《な》の花《はな》 | rapeseed blossoms
+N2 | 菓 | 和菓子《わがし》 | Japanese sweets
+N2 | 菓 | 製菓《せいか》 | confectionery
+N2 | 粒 | 粒《つぶ》 | grain
+N2 | 粒 | 一粒《ひとつぶ》 | one grain
+N2 | 粒 | 粒子《りゅうし》 | particle
+N2 | 瓶 | 瓶《びん》 | bottle
+N2 | 瓶 | 花瓶《かびん》 | vase
+N2 | 瓶 | 空《あ》き瓶《びん》 | empty bottle
+N2 | 湯 | お湯《ゆ》 | hot water
+N2 | 湯 | 湯船《ゆぶね》 | bathtub
+N2 | 湯 | 銭湯《せんとう》 | public bath
+N2 | 棒 | 棒《ぼう》 | stick
+N2 | 棒 | 綿棒《めんぼう》 | cotton swab
+N2 | 棒 | 鉄棒《てつぼう》 | horizontal bar
+N2 | 帽 | 野球帽《やきゅうぼう》 | baseball cap
+N2 | 帽 | 脱帽《だつぼう》 | taking off one's hat
+N2 | 筒 | 筒《つつ》 | tube
+N2 | 筒 | 水筒《すいとう》 | water bottle
+N2 | 畳 | 畳《たたみ》 | tatami mat
+N2 | 畳 | 六畳《ろくじょう》 | six-mat room
+N2 | 綿 | 綿《わた》 | cotton wool
+N2 | 綿 | 木綿《もめん》 | cotton cloth
+N2 | 銅 | 銅《どう》 | copper
+N2 | 銅 | 銅《どう》メダル | bronze medal
+N2 | 銅 | 青銅《せいどう》 | bronze
+N2 | 恋 | 恋《こい》 | romantic love
+N2 | 勇 | 勇気《ゆうき》 | courage
+N2 | 勇 | 勇《いさ》ましい | brave
+N2 | 勇 | 勇者《ゆうしゃ》 | hero
+N2 | 尊 | 尊重《そんちょう》 | respect for, valuing
+N2 | 憎 | 憎《にく》しみ | hatred
+N2 | 憎 | 愛憎《あいぞう》 | love and hate
+N2 | 肯 | 肯定《こうてい》 | affirmation

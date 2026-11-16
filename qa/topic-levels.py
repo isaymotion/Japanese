@@ -2,11 +2,11 @@
 import os
 from playwright.sync_api import sync_playwright
 
-BASE = 'http://localhost:8765/index.html'
+BASE = 'http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html'
 OUT = '/tmp/qa-out'
 os.makedirs(OUT, exist_ok=True)
 errs = []
-RANK = "({N5:1,N4:2,N3:3})"
+RANK = "({N5:1,N4:2,N3:3,N2:4})"
 
 
 def run(p, name, vp, scheme):
@@ -30,7 +30,7 @@ def run(p, name, vp, scheme):
         if ov or raw: errs.append(f'{name} {label}: overflow={ov} raw={raw}')
 
     go('#/vocab?tab=match')
-    for lv in ['All', 'N5', 'N4', 'N3']:
+    for lv in ['All', 'N5', 'N4', 'N3', 'N2']:
         pg.locator(f'[data-mlv="{lv}"]').click(); pg.wait_for_timeout(250)
         tiles = pg.locator('#view .grid .tile').count()
         exp = pg.evaluate("""lv=>{const R=""" + RANK + """;const by=new Map(App.DICT.map(e=>[e.tl+'|'+e.en,e]));return TOPIC_SETS.filter(s=>{const ws=[...new Set(s.words.map(k=>by.get(k)).filter(Boolean))];const n=ws.filter(e=>lv==='All'||(R[e.lv]||99)<=R[lv]).length;return n>=(lv==='All'?2:6)}).length}""", lv)
@@ -42,7 +42,7 @@ def run(p, name, vp, scheme):
         check('list ' + lv)
         if lv in ('All', 'N5'): pg.screenshot(path=f'{OUT}/topiclv_list_{lv}_{name}.png')
 
-    for lv in ['N5', 'N4', 'N3', 'All']:
+    for lv in ['N5', 'N4', 'N3', 'N2', 'All']:
         go('#/vocab?tab=match'); pg.locator(f'[data-mlv="{lv}"]').click(); pg.wait_for_timeout(200)
         href = pg.locator('#view .grid .tile').first.get_attribute('href')
         sid = href.split('set=')[1]
