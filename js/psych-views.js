@@ -38,6 +38,7 @@
         (PSYCH_CASES.length ? T('#/psych/cases', 'Simulate', 'Case simulations', PSYCH_CASES.length + ' interactive interviews with feedback and an MSE summary.') : '') +
         (has('PSYCH_MSE_CASES') ? T('#/psych/mcases', 'Admission', 'Admission MSE practice', 'Interview a patient on admission, document each MSE domain, and name the evidence.') : '') +
         (has('PSYCH_DISCHARGE_CASES') ? T('#/psych/dcases', 'Ward', 'Discharge practice', 'Interview, document the discharge MSE, compare with a model answer.') : '') +
+        (has('PSYCH_EOT_CASES') ? T('#/psych/eot', 'Outpatient', 'End-of-treatment review', 'The last planned session: review the treatment, safety and a relapse plan, then decide whether regular sessions end.') : '') +
         (PSYCH_INTERP.length ? T('#/psych/interp', 'Listen', 'What is the patient saying?', PSYCH_INTERP.length + ' patient and family lines to interpret.') : '') +
         (PSYCH_SECTIONS.length ? T('#/psych/listen', 'Listen', 'Listening drill', 'Hear a patient reply at natural speed, choose the meaning, then see the text.') : '') +
         (PSYCH_SECTIONS.length ? T('#/flash/psych', 'Memorize', 'Psychiatry flashcards', 'All phrases with spaced repetition.') : '') + '</div>',

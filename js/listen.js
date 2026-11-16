@@ -3,7 +3,8 @@
    dict            dictation: hear a word, build it from kana tiles or type it (kana or romaji)
    pairs           sound pairs (window.SOUND_PAIRS): hear one of two near-identical words and choose which
    story           questions on whole dialogues, readings and case simulations (window.LISTEN_Q keyed by DIALOGUES / READING id,
-                   or 'case-<case id>' from js/data/listen-questions-2.js, 0.18.0: the best-path dialogue of App.caseDialogue; ?id=)
+                   or 'case-<case id>' from js/data/listen-questions-2.js, 0.18.0: the best-path dialogue of App.caseDialogue;
+                   0.20.0: 'mse-<id>' (App.mseDialogue) and 'dis-<id>' (App.dischargeDialogue) from js/data/listen-questions-3.js; ?id=)
    Level (Starter, N5, N4, N3) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
    Modelled on V.psychListen (js/point-listen.js). */
 (function () {
@@ -261,11 +262,44 @@
 
   /* ---------- Dialogues and readings ---------- */
   const LQ = () => window.LISTEN_Q || {};
+  // 0.20.0: a conversation built from a first-visit/admission MSE case or a discharge case, for the listening questions
+  // keyed 'mse-<id>' and 'dis-<id>'. Lines as App.caseDialogue: [role 0 = Doctor | 1 = patient, ja, en, null, speaker].
+  // The doctor's line is the polite form (f) of the phrase the form asks; questions with a blank (＿) and questions
+  // without an answer in the case are left out; answers in question order.
+  const phraseOf = (r) => { const [sid, i] = String(r || '').split(':'); const sec = (window.PSYCH_SECTIONS || []).find((x) => x.id === sid); return sec && sec.phrases[+i]; };
+  const askable = (p) => p && p.f && !/＿/.test(p.f);
+  const ansList = (ans) => Object.keys(ans || {}).map(Number).filter((k) => !isNaN(k)).sort((a, b) => a - b).map((k) => [k, ans[k]]).filter(([, a]) => a && a[0]);
+  // The patient's name: c.speaker if given; else the chief complaint's speaker when it is the patient (no "(mother)");
+  // else the first name in an MSE case title of the form "Hinata at her first visit" / "Shota on admission".
+  const patientName = (c) => {
+    if (!c) return '';
+    const w = c.cc && c.cc.ans && c.cc.ans[2], t = /^([A-Z][a-z]+) (?:on|at|in) /.exec(c.title || '');
+    return c.speaker || (w && !/\(/.test(w) ? w : '') || (c.domains && t ? t[1] : '');
+  };
+  const qaLines = (lines, refs, ans, who) => ansList(ans).forEach(([qi, a]) => {
+    const p = phraseOf(refs[qi]); if (!askable(p)) return;
+    lines.push([0, p.f, p.en || '', null, 'Doctor']);
+    lines.push([1, a[0], a[1] || '', null, a[2] || who]);
+  });
+  App.mseDialogue = (c) => {
+    const who = patientName(c) || 'Patient', lines = [];
+    if (c.cc) { const p = phraseOf(c.cc.ask); if (askable(p) && c.cc.ans) { lines.push([0, p.f, p.en || '', null, 'Doctor']); lines.push([1, c.cc.ans[0], c.cc.ans[1] || '', null, c.cc.ans[2] || who]); } }
+    ((window.PSYCH_ADMIT_MSE || {}).domains || []).forEach((d) => { const cd = (c.domains || {})[d.id]; if (cd) qaLines(lines, d.ask || d.refs || [], cd.ans, who); });
+    return { id: 'mse-' + c.id, level: c.level, title: c.title, roles: ['Doctor', who], you: 0, lines, setting: c.setting };
+  };
+  App.dischargeDialogue = (c) => {
+    const m = (window.PSYCH_MSE_CASES || []).find((x) => x.id === c.id);   // the same patient's first-visit case names the speaker
+    const who = c.speaker || patientName(m) || 'Patient', lines = [];
+    ((window.PSYCH_DISCHARGE || {}).fields || []).forEach((f) => { const cf = (c.fields || {})[f.id]; if (cf && f.kind !== 'sign') qaLines(lines, f.refs || f.ask || [], cf.ans, who); });
+    return { id: 'dis-' + c.id, level: c.level, title: c.title, roles: ['Doctor', who], you: 0, lines, setting: c.setting };
+  };
   const storyItems = () => {
     const out = [];
     (window.DIALOGUES || []).forEach((d) => { if ((LQ()[d.id] || []).length) out.push({ kind: 'd', id: d.id, level: d.level, title: d.title, sub: '', obj: d }); });
     (window.READING || []).forEach((r) => { if ((LQ()[r.id] || []).length) out.push({ kind: 'r', id: r.id, level: r.level, title: r.title, sub: r.titleEn, obj: r }); });
     (window.PSYCH_CASES || []).forEach((c) => { const id = 'case-' + c.id; if ((LQ()[id] || []).length && App.caseDialogue) out.push({ kind: 'c', id, caseId: c.id, level: c.level, title: c.title, sub: '', nurse: c.role === 'nurse', obj: App.caseDialogue(c) }); });
+    (window.PSYCH_MSE_CASES || []).forEach((c) => { const id = 'mse-' + c.id; if ((LQ()[id] || []).length) out.push({ kind: 'm', id, caseId: c.id, level: c.level, title: c.title, sub: c.dx || '', obj: App.mseDialogue(c) }); });
+    (window.PSYCH_DISCHARGE_CASES || []).forEach((c) => { const id = 'dis-' + c.id; if ((LQ()[id] || []).length) out.push({ kind: 'x', id, caseId: c.id, level: c.level, title: c.title, sub: c.dx || '', obj: App.dischargeDialogue(c) }); });
     return out;
   };
   App.listenStoryIds = () => storyItems().map((x) => x.id);   // for the Progress page
@@ -274,11 +308,11 @@
     if (!items.length) { box.innerHTML = '<div class="notice">The listening questions are not written yet.</div>'; return; }
     const tile = (x) => {
       const b = bestOf('story:' + x.id);
-      return '<a class="tile" href="#/listen?tab=story&id=' + encodeURIComponent(x.id) + '"><div class="row"><span class="pill lv">' + esc(x.level) + '</span>' + (x.kind === 'c' ? '<span class="pill warn">clinical</span>' + (x.nurse ? '<span class="pill">nurse</span>' : '') : '') + (b != null ? '<span class="pill good">' + b + '%</span>' : '') + '</div>' +
+      return '<a class="tile" href="#/listen?tab=story&id=' + encodeURIComponent(x.id) + '"><div class="row"><span class="pill lv">' + esc(x.level) + '</span>' + (x.kind === 'c' || x.kind === 'm' || x.kind === 'x' ? '<span class="pill warn">clinical</span>' + (x.nurse ? '<span class="pill">nurse</span>' : '') : '') + (b != null ? '<span class="pill good">' + b + '%</span>' : '') + '</div>' +
         '<h3 style="margin-top:6px"' + (x.kind === 'r' ? ' class="tl"' : '') + '>' + esc(x.title) + '</h3><p>' + (x.sub ? esc(x.sub) + ' · ' : '') + LQ()[x.id].length + ' questions</p></a>';
     };
     const group = (k, title) => { const g = items.filter((x) => x.kind === k); return g.length ? '<h2 style="margin-top:14px">' + title + '</h2><div class="grid">' + g.map(tile).join('') + '</div>' : ''; };
-    box.innerHTML = group('d', 'Dialogues') + group('r', 'Readings') + group('c', 'Case simulations');
+    box.innerHTML = group('d', 'Dialogues') + group('r', 'Readings') + group('c', 'Case simulations') + group('m', 'First-visit and admission MSE cases') + group('x', 'Discharge cases');
   };
   const drawStory = (box, id) => {
     const x = storyItems().find((s) => s.id === id);
@@ -287,9 +321,9 @@
     const lines = dl
       ? x.obj.lines.map((l) => ({ who: l[4] || (x.obj.roles || [])[l[0]] || '', ja: l[1], en: l[2] }))
       : x.obj.tl.map((t, k) => ({ who: '', ja: t, en: (x.obj.en || [])[k] || '' }));
-    const back = x.kind === 'c' ? ['#/psych/case/' + x.caseId, 'Open the case'] : x.kind === 'd' ? ['#/speak/' + x.id, 'Open the dialogue'] : ['#/reading/' + x.id, 'Open the reading'];
+    const back = x.kind === 'c' ? ['#/psych/case/' + x.caseId, 'Open the case'] : x.kind === 'm' ? ['#/psych/mcase/' + x.caseId, 'Open the MSE case'] : x.kind === 'x' ? ['#/psych/dcase/' + x.caseId, 'Open the discharge case'] : x.kind === 'd' ? ['#/speak/' + x.id, 'Open the dialogue'] : ['#/reading/' + x.id, 'Open the reading'];
     let shown = false;
-    box.innerHTML = '<div class="row"><span class="pill lv">' + esc(x.level) + '</span><span class="muted small">' + (x.kind === 'c' ? 'Case simulation' + (x.nurse ? ' · you are the ward nurse' : '') : x.kind === 'd' ? 'Dialogue' : 'Reading') + '</span></div>' +
+    box.innerHTML = '<div class="row"><span class="pill lv">' + esc(x.level) + '</span><span class="muted small">' + (x.kind === 'c' ? 'Case simulation' + (x.nurse ? ' · you are the ward nurse' : '') : x.kind === 'm' ? 'First-visit / admission MSE case · you are the doctor' : x.kind === 'x' ? 'Discharge case · you are the doctor' : x.kind === 'd' ? 'Dialogue' : 'Reading') + '</span></div>' +
       '<h2 style="margin-top:6px"' + (x.kind === 'r' ? ' class="tl"' : '') + '>' + esc(x.title) + '</h2>' + (x.sub ? '<p class="muted">' + esc(x.sub) + '</p>' : '') +
       '<div class="row lp-ctl"><button class="btn primary" id="lpall">' + icons.sound + ' Play all</button><button class="btn" id="lpstop">Stop</button><button class="btn" id="lpshow" aria-expanded="false">Show the text</button><span class="muted small" id="lpstat" aria-live="polite"></span></div>' +
       '<div id="lptext" hidden></div><h2 style="margin-top:16px">Questions</h2><div id="lpq"></div>' +

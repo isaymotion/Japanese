@@ -457,7 +457,7 @@
 
   /* ---------- Progress ---------- */
   /* Practice scores (0.18.0): best results each practice page keeps in state.done (vocab, listen2, numbers, cases, mcases,
-     dcases). Every read tolerates a missing key (old backups). */
+     dcases; 0.20.0 ecases). Every read tolerates a missing key (old backups). */
   const pctPill = (v) => (v == null ? '<span class="muted">—</span>' : '<span class="pill ' + (v >= 80 ? 'good' : v >= 50 ? 'warn' : 'bad') + '">' + v + '%</span>');
   const avg = (vs) => (vs.length ? Math.round(vs.reduce((a, b) => a + b, 0) / vs.length) : null);
   const bar = (label, a, b, extra) => '<div><div class="spread small"><span>' + label + '</span><span class="muted">' + a + ' / ' + b + (extra ? ' · ' + extra : '') + '</span></div><div class="progress"><i style="width:' + Math.round((100 * a) / Math.max(1, b)) + '%"></i></div></div>';
@@ -494,7 +494,7 @@
     out.push(block('Numbers and counters', '#/numbers', 'Open', nrows.length || nums.clinic != null ? (nrows.length ? tbl(['Group', 'Read', 'Listen'], nrows) : '') +
       (nums.clinic != null ? '<div class="spread small"><a href="#/numbers?tab=clinic">In the clinic</a><span>Best ' + pctPill(nums.clinic) + '</span></div>' : '') : ''));
     // Case simulations, admission MSE, discharge practice: done[store][id] = best %
-    [['Case simulations', 'cases', window.PSYCH_CASES, '#/psych/cases'], ['Admission MSE practice', 'mcases', window.PSYCH_MSE_CASES, '#/psych/mcases'], ['Discharge practice', 'dcases', window.PSYCH_DISCHARGE_CASES, '#/psych/dcases']].forEach(([t, key, list, href]) => {
+    [['Case simulations', 'cases', window.PSYCH_CASES, '#/psych/cases'], ['Admission MSE practice', 'mcases', window.PSYCH_MSE_CASES, '#/psych/mcases'], ['Discharge practice', 'dcases', window.PSYCH_DISCHARGE_CASES, '#/psych/dcases'], ['End-of-treatment review', 'ecases', window.PSYCH_EOT_CASES, '#/psych/eot']].forEach(([t, key, list, href]) => {
       if (!Array.isArray(list) || !list.length) return;
       const st = done[key] || {}, tried = list.filter((c) => typeof st[c.id] === 'number');
       out.push(block(t, href, 'Open', tried.length ? bar('Cases done', tried.length, list.length, 'average ' + avg(tried.map((c) => st[c.id])) + '%') +

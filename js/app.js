@@ -68,6 +68,8 @@
     [/^\/psych\/mcases$/, V.mseCases, 'psych'],
     [/^\/psych\/mcase\/(?<id>[\w-]+)$/, V.mseCase, 'psych'],
     [/^\/psych\/dcase\/(?<id>[\w-]+)$/, V.dischargeCase, 'psych'],
+    [/^\/psych\/eot$/, V.eotCases, 'psych'],
+    [/^\/psych\/ecase\/(?<id>[\w-]+)$/, V.eotCase, 'psych'],
     [/^\/psych\/handout$/, V.handout, 'psych'],
     [/^\/psych\/mse-sheet$/, V.mseSheet, 'psych'],
     [/^\/kana$/, V.kana, 'kana'],
@@ -94,7 +96,7 @@
     ['', [['home', '#/', 'Home', icons.home], ['practice', '#/practice', 'Practice', icons.target]]],
     ['nav.learn', [['lessons', '#/lessons', 'Lessons', icons.lesson], ['kana', '#/kana', 'Kana trainer', icons.affix], ['kanji', '#/kanji', 'Kanji', icons.kanji], ['write', '#/write', 'Writing practice sheet', icons.pen], ['reading', '#/reading', 'Reading', icons.read], ['speak', '#/speak', 'Speaking', icons.speak], ['dict', '#/dict', 'Dictionary', icons.book]]],
     ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['vocab', '#/vocab', 'Vocabulary quiz', icons.book], ['listen', '#/listen', 'Listening practice', icons.sound], ['numbers', '#/numbers', 'Numbers and counters', icons.chart], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['placement', '#/placement', 'Placement test', icons.target]]],
-    ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-mcases', '#/psych/mcases', 'Admission MSE practice', icons.eye], ['p-dcases', '#/psych/dcases', 'Discharge practice', icons.check]]],
+    ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-mcases', '#/psych/mcases', 'Admission MSE practice', icons.eye], ['p-dcases', '#/psych/dcases', 'Discharge practice', icons.check], ['p-eot', '#/psych/eot', 'End-of-treatment review', icons.check]]],
     ['nav.tools', [['p-point', '#/psych/point', 'Point board', icons.speak], ['p-mood', '#/psych/mood', 'Mood episode checker', icons.chart], ['p-sud', '#/psych/sud', 'Substance use screen', icons.target], ['p-wd', '#/psych/withdrawal', 'Withdrawal and agitation', icons.spark], ['p-deesc', '#/psych/deesc', 'De-escalation', icons.speak], ['p-discharge', '#/psych/discharge', 'Discharge assessment', icons.check], ['p-mse', '#/psych/mse-sheet', 'MSE interviewer sheet', icons.lesson], ['p-ho', '#/psych/handout', 'Printable handout', icons.read]]],
     ['nav.app', [['progress', '#/progress', 'Progress', icons.chart], ['settings', '#/settings', 'Settings', icons.gear], ['new', '#/new', "What's New", icons.spark], ['about', '#/about', 'About', icons.info]]]
   ];
@@ -120,7 +122,7 @@
   if (window.MutationObserver) new MutationObserver(() => App.heads(view)).observe(view, { childList: true });
   const NAV_HREFS = NAV.reduce((a, g) => a.concat(g[1].map((i) => i[1])), []);
   // Deep pages light up their list page in the menu.
-  const PARENT = { '/psych/dcase': ['Discharge practice', '#/psych/dcases'], '/psych/mcase': ['Admission MSE practice', '#/psych/mcases'], '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null, '/kanji/k': null };
+  const PARENT = { '/psych/dcase': ['Discharge practice', '#/psych/dcases'], '/psych/ecase': ['End-of-treatment review', '#/psych/eot'], '/psych/mcase': ['Admission MSE practice', '#/psych/mcases'], '/psych/case': ['Case simulations', '#/psych/cases'], '/psych/s': null, '/verbs/v': null, '/verbs/a': null, '/kanji/k': null };
   function activeHref(path) {
     if (NAV_HREFS.includes('#' + path)) return '#' + path;
     const segs = path.split('/').filter(Boolean);
@@ -205,7 +207,7 @@
     vocab: 'Meaning, recall and reading quizzes on any deck, and sound-to-meaning matching by topic', listen: 'Hear words and sentences, dictation with kana tiles, sound pairs, questions on dialogues and readings', numbers: 'Numbers, times, dates and counters with their sound changes',
     write: 'Printable stroke-order sheets for kana and kanji, with squares to trace and write in',
     verbs: 'Conjugation tables and drills for verbs and adjectives', particles: 'A guide to each particle and a fill-in drill',
-    practice: 'Every drill on one page', psych: (window.PSYCH_SECTIONS || []).length + ' interview sections, polite and plain', 'p-cases': (window.PSYCH_CASES || []).length + ' branching interviews with feedback', 'p-interp': 'Idioms and indirect statements, and what to ask next', 'p-listen': 'Hear a patient reply, choose the meaning', 'p-mcases': 'Document an admission MSE from a simulated interview', 'p-dcases': 'Interview on the day of discharge and document it', 'p-mood': 'Depressive and manic episode criteria as questions', 'p-sud': 'DSM-5-TR criteria, severity, brief intervention', 'p-wd': 'Alcohol, cannabis and opioid withdrawal; agitation', 'p-deesc': 'A 12-step checklist with what to say', 'p-discharge': 'Field by field, with what to ask', 'p-mse': 'Screening questions for the clinic and wards, to print', 'p-ho': 'Interview flow, MSE table and checklists, to print', 'p-point': 'The patient points to a reply; the phone speaks it',
+    practice: 'Every drill on one page', psych: (window.PSYCH_SECTIONS || []).length + ' interview sections, polite and plain', 'p-cases': (window.PSYCH_CASES || []).length + ' branching interviews with feedback', 'p-interp': 'Idioms and indirect statements, and what to ask next', 'p-listen': 'Hear a patient reply, choose the meaning', 'p-mcases': 'Document an admission MSE from a simulated interview', 'p-dcases': 'Interview on the day of discharge and document it', 'p-eot': 'The last planned outpatient session: review, relapse plan, end or continue', 'p-mood': 'Depressive and manic episode criteria as questions', 'p-sud': 'DSM-5-TR criteria, severity, brief intervention', 'p-wd': 'Alcohol, cannabis and opioid withdrawal; agitation', 'p-deesc': 'A 12-step checklist with what to say', 'p-discharge': 'Field by field, with what to ask', 'p-mse': 'Screening questions for the clinic and wards, to print', 'p-ho': 'Interview flow, MSE table and checklists, to print', 'p-point': 'The patient points to a reply; the phone speaks it',
     placement: HAS.placement ? (window.PLACEMENT || []).length + ' questions to find where to start' : later, progress: 'Streak, stats, backup', settings: 'Furigana, romaji, voice, theme', new: 'What changed in each version', about: 'Credits and disclaimers'
   };
   V.practice = (el) => {

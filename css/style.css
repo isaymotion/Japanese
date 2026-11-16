@@ -1116,3 +1116,7 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 .nc-sec { font-weight: 700; color: var(--p-navy); border-bottom: 1px solid var(--p-line); margin-top: 3px; font-size: .95em; }
 .nc-line { padding: 1px 0 2px; break-inside: avoid; page-break-inside: avoid; }
 .nc-line + .nc-line { border-top: 1px dotted var(--p-line); }
+
+/* 0.20.0 topic matching levels */
+.vm-lv button[disabled] { opacity: .45; cursor: default; }
+.vm-lv button[disabled]:hover { border-color: var(--rule); }

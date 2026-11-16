@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.20.0', date: '2026-11-16', title: 'End-of-treatment review, listening on the new cases, topic sets by level',
+    items: [
+      { type: 'feature', text: 'End-of-treatment review: a new practice format for outpatients. At the last planned session, review the course of treatment, change in the target symptoms, mood, safety and insight, daily functioning, early warning signs and medicines, then decide whether regular sessions can end. Three cases: Takumi after exposure and response prevention, Mariko after trauma-focused therapy, and Hinata, 14, whose review decides to continue. The questions are also a new interview section (End-of-treatment review).' },
+      { type: 'feature', text: 'Listening practice: the first-visit MSE cases of Takumi, Mariko, Daiki and Hinata and Daiki\'s emergency department discharge can now be heard as a whole interview, with 23 questions on what the patient says.' },
+      { type: 'content', text: 'What is the patient saying?: 16 more interpretation items (64 in all) from the worlds of the new patients: reassurance seeking and family accommodation in OCD, numbing and avoidance after an accident, fear of the heart in panic, and a teenager who stops going to school, with the parent\'s words.' },
+      { type: 'feature', text: 'Topic matching by level: choose All, N5, N4 or N3 to play each set with only the words of your level, and a new Quiz mode (Meaning or Recall) on every set.' },
+      { type: 'content', text: 'Topic matching: 10 more sets (34 in all): thinking and memory, how often and how much, daily activities, course of an illness, relationships and support, directions, nature and animals, money and shopping, trips, greetings.' },
+      { type: 'update', text: 'The first-visit MSE cases link to the same patient\'s end-of-treatment review.' }
+    ]
+  },
+  {
     version: '0.19.0', date: '2026-11-14', title: 'Practice cases for the new patients, nurse scripts in two more tools',
     items: [
       { type: 'content', text: 'Admission MSE practice: four first-visit cases (12 in all) for the patients added in 0.18.0: Takumi Kobayashi (OCD, clinic), Mariko Inoue (after a car crash, clinic), Daiki Okada (panic attacks, emergency department) and Hinata Matsumoto, 14, with her mother (child and adolescent clinic).' },

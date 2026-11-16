@@ -120,6 +120,8 @@
         '<div class="stack" style="gap:8px">' + rows.map(([t, x, y]) => '<div class="dc-row"><b>' + esc(t) + '</b><div class="small"><span class="eyebrow">Admission</span> ' + esc(a(x)) + '</div><div class="small"><span class="eyebrow">Discharge</span> ' + esc(b(y)) + '</div></div>').join('') + '</div>' +
         '<a class="btn" href="#/psych/dcase/' + dis.id + '">Practice his or her discharge</a></div>';
     };
+    const eot = (window.PSYCH_EOT_CASES || []).find((x) => x.id === C.id);   // 0.20.0: outpatient end-of-treatment review of the same patient
+    const eotRow = () => (eot ? '<div class="card stack"><h3 style="margin:0">Months later</h3><p class="small muted" style="margin:0">The same patient at the end of outpatient treatment: ' + esc(eot.title) + '.</p><div class="row"><a class="btn" href="#/psych/ecase/' + eot.id + '">Practice the end-of-treatment review</a></div></div>' : '');
     const compareView = () => {
       const pct = Math.round((100 * pts()) / maxPts());
       if (allDone()) { const best = store(); best[C.id] = Math.max(pct, best[C.id] || 0); App.save(); }
@@ -136,7 +138,7 @@
         '<details class="card"><summary><b>Write it as on the form</b> <span class="muted small">optional, for self-check</span></summary><div class="stack" style="gap:8px;margin-top:8px">' +
           '<label class="small" for="mseWritten">Your MSE, one line per domain, as you would write it on the Readmission Form</label><textarea class="input" id="mseWritten" rows="10">' + esc(written) + '</textarea>' +
           '<label class="small" for="mseModel">Model MSE</label><textarea class="input" id="mseModel" rows="10" readonly style="font-family:ui-monospace,Menlo,monospace;font-size:.82rem">' + esc(modelMSE()) + '</textarea></div></details>' +
-        '<div class="row"><button class="btn primary" id="dcAgain">Run the case again</button><a class="btn" href="#/psych/mcases">Other cases</a><a class="btn" href="https://isaymotion.github.io/MSEtrainer/#/practice?lang=tl" target="_blank" rel="noopener">Drill findings in MSE Trainer</a></div></div>' + disRows();
+        '<div class="row"><button class="btn primary" id="dcAgain">Run the case again</button><a class="btn" href="#/psych/mcases">Other cases</a><a class="btn" href="https://isaymotion.github.io/MSEtrainer/#/practice?lang=tl" target="_blank" rel="noopener">Drill findings in MSE Trainer</a></div></div>' + disRows() + eotRow();
     };
 
     const draw = () => {

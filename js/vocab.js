@@ -3,7 +3,11 @@
    Meaning (Japanese → English), Recall (English → Japanese) and Reading (kanji without furigana → kana reading).
    Best % per deck and mode in state.done.vocab['<deckId>:<mode>']; the last deck in state.settings.vocabDeck.
    Matching: window.TOPIC_SETS (js/data/topic-sets.js); rounds of 6 sounds against 6 meanings. Best result in
-   state.done.vocab['match:<setId>'] = { m: misses, t: seconds }. */
+   state.done.vocab['match:<setId>'] = { m: misses, t: seconds }.
+   0.20.0: a level filter (All, N5, N4, N3; state.settings.matchLv): a set's words at a level are those whose dictionary
+   level is at or below it (C or no level: All only); sets with fewer than 6 such words are hidden; best results in
+   'match:<setId>' (All) or 'match:<setId>@N5' etc. Set page modes Match / Quiz (?mode=quiz): multiple choice on the
+   set's words, Meaning or Recall (state.settings.matchQuizMode), best % in 'topic:<setId>@<lv>:<mode>'. */
 (function () {
   const { esc, norm, shuffle, pick, icons } = App;
   const V = App.views, S = () => App.state;
@@ -150,23 +154,53 @@
   // Split into rounds of at most 6, as even as possible (13 words → 5, 4, 4), so no round is a single pair.
   const rounds = (ws) => { const n = Math.ceil(ws.length / 6), out = []; let at = 0; for (let r = 0; r < n; r++) { const k = Math.ceil((ws.length - at) / (n - r)); out.push(ws.slice(at, at + k)); at += k; } return out; };
 
+  // Level filter (0.20.0). N5 < N4 < N3; C (clinical) or no level counts as above N3, so such words show only under All.
+  const MLV = ['All', 'N5', 'N4', 'N3'];
+  const LV_RANK = { N5: 1, N4: 2, N3: 3 };
+  const MIN_LV = 6;
+  const matchLv = () => (MLV.includes(S().settings.matchLv) ? S().settings.matchLv : 'All');
+  const atLevel = (e, lv) => lv === 'All' || (LV_RANK[e.lv] || 99) <= LV_RANK[lv];
+  const levelWords = (s, lv) => setWords(s).filter((e) => atLevel(e, lv));
+  const shown = (s, lv) => levelWords(s, lv).length >= (lv === 'All' ? 2 : MIN_LV);
+  const matchKey = (s, lv) => 'match:' + s.id + (lv === 'All' ? '' : '@' + lv);
+  const quizKey = (s, lv, m) => 'topic:' + s.id + '@' + lv + ':' + m;
+  const QMODES = MODES.filter((m) => m[0] !== 'reading');
+  const lvSeg = (cur, avail) => '<div class="seg vm-lv" role="group" aria-label="Level" data-norj>' + MLV.map((k) => '<button type="button" data-mlv="' + k + '" aria-pressed="' + (cur === k) + '" class="' + (cur === k ? 'on' : '') + '"' + (avail && !avail.includes(k) ? ' disabled' : '') + '>' + k + '</button>').join('') + '</div>';
+  const bindLv = (el, redraw) => el.querySelectorAll('[data-mlv]').forEach((b) => (b.onclick = () => { S().settings.matchLv = b.dataset.mlv; App.save(); redraw(); }));
+
   function match(el, q) {
-    const sets = (window.TOPIC_SETS || []).filter((s) => setWords(s).length >= 2);
-    const set = q.set && sets.find((s) => s.id === q.set);
+    const lv = matchLv();
+    const all = (window.TOPIC_SETS || []).filter((s) => setWords(s).length >= 2);
+    const sets = all.filter((s) => shown(s, lv));
+    const set = q.set && all.find((s) => s.id === q.set);
     if (!set) {
       el.innerHTML = '<h1>Vocabulary quiz</h1>' + tabs('match') +
-        '<p class="muted">Match the sound to the meaning. Each round has up to six words: tap a numbered sound to hear it, then tap its English meaning. Turn on <b>Show words</b> to see the Japanese from the start.</p>' +
+        '<p class="muted">Match the sound to the meaning. Each round has up to six words: tap a numbered sound to hear it, then tap its English meaning. Turn on <b>Show words</b> to see the Japanese from the start. Choose a level to see only the words of that level and below; each set also has a multiple-choice <b>Quiz</b>.</p>' +
         (q.set ? '<div class="notice" style="margin-bottom:12px">That topic set was not found.</div>' : '') +
-        (sets.length ? '<div class="grid">' + sets.map((s) => { const b = best()['match:' + s.id]; return '<a class="tile" href="#/vocab?tab=match&set=' + encodeURIComponent(s.id) + '"><h3>' + esc(s.title) + '</h3><p>' + setWords(s).length + ' words</p><div class="meta row">' + (s.clin ? '<span class="pill warn">Clinical</span>' : '') + (b ? '<span class="pill good">' + esc(bestTxt(b)) + '</span>' : '') + '</div></a>'; }).join('') + '</div>' : '<div class="notice info">No topic sets yet.</div>');
+        '<div class="row vm-lvrow" style="margin-bottom:10px">' + lvSeg(lv) + '<span class="muted small">' + sets.length + ' of ' + all.length + ' sets' + (lv === 'All' ? '' : ' have ' + MIN_LV + ' or more words at ' + lv + ' or below') + '</span></div>' +
+        (sets.length ? '<div class="grid">' + sets.map((s) => {
+          const b = best()[matchKey(s, lv)], qb = QMODES.map(([m, t]) => [t, best()[quizKey(s, lv, m)]]).filter((x) => x[1] != null);
+          return '<a class="tile" href="#/vocab?tab=match&set=' + encodeURIComponent(s.id) + '"><h3>' + esc(s.title) + '</h3><p>' + levelWords(s, lv).length + ' words' + (lv === 'All' ? '' : ' at ' + lv + ' or below') + ' · Match or Quiz</p><div class="meta row">' + (s.clin ? '<span class="pill warn">Clinical</span>' : '') + (b ? '<span class="pill good">' + esc(bestTxt(b)) + '</span>' : '') +
+            qb.map(([t, v]) => '<span class="pill' + (v >= 80 ? ' good' : '') + '">' + esc(t) + ' ' + v + '%</span>').join('') + '</div></a>';
+        }).join('') + '</div>' : '<div class="notice info">' + (all.length ? 'No set has ' + MIN_LV + ' or more words at ' + lv + ' or below yet. Choose another level.' : 'No topic sets yet.') + '</div>');
+      bindLv(el, () => match(el, q));
       return;
     }
     const st = S().settings;
-    let rs, r, locked, sel, misses, t0, words;
-    const start = () => { rs = rounds(shuffle(setWords(set))); r = 0; misses = 0; t0 = Date.now(); round(); };
+    const avail = MLV.filter((k) => shown(set, k));
+    const words0 = levelWords(set, lv);
+    const mode = q.mode === 'quiz' ? 'quiz' : 'match';
+    const base = '#/vocab?tab=match&set=' + encodeURIComponent(set.id);
     el.innerHTML = '<div class="breadcrumb"><a href="#/vocab?tab=match">Topic matching</a> / ' + esc(set.title) + '</div><h1>' + esc(set.title) + '</h1>' +
-      '<div class="row" style="margin-bottom:10px">' + (set.clin ? '<span class="pill warn">Clinical</span>' : '') + '<span class="muted small">' + setWords(set).length + ' words</span>' +
-      '<label class="row small vm-show" style="margin-left:auto;gap:6px"><input type="checkbox" id="vmshow"' + (st.vocabShowWords ? ' checked' : '') + '> Show words</label></div><div id="vmbox"></div>';
+      '<div class="row vm-modes" style="margin-bottom:8px"><div class="seg" role="group" aria-label="Mode" data-norj>' + [['match', 'Match', base], ['quiz', 'Quiz', base + '&mode=quiz']].map(([k, t, h]) => '<a role="button" href="' + h + '" class="' + (mode === k ? 'on' : '') + '"' + (mode === k ? ' aria-current="page"' : '') + '>' + t + '</a>').join('') + '</div>' + lvSeg(lv, avail) + '</div>' +
+      '<div class="row" style="margin-bottom:10px">' + (set.clin ? '<span class="pill warn">Clinical</span>' : '') + '<span class="muted small">' + words0.length + ' words' + (lv === 'All' ? '' : ' at ' + lv + ' or below' + (words0.length < setWords(set).length ? ' (of ' + setWords(set).length + ')' : '')) + '</span>' +
+      (mode === 'match' ? '<label class="row small vm-show" style="margin-left:auto;gap:6px"><input type="checkbox" id="vmshow"' + (st.vocabShowWords ? ' checked' : '') + '> Show words</label>' : '') + '</div><div id="vmbox"></div>';
+    bindLv(el, () => match(el, q));
     const box = el.querySelector('#vmbox');
+    if (!avail.includes(lv)) { box.innerHTML = '<div class="notice">This set has ' + words0.length + ' word' + (words0.length === 1 ? '' : 's') + ' at ' + lv + ' or below; at least ' + MIN_LV + ' are needed. Choose another level.</div>'; return; }
+    if (mode === 'quiz') return topicQuiz(box, set, lv, words0);
+    let rs, r, locked, sel, misses, t0, words;
+    const start = () => { rs = rounds(shuffle(words0)); r = 0; misses = 0; t0 = Date.now(); round(); };
     const showAll = () => !!S().settings.vocabShowWords;
     const paintWords = () => box.querySelectorAll('.vm-snd').forEach((b) => {
       const i = +b.dataset.i, on = showAll() || locked.has(i);
@@ -209,11 +243,11 @@
       const first = box.querySelector('.vm-snd'); if (first && r > 0) first.focus();
     }
     function finish() {
-      const t = Math.round((Date.now() - t0) / 1000), k = 'match:' + set.id, b = best()[k];
+      const t = Math.round((Date.now() - t0) / 1000), k = matchKey(set, lv), b = best()[k];
       const better = !b || misses < b.m || (misses === b.m && t < b.t);
       if (better) best()[k] = { m: misses, t };
       App.activity(10); App.save();
-      box.innerHTML = '<div class="card stack"><h3 style="margin:0">' + (misses ? LANG.quiz.ok : LANG.quiz.great) + ' All ' + rs.flat().length + ' words matched</h3>' +
+      box.innerHTML = '<div class="card stack"><h3 style="margin:0">' + (misses ? LANG.quiz.ok : LANG.quiz.great) + ' All ' + rs.flat().length + ' words matched</h3>' + (lv === 'All' ? '' : '<p class="muted small" style="margin:0">Level ' + lv + ' and below</p>') +
         '<p style="margin:0">' + misses + ' miss' + (misses === 1 ? '' : 'es') + ' · ' + mmss(t) + (better && b ? ' · <span class="pill good">New best</span>' : '') + '</p>' +
         (!better ? '<p class="muted small" style="margin:0">' + esc(bestTxt(b)) + '</p>' : '') +
         '<div class="row"><button class="btn primary" id="vmagain">Try again</button><a class="btn" href="#/vocab?tab=match">Back to sets</a>' + (misses ? '<a class="btn" href="#/flash/mistakes">My mistakes</a>' : '') + '</div></div>';
@@ -222,5 +256,44 @@
     }
     el.querySelector('#vmshow').onchange = (ev) => { S().settings.vocabShowWords = ev.target.checked; App.save(); if (box.querySelector('.vm-snd')) paintWords(); };
     start();
+  }
+
+  // Multiple choice on a topic set's words (0.20.0): Meaning (Japanese → English) or Recall (English → Japanese),
+  // options from the same set first (others()); misses go to My mistakes through runQuiz's App.recordAnswer(ok, cardId).
+  function topicQuiz(box, set, lv, words) {
+    const st = S().settings;
+    let mode = QMODES.some((m) => m[0] === st.matchQuizMode) ? st.matchQuizMode : 'meaning';
+    box.innerHTML = '<div class="card stack"><div class="row" style="flex-wrap:wrap;gap:8px"><div class="seg" role="group" aria-label="Quiz type" data-norj id="vtmode"></div></div>' +
+      '<p class="muted small" style="margin:0" id="vthelp"></p><div class="row"><button class="btn primary" id="vtgo">Start</button></div></div><div id="vtq" style="margin-top:14px"></div>';
+    const qbox = box.querySelector('#vtq');
+    const paint = () => {
+      box.querySelector('#vtmode').innerHTML = QMODES.map(([k, t]) => { const b = best()[quizKey(set, lv, k)]; return '<button type="button" data-vtm="' + k + '" aria-pressed="' + (mode === k) + '" class="' + (mode === k ? 'on' : '') + '">' + t + (b != null ? ' <small class="vq-best">' + b + '%</small>' : '') + '</button>'; }).join('');
+      box.querySelector('#vthelp').textContent = (mode === 'recall' ? 'Read the English, choose the Japanese.' : 'Read the Japanese, choose the English.') + ' ' + words.length + ' questions, one per word.';
+      box.querySelectorAll('[data-vtm]').forEach((b) => (b.onclick = () => { mode = b.dataset.vtm; st.matchQuizMode = mode; App.save(); qbox.innerHTML = ''; paint(); }));
+    };
+    const run = () => {
+      const qs = makeQs(words, mode, words.length), m = mode;
+      if (qs.length < 4) return;
+      // Recall: once answered, a sound button for the right word (as in the deck quiz).
+      qbox.onclick = (ev) => {
+        const o = ev.target.closest('.opt'); if (!o) return;
+        const i = +((qbox.querySelector('.eyebrow') || {}).textContent || '').replace(/\D+(\d+).*/, '$1') - 1;
+        const qq = qs[i]; if (!qq || !qq.after) return;
+        const row = qbox.querySelector('[data-fb] .row');
+        if (row && !row.querySelector('.say')) row.insertAdjacentHTML('beforeend', App.sayBtn(qq.after, qq.after));
+      };
+      App.runQuiz(qbox, qs, {
+        after: '<a class="btn" href="#/flash/mistakes">My mistakes</a><a class="btn" href="#/vocab?tab=match&set=' + encodeURIComponent(set.id) + '">Match this set</a>',
+        onDone: (r, n) => {
+          const pct = Math.round((100 * r) / n), k = quizKey(set, lv, m);
+          best()[k] = Math.max(pct, best()[k] || 0);
+          App.activity(10); App.save();
+          if (box.isConnected) paint();
+          const again = qbox.querySelector('[data-act=retry]'); if (again) { again.textContent = 'New round'; again.onclick = run; }
+        }
+      });
+    };
+    box.querySelector('#vtgo').onclick = () => { run(); qbox.scrollIntoView({ block: 'start', behavior: 'smooth' }); };
+    paint();
   }
 })();
