@@ -4,7 +4,7 @@ window.APP_META = {
   short: 'Hanashimashō',
   nameNative: '話しましょう',
   tagline: 'Japanese from zero, for clinicians',
-  version: '0.21.0',
+  version: '0.22.0',
   repo: 'Japanese',
   updated: 'November 2026',
   author: 'Isabella Navarro, MD',

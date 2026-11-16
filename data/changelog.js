@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.22.0', date: '2026-11-17', title: 'N2 complete: lessons, readings, dialogues, examples, trainer',
+    items: [
+      { type: 'feature', text: 'N2 lessons, second half: 24 new grammar lessons in eight units (134 lessons in all; N2 now has 48): Timing and turning points, Contrast and supposition, Appearance and difficulty, Topic, dependence and addition, Advice, wishes and negative guesses, Emphasis and limits, Keigo, letters and chart style, Connectors and set phrases. They include working keigo for the phone and reception, how to read a referral letter and a chart note (with labelled samples), and written connectors. Each section says whether a form is one to say or only to understand.' },
+      { type: 'feature', text: 'N2 reading: eight passages (32 in all): an admission guide, a sample referral letter, minutes of a discharge-planning conference, a family-group newsletter, a resident\'s diary, a newspaper column on sleep, a local festival feature and a thank-you letter. N2 speaking: six dialogues (22 in all): phoning a referring clinic, recommending admission to a family, the case conference, a request the ward cannot grant, asking a senior for advice, planning a return to work. Each has listening questions (42 new).' },
+      { type: 'content', text: 'Example sentences for 401 N2 dictionary words (2,965 words now have one).' },
+      { type: 'content', text: 'Trainer: 53 N2 verbs and 13 N2 adjectives (528 verbs and 307 adjectives in all), with N2 in the trainer\'s level filter. Topic matching: eight N2 sets (42 in all).' },
+      { type: 'feature', text: 'End-of-treatment review: a fourth case, Daiki at his last session after twelve sessions of therapy for panic attacks.' }
+    ]
+  },
+  {
     version: '0.21.0', date: '2026-11-16', title: 'N2 lessons and kanji (first half of N2)',
     items: [
       { type: 'feature', text: 'N2 lessons, first half: 24 new grammar lessons in eight units (110 lessons in all): Change and progress, Scope and range, Viewpoint and basis, Reasons and results, Possibility and limits, No choice and strong feeling, もの, こと and ところ, Comparison and surprise. Each section says whether a form is one to say or only to understand, since many N2 forms belong to notices, consent forms, letters and chart notes; each lesson has clinical examples and a quiz.' },
