@@ -1,4 +1,4 @@
-/* Placement test. PLACEMENT = [[level, question, options, correctIndex]]; level is 'S' (kana and greetings), 'N5a', 'N5b', 'N4' or 'N3'. DRAFT FOR REVIEW. */
+/* Placement test. PLACEMENT = [[level, question, options, correctIndex]]; level is 'S' (kana and greetings), 'N5a', 'N5b', 'N4', 'N3' or 'N2'. DRAFT FOR REVIEW. */
 window.PLACEMENT = [
   ['S', "Which of these is written <i>sushi</i>?", ["すき", "すし", "しす"], 1],
   ['S', "What do you say to greet someone in the morning?", ["こんばんは", "おやすみなさい", "おはよう ございます"], 2],
@@ -28,5 +28,10 @@ window.PLACEMENT = [
   ['N3', "Choose the best word: 寝不足《ねぶそく》 の ＿、 朝《あさ》 から 頭《あたま》 が 痛《いた》い です。", ["うち に", "せい で", "かわり に"], 1],
   ['N3', "What does 看護師《かんごし》さん に よると、 山田《やまだ》さん は 昨日《きのう》 の 夜《よる》 よく 眠《ねむ》れた そう です mean?", ["It looks as if Mr. Yamada will sleep well tonight.", "The nurse wants Mr. Yamada to sleep well.", "According to the nurse, Mr. Yamada slept well last night."], 2],
   ['N3', "Choose the best word for 'before you forget': 忘《わす》れない ＿、 メモ して ください。", ["たび に", "うち に", "ばかり に"], 1],
-  ['N3', "What does 薬《くすり》 を 飲《の》めば すぐ 治《なお》る わけ では ありません mean?", ["It does not mean that you will get better right away if you take the medicine.", "There is no reason to take the medicine.", "If you take the medicine, you will certainly get better right away."], 0]
+  ['N3', "What does 薬《くすり》 を 飲《の》めば すぐ 治《なお》る わけ では ありません mean?", ["It does not mean that you will get better right away if you take the medicine.", "There is no reason to take the medicine.", "If you take the medicine, you will certainly get better right away."], 0],
+  ['N2', "Choose the best word: 治療《ちりょう》 が 進《すす》む ＿、 気分《きぶん》 も 少《すこ》しずつ 落《お》ち着《つ》いて きました。", ["に 限《かぎ》らず", "に つれて", "どころ か"], 1],
+  ['N2', "What does この 病院《びょういん》 で は、 患者《かんじゃ》さん に 限《かぎ》らず、 ご家族《かぞく》 も 相談《そうだん》 できます mean?", ["At this hospital, only patients can ask for advice, not their families.", "At this hospital, families can ask for advice only when the patient is there.", "At this hospital, not only patients but also their families can ask for advice."], 2],
+  ['N2', "What does 無理《むり》 を 続《つづ》ける と、 体調《たいちょう》 を 崩《くず》しかねません mean?", ["If you keep pushing yourself, you could well become unwell.", "Even if you keep pushing yourself, you will not become unwell.", "You cannot keep pushing yourself, because you are already unwell."], 0],
+  ['N2', "What does 熱《ねつ》 が 下《さ》がらない ので、 今日《きょう》 の 外出《がいしゅつ》 は 中止《ちゅうし》 せざる を 得《え》ません mean?", ["The fever has not gone down, but there is no need to cancel today's outing.", "The fever has not gone down, so we have no choice but to cancel today's outing.", "The fever has not gone down, so please do not cancel today's outing."], 1],
+  ['N2', "Choose the best word: 昨夜《さくや》 は ゆっくり 休《やす》める ＿、 一睡《いっすい》 も できません でした。", ["どころ か", "に つれて", "から こそ"], 0]
 ];

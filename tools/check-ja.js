@@ -52,7 +52,7 @@ function checkKanji(blocks, f) {
   const base = path.basename(f);
   blocks.filter((b) => !b._checked).forEach((b) => {
     b._checked = true;
-    if (!/^(N5|N4|N3|C)$/.test(b.level || '')) { errors++; console.log('ERROR ' + f + ': kanji block level must be N5, N4, N3 or C'); }
+    if (!/^(N5|N4|N3|N2|C)$/.test(b.level || '')) { errors++; console.log('ERROR ' + f + ': kanji block level must be N5, N4, N3, N2 or C'); }
     String(b.text || '').split('\n').forEach((line) => {
       line = line.trim(); if (!line || line.startsWith('#')) return;
       const c = line.split('|').map((x) => x.trim()), where = f + ' ' + (c[0] || '?');
@@ -88,7 +88,7 @@ files.forEach((f) => {
   const names = Object.keys(ctx).filter((k) => !before.has(k) || (k === 'DICT_RAW' && /dict-/.test(f)) || (k === 'PSYCH_SECTIONS' && /psych-phrases/.test(f)) || (k === 'LESSONS' && /lessons/.test(f)));
   names.forEach((n) => {
     const v = ctx[n];
-    if (n === 'DICT_RAW') v.join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); { const t = c.map((x) => x.trim()); if (!DICT_POS.test(t[2] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown part of speech "' + t[2] + '": ' + line); } if (!DICT_CAT.test(t[3] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown category "' + t[3] + '": ' + line); } if (t[4] && !/^(N5|N4|N3|C)$/.test(t[4])) { errors++; console.log('ERROR ' + f + ' dict: level must be N5, N4, N3 or C: ' + line); } if (/[《》]/.test(t[1] || '') || !(t[1] || '').trim()) { errors++; console.log('ERROR ' + f + ' dict: English column missing or has readings in it: ' + line); } } if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
+    if (n === 'DICT_RAW') v.join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); { const t = c.map((x) => x.trim()); if (!DICT_POS.test(t[2] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown part of speech "' + t[2] + '": ' + line); } if (!DICT_CAT.test(t[3] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown category "' + t[3] + '": ' + line); } if (t[4] && !/^(N5|N4|N3|N2|C)$/.test(t[4])) { errors++; console.log('ERROR ' + f + ' dict: level must be N5, N4, N3, N2 or C: ' + line); } if (/[《》]/.test(t[1] || '') || !(t[1] || '').trim()) { errors++; console.log('ERROR ' + f + ' dict: English column missing or has readings in it: ' + line); } } if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
     else if (n === 'KANJI_RAW') checkKanji(v, f);
     else walk(v, f + ':' + n, new Set());
   });

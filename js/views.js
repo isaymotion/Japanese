@@ -145,7 +145,7 @@
       '<div class="stack"><input class="input" id="dq" type="search" placeholder="Type ' + esc(LANG.name) + ' or English (' + esc(LANG.searchExample) + ')" value="' + esc(term) + '">' +
       '<div class="spread"><div class="seg" role="group" aria-label="Direction">' +
       [['both', 'Both'], ['tl', LANG.dictDir.tl], ['en', LANG.dictDir.en]].map(([k, t]) => '<button data-dir="' + k + '" class="' + (dir === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
-      '<select class="input" id="dcat" style="width:auto;max-width:100%"><option value="">All topics</option>' + Object.entries(App.CATS).map(([k, t]) => '<option value="' + k + '"' + (cat === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select><select class="input" id="dlv" style="width:auto;max-width:100%"><option value="">All levels</option>' + Object.entries(App.LEVELS).map(([k, t]) => '<option value="' + k + '"' + (lvf === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select></div>' +
+      '<select class="input" id="dcat" style="width:auto;max-width:100%"><option value="">All topics</option>' + Object.entries(App.CATS).map(([k, t]) => '<option value="' + k + '"' + (cat === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select><select class="input" id="dlv" style="width:auto;max-width:100%"><option value="">All levels</option>' + Object.entries(App.LEVELS).filter(([k]) => App.DICT.some((e) => e.lv === k)).map(([k, t]) => '<option value="' + k + '"' + (lvf === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select></div>' +
       '<div class="letters" data-norj aria-label="Browse by kana row">' + letters.map((L) => '<button data-l="' + L + '" class="' + (letter === L ? 'on' : '') + '">' + L.toUpperCase() + '</button>').join('') + '</div></div><div id="dres" style="margin-top:12px"></div>';
     const dq = el.querySelector('#dq');
     let t;
@@ -426,7 +426,7 @@
   V.placement = (el) => {
     if (!PLACEMENT.length) { el.innerHTML = '<h1>Placement test</h1>' + soon('The placement test'); return; }
     const LV = LANG.placementLevels, keys = LV.map((x) => x[0]);
-    el.innerHTML = '<h1>Placement test</h1><p class="muted">' + PLACEMENT.length + ' questions from the kana to JLPT N3. If you are new to Japanese, skip this and start with Lesson 1. Choose "I don\'t know" rather than guessing; guessing only hides your real level.</p><div id="pq" data-norj></div>';
+    el.innerHTML = '<h1>Placement test</h1><p class="muted">' + PLACEMENT.length + ' questions from the kana to JLPT N2. If you are new to Japanese, skip this and start with Lesson 1. Choose "I don\'t know" rather than guessing; guessing only hides your real level.</p><div id="pq" data-norj></div>';
     const qs = PLACEMENT.map(([lv, q, opts, a]) => ({ lv, q, opts: opts.concat(["I don't know"]), a }));
     let i = 0; const got = {}, tot = {};
     keys.forEach((k) => { got[k] = 0; tot[k] = 0; });
@@ -437,11 +437,12 @@
         // Your level is the first band you have not yet mastered (80% for the starter band, 60% after).
         let n = 0;
         while (n < keys.length && tot[keys[n]] && got[keys[n]] / tot[keys[n]] >= (n === 0 ? 0.8 : 0.6)) n++;
-        const level = n === 0 ? 'Starter' : n <= 2 ? 'N5' : n === 3 ? 'N4' : n === 4 ? 'N3' : 'N3+';
+        const level = n === 0 ? 'Starter' : n <= 2 ? 'N5' : n === 3 ? 'N4' : n === 4 ? 'N3' : n === 5 ? 'N2' : 'N2+';
         S().level = level; App.activity(20);
         const firstOf = (unit) => { const l = LESSONS.find((x) => x.unit === unit); return l ? '#/lessons/' + l.id : '#/lessons'; };
         const rec = [['#/lessons/writing-systems', 'Start with the first lessons and the kana trainer.'], [firstOf('First sentences'), 'You can read kana. Start at First sentences and work through the particles.'], [firstOf('Adjectives'), 'Review adjectives and the て-form, then the plain forms.'],
-          [firstOf('Plain forms'), 'Work through the plain forms and Saying more, then open the psychiatry track.'], [firstOf('Time and sequence'), 'You have the N4 grammar. Start the N3 lessons at Time and sequence; you can open the psychiatry track alongside them.'], ['#/psych', 'You are ready for the psychiatry track. Use the N3 lessons and readings as review.']][n];
+          [firstOf('Plain forms'), 'Work through the plain forms and Saying more, then open the psychiatry track.'], [firstOf('Time and sequence'), 'You have the N4 grammar. Start the N3 lessons at Time and sequence; you can open the psychiatry track alongside them.'],
+          [firstOf('Change and progress'), 'You have the N3 grammar. Start the N2 lessons at Change and progress; you can open the psychiatry track alongside them.'], ['#/psych', 'You are ready for the psychiatry track. Use the N2 lessons and readings as review.']][n];
         box.innerHTML = '<div class="card stack"><span class="eyebrow">Your level</span><h2 style="margin:0">' + level + '</h2>' +
           '<div class="tablewrap"><table><tr><th>Band</th><th>Score</th></tr>' + LV.map(([k, name]) => '<tr><td>' + esc(name) + '</td><td>' + got[k] + ' / ' + tot[k] + '</td></tr>').join('') + '</table></div>' +
           '<p>' + rec[1] + '</p><div class="row"><a class="btn primary" href="' + rec[0] + '">Go there</a><a class="btn" href="#/">Home</a></div></div>';

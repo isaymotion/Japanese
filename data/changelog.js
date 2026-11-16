@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.21.0', date: '2026-11-16', title: 'N2 lessons and kanji (first half of N2)',
+    items: [
+      { type: 'feature', text: 'N2 lessons, first half: 24 new grammar lessons in eight units (110 lessons in all): Change and progress, Scope and range, Viewpoint and basis, Reasons and results, Possibility and limits, No choice and strong feeling, もの, こと and ところ, Comparison and surprise. Each section says whether a form is one to say or only to understand, since many N2 forms belong to notices, consent forms, letters and chart notes; each lesson has clinical examples and a quiz.' },
+      { type: 'feature', text: 'N2 kanji: 330 new kanji (1,049 in all) on a new N2 chart, each with its page, readings, example words, stroke-order diagram and writing sheet, in the kanji drill and as flashcard decks. 37 more N2 kanji were already in the Clinical set; the N2 chart links to them.' },
+      { type: 'content', text: 'Dictionary: N2 words from the new kanji pages, so they can be searched, studied as flashcards and used in the vocabulary quiz.' },
+      { type: 'update', text: 'Placement test: five N2 questions (30 in all) and an N2 result that points to the first N2 lesson.' },
+      { type: 'update', text: 'N2 in the level filters of the lessons, kanji chart, dictionary, vocabulary quiz, topic matching and listening practice.' }
+    ]
+  },
+  {
     version: '0.20.0', date: '2026-11-16', title: 'End-of-treatment review, listening on the new cases, topic sets by level',
     items: [
       { type: 'feature', text: 'End-of-treatment review: a new practice format for outpatients. At the last planned session, review the course of treatment, change in the target symptoms, mood, safety and insight, daily functioning, early warning signs and medicines, then decide whether regular sessions can end. Three cases: Takumi after exposure and response prevention, Mariko after trauma-focused therapy, and Hinata, 14, whose review decides to continue. The questions are also a new interview section (End-of-treatment review).' },

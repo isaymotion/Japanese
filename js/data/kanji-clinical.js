@@ -1,4 +1,4 @@
-/* Kanji: clinical set (kanji beyond N3 that appear often in this app's psychiatry phrases). Format: tools/AUTHORING.md ("Kanji files").
+/* Kanji: clinical set (kanji not in the N5–N2 files that appear often in this app's psychiatry phrases; some are JLPT N2 kanji, linked from the N2 chart). Format: tools/AUTHORING.md ("Kanji files").
    字 | meanings | on (katakana) | kun (hiragana, okurigana after a dot) | strokes | group | word=gloss; ... | note
    DRAFT: readings, meanings and example words are pending review by a native Japanese speaker. JLPT levels are approximate. */
 window.KANJI_RAW = window.KANJI_RAW || [];

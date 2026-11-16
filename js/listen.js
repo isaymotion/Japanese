@@ -5,14 +5,14 @@
    story           questions on whole dialogues, readings and case simulations (window.LISTEN_Q keyed by DIALOGUES / READING id,
                    or 'case-<case id>' from js/data/listen-questions-2.js, 0.18.0: the best-path dialogue of App.caseDialogue;
                    0.20.0: 'mse-<id>' (App.mseDialogue) and 'dis-<id>' (App.dischargeDialogue) from js/data/listen-questions-3.js; ?id=)
-   Level (Starter, N5, N4, N3) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
+   Level (Starter, N5, N4, N3, N2) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
    Modelled on V.psychListen (js/point-listen.js). */
 (function () {
   const { esc, shuffle, pick, icons, norm } = App;
   const V = App.views;
   const S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LEVELS = ['Starter', 'N5', 'N4', 'N3'];
+  const LEVELS = ['Starter', 'N5', 'N4', 'N3', 'N2'];
   const SPEEDS = [['slow', 'Slower', 0.7], ['natural', 'Natural', 0.9], ['fast', 'Fast', 1.05]];
   const TABS = [['hear', 'Hear'], ['dict', 'Dictation'], ['pairs', 'Sound pairs'], ['story', 'Dialogues and readings']];
   const INTRO = {
@@ -23,7 +23,9 @@
   };
   const st = { speed: 'natural', src: 'words', type: '' };
   const rate = () => (SPEEDS.find((s) => s[0] === st.speed) || SPEEDS[1])[2];
-  const level = () => { const v = S().settings.listenLv; return LEVELS.includes(v) ? v : 'N5'; };
+  // Levels with dictionary words (0.21.0: N2 appears once its words are in); a remembered level without words falls back to N5.
+  const shownLevels = () => LEVELS.filter((k) => k === 'Starter' || wordsOf(k).length);
+  const level = () => { const v = S().settings.listenLv; return shownLevels().includes(v) ? v : 'N5'; };
   const best = (key, pct) => {
     const d = S().done; d.listen2 = d.listen2 || {};
     d.listen2[key] = Math.max(pct, d.listen2[key] || 0);
@@ -352,7 +354,7 @@
     el.innerHTML = crumb([['Practice', '#/practice'], ['Listening practice']]) + '<h1>Listening practice</h1>' +
       '<div class="seg lp-tabs" role="group" aria-label="View" style="margin-bottom:8px">' + TABS.map(([k, t]) => '<a role="button" href="#/listen' + (k === 'hear' ? '' : '?tab=' + k) + '" class="' + (tab === k ? 'on' : '') + '"' + (tab === k ? ' aria-current="page"' : '') + '>' + t + '</a>').join('') + '</div>' +
       '<p class="muted">' + esc(INTRO[tab]) + '</p>' +
-      ('<div class="row lp-ctl">' + (usesLevel ? seg('Level', LEVELS.map((k) => [k, k]), level(), 'lv') : '') +
+      ('<div class="row lp-ctl">' + (usesLevel ? seg('Level', shownLevels().map((k) => [k, k]), level(), 'lv') : '') +
         seg('Speed', SPEEDS.map(([k, t]) => [k, t]), st.speed, 'sp') +
         (tab === 'story' ? '' : '<button class="btn sm" id="lpnew">New set</button>') + '</div>') +
       '<div id="lpbody"></div>';

@@ -4,7 +4,7 @@
    Best % per deck and mode in state.done.vocab['<deckId>:<mode>']; the last deck in state.settings.vocabDeck.
    Matching: window.TOPIC_SETS (js/data/topic-sets.js); rounds of 6 sounds against 6 meanings. Best result in
    state.done.vocab['match:<setId>'] = { m: misses, t: seconds }.
-   0.20.0: a level filter (All, N5, N4, N3; state.settings.matchLv): a set's words at a level are those whose dictionary
+   0.20.0: a level filter (All, N5, N4, N3, N2 (0.21.0); state.settings.matchLv): a set's words at a level are those whose dictionary
    level is at or below it (C or no level: All only); sets with fewer than 6 such words are hidden; best results in
    'match:<setId>' (All) or 'match:<setId>@N5' etc. Set page modes Match / Quiz (?mode=quiz): multiple choice on the
    set's words, Meaning or Recall (state.settings.matchQuizMode), best % in 'topic:<setId>@<lv>:<mode>'. */
@@ -154,9 +154,9 @@
   // Split into rounds of at most 6, as even as possible (13 words → 5, 4, 4), so no round is a single pair.
   const rounds = (ws) => { const n = Math.ceil(ws.length / 6), out = []; let at = 0; for (let r = 0; r < n; r++) { const k = Math.ceil((ws.length - at) / (n - r)); out.push(ws.slice(at, at + k)); at += k; } return out; };
 
-  // Level filter (0.20.0). N5 < N4 < N3; C (clinical) or no level counts as above N3, so such words show only under All.
-  const MLV = ['All', 'N5', 'N4', 'N3'];
-  const LV_RANK = { N5: 1, N4: 2, N3: 3 };
+  // Level filter (0.20.0). N5 < N4 < N3 < N2; C (clinical) or no level counts as above N2, so such words show only under All.
+  const MLV = ['All', 'N5', 'N4', 'N3', 'N2'];
+  const LV_RANK = { N5: 1, N4: 2, N3: 3, N2: 4 };
   const MIN_LV = 6;
   const matchLv = () => (MLV.includes(S().settings.matchLv) ? S().settings.matchLv : 'All');
   const atLevel = (e, lv) => lv === 'All' || (LV_RANK[e.lv] || 99) <= LV_RANK[lv];
