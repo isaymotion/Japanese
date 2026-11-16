@@ -4,7 +4,8 @@ the current one, and compares #view innerHTML at every step. Expect "differences
 import asyncio, sys
 from playwright.async_api import async_playwright
 B='http://localhost:8765/index.html'
-ORIG=sys.argv[1] if len(sys.argv)>1 else '/tmp/discharge-practice.orig.js'
+import os
+ORIG=sys.argv[1] if len(sys.argv)>1 else os.path.join(os.path.dirname(os.path.abspath(__file__)),'fixtures','discharge-practice-0.19.0.js')
 async def walk(br, orig):
     ctx=await br.new_context(viewport={'width':390,'height':844}); pg=await ctx.new_page(); errs=[]
     pg.on('pageerror',lambda e: errs.append(str(e)))
