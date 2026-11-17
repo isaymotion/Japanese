@@ -45,7 +45,7 @@ function walk(o, where, seen) {
 }
 // Dictionary columns 3 and 4 (js/core.js: POS and App.CATS)
 const DICT_POS = /^(n|v1|v5|vs|vi|ai|an|adv|pron|part|conj|interj|num|ctr|q|pre|suf|phr)$/;
-const DICT_CAT = /^(basics|grammar|pronouns|questions|numbers|counters|time|people|family|body|food|home|money|places|travel|nature|adjectives|verbs|adverbs|emotions|health|mind|risk|substance|meds|hospital|clinical|mimetic|idioms|society)$/;
+const DICT_CAT = /^(basics|grammar|pronouns|questions|numbers|counters|time|people|family|body|food|home|money|places|travel|nature|adjectives|verbs|adverbs|emotions|health|mind|risk|substance|meds|hospital|clinical|mimetic|idioms|society|animals|things|clothes)$/;
 // Kanji files: 字 | meanings | on | kun | strokes | group | words | note   (tools/AUTHORING.md)
 const kanjiSeen = new Map();
 function checkKanji(blocks, f) {
@@ -84,7 +84,12 @@ function checkKanji(blocks, f) {
 // 0.23.0: globals that several files extend (concat or Object.assign, js/data/lessons-*.js, lesson-extra-*.js,
 // grammar-cloze-*.js, grammar-transform-*.js, word-pairs-*.js). Each entry is checked once, under the file that added it,
 // however many files load after it (concat makes a new array, so "new global" alone would miss the later files).
-const SHARED = new Set(['LESSONS', 'LESSON_EXTRA', 'GRAMMAR_CLOZE', 'GRAMMAR_TRANSFORM', 'WORD_PAIRS']);
+// 0.24.0: also PICTURE_SETS (picture-sets-*.js), DICT_EX (examples-*.js) and TOPIC_SETS (topic-sets-*.js). PICTURE_BODYMAP, SIGNS and
+// SIGN_PANELS are one file each (new globals). pictures/art-*.js hold no Japanese and are never read here.
+// DICT_RAW: each dictionary block is checked once, under the file that pushed it (before 0.24.0 every dictionary file
+// re-checked all earlier blocks, so the same few warnings were counted once per dictionary file).
+const SHARED = new Set(['LESSONS', 'LESSON_EXTRA', 'GRAMMAR_CLOZE', 'GRAMMAR_TRANSFORM', 'WORD_PAIRS', 'PICTURE_SETS', 'DICT_EX', 'TOPIC_SETS']);
+let dictDone = 0;
 const sharedSeen = new WeakSet();
 function walkShared(n, v, f) {
   if (!v || typeof v !== 'object') return;
@@ -102,7 +107,7 @@ files.forEach((f) => {
   names.forEach((n) => {
     const v = ctx[n];
     if (SHARED.has(n)) return walkShared(n, v, f);
-    if (n === 'DICT_RAW') v.join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); { const t = c.map((x) => x.trim()); if (!DICT_POS.test(t[2] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown part of speech "' + t[2] + '": ' + line); } if (!DICT_CAT.test(t[3] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown category "' + t[3] + '": ' + line); } if (t[4] && !/^(N5|N4|N3|N2|C)$/.test(t[4])) { errors++; console.log('ERROR ' + f + ' dict: level must be N5, N4, N3, N2 or C: ' + line); } if (/[《》]/.test(t[1] || '') || !(t[1] || '').trim()) { errors++; console.log('ERROR ' + f + ' dict: English column missing or has readings in it: ' + line); } } if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
+    if (n === 'DICT_RAW') v.slice(dictDone, (dictDone = v.length)).join('\n').split('\n').forEach((line, i) => { line = line.trim(); if (!line || line.startsWith('#')) return; const c = line.split('|'); if (c.length < 4) { errors++; console.log('ERROR ' + f + ' dictionary line has fewer than 4 columns: ' + line); } check(c[0], f + ' dict'); { const t = c.map((x) => x.trim()); if (!DICT_POS.test(t[2] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown part of speech "' + t[2] + '": ' + line); } if (!DICT_CAT.test(t[3] || '')) { errors++; console.log('ERROR ' + f + ' dict: unknown category "' + t[3] + '": ' + line); } if (t[4] && !/^(N5|N4|N3|N2|C)$/.test(t[4])) { errors++; console.log('ERROR ' + f + ' dict: level must be N5, N4, N3, N2 or C: ' + line); } if (/[《》]/.test(t[1] || '') || !(t[1] || '').trim()) { errors++; console.log('ERROR ' + f + ' dict: English column missing or has readings in it: ' + line); } } if (JA.hasJa(c[1] || '')) { /* Japanese in the English column is allowed in notes only */ } check(c.slice(5).join('|'), f + ' dict note'); });
     else if (n === 'KANJI_RAW') checkKanji(v, f);
     else walk(v, f + ':' + n, new Set());
   });

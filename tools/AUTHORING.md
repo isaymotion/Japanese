@@ -110,7 +110,8 @@ the clinical set stay there; the N2 chart links to them (`N2_IN_C` in js/kanji.j
   words at the end of the last file or in a new file loaded after the others; never reorder or delete published lines.
 - `check-ja.js` checks each line's part of speech, category and level against the lists in `js/core.js`
   (`POS`, `App.CATS`, `App.LEVELS`). Categories now include `society` (society, ideas and abstract words); school words
-  go in `money`.
+  go in `money`. Since 0.24.0 also `animals` (Animals), `things` (Things and machines: objects, machines, tools)
+  and `clothes` (Clothes).
 - Before adding words, check they are not already there under another spelling (kana or kanji):
   `grep -n "WORD" js/data/dict-*.js`. An entry whose Japanese and English both equal an earlier entry is dropped at load.
 

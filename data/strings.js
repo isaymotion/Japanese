@@ -156,6 +156,8 @@ window.STRINGS = {
     'item.test': 'レベル 別《べつ》 テスト',
     'item.pairs': '言葉《ことば》 の ペア',
     'item.sounds': '擬音語《ぎおんご》・擬態語《ぎたいご》',
+    'item.pictures': '絵《え》 で 覚《おぼ》える 言葉《ことば》',
+    'item.signs': '看板《かんばん》 と ボタン',
     'item.placement': 'レベル チェック テスト',
     'item.psych': '精神科《せいしんか》 の 日本語《にほんご》',
     'item.p-cases': '症例《しょうれい》 シミュレーション',
@@ -217,6 +219,9 @@ window.STRINGS = {
     'head.Grammar drills': '文法《ぶんぽう》 ドリル',
     'head.Common mistakes': 'よく ある 間違《まちが》い',
     'head.More examples': '追加《ついか》 の 例文《れいぶん》',
-    'head.More practice': '追加《ついか》 の 練習《れんしゅう》'
+    'head.More practice': '追加《ついか》 の 練習《れんしゅう》',
+    // 0.24.0: Practice page section and tiles of the picture pages
+    'head.Pictures': '絵《え》',
+    'head.Body map': '体《からだ》 の 図《ず》'
   }
 };

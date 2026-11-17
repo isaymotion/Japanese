@@ -145,7 +145,7 @@
       '<div class="stack"><input class="input" id="dq" type="search" placeholder="Type ' + esc(LANG.name) + ' or English (' + esc(LANG.searchExample) + ')" value="' + esc(term) + '">' +
       '<div class="spread"><div class="seg" role="group" aria-label="Direction">' +
       [['both', 'Both'], ['tl', LANG.dictDir.tl], ['en', LANG.dictDir.en]].map(([k, t]) => '<button data-dir="' + k + '" class="' + (dir === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
-      '<select class="input" id="dcat" style="width:auto;max-width:100%"><option value="">All topics</option>' + Object.entries(App.CATS).map(([k, t]) => '<option value="' + k + '"' + (cat === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select><select class="input" id="dlv" style="width:auto;max-width:100%"><option value="">All levels</option>' + Object.entries(App.LEVELS).filter(([k]) => App.DICT.some((e) => e.lv === k)).map(([k, t]) => '<option value="' + k + '"' + (lvf === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select></div>' +
+      '<select class="input" id="dcat" style="width:auto;max-width:100%"><option value="">All topics</option>' + Object.entries(App.CATS).filter(([k]) => k === cat || App.DICT.some((e) => e.cat === k)).map(([k, t]) => '<option value="' + k + '"' + (cat === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select><select class="input" id="dlv" style="width:auto;max-width:100%"><option value="">All levels</option>' + Object.entries(App.LEVELS).filter(([k]) => App.DICT.some((e) => e.lv === k)).map(([k, t]) => '<option value="' + k + '"' + (lvf === k ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select></div>' +
       '<div class="letters" data-norj aria-label="Browse by kana row">' + letters.map((L) => '<button data-l="' + L + '" class="' + (letter === L ? 'on' : '') + '">' + L.toUpperCase() + '</button>').join('') + '</div></div><div id="dres" style="margin-top:12px"></div>';
     const dq = el.querySelector('#dq');
     let t;
@@ -300,6 +300,12 @@
       (more.length ? '<h2>More examples</h2>' + more.map(([ja, en]) => '<div class="ex"><b>' + esc(ja) + '</b><span>' + esc(en || '') + '</span></div>').join('') : '') +
       '</div>';
   };
+  // 0.24.0: picture embeds in a lesson body (<div class="pic-embed" data-pic="<set id>">) are mounted by the pictures module
+  // (js/pictures.js); they stay in the page, so App.printPage prints them too. An unknown set id shows nothing, logs nothing.
+  App.mountPics = (root) => {
+    if (!root || !App.pictures || typeof App.pictures.embed !== 'function') return;
+    root.querySelectorAll('.pic-embed[data-pic]').forEach((d) => { try { App.pictures.embed(d, d.dataset.pic); } catch (e) { d.innerHTML = ''; } });
+  };
   V.lesson = (el, p) => {
     const l = LESSONS.find((x) => x.id === p.id);
     if (!l) { el.innerHTML = '<p>Lesson not found.</p>'; return; }
@@ -316,6 +322,7 @@
       (links ? '<div class="row noprint lx-links" style="margin-top:14px">' + links + '</div>' : '') +
       '<div class="spread prevnext" style="margin-top:16px">' + (prev ? '<a class="btn" href="#/lessons/' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/lessons/' + next.id + '">' + esc(next.title) + ' →</a>' : '') + '</div>';
     el.querySelector('#lprint').onclick = () => App.printPage();
+    App.mountPics(el);
     // speak buttons for examples
     el.querySelectorAll('.lesson-body .ex').forEach((ex) => { const b = ex.querySelector('b'); if (b) { ex.style.gridTemplateColumns = 'minmax(0,1fr) auto'; const btn = document.createElement('div'); btn.innerHTML = App.sayBtn(b.textContent); btn.style.gridRow = '1 / span 2'; btn.style.gridColumn = '2'; ex.appendChild(btn.firstChild); } });
     App.runQuiz(el.querySelector('#lq'), l.quiz.map(([q, opts, a, exp]) => ({ q, opts, a, exp })), {
@@ -552,6 +559,24 @@
     oneCol('Level review test', 'test', '#/test', 'Level', lvName);
     twoCol('Word pairs', 'pairs', '#/pairs', 'Level', [['match', 'Match'], ['quiz', 'Quiz']], true, lvName);
     twoCol('Sound-symbolic words', 'sounds', '#/sounds', 'Group', [['quiz', 'Quiz'], ['match', 'Match']], true, groupTitle, (a, b) => gRank(a) - gRank(b));
+    // 0.24.0: done.pictures['<mode>:<set id>'] (identify | label | listen) = best %, plus a miss array (skipped: not a number);
+    // done.signs['quiz:<group | all>:<mode>'] and ['panel:<panel id>'] = best %.
+    const psets = Array.isArray(window.PICTURE_SETS) ? window.PICTURE_SETS : [];
+    const psTitle = (id) => { const x = psets.find((y) => y && y.id === id); return x ? x.title : id; };
+    const psRank = (id) => { const i = psets.findIndex((y) => y && y.id === id); return i < 0 ? 9999 : i; };
+    twoCol('Picture words', 'pictures', '#/pictures', 'Picture', [['identify', 'Identify'], ['label', 'Label it'], ['listen', 'Listen and point']], true, psTitle, (a, b) => psRank(a) - psRank(b) || String(a).localeCompare(String(b)));
+    {
+      const st = store('signs'), SG = window.SIGNS || {}, sgs = Array.isArray(SG.groups) ? SG.groups : [], pans = Array.isArray(window.SIGN_PANELS) ? window.SIGN_PANELS : [];
+      const gT = (g) => { if (g === 'all') return 'All signs'; const x = sgs.find((y) => y && y.id === g); return x ? x.title : g; };
+      const pT = (id) => { const x = pans.find((y) => y && y.id === id); return x ? x.title : id; };
+      const rows = [];
+      Object.keys(st).filter((k) => num(st[k]) != null).sort().forEach((k) => {
+        const c = k.split(':');
+        if (c[0] === 'quiz' && c.length >= 3) rows.push(['Quiz: ' + gT(c[1]) + ' (' + c.slice(2).join(':') + ')', num(st[k])]);
+        else if (c[0] === 'panel' && c.length >= 2) rows.push(['Panel: ' + pT(c.slice(1).join(':')), num(st[k])]);
+      });
+      out.push(block('Signs and buttons', '#/signs', 'Open', rows.length ? tbl(['Quiz or panel', 'Best'], rows.map((r) => [esc(r[0]), pctPill(r[1])])) : ''));
+    }
     // Case simulations, admission MSE, discharge practice: done[store][id] = best %
     [['Case simulations', 'cases', window.PSYCH_CASES, '#/psych/cases'], ['Admission MSE practice', 'mcases', window.PSYCH_MSE_CASES, '#/psych/mcases'], ['Discharge practice', 'dcases', window.PSYCH_DISCHARGE_CASES, '#/psych/dcases'], ['End-of-treatment review', 'ecases', window.PSYCH_EOT_CASES, '#/psych/eot']].forEach(([t, key, list, href]) => {
       if (!Array.isArray(list) || !list.length) return;

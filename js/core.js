@@ -143,7 +143,7 @@
   App.CATS = {
     basics: 'Basics & greetings', grammar: 'Particles & grammar words', pronouns: 'Pronouns & forms of address', questions: 'Question words',
     numbers: 'Numbers', counters: 'Counters', time: 'Time & dates', people: 'People', family: 'Family', body: 'Body',
-    food: 'Food & drink', home: 'Home & things', money: 'Work, school & money', places: 'Places & directions', travel: 'Getting around', nature: 'Weather & nature',
+    food: 'Food & drink', home: 'Home & things', things: 'Things and machines', clothes: 'Clothes', animals: 'Animals', money: 'Work, school & money', places: 'Places & directions', travel: 'Getting around', nature: 'Weather & nature',
     adjectives: 'Describing words', verbs: 'Common verbs', adverbs: 'Adverbs', society: 'Society, ideas & abstract words',
     emotions: 'Emotions', health: 'Health & symptoms', mind: 'Mind & perception', risk: 'Risk & safety (clinical)', substance: 'Alcohol & substances',
     meds: 'Medication', hospital: 'Hospital & care', clinical: 'Clinical terms', mimetic: 'Sound-symbolic words (イライラ, ドキドキ…)', idioms: 'Expressions of distress (気, 心, 胸…)'
@@ -195,8 +195,11 @@
     s.phrases.forEach((p, i) => push('Phrase', p.f, p.en, (p.c || '') + ' ' + (p.n || ''), '#/psych/s/' + s.id + '?p=' + i));
   });
   (window.PSYCH_CASES || []).forEach((c) => push('Case', c.title, c.setting, '', '#/psych/case/' + c.id));
+  // 0.24.0: picture sets (title, intro, the words and their glosses) and signs (meaning and the sign text).
+  (Array.isArray(window.PICTURE_SETS) ? window.PICTURE_SETS : []).forEach((x) => { if (x && x.id) push('Picture', x.title || x.id, x.intro || '', (x.parts || []).map((pt) => (pt && (pt.w || '') + ' ' + (pt.en || '')) || '').join(' '), '#/pictures/' + x.id); });
+  ((window.SIGNS || {}).signs || []).forEach((x) => { if (x && x.ja) push('Sign', x.en || '', x.ja, x.note || '', '#/signs?tab=learn&g=' + encodeURIComponent(x.g || '')); });
   KANJI.forEach((x) => push('Kanji', x.k, x.mean.join(', '), x.on.join(' ') + ' ' + x.kun.map((r) => r.r + r.o).join(' ') + ' ' + x.words.map((w) => w.tl + ' ' + w.en).join(' '), App.kanjiHref(x.k)));
-  [['Flashcards', '#/flash'], ['Kana trainer: hiragana and katakana', '#/kana'], ['Kanji: chart and drill', '#/kanji'], ['Verb trainer: conjugation', '#/verbs'], ['Adjective trainer', '#/verbs?tab=adj'], ['Particle drill', '#/particles'], ['Placement test', '#/placement'], ['Progress', '#/progress'], ['Settings: furigana, romaji, word spacing, voice', '#/settings'], ["What's New", '#/new'], ['About', '#/about'], ['Dictionary', '#/dict'], ['Listening drill', '#/psych/listen'], ['Point board (' + L.point.title + '): patient points to the answer', '#/psych/point'], ['Practice', '#/practice'], ['Lessons', '#/lessons'], ['Reading', '#/reading'], ['Speaking', '#/speak'], ['Psychiatry', '#/psych'], ['More', '#/more']]
+  [['Flashcards', '#/flash'], ['Kana trainer: hiragana and katakana', '#/kana'], ['Kanji: chart and drill', '#/kanji'], ['Verb trainer: conjugation', '#/verbs'], ['Adjective trainer', '#/verbs?tab=adj'], ['Particle drill', '#/particles'], ['Picture words', '#/pictures'], ['Body map: where does it hurt', '#/pictures/bodymap'], ['Signs and buttons', '#/signs'], ['Placement test', '#/placement'], ['Progress', '#/progress'], ['Settings: furigana, romaji, word spacing, voice', '#/settings'], ["What's New", '#/new'], ['About', '#/about'], ['Dictionary', '#/dict'], ['Listening drill', '#/psych/listen'], ['Point board (' + L.point.title + '): patient points to the answer', '#/psych/point'], ['Practice', '#/practice'], ['Lessons', '#/lessons'], ['Reading', '#/reading'], ['Speaking', '#/speak'], ['Psychiatry', '#/psych'], ['More', '#/more']]
     .forEach(([t, r]) => push('Page', t, '', '', r));
   App.searchAll = (q, limit) => {
     const nq = norm(q);

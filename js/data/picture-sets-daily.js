@@ -1,0 +1,14 @@
+/* Picture words, group 'daily' (0.24.0): tap-to-learn pictures for #/pictures (js/pictures.js).
+   DRAFT FOR REVIEW by a native Japanese speaker before use. Notation follows tools/AUTHORING.md (furigana on every kanji run,
+   one space between words, particles separate).
+   Shape (PLAN-0.24 A1): window.PICTURE_SETS = (window.PICTURE_SETS || []).concat([ { id, group, title, lv: 'N5'|'N4',
+     kind: 'diagram'|'cards', art (diagram only: a key of window.PICTURE_ART, pictures/art-daily.js), intro: one English sentence,
+     parts: [ { id: short romaji, w: ONE word in the notation (dictionary form), en, lv: 'N5'|'N4'|'N3',
+                diagram: x, y = the point ON the thing in the art's viewBox units (pins at least 26 apart, 12 inside the edge);
+                cards: pic = ONE emoji, Unicode Emoji 12.0 or older, no flags / skin tones / ZWJ sequences } ],   8 to 16 parts (cards 10 to 16)
+     say: [ { ja: a sentence whose answer is exactly ONE part, en, p: part id } ] } ]);                       6 to 10 sentences
+   At most a quarter of a set's words N3, none above. group = 'daily' for every set of this file.
+   Sets of this file (PLAN C): feelings c N4 (faces; w is the adjective or verb); daily-routine c N5 (verbs); school-office c N5; family-tree d N5.
+   Set ids and part ids are permanent: append only after release (never insert, reorder or delete). */
+window.PICTURE_SETS = (window.PICTURE_SETS || []).concat([
+]);

@@ -88,20 +88,24 @@
     [/^\/test$/, V.leveltest, 'test'],
     [/^\/pairs$/, V.pairs, 'pairs'],
     [/^\/sounds$/, V.sounds, 'sounds'],
+    [/^\/pictures$/, V.pictures, 'pictures'],
+    [/^\/pictures\/bodymap$/, V.pictureBodymap, 'pictures'],
+    [/^\/pictures\/(?<id>[\w-]+)$/, V.pictures, 'pictures'],
+    [/^\/signs$/, V.signs, 'signs'],
     [/^\/placement$/, V.placement, 'placement'],
     [/^\/progress$/, V.progress, 'progress'],
     [/^\/settings$/, V.settings, 'settings'],
     [/^\/new$/, V.whatsnew, 'new'],
     [/^\/about$/, V.about, 'about']
   ];
-  const TITLES = { home: '', practice: 'Practice', kana: 'Kana', kanji: 'Kanji', write: 'Writing practice', verbs: 'Verb trainer', particles: 'Particles', vocab: 'Vocabulary quiz', listen: 'Listening', numbers: 'Numbers and counters', build: 'Sentence builder', cloze: 'Fill the blank', transform: 'Transform the sentence', test: 'Level review test', pairs: 'Word pairs', sounds: 'Sound-symbolic words', dict: 'Dictionary', flash: 'Flashcards', lessons: 'Lessons', reading: 'Reading', speak: 'Speaking', psych: 'Psychiatry', placement: 'Placement', progress: 'Progress', settings: 'Settings', new: "What's New", about: 'About' };
+  const TITLES = { home: '', practice: 'Practice', kana: 'Kana', kanji: 'Kanji', write: 'Writing practice', verbs: 'Verb trainer', particles: 'Particles', vocab: 'Vocabulary quiz', listen: 'Listening', numbers: 'Numbers and counters', build: 'Sentence builder', cloze: 'Fill the blank', transform: 'Transform the sentence', test: 'Level review test', pairs: 'Word pairs', sounds: 'Sound-symbolic words', pictures: 'Picture words', signs: 'Signs and buttons', dict: 'Dictionary', flash: 'Flashcards', lessons: 'Lessons', reading: 'Reading', speak: 'Speaking', psych: 'Psychiatry', placement: 'Placement', progress: 'Progress', settings: 'Settings', new: "What's New", about: 'About' };
 
   /* ---------- Navigation: one grouped list for the desktop rail, the phone drawer (More) and the #/more page ----------
      [key, href, label, icon]. Group labels are shell strings (data/strings.js); item labels are the app's own. */
   const NAV = [
     ['', [['home', '#/', 'Home', icons.home], ['practice', '#/practice', 'Practice', icons.target]]],
     ['nav.learn', [['lessons', '#/lessons', 'Lessons', icons.lesson], ['kana', '#/kana', 'Kana trainer', icons.affix], ['kanji', '#/kanji', 'Kanji', icons.kanji], ['write', '#/write', 'Writing practice sheet', icons.pen], ['reading', '#/reading', 'Reading', icons.read], ['speak', '#/speak', 'Speaking', icons.speak], ['dict', '#/dict', 'Dictionary', icons.book]]],
-    ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['vocab', '#/vocab', 'Vocabulary quiz', icons.book], ['pairs', '#/pairs', 'Word pairs', icons.cards], ['sounds', '#/sounds', 'Sound-symbolic words', icons.ear], ['listen', '#/listen', 'Listening practice', icons.sound], ['numbers', '#/numbers', 'Numbers and counters', icons.chart], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['build', '#/build', 'Sentence builder', icons.affix], ['cloze', '#/cloze', 'Fill the blank', icons.pen], ['transform', '#/transform', 'Transform the sentence', icons.verb], ['test', '#/test', 'Level review test', icons.check], ['placement', '#/placement', 'Placement test', icons.target]]],
+    ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['vocab', '#/vocab', 'Vocabulary quiz', icons.book], ['pairs', '#/pairs', 'Word pairs', icons.cards], ['sounds', '#/sounds', 'Sound-symbolic words', icons.ear], ['pictures', '#/pictures', 'Picture words', icons.eye], ['signs', '#/signs', 'Signs and buttons', icons.info], ['listen', '#/listen', 'Listening practice', icons.sound], ['numbers', '#/numbers', 'Numbers and counters', icons.chart], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['build', '#/build', 'Sentence builder', icons.affix], ['cloze', '#/cloze', 'Fill the blank', icons.pen], ['transform', '#/transform', 'Transform the sentence', icons.verb], ['test', '#/test', 'Level review test', icons.check], ['placement', '#/placement', 'Placement test', icons.target]]],
     ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-mcases', '#/psych/mcases', 'Admission MSE practice', icons.eye], ['p-dcases', '#/psych/dcases', 'Discharge practice', icons.check], ['p-eot', '#/psych/eot', 'End-of-treatment review', icons.check]]],
     ['nav.tools', [['p-point', '#/psych/point', 'Point board', icons.speak], ['p-mood', '#/psych/mood', 'Mood episode checker', icons.chart], ['p-sud', '#/psych/sud', 'Substance use screen', icons.target], ['p-wd', '#/psych/withdrawal', 'Withdrawal and agitation', icons.spark], ['p-deesc', '#/psych/deesc', 'De-escalation', icons.speak], ['p-discharge', '#/psych/discharge', 'Discharge assessment', icons.check], ['p-mse', '#/psych/mse-sheet', 'MSE interviewer sheet', icons.lesson], ['p-ho', '#/psych/handout', 'Printable handout', icons.read]]],
     ['nav.app', [['progress', '#/progress', 'Progress', icons.chart], ['settings', '#/settings', 'Settings', icons.gear], ['new', '#/new', "What's New", icons.spark], ['about', '#/about', 'About', icons.info]]]
@@ -214,6 +218,7 @@
     build: 'Put the words of a sentence in order, from the lessons and example sentences, by level', cloze: 'Choose the word or ending that fills the blank, by level or by lesson',
     transform: 'Change a sentence as asked: negative, past, polite, joined and more', test: 'A timed mixed review of one level, N5 to N2',
     pairs: 'Opposites, near-synonyms and words that go together: match and quiz', sounds: 'Giongo and gitaigo for pain, sleep, mood and more, with examples',
+    pictures: 'Words from pictures: tap to learn, find, label and point, a printable body map', signs: 'Signs in the hospital, station and street, and the buttons on machines',
     write: 'Printable stroke-order sheets for kana and kanji, with squares to trace and write in',
     verbs: 'Conjugation tables and drills for verbs and adjectives', particles: 'A guide to each particle and a fill-in drill',
     practice: 'Every drill on one page', psych: (window.PSYCH_SECTIONS || []).length + ' interview sections, polite and plain', 'p-cases': (window.PSYCH_CASES || []).length + ' branching interviews with feedback', 'p-interp': 'Idioms and indirect statements, and what to ask next', 'p-listen': 'Hear a patient reply, choose the meaning', 'p-mcases': 'Document an admission MSE from a simulated interview', 'p-dcases': 'Interview on the day of discharge and document it', 'p-eot': 'The last planned outpatient session: review, relapse plan, end or continue', 'p-mood': 'Depressive and manic episode criteria as questions', 'p-sud': 'DSM-5-TR criteria, severity, brief intervention', 'p-wd': 'Alcohol, cannabis and opioid withdrawal; agitation', 'p-deesc': 'A 12-step checklist with what to say', 'p-discharge': 'Field by field, with what to ask', 'p-mse': 'Screening questions for the clinic and wards, to print', 'p-ho': 'Interview flow, MSE table and checklists, to print', 'p-point': 'The patient points to a reply; the phone speaks it',
@@ -237,6 +242,10 @@
       T('#/cloze', 'Grammar', 'Fill the blank', 'Choose the particle, form or ending that fits.') +
       T('#/transform', 'Grammar', 'Transform the sentence', 'Make it negative, past, polite, joined and more.') +
       T('#/test', 'Test', 'Level review test', 'A timed mixed review of one level.') + '</div>' +
+      '<h2 style="margin-top:18px">Pictures</h2><div class="grid">' +
+      T('#/pictures', 'Picture', 'Picture words', 'Learn words from pictures: the body, home, town, animals and more.') +
+      T('#/pictures/bodymap', 'Clinic', 'Body map', 'The patient points to where it hurts; print a handout.') +
+      T('#/signs', 'Read', 'Signs and buttons', 'Hospital and station signs, and the buttons on machines.') + '</div>' +
       '<h2 style="margin-top:18px">Vocabulary and skills</h2><div class="grid">' +
       T('#/flash/due', 'Review', due ? due + ' cards due' : 'Flashcards', 'Spaced repetition across every deck.') +
       T('#/flash', 'Decks', 'Vocabulary decks', 'By topic and by JLPT level.') +
@@ -266,7 +275,7 @@
   };
   routes.push([/^\/more$/, V.more, 'more']);
   routes.push([/^\/practice$/, V.practice, 'practice']);
-  const MORE_KEYS = ['flash', 'vocab', 'listen', 'numbers', 'build', 'cloze', 'transform', 'test', 'pairs', 'sounds', 'dict', 'kana', 'kanji', 'write', 'verbs', 'particles', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
+  const MORE_KEYS = ['flash', 'vocab', 'listen', 'numbers', 'build', 'cloze', 'transform', 'test', 'pairs', 'sounds', 'pictures', 'signs', 'dict', 'kana', 'kanji', 'write', 'verbs', 'particles', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
   App.HAS = HAS;
 
   /* ---------- Header height -> --top (the search drops to a second row on phones) ---------- */
@@ -439,7 +448,7 @@
     // Practice scores (0.19.0): one per deck/mode, listening set or numbers group with a best result; old backups have none.
     // 0.23.0 drill stores also hold non-score keys (miss arrays, pairs 'time:<lv>' records): only number values count there.
     const OLD = ['vocab', 'listen2', 'numbers'];
-    const n = OLD.concat(['build', 'cloze', 'transform', 'test', 'pairs', 'sounds']).reduce((a, k) => a + (done[k] && typeof done[k] === 'object' ? Object.keys(done[k]).filter((x) => (OLD.indexOf(k) >= 0 ? done[k][x] != null : typeof done[k][x] === 'number')).length : 0), 0);
+    const n = OLD.concat(['build', 'cloze', 'transform', 'test', 'pairs', 'sounds', 'pictures', 'signs']).reduce((a, k) => a + (done[k] && typeof done[k] === 'object' ? Object.keys(done[k]).filter((x) => (OLD.indexOf(k) >= 0 ? done[k][x] != null : typeof done[k][x] === 'number')).length : 0), 0);
     return tf('backup.sum', { cards: Object.keys(s.srs || {}).length, lessons: Object.keys(done.lessons || {}).length, xp: +s.xp || 0 }) + (n ? tf('backup.sumPractice', { n }) : '');
   }
   function bkDate(v) {

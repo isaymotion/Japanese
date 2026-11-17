@@ -88,6 +88,14 @@ from('grammar cloze', () => (ctx.GRAMMAR_CLOZE || []).forEach((c) => { if (c && 
 from('grammar transformations', () => (ctx.GRAMMAR_TRANSFORM || []).forEach((t) => { if (!t) return; [].concat(t.from || []).forEach(add); add(t.to); (t.alt || []).forEach(add); }));   // alt: js/transform.js shows "Also right" with a speaker
 from('word pairs', () => (ctx.WORD_PAIRS || []).forEach((p) => { if (p) { add(p.a); add(p.b); if (p.type === 'col') add(p.a + ' ' + p.b); } }));   // js/pairs.js "Together" speaks a + ' ' + b
 from('sound words', () => ((ctx.SOUND_WORDS || {}).items || []).forEach((it) => { if (it) { add(it.w); add(it.ex); } }));
+// 0.24.0: picture words (each part's word and each "listen and point" sentence), sign boards, machine panel controls, the body map
+// (questions and pain words). New lessons (picture lessons), dictionary words and examples come in through LESSONS, DICT_RAW and DICT_EX above.
+// pictures/art-*.js hold no Japanese and are not loaded (only js/data files are).
+const arr = (x) => (Array.isArray(x) ? x : []);
+from('picture words', () => arr(ctx.PICTURE_SETS).forEach((s) => { if (!s) return; arr(s.parts).forEach((p) => p && add(p.w)); arr(s.say).forEach((x) => x && add(x.ja)); }));
+from('signs', () => arr((ctx.SIGNS || {}).signs).forEach((x) => x && add(x.ja)));
+from('machine panels', () => arr(ctx.SIGN_PANELS).forEach((p) => p && arr(p.rows).forEach((r) => arr(r).forEach((c) => c && add(c.ja)))));
+from('body map', () => { const B = ctx.PICTURE_BODYMAP || {}; arr(B.ask).concat(arr(B.words)).forEach((x) => x && add(x.ja)); });
 
 /* ---------- Psychiatry ---------- */
 from('interview phrases', () => (ctx.PSYCH_SECTIONS || []).forEach((s) => s.phrases.forEach((p) => { add(p.f); add(p.c); (p.answers || []).forEach((a) => add(a[0])); })));
