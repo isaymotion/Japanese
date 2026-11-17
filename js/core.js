@@ -319,6 +319,9 @@
   }).catch(() => {}).finally(() => { App.pack.ready = true; });
   // File name of the recorded clip for a string: the hash of what is spoken. A few words are written the same but
   // read differently (方 = かた / ほう); the less common reading is recorded under the hash of text + '|' + reading.
+  // 0.23.0: App.fillBlank(s, a) = JA.fillBlank (js/ja.js): the cloze sentence s with its ＿ replaced by a, in the
+  // notation. Speak that string (App.speak(App.fillBlank(s, a))): tools/collect-texts.js records exactly it.
+  App.fillBlank = JA.fillBlank;
   App.clipKey = (raw) => {
     const text = JA.speak(raw).trim();
     const alt = AudioKey(text + '|' + JA.compact(JA.kana(raw)).trim());

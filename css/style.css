@@ -1120,3 +1120,18 @@ html:not(.sp-off) .ja .w { white-space: nowrap; }
 /* 0.20.0 topic matching levels */
 .vm-lv button[disabled] { opacity: .45; cursor: default; }
 .vm-lv button[disabled]:hover { border-color: var(--rule); }
+
+/* 0.23.0 lesson extras (common mistakes, more examples, More practice) and review lessons */
+.pill.rv { background: var(--tint); color: var(--ink); border: 1px solid var(--rule); }
+.lesson-body.lx { margin-top: 8px; }
+.lesson-body.lx h2 { margin-top: 20px; }
+.lx-m { margin: 12px 0; }
+.lx-bad { display: flex; gap: 8px; align-items: baseline; padding: 4px 14px 2px; color: var(--muted); font-family: var(--font-tl); font-size: 1rem; min-width: 0; overflow-wrap: anywhere; }
+.lx-bad s { text-decoration-thickness: 1.5px; text-decoration-color: var(--bad); }
+.lx-mk { color: var(--bad); font-weight: 700; flex: none; font-family: var(--sans); }
+.lesson-body .ex.lx-ok { margin-top: 2px; border-left-color: var(--good); }
+.lesson-body .ex.lx-ok > b::before { content: "✓ "; color: var(--good); font-family: var(--sans); }
+@media print {
+  html.pr-page #lq2, html.pr-page #view > h2:has(+ #lq2), html.pr-page .lx-links { display: none !important; }
+  html.pr-page .lx-bad, html.pr-page .lesson-body .ex.lx-ok { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

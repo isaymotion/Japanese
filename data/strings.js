@@ -150,6 +150,12 @@ window.STRINGS = {
     'item.listen': '聞《き》き取《と》り 練習《れんしゅう》',
     'item.numbers': '数《かず》 と 助数詞《じょすうし》',
     'item.particles': '助詞《じょし》 ドリル',
+    'item.build': '文《ぶん》 の 組《く》み立《た》て',
+    'item.cloze': '穴埋《あなう》め',
+    'item.transform': '文《ぶん》 の 書《か》き換《か》え',
+    'item.test': 'レベル 別《べつ》 テスト',
+    'item.pairs': '言葉《ことば》 の ペア',
+    'item.sounds': '擬音語《ぎおんご》・擬態語《ぎたいご》',
     'item.placement': 'レベル チェック テスト',
     'item.psych': '精神科《せいしんか》 の 日本語《にほんご》',
     'item.p-cases': '症例《しょうれい》 シミュレーション',
@@ -206,6 +212,11 @@ window.STRINGS = {
     'head.Questions': '問題《もんだい》',
     'head.Example words': '単語《たんご》 の 例《れい》',
     'head.Stroke order': '書《か》き順《じゅん》',
-    'head.Clinical dialogues': '臨床《りんしょう》 の 会話《かいわ》'
+    'head.Clinical dialogues': '臨床《りんしょう》 の 会話《かいわ》',
+    // 0.23.0: Practice page section and the lesson extras
+    'head.Grammar drills': '文法《ぶんぽう》 ドリル',
+    'head.Common mistakes': 'よく ある 間違《まちが》い',
+    'head.More examples': '追加《ついか》 の 例文《れいぶん》',
+    'head.More practice': '追加《ついか》 の 練習《れんしゅう》'
   }
 };

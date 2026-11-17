@@ -82,6 +82,10 @@
 
   const JA = { plain, kana, compact, speak, romaji, kanaToRomaji, toHira, hasJa: (s) => HAS_JA.test(String(s || '')), RUBY_SRC, RUN_SRC, KANJI };
   root.JA = JA;
+  // 0.23.0: a fill-the-blank sentence with its answer put in. s is in the notation with one ＿ word; a is the answer
+  // (notation too). Only the first ＿ is replaced; runs of spaces left by an empty answer close up. The app speaks this
+  // string and tools/collect-texts.js records the same one, so both find the same clip. Also App.fillBlank (js/core.js).
+  JA.fillBlank = (s, a) => String(s == null ? '' : s).replace('＿', () => String(a == null ? '' : a)).replace(/ {2,}/g, ' ').trim();
   if (typeof document === 'undefined') return;
 
   /* ---------- Rendering ---------- */

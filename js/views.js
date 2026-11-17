@@ -277,24 +277,52 @@
       (lvs.length > 1 ? '<div class="row" style="flex-wrap:wrap;gap:8px;margin-bottom:4px"><div class="seg" role="group" aria-label="Level">' + [['', 'All']].concat(lvs.map((k) => [k, k])).map(([k, t]) => '<a role="button" href="#/lessons?lv=' + (k || 'all') + '" class="' + (lv === k ? 'on' : '') + '">' + esc(t) + '</a>').join('') + '</div><span class="pill">' + doneIn(lv) + ' done</span></div>' : '') +
       Object.entries(units).map(([u, ls]) => '<h2>' + esc(u) + '</h2><div class="grid">' + ls.map((l) => {
         const sc = S().done.lessons[l.id];
-        return '<a class="tile" href="#/lessons/' + l.id + '"><div class="row">' + lvPill(l.level) + (sc != null ? '<span class="pill good">' + icons.check.replace('<svg', '<svg width="12" height="12"') + ' ' + sc + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(l.title) + '</h3><p>' + esc(l.summary) + '</p></a>';
+        return '<a class="tile" href="#/lessons/' + l.id + '"><div class="row">' + lvPill(l.level) + (l.review ? reviewPill : '') + (sc != null ? '<span class="pill good">' + icons.check.replace('<svg', '<svg width="12" height="12"') + ' ' + sc + '%</span>' : '') + '</div><h3 style="margin-top:6px">' + esc(l.title) + '</h3><p>' + esc(l.summary) + '</p></a>';
       }).join('') + '</div>').join('');
+  };
+  /* 0.23.0 lesson extras (window.LESSON_EXTRA[id], js/data/lesson-extra-*.js): "Common mistakes" and "More examples" after
+     the body (inside .lesson-body, so they print and get speaker buttons like the body's examples), and a second quiz
+     "More practice" after the lesson's own, best score in state.done.lessonMore[id] (lesson completion stays
+     done.lessons). The WRONG line of a mistake is struck through and never spoken: it is not an .ex and has no data-say.
+     Review lessons (review: true) get a "Review" pill here and on the lessons list; they count as lessons everywhere.
+     App.lessonLinks: functions (lesson) => HTML, drawn in a row under the quizzes (e.g. a "Practise this grammar" link
+     from a drill module); each returns '' when it has nothing for that lesson. */
+  const reviewPill = '<span class="pill rv">Review</span>';
+  App.lessonLinks = App.lessonLinks || [];
+  const lessonExtra = (id) => { const x = window.LESSON_EXTRA && Object.prototype.hasOwnProperty.call(LESSON_EXTRA, id) ? LESSON_EXTRA[id] : null; return x && typeof x === 'object' ? x : null; };
+  const extraHTML = (x) => {
+    const mis = (x.mistakes || []).filter((m) => Array.isArray(m) && m[0] && m[1]), more = (x.more || []).filter((m) => Array.isArray(m) && m[0]);
+    if (!mis.length && !more.length) return '';
+    return '<div class="lesson-body lx">' +
+      (mis.length ? '<h2>Common mistakes</h2><div class="lx-mist">' + mis.map(([bad, good, why]) =>
+        '<div class="lx-m"><div class="lx-bad"><span class="lx-mk" aria-hidden="true">✗</span><span class="sr-only">Wrong: </span><s>' + esc(bad) + '</s></div>' +
+        '<div class="ex lx-ok"><b>' + esc(good) + '</b><span>' + esc(why || '') + '</span></div></div>').join('') + '</div>' : '') +
+      (more.length ? '<h2>More examples</h2>' + more.map(([ja, en]) => '<div class="ex"><b>' + esc(ja) + '</b><span>' + esc(en || '') + '</span></div>').join('') : '') +
+      '</div>';
   };
   V.lesson = (el, p) => {
     const l = LESSONS.find((x) => x.id === p.id);
     if (!l) { el.innerHTML = '<p>Lesson not found.</p>'; return; }
     const idx = LESSONS.indexOf(l), next = LESSONS[idx + 1], prev = LESSONS[idx - 1];
-    el.innerHTML = crumb([['Lessons', '#/lessons'], [l.title]]) + '<div class="row">' + lvPill(l.level) + '<span class="muted small">' + esc(l.unit) + '</span><button class="btn sm noprint" id="lprint" style="margin-left:auto">' + icons.book + ' Print</button></div><h1 style="margin-top:6px">' + esc(l.title) + '</h1>' +
+    const x = lessonExtra(l.id), xq = x && Array.isArray(x.quiz) ? x.quiz.filter((k) => Array.isArray(k) && Array.isArray(k[1])) : [];
+    const links = App.lessonLinks.map((f) => { try { return f(l) || ''; } catch (e) { return ''; } }).join('');
+    el.innerHTML = crumb([['Lessons', '#/lessons'], [l.title]]) + '<div class="row">' + lvPill(l.level) + (l.review ? reviewPill : '') + '<span class="muted small">' + esc(l.unit) + '</span><button class="btn sm noprint" id="lprint" style="margin-left:auto">' + icons.book + ' Print</button></div><h1 style="margin-top:6px">' + esc(l.title) + '</h1>' +
       (l.draft ? '<div class="notice warn" style="margin-bottom:12px">Draft for review: the ' + esc(LANG.name) + ' lines in this lesson are practice wording pending review by a native Japanese speaker.</div>' : '') +
       '<div class="lesson-body">' + l.body.replace(/<table>/g, '<div class="tablewrap"><table>').replace(/<\/table>/g, '</table></div>') + '</div>' +
       (App.strokes && App.strokes.kanaCard ? App.strokes.kanaCard(l) : '') +
+      (x ? extraHTML(x) : '') +
       '<h2 style="margin-top:20px">Check yourself</h2><div id="lq"></div>' +
+      (xq.length ? '<h2 style="margin-top:20px">More practice</h2><div id="lq2"></div>' : '') +
+      (links ? '<div class="row noprint lx-links" style="margin-top:14px">' + links + '</div>' : '') +
       '<div class="spread prevnext" style="margin-top:16px">' + (prev ? '<a class="btn" href="#/lessons/' + prev.id + '">← ' + esc(prev.title) + '</a>' : '<span></span>') + (next ? '<a class="btn" href="#/lessons/' + next.id + '">' + esc(next.title) + ' →</a>' : '') + '</div>';
     el.querySelector('#lprint').onclick = () => App.printPage();
     // speak buttons for examples
     el.querySelectorAll('.lesson-body .ex').forEach((ex) => { const b = ex.querySelector('b'); if (b) { ex.style.gridTemplateColumns = 'minmax(0,1fr) auto'; const btn = document.createElement('div'); btn.innerHTML = App.sayBtn(b.textContent); btn.style.gridRow = '1 / span 2'; btn.style.gridColumn = '2'; ex.appendChild(btn.firstChild); } });
     App.runQuiz(el.querySelector('#lq'), l.quiz.map(([q, opts, a, exp]) => ({ q, opts, a, exp })), {
       onDone: (r, n) => { const pct = Math.round((100 * r) / n); S().done.lessons[l.id] = Math.max(pct, S().done.lessons[l.id] || 0); App.activity(10); }
+    });
+    if (xq.length) App.runQuiz(el.querySelector('#lq2'), xq.map(([q, opts, a, exp]) => ({ q, opts, a, exp })), {
+      onDone: (r, n) => { const d = S().done, m = d.lessonMore && typeof d.lessonMore === 'object' ? d.lessonMore : (d.lessonMore = {}); m[l.id] = Math.max(Math.round((100 * r) / n), m[l.id] || 0); App.activity(5); }
     });
   };
 
@@ -494,6 +522,36 @@
     const nrows = groups.filter((g) => nums[g.id + ':read'] != null || nums[g.id + ':listen'] != null).map((g) => [esc(g.title), pctPill(nums[g.id + ':read']), pctPill(nums[g.id + ':listen'])]);
     out.push(block('Numbers and counters', '#/numbers', 'Open', nrows.length || nums.clinic != null ? (nrows.length ? tbl(['Group', 'Read', 'Listen'], nrows) : '') +
       (nums.clinic != null ? '<div class="spread small"><a href="#/numbers?tab=clinic">In the clinic</a><span>Best ' + pctPill(nums.clinic) + '</span></div>' : '') : ''));
+    // 0.23.0 drills: done.build['<lv>'], done.cloze['<lv>' | 'l:<lesson id>'], done.test['<lv>'] = best %;
+    // done.transform['<lv>:<mode>'] (choose | type), done.pairs['<mode>:<lv>'] (match | quiz), done.sounds['<mode>:<group | all>'] (quiz | match).
+    const num = (v) => (typeof v === 'number' ? v : v && typeof v === 'object' && typeof v.p === 'number' ? v.p : null);
+    const lvName = (k) => (k === 'all' ? 'All levels' : k);
+    const LV_ORDER = ['Starter', 'N5', 'N4', 'N3', 'N2', 'all'];
+    const lvSort = (a, b) => { const x = LV_ORDER.indexOf(a), y = LV_ORDER.indexOf(b); return (x < 0 ? 99 : x) - (y < 0 ? 99 : y) || String(a).localeCompare(String(b)); };
+    const store = (k) => (done[k] && typeof done[k] === 'object' ? done[k] : {});
+    const oneCol = (title, key, href, head, label, sortFn) => {
+      const st = store(key), ks = Object.keys(st).filter((k) => num(st[k]) != null).sort(sortFn || lvSort);
+      out.push(block(title, href, 'Open', ks.length ? tbl([head, 'Best'], ks.map((k) => [esc(label(k)), pctPill(num(st[k]))])) : ''));
+    };
+    const twoCol = (title, key, href, head, modes, modeFirst, label, sortFn) => {
+      const st = store(key), rows = {};
+      Object.keys(st).forEach((k) => { if (num(st[k]) == null) return; const at = modeFirst ? k.indexOf(':') : k.lastIndexOf(':'); if (at < 0) return;
+        const m = modeFirst ? k.slice(0, at) : k.slice(at + 1), x = modeFirst ? k.slice(at + 1) : k.slice(0, at);
+        if (!modes.some((mm) => mm[0] === m)) return; (rows[x] = rows[x] || {})[m] = num(st[k]); });
+      const xs = Object.keys(rows).sort(sortFn || lvSort);
+      out.push(block(title, href, 'Open', xs.length ? tbl([head].concat(modes.map((m) => m[1])), xs.map((x) => [esc(label(x))].concat(modes.map((m) => pctPill(rows[x][m[0]]))))) : ''));
+    };
+    const lessonTitle = (k) => { if (k.indexOf('l:') !== 0) return lvName(k); const l = LESSONS.find((x) => x.id === k.slice(2)); return l ? l.title : k.slice(2); };
+    const cloRank = (k) => (k.indexOf('l:') === 0 ? 100 + LESSONS.findIndex((x) => x.id === k.slice(2)) : LV_ORDER.indexOf(k));
+    const sgroups = ((window.SOUND_WORDS || {}).groups || []);
+    const groupTitle = (g) => { if (g === 'all') return 'All groups'; const x = sgroups.find((y) => y.id === g); return x ? x.title : g; };
+    const gRank = (g) => (g === 'all' ? -1 : sgroups.findIndex((y) => y.id === g));
+    oneCol('Sentence builder', 'build', '#/build', 'Level', lvName);
+    oneCol('Fill the blank', 'cloze', '#/cloze', 'Level or lesson', lessonTitle, (a, b) => cloRank(a) - cloRank(b));
+    twoCol('Transform the sentence', 'transform', '#/transform', 'Level', [['choose', 'Choose'], ['type', 'Type']], false, lvName);
+    oneCol('Level review test', 'test', '#/test', 'Level', lvName);
+    twoCol('Word pairs', 'pairs', '#/pairs', 'Level', [['match', 'Match'], ['quiz', 'Quiz']], true, lvName);
+    twoCol('Sound-symbolic words', 'sounds', '#/sounds', 'Group', [['quiz', 'Quiz'], ['match', 'Match']], true, groupTitle, (a, b) => gRank(a) - gRank(b));
     // Case simulations, admission MSE, discharge practice: done[store][id] = best %
     [['Case simulations', 'cases', window.PSYCH_CASES, '#/psych/cases'], ['Admission MSE practice', 'mcases', window.PSYCH_MSE_CASES, '#/psych/mcases'], ['Discharge practice', 'dcases', window.PSYCH_DISCHARGE_CASES, '#/psych/dcases'], ['End-of-treatment review', 'ecases', window.PSYCH_EOT_CASES, '#/psych/eot']].forEach(([t, key, list, href]) => {
       if (!Array.isArray(list) || !list.length) return;

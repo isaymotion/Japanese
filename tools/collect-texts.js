@@ -76,6 +76,18 @@ from('verb and adjective trainer', () => {
   (ctx.JA_ADJ || []).forEach((it) => { add(it.d); (it.ex || []).forEach((e) => add(e[0])); Object.values(ctx.JConj.adj(it.d, it.t) || {}).forEach(add); });
 });
 from('particles', () => { const P = ctx.JA_PARTICLES || {}; (P.guide || []).forEach((g) => (g.ex || []).forEach((e) => add(e[0]))); });
+// 0.23.0: lesson extras (more examples; of a mistake only the RIGHT line: the wrong line is never spoken),
+// grammar cloze (the sentence with the answer filled in by JA.fillBlank, the same function the app speaks with),
+// grammar transformations (from, each sentence of a join, and the model answer; not alt or wrong), word pairs, sound words.
+from('lesson extras', () => Object.values(ctx.LESSON_EXTRA || {}).forEach((x) => {
+  if (!x || typeof x !== 'object') return;
+  (x.more || []).forEach((m) => Array.isArray(m) && add(m[0]));
+  (x.mistakes || []).forEach((m) => Array.isArray(m) && add(m[1]));
+}));
+from('grammar cloze', () => (ctx.GRAMMAR_CLOZE || []).forEach((c) => { if (c && typeof c.s === 'string' && c.a != null) add(JA.fillBlank(c.s, c.a)); }));
+from('grammar transformations', () => (ctx.GRAMMAR_TRANSFORM || []).forEach((t) => { if (!t) return; [].concat(t.from || []).forEach(add); add(t.to); }));
+from('word pairs', () => (ctx.WORD_PAIRS || []).forEach((p) => { if (p) { add(p.a); add(p.b); } }));
+from('sound words', () => ((ctx.SOUND_WORDS || {}).items || []).forEach((it) => { if (it) { add(it.w); add(it.ex); } }));
 
 /* ---------- Psychiatry ---------- */
 from('interview phrases', () => (ctx.PSYCH_SECTIONS || []).forEach((s) => s.phrases.forEach((p) => { add(p.f); add(p.c); (p.answers || []).forEach((a) => add(a[0])); })));
