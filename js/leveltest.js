@@ -29,7 +29,8 @@
   const plainKey = (s) => JA.speak(String(s || '')).replace(/[。、？！?!「」\s]/g, '');
   const lessonsOf = (lv) => arr(window.LESSONS).filter((l) => l && l.level === lv);
   const extraOf = (id) => (window.LESSON_EXTRA && typeof LESSON_EXTRA === 'object' && LESSON_EXTRA[id] && typeof LESSON_EXTRA[id] === 'object' ? LESSON_EXTRA[id] : {});
-  const okQ = (k) => Array.isArray(k) && typeof k[0] === 'string' && Array.isArray(k[1]) && k[1].length >= 2 && Number.isInteger(k[2]) && k[2] >= 0 && k[2] < k[1].length;
+  const okQ = (k) => Array.isArray(k) && typeof k[0] === 'string' && Array.isArray(k[1]) && k[1].length >= 2 && Number.isInteger(k[2]) && k[2] >= 0 && k[2] < k[1].length &&
+    new Set(k[1].map(plainKey)).size === k[1].length;   // options that differ only in their furigana (来《き》ず に / 来《こ》ず に) look the same with furigana off
   const lessonLink = (l) => ['#/lessons/' + encodeURIComponent(l.id), 'Lesson: ' + l.title];
   // Shuffle options into their final order now, so a resumed test looks the same.
   const mix = (opts, a) => { const order = shuffle(opts.map((o, k) => k)); return { opts: order.map((k) => opts[k]), a: order.indexOf(a) }; };

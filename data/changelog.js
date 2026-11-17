@@ -3,6 +3,23 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.23.0', date: '2026-11-17', title: 'More N5 and N4 grammar, unit reviews and six new drills',
+    items: [
+      { type: 'feature', text: 'More N5 grammar: ten new lessons in two units (N5 now has 38 lessons). Likes, amounts and frequency: liking, skill and understanding with が; how often and how much; だけ and しか; someone, no one, anything; まだ and もう. Linking and nuance: going somewhere to do something; rules and gentle ways to say no; adverbs from adjectives; linking words; ね and よ.' },
+      { type: 'feature', text: 'More N4 grammar: eleven new lessons in three units (N4 now has 60 lessons). Listing, conditions and time: 〜たり, なら, 場合, 間 and まで に. Wishes, feelings and reported speech: 〜て ほしい, 〜がる, と いう, passing on a request. Degree, measure and compound verbs: ほど and 同じ, 〜始める and 〜続ける, 〜さ and 〜み for asking how bad something is.' },
+      { type: 'feature', text: 'Unit reviews: every N5 and N4 unit now ends with a review lesson (21 in all): one table of the unit\'s patterns, the commonest mix-ups, and a quiz of 12 mixed questions. 176 lessons in all.' },
+      { type: 'feature', text: 'Every older N5 and N4 lesson (56 lessons) has three new parts: Common mistakes (the wrong sentence struck through, the right one, and why), More examples (six, with audio) and More practice (a second quiz of six questions).' },
+      { type: 'feature', text: 'Sentence builder (Practice): tap shuffled word tiles into the right order, from about 3,900 lesson and dictionary sentences, N5 to N2. You can hear the sentence first, hide the furigana, or ask for a hint.' },
+      { type: 'feature', text: 'Fill the blank (Practice): 620 grammar questions, N5 to N2, mixed by level or one lesson at a time. Each answer shows the full sentence with audio, the reason, and a link to the lesson. Lessons link to their own questions.' },
+      { type: 'feature', text: 'Transform the sentence (Practice): 250 exercises: make it negative, past, plain or polite, join two sentences, use the potential, passive or causative, change to keigo or to written style. Choose the answer or type it in kana or romaji.' },
+      { type: 'feature', text: 'Level review test (Practice): a mixed test for N5, N4, N3 or N2 with grammar, sentence order, vocabulary, kanji and a reading passage, an optional 25-minute timer, and a result by area that points to what to practise next.' },
+      { type: 'feature', text: 'Vocabulary quiz: two new modes. In context: choose the word that fits an example sentence (about 2,900 words). Type it: see the English and type the Japanese word.' },
+      { type: 'feature', text: 'Word pairs (Practice): 280 pairs, N5 to N2: opposites, similar words with the difference explained, and words that go together (熱 が 出る, 予約 を 取る). Learn, match and quiz.' },
+      { type: 'feature', text: 'Sound-symbolic words (Practice): 90 words patients use for pain, the stomach, the heart, dizziness, mood, anxiety and sleep (ズキズキ, ムカムカ, ドキドキ, イライラ), each with an example sentence. Learn, quiz (including listen and choose) and match.' },
+      { type: 'note', text: 'All new Japanese is a draft: written and second-checked by AI, not yet reviewed by a native Japanese-speaking clinician.' }
+    ]
+  },
+  {
     version: '0.22.0', date: '2026-11-17', title: 'N2 complete: lessons, readings, dialogues, examples, trainer',
     items: [
       { type: 'feature', text: 'N2 lessons, second half: 24 new grammar lessons in eight units (134 lessons in all; N2 now has 48): Timing and turning points, Contrast and supposition, Appearance and difficulty, Topic, dependence and addition, Advice, wishes and negative guesses, Emphasis and limits, Keigo, letters and chart style, Connectors and set phrases. They include working keigo for the phone and reception, how to read a referral letter and a chart note (with labelled samples), and written connectors. Each section says whether a form is one to say or only to understand.' },
