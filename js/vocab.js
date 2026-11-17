@@ -80,6 +80,8 @@
     const take = (list) => { for (const x of list) { if (out.length >= 3) break; if (!usable(x) || /\s/.test(JA.plain(x.tl).trim()) || ens.has(norm(x.en)) || tls.has(x.ftl) || kns.has(x.kn)) continue; out.push(x); ens.add(norm(x.en)); tls.add(x.ftl); kns.add(x.kn); } };
     take(shuffle(App.DICT.filter((x) => x !== e && x.pos === e.pos && x.lv === e.lv)));
     if (out.length < 3) take(shuffle(App.DICT.filter((x) => x !== e && x.pos === e.pos)));
+    // 来る and する are the only irregular verbs: fill up with other verbs of the same level, then any verb.
+    if (out.length < 3 && e.pos === 'vi') { take(shuffle(App.DICT.filter((x) => x !== e && /^v/.test(x.pos) && x.lv === e.lv))); take(shuffle(App.DICT.filter((x) => x !== e && /^v/.test(x.pos)))); }
     return out;
   }
   const CTX_HINT = 'Choose the word; it may change its ending in the sentence.';

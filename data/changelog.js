@@ -12,6 +12,7 @@ window.APP_CHANGELOG = [
       { type: 'feature', text: 'Thirteen picture lessons in three new units, each with its pictures inside the lesson. N5: where things are (上, 下, 中, 前, 後ろ, 隣, 間); body words with 〜が 痛い; describing with 〜は 〜が; choosing the counter; colours and wearing verbs; giving directions; how to read signs. N4: machine instructions with 〜と and 〜方; describing how a room is (開いて います, 置いて あります); explaining with a diagram. A review ends each unit. 189 lessons in all.' },
       { type: 'feature', text: 'Dictionary: 321 new words with an example sentence each (animals, things and machines, clothes, the house, the town, sign and button words), three new topics (Animals, Things and machines, Clothes) and ten new topic-matching sets (52 in all).' },
       { type: 'feature', text: 'Print sheets: every picture set prints as a labelling sheet (numbered picture with blank lines, or filled in) with an answer key, on A4 or Letter.' },
+      { type: 'fix', text: 'Vocabulary quiz, In context: a question on 来《く》る or する showed only two choices; it now always has four.' },
       { type: 'note', text: 'All Japanese in this version is a draft written and second-checked by AI, not yet reviewed by a native speaker. The drawings are simple line drawings made for this app; the picture cards use your device\'s own emoji, so they look a little different on each phone.' }
     ]
   },
