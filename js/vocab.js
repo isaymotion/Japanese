@@ -7,12 +7,16 @@
    0.20.0: a level filter (All, N5, N4, N3, N2 (0.21.0); state.settings.matchLv): a set's words at a level are those whose dictionary
    level is at or below it (C or no level: All only); sets with fewer than 6 such words are hidden; best results in
    'match:<setId>' (All) or 'match:<setId>@N5' etc. Set page modes Match / Quiz (?mode=quiz): multiple choice on the
-   set's words, Meaning or Recall (state.settings.matchQuizMode), best % in 'topic:<setId>@<lv>:<mode>'. */
+   set's words, Meaning or Recall (state.settings.matchQuizMode), best % in 'topic:<setId>@<lv>:<mode>'.
+   0.23.0: two more deck modes. In context ('<deckId>:context'): a word's example sentence (App.exampleFor) with the
+   word's token blanked; choose the word in dictionary form among four of the same part of speech and level. The token is
+   found by the kanji stem (or the kana stem for words in kana) and the word is skipped unless exactly one token matches.
+   Type it ('<deckId>:type'): the English and part of speech; type the reading in kana or romaji (or the word in kanji). */
 (function () {
   const { esc, norm, shuffle, pick, icons } = App;
   const V = App.views, S = () => App.state;
   const GROUPS = ['Review', 'By level', 'Vocabulary', 'Clinical vocabulary'];
-  const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading']];
+  const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading'], ['context', 'In context'], ['type', 'Type it']];
   const KANJI_RE = new RegExp('[' + JA.KANJI + ']');
   const yomi = (tl) => JA.compact(JA.kana(tl)).trim();                 // reading in kana, as written (katakana kept)
   const hasKanji = (e) => KANJI_RE.test(JA.plain(e.tl));
@@ -30,7 +34,112 @@
   /* ---------- Quiz ---------- */
   const deckList = () => App.decks().filter((d) => GROUPS.includes(d.group) && (d.group !== 'Review' || d.id === 'mistakes'));
   const wordsOf = (d) => d.ids.filter((id) => id.startsWith('d')).map((id) => App.dictById[id]).filter(usable);
-  const poolFor = (words, mode) => (mode === 'reading' ? words.filter(hasKanji) : words);
+  const poolFor = (words, mode) => (mode === 'reading' ? words.filter(hasKanji) : mode === 'context' ? words.filter((e) => ctxOf(e)) : words);
+
+  /* ---------- In context (0.23.0) ---------- */
+  // The example sentence of word e with the one token that is the word (in any form) blanked, or null.
+  // Inflecting words (verbs, い-adjectives) match by their stem: the dictionary form minus its last kana, written in
+  // kanji (the token starts with it and the next character is not a kanji: 食べ matches 食べました, not 食べ物), or in
+  // kana for words written in kana (a stem of two kana or more). Other words match the token as a whole.
+  const INFL = { v1: 1, v5: 1, vi: 1, ai: 1 };
+  const TOK_RE = /^([「『（(]*)(.*?)([。、？！，．」』）)…]*)$/;
+  const ctxCache = new Map();
+  function ctxOf(e) {
+    if (!e) return null;
+    if (ctxCache.has(e.id)) return ctxCache.get(e.id);
+    let r = null;
+    const ex = App.exampleFor(e);
+    const w = JA.plain(e.tl).trim(), wk = JA.toHira(JA.kana(e.tl)).trim();
+    if (ex && ex[0] && w && !/\s/.test(w)) {
+      const infl = !!INFL[e.pos] && [...w].length >= 2;
+      const ks = infl ? w.slice(0, -1) : w, kk = infl ? wk.slice(0, -1) : wk;
+      const kanjiStem = KANJI_RE.test(ks);
+      const toks = String(ex[0]).split(' '), hits = [];
+      toks.forEach((t, i) => {
+        const m = t.match(TOK_RE), core = m ? m[2] : t;
+        if (!core) return;
+        const p = JA.plain(core), k = JA.toHira(JA.kana(core)), kanaTok = !KANJI_RE.test(p);
+        let ok;
+        if (e.pos === 'vs' && core.startsWith(e.tl) && /^[しすさせ]/.test(core.slice(e.tl.length))) ok = 'vs';   // 紹介しました: blank 紹介 only
+        else if (!infl) ok = p === w || (kanaTok && k === wk);
+        else ok = (kanjiStem && p.startsWith(ks) && !KANJI_RE.test(p.charAt(ks.length))) || (kanaTok && [...kk].length >= 2 && k.startsWith(kk));
+        if (ok) hits.push([i, ok]);
+      });
+      if (hits.length === 1) {
+        const at = hits[0][0], m = toks[at].match(TOK_RE) || ['', '', toks[at], ''];
+        const blank = m[1] + '＿' + (hits[0][1] === 'vs' ? m[2].slice(e.tl.length) : '') + m[3];
+        r = { s: toks.map((t, i) => (i === at ? blank : t)).join(' '), full: ex[0], en: ex[1] || '' };
+      }
+    }
+    ctxCache.set(e.id, r);
+    return r;
+  }
+  // Three other dictionary words of the same part of speech and level (then any level), shown in dictionary form.
+  function ctxOthers(e) {
+    const out = [], ens = new Set([norm(e.en)]), tls = new Set([e.ftl]), kns = new Set([e.kn]);
+    const take = (list) => { for (const x of list) { if (out.length >= 3) break; if (!usable(x) || /\s/.test(JA.plain(x.tl).trim()) || ens.has(norm(x.en)) || tls.has(x.ftl) || kns.has(x.kn)) continue; out.push(x); ens.add(norm(x.en)); tls.add(x.ftl); kns.add(x.kn); } };
+    take(shuffle(App.DICT.filter((x) => x !== e && x.pos === e.pos && x.lv === e.lv)));
+    if (out.length < 3) take(shuffle(App.DICT.filter((x) => x !== e && x.pos === e.pos)));
+    return out;
+  }
+  const CTX_HINT = 'Choose the word; it may change its ending in the sentence.';
+  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const perLevel = (ws) => { const c = {}; ws.forEach((e) => { const k = LVS.includes(e.lv) ? e.lv : 'other'; c[k] = (c[k] || 0) + 1; }); return LVS.concat('other').filter((k) => c[k]).map((k) => (k === 'other' ? 'other ' : k + ' ') + c[k]).join(' · '); };
+  App.vocabContextOf = ctxOf;
+  App.vocabContextCount = () => { const c = {}; App.DICT.filter(usable).forEach((e) => { if (ctxOf(e)) c[e.lv || '-'] = (c[e.lv || '-'] || 0) + 1; }); return c; };   // for QA and the report
+
+  /* ---------- Type it (0.23.0) ---------- */
+  // Typed answers: kana (hiragana or katakana), romaji (as in js/listen.js dictation) or the word as written in kanji.
+  const normRomaji = (s) => String(s || '').toLowerCase().normalize('NFC')
+    .replace(/ā/g, 'aa').replace(/ī/g, 'ii').replace(/ū/g, 'uu').replace(/ē/g, 'ee').replace(/[ōô]/g, 'ou').replace(/[âû]/g, (c) => (c === 'â' ? 'aa' : 'uu'))
+    .replace(/[\s'’\-.]/g, '').replace(/oo/g, 'ou').replace(/oh(?=[^aiueo]|$)/g, 'ou')
+    .replace(/si/g, 'shi').replace(/tu/g, 'tsu').replace(/(^|[^sc])hu/g, '$1fu').replace(/zi/g, 'ji').replace(/m(?=[bpm])/g, 'n');
+  const clean = (s) => String(s || '').normalize('NFKC').replace(/[\s。、？！?!,.，．〜～]/g, '');
+  function typedOk(typed, e) {
+    const t = clean(typed);
+    if (!t) return false;
+    const alts = [e].concat(App.DICT.filter((x) => x !== e && x.nen === e.nen && x.pos === e.pos));
+    return alts.some((x) => {
+      if (KANJI_RE.test(t)) return t === clean(JA.plain(x.tl)) || JA.toHira(t) === JA.toHira(clean(JA.plain(x.tl)));
+      if (/[ぁ-ヺー]/.test(t)) return JA.toHira(t) === x.kn;
+      const r = normRomaji(t);
+      return r === normRomaji(JA.kanaToRomaji(x.kn)) || r === normRomaji(JA.romaji(x.tl));
+    });
+  }
+  // One round of typed answers; onDone(right, n). Misses go to My mistakes through App.recordAnswer.
+  function typeRun(box, words, n, onDone) {
+    const qs = pick(words, n);
+    let i = 0, right = 0;
+    const draw = () => {
+      if (i >= qs.length) return onDone(right, qs.length);
+      const e = qs[i];
+      box.innerHTML = '<div class="card stack"><div class="spread"><span class="eyebrow">Question ' + (i + 1) + ' of ' + qs.length + '</span><span class="muted small">' + right + ' right</span></div>' +
+        '<div class="progress"><i style="width:' + Math.round((100 * i) / qs.length) + '%"></i></div>' +
+        '<div style="font-size:1.12rem;font-weight:600">' + esc(e.en) + '</div>' + (App.POS[e.pos] ? '<div class="muted">' + esc(App.POS[e.pos]) + '</div>' : '') +
+        '<label class="small muted" for="vqtype">Type the Japanese in kana or romaji</label>' +
+        '<input class="input" id="vqtype" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="ja" enterkeyhint="done">' +
+        '<div class="row vq-tybtns"><button class="btn primary" id="vqcheck">Check</button><button class="btn" id="vqidk">I don\'t know</button></div><div data-fb></div></div>';
+      const inp = box.querySelector('#vqtype');
+      const answer = (typed, gaveUp) => {
+        const ok = !gaveUp && typedOk(typed, e);
+        if (!gaveUp && !clean(typed)) { App.toast('Type the word first, or choose I don\'t know.'); inp.focus(); return; }
+        if (ok) right++;
+        App.recordAnswer(ok, e.id);
+        inp.readOnly = true; box.querySelector('.vq-tybtns').hidden = true;
+        box.querySelector('[data-fb]').innerHTML = '<div class="feedback ' + (ok ? 'ok' : 'no') + ' stack" style="gap:6px"><div><b>' + (ok ? LANG.quiz.right : gaveUp ? 'The answer:' : LANG.quiz.wrong) + '</b>' + (!ok && !gaveUp ? ' <span class="muted small">You typed: ' + esc(typed) + '</span>' : '') + '</div>' +
+          '<div class="row vq-ans"><a class="tl" href="#/dict/' + esc(e.id) + '" style="font-size:1.2rem;font-weight:600">' + esc(e.tl) + '</a>' + App.sayBtn(e.tl, e.tl) + '</div>' +
+          '<div class="small">' + esc(e.en) + (e.note ? ' · ' + esc(e.note) : '') + ' · <a href="#/dict/' + esc(e.id) + '">Word page</a></div></div>' +
+          '<div class="row" style="margin-top:10px"><button class="btn primary" data-act="next">' + (i + 1 < qs.length ? 'Next' : 'See score') + '</button></div>';
+        const nx = box.querySelector('[data-act=next]');
+        nx.onclick = () => { i++; draw(); const f = box.querySelector('#vqtype'); if (f) f.focus(); };
+        nx.focus();
+      };
+      box.querySelector('#vqcheck').onclick = () => answer(inp.value, false);
+      box.querySelector('#vqidk').onclick = () => answer('', true);
+      inp.onkeydown = (ev) => { if (ev.key === 'Enter' && !inp.readOnly) { ev.preventDefault(); answer(inp.value, false); } };
+    };
+    draw();
+  }
 
   // Three wrong options for word e: different English and different Japanese from the answer and from each other,
   // same part of speech first, from the deck, then from the whole dictionary if the deck is short.
@@ -75,6 +184,10 @@
     return pick(pool, n).map((e) => {
       const exp = e.tl + ' = ' + e.en + (e.note ? ' · ' + e.note : '');
       const sub = App.POS[e.pos] || '';
+      if (mode === 'context') {
+        const c = ctxOf(e), o = [e].concat(ctxOthers(e));
+        return { q: c.s, sub: c.en, opts: o.map((x) => x.tl), a: 0, exp: e.tl + ' = ' + e.en + '. ' + c.full + ' ' + c.en, tlq: true, tlo: true, cardId: e.id, after: c.full, word: e };
+      }
       if (mode === 'reading') return { q: JA.speak(e.tl), sub: e.en, opts: readingOpts(e, words), a: 0, exp, cardId: e.id, after: e.tl };
       const o = [e].concat(others(e, words));
       if (mode === 'recall') return { q: e.en, sub, opts: o.map((x) => x.tl), a: 0, exp, tlo: true, cardId: e.id, after: e.tl };
@@ -93,10 +206,12 @@
     const status = () => {
       const words = wordsOf(deck), n = poolFor(words, mode).length;
       if (n < 4) return '<div class="notice">' + (deck.id === 'mistakes' && !words.length ? 'No dictionary words in My mistakes yet. Words you miss in any quiz or flashcard land there.' : 'This deck has ' + n + ' word' + (n === 1 ? '' : 's') + ' usable for ' + (mode === 'reading' ? 'the Reading mode (words written with kanji)' : 'this quiz') + '; at least 4 are needed. Choose another deck or mode.') + '</div>';
+      if (mode === 'context') return '<p class="muted small" style="margin:0">' + n + ' words in this deck have an example sentence with the word in it (' + perLevel(poolFor(words, mode)) + ')' + (n < count ? '; the quiz uses all of them' : '') + '.</p><p class="small" style="margin:4px 0 0">' + CTX_HINT + '</p>';
+      if (mode === 'type') return '<p class="muted small" style="margin:0">' + n + ' words in this deck' + (n < count ? '; the quiz uses all of them' : '') + '. Read the English, type the word in kana or romaji (kanji also counts).</p>';
       return '<p class="muted small" style="margin:0">' + n + ' words in this deck' + (mode === 'reading' ? ' are written with kanji' : '') + (n < count ? '; the quiz uses all of them' : '') + '.</p>';
     };
     el.innerHTML = '<h1>Vocabulary quiz</h1>' + tabs('quiz') +
-      '<p class="muted">Test the words of any deck three ways: <b>Meaning</b> (read the Japanese, choose the English), <b>Recall</b> (from the English, choose the Japanese) and <b>Reading</b> (kanji without furigana, choose the reading). Misses go to <b>My mistakes</b> in the flashcards.</p>' +
+      '<p class="muted">Test the words of any deck five ways: <b>Meaning</b> (read the Japanese, choose the English), <b>Recall</b> (from the English, choose the Japanese), <b>Reading</b> (kanji without furigana, choose the reading), <b>In context</b> (choose the word missing from an example sentence) and <b>Type it</b> (from the English, type the word). Misses go to <b>My mistakes</b> in the flashcards.</p>' +
       '<div class="card stack" id="vqset"><label class="small muted" for="vqdeck">Deck</label><select class="input" id="vqdeck">' +
       Object.entries(groups).map(([g, ds]) => '<optgroup label="' + esc(g) + '">' + ds.map((d) => '<option value="' + esc(d.id) + '"' + (d === deck ? ' selected' : '') + '>' + esc(d.name) + '</option>').join('') + '</optgroup>').join('') + '</select>' +
       '<div class="row" style="flex-wrap:wrap;gap:8px"><div class="seg" role="group" aria-label="Mode" data-norj id="vqmode">' + modeSeg() + '</div>' +
@@ -118,9 +233,30 @@
     // question number in the eyebrow always points into this qs.
     const run = () => {
       fresh();
-      const words = wordsOf(deck), qs = makeQs(words, mode, count), m = mode, d = deck;
-      if (qs.length < 4) return;
+      const words = wordsOf(deck), m = mode, d = deck;
+      if (poolFor(words, m).length < 4) return;
       if (!S().settings.vocabDeck) { st.vocabDeck = deck.id; App.save(); }
+      const saveBest = (r, n) => {
+        const pct = Math.round((100 * r) / n), k = d.id + ':' + m;
+        best()[k] = Math.max(pct, best()[k] || 0);
+        App.activity(10); App.save();
+        if (el.querySelector('#vqmode')) refresh();
+        return pct;
+      };
+      if (m === 'type') {
+        box.removeAttribute('data-norj'); box.onclick = null;
+        return typeRun(box, words, count, (r, n) => {
+          const pct = saveBest(r, n);
+          box.innerHTML = '<div class="card stack"><h3>' + (pct >= 80 ? LANG.quiz.great : pct >= 50 ? LANG.quiz.ok : LANG.quiz.keepGoing) + ' ' + r + ' / ' + n + '</h3><div class="progress"><i style="width:' + pct + '%"></i></div>' +
+            '<div class="row"><button class="btn primary" data-act="retry">New round</button><a class="btn" href="#/flash/mistakes">My mistakes</a></div></div>';
+          box.querySelector('[data-act=retry]').onclick = run;
+          box.querySelector('[data-act=retry]').focus();
+        });
+      }
+      const qs = makeQs(words, m, count);
+      // In context: the hint stays above the questions; runQuiz draws into the inner box.
+      let qbox = box;
+      if (m === 'context') { box.innerHTML = '<p class="small muted vq-hint">' + CTX_HINT + '</p><div class="vq-in"></div>'; qbox = box.querySelector('.vq-in'); }
       // Reading: no romaji anywhere in the quiz box (it would give the reading away), and no sound before answering.
       box.toggleAttribute('data-norj', m === 'reading');
       box.onclick = (ev) => {
@@ -129,19 +265,23 @@
         const qq = qs[i]; if (!qq || !qq.after) return;
         const row = box.querySelector('[data-fb] .row');
         if (row && !row.querySelector('.say')) row.insertAdjacentHTML('beforeend', App.sayBtn(qq.after, qq.after));
+        if (row && qq.word && !row.querySelector('.vq-wl')) row.insertAdjacentHTML('beforeend', '<a class="btn vq-wl" href="#/dict/' + esc(qq.word.id) + '">Word page</a>');
       };
-      App.runQuiz(box, qs, {
+      App.runQuiz(qbox, qs, {
         after: '<a class="btn" href="#/flash/mistakes">My mistakes</a>',
         onDone: (r, n) => {
-          const pct = Math.round((100 * r) / n), k = d.id + ':' + m;
-          best()[k] = Math.max(pct, best()[k] || 0);
-          App.activity(10); App.save();
-          if (el.querySelector('#vqmode')) refresh();
+          saveBest(r, n);
           const again = box.querySelector('[data-act=retry]'); if (again) { again.textContent = 'New round'; again.onclick = run; }
         }
       });
     };
     el.querySelector('#vqgo').onclick = () => { run(); box.scrollIntoView({ block: 'start', behavior: 'smooth' }); };
+    // Keyboard: 1-4 choose an option, Enter goes on (outside the typing field, which has its own Enter).
+    App.keyHandler = (ev) => {
+      if (ev.altKey || ev.ctrlKey || ev.metaKey || ev.target.matches('input,textarea,select')) return;
+      if (/^[1-4]$/.test(ev.key)) { const o = box.querySelectorAll('.opt:not(:disabled)')[+ev.key - 1]; if (o) { ev.preventDefault(); o.click(); } return; }
+      if (ev.key === 'Enter' && !ev.target.closest('button,a')) { const nx = box.querySelector('[data-act=next]'); if (nx) { ev.preventDefault(); nx.click(); } }
+    };
     refresh();
   }
 
@@ -164,7 +304,7 @@
   const shown = (s, lv) => levelWords(s, lv).length >= (lv === 'All' ? 2 : MIN_LV);
   const matchKey = (s, lv) => 'match:' + s.id + (lv === 'All' ? '' : '@' + lv);
   const quizKey = (s, lv, m) => 'topic:' + s.id + '@' + lv + ':' + m;
-  const QMODES = MODES.filter((m) => m[0] !== 'reading');
+  const QMODES = MODES.filter((m) => m[0] === 'meaning' || m[0] === 'recall');
   const lvSeg = (cur, avail) => '<div class="seg vm-lv" role="group" aria-label="Level" data-norj>' + MLV.map((k) => '<button type="button" data-mlv="' + k + '" aria-pressed="' + (cur === k) + '" class="' + (cur === k ? 'on' : '') + '"' + (avail && !avail.includes(k) ? ' disabled' : '') + '>' + k + '</button>').join('') + '</div>';
   const bindLv = (el, redraw) => el.querySelectorAll('[data-mlv]').forEach((b) => (b.onclick = () => { S().settings.matchLv = b.dataset.mlv; App.save(); redraw(); }));
 
