@@ -6,6 +6,8 @@ usage (from the site folder, server on :8765): python3 ../devtools/qa/audio.py [
 import asyncio, json, sys
 from playwright.async_api import async_playwright
 TEXTS=json.load(open('tools/texts.json',encoding='utf-8'))
+import re,glob
+PIC_IDS=[m for f in sorted(glob.glob('js/data/picture-sets-*.js')) for m in re.findall(r"\{ id: '([a-z0-9-]+)', group:",open(f,encoding='utf-8').read())]
 KEYS=[t['key'] for t in TEXTS]
 MANIFEST=json.dumps({'engine':'edge','voice':'ja-JP-NanamiNeural','rate':'-5%','generated':'2026-11-13','count':len(KEYS),'bytes':150000000,'keys':KEYS})
 STUB="""(()=>{window.__played=[];window.__spoken=[];
@@ -75,7 +77,7 @@ async def main():
 
         # Coverage: every [data-say] on every page.
         # 0.23.0 drill pages
-        DRILLS=['#/build','#/cloze','#/cloze?tab=lessons','#/transform','#/test','#/pairs','#/pairs?tab=learn','#/pairs?tab=quiz','#/sounds','#/sounds?tab=learn','#/sounds?tab=quiz','#/vocab']
+        DRILLS=['#/pictures/bodymap','#/signs','#/signs?tab=learn&g=toilet','#/signs?tab=panels&p=washer','#/signs?tab=panels&p=aircon','#/signs?tab=panels&p=bed-call']+['#/pictures/'+i+t for i in PIC_IDS for t in ('','?tab=identify','?tab=listen')]+['#/build','#/cloze','#/cloze?tab=lessons','#/transform','#/test','#/pairs','#/pairs?tab=learn','#/pairs?tab=quiz','#/sounds','#/sounds?tab=learn','#/sounds?tab=quiz','#/vocab']
         routes=DRILLS+await pg.evaluate("""(quick)=>{if(quick)return LESSONS.filter(l=>l.after).map(l=>'#/lessons/'+l.id);const r=['#/kana','#/kana?script=k','#/verbs','#/verbs?tab=adj','#/particles','#/particles?tab=guide','#/dict','#/kanji','#/kanji?tab=list','#/speak','#/reading','#/psych','#/psych/cases','#/psych/interp','#/psych/point','#/psych/listen','#/psych/mood','#/psych/sud','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/mse-sheet','#/psych/mcases','#/psych/dcases','#/flash','#/settings'];
           LESSONS.forEach(l=>r.push('#/lessons/'+l.id));READING.forEach(x=>r.push('#/reading/'+x.id));DIALOGUES.forEach(d=>r.push('#/speak/'+d.id));PSYCH_CASES.forEach(c=>r.push('#/speak/case-'+c.id,'#/psych/case/'+c.id));
           PSYCH_SECTIONS.forEach(s=>r.push('#/psych/s/'+s.id,'#/psych/point?s='+s.id));
