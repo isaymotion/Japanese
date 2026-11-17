@@ -40,8 +40,8 @@ Object.assign(window.LESSON_EXTRA, {
       [`田中《たなか》さん は 悲《かな》しい です。`, `田中《たなか》さん は 悲《かな》しそう です。`, `Japanese does not state another person's feelings as fact; say how they look.`]
     ],
     more: [
-      [`顔色《かおいろ》 が よく ない です ね。 具合《ぐあい》 が 悪《わる》そう です が、 大丈夫《だいじょうぶ》 です か。`, `You look pale. You seem unwell; are you all right?`],
-      [`佐藤《さとう》さん は 朝《あさ》 ご飯《はん》 を あまり 食《た》べなかった よう です。`, `Mr. Sato seems not to have eaten much breakfast.`],
+      [`顔色《かおいろ》 が よくない です ね。 具合《ぐあい》 が 悪《わる》そう です が、 大丈夫《だいじょうぶ》 です か。`, `You look pale. You seem unwell; are you all right?`],
+      [`佐藤《さとう》さん は 朝《あさ》ご飯《はん》 を あまり 食《た》べなかった よう です。`, `Mr. Sato seems not to have eaten much breakfast.`],
       [`体《からだ》 が 石《いし》 の よう に 重《おも》い です。`, `My body feels as heavy as a stone.`],
       [`空《そら》 が 暗《くら》い です ね。 雪《ゆき》 が 降《ふ》りそう です。`, `The sky is dark. It looks like it's going to snow.`],
       [`隣《となり》 の 店《みせ》 は 来月《らいげつ》 閉《し》まる らしい です。`, `Apparently the shop next door is closing next month.`],
@@ -53,14 +53,14 @@ Object.assign(window.LESSON_EXTRA, {
       [`Fill the blank to mean "That person looks like a doctor": あの 人《ひと》 は 医者《いしゃ》 ＿ です ね。`, [`そう`, `みたい`, `な よう`], 1, `A noun takes みたい directly; そう cannot follow a noun, and よう needs の.`],
       [`You notice a patient seems worried. Which is the most natural thing to say?`, [`あなた は 心配《しんぱい》 です。`, `あなた は 心配《しんぱい》 らしい です。`, `少《すこ》し 心配《しんぱい》そう です ね。`], 2, `Describe what you see with 〜そう rather than stating the feeling as fact.`],
       [`雪《ゆき》 が 降《ふ》る そう です means:`, [`I hear it will snow.`, `It looks like it will snow.`, `It is snowing.`], 0, `Hearsay そう follows the full plain form (降《ふ》る); "looks like" would be 降《ふ》りそう.`],
-      [`子《こ》ども の ＿ 泣《な》いて います。`, [`よう な`, `よう に`, `よう だ`], 1, `Before a verb, the comparison "like" is よう に.`]
+      [`Fill the blank to mean "She is crying like a child": 子《こ》ども の ＿ 泣《な》いて います。`, [`よう な`, `よう に`, `よう だ`], 1, `Before a verb, the comparison "like" is よう に.`]
     ] },
 
   'probability': {
     mistakes: [
       [`明日《あした》 は 雨《あめ》 だ でしょう。`, `明日《あした》 は 雨《あめ》 でしょう。`, `Drop だ after a noun before でしょう.`],
       [`母《はは》 は もう 元気《げんき》 はず です。`, `母《はは》 は もう 元気《げんき》 な はず です。`, `A な-adjective needs な before はず.`],
-      [`もしかしたら 明日《あした》 は 晴《は》れる でしょう。`, `もしかしたら 明日《あした》 は 晴《は》れる かも しれません。`, `もしかしたら (possibly) pairs with かも しれません, not with でしょう.`]
+      [`もしかしたら 明日《あした》 は 晴《は》れる でしょう。`, `もしかしたら 明日《あした》 は 晴《は》れる かも しれません。`, `もしかしたら (possibly) is normally closed with かも しれません; でしょう sounds too sure after it.`]
     ],
     more: [
       [`朝《あさ》 早《はや》く 目《め》 が 覚《さ》める の は、 気分《きぶん》 の 落《お》ち込《こ》み と 関係《かんけい》 が ある かも しれません。`, `Waking early in the morning might be related to low mood.`],
@@ -87,14 +87,14 @@ Object.assign(window.LESSON_EXTRA, {
     ],
     more: [
       [`薬局《やっきょく》 で お薬手帳《くすりてちょう》 を もらいました か。`, `Did you get a medication record book at the pharmacy?`],
-      [`入院中《にゅういんちゅう》、 妹《いもうと》 が 毎週《まいしゅう》 果物《くだもの》 を くれました。`, `While I was in hospital, my younger sister brought me fruit every week.`],
+      [`入院中《にゅういんちゅう》、 妹《いもうと》 が 毎週《まいしゅう》 果物《くだもの》 を くれました。`, `While I was in hospital, my younger sister gave me fruit every week.`],
       [`会社《かいしゃ》 を 休《やす》む ので、 診断書《しんだんしょ》 を もらいたい です。`, `I'm taking time off work, so I'd like a medical certificate.`],
       [`私《わたし》 は 友達《ともだち》 に お土産《みやげ》 を あげました。`, `I gave my friend a souvenir.`],
       [`誕生日《たんじょうび》 に 父《ちち》 から 自転車《じてんしゃ》 を もらいました。`, `I got a bicycle from my father for my birthday.`],
       [`毎日《まいにち》、 犬《いぬ》 に ご飯《はん》 を やります。`, `I feed the dog every day.`]
     ],
     quiz: [
-      [`田中《たなか》さん は 鈴木《すずき》さん に 花《はな》 を ＿。`, [`くれました`, `あげました`, `もらいました`], 1, `Between two other people, the giver takes あげる.`],
+      [`Fill the blank to mean "Ms. Tanaka gave Ms. Suzuki flowers": 田中《たなか》さん は 鈴木《すずき》さん に 花《はな》 を ＿。`, [`くれました`, `あげました`, `もらいました`], 1, `Between two other people, the giver takes あげる.`],
       [`姉《あね》 に 傘《かさ》 を もらいました means:`, [`I got an umbrella from my older sister.`, `I gave my older sister an umbrella.`, `My older sister got an umbrella from me.`], 0, `With もらう, に marks the giver and the receiver is me.`],
       [`市役所《しやくしょ》 ＿ 書類《しょるい》 を もらいました。`, [`が`, `を`, `から`], 2, `When the giver is an organisation or office, use から.`],
       [`Fill the blank to mean "I received a book from my teacher": 先生《せんせい》 に 本《ほん》 を ＿。`, [`いただきました`, `くださいました`, `さしあげました`], 0, `いただく is the humble もらう: I receive from someone above me.`],
@@ -109,7 +109,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`ここ に 座《すわ》って くれます か。`, `ここ に 座《すわ》って いただけます か。`, `〜て くれます か is for friends and family; ask a patient with 〜て いただけます か.`]
     ],
     more: [
-      [`だれ か 一緒《いっしょ》 に 病院《びょういん》 に 来《き》て くれる 人《ひと》 は います か。`, `Is there someone who can come to the hospital with you?`],
+      [`一緒《いっしょ》 に 病院《びょういん》 に 来《き》て くれる 人《ひと》 は います か。`, `Is there someone who can come to the hospital with you?`],
       [`次《つぎ》 の 診察《しんさつ》 に は、 ご家族《かぞく》 に も 来《き》て いただけます か。`, `Could your family come to the next appointment as well?`],
       [`夜《よる》 眠《ねむ》れない とき、 夫《おっと》 が そば に いて くれます。`, `When I can't sleep at night, my husband stays by my side.`],
       [`友達《ともだち》 に 駅《えき》 まで 車《くるま》 で 送《おく》って もらいました。`, `A friend gave me a lift to the station.`],

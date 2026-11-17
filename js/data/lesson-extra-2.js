@@ -13,7 +13,7 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       [`昨日《きのう》 は 薬《くすり》 を 飲《の》みます。`, `昨日《きのう》 は 薬《くすり》 を 飲《の》みました。`, `昨日《きのう》 is in the past, so the verb must end in 〜ました.`],
       [`毎朝《まいあさ》 飲《の》みます か 薬《くすり》 を。`, `毎朝《まいあさ》 薬《くすり》 を 飲《の》みます か。`, `The verb comes last, and か comes right after it.`],
-      [`明日《あした》 に 病院《びょういん》 に 来《き》ます。`, `明日《あした》 病院《びょういん》 に 来《き》ます。`, `Time words relative to today, such as 明日《あした》, take no particle.`]
+      [`毎日《まいにち》 に 散歩《さんぽ》します。`, `毎日《まいにち》 散歩《さんぽ》します。`, `毎日《まいにち》 "every day", like 明日《あした》 and 今朝《けさ》, takes no particle.`]
     ],
     more: [
       [`今朝《けさ》 は 薬《くすり》 を 飲《の》みました か。`, `Did you take your medicine this morning?`],
@@ -36,13 +36,13 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       [`明日《あした》 病院《びょういん》 で 行《い》きます。`, `明日《あした》 病院《びょういん》 に 行《い》きます。`, `The place you go to takes に (or へ); で is for the place where an action happens.`],
       [`家《いえ》 に 薬《くすり》 を 飲《の》みます。`, `家《いえ》 で 薬《くすり》 を 飲《の》みます。`, `Taking medicine is an action done at home, so the place takes で.`],
-      [`昨日《きのう》 姉《あね》 を 電話《でんわ》 しました。`, `昨日《きのう》 姉《あね》 に 電話《でんわ》 しました。`, `The person you phone takes に, not を, even though English says "call her".`]
+      [`昨日《きのう》 姉《あね》 を 電話《でんわ》しました。`, `昨日《きのう》 姉《あね》 に 電話《でんわ》しました。`, `The person you phone takes に, not を, even though English says "call her".`]
     ],
     more: [
       [`今日《きょう》 は だれ と 来《き》ました か。`, `Who did you come with today?`],
       [`家《いえ》 から 病院《びょういん》 まで バス で 来《き》ました か。`, `Did you come from home to the hospital by bus?`],
       [`夜《よる》 は 家族《かぞく》 と 話《はな》します か。`, `Do you talk with your family in the evenings?`],
-      [`日曜日《にちようび》 は 公園《こうえん》 で 散歩《さんぽ》 します。`, `On Sundays I go for a walk in the park.`],
+      [`日曜日《にちようび》 は 公園《こうえん》 で 散歩《さんぽ》します。`, `On Sundays I go for a walk in the park.`],
       [`土曜日《どようび》 に 東京《とうきょう》 へ 行《い》きます。`, `I'm going to Tokyo on Saturday.`],
       [`スマホ で 映画《えいが》 を 見《み》ます。`, `I watch films on my phone.`]
     ],
@@ -51,7 +51,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`友達《ともだち》 ＿ 昼《ひる》ご飯《はん》 を 食《た》べました。 "I had lunch with a friend." Which particle fits?`, [`と`, `に`, `を`], 0, `と after a person means "together with".`],
       [`水《みず》 ＿ 飲《の》みます。 Which particle marks what you drink?`, [`で`, `を`, `へ`], 1, `を marks the object of the verb.`],
       [`What does 月曜日《げつようび》 から 金曜日《きんようび》 まで 働《はたら》きます mean?`, [`I work from Monday to Friday.`, `I work on Mondays and Fridays.`, `I worked until Monday.`], 0, `から marks the start and まで the end.`],
-      [`"I will phone the doctor." Which is correct?`, [`先生《せんせい》 を 電話《でんわ》 します。`, `先生《せんせい》 で 電話《でんわ》 します。`, `先生《せんせい》 に 電話《でんわ》 します。`], 2, `The person who receives the call takes に.`],
+      [`"I will phone the doctor." Which is correct?`, [`先生《せんせい》 を 電話《でんわ》します。`, `先生《せんせい》 で 電話《でんわ》します。`, `先生《せんせい》 に 電話《でんわ》します。`], 2, `The person who receives the call takes に.`],
       [`"I'm going to Osaka on Saturday." Which is correct?`, [`土曜日《どようび》 で 大阪《おおさか》 へ 行《い》きます。`, `土曜日《どようび》 に 大阪《おおさか》 へ 行《い》きます。`, `土曜日《どようび》 に 大阪《おおさか》 で 行《い》きます。`], 1, `A day of the week takes に, and the destination takes へ (or に).`]
     ]
   },
@@ -71,7 +71,7 @@ Object.assign(window.LESSON_EXTRA, {
     ],
     quiz: [
       [`何《なに》 ＿ 好《す》き です か。 Which particle fits?`, [`は`, `が`, `を`], 1, `A question word as the subject takes が, and the thing liked is marked with が.`],
-      [`"I can speak a little Japanese." Which is correct?`, [`日本語《にほんご》 が 少《すこ》し できます。`, `日本語《にほんご》 は 少《すこ》し できます か。`, `日本語《にほんご》 を 少《すこ》し できます。`], 0, `With できます the skill takes が. The second option is a question.`],
+      [`"I can speak a little Japanese." Which is correct?`, [`日本語《にほんご》 が 少《すこ》し できます。`, `日本語《にほんご》 に 少《すこ》し できます。`, `日本語《にほんご》 を 少《すこ》し できます。`], 0, `With できます the skill takes が; に and を do not mark it.`],
       [`The doctor asks どこ が 痛《いた》い です か。 Which answer is natural?`, [`頭《あたま》 を 痛《いた》い です。`, `頭《あたま》 で 痛《いた》い です。`, `頭《あたま》 が 痛《いた》い です。`], 2, `The part that hurts takes が, the same particle as in the question.`],
       [`Which sentence introduces yourself naturally?`, [`私《わたし》 が 田中《たなか》 です。`, `私《わたし》 を 田中《たなか》 です。`, `私《わたし》 は 田中《たなか》 です。`], 2, `In a self-introduction you are the topic, so は.`],
       [`魚《さかな》 は 食《た》べます。 肉《にく》 は 食《た》べません。 What does は do here?`, [`It contrasts fish and meat.`, `It marks a question word.`, `It shows where you eat.`], 0, `は on two nouns sets them against each other: fish yes, meat no.`],
@@ -82,7 +82,7 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       [`家《いえ》 に 犬《いぬ》 が あります。`, `家《いえ》 に 犬《いぬ》 が います。`, `Animals, like people, take います.`],
       [`部屋《へや》 で テレビ が あります。`, `部屋《へや》 に テレビ が あります。`, `The place where something is takes に; で is for where an action happens.`],
-      [`上《うえ》 の 机《つくえ》 に 本《ほん》 が あります。`, `机《つくえ》 の 上《うえ》 に 本《ほん》 が あります。`, `The thing comes first and the location word after it: 机《つくえ》 の 上《うえ》 is "on the desk".`]
+      [`上《うえ》 の 机《つくえ》 に 本《ほん》 が あります。`, `机《つくえ》 の 上《うえ》 に 本《ほん》 が あります。`, `For "on the desk" the thing comes first and the location word after it: 机《つくえ》 の 上《うえ》. 上《うえ》 の 机《つくえ》 means "the upper desk".`]
     ],
     more: [
       [`近《ちか》く に ご家族《かぞく》 が います か。`, `Do you have family living nearby?`],
@@ -103,8 +103,8 @@ Object.assign(window.LESSON_EXTRA, {
   },
   'invitations': {
     mistakes: [
-      [`いいえ、 食《た》べません。`, `すみません、 今日《きょう》 は ちょっと…。`, `A flat いいえ to an invitation sounds like rejecting the person; apologise and leave the sentence unfinished.`],
-      [`いいえ、 行《い》きます。`, `いい です ね。 行《い》きましょう。`, `行《い》きません か is an invitation, not a negative question, so accept it with いい です ね, not いいえ.`],
+      [`いいえ、 食《た》べません。`, `すみません、 今日《きょう》 は ちょっと…。`, `Answering an invitation such as 一緒《いっしょ》 に 食《た》べません か with a flat いいえ sounds like rejecting the person; apologise and leave the sentence unfinished.`],
+      [`明日《あした》 一緒《いっしょ》 に 散歩《さんぽ》しません でした か。`, `明日《あした》 一緒《いっしょ》 に 散歩《さんぽ》しません か。`, `An invitation uses 〜ません か; 〜ません でした か asks about the past ("didn't you...?") and clashes with 明日《あした》.`],
       [`窓《まど》 を 開《あ》けません か。`, `窓《まど》 を 開《あ》けましょう か。`, `To offer to do something yourself, use 〜ましょう か; 〜ません か invites the other person to do it.`]
     ],
     more: [
@@ -142,7 +142,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`How do you say "It was cold"?`, [`寒《さむ》い でした。`, `寒《さむ》くない です。`, `寒《さむ》かった です。`], 2, `The past of an い-adjective is 〜かった, followed by です.`],
       [`What is the past of いい?`, [`いかった`, `よかった`, `いい でした`], 1, `いい takes its other forms from よい: よかった.`],
       [`今日《きょう》 は とても ＿ です。 "I'm very sleepy today." What fills the gap?`, [`眠《ねむ》い`, `眠《ねむ》くない`, `眠《ねむ》かった`], 0, `とても goes with the positive, and "I'm" is the present.`],
-      [`What does 怖《こわ》い 夢《ゆめ》 を 見《み》ました mean?`, [`I wasn't scared of the dream.`, `I had a bad dream.`, `I had a scary dream.`], 2, `怖《こわ》い is "scary"; it goes straight before the noun 夢《ゆめ》.`],
+      [`What does 怖《こわ》い 夢《ゆめ》 を 見《み》ました mean?`, [`I wasn't scared of the dream.`, `I had a sad dream.`, `I had a scary dream.`], 2, `怖《こわ》い is "scary"; it goes straight before the noun 夢《ゆめ》.`],
       [`Which sentence uses あまり correctly?`, [`あまり 寒《さむ》い です。`, `あまり 寒《さむ》くない です。`, `あまり 寒《さむ》かった です。`], 1, `あまり is used only with a negative.`],
       [`A patient says 体《からだ》 が だるい です。 What do they mean?`, [`My body feels heavy and tired.`, `I have a sharp pain.`, `I feel lonely.`], 0, `だるい describes a sluggish, heavy feeling in the body.`]
     ]
@@ -150,7 +150,7 @@ Object.assign(window.LESSON_EXTRA, {
   'na-adjectives': {
     mistakes: [
       [`父《ちち》 は 元気《げんき》くない です。`, `父《ちち》 は 元気《げんき》 では ありません。`, `元気《げんき》 is a な-adjective: change です, not the adjective.`],
-      [`静《しず》か 部屋《へや》 で 休《やす》みます。`, `静《しず》か な 部屋《へや》 で 休《やす》みます。`, `A な-adjective needs な before the noun it describes.`],
+      [`静《しず》か 場所《ばしょ》 が 好《す》き です。`, `静《しず》か な 場所《ばしょ》 が 好《す》き です。`, `A な-adjective needs な before the noun it describes.`],
       [`私《わたし》 は 音楽《おんがく》 が 好《す》き な です。`, `私《わたし》 は 音楽《おんがく》 が 好《す》き です。`, `な is used only before a noun; at the end of a sentence just add です.`]
     ],
     more: [

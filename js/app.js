@@ -437,7 +437,9 @@
     if (!s || typeof s !== 'object') return t('backup.nothing');
     const done = (s.done && typeof s.done === 'object') ? s.done : {};
     // Practice scores (0.19.0): one per deck/mode, listening set or numbers group with a best result; old backups have none.
-    const n = ['vocab', 'listen2', 'numbers', 'build', 'cloze', 'transform', 'test', 'pairs', 'sounds'].reduce((a, k) => a + (done[k] && typeof done[k] === 'object' ? Object.keys(done[k]).filter((x) => done[k][x] != null).length : 0), 0);
+    // 0.23.0 drill stores also hold non-score keys (miss arrays, pairs 'time:<lv>' records): only number values count there.
+    const OLD = ['vocab', 'listen2', 'numbers'];
+    const n = OLD.concat(['build', 'cloze', 'transform', 'test', 'pairs', 'sounds']).reduce((a, k) => a + (done[k] && typeof done[k] === 'object' ? Object.keys(done[k]).filter((x) => (OLD.indexOf(k) >= 0 ? done[k][x] != null : typeof done[k][x] === 'number')).length : 0), 0);
     return tf('backup.sum', { cards: Object.keys(s.srs || {}).length, lessons: Object.keys(done.lessons || {}).length, xp: +s.xp || 0 }) + (n ? tf('backup.sumPractice', { n }) : '');
   }
   function bkDate(v) {

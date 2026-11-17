@@ -63,8 +63,14 @@
   function orderItem(x) {
     const toks = x.ja.split(/ +/).filter(Boolean);
     if (toks.length < 5 || /＿|「|」/.test(x.ja)) return null;
-    const units = [];
-    toks.forEach((t) => {
+    let units = [];
+    if (App.buildChunks) {
+      // 0.23.0: cut the sentence the same way as the Sentence builder (js/build.js); the final 。？！ goes back on the last word.
+      const bc = App.buildChunks(x.ja);
+      if (!bc || !bc.chunks.length) return null;
+      units = bc.chunks.map((c) => c.split(' '));
+      const last = units[units.length - 1]; last[last.length - 1] += bc.end || '';
+    } else toks.forEach((t) => {
       const core = plainKey(t);
       if (units.length && (!core || ATTACH.has(core))) units[units.length - 1].push(t); else units.push([t]);
     });

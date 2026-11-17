@@ -27,7 +27,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`子《こ》ども が ドア ＿ 閉《し》めました。`, [`を`, `が`, `に`], 0, `閉《し》める is transitive, so the door takes を.`],
       [`What is the transitive partner of 増《ふ》える?`, [`減《へ》る`, `増《ふ》やす`, `上《あ》がる`], 1, `増《ふ》える (increases) pairs with 増《ふ》やす (increase something).`],
       [`Which sentence is natural?`, [`財布《さいふ》 が 落《お》としました。`, `財布《さいふ》 を 落《お》ちました。`, `財布《さいふ》 を 落《お》としました。`], 2, `落《お》とす (drop) is transitive and takes を; 落《お》ちる (fall) would take が.`],
-      [`授業《じゅぎょう》 は 九時《くじ》 に ＿。 (Class starts at nine.)`, [`始《はじ》めます`, `始《はじ》まります`, `始《はじ》めて あります`], 1, `A class starts by itself, so use the intransitive 始《はじ》まる.`],
+      [`授業《じゅぎょう》 が 九時《くじ》 に ＿。 (Class starts at nine.)`, [`始《はじ》めます`, `始《はじ》まります`, `始《はじ》めて あります`], 1, `A class starts by itself, so use the intransitive 始《はじ》まる.`],
       [`薬《くすり》 を 減《へ》らしました means:`, [`Someone reduced the medicine.`, `The medicine increased.`, `The medicine ran out by itself.`], 0, `減《へ》らす with を is transitive: someone did the reducing.`],
       [`Which sentence describes a state, not an action?`, [`窓《まど》 を 開《あ》けて います。`, `電気《でんき》 を 消《け》して います。`, `窓《まど》 が 開《あ》いて います。`], 2, `An intransitive verb + 〜て いる describes the resulting state: the window is open.`]
     ]
@@ -73,7 +73,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`What is the volitional form of 泳《およ》ぐ?`, [`泳《およ》ぎよう`, `泳《およ》ごう`, `泳《およ》げよう`], 1, `Group 1 verbs move to the お-row and add う: ぐ → ごう.`],
       [`What is the volitional form of 起《お》きる?`, [`起《お》こう`, `起《お》きろう`, `起《お》きよう`], 2, `起《お》きる is a group 2 verb: drop る and add よう.`],
       [`Which sentence states a plan that is already settled?`, [`仕事《しごと》 を 続《つづ》ける つもり です。`, `仕事《しごと》 を 続《つづ》けよう と 思《おも》います。`, `仕事《しごと》 を 続《つづ》けよう か。`], 0, `つもり です states a settled plan; 〜よう と 思《おも》います is an idea still forming.`],
-      [`A friend says: 疲《つか》れた から、 タクシー に ＿ か。 (Shall we take a taxi?)`, [`乗《の》りよう`, `乗《の》ろう`, `乗《の》れ`], 1, `乗《の》る is group 1, so its volitional is 乗《の》ろう; 乗《の》れ is the imperative.`],
+      [`A friend says: 疲《つか》れた から、 タクシー に ＿ か。 (Shall we take a taxi?)`, [`乗《の》りよう`, `乗《の》ろう`, `乗《の》れる`], 1, `乗《の》る is group 1, so its volitional is 乗《の》ろう; 乗《の》れる is the potential (can ride).`],
       [`電話《でんわ》 に 出《で》よう と した とき、 切《き》れました means:`, [`When I tried to answer the phone, it cut off.`, `I decided not to answer the phone.`, `I answered the phone and then hung up.`], 0, `Volitional + と した とき means "just as I was about to" or "when I tried to".`],
       [`A patient says 退院《たいいん》したら 実家《じっか》 に 帰《かえ》ろう と 思《おも》って います. What are they telling you?`, [`They have already gone back home.`, `They think their family will go home.`, `They are thinking of going back to their family home after discharge.`], 2, `帰《かえ》ろう と 思《おも》って います states the speaker's own intention.`]
     ]
@@ -82,7 +82,7 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       [`泳《およ》げる に なりました。`, `泳《およ》げる よう に なりました。`, `A verb needs よう before に なる.`],
       [`お酒《さけ》 を 飲《の》まない に しました。`, `お酒《さけ》 を 飲《の》まない こと に しました。`, `A verb needs こと before に する to state a decision.`],
-      [`夜《よる》 眠《ねむ》れない よう に なりました。`, `夜《よる》 眠《ねむ》れなく なりました。`, `For "no longer able to", the usual form is 〜なく なりました.`]
+      [`前《まえ》 より 元気《げんき》 よう に なりました。`, `前《まえ》 より 元気《げんき》 に なりました。`, `よう に なる follows a verb; a な-adjective such as 元気《げんき》 takes に なる directly.`]
     ],
     more: [
       [`来週《らいしゅう》 から デイケア に 通《かよ》う こと に なりました。`, `You will be attending the day programme from next week.`],
@@ -96,7 +96,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`一人《ひとり》 で バス に 乗《の》れる ＿ に なりました。 (I've become able to take the bus on my own.)`, [`よう`, `こと`, `ため`], 0, `Potential form + よう に なりました describes a change in ability.`],
       [`四月《しがつ》 から 大阪《おおさか》 に 引《ひ》っ越《こ》す こと に なりました means:`, [`I want to move to Osaka in April.`, `It has been arranged that I will move to Osaka from April.`, `I have become able to move to Osaka.`], 1, `こと に なりました means it has been decided, often by others or by circumstances.`],
       [`Which sentence is a rule the speaker has made for themselves?`, [`毎晩《まいばん》 十時《じゅうじ》 に 寝《ね》る こと に なりました。`, `毎晩《まいばん》 十時《じゅうじ》 に 寝《ね》られる よう に なりました。`, `毎晩《まいばん》 十時《じゅうじ》 に 寝《ね》る こと に して います。`], 2, `こと に して います is a personal rule the speaker keeps.`],
-      [`How do you ask a patient to make sure to drink plenty of water?`, [`水《みず》 を たくさん 飲《の》む こと に なって ください。`, `水《みず》 を たくさん 飲《の》む よう に して ください。`, `水《みず》 を たくさん 飲《の》める よう に なって ください。`], 1, `よう に して ください asks for a continuing effort.`],
+      [`How do you ask a patient to try to drink plenty of water?`, [`水《みず》 を たくさん 飲《の》む こと に なって ください。`, `水《みず》 を たくさん 飲《の》む よう に して ください。`, `水《みず》 を たくさん 飲《の》める よう に なって ください。`], 1, `よう に して ください asks for a continuing effort.`],
       [`Which pattern describes a gradual change in ability?`, [`〜こと に する`, `〜よう に なる`, `〜よう に する`], 1, `よう に なる is a change that comes about; よう に する is an effort.`],
       [`会社《かいしゃ》 を 辞《や》める こと に しました. Who made the decision?`, [`The company`, `Nobody yet; it is only an idea`, `The speaker`], 2, `こと に しました states the speaker's own decision.`]
     ]
@@ -132,7 +132,7 @@ Object.assign(window.LESSON_EXTRA, {
     ],
     more: [
       [`「話《はな》す な」 と 言《い》う 声《こえ》 が 聞《き》こえる こと が あります。`, `Sometimes I hear a voice saying, "Don't talk."`],
-      [`声《こえ》 は どんな こと を しろ と 言《い》います か。`, `What does the voice tell you to do?`],
+      [`声《こえ》 は どんな こと を する よう に 言《い》います か。`, `What kind of things does the voice tell you to do?`],
       [`危《あぶ》ない ので、 ここ に は 入《はい》らない で ください。`, `It isn't safe, so please don't come in here.`],
       [`父《ちち》 は よく 「早《はや》く 寝《ね》ろ」 と 言《い》います。`, `My father often says, "Go to bed."`],
       [`先生《せんせい》 は 学生《がくせい》 に 「静《しず》か に しなさい」 と 言《い》いました。`, `The teacher told the students, "Be quiet."`],

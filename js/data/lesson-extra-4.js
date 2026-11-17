@@ -18,7 +18,7 @@ Object.assign(window.LESSON_EXTRA, {
     more: [
       [`今《いま》 は 何《なに》 も 食《た》べたくない です。`, `Right now I don't want to eat anything.`],
       [`家族《かぞく》 に は 話《はな》したくない です。`, `I don't want to tell my family.`],
-      [`退院《たいいん》 の あと、 何《なに》 を したい です か。`, `What would you like to do after you leave hospital?`],
+      [`退院《たいいん》 の 後《あと》、 何《なに》 を したい です か。`, `What would you like to do after you leave hospital?`],
       [`週末《しゅうまつ》 は 海《うみ》 に 行《い》きたい です。`, `I want to go to the sea at the weekend.`],
       [`新《あたら》しい パソコン が ほしい です。`, `I want a new computer.`],
       [`今年《ことし》 は 旅行《りょこう》しない つもり です。`, `I don't plan to travel this year.`]
@@ -57,13 +57,13 @@ Object.assign(window.LESSON_EXTRA, {
   },
   'thinking-saying': {
     mistakes: [
-      [`田中《たなか》さん は 来《き》ます と 思《おも》います。`, `田中《たなか》さん は 来《く》る と 思《おも》います。`, `The part before と 思《おも》います is in the plain form, not the ます form.`],
+      [`田中《たなか》さん は 来《き》ます と 思《おも》います。`, `田中《たなか》さん は 来《く》る と 思《おも》います。`, `In standard Japanese the part before と 思《おも》います is in the plain form, not the ます form.`],
       [`母《はは》 は 私《わたし》 が 悪《わる》い と 思《おも》います。`, `母《はは》 は 私《わたし》 が 悪《わる》い と 思《おも》って います。`, `For what another person thinks, use と 思《おも》って います.`],
       [`夫《おっと》 は 「大丈夫《だいじょうぶ》」 を 言《い》いました。`, `夫《おっと》 は 「大丈夫《だいじょうぶ》」 と 言《い》いました。`, `The words someone says are marked with と, not を.`]
     ],
     more: [
       [`今《いま》 の 治療《ちりょう》 に ついて、 どう 思《おも》います か。`, `What do you think about your current treatment?`],
-      [`患者《かんじゃ》さん は 「誰《だれ》 も 私《わたし》 を わからない」 と 言《い》って います。`, `The patient keeps saying, "Nobody understands me."`],
+      [`患者《かんじゃ》さん は 「夜《よる》 が 怖《こわ》い」 と 言《い》って います。`, `The patient keeps saying, "I'm scared of the night."`],
       [`お母《かあ》さん の 話《はなし》 では、 最近《さいきん》 部屋《へや》 から 出《で》ない そう です。`, `According to her mother, she hasn't been leaving her room lately.`],
       [`この 店《みせ》 の ラーメン は おいしい と 思《おも》います。`, `I think the ramen at this shop is good.`],
       [`友達《ともだち》 は 来週《らいしゅう》 東京《とうきょう》 に 行《い》く と 言《い》いました。`, `My friend said she is going to Tokyo next week.`],
@@ -75,19 +75,19 @@ Object.assign(window.LESSON_EXTRA, {
       [`Which correctly says "I think he is kind"?`, [`彼《かれ》 は 親切《しんせつ》 な と 思《おも》います。`, `彼《かれ》 は 親切《しんせつ》 です と 思《おも》います。`, `彼《かれ》 は 親切《しんせつ》 だ と 思《おも》います。`], 2, `A な-adjective takes だ before と 思《おも》います.`],
       [`Which one means "I hear it will rain"?`, [`雨《あめ》 が 降《ふ》りそう です。`, `雨《あめ》 が 降《ふ》る そう です。`, `雨《あめ》 が 降《ふ》る と 思《おも》います。`], 1, `Plain form + そう です is hearsay; the ます-stem + そう means "looks like".`],
       [`Which reports "My husband said he would come home late"?`, [`夫《おっと》 は 遅《おそ》く 帰《かえ》る を 言《い》いました。`, `夫《おっと》 は 遅《おそ》く 帰《かえ》ります と 思《おも》います。`, `夫《おっと》 は 遅《おそ》く 帰《かえ》る と 言《い》いました。`], 2, `An indirect report is plain form + と 言《い》いました.`],
-      [`自分《じぶん》 は 病気《びょうき》 じゃ ない と 思《おも》って います means:`, [`I believe I am not ill.`, `I thought I was ill.`, `I hear I am not ill.`], 0, `〜と 思《おも》って います describes a belief someone holds.`]
+      [`A family member says of the patient: 自分《じぶん》 は 病気《びょうき》 じゃない と 思《おも》って います. What does it mean?`, [`He believes he is not ill.`, `He thought he was ill.`, `I hear he is not ill.`], 0, `〜と 思《おも》って います describes a belief someone holds, and is the form used for another person's thoughts.`]
     ]
   },
   'can': {
     mistakes: [
-      [`夜《よる》 よく 眠《ねむ》られません。`, `夜《よる》 よく 眠《ねむ》れません。`, `眠《ねむ》る is a group 1 verb, so る becomes れる: 眠《ねむ》れる.`],
+      [`夜《よる》 よく 眠《ねむ》られません。`, `夜《よる》 よく 眠《ねむ》れません。`, `眠《ねむ》る is a group 1 verb, so its potential is 眠《ねむ》れる; られる is only for る-verbs.`],
       [`ピアノ を 弾《ひ》く が できます。`, `ピアノ を 弾《ひ》く こと が できます。`, `After a verb, こと is needed before が できます.`],
       [`勉強《べんきょう》 に 集中《しゅうちゅう》されません。`, `勉強《べんきょう》 に 集中《しゅうちゅう》できません。`, `The potential of する is できる; される is a different form (passive or honorific).`]
     ],
     more: [
       [`最近《さいきん》、 本《ほん》 が 読《よ》めません。 集中《しゅうちゅう》できない ん です。`, `Lately I can't read books. I can't concentrate.`],
       [`ご家族《かぞく》 に 気持《きも》ち を 話《はな》せます か。`, `Can you talk to your family about how you feel?`],
-      [`疲《つか》れて、 朝《あさ》 シャワー を 浴《あ》びる こと が できません。`, `I'm so tired that I can't take a shower in the morning.`],
+      [`とても 疲《つか》れて いて、 朝《あさ》 シャワー を 浴《あ》びる こと が できません。`, `I'm so tired that I can't take a shower in the morning.`],
       [`私《わたし》 は 泳《およ》げません。`, `I can't swim.`],
       [`この 店《みせ》 で は カード が 使《つか》えます か。`, `Can I use a card in this shop?`],
       [`日曜日《にちようび》 は 会《あ》えます か。`, `Can we meet on Sunday?`]
@@ -96,9 +96,9 @@ Object.assign(window.LESSON_EXTRA, {
       [`What is the potential form of 書《か》く?`, [`書《か》ける`, `書《か》かれる`, `書《か》きられる`], 0, `う-verbs move to the え-row and add る: く → ける.`],
       [`What is the standard potential form of 見《み》る?`, [`見《み》れる`, `見《み》られる`, `見《み》ける`], 1, `見《み》る is a る-verb: drop る and add られる. 見《み》れる is colloquial.`],
       [`Fill the blank: 漢字《かんじ》 ＿ 少《すこ》し 読《よ》めます。`, [`が`, `で`, `に`], 0, `With the potential form the object is often marked with が.`],
-      [`運転《うんてん》できません means:`, [`I don't want to drive.`, `Please don't drive.`, `I can't drive.`], 2, `できる is the potential of する, so できません means "cannot".`],
+      [`Fill the blank: 生《なま》 の 魚《さかな》 は ＿。 (I can't eat raw fish.)`, [`食《た》べません`, `食《た》べられません`, `食《た》べたくない です`], 1, `食《た》べられません is the potential negative "cannot eat"; 食《た》べません is only "don't eat".`],
       [`Which sentence uses こと が できます correctly?`, [`一人《ひとり》 で 歩《ある》き こと が できます。`, `一人《ひとり》 で 歩《ある》く こと が できます。`, `一人《ひとり》 で 歩《ある》く が できます。`], 1, `Dictionary form + こと が できます.`],
-      [`人《ひと》 の 話《はなし》 が 覚《おぼ》えられません means:`, [`I don't want to remember what people say.`, `I didn't remember what people said.`, `I can't remember what people say.`], 2, `覚《おぼ》えられる is the potential of 覚《おぼ》える.`]
+      [`人《ひと》 の 名前《なまえ》 が 覚《おぼ》えられません means:`, [`I don't want to remember people's names.`, `I didn't remember people's names.`, `I can't remember people's names.`], 2, `覚《おぼ》えられる is the potential of 覚《おぼ》える.`]
     ]
   },
   'comparing-changing': {
@@ -149,7 +149,7 @@ Object.assign(window.LESSON_EXTRA, {
   },
   'keigo': {
     mistakes: [
-      [`田中《たなか》さん は 何《なん》 と 申《もう》しました か。`, `田中《たなか》さん は 何《なん》 と おっしゃいました か。`, `申《もう》す is humble and only for yourself; for the patient use おっしゃる.`],
+      [`田中《たなか》さん は 何《なん》 と 申《もう》しました か。`, `田中《たなか》さん は 何《なん》 と おっしゃいました か。`, `申《もう》す is humble and only for yourself or your own side; for what Tanaka-san said, use honorific おっしゃる.`],
       [`私《わたし》 の お名前《なまえ》 は ナバロ です。`, `私《わたし》 の 名前《なまえ》 は ナバロ です。`, `お before a noun shows respect for the other person's thing; do not use it for your own name.`],
       [`こちら で お待《ま》ち して ください。`, `こちら で お待《ま》ち ください。`, `お + ます-stem + する is humble (my action); a polite request is お + ます-stem + ください.`]
     ],

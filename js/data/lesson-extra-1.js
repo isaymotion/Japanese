@@ -59,7 +59,7 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       [`それ 本《ほん》 は 私《わたし》 の です。`, `その 本《ほん》 は 私《わたし》 の です。`, `Before a noun use その, not それ.`],
       [`どれ は 田中《たなか》さん の かばん です か。`, `どれ が 田中《たなか》さん の かばん です か。`, `A question word that is the subject takes が, not は.`],
-      [`この 人《ひと》 は 鈴木《すずき》先生《せんせい》 です。`, `こちら は 鈴木《すずき》先生《せんせい》 です。`, `When you introduce someone, こちら is the polite word for "this person".`]
+      [`この 人《ひと》 は 鈴木《すずき》先生《せんせい》 です。`, `こちら は 鈴木《すずき》先生《せんせい》 です。`, `この 人《ひと》 is too casual when you introduce someone, especially a doctor; こちら is the polite word for "this person".`]
     ],
     more: [
       [`ここ は 精神科《せいしんか》 です。`, `This is the psychiatry department.`],
@@ -73,7 +73,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`Fill in the blank: ＿ 人《ひと》 は 山田《やまだ》さん です。 (That person over there is Mr. Yamada.)`, [`あれ`, `あの`, `あそこ`], 1, `Before a noun use あの.`],
       [`A patient is holding some medicine. How do you ask "Is that your medicine?"`, [`これ は 山田《やまだ》さん の 薬《くすり》 です か。`, `あれ は 山田《やまだ》さん の 薬《くすり》 です か。`, `それ は 山田《やまだ》さん の 薬《くすり》 です か。`], 2, `Something near the listener is それ.`],
       [`Which word is the polite "where"?`, [`どちら`, `どれ`, `どの`], 0, `どちら is the polite partner of どこ.`],
-      [`Fill in the blank: どれ ＿ 田中《たなか》さん の かばん です か。`, [`は`, `が`, `の`], 1, `A question word as the subject takes が.`],
+      [`Fill in the blank: それ は ＿ の かばん です か。 (Whose bag is that?)`, [`どれ`, `だれ`, `どの`], 1, `だれ (who) + の asks "whose".`],
       [`What does あそこ mean?`, [`here`, `there, near you`, `over there, away from both of us`], 2, `あ words point away from both speaker and listener.`],
       [`この かばん means:`, [`this bag (near me)`, `that bag (near you)`, `which bag?`], 0, `こ means near the speaker, and この comes before a noun.`]
     ]
@@ -118,7 +118,7 @@ Object.assign(window.LESSON_EXTRA, {
     quiz: [
       [`How do you say 100,000?`, [`ひゃくせん`, `じゅうまん`, `せんまん`], 1, `100,000 is ten 万《まん》: 十万《じゅうまん》.`],
       [`How do you say 800?`, [`はちひゃく`, `はちびゃく`, `はっぴゃく`], 2, `八百《はっぴゃく》 has a small っ and ぴゃく.`],
-      [`How do you say "eight years old"?`, [`はっさい`, `はちさい`, `やっさい`], 0, `八歳《はっさい》 has a small っ.`],
+      [`How do you say "one year old"?`, [`いっさい`, `いちさい`, `ひとさい`], 0, `一歳《いっさい》 has a small っ.`],
       [`How do you say 3,000?`, [`さんせん`, `さんぜん`, `みせん`], 1, `三千《さんぜん》 changes せん to ぜん.`],
       [`What does 二万円《にまんえん》 mean?`, [`200,000 yen`, `2,000 yen`, `20,000 yen`], 2, `万《まん》 is 10,000, so 二万《にまん》 is 20,000.`],
       [`What is the polite way to ask a patient's age?`, [`おいくつ です か。`, `何《なん》 です か。`, `いくら です か。`], 0, `おいくつ です か is the polite "how old are you?".`]
@@ -163,7 +163,7 @@ Object.assign(window.LESSON_EXTRA, {
     ],
     quiz: [
       [`How do you say "one person"?`, [`いちにん`, `ひとり`, `ひとつ`], 1, `一人《ひとり》 is irregular.`],
-      [`How do you say "eight times"?`, [`はっかい`, `はちかい`, `やっかい`], 0, `八回《はっかい》 has a small っ.`],
+      [`How do you say "three cups"?`, [`さんばい`, `さんはい`, `さんぱい`], 0, `三杯《さんばい》 changes はい to ばい.`],
       [`Which counter is used for sheets of paper and stamps?`, [`本《ほん》`, `杯《はい》`, `枚《まい》`], 2, `枚《まい》 counts flat things.`],
       [`Fill in the blank: 週《しゅう》 ＿ 二回《にかい》 お酒《さけ》 を 飲《の》みます。 (I drink alcohol twice a week.)`, [`に`, `を`, `の`], 0, `に gives "per": 週《しゅう》 に 二回《にかい》 is twice a week.`],
       [`Which word asks "how many" with the つ series?`, [`いくら`, `いくつ`, `いかが`], 1, `いくつ asks how many; いくら asks how much money.`],

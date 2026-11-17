@@ -24,7 +24,7 @@ Object.assign(window.LESSON_EXTRA, {
       ["この 店《みせ》 は 安《やす》い し、 料理《りょうり》 も おいしい です。", "This place is cheap, and the food is good too."]
     ],
     quiz: [
-      ["What is the \"even if\" form of 飲《の》まない?", ["飲《の》まなくて も", "飲《の》まないて も", "飲《の》まない でも"], 0, "A negative verb ends in ない, which changes like an い-adjective: なくて も."],
+      ["What is the \"even if\" form of 飲《の》まない?", ["飲《の》まなくて も", "飲《の》まないて も", "飲《の》まなかったら"], 0, "A negative verb ends in ない, which changes like an い-adjective: なくて も; 飲《の》まなかったら means \"if I don't drink\"."],
       ["Fill the blank: 毎日《まいにち》 練習《れんしゅう》 した ＿、 上手《じょうず》 に なりません。", ["し", "の に", "て も"], 1, "Two facts with disappointment are joined by の に; た + て も is not a form."],
       ["何度《なんど》 説明《せつめい》 して も、 わかって もらえません means:", ["I explained many times, so they understood.", "If I explain once, they will understand.", "No matter how many times I explain, they don't understand me."], 2, "A question word + ても means \"no matter how\"; 何度《なんど》 is \"how many times\"."],
       ["Choose the natural sentence for \"Even if you are busy, please eat breakfast.\"", ["忙《いそが》しくて も、 朝《あさ》ご飯《はん》 を 食《た》べて ください。", "忙《いそが》しい の に、 朝《あさ》ご飯《はん》 を 食《た》べて ください。", "忙《いそが》しい し、 朝《あさ》ご飯《はん》 を 食《た》べて ください。"], 0, "〜ても can be followed by a request; の に cannot, and し lists reasons."],
@@ -39,7 +39,7 @@ Object.assign(window.LESSON_EXTRA, {
       ["看護師《かんごし》 で 名前《なまえ》 を 呼《よ》ばれました。", "看護師《かんごし》 に 名前《なまえ》 を 呼《よ》ばれました。", "The doer in a passive sentence takes に, not で."]
     ],
     more: [
-      ["入院《にゅういん》 の とき、 荷物《にもつ》 は 看護師《かんごし》 に 確認《かくにん》 されます。", "When you are admitted, your belongings are checked by a nurse."],
+      ["入院《にゅういん》 の とき に、 お荷物《にもつ》 の 確認《かくにん》 が 行《おこな》われます。", "When you are admitted, your belongings will be checked."],
       ["血液検査《けつえきけんさ》 は 二階《にかい》 で 行《おこな》われます。", "Blood tests are done on the second floor."],
       ["子《こ》ども の ころ、 親《おや》 に よく 叱《しか》られました か。", "As a child, were you often scolded by your parents?"],
       ["この 歌《うた》 は 世界中《せかいじゅう》 で 歌《うた》われて います。", "This song is sung all over the world."],
@@ -57,9 +57,9 @@ Object.assign(window.LESSON_EXTRA, {
   },
   'passive-suffering': {
     mistakes: [
-      ["兄《あに》 に 私《わたし》 の 日記《にっき》 が 読《よ》まれました。", "兄《あに》 に 日記《にっき》 を 読《よ》まれました。", "The affected person is the subject, so the belonging keeps を and needs no 私《わたし》 の."],
+      ["昨日《きのう》 は 雨《あめ》 が 降《ふ》られて、 大変《たいへん》 でした。", "昨日《きのう》 は 雨《あめ》 に 降《ふ》られて、 大変《たいへん》 でした。", "In the affected passive, the rain that caused the trouble is marked with に: 雨《あめ》 に 降《ふ》られる."],
       ["夜中《よなか》 に 犬《いぬ》 に ほえて、 眠《ねむ》れません でした。", "夜中《よなか》 に 犬《いぬ》 に ほえられて、 眠《ねむ》れません でした。", "When に marks the one who caused the trouble, the verb must be passive: ほえられる."],
-      ["だれ か に 見《み》られて います か。", "だれ か に 見《み》られて いる と 感《かん》じる こと は あります か。", "A bare question asks about a fact; asking about the feeling keeps it neutral."]
+      ["電車《でんしゃ》 で 隣《となり》 の 人《ひと》 に 足《あし》 を 踏《ふ》めました。", "電車《でんしゃ》 で 隣《となり》 の 人《ひと》 に 足《あし》 を 踏《ふ》まれました。", "踏《ふ》める is the potential; the passive of 踏《ふ》む is the あ-row plus れる: 踏《ふ》まれる."]
     ],
     more: [
       ["夫《おっと》 に 毎晩《まいばん》 遅《おそ》く 帰《かえ》られて、 不安《ふあん》 に なります。", "My husband comes home late every night, and it makes me anxious."],
@@ -75,7 +75,7 @@ Object.assign(window.LESSON_EXTRA, {
       ["Fill the blank: 電車《でんしゃ》 の 中《なか》 で 赤《あか》ちゃん ＿ 泣《な》かれました。", ["が", "を", "に"], 2, "The one whose action caused the trouble is marked with に."],
       ["A patient says 近所《きんじょ》 の 人《ひと》 に 悪口《わるぐち》 を 言《い》われて いる 気《き》 が します. What is the patient reporting?", ["A feeling that the neighbours say bad things about them", "That they say bad things about the neighbours", "That the neighbours asked them to talk"], 0, "言《い》われて いる is passive, and 気《き》 が します means \"I have a feeling that\"."],
       ["Compared with 見《み》られて います, a patient who says 見《み》られて いる 気《き》 が します sounds:", ["more certain", "angrier", "less certain"], 2, "〜気《き》 が します softens the statement into a feeling."],
-      ["What is the passive of 来《く》る?", ["来《き》られる", "来《こ》られる", "来《く》られる"], 1, "来《く》る is irregular: 来《こ》られる."]
+      ["What is the passive of 来《く》る?", ["きられる", "こられる", "くられる"], 1, "来《く》る is irregular: its passive is 来《こ》られる."]
     ]
   },
   'causative': {
@@ -86,8 +86,8 @@ Object.assign(window.LESSON_EXTRA, {
     ],
     more: [
       ["よければ、 今日《きょう》 は ゆっくり お話《はなし》 を 聞《き》かせて ください。", "If you're happy to, please let me hear your story today, at your own pace."],
-      ["検査《けんさ》 の 結果《けっか》 を 確認《かくにん》 させて いただけます か。", "Would you allow me to check your test results?"],
-      ["患者《かんじゃ》さん を 長《なが》く 待《ま》たせない ように、 予約《よやく》 の 時間《じかん》 を 守《まも》って います。", "We keep to appointment times so that patients are not kept waiting long."],
+      ["ご家族《かぞく》 と 少《すこ》し 話《はな》させて いただけます か。", "Would you allow me to talk with your family for a little while?"],
+      ["患者《かんじゃ》さん を 長《なが》く 待《ま》たせない よう に、 予約《よやく》 の 時間《じかん》 を 守《まも》って います。", "We keep to appointment times so that patients are not kept waiting long."],
       ["週末《しゅうまつ》 は 子《こ》ども を 公園《こうえん》 で 自由《じゆう》に 遊《あそ》ばせます。", "At weekends I let the children play freely in the park."],
       ["部長《ぶちょう》 は 新人《しんじん》 に 会議《かいぎ》 の 準備《じゅんび》 を させました。", "The manager had the new employee get the meeting ready."],
       ["彼《かれ》 は いつも 冗談《じょうだん》 で みんな を 笑《わら》わせます。", "He always makes everyone laugh with his jokes."]
@@ -151,7 +151,7 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       ["はじめまして。 担当《たんとう》 の ナバロ と おっしゃいます。", "はじめまして。 担当《たんとう》 の ナバロ と 申《もう》します。", "おっしゃる is honorific; for your own name use the humble 申《もう》します."],
       ["お父《とう》さん は 何《なん》 と 申《もう》しました か。", "お父《とう》さん は 何《なん》 と おっしゃいました か。", "申《もう》す is humble; the patient's family member takes the honorific おっしゃる."],
-      ["院長《いんちょう》 は 今日《きょう》 会議《かいぎ》 に 出《で》て いらっしゃいます。", "院長《いんちょう》 は 今日《きょう》 会議《かいぎ》 に 出《で》て おります。", "When you speak to a patient about your own hospital's staff, use the humble おります."]
+      ["院長《いんちょう》 は 今日《きょう》 会議《かいぎ》 に 出《で》て いらっしゃいます。", "院長《いんちょう》 は 今日《きょう》 会議《かいぎ》 に 出《で》て おります。", "To a patient, your own hospital's staff, even the director, are on your side, so use the humble おります."]
     ],
     more: [
       ["次回《じかい》 の 予約《よやく》 に ついて、 後《あと》 で お電話《でんわ》 いたします。", "I'll call you later about your next appointment."],
@@ -165,7 +165,7 @@ Object.assign(window.LESSON_EXTRA, {
       ["What is the humble verb for 見《み》る?", ["ご覧《らん》 に なる", "拝見《はいけん》 する", "見《み》られる"], 1, "拝見《はいけん》 する is humble; ご覧《らん》 に なる is honorific."],
       ["What is the humble verb for いる?", ["なさる", "いらっしゃる", "おる"], 2, "おる is humble; いらっしゃる is honorific and なさる is the honorific of する."],
       ["Fill the blank for \"I'll call you later\": 後《あと》 で お電話《でんわ》 ＿。", ["いたします", "なさいます", "ください"], 0, "お / ご + noun + いたします is humble; お電話《でんわ》 ください would ask the patient to call."],
-      ["お話《はなし》 を 伺《うかが》います means:", ["Please tell me your story.", "I'll listen to what you have to say.", "You will hear the story."], 1, "伺《うかが》う is the humble verb for 聞《き》く, used for your own action."],
+      ["お話《はなし》 を 伺《うかが》います means:", ["I'll tell you my story.", "I'll listen to what you have to say.", "You will hear the story."], 1, "伺《うかが》う is the humble verb for 聞《き》く, used for your own action."],
       ["Which is the humble form of 案内《あんない》 する?", ["案内《あんない》 される", "ご案内《あんない》 に なる", "ご案内《あんない》 します"], 2, "ご + する-noun + します is humble; ご〜に なる is honorific."],
       ["Which sentence misuses a humble verb?", ["どうぞ、 資料《しりょう》 を 拝見《はいけん》 して ください。", "明日《あした》 また 参《まい》ります。", "お荷物《にもつ》 を お持《も》ち します。"], 0, "拝見《はいけん》 する is humble and cannot describe the patient's looking; say ご覧《らん》 ください."]
     ]

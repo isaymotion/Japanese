@@ -76,12 +76,12 @@ Object.assign(window.LESSON_EXTRA, {
       [`Fill the blank: 明日《あした》 の 約束《やくそく》 を ＿ ください。 (Please don't forget tomorrow's appointment.)`, [`忘《わす》れて`, `忘《わす》れます`, `忘《わす》れないで`], 2, `〜ないで ください means "please don't".`],
       [`Which is the most polite way to ask a patient to wait a moment?`, [`少《すこ》し 待《ま》って ください。`, `少《すこ》し 待《ま》ちます。`, `少《すこ》し 待《ま》って いただけます か。`], 2, `〜て いただけます か is the most polite request; 待《ま》ちます is not a request at all.`],
       [`A patient asks: トイレ に 行《い》って も いい です か。 What is a natural answer?`, [`はい、 どうぞ。`, `はい、 行《い》って は いけません。`, `いいえ、 どうぞ。`], 0, `はい、 どうぞ "yes, go ahead" gives permission.`],
-      [`What does 無理《むり》しないで ください mean?`, [`Please try harder.`, `Please don't overdo it.`, `It is impossible.`], 1, `無理《むり》 する is "push yourself too hard", and 〜ないで ください is "please don't".`]
+      [`What does 無理《むり》しないで ください mean?`, [`Please try harder.`, `Please don't overdo it.`, `It is impossible.`], 1, `無理《むり》する is "push yourself too hard", and 〜ないで ください is "please don't".`]
     ] },
 
   'te-imasu': {
     mistakes: [
-      [`母《はは》 は 今《いま》 テレビ を 見《み》ます。`, `母《はは》 は 今《いま》 テレビ を 見《み》て います。`, `For an action happening right now, use 〜て います; 見《み》ます is a habit or the future.`],
+      [`母《はは》 は 今《いま》 テレビ を 見《み》ます。`, `母《はは》 は 今《いま》 テレビ を 見《み》て います。`, `For an action happening right now, use 〜て います; 今《いま》 見《み》ます would mean she is about to watch it.`],
       [`私《わたし》 は 東京《とうきょう》 に 住《す》みます。`, `私《わたし》 は 東京《とうきょう》 に 住《す》んで います。`, `Living somewhere is a continuing state, so it takes 〜て います.`],
       [`お薬《くすり》 の 名前《なまえ》 は 知《し》って いません。`, `お薬《くすり》 の 名前《なまえ》 は 知《し》りません。`, `"I don't know" is 知《し》りません, not 知《し》って いません.`]
     ],
@@ -155,7 +155,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`休《やす》み の 日《ひ》 は 掃除《そうじ》したり、 料理《りょうり》 します。`, `休《やす》み の 日《ひ》 は 掃除《そうじ》したり、 料理《りょうり》したり します。`, `Every action in the list takes 〜たり, and the list ends with します.`]
     ],
     more: [
-      [`子供《こども》 の とき、 大《おお》きい 病気《びょうき》 を した こと が あります か。`, `Did you ever have a serious illness as a child?`],
+      [`子供《こども》 の とき、 大《おお》きな 病気《びょうき》 を した こと が あります か。`, `Did you ever have a serious illness as a child?`],
       [`昨日《きのう》 は 一日中《いちにちじゅう》 何《なに》 も しなかった。`, `I didn't do anything all day yesterday. (a patient speaking plainly)`],
       [`最近《さいきん》 は 急《きゅう》に 泣《な》いたり、 怒《おこ》ったり します。`, `Lately I suddenly cry or get angry.`],
       [`京都《きょうと》 に 行《い》った こと が あります か。`, `Have you ever been to Kyoto?`],

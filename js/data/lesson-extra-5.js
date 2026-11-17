@@ -13,12 +13,12 @@ Object.assign(window.LESSON_EXTRA, {
   'conversation-habits': {
     mistakes: [
       [`鈴木《すずき》、 どうぞ お入《はい》り ください。`, `鈴木《すずき》さん、 どうぞ お入《はい》り ください。`, `Call an adult by family name + さん; a bare family name sounds rude to a patient.`],
-      [`いいえ、 明日《あした》 は だめ です。`, `すみません、 明日《あした》 は ちょっと…。`, `A flat いいえ … だめ です sounds harsh; ちょっと and a trailing end decline gently.`],
+      [`いいえ、 明日《あした》 は だめ です。`, `すみません、 明日《あした》 は ちょっと…。`, `A flat いいえ … だめ です sounds harsh; すみません and a trailing-off ちょっと… decline gently.`],
       [`早《はや》く 答《こた》えて ください。`, `ゆっくり 考《かんが》えて ください。`, `A pause often means the patient is thinking, so give time instead of pressing for an answer.`]
     ],
     more: [
       [`ちょっと 血圧《けつあつ》 を 測《はか》って も いい です か。`, `May I take your blood pressure for a moment?`],
-      [`薬《くすり》 は ちょっと 飲《の》みたく ない ん です けど…。`, `I'd rather not take the medicine, but…`],
+      [`薬《くすり》 は ちょっと 飲《の》みたくない ん です けど…。`, `I'd rather not take the medicine, but…`],
       [`先生《せんせい》、 いつも すみません。`, `Doctor, thank you for everything, as always.`],
       [`その 日《ひ》 は ちょっと 用事《ようじ》 が あって…。`, `That day I have something on…`],
       [`駅《えき》 まで 送《おく》って いただいて、 すみません。`, `Thank you for taking me all the way to the station.`],
@@ -35,9 +35,9 @@ Object.assign(window.LESSON_EXTRA, {
 
   'distress-words': {
     mistakes: [
-      [`朝《あさ》 から 体《からだ》 が だるい します。`, `朝《あさ》 から 体《からだ》 が だるい です。`, `だるい is an い-adjective, so it takes です; only mimetic words such as イライラ take する.`],
-      [`落《お》ち込《こ》んで いる の？`, `気分《きぶん》 が 落《お》ち込《こ》んで います か。`, `To a patient, ask in polite です/ます; the casual form sounds too familiar.`],
-      [`もっと 我慢《がまん》 して ください。`, `ずっと 我慢《がまん》 して きた ん です ね。`, `Telling a distressed patient to endure more is blunt; acknowledge how long they have endured instead.`]
+      [`朝《あさ》 から 体《からだ》 が だるい します。`, `朝《あさ》 から 体《からだ》 が だるい です。`, `だるい is an い-adjective, so it takes です directly; mimetic words such as イライラ are the ones that take する.`],
+      [`気分《きぶん》 が 落《お》ち込《こ》んで いる の？`, `気分《きぶん》 が 落《お》ち込《こ》んで います か。`, `To a patient, ask in polite です/ます; the casual の？ form sounds too familiar.`],
+      [`将来《しょうらい》 の こと を 気《き》 に なります。`, `将来《しょうらい》 の こと が 気《き》 に なります。`, `気《き》 に なる does not take an object: the thing on your mind takes が (を goes with 気《き》 に する).`]
     ],
     more: [
       [`夕方《ゆうがた》 に なる と、 体《からだ》 が だるく なります。`, `When evening comes, my body gets heavy and sluggish.`],
@@ -59,8 +59,8 @@ Object.assign(window.LESSON_EXTRA, {
   'interview-patterns': {
     mistakes: [
       [`眠《ねむ》れます か、 食《た》べられます か、 仕事《しごと》 は 行《い》けます か。`, `夜《よる》 は 眠《ねむ》れて います か。`, `Ask one thing at a time; a distressed patient may answer only the last part of a stacked question.`],
-      [`自殺《じさつ》 したい です か。`, `皆《みな》さん に お聞《き》き して います が、 死《し》にたい と 思《おも》う こと は あります か。`, `A bare question can sound like an accusation; a short preface and the gentler 死《し》にたい と 思《おも》う こと frame make it routine.`],
-      [`どの くらい から 眠《ねむ》れて いません か。`, `いつ から 眠《ねむ》れて いません か。`, `いつ から asks when it started; どの くらい asks how much or how long.`]
+      [`自殺《じさつ》 したい です か。`, `死《し》にたい と 思《おも》う こと は あります か。`, `Asking about a wish with 〜たい です か sounds blunt, and 自殺《じさつ》 したい is not how the question is put; ask plainly with the frame 〜と 思《おも》う こと は あります か (自殺《じさつ》 を 考《かんが》えた こと は あります か is also direct and fine).`],
+      [`どの くらい から 眠《ねむ》れなく なりました か。`, `いつ から 眠《ねむ》れなく なりました か。`, `いつ から asks when it started; どの くらい asks how much or how long, not since when.`]
     ],
     more: [
       [`食欲《しょくよく》 は あります か。`, `Do you have an appetite?`],
@@ -82,7 +82,7 @@ Object.assign(window.LESSON_EXTRA, {
   'interpreting': {
     mistakes: [
       [`え？ もう 一度《いちど》。`, `すみません、 もう 一度《いちど》 お願《ねが》い します。`, `A bare え？ sounds abrupt; すみません and お願《ねが》い します make the repair polite.`],
-      [`そんなに 早《はや》く 話《はな》さない で。`, `もう 少《すこ》し ゆっくり 話《はな》して いただけます か。`, `A casual "don't talk so fast" sounds like an order; ask politely for slower speech.`],
+      [`そんなに 速《はや》く 話《はな》さない で。`, `もう 少《すこ》し ゆっくり 話《はな》して いただけます か。`, `A casual "don't talk so fast" sounds like an order; ask politely for slower speech.`],
       [`朝《あさ》 早《はや》く 目《め》 が 覚《さ》めます と いう こと です か。`, `朝《あさ》 早《はや》く 目《め》 が 覚《さ》める と いう こと です か。`, `The part before と いう こと です か stays in plain form.`]
     ],
     more: [
@@ -106,12 +106,12 @@ Object.assign(window.LESSON_EXTRA, {
     mistakes: [
       [`先週《せんしゅう》 行《い》きました 病院《びょういん》 は 遠《とお》かった です。`, `先週《せんしゅう》 行《い》った 病院《びょういん》 は 遠《とお》かった です。`, `The clause before a noun is in plain form, even in a polite sentence.`],
       [`夜《よる》 眠《ねむ》れない の 日《ひ》 は どう して います か。`, `夜《よる》 眠《ねむ》れない 日《ひ》 は どう して います か。`, `Nothing goes between a verb clause and its noun; の joins only a noun to a noun.`],
-      [`看護師《かんごし》さん は 教《おし》えた 体操《たいそう》 を 毎朝《まいあさ》 して います。`, `看護師《かんごし》さん が 教《おし》えた 体操《たいそう》 を 毎朝《まいあさ》 して います。`, `The subject inside a noun clause takes が (or の), not は.`]
+      [`看護師《かんごし》さん は 教《おし》えた 体操《たいそう》 を 毎朝《まいあさ》 して います。`, `看護師《かんごし》さん が 教《おし》えた 体操《たいそう》 を 毎朝《まいあさ》 して います。`, `The subject inside a noun clause takes が (or の); with は, 看護師《かんごし》さん becomes the topic and the sentence says the nurse does the exercises.`]
     ],
     more: [
       [`調子《ちょうし》 が いい 日《ひ》 と 悪《わる》い 日《ひ》 が あります。`, `There are days when I feel well and days when I don't.`],
       [`気分《きぶん》 が 落《お》ち込《こ》んだ とき に よく 行《い》く 場所《ばしょ》 は あります か。`, `Is there a place you often go when you feel down?`],
-      [`前《まえ》 の 病院《びょういん》 で 受《う》けた 検査《けんさ》 の 結果《けっか》 は あります か。`, `Do you have the results of the tests you had at your previous hospital?`],
+      [`前《まえ》 の 病院《びょういん》 で 受《う》けた 検査《けんさ》 の 結果《けっか》 を お持《も》ち です か。`, `Do you have the results of the tests you had at your previous hospital?`],
       [`駅《えき》 で 会《あ》った 人《ひと》 は 私《わたし》 の 先生《せんせい》 でした。`, `The person I met at the station was my teacher.`],
       [`子《こ》ども の とき に 住《す》んで いた 家《いえ》 は もう ありません。`, `The house I lived in as a child is no longer there.`],
       [`週末《しゅうまつ》 に 読《よ》む 本《ほん》 を 買《か》いました。`, `I bought a book to read at the weekend.`]
@@ -167,7 +167,7 @@ Object.assign(window.LESSON_EXTRA, {
       [`Which sentence is correct?`, [`熱《ねつ》 が ある か どうか 測《はか》りましょう。`, `熱《ねつ》 が あります か どうか 測《はか》りましょう。`, `熱《ねつ》 が ある か どこ 測《はか》りましょう。`], 0, `A yes-or-no question inside a sentence is plain form + か どうか.`],
       [`何《なに》 が 心配《しんぱい》 か 教《おし》えて ください means:`, [`Is there anything you're worried about?`, `Please don't worry.`, `Please tell me what you're worried about.`], 2, `何《なに》 + clause + か is "what …", inside 教《おし》えて ください.`],
       [`Fill the blank: その 薬《くすり》 が 合《あ》って いる ＿、 来週《らいしゅう》 確認《かくにん》しましょう。 (whether)`, [`と`, `の`, `か どうか`], 2, `"Whether" is か どうか.`],
-      [`Which sentence means "I don't know why I can't sleep"?`, [`どうして 眠《ねむ》れません か わかりません。`, `どうして 眠《ねむ》れない か わかりません。`, `どうして 眠《ねむ》れない か どうか わかりません。`], 1, `Plain form + か after a question word, with no か どうか.`],
+      [`Which sentence means "I don't remember what time I went to bed"?`, [`何時《なんじ》 に 寝《ね》ました か 覚《おぼ》えて いません。`, `何時《なんじ》 に 寝《ね》た か 覚《おぼ》えて いません。`, `何時《なんじ》 に 寝《ね》た か どうか 覚《おぼ》えて いません。`], 1, `Plain form + か after a question word, with no か どうか.`],
       [`Which word completes it? 検査《けんさ》 の 結果《けっか》 が いつ 出《で》る か ＿。 (I don't know)`, [`わかりません`, `ありません`, `できません`], 0, `わかりません takes an embedded question: "I don't know when …".`]
     ] }
 
