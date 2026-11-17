@@ -124,7 +124,7 @@ node ../devtools/write/xcheck.js ref/kd/kanji.json . js/data/kanji-n5.js
 |---|---|
 | Reading aids | furigana (always / tap / off), romaji line, word spacing |
 | Menu language (0.13.0, 0.14.0) | Settings and About: English or Japanese. Japanese menu, tabs, footer, theme and text-size controls, backup messages, with furigana; English under each menu item. Since 0.14.0 also page headings, section headings on Home, Practice and Settings, and tile titles, each with the English underneath. 126 strings in `data/strings.js` `tl` (92 + 34 `head.`), written by the main chat and reviewed by an Opus agent |
-| Lessons | 110 in 34 units, with quizzes, level filter and Print: Starter 6, N5 21, N4 35, N3 24, N2 24 (0.21.0: first half of N2 grammar, about 75 patterns) |
+| Lessons | 176 in 47 units, with quizzes, level filter and Print: Starter 6, N5 38, N4 60, N3 24, N2 48; 21 of them are unit reviews (N5 and N4); the 56 older N5 and N4 lessons have Common mistakes, More examples and More practice (0.23.0) |
 | Kanji study | 1,049 kanji: N5 80, N4 166, N3 367, N2 330 (0.21.0), clinical 106 (37 of them reference-N2); chart, page per kanji, 4-mode drill, printable list, decks |
 | Stroke order (0.10.0, 0.14.0) | diagram on every kanji page and for every kana from the kana chart; since 0.14.0 also from the hiragana and katakana lessons (tap a kana), after each kanji drill answer and on kanji flashcards; since 0.15.0 for each kanji on vocabulary flashcards; KanjiVG data, about 570 KB in 5 files, precached by sw.js |
 | Writing practice sheet (0.12.0) | `#/write`: printable sheets for kana rows, kanji groups or typed characters; A4 or Letter |
