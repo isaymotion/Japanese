@@ -28,7 +28,7 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
 
   /* question-words */
   { id: 'c-n5-013', lv: 'N5', l: 'question-words', s: 'お名前《なまえ》 は ＿ です か。', a: '何《なん》', opts: ['誰《だれ》', '何《なん》', 'どこ', 'いつ'], en: "What is your name?", why: "A name is a \"what\": 何《なん》 です か; 誰《だれ》 asks about a person." },
-  { id: 'c-n5-014', lv: 'N5', l: 'question-words', s: '＿ か 質問《しつもん》 は あります か。', a: '何《なに》', opts: ['何《なに》', '誰《だれ》', 'どこ', 'いつ'], en: "Do you have any questions?", why: "何《なに》 か means \"anything\"; questions are things, so 何《なに》 is the word to use." },
+  { id: 'c-n5-014', lv: 'N5', l: 'question-words', s: '＿ か 質問《しつもん》 は あります か。', a: '何《なに》', opts: ['何《なに》', 'どれ', 'どこ', 'いつ'], en: "Do you have any questions?", why: "何《なに》 か means \"anything\"; どこ か is \"somewhere\" and いつ か \"some day\", and どれ does not take か this way." },
   { id: 'c-n5-015', lv: 'N5', l: 'question-words', s: '＿ から 痛《いた》い です か。', a: 'いつ', opts: ['誰《だれ》', 'どれ', 'いつ', 'どう'], en: "Since when has it hurt?", why: "いつ から asks since when; it is a key question about how long a symptom has lasted." },
   { id: 'c-n5-016', lv: 'N5', l: 'question-words', s: '「この 傘《かさ》 は ＿ の です か。」「私《わたし》 の です。」', a: '誰《だれ》', opts: ['何《なん》', 'どこ', 'いつ', '誰《だれ》'], en: "Whose umbrella is this? — It is mine.", why: "誰《だれ》 の asks \"whose\", which matches the answer 私《わたし》 の です." },
 
@@ -36,12 +36,12 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   { id: 'c-n5-017', lv: 'N5', l: 'numbers', s: '電話《でんわ》 番号《ばんごう》 は ＿ です か。', a: '何番《なんばん》', opts: ['何番《なんばん》', '何時《なんじ》', '何歳《なんさい》', '何人《なんにん》'], en: "What is your phone number?", why: "Ask for a phone number with 何番《なんばん》; 何時《なんじ》 is the time and 何歳《なんさい》 is age." },
   { id: 'c-n5-018', lv: 'N5', l: 'numbers', s: '失礼《しつれい》 です が、 ＿ です か。', a: 'おいくつ', opts: ['いくら', 'おいくつ', '何時《なんじ》', '何番《なんばん》'], en: "Excuse me for asking, but how old are you?", why: "おいくつ です か is the polite way to ask age; いくら asks a price." },
   { id: 'c-n5-019', lv: 'N5', l: 'numbers', s: 'この 本《ほん》 は ＿ です か。', a: 'いくら', opts: ['いくつ', '何番《なんばん》', 'いくら', '何時《なんじ》'], en: "How much is this book?", why: "いくら asks a price; いくつ asks how many or how old." },
-  { id: 'c-n5-020', lv: 'N5', l: 'numbers', s: '千円《せんえん》 が 十枚《じゅうまい》 で ＿ です。', a: '一万円《いちまんえん》', opts: ['十万円《じゅうまんえん》', '千円《せんえん》', '百万円《ひゃくまんえん》', '一万円《いちまんえん》'], en: "Ten thousand-yen notes make ten thousand yen.", why: "Japanese counts in units of 万《まん》: ten thousands make 一万《いちまん》, not a \"ten thousand\" built from 千《せん》." },
+  { id: 'c-n5-020', lv: 'N5', l: 'numbers', s: 'この 時計《とけい》 は ＿ です。', a: '一万円《いちまんえん》', opts: ['十万円《じゅうまんえん》', '千円《せんえん》', '百円《ひゃくえん》', '一万円《いちまんえん》'], en: "This watch is 10,000 yen.", why: "10,000 is one 万《まん》, 一万円《いちまんえん》; 千円《せんえん》 is 1,000 and 十万円《じゅうまんえん》 is 100,000." },
 
   /* time-dates */
   { id: 'c-n5-021', lv: 'N5', l: 'time-dates', s: '毎朝《まいあさ》 七時《しちじ》 ＿ 起《お》きます。', a: 'に', opts: ['で', 'に', 'を', 'が'], en: "I get up at seven every morning.", why: "A clock time takes に: 七時《しちじ》 に, \"at seven\"." },
   { id: 'c-n5-022', lv: 'N5', l: 'time-dates', s: '診察《しんさつ》 は 九時《くじ》 ＿ 五時《ごじ》 まで です。', a: 'から', opts: ['まで', 'に', 'から', 'を'], en: "Consultations are from nine to five.", why: "から marks the start and まで the end: 九時《くじ》 から 五時《ごじ》 まで." },
-  { id: 'c-n5-023', lv: 'N5', l: 'time-dates', s: '今日《きょう》 は 四月《しがつ》 ＿ です。', a: '八日《ようか》', opts: ['八日《ようか》', '八時《はちじ》', '八月《はちがつ》', '八人《はちにん》'], en: "Today is April the eighth.", why: "The day of the month uses 日《にち》 or a special reading: 八日《ようか》 is the eighth, with its own special reading." },
+  { id: 'c-n5-023', lv: 'N5', l: 'time-dates', s: '今日《きょう》 は 四月《しがつ》 ＿ です。', a: '八日《ようか》', opts: ['八日《ようか》', '八時《はちじ》', '八月《はちがつ》', '八人《はちにん》'], en: "Today is April the eighth.", why: "The eighth of the month is 八日《ようか》, one of the special date readings to learn by heart; 八時《はちじ》 is eight o'clock." },
   { id: 'c-n5-024', lv: 'N5', l: 'time-dates', s: '昨日《きのう》 は ＿ 寝《ね》ました か。', a: '何時間《なんじかん》', opts: ['何曜日《なんようび》', '何時間《なんじかん》', '何月《なんがつ》', '何人《なんにん》'], en: "How many hours did you sleep last night?", why: "時間《じかん》 counts hours of length: 何時間《なんじかん》 asks how long, not what time." },
 
   /* counters */
@@ -65,20 +65,20 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   /* wa-vs-ga */
   { id: 'c-n5-037', lv: 'N5', l: 'wa-vs-ga', s: '誰《だれ》 ＿ 来《き》ました か。', a: 'が', opts: ['は', 'が', 'を', 'で'], en: "Who came?", why: "A question word as subject always takes が, never は." },
   { id: 'c-n5-038', lv: 'N5', l: 'wa-vs-ga', s: '頭《あたま》 ＿ 痛《いた》い です。', a: 'が', opts: ['を', 'に', 'で', 'が'], en: "I have a headache.", why: "The part that hurts is the subject of 痛《いた》い and takes が." },
-  { id: 'c-n5-039', lv: 'N5', l: 'wa-vs-ga', s: '肉《にく》 は 食《た》べます が、 魚《さかな》 ＿ 食《た》べません。', a: 'は', opts: ['が', 'は', 'に', 'で'], en: "I eat meat, but fish I don't eat.", why: "は marks contrast between two things; 魚《さかな》 が 食《た》べません would mean the fish does not eat." },
+  { id: 'c-n5-039', lv: 'N5', l: 'wa-vs-ga', s: '肉《にく》 は 食《た》べます が、 魚《さかな》 ＿ 食《た》べません。', a: 'は', opts: ['が', 'は', 'に', 'で'], en: "I eat meat, but fish I don't eat.", why: "は marks the contrast with 肉《にく》 は; が would make the fish the one doing the eating." },
   { id: 'c-n5-040', lv: 'N5', l: 'wa-vs-ga', s: '私《わたし》 ＿ フィリピン人《じん》 です。', a: 'は', opts: ['を', 'に', 'は', 'で'], en: "I am Filipino.", why: "は marks the topic you are talking about: 私《わたし》 は ..." },
 
   /* arimasu-imasu */
   { id: 'c-n5-041', lv: 'N5', l: 'arimasu-imasu', s: '机《つくえ》 の 上《うえ》 に 本《ほん》 が ＿。', a: 'あります', opts: ['います', 'します', 'あります', 'です'], en: "There is a book on the desk.", why: "Things that do not move by themselves take あります." },
   { id: 'c-n5-042', lv: 'N5', l: 'arimasu-imasu', s: '待合室《まちあいしつ》 に 患者《かんじゃ》さん が 三人《さんにん》 ＿。', a: 'います', opts: ['います', 'あります', 'です', 'します'], en: "There are three patients in the waiting room.", why: "People and animals take います." },
   { id: 'c-n5-043', lv: 'N5', l: 'arimasu-imasu', s: '熱《ねつ》 は ＿ か。', a: 'あります', opts: ['います', 'です', 'あります', 'します'], en: "Do you have a fever?", why: "Having a symptom such as a fever is said with あります." },
-  { id: 'c-n5-044', lv: 'N5', l: 'arimasu-imasu', s: 'トイレ は 受付《うけつけ》 の ＿ に あります。', a: '隣《となり》', opts: ['中《なか》', '下《した》', '隣《となり》', '上《うえ》'], en: "The toilet is next to the reception desk.", why: "Location words follow の: 受付《うけつけ》 の 隣《となり》 is \"next to reception\"." },
+  { id: 'c-n5-044', lv: 'N5', l: 'arimasu-imasu', s: 'トイレ は 受付《うけつけ》 の 隣《となり》 ＿ あります。', a: 'に', opts: ['で', 'へ', 'に', 'を'], en: "The toilet is next to the reception desk.", why: "The place where something is takes に before あります; で is for where an action happens." },
 
   /* invitations */
   { id: 'c-n5-045', lv: 'N5', l: 'invitations', s: '一緒《いっしょ》 に 昼《ひる》ご飯《はん》 を ＿ か。', a: '食《た》べません', opts: ['食《た》べません', '食《た》べません でした', '食《た》べて', '食《た》べました'], en: "Would you like to have lunch with me?", why: "〜ません か is a polite invitation; the past forms ask what already happened." },
   { id: 'c-n5-046', lv: 'N5', l: 'invitations', s: 'では、 ＿。', a: '始《はじ》めましょう', opts: ['始《はじ》めました', '始《はじ》めましょう', '始《はじ》めません でした', '始《はじ》めて'], en: "Well then, let's begin.", why: "〜ましょう is \"let's\"; it suits starting an interview together." },
   { id: 'c-n5-047', lv: 'N5', l: 'invitations', s: '荷物《にもつ》 を ＿ か。', a: '持《も》ちましょう', opts: ['持《も》ちません でした', '持《も》って', '持《も》ちました', '持《も》ちましょう'], en: "Shall I carry your bag?", why: "〜ましょう か offers to do something for the other person." },
-  { id: 'c-n5-048', lv: 'N5', l: 'invitations', s: '「明日《あした》、 映画《えいが》 を 見《み》ません か。」「明日《あした》 は ＿。」', a: 'ちょっと', opts: ['とても', 'ちょっと', 'よく', 'もう'], en: "Would you like to see a film tomorrow? — Tomorrow is a bit (difficult).", why: "ちょっと left unfinished is the usual soft way to say no to an invitation." },
+  { id: 'c-n5-048', lv: 'N5', l: 'invitations', s: '「土曜日《どようび》 に 映画《えいが》 を 見《み》ません か。」「すみません、 土曜日《どようび》 は ＿。」', a: 'ちょっと', opts: ['とても', 'ちょっと', 'よく', 'もう'], en: "Would you like to see a film on Saturday? — Sorry, Saturday is a bit (difficult)...", why: "ちょっと left unfinished is the usual soft way to say no to an invitation." },
 
   /* i-adjectives */
   { id: 'c-n5-049', lv: 'N5', l: 'i-adjectives', s: '昨日《きのう》 は とても ＿ です。', a: '寒《さむ》かった', opts: ['寒《さむ》い', '寒《さむ》く', '寒《さむ》かった', '寒《さむ》いでした'], en: "It was very cold yesterday.", why: "An い-adjective makes its own past: い becomes かった, and です stays as it is." },
@@ -96,10 +96,10 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   { id: 'c-n5-057', lv: 'N5', l: 'suki-jouzu', s: '私《わたし》 は 犬《いぬ》 ＿ 好《す》き です。', a: 'が', opts: ['で', 'に', 'が', 'へ'], en: "I like dogs.", why: "What you like is marked with が: 〜が 好《す》き です." },
   { id: 'c-n5-058', lv: 'N5', l: 'suki-jouzu', s: '嫌《きら》い ＿ 食《た》べ物《もの》 は あります か。', a: 'な', opts: ['な', 'の', 'い', 'が'], en: "Is there any food you dislike?", why: "嫌《きら》い ends in い but is a な-adjective, so it takes な before a noun." },
   { id: 'c-n5-059', lv: 'N5', l: 'suki-jouzu', s: '田中《たなか》さん は 料理《りょうり》 ＿ 上手《じょうず》 です。', a: 'が', opts: ['を', 'が', 'で', 'へ'], en: "Mr. Tanaka is good at cooking.", why: "The skill takes が with 上手《じょうず》 and 下手《へた》." },
-  { id: 'c-n5-060', lv: 'N5', l: 'suki-jouzu', s: '今《いま》 の 説明《せつめい》 ＿ わかりました か。', a: 'が', opts: ['に', 'で', 'へ', 'が'], en: "Did you understand the explanation just now?", why: "わかる takes が for what is understood, not を." },
+  { id: 'c-n5-060', lv: 'N5', l: 'suki-jouzu', s: '今《いま》 の 説明《せつめい》 ＿ わかりました か。', a: 'が', opts: ['に', 'を', 'へ', 'が'], en: "Did you understand the explanation just now?", why: "わかる takes が for what is understood, not を." },
 
   /* frequency-degree */
-  { id: 'c-n5-061', lv: 'N5', l: 'frequency-degree', s: 'タバコ は ＿ 吸《す》いません。', a: '全然《ぜんぜん》', opts: ['よく', '全然《ぜんぜん》', '時々《ときどき》', 'とても'], en: "I don't smoke at all.", why: "全然《ぜんぜん》 + negative means \"not at all\"; よく and 時々《ときどき》 go with positive verbs." },
+  { id: 'c-n5-061', lv: 'N5', l: 'frequency-degree', s: 'タバコ は ＿ 吸《す》いません。', a: '全然《ぜんぜん》', opts: ['よく', '全然《ぜんぜん》', '時々《ときどき》', 'とても'], en: "I don't smoke at all.", why: "全然《ぜんぜん》 + negative means \"not at all\"; よく, 時々《ときどき》 and とても do not give that meaning." },
   { id: 'c-n5-062', lv: 'N5', l: 'frequency-degree', s: '夜《よる》、 ＿ 目《め》 が 覚《さ》めます か。', a: 'よく', opts: ['あまり', '全然《ぜんぜん》', 'よく', '少《すこ》し'], en: "Do you often wake up at night?", why: "よく with a positive verb means \"often\"; あまり and 全然《ぜんぜん》 need a negative." },
   { id: 'c-n5-063', lv: 'N5', l: 'frequency-degree', s: 'コーヒー は ＿ 好《す》き では ありません。', a: 'あまり', opts: ['とても', 'よく', '時々《ときどき》', 'あまり'], en: "I don't like coffee very much.", why: "あまり + negative means \"not very\"; とても goes with positive sentences." },
   { id: 'c-n5-064', lv: 'N5', l: 'frequency-degree', s: '「お酒《さけ》 は ＿ 飲《の》みます か。」「週《しゅう》 に 二回《にかい》 ぐらい です。」', a: 'どの くらい', opts: ['どの くらい', 'どれ', 'どう', 'どこ'], en: "How often do you drink alcohol? — About twice a week.", why: "どの くらい asks how often or how much, which fits an answer like 週《しゅう》 に 二回《にかい》." },
@@ -107,14 +107,14 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   /* dake-shika */
   { id: 'c-n5-065', lv: 'N5', l: 'dake-shika', s: '朝《あさ》 は コーヒー ＿ 飲《の》みました。', a: 'だけ', opts: ['しか', 'ごろ', 'だけ', 'に'], en: "In the morning I only drank coffee.", why: "だけ \"only\" works with a positive verb; しか needs a negative verb." },
   { id: 'c-n5-066', lv: 'N5', l: 'dake-shika', s: '昨日《きのう》 の 夜《よる》 は 三時間《さんじかん》 ＿ 寝《ね》ません でした。', a: 'しか', opts: ['だけ', 'しか', 'ごろ', 'に'], en: "Last night I slept only three hours.", why: "しか + negative means \"nothing but, only\"; だけ with a negative would not mean \"only\" here." },
-  { id: 'c-n5-067', lv: 'N5', l: 'dake-shika', s: '毎日《まいにち》 一時間《いちじかん》 ＿ 歩《ある》きます。', a: 'ぐらい', opts: ['ごろ', 'しか', 'まで', 'ぐらい'], en: "I walk for about an hour every day.", why: "ぐらい gives an approximate amount or length; ごろ is only for a point in time." },
+  { id: 'c-n5-067', lv: 'N5', l: 'dake-shika', s: '毎日《まいにち》 一時間《いちじかん》 ＿ 歩《ある》きます。', a: 'ぐらい', opts: ['ごろ', 'しか', 'だけ', 'ぐらい'], en: "I walk for about an hour every day.", why: "ぐらい gives an approximate amount or length; ごろ is for a point in time, しか needs a negative and だけ means \"only\"." },
   { id: 'c-n5-068', lv: 'N5', l: 'dake-shika', s: '毎晩《まいばん》 何時《なんじ》 ＿ 寝《ね》ます か。', a: 'ごろ', opts: ['ごろ', 'だけ', 'しか', 'を'], en: "At around what time do you go to bed each night?", why: "ごろ follows a clock time to mean \"around\"." },
 
   /* indefinites */
   { id: 'c-n5-069', lv: 'N5', l: 'indefinites', s: '今朝《けさ》 は 何《なに》 ＿ 食《た》べました か。', a: 'か', opts: ['も', 'か', 'が', 'で'], en: "Did you eat anything this morning?", why: "何《なに》 か means \"something, anything\"; 何《なに》 も needs a negative verb." },
   { id: 'c-n5-070', lv: 'N5', l: 'indefinites', s: '昨日《きのう》 は 何《なに》 ＿ 食《た》べません でした。', a: 'も', opts: ['か', 'が', 'を', 'も'], en: "I ate nothing yesterday.", why: "Question word + も with a negative verb means \"nothing, nobody, nowhere\"." },
   { id: 'c-n5-071', lv: 'N5', l: 'indefinites', s: 'お家《うち》 に 誰《だれ》 ＿ います か。', a: 'か', opts: ['も', 'か', 'を', 'で'], en: "Is there anyone at home?", why: "誰《だれ》 か means \"someone, anyone\" in a question; 誰《だれ》 も goes with a negative." },
-  { id: 'c-n5-072', lv: 'N5', l: 'indefinites', s: '日曜日《にちようび》 は ＿ も 行《い》きません でした。', a: 'どこ', opts: ['何《なに》', 'どれ', 'いつ', 'どこ'], en: "I didn't go anywhere on Sunday.", why: "どこ も with a negative verb means \"nowhere\"." },
+  { id: 'c-n5-072', lv: 'N5', l: 'indefinites', s: '日曜日《にちようび》 は ＿ に も 行《い》きません でした。', a: 'どこ', opts: ['何《なに》', 'どれ', 'いつ', 'どこ'], en: "I didn't go anywhere on Sunday.", why: "どこ に も with a negative verb means \"nowhere\"; the particle に stays between どこ and も." },
 
   /* mada-mou */
   { id: 'c-n5-073', lv: 'N5', l: 'mada-mou', s: '「お昼《ひる》 は もう 食《た》べました か。」「はい、 ＿ 食《た》べました。」', a: 'もう', opts: ['まだ', 'もう', '全然《ぜんぜん》', 'あまり'], en: "Have you had lunch yet? — Yes, I've already eaten.", why: "もう + ました means \"already\"." },
@@ -123,10 +123,10 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   { id: 'c-n5-076', lv: 'N5', l: 'mada-mou', s: '頭《あたま》 は ＿ 痛《いた》くない です。', a: 'もう', opts: ['まだ', 'よく', 'とても', 'もう'], en: "My head doesn't hurt any more.", why: "もう with a negative means \"no longer\"; まだ with a negative means \"not yet\"." },
 
   /* verb-groups */
-  { id: 'c-n5-077', lv: 'N5', l: 'verb-groups', s: '「飲《の》みます」 の 辞書形《じしょけい》 は 「＿」 です。', a: '飲《の》む', opts: ['飲《の》みる', '飲《の》む', '飲《の》る', '飲《の》ます'], en: "The dictionary form of 飲《の》みます is 飲《の》む.", why: "For an う-verb, the み before ます becomes む: 飲《の》みます → 飲《の》む." },
-  { id: 'c-n5-078', lv: 'N5', l: 'verb-groups', s: '「食《た》べます」 の 辞書形《じしょけい》 は 「＿」 です。', a: '食《た》べる', opts: ['食《た》ぶ', '食《た》べむ', '食《た》べす', '食《た》べる'], en: "The dictionary form of 食《た》べます is 食《た》べる.", why: "For a る-verb, drop ます and add る." },
-  { id: 'c-n5-079', lv: 'N5', l: 'verb-groups', s: '「します」 の 辞書形《じしょけい》 は 「＿」 です。', a: 'する', opts: ['しる', 'する', 'す', 'しむ'], en: "The dictionary form of します is する.", why: "する is irregular and must be memorised: します → する." },
-  { id: 'c-n5-080', lv: 'N5', l: 'verb-groups', s: '「入《はい》る」 の ます形《けい》 は 「＿」 です。', a: '入《はい》ります', opts: ['入《はい》ります', '入《はい》ます', '入《はい》れます', '入《はい》って います'], en: "The ます form of 入《はい》る is 入《はい》ります.", why: "入《はい》る looks like a る-verb but is an う-verb, so る becomes ります." },
+  { id: 'c-n5-077', lv: 'N5', l: 'verb-groups', s: 'お薬《くすり》 を ＿ 前《まえ》 に、 何《なに》 か 食《た》べて ください。', a: '飲《の》む', opts: ['飲《の》みる', '飲《の》む', '飲《の》みます', '飲《の》んで'], en: "Please eat something before you take your medicine.", why: "〜前《まえ》 に needs the dictionary form, and 飲《の》む is an う-verb: the み of 飲《の》みます becomes む." },
+  { id: 'c-n5-078', lv: 'N5', l: 'verb-groups', s: '晩《ばん》ご飯《はん》 を ＿ 前《まえ》 に、 手《て》 を 洗《あら》います。', a: '食《た》べる', opts: ['食《た》ぶ', '食《た》べます', '食《た》べる', '食《た》べむ'], en: "I wash my hands before I eat dinner.", why: "〜前《まえ》 に needs the dictionary form, and 食《た》べる is a る-verb: drop ます from 食《た》べます and add る." },
+  { id: 'c-n5-079', lv: 'N5', l: 'verb-groups', s: '仕事《しごと》 を ＿ 前《まえ》 に、 コーヒー を 飲《の》みます。', a: 'する', opts: ['しる', 'します', 'す', 'する'], en: "I have a coffee before I start work.", why: "する is irregular and must be memorised: its ます form します goes back to する, the form 〜前《まえ》 に needs." },
+  { id: 'c-n5-080', lv: 'N5', l: 'verb-groups', s: '今日《きょう》 は 早《はや》く お風呂《ふろ》 に ＿。', a: '入《はい》ります', opts: ['入《はい》ます', '入《はい》るます', '入《はい》ります', '入《はい》みます'], en: "Today I'll take a bath early.", why: "入《はい》る looks like a る-verb but is an う-verb, so its ます form keeps り: 入《はい》ります, not 入《はい》ます." },
 
   /* te-form */
   { id: 'c-n5-081', lv: 'N5', l: 'te-form', s: '薬《くすり》 を ＿ 寝《ね》ました。', a: '飲《の》んで', opts: ['飲《の》みて', '飲《の》んで', '飲《の》って', '飲《の》いて'], en: "I took my medicine and went to bed.", why: "Verbs ending in む make their て-form with んで: 飲《の》む → 飲《の》んで." },
@@ -153,7 +153,7 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   { id: 'c-n5-096', lv: 'N5', l: 'linking', s: '寝《ね》る ＿ に 歯《は》 を 磨《みが》きます。', a: '前《まえ》', opts: ['後《あと》', 'から', '前《まえ》', 'で'], en: "I brush my teeth before I go to bed.", why: "The dictionary form + 前《まえ》 に means \"before doing\"; 後《あと》 needs the past form." },
 
   /* ni-iku */
-  { id: 'c-n5-097', lv: 'N5', l: 'ni-iku', s: '午後《ごご》、 公園《こうえん》 へ ＿ に 行《い》きます。', a: '散歩《さんぽ》', opts: ['散歩《さんぽ》する', '散歩《さんぽ》して', '散歩《さんぽ》', '散歩《さんぽ》した'], en: "This afternoon I'm going to the park for a walk.", why: "With a する-noun the purpose can be the noun itself + に 行《い》く: 散歩《さんぽ》 に 行《い》きます." },
+  { id: 'c-n5-097', lv: 'N5', l: 'ni-iku', s: '明日《あした》 は 病院《びょういん》 へ ＿ に 行《い》きます。', a: '検査《けんさ》', opts: ['検査《けんさ》する', '検査《けんさ》して', '検査《けんさ》', '検査《けんさ》した'], en: "Tomorrow I'm going to the hospital for a test.", why: "With a する-noun the purpose can be the noun itself + に 行《い》く: 検査《けんさ》 に 行《い》きます; the dictionary, て and past forms cannot go before に." },
   { id: 'c-n5-098', lv: 'N5', l: 'ni-iku', s: '昼《ひる》 に 食堂《しょくどう》 へ ご飯《はん》 を ＿ に 行《い》きました。', a: '食《た》べ', opts: ['食《た》べる', '食《た》べ', '食《た》べて', '食《た》べた'], en: "At noon I went to the cafeteria to eat.", why: "The purpose takes the ます-stem before に, never the dictionary form." },
   { id: 'c-n5-099', lv: 'N5', l: 'ni-iku', s: '明日《あした》、 検査《けんさ》 の 結果《けっか》 を ＿ に 来《き》て ください。', a: '聞《き》き', opts: ['聞《き》く', '聞《き》いて', '聞《き》か', '聞《き》き'], en: "Please come tomorrow to hear the test results.", why: "ます-stem + に 来《く》る means \"come to do\": 聞《き》き に 来《き》て ください." },
   { id: 'c-n5-100', lv: 'N5', l: 'ni-iku', s: '家《いえ》 に 忘《わす》れ物《もの》 を 取《と》り ＿ 帰《かえ》りました。', a: 'に', opts: ['て', 'を', 'に', 'で'], en: "I went home to get something I had left behind.", why: "The ます-stem + に + 帰《かえ》る means \"go home to do\"." },
@@ -167,7 +167,7 @@ window.GRAMMAR_CLOZE = (window.GRAMMAR_CLOZE || []).concat([
   /* adverbs-ku-ni */
   { id: 'c-n5-105', lv: 'N5', l: 'adverbs-ku-ni', s: '明日《あした》 は ＿ 起《お》きて ください。', a: '早《はや》く', opts: ['早《はや》い', '早《はや》く', '早《はや》に', '早《はや》くて'], en: "Please get up early tomorrow.", why: "Before a verb an い-adjective changes い to く: 早《はや》く 起《お》きる." },
   { id: 'c-n5-106', lv: 'N5', l: 'adverbs-ku-ni', s: '図書館《としょかん》 で は 静《しず》か ＿ 話《はな》して ください。', a: 'に', opts: ['く', 'な', 'に', 'で'], en: "Please speak quietly in the library.", why: "A な-adjective takes に before a verb: 静《しず》か に 話《はな》す, never 静《しず》かく." },
-  { id: 'c-n5-107', lv: 'N5', l: 'adverbs-ku-ni', s: '寒《さむ》い です から、 部屋《へや》 を ＿ しましょう か。', a: '暖《あたた》かく', opts: ['暖《あたた》かく', '暖《あたた》かい', '暖《あたた》かに', '暖《あたた》かくて'], en: "It's cold, so shall I make the room warmer?", why: "〜く する means \"make it (that way)\": 暖《あたた》かく する." },
+  { id: 'c-n5-107', lv: 'N5', l: 'adverbs-ku-ni', s: '寒《さむ》い です から、 部屋《へや》 を ＿ しましょう か。', a: '暖《あたた》かく', opts: ['暖《あたた》かく', '暖《あたた》かい', '暖《あたた》かいに', '暖《あたた》かくて'], en: "It's cold, so shall I make the room warmer?", why: "〜く する means \"make it (that way)\": 暖《あたた》かく する." },
   { id: 'c-n5-108', lv: 'N5', l: 'adverbs-ku-ni', s: 'これ から は お体《からだ》 を 大切《たいせつ》 ＿ して ください。', a: 'に', opts: ['く', 'な', 'を', 'に'], en: "From now on, please take good care of yourself.", why: "With a な-adjective, \"make it so\" is 〜に する: 大切《たいせつ》 に する." },
 
   /* conjunctions */

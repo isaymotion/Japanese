@@ -33,7 +33,7 @@ window.LESSONS.push(
 <div class="ex"><b>最近《さいきん》、 急《きゅう》 に 泣《な》いたり 怒《おこ》ったり する こと は あります か。</b><span>Lately, do you find yourself suddenly crying or getting angry?</span></div>
 <h3>One たり: for example</h3>
 <p>A single 〜たり する gives one example and hints that there are others. In a question it sounds softer than a plain yes-or-no question, and in a suggestion it sounds less like an order.</p>
-<div class="ex"><b>夜《よる》 に 目《め》 が 覚《さ》めたり します か。</b><span>Do you wake up at night, anything like that?</span></div>
+<div class="ex"><b>夜中《よなか》 に 目《め》 が 覚《さ》めたり します か。</b><span>Do you wake up at night, anything like that?</span></div>
 <div class="ex"><b>天気《てんき》 の いい 日《ひ》 は、 少《すこ》し 散歩《さんぽ》したり する の も いい です よ。</b><span>On fine days it's good to do something like taking a short walk.</span></div>
 <h3>Opposites: sometimes one, sometimes the other</h3>
 <p>Two opposite forms with たり say that things go back and forth.</p>
@@ -64,7 +64,7 @@ window.LESSONS.push(
     ] },
 
   { id: 'nara', level: 'N4', unit: 'Listing, conditions and time', after: 'tari-toka', title: `なら: "if that's the case", and how it differs from たら`, summary: `Take up what someone has just said and give advice or information about it with なら, and choose correctly between なら and たら.`, draft: true,
-    body: `<p>A patient says "I'm thinking of going back to work next week", and you answer "If you're going back, let's start with short days". A visitor asks about a pharmacy, and you say "The pharmacy? It's in front of the hospital". In both replies you take up something the other person has just said and respond to it. Japanese uses なら for this. You learned とき, たら, と and ば in <a href="#/lessons/when-if">When and if</a>; なら is the one conditional that is about what the speaker has heard or learned, not about what happens first.</p>
+    body: `<p>A patient says "I'm thinking of going back to work next week", and you answer "If you're going back, let's start with short days". A visitor asks about a pharmacy, and you say "The pharmacy? It's in front of the hospital". In both replies you take up something the other person has just said and respond to it. Japanese uses なら for this. You learned とき, たら, と and ば in <a href="#/lessons/when-if">When and if</a>; なら is the conditional for taking up something the speaker has just heard, learned or assumes to be true; it is not about what happens first.</p>
 <h3>How to make it</h3>
 <table><tr><th>Word type</th><th>Rule</th><th>Example</th></tr>
 <tr><td>verb</td><td>plain form + なら</td><td>行《い》く なら, 行《い》かない なら</td></tr>
@@ -101,7 +101,7 @@ window.LESSONS.push(
       [`You want to say "If you're going to the hospital, take your medicines with you" (before going). Which fits?`, [`病院《びょういん》 に 行《い》ったら、 薬《くすり》 を 持《も》って いって ください。`, `病院《びょういん》 に 行《い》く なら、 薬《くすり》 を 持《も》って いって ください。`, `病院《びょういん》 に 行《い》く と、 薬《くすり》 を 持《も》って いって ください。`], 1, `The advice applies before going, so なら is needed; たら means after arriving, and と cannot take a request.`],
       [`Which sentence is natural?`, [`十時《じゅうじ》 に なる なら、 始《はじ》めましょう。`, `十時《じゅうじ》 に なったら、 始《はじ》めましょう。`, `十時《じゅうじ》 に なる なら、 始《はじ》めました。`], 1, `A time that is sure to arrive takes たら, not なら.`],
       [`お酒《さけ》 を 飲《の》む なら、 運転《うんてん》しないで ください means:`, [`Please don't drink after you drive.`, `Whenever you drink, please drive.`, `If you're going to drink, please don't drive.`], 2, `X なら Y: given that you plan to drink, do not drive.`],
-      [`「来週《らいしゅう》 から 仕事《しごと》 に 戻《もど》ります。」 「戻《もど》る ＿、 最初《さいしょ》 は 半日《はんにち》 から に しましょう。」`, [`なら`, `まで`, `と`], 0, `なら takes up the plan the patient just mentioned and gives advice about it.`]
+      [`「来週《らいしゅう》 から 仕事《しごと》 に 戻《もど》ります。」 「戻《もど》る ＿、 最初《さいしょ》 は 半日《はんにち》 から 始《はじ》めましょう。」`, [`なら`, `まで`, `と`], 0, `なら takes up the plan the patient just mentioned and gives advice about it.`]
     ] },
 
   { id: 'baai', level: 'N4', unit: 'Listing, conditions and time', after: 'nara', title: `〜場合《ばあい》 は: in case of, if (instructions and safety-netting)`, summary: `Understand and give instructions for situations that might happen, including what to do if things get worse after a visit.`, draft: true,
@@ -126,9 +126,9 @@ window.LESSONS.push(
 <h3>Safety-netting</h3>
 <p>Before a patient leaves, say clearly what to do if things get worse. Give the real contact details your service uses (the hospital, the local crisis line) and follow local law and your hospital's policy. The only number given in this app is ｜119番《ひゃくじゅうきゅうばん》.</p>
 <div class="ex"><b>気分《きぶん》 が ひどく 落《お》ち込《こ》んだ 場合《ばあい》 は、 次《つぎ》 の 予約《よやく》 を 待《ま》たないで、 病院《びょういん》 に 連絡《れんらく》して ください。</b><span>If your mood gets very low, don't wait for the next appointment; please contact the hospital.</span></div>
-<div class="ex"><b>死《し》にたい 気持《きも》ち が 強《つよ》く なった 場合《ばあい》 は、 一人《ひとり》 で 我慢《がまん》しないで、 すぐ 誰《だれ》 か に 話《はな》して ください。</b><span>If the wish to die gets stronger, don't bear it alone; please tell someone right away.</span></div>
-<div class="ex"><b>夜《よる》 や 休《やす》み の 日《ひ》 で 病院《びょういん》 に つながらない 場合《ばあい》 は、 地域《ちいき》 の 相談窓口《そうだんまどぐち》 に 電話《でんわ》して ください。</b><span>If you can't reach the hospital at night or on a holiday, please call the local crisis line.</span></div>
-<div class="ex"><b>命《いのち》 に 危険《きけん》 が ある 場合《ばあい》 は、 ｜119番《ひゃくじゅうきゅうばん》 に 電話《でんわ》して ください。</b><span>If a life is in danger, please call 119.</span></div>
+<div class="ex"><b>死《し》にたい 気持《きも》ち が 強《つよ》く なった 場合《ばあい》 は、 一人《ひとり》 で 我慢《がまん》しないで、 すぐ 病院《びょういん》 に 連絡《れんらく》して ください。</b><span>If the wish to die gets stronger, don't bear it alone; please contact the hospital right away.</span></div>
+<div class="ex"><b>夜《よる》 や 休《やす》み の 日《ひ》 に 病院《びょういん》 と 連絡《れんらく》 が 取《と》れない 場合《ばあい》 は、 地域《ちいき》 の 相談窓口《そうだんまどぐち》 に 電話《でんわ》して ください。</b><span>If you can't reach the hospital at night or on a holiday, please call the local crisis line.</span></div>
+<div class="ex"><b>命《いのち》 の 危険《きけん》 が ある 場合《ばあい》 は、 ｜119番《ひゃくじゅうきゅうばん》 に 電話《でんわ》して ください。</b><span>If a life is in danger, please call 119.</span></div>
 <h3>On forms and leaflets</h3>
 <div class="ex"><b>ご本人《ほんにん》 が 来《こ》られない 場合《ばあい》 は、 ご家族《かぞく》 の 方《かた》 でも 大丈夫《だいじょうぶ》 です。</b><span>If the patient can't come in person, a family member is fine.</span></div>
 <div class="ex"><b>場合《ばあい》 に よって は、 入院《にゅういん》 が 必要《ひつよう》 な こと も あります。</b><span>Depending on the situation, a hospital stay may be needed.</span></div>
@@ -147,7 +147,7 @@ window.LESSONS.push(
     body: `<p>Ward rules, appointments and tests are full of time limits: "visiting is until eight", "please be back by five", "wait here until you are called". English "until" and "by" are easy to mix up, and Japanese marks the difference with one small word: に. The same に also separates "the whole time" from "at some point during".</p>
 <h3>How to make it</h3>
 <table><tr><th>Word type</th><th>まで / まで に</th><th>間《あいだ》 / 間《あいだ》 に</th></tr>
-<tr><td>verb</td><td>dictionary form: 帰《かえ》る まで</td><td>〜て いる form: 待《ま》って いる 間《あいだ》</td></tr>
+<tr><td>verb</td><td>dictionary form: 帰《かえ》る まで</td><td>〜て いる form or a state verb: 待《ま》って いる 間《あいだ》, 日本《にほん》 に いる 間《あいだ》</td></tr>
 <tr><td>noun</td><td>noun + まで: 五時《ごじ》 まで, 金曜日《きんようび》 まで に</td><td>noun + の: 昼休《ひるやす》み の 間《あいだ》</td></tr>
 <tr><td>adjective</td><td>use なる: よく なる まで</td><td>な-adjective + な: 元気《げんき》 な 間《あいだ》</td></tr></table>
 <p>The rule for に is the same in both pairs:</p>
@@ -173,7 +173,7 @@ window.LESSONS.push(
 <div class="ex"><b>眠《ねむ》って いる 間《あいだ》 に、 看護師《かんごし》 が 何度《なんど》 か 部屋《へや》 に 来《き》ました。</b><span>While you were asleep, the nurse came into the room a few times.</span></div>
 <h3>On the ward</h3>
 <div class="ex"><b>面会《めんかい》 は 夜《よる》 の 八時《はちじ》 まで です。</b><span>Visiting hours are until eight in the evening.</span></div>
-<div class="ex"><b>次《つぎ》 の 診察《しんさつ》 まで に、 毎日《まいにち》 何時間《なんじかん》 眠《ねむ》れた か メモして おいて ください。</b><span>Before your next visit, please write down how many hours you sleep each night.</span></div>
+<div class="ex"><b>次《つぎ》 の 診察《しんさつ》 まで、 毎日《まいにち》 何時間《なんじかん》 眠《ねむ》れた か メモして ください。</b><span>Until your next visit, please write down every day how many hours you slept.</span></div>
 <div class="ex"><b>先生《せんせい》 が 来《く》る まで、 少《すこ》し お待《ま》ち いただけます か。</b><span>Could you wait a little until the doctor comes?</span></div>
 <div class="note">No に = the whole stretch: まで 待《ま》つ, 間《あいだ》 ずっと. With に = one event inside it or before the limit: まで に 出《だ》す, 間《あいだ》 に 行《い》く. English "by" is まで に; "until" is まで.</div>`,
     quiz: [

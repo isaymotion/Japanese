@@ -14,7 +14,7 @@ window.LESSONS = window.LESSONS || [];
 window.LESSONS.push(
 
   { id: 'ni-iku', level: 'N5', unit: 'Linking and nuance', after: 'linking', title: `Going to do: ます-stem + に 行《い》く / 来《く》る / 帰《かえ》る`, summary: `Say that someone goes, comes or goes home in order to do something, and understand why a patient or a visitor has come.`, draft: true,
-    body: `<p>"I came to get my medicine", "My mother came to see me", "The nurse will come to take your blood pressure": on a ward people are always coming and going for a reason. Japanese puts the purpose in front of the movement verb with に. The pattern only works with verbs of movement: 行《い》く (go), 来《く》る (come) and 帰《かえ》る (go home).</p>
+    body: `<p>"I came to get my medicine", "My mother came to see me", "The nurse will come to take your blood pressure": on a ward people are always coming and going for a reason. Japanese puts the purpose in front of the movement verb with に. The pattern goes with verbs of movement; at this level, learn it with 行《い》く (go), 来《く》る (come) and 帰《かえ》る (go home).</p>
 <h3>How to make it</h3>
 <p>Take the ます-form, drop ます, and add に + 行《い》きます / 来《き》ます / 帰《かえ》ります. With a する-noun such as 散歩《さんぽ》 or 検査《けんさ》, the noun can take に directly.</p>
 <table><tr><th>Word type</th><th>ます-form</th><th>Stem + に + movement</th></tr>
@@ -27,14 +27,14 @@ window.LESSONS.push(
 <h3>Going to do: 〜に 行《い》きます</h3>
 <div class="ex"><b>昼《ひる》ご飯《はん》 を 食《た》べ に 行《い》きません か。</b><span>Shall we go and have lunch?</span></div>
 <div class="ex"><b>駅《えき》 の 前《まえ》 の 店《みせ》 へ 傘《かさ》 を 買《か》い に 行《い》きました。</b><span>I went to the shop in front of the station to buy an umbrella.</span></div>
-<div class="ex"><b>帰《かえ》り に 薬局《やっきょく》 へ 薬《くすり》 を もらい に 行《い》きます。</b><span>On the way home I'll go to the pharmacy to get my medicine.</span></div>
+<div class="ex"><b>仕事《しごと》 の 後《あと》、 薬局《やっきょく》 へ 薬《くすり》 を もらい に 行《い》きます。</b><span>After work I'll go to the pharmacy to get my medicine.</span></div>
 <div class="ex"><b>毎朝《まいあさ》 犬《いぬ》 と 公園《こうえん》 へ 散歩《さんぽ》 に 行《い》きます。</b><span>Every morning I go for a walk in the park with my dog.</span></div>
 <h3>Coming to do: 〜に 来《き》ます</h3>
 <div class="ex"><b>先週《せんしゅう》 の 検査《けんさ》 の 結果《けっか》 を 聞《き》き に 来《き》ました。</b><span>I came to hear the results of last week's tests.</span></div>
 <div class="ex"><b>昨日《きのう》、 母《はは》 が 会《あ》い に 来《き》ました。</b><span>My mother came to see me yesterday.</span></div>
 <div class="ex"><b>友達《ともだち》 が 日本語《にほんご》 を 勉強《べんきょう》し に 来《き》ます。</b><span>A friend is coming over to study Japanese.</span></div>
 <h3>Going home to do: 〜に 帰《かえ》ります</h3>
-<div class="ex"><b>昼《ひる》 は 一度《いちど》 家《いえ》 へ ご飯《はん》 を 食《た》べ に 帰《かえ》ります。</b><span>At noon I go home once to eat.</span></div>
+<div class="ex"><b>昼《ひる》 は 一度《いちど》 家《いえ》 へ ご飯《はん》 を 食《た》べ に 帰《かえ》ります。</b><span>At noon I go home for a while to eat.</span></div>
 <div class="ex"><b>夏休《なつやす》み に 家族《かぞく》 に 会《あ》い に 国《くに》 へ 帰《かえ》ります。</b><span>In the summer holidays I'm going back to my country to see my family.</span></div>
 <h3>On the ward</h3>
 <p>Staff often say what they will come back to do. It tells the patient what to expect.</p>
@@ -46,13 +46,13 @@ window.LESSONS.push(
 <ul><li>The purpose takes the ます-stem, never the dictionary form or the て-form: 食《た》べ に 行《い》きます, not 食《た》べる に 行《い》きます.</li>
 <li>〜て 行《い》きます is different: 食《た》べて 行《い》きます means "eat (first) and then go", not "go to eat". See <a href="#/lessons/linking">Linking sentences</a>.</li>
 <li>For purposes with other verbs ("I save money in order to travel") you will later use 〜ため に; see <a href="#/lessons/purpose">In order to</a>. 〜に 行《い》く is only for going, coming and going home.</li></ul>
-<div class="note">Do not open a consultation with 何《なに》 を し に 来《き》ました か. It is grammatical, but to a patient it can sound like "What are you doing here?" Ask 今日《きょう》 は どう されました か instead. Remember the shape: ます-stem + に + 行《い》く / 来《く》る / 帰《かえ》る.</div>`,
+<div class="note">Do not open a consultation with 何《なに》 を し に 来《き》ました か. It is grammatical, but to a patient it can sound like "What did you come here for?", as if they need a reason to be here. Ask 今日《きょう》 は どう されました か instead. Remember the shape: ます-stem + に + 行《い》く / 来《く》る / 帰《かえ》る.</div>`,
     quiz: [
       [`How do you say "I go to eat"?`, [`食《た》べる に 行《い》きます。`, `食《た》べ に 行《い》きます。`, `食《た》べて に 行《い》きます。`], 1, `The purpose takes the ます-stem: 食《た》べ に 行《い》きます.`],
       [`What does 母《はは》 が 会《あ》い に 来《き》ました mean?`, [`My mother came to see me.`, `My mother wants to see me.`, `My mother went out to meet a friend.`], 0, `会《あ》い に 来《き》ました is "came in order to see".`],
       [`Fill the blank: 公園《こうえん》 へ 散歩《さんぽ》 ＿ 行《い》きます。`, [`で`, `を`, `に`], 2, `A する-noun of purpose takes に directly: 散歩《さんぽ》 に 行《い》きます.`],
       [`How does a nurse say "I'll come back later to see how you are"?`, [`後《あと》 で また 様子《ようす》 を 見《み》る に 来《き》ます。`, `後《あと》 で また 様子《ようす》 を 見《み》 に 行《い》きました。`, `後《あと》 で また 様子《ようす》 を 見《み》 に 来《き》ます。`], 2, `The stem of 見《み》ます is 見《み》, and 来《き》ます (not past 行《い》きました) fits "come back later".`],
-      [`Which is the natural way to open a consultation?`, [`何《なに》 を し に 来《き》ました か。`, `今日《きょう》 は どう されました か。`, `何《なに》 を 食《た》べ に 来《き》ました か。`], 1, `何《なに》 を し に 来《き》ました か can sound like "What are you doing here?"; どう されました か is the usual opening.`],
+      [`Which is the natural way to open a consultation?`, [`何《なに》 を し に 来《き》ました か。`, `今日《きょう》 は どう されました か。`, `何《なに》 を 食《た》べ に 来《き》ました か。`], 1, `何《なに》 を し に 来《き》ました か can sound like "What did you come here for?"; どう されました か is the usual opening.`],
       [`Fill the blank: 薬局《やっきょく》 へ 薬《くすり》 を ＿ に 行《い》きます。`, [`もらい`, `もらう`, `もらって`], 0, `もらいます → stem もらい + に 行《い》きます.`]
     ] },
 
@@ -68,14 +68,14 @@ window.LESSONS.push(
 <tr><td>する: 運転《うんてん》する</td><td>運転《うんてん》して は いけません</td><td>運転《うんてん》しないで ください</td></tr>
 <tr><td>来《く》る</td><td>来《き》て は いけません</td><td>来《こ》ないで ください</td></tr></table>
 <h3>Rules and signs: 〜て は いけません</h3>
-<p>〜て は いけません states a rule: something is not allowed. You will read it in hospital rules and hear it from teachers and parents. Notices usually use 〜ないで ください, and short signs use words such as 禁煙《きんえん》 (no smoking); more signs are in <a href="#/lessons/commands">Commands and prohibitions</a>.</p>
+<p>〜て は いけません states a rule: something is not allowed. You will read it in hospital rules and hear it from teachers and parents. Notices often use 〜ないで ください, and short signs use words such as 禁煙《きんえん》 (no smoking); more signs are in <a href="#/lessons/commands">Commands and prohibitions</a>.</p>
 <div class="ex"><b>病院《びょういん》 の 中《なか》 で タバコ を 吸《す》って は いけません。</b><span>You must not smoke inside the hospital.</span></div>
 <div class="ex"><b>病棟《びょうとう》 で 写真《しゃしん》 を 撮《と》って は いけません。</b><span>You must not take photos on the ward.</span></div>
 <div class="ex"><b>テスト の とき、 辞書《じしょ》 を 使《つか》って は いけません。</b><span>You must not use a dictionary during the test.</span></div>
 <div class="ex"><b>ここ に 車《くるま》 を 止《と》めないで ください。</b><span>Please do not park here. (a notice)</span></div>
 <p>In casual speech you will also hear 〜て は だめ and the short form 〜ちゃ だめ: 食《た》べちゃ だめ "you can't eat that". Parents say this to children; do not use it with patients.</p>
 <h3>Why it sounds harsh to a patient</h3>
-<p>Said to a person face to face, 〜て は いけません sounds like a teacher reading a rule to a child. With an adult patient it can feel cold or scolding, even when the rule is real. Use one of the gentler forms instead:</p>
+<p>Said to a person face to face, 〜て は いけません can sound like a teacher reading out a rule. With an adult patient it can feel cold or scolding, even when the rule is real. Use one of the gentler forms instead:</p>
 <ul><li>〜ないで ください, often with ね: お酒《さけ》 は 飲《の》まないで ください ね.</li>
 <li>A cushion first: すみません が、 〜ないで ください.</li>
 <li>A reason with から: 危《あぶ》ない です から、 今日《きょう》 は 運転《うんてん》しないで ください.</li>
@@ -153,22 +153,22 @@ window.LESSONS.push(
 <tr><td>だから (ですから)</td><td>so, therefore</td><td>start of a sentence</td><td>spoken; ですから is politer</td></tr>
 <tr><td>それで</td><td>and so, as a result</td><td>start of a sentence</td><td>spoken</td></tr>
 <tr><td>が</td><td>but</td><td>after です / ます, inside one sentence</td><td>polite, neutral</td></tr>
-<tr><td>けど</td><td>but</td><td>after です / ます or a plain form, inside one sentence</td><td>spoken, softer</td></tr></table>
-<p>Inside one sentence, が and けど come straight after the first clause and are followed by a comma: 行《い》きたい です が、 / 行《い》きたい です けど、. This が is not the subject particle; it comes after a whole clause ending in です or ます, not after a noun.</p>
+<tr><td>けど</td><td>but</td><td>after です / ます or a plain form, inside one sentence</td><td>spoken, casual</td></tr></table>
+<p>Inside one sentence, が and けど come straight after the first clause and are followed by a comma: 行《い》きたい です が、 / 行《い》きたい です けど、. This が is not the subject particle; it comes after a whole clause (in polite speech, one ending in です or ます), not after a noun.</p>
 <h3>Adding: そして and それから</h3>
 <div class="ex"><b>この 病院《びょういん》 は 広《ひろ》い です。 そして、 とても 静《しず》か です。</b><span>This hospital is spacious. And it's very quiet.</span></div>
 <div class="ex"><b>朝《あさ》 シャワー を 浴《あ》びます。 それから、 朝《あさ》ご飯《はん》 を 食《た》べます。</b><span>I take a shower in the morning. Then I eat breakfast.</span></div>
 <div class="ex"><b>頭《あたま》 が 痛《いた》い です。 それから、 少《すこ》し 熱《ねつ》 も あります。</b><span>I have a headache. And I also have a slight fever.</span></div>
 <h3>Contrast: でも, しかし, が, けど</h3>
 <div class="ex"><b>薬《くすり》 は 毎日《まいにち》 飲《の》んで います。 でも、 まだ 気分《きぶん》 が よくない です。</b><span>I take my medicine every day. But I still don't feel well.</span></div>
-<div class="ex"><b>熱《ねつ》 は 下《さ》がりました。 しかし、 咳《せき》 は まだ 続《つづ》いて います。</b><span>The fever has come down. However, the cough is still continuing. (as in a written report)</span></div>
+<div class="ex"><b>熱《ねつ》 は 下《さ》がりました。 しかし、 咳《せき》 は まだ 続《つづ》いて います。</b><span>The fever has come down. However, the cough is still going on. (as in a written report)</span></div>
 <div class="ex"><b>昼《ひる》 は 大丈夫《だいじょうぶ》 です が、 夜《よる》 は 少《すこ》し 不安《ふあん》 です。</b><span>I'm all right during the day, but at night I feel a little anxious.</span></div>
 <div class="ex"><b>旅行《りょこう》 に 行《い》きたい です けど、 時間《じかん》 が ありません。</b><span>I want to go on a trip, but I don't have time.</span></div>
 <p>が also works as a cushion before a request, with no real "but": すみません が、 少《すこ》し 待《ま》って ください "Excuse me, could you wait a moment". A sentence left open with けど or が is a soft way to start a topic or to say no (see <a href="#/lessons/conversation-habits">Conversation habits</a>).</p>
 <h3>Result: だから and それで</h3>
 <div class="ex"><b>昨日《きのう》 は 遅《おそ》く まで 仕事《しごと》 でした。 だから、 今日《きょう》 は とても 眠《ねむ》い です。</b><span>I worked late yesterday. So I'm very sleepy today.</span></div>
 <div class="ex"><b>先週《せんしゅう》 から 熱《ねつ》 が あります。 それで、 今日《きょう》 病院《びょういん》 に 来《き》ました。</b><span>I've had a fever since last week. So I came to the hospital today.</span></div>
-<p>だから can sound blunt, even argumentative ("so, as I said"). When you explain something to a patient, ですから is politer. それで tells what happened as a result, and it is also a gentle prompt to go on; see <a href="#/lessons/reasons">Giving reasons</a>.</p>
+<p>だから is the plain form; in polite speech it can sound blunt, and in some contexts argumentative ("so, as I said"). ですから is its polite form, the better choice when you explain something to a patient. それで tells what happened as a result, and it is also a gentle prompt to go on; see <a href="#/lessons/reasons">Giving reasons</a>.</p>
 <h3>In the interview</h3>
 <div class="ex"><b>それで、 どう なりました か。</b><span>And what happened then?</span></div>
 <div class="ex"><b>それから、 どう しました か。</b><span>And what did you do after that?</span></div>
@@ -184,14 +184,14 @@ window.LESSONS.push(
     ] },
 
   { id: 'ne-yo', level: 'N5', unit: 'Linking and nuance', after: 'conjunctions', title: `Sentence endings: ね, よ, よね, か and の`, summary: `Use ね to share and soften, よ to tell, よね to check, recognise casual の questions, and know when よ sounds pushy to a patient.`, draft: true,
-    body: `<p>Small endings after です or ます change how a sentence feels. That must have been hard <i>(isn't it)</i>, it's fine <i>(I'm telling you)</i>, your next visit is Monday <i>(right?)</i>: English uses tone or a tag; Japanese uses ね, よ and よね. They matter a great deal at the bedside, because the same sentence can sound warm or pushy depending on the ending.</p>
+    body: `<p>Small endings after です or ます change how a sentence feels. That must have been hard <i>(I feel it with you)</i>, it's fine <i>(I'm telling you)</i>, your next visit is Monday <i>(right?)</i>: English uses tone or a tag; Japanese uses ね, よ and よね. They matter a great deal at the bedside, because the same sentence can sound warm or pushy depending on the ending.</p>
 <h3>How to make it</h3>
 <p>The ending goes at the very end of the sentence, after です / ます (or after a plain form in casual speech). よね is よ + ね, always in that order.</p>
 <table><tr><th>Ending</th><th>Job</th><th>Example</th></tr>
 <tr><td>ね</td><td>share a feeling, seek agreement, soften</td><td>寒《さむ》い です ね</td></tr>
 <tr><td>よ</td><td>tell the listener something they may not know</td><td>大丈夫《だいじょうぶ》 です よ</td></tr>
 <tr><td>よね</td><td>check something you think is true</td><td>明日《あした》 です よね</td></tr>
-<tr><td>か</td><td>ask a question; with falling tone, "I see"</td><td>痛《いた》い です か / そう です か</td></tr>
+<tr><td>か</td><td>ask a question; そう です か with falling tone is "I see"</td><td>痛《いた》い です か / そう です か</td></tr>
 <tr><td>の</td><td>casual question or explanation</td><td>どう した の？</td></tr></table>
 <h3>ね: sharing and softening</h3>
 <p>ね assumes the listener feels or knows the same thing. It makes a comment friendly, shows sympathy and softens a request.</p>

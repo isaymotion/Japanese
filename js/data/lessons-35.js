@@ -23,7 +23,7 @@ window.LESSONS.push(
 <tr><td>〜て ある</td><td>a state someone left on purpose</td><td>名前《なまえ》 が 書《か》いて あります。</td></tr>
 <tr><td>を / が pairs</td><td>someone acts / it happens</td><td>熱《ねつ》 が 下《さ》がりました。</td></tr>
 <tr><td>〜ながら</td><td>two actions at once, one subject</td><td>音楽《おんがく》 を 聞《き》きながら 歩《ある》きます。</td></tr>
-<tr><td>〜た まま</td><td>a state left unchanged</td><td>服《ふく》 の まま 寝《ね》ました。</td></tr>
+<tr><td>〜た まま</td><td>a state left unchanged</td><td>窓《まど》 を 開《あ》けた まま 出《で》かけました。</td></tr>
 <tr><td>ところ / 〜た ばかり</td><td>the moment of an action / only recently</td><td>先月《せんげつ》 始《はじ》めた ばかり です。</td></tr></table>
 <h3>Watch out</h3>
 <ul><li>〜て おく is the preparing; 〜て ある is the prepared state: 予約《よやく》 して おきました → 予約《よやく》 して あります.</li>
@@ -71,14 +71,15 @@ window.LESSONS.push(
 <li>To patients say 〜ましょう and 〜て ください, not the plain volitional, the imperative or 〜なさい.</li></ul>
 <h3>Putting them together</h3>
 <div class="ex"><b>夜《よる》 眠《ねむ》れる よう に なった ので、 来月《らいげつ》 から 仕事《しごと》 に 戻《もど》ろう と 思《おも》います。</b><span>I've become able to sleep at night, so I'm thinking of going back to work next month.</span></div>
-<div class="ex"><b>寝《ね》る 前《まえ》 は スマホ を 見《み》ない よう に した ほう が いい です よ。</b><span>It's better to make a habit of not looking at your phone before bed.</span></div>
-<div class="ex"><b>来週《らいしゅう》 退院《たいいん》 する こと に なりました が、 しばらく は 無理《むり》 を しない ほう が いい です。</b><span>You'll be discharged next week, but for a while it's better not to push yourself.</span></div>
-<div class="ex"><b>「早《はや》く 帰《かえ》れ」 と 言《い》う 声《こえ》 が 聞《き》こえて、 家《いえ》 に 帰《かえ》ろう と しました。</b><span>I heard a voice saying "Go home now", and I tried to go home.</span></div><div class="note">If the こと / よう questions are hard, go back to <a href="#/lessons/koto-ni-suru-naru">Decisions, rules and change</a>.</div>`,
+<div class="ex"><b>寝《ね》る 前《まえ》 は スマホ を 見《み》ない よう に した ほう が いい と 思《おも》います。</b><span>I think it would be good to try not to look at your phone before bed.</span></div>
+<div class="ex"><b>来週《らいしゅう》 退院《たいいん》 する こと に なりました が、 しばらく は 無理《むり》 を しない ほう が いい と 思《おも》います。</b><span>You'll be discharged next week, but for a while it's better not to push yourself.</span></div>
+<div class="ex"><b>「早《はや》く 帰《かえ》れ」 と 言《い》う 声《こえ》 が 聞《き》こえて、 家《いえ》 に 帰《かえ》ろう と しました。</b><span>I heard a voice saying "Go home now", and I tried to go home.</span></div>
+<div class="note">If the こと / よう questions are hard, go back to <a href="#/lessons/koto-ni-suru-naru">Decisions, rules and change</a>.</div>`,
     quiz: [
       [`What is the volitional form of 帰《かえ》る?`, [`帰《かえ》ろう`, `帰《かえ》よう`, `帰《かえ》りよう`], 0, `帰《かえ》る is a group 1 verb: る moves to ろ and adds う.`],
       [`Which sentence states an intention?`, [`明日《あした》 は 早《はや》く 起《お》きよう と 思《おも》います。`, `明日《あした》 は 雨《あめ》 が 降《ふ》る と 思《おも》います。`, `明日《あした》 は 寒《さむ》い と 思《おも》います。`], 0, `Volitional + と 思《おも》います is an intention; the other two are guesses.`],
       [`薬《くすり》 を 飲《の》もう と した とき、 電話《でんわ》 が 鳴《な》りました means:`, [`I took my medicine, and then the phone rang.`, `I decided to take my medicine because the phone rang.`, `Just as I was about to take my medicine, the phone rang.`], 2, `Volitional + と した とき is the moment just before an action.`],
-      [`Which sentence states a decision the speaker has made?`, [`お酒《さけ》 は 飲《の》まない こと に しました。`, `お酒《さけ》 は 飲《の》まない ほう が いい です。`, `お酒《さけ》 は 飲《の》めない よう に なりました。`], 0, `こと に しました is the speaker's own decision; the others are advice and a change.`],
+      [`Which sentence states a decision the speaker has made?`, [`お酒《さけ》 は 飲《の》まない こと に しました。`, `お酒《さけ》 は 飲《の》まない ほう が いい です。`, `お酒《さけ》 は 飲《の》めなく なりました。`], 0, `こと に しました is the speaker's own decision; the others are advice and a change ("I can no longer drink").`],
       [`A nurse says 外出《がいしゅつ》 する とき は 看護師《かんごし》 に 伝《つた》える こと に なって います. What is she telling you?`, [`She is thinking of telling a nurse.`, `Tell a nurse, now. (an order)`, `It is the rule to tell a nurse when you go out.`], 2, `こと に なって います states an existing rule; it is neither an intention nor a command.`],
       [`人《ひと》 と 話《はな》せる ＿ に なりました。 (I've become able to talk with people.)`, [`こと`, `よう`, `ほう`], 1, `Potential form + よう に なる describes a change in ability.`],
       [`Choose the correct advice: "It's better not to stop the medicine suddenly."`, [`急《きゅう》 に 薬《くすり》 を やめなかった ほう が いい です。`, `急《きゅう》 に 薬《くすり》 を やめた ほう が いい です。`, `急《きゅう》 に 薬《くすり》 を やめない ほう が いい です。`], 2, `Negative advice uses the plain ない-form + ほう が いい, never なかった.`],
@@ -92,7 +93,7 @@ window.LESSONS.push(
   { id: 'review-n4-purpose', level: 'N4', unit: 'Purpose and contrast', title: `Review: Purpose and contrast`, summary: `Bring together ため に, よう に, the two kinds of の に, 〜ても and 〜し, and choose the right one by the verb in front of it and the feeling of the sentence.`, draft: true, review: true, after: 'concession',
     body: `<p>This unit gave reasons for doing things and ways of saying "even if" and "although". Two of the patterns share the shape の に, so read what comes after it.</p>
 <table><tr><th>Pattern</th><th>Job</th><th>Model sentence</th></tr>
-<tr><td>〜ため に</td><td>in order to (an action you choose); noun + の ため に</td><td>仕事《しごと》 に 戻《もど》る ため に、 早《はや》く 寝《ね》て います。</td></tr>
+<tr><td>〜ため に</td><td>in order to (an action you choose); after a noun + の: for the sake of</td><td>仕事《しごと》 に 戻《もど》る ため に、 早《はや》く 寝《ね》て います。</td></tr>
 <tr><td>noun + の ため に</td><td>because of (notices)</td><td>大雨《おおあめ》 の ため に、 電車《でんしゃ》 が 止《と》まりました。</td></tr>
 <tr><td>〜よう に</td><td>so that (potential, ない-form, uncontrollable)</td><td>忘《わす》れない よう に、 メモ します。</td></tr>
 <tr><td>〜の に + 使《つか》う / 便利《べんり》 / かかる</td><td>used for, it takes</td><td>病院《びょういん》 に 来《く》る の に 一時間《いちじかん》 かかります。</td></tr>
@@ -109,7 +110,7 @@ window.LESSONS.push(
 <div class="ex"><b>眠《ねむ》れる よう に お酒《さけ》 を 飲《の》んで います が、 飲《の》んで も よく 眠《ねむ》れません。</b><span>I drink so that I can sleep, but even when I drink I don't sleep well.</span></div>
 <div class="ex"><b>健康《けんこう》 の ため に 毎朝《まいあさ》 歩《ある》いて いる の に、 体重《たいじゅう》 が 減《へ》りません。</b><span>I walk every morning for my health, and yet my weight isn't going down.</span></div>
 <div class="ex"><b>忘《わす》れない よう に メモ して おいた の に、 その メモ を なくして しまいました。</b><span>I wrote a note so that I wouldn't forget, and then I lost the note.</span></div>
-<div class="ex"><b>病院《びょういん》 に 来《く》る の に 一時間《いちじかん》 かかります し、 待《ま》ち時間《じかん》 も 長《なが》い です。</b><span>It takes an hour to get to the hospital, and the wait is long too.</span></div>
+<div class="ex"><b>病院《びょういん》 に 来《く》る の に 一時間《いちじかん》 かかる し、 待《ま》ち時間《じかん》 も 長《なが》い です。</b><span>It takes an hour to get to the hospital, and the wait is long too.</span></div>
 <div class="ex"><b>いくら 忙《いそが》しくて も、 食事《しょくじ》 は きちんと とる よう に して ください。</b><span>However busy you are, please make sure you eat proper meals.</span></div>
 <div class="note">Choose ため に or よう に by the verb before it, and tell 〜ても from 〜の に by asking: is it a condition (even if) or a fact that disappoints (although)?</div>`,
     quiz: [
@@ -133,7 +134,7 @@ window.LESSONS.push(
 <tr><td>〜れる / 〜られる</td><td>be done to; the doer takes に</td><td>先生《せんせい》 に ほめられました。</td></tr>
 <tr><td>passive with no doer</td><td>procedures, notices, the news</td><td>手術《しゅじゅつ》 は 明日《あした》 行《おこな》われます。</td></tr>
 <tr><td>affected passive</td><td>it happened to me and troubled me</td><td>財布《さいふ》 を 盗《ぬす》まれました。</td></tr>
-<tr><td>〜せる / 〜させる</td><td>make or let</td><td>子《こ》ども に 薬《くすり》 を 飲《の》ませました。</td></tr>
+<tr><td>〜せる / 〜させる</td><td>make or let</td><td>子《こ》ども に 野菜《やさい》 を 食《た》べさせました。</td></tr>
 <tr><td>〜させて ください / いただきます</td><td>let me; I will (politely)</td><td>少《すこ》し 考《かんが》えさせて ください。</td></tr>
 <tr><td>〜させられる, short 〜される</td><td>be made to do</td><td>一時間《いちじかん》 も 待《ま》たされました。</td></tr></table>
 <h3>Watch out</h3>
@@ -144,14 +145,14 @@ window.LESSONS.push(
 <li>Verbs in す have no short form: 話《はな》させられる.</li></ul>
 <h3>Putting them together</h3>
 <div class="ex"><b>子《こ》ども の ころ、 よく 父《ちち》 に 叱《しか》られて、 毎日《まいにち》 勉強《べんきょう》 させられました。</b><span>As a child I was often scolded by my father and made to study every day.</span></div>
-<div class="ex"><b>上司《じょうし》 に 毎晩《まいばん》 残業《ざんぎょう》 させられて、 家族《かぞく》 に も 心配《しんぱい》 させて しまいました。</b><span>My boss made me do overtime every night, and I ended up worrying my family too.</span></div>
+<div class="ex"><b>上司《じょうし》 に 毎晩《まいばん》 残業《ざんぎょう》 させられて、 家族《かぞく》 も 心配《しんぱい》 させて しまいました。</b><span>My boss made me do overtime every night, and I ended up worrying my family too.</span></div>
 <div class="ex"><b>前《まえ》 の 病院《びょういん》 で、 少《すこ》し 休《やす》んだ ほう が いい と 言《い》われました。</b><span>At my previous hospital I was told it would be better to rest for a while.</span></div>
-<div class="ex"><b>結果《けっか》 は 次《つぎ》 の 診察《しんさつ》 で 説明《せつめい》 されます が、 今日《きょう》 も 少《すこ》し 説明《せつめい》 させて いただきます。</b><span>The results will be explained at your next appointment, but let me explain a little today too.</span></div>
+<div class="ex"><b>検査《けんさ》 は 明日《あした》 の 朝《あさ》 行《おこな》われます。 その 前《まえ》 に、 少《すこ》し 説明《せつめい》 させて いただきます。</b><span>The test will be done tomorrow morning. Before that, let me explain a little.</span></div>
 <div class="note">When a patient says they are watched, talked about or made to do things, ask with 〜と 感《かん》じる こと は あります か and reflect the feeling, as in <a href="#/lessons/passive-suffering">the affected passive</a> and <a href="#/lessons/causative-passive">the causative-passive</a>.</div>`,
     quiz: [
       [`What is the passive form of 使《つか》う?`, [`使《つか》える`, `使《つか》われる`, `使《つか》あれる`], 1, `Verbs ending in う use わ in the passive; 使《つか》える is the potential.`],
       [`Fill the blank for "I was scolded by my mother": 母《はは》 ＿ 叱《しか》られました。`, [`が`, `を`, `に`], 2, `In the passive the doer is marked with に.`],
-      [`Which sentence uses the passive with no doer, as on a notice?`, [`検査《けんさ》 の 結果《けっか》 は 次《つぎ》 の 診察《しんさつ》 で 説明《せつめい》 されます。`, `検査《けんさ》 の 結果《けっか》 を 説明《せつめい》 させて ください。`, `検査《けんさ》 の 結果《けっか》 を 説明《せつめい》 させられました。`], 0, `説明《せつめい》 されます is the plain passive; the others are a causative request and a causative-passive.`],
+      [`Which sentence uses the passive with no doer, as on a notice?`, [`検査《けんさ》 は 明日《あした》 の 朝《あさ》 行《おこな》われます。`, `検査《けんさ》 の 結果《けっか》 を 説明《せつめい》 させて ください。`, `検査《けんさ》 の 結果《けっか》 を 説明《せつめい》 させられました。`], 0, `行《おこな》われます is the passive with no doer; the others are a causative request and a causative-passive.`],
       [`Which means "Someone stepped on my foot on the train"?`, [`電車《でんしゃ》 で 足《あし》 に 踏《ふ》まれました。`, `電車《でんしゃ》 で 足《あし》 を 踏《ふ》まれました。`, `電車《でんしゃ》 で 足《あし》 を 踏《ふ》みました。`], 1, `In the affected passive the speaker's belonging keeps を; 踏《ふ》みました means "I stepped on".`],
       [`Which asks neutrally about the feeling of being watched?`, [`だれ か に 見《み》られて いる と 感《かん》じる こと は あります か。`, `だれ か が あなた を 見《み》て います。`, `だれ か に 見《み》させて います か。`], 0, `The passive plus 〜と 感《かん》じる こと は あります か asks about the experience without taking a side.`],
       [`What is the causative form of 休《やす》む?`, [`休《やす》まれる`, `休《やす》める`, `休《やす》ませる`], 2, `Group 1 verbs take the あ-row plus せる: む → ませる.`],
@@ -182,7 +183,7 @@ window.LESSONS.push(
 <h3>Putting them together</h3>
 <div class="ex"><b>ご家族《かぞく》 が いらっしゃったら、 お呼《よ》び します ね。</b><span>When your family arrives, I'll call you.</span></div>
 <div class="ex"><b>担当医《たんとうい》 は 今《いま》 病棟《びょうとう》 に おります ので、 こちら で 少々《しょうしょう》 お待《ま》ち ください。</b><span>The doctor in charge is on the ward at the moment, so please wait here a little.</span></div>
-<div class="ex"><b>検査《けんさ》 の 結果《けっか》 を 拝見《はいけん》 しました。 ご覧《らん》 に なります か。</b><span>I've looked at your test results. Would you like to see them?</span></div>
+<div class="ex"><b>検査《けんさ》 の 結果《けっか》 が 出《で》ました。 一緒《いっしょ》 に ご覧《らん》 に なります か。</b><span>Your test results are back. Would you like to look at them together?</span></div>
 <div class="ex"><b>何《なに》 か あれば、 いつでも おっしゃって ください。 すぐ に 参《まい》ります。</b><span>If anything comes up, please tell us at any time. I'll come straight away.</span></div>
 <div class="note">You need to understand all of this, but in the consulting room clear です/ます with a few set phrases is enough; see <a href="#/lessons/kenjougo">humble language</a>.</div>`,
     quiz: [

@@ -34,7 +34,7 @@ window.LESSONS.push(
 <div class="ex"><b>好《す》き な 色《いろ》 は 何《なん》 です か。</b><span>What is your favourite colour?</span></div>
 <div class="ex"><b>嫌《きら》い な 食《た》べ物《もの》 は あります か。</b><span>Is there any food you dislike?</span></div>
 <h3>上手《じょうず》 and 下手《へた》: good at, bad at</h3>
-<p>上手《じょうず》 is praise for someone else. Do not use it about yourself: it sounds boastful. For your own ability, say できます "I can (do it)". 下手《へた》 is fine about yourself but rude about another person.</p>
+<p>上手《じょうず》 is praise for someone else. Do not use it about yourself: it sounds boastful. For your own ability, say できます "I can (do it)". 下手《へた》 is fine about yourself but can sound rude about another person.</p>
 <div class="ex"><b>田中《たなか》さん は 歌《うた》 が 上手《じょうず》 です ね。</b><span>Tanaka-san is good at singing, isn't she.</span></div>
 <div class="ex"><b>私《わたし》 は 料理《りょうり》 が 下手《へた》 です。</b><span>I'm bad at cooking.</span></div>
 <div class="ex"><b>姉《あね》 は テニス が できます。</b><span>My older sister can play tennis.</span></div>
@@ -50,7 +50,7 @@ window.LESSONS.push(
 <p>To ask about loss of interest, compare now with before: 前《まえ》 は (before) and 今《いま》 も (still, now too).</p>
 <div class="ex"><b>前《まえ》 は 何《なに》 が 好《す》き でした か。</b><span>What did you use to like?</span></div>
 <div class="ex"><b>今《いま》 も 音楽《おんがく》 が 好《す》き です か。</b><span>Do you still like music now?</span></div>
-<div class="ex"><b>最近《さいきん》 は テレビ も 映画《えいが》 も 楽《たの》しく ありません。</b><span>Lately neither TV nor films are any fun.</span></div>
+<div class="ex"><b>「前《まえ》 は 映画《えいが》 が 大好《だいす》き でした。 今《いま》 は あまり 見《み》ません。」</b><span>"I used to love films. Now I hardly watch them."</span></div>
 <div class="ex"><b>病院《びょういん》 の ご飯《はん》 は 大丈夫《だいじょうぶ》 です か。 嫌《きら》い な もの は ありません か。</b><span>Is the hospital food all right? Is there anything you dislike?</span></div>
 <div class="note">The most common mistake is を: say 野菜《やさい》 が 好《す》き です, not 野菜《やさい》 を 好《す》き です, and 英語《えいご》 が わかります. Keep 上手《じょうず》 for other people, and soften dislikes with あまり 好《す》き では ありません.</div>`,
     quiz: [
@@ -58,7 +58,7 @@ window.LESSONS.push(
       [`Which is the gentle way to say "I don't really like raw fish"?`, [`生《なま》 の 魚《さかな》 が 大嫌《だいきら》い です。`, `生《なま》 の 魚《さかな》 を 好《す》き です。`, `生《なま》 の 魚《さかな》 は あまり 好《す》き では ありません。`], 2, `あまり + negative softens it; 大嫌《だいきら》い means "hate".`],
       [`What does 弟《おとうと》 は 絵《え》 が 下手《へた》 です mean?`, [`My younger brother is bad at drawing.`, `My younger brother is good at drawing.`, `My younger brother doesn't like drawing.`], 0, `下手《へた》 means "bad at".`],
       [`How do you ask "Do you understand Japanese?"`, [`日本語《にほんご》 が わかり です か。`, `日本語《にほんご》 が わかります か。`, `日本語《にほんご》 が 上手《じょうず》 でした か。`], 1, `わかる is a verb: its polite question is わかります か.`],
-      [`"As a child I didn't like vegetables": 子供《こども》 の とき、 野菜《やさい》 が ＿。`, [`好《す》き では ありません でした`, `好《す》きくなかった です`, `好《す》き でした`], 0, `好《す》き is a な-adjective, so its past negative is では ありません でした.`],
+      [`"Ten years ago I didn't like vegetables": 十年《じゅうねん》 前《まえ》 は、 野菜《やさい》 が ＿。`, [`好《す》き では ありません でした`, `好《す》きくなかった です`, `好《す》き でした`], 0, `好《す》き is a な-adjective, so its past negative is では ありません でした.`],
       [`A patient says はい、 わかりました after your explanation. This means:`, [`I didn't understand.`, `Do you understand?`, `I understand, all right.`], 2, `わかりました is the usual "understood, all right".`]
     ] },
 
@@ -87,7 +87,7 @@ window.LESSONS.push(
 <div class="ex"><b>最近《さいきん》 は あまり 食《た》べません。</b><span>Lately I don't eat much.</span></div>
 <div class="ex"><b>外《そと》 に は あまり 出《で》ません。</b><span>I don't go out much.</span></div>
 <div class="ex"><b>お酒《さけ》 は 全然《ぜんぜん》 飲《の》みません。</b><span>I don't drink alcohol at all.</span></div>
-<p>You will hear young people say 全然《ぜんぜん》 大丈夫《だいじょうぶ》 です "totally fine". This is casual; in your own speech use 全然《ぜんぜん》 only with a negative.</p>
+<p>You will also hear 全然《ぜんぜん》 大丈夫《だいじょうぶ》 です "totally fine, no problem at all". This positive use is colloquial; in your own speech, and always in tests, use 全然《ぜんぜん》 with a negative.</p>
 <h3>よく: often, and also well</h3>
 <p>With an action verb よく means "often". With わかる and similar verbs it means "well".</p>
 <div class="ex"><b>母《はは》 は よく 病院《びょういん》 に 来《き》ます。</b><span>My mother often comes to the hospital.</span></div>
@@ -122,7 +122,7 @@ window.LESSONS.push(
 <tr><td>〜しか 〜ません</td><td>noun, number + counter</td><td>always negative</td><td>水《みず》 しか 飲《の》みません でした。</td></tr>
 <tr><td>〜ぐらい (くらい)</td><td>an amount or length of time</td><td>any</td><td>三十分《さんじゅっぷん》 ぐらい</td></tr>
 <tr><td>〜ごろ</td><td>a point in time (clock time, date, month)</td><td>any</td><td>七時《しちじ》 ごろ</td></tr></table>
-<p>だけ and しか take the place of が and を. Other particles usually stay in front of them: 先生《せんせい》 に だけ, 家《いえ》 で しか.</p>
+<p>だけ and しか usually take the place of が and を. Other particles usually stay in front of them: 先生《せんせい》 に だけ, 家《いえ》 で しか.</p>
 <h3>だけ: only</h3>
 <p>だけ states a limit plainly.</p>
 <div class="ex"><b>朝《あさ》 は コーヒー だけ 飲《の》みました。</b><span>In the morning I only had coffee.</span></div>
@@ -145,11 +145,11 @@ window.LESSONS.push(
 <p>ごろ follows a clock time, a date or a month: "around eleven", "around March".</p>
 <div class="ex"><b>毎晩《まいばん》 十一時《じゅういちじ》 ごろ 寝《ね》ます。</b><span>I go to bed around eleven every night.</span></div>
 <div class="ex"><b>三月《さんがつ》 ごろ から 元気《げんき》 が ありません。</b><span>I've had no energy since around March.</span></div>
-<p>So 三時間《さんじかん》 ぐらい is "for about three hours" and 三時《さんじ》 ごろ is "at about three o'clock". In speech you will also hear 三時《さんじ》 ぐらい, but 三時間《さんじかん》 ごろ is wrong.</p>
+<p>So 三時間《さんじかん》 ぐらい is "for about three hours" and 三時《さんじ》 ごろ is "at about three o'clock". You will also hear ぐらい after a clock time (三時《さんじ》 ぐらい), and that is fine, but ごろ never follows a length of time: 三時間《さんじかん》 ごろ is wrong.</p>
 <h3>In the interview</h3>
 <div class="ex"><b>朝《あさ》 は 何時《なんじ》 ごろ 起《お》きます か。</b><span>About what time do you get up in the morning?</span></div>
 <div class="ex"><b>「一日《いちにち》 に 一回《いっかい》 しか 食《た》べません。」</b><span>"I only eat once a day."</span></div>
-<div class="ex"><b>今日《きょう》 は 十五分《じゅうごふん》 ぐらい お話《はなし》しましょう。</b><span>Today let's talk for about fifteen minutes.</span></div>
+<div class="ex"><b>今日《きょう》 は 十五分《じゅうごふん》 ぐらい お話《はな》ししましょう。</b><span>Today let's talk for about fifteen minutes.</span></div>
 <p>The N3 lesson <a href="#/lessons/dake-shika-sae">だけ, しか, ばかり, さえ, こそ</a> builds on this later.</p>
 <div class="note">しか always takes a negative verb: パン しか 食《た》べません でした, never パン しか 食《た》べました. Use ぐらい for amounts and ごろ for points in time.</div>`,
     quiz: [
@@ -158,7 +158,7 @@ window.LESSONS.push(
       [`How do you say "for about two hours"?`, [`二時《にじ》 ごろ`, `二時間《にじかん》 しか`, `二時間《にじかん》 ぐらい`], 2, `ぐらい follows an amount of time; 二時《にじ》 ごろ is "around two o'clock".`],
       [`What does 家族《かぞく》 は 母《はは》 しか いません mean?`, [`My mother is my only family.`, `My mother is not in my family.`, `My family lives with my mother.`], 0, `しか + negative means "nothing but, only".`],
       [`毎晩《まいばん》 十一時《じゅういちじ》 ＿ 寝《ね》ます。 "I go to bed around eleven."`, [`しか`, `だけ`, `ごろ`], 2, `ごろ follows a point in time.`],
-      [`Which sentence stresses that the amount was too little?`, [`パン だけ 食《た》べました。`, `パン しか 食《た》べません でした。`, `パン も 食《た》べました。`], 1, `しか 〜ません carries the feeling "nothing except, not enough".`]
+      [`Which sentence means "I ate nothing but bread" and stresses that it was too little?`, [`パン を 食《た》べません でした。`, `パン しか 食《た》べません でした。`, `パン も 食《た》べました。`], 1, `しか 〜ません carries the feeling "nothing except, not enough".`]
     ] },
 
   { id: 'indefinites', level: 'N5', unit: 'Likes, amounts and frequency', after: 'dake-shika', title: `何《なに》 か / 何《なに》 も, 誰《だれ》 か / 誰《だれ》 も, どこ か / どこ も, いつも: something, nothing, always`, summary: `Say and ask about something, someone and somewhere, answer with nothing, no one and nowhere, and say always.`, draft: true,
@@ -176,13 +176,13 @@ window.LESSONS.push(
 <div class="ex"><b>昨日《きのう》 は 何《なに》 も しません でした。</b><span>I did nothing yesterday.</span></div>
 <div class="ex"><b>何《なに》 か 飲《の》みます か。</b><span>Would you like something to drink?</span></div>
 <h3>誰《だれ》 か and 誰《だれ》 も</h3>
-<div class="ex"><b>昨日《きのう》、 誰《だれ》 か お見舞《みま》い に 来《き》ました か。</b><span>Did anyone come to visit you yesterday?</span></div>
+<div class="ex"><b>昨日《きのう》、 誰《だれ》 か 来《き》ました か。</b><span>Did anyone come to visit you yesterday?</span></div>
 <div class="ex"><b>昼《ひる》 は 家《いえ》 に 誰《だれ》 も いません。</b><span>There is nobody at home during the day.</span></div>
 <div class="ex"><b>誰《だれ》 か に 相談《そうだん》しました か。</b><span>Did you talk to anyone about it?</span></div>
 <h3>どこ か and どこ も</h3>
 <div class="ex"><b>「週末《しゅうまつ》 は どこ か へ 行《い》きました か。」「いいえ、 どこ に も 行《い》きません でした。」</b><span>"Did you go anywhere at the weekend?" "No, I didn't go anywhere."</span></div>
 <div class="ex"><b>今《いま》 は どこ も 痛《いた》く ありません。</b><span>Nothing hurts now.</span></div>
-<p>For a place you go to, keep に or へ before も: どこ に も 行《い》きません. With an adjective such as 痛《いた》い, どこ も is enough.</p>
+<p>For a place you go to, keep に or へ before も: どこ に も 行《い》きません. In どこ も 痛《いた》く ありません, どこ is the subject (its が drops), so nothing comes before も.</p>
 <h3>いつも and いつ か</h3>
 <p>いつも is the exception: it means "always" and goes with a positive verb. For "never", use 全然《ぜんぜん》 + negative (see <a href="#/lessons/frequency-degree">how often and how much</a>).</p>
 <div class="ex"><b>いつも 七時《しちじ》 に 起《お》きます。</b><span>I always get up at seven.</span></div>
@@ -209,7 +209,7 @@ window.LESSONS.push(
 <p>Which meaning you get depends on whether the verb is positive or negative.</p>
 <table><tr><th></th><th>With a positive verb or adjective</th><th>With a negative</th></tr>
 <tr><td>もう</td><td>already: もう 飲《の》みました</td><td>no longer, not any more: もう 飲《の》みません</td></tr>
-<tr><td>まだ</td><td>still: まだ 痛《いた》い です</td><td>not yet: まだ です, まだ 飲《の》んで いません</td></tr></table>
+<tr><td>まだ</td><td>still: まだ 痛《いた》い です</td><td>not yet: まだ です (the full form comes with the て-form)</td></tr></table>
 <h3>もう + ました: already</h3>
 <div class="ex"><b>お薬《くすり》 は もう 飲《の》みました か。</b><span>Have you taken your medicine already?</span></div>
 <div class="ex"><b>はい、 もう 朝《あさ》ご飯《はん》 を 食《た》べました。</b><span>Yes, I've already had breakfast.</span></div>
@@ -235,10 +235,10 @@ window.LESSONS.push(
 <div class="ex"><b>母《はは》 は まだ 寝《ね》て います。</b><span>My mother is still asleep.</span></div>
 <div class="ex"><b>今《いま》 は もう 働《はたら》いて いません。</b><span>I'm not working any more.</span></div>
 <h3>On the ward</h3>
-<div class="ex"><b>吐《は》き気《け》 は まだ あります か。</b><span>Do you still feel sick?</span></div>
+<div class="ex"><b>吐《は》き気《け》 は まだ あります か。</b><span>Are you still feeling nauseous?</span></div>
 <div class="ex"><b>「もう 大丈夫《だいじょうぶ》 です。」</b><span>"I'm all right now."</span></div>
 <div class="ex"><b>「いいえ、 まだ 少《すこ》し 不安《ふあん》 です。」</b><span>"No, I'm still a little anxious."</span></div>
-<div class="note">もう + positive = already; もう + negative = no longer. まだ + positive = still; "not yet" is まだ です or まだ 〜て いません, never まだ 〜ません でした. もう 一度《いちど》 and もう 少《すこ》し mean "once more" and "a little more".</div>`,
+<div class="note">もう + positive = already; もう + negative = no longer. まだ + positive = still; "not yet" is まだ です for now (まだ 〜て いません after the て-form), never まだ 〜ません でした. もう 一度《いちど》 and もう 少《すこ》し mean "once more" and "a little more".</div>`,
     quiz: [
       [`「お薬《くすり》 は もう 飲《の》みました か。」 How do you answer "Not yet" briefly?`, [`もう です。`, `まだ 飲《の》みました。`, `まだ です。`], 2, `まだ です is the short "not yet".`],
       [`What does もう 痛《いた》く ありません mean?`, [`It doesn't hurt yet.`, `It doesn't hurt any more.`, `It still hurts.`], 1, `もう + negative means "no longer".`],
@@ -270,7 +270,7 @@ window.LESSONS.push(
 <li>あまり, 全然《ぜんぜん》, しか and question word + も all need a negative verb.</li>
 <li>ぐらい follows an amount (三時間《さんじかん》 ぐらい); ごろ follows a point in time (三時《さんじ》 ごろ).</li>
 <li>いつも means "always", not "never".</li>
-<li>"Not yet" is まだ です or まだ 〜て いません; もう 〜ません means "no longer".</li></ul>
+<li>"Not yet" is まだ です (not まだ 〜ません でした); もう 〜ません means "no longer".</li></ul>
 <h3>Patterns together</h3>
 <div class="ex"><b>夜《よる》 は 三時間《さんじかん》 ぐらい しか 寝《ね》ません。</b><span>At night I only sleep about three hours.</span></div>
 <div class="ex"><b>父《ちち》 は もう お酒《さけ》 を 全然《ぜんぜん》 飲《の》みません。</b><span>My father doesn't drink at all any more.</span></div>

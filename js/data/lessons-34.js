@@ -31,7 +31,7 @@ window.LESSONS.push(
 <h3>Putting it together</h3>
 <div class="ex"><b>「昨日《きのう》 は 何《なに》 も しなかった。」 「そう です か。 無理《むり》 を しないで ください ね。」</b><span>"I didn't do anything yesterday." "I see. Please don't push yourself."</span></div>
 <div class="ex"><b>来週《らいしゅう》 は 来《こ》なくて も いい です が、 薬《くすり》 は 毎日《まいにち》 飲《の》まなければ なりません。</b><span>You don't have to come next week, but you must take the medicine every day.</span></div>
-<div class="ex"><b>夜《よる》 は 寝《ね》たり 起《お》きたり して、 朝《あさ》 は 何《なに》 も 食《た》べない。</b><span>At night I keep dozing and waking, and in the morning I don't eat anything.</span></div>
+<div class="ex"><b>夜《よる》 は 寝《ね》たり 起《お》きたり して、 朝《あさ》 は 何《なに》 も 食《た》べない。</b><span>At night I keep dozing and waking, and in the morning I don't eat anything. (a patient speaking plainly)</span></div>
 <div class="ex"><b>前《まえ》 に この 薬《くすり》 を 飲《の》んだ こと が あります か。</b><span>Have you taken this medicine before?</span></div>
 <div class="ex"><b>「薬《くすり》、 もう 飲《の》んだ？」 「ううん、 まだ 飲《の》んで いない。」</b><span>"Have you taken your medicine yet?" "No, not yet." (family talk)</span></div>`,
     quiz: [
@@ -58,7 +58,7 @@ window.LESSONS.push(
 <tr><td>〜と 言《い》って います</td><td>someone says</td><td>妻《つま》 は 「大丈夫《だいじょうぶ》」 と 言《い》って います。</td></tr>
 <tr><td>plain + そう です</td><td>I hear that</td><td>夜《よる》 も 寝《ね》て いない そう です。</td></tr>
 <tr><td>potential form</td><td>can</td><td>一人《ひとり》 で 歩《ある》けます か。</td></tr>
-<tr><td>より / の ほう が</td><td>compare</td><td>前《まえ》 より 食《た》べられます。</td></tr>
+<tr><td>より / の ほう が</td><td>compare</td><td>前《まえ》 より 食欲《しょくよく》 が あります。</td></tr>
 <tr><td>〜く / に なる</td><td>change</td><td>少《すこ》し 楽《らく》 に なりました。</td></tr>
 <tr><td>とき / たら / と / ば</td><td>when, if</td><td>苦《くる》しく なったら、 すぐ 呼《よ》んで ください。</td></tr></table>
 <h3>Watch out</h3>
@@ -81,7 +81,7 @@ window.LESSONS.push(
       [`Which means "If you can't sleep, please tell the nurse"?`, [`眠《ねむ》れなかったら、 看護師《かんごし》 に 言《い》って ください。`, `眠《ねむ》れない と、 看護師《かんごし》 に 言《い》って ください。`, `眠《ねむ》れた とき、 看護師《かんごし》 に 言《い》って ください。`], 0, `The potential 眠《ねむ》れない + たら can be followed by a request; と cannot.`],
       [`夜《よる》 に なる と、 不安《ふあん》 に なります means:`, [`I was anxious until night came.`, `Whenever night comes, I get anxious.`, `I want night to come because I am anxious.`], 1, `Dictionary form + と is "whenever", and 不安《ふあん》 に なる is "become anxious".`],
       [`A patient says 実《じつ》 は、 最近《さいきん》 食《た》べられない ん です。 What does ん です add?`, [`It explains her situation.`, `It turns the sentence into a question.`, `It makes the sentence past tense.`], 0, `〜ん です gives the background: "the thing is, I can't eat lately".`],
-      [`A family member tells you 息子《むすこ》 は 学校《がっこう》 に 行《い》けない そう です. This means:`, [`My son doesn't have to go to school.`, `My son said he wants to go to school.`, `I hear my son can't go to school.`], 2, `Plain form + そう です is hearsay, and 行《い》けない is the potential negative of 行《い》く.`],
+      [`A nurse tells you 息子《むすこ》さん は 学校《がっこう》 に 行《い》けない そう です. This means:`, [`Her son doesn't have to go to school.`, `Her son said he wants to go to school.`, `Apparently her son can't go to school.`], 2, `Plain form + そう です is hearsay, and 行《い》けない is the potential negative of 行《い》く.`],
       [`Which sentence means "I'm scared, so I can't go outside"?`, [`外《そと》 に 出《で》られない ので、 怖《こわ》い です。`, `怖《こわ》い ので、 外《そと》 に 出《で》られません。`, `怖《こわ》い ので、 外《そと》 に 出《で》ないで ください。`], 1, `The reason comes before ので, and 出《で》られません is "can't go out".`],
       [`Reply to 朝《あさ》 と 夜《よる》 と、 どちら が 楽《らく》 です か if nights are easier:`, [`夜《よる》 より 楽《らく》 です。`, `いちばん 夜《よる》 です。`, `夜《よる》 の ほう が 楽《らく》 です。`], 2, `A の ほう が 〜 です picks one of two; 夜《よる》 より would mean "easier than night".`],
       [`母《はは》 は 毎日《まいにち》 「疲《つか》れた」 と 言《い》って います means:`, [`My mother says "I'm tired" every day.`, `My mother thought once that she was tired.`, `My mother was tired, so she talked every day.`], 0, `〜と 言《い》って います reports something said again and again.`],
@@ -117,7 +117,7 @@ window.LESSONS.push(
       [`人《ひと》 の 目《め》 が 気《き》 に なります means:`, [`I worry about how people see me.`, `My eyes hurt when I see people.`, `I like meeting people.`], 0, `気《き》 に なる means something stays on one's mind and bothers one.`],
       [`Which word means "brooding, dwelling on things"?`, [`ドキドキ`, `イライラ`, `くよくよ`], 2, `くよくよ する is to brood; ドキドキ is a pounding heart and イライラ is irritability.`],
       [`Which question asks about onset?`, [`どんな とき に 眠《ねむ》れません か。`, `いつ から 眠《ねむ》れません か。`, `どの くらい 眠《ねむ》れます か。`], 1, `いつ から asks "since when".`],
-      [`How do you ask "Do you sometimes feel your chest getting tight?"`, [`胸《むね》 が 苦《くる》しく なる こと が あります か。`, `胸《むね》 が 苦《くる》しく なった こと が あります か。`, `胸《むね》 が 苦《くる》しく なって ください。`], 0, `Dictionary form + こと が あります か asks whether something happens from time to time.`],
+      [`How do you ask "Does your chest sometimes get tight?" (not "Has it ever …?")`, [`胸《むね》 が 苦《くる》しく なる こと が あります か。`, `胸《むね》 が 苦《くる》しく なった こと が あります か。`, `胸《むね》 が 苦《くる》しく なって ください。`], 0, `Dictionary form + こと が あります か asks whether something happens from time to time.`],
       [`A patient says 気《き》 が 散《ち》って、 仕事《しごと》 が できません。 Which check of your understanding fits?`, [`つまり、 仕事《しごと》 を 辞《や》めた と いう こと です か。`, `つまり、 仕事《しごと》 が 好《す》き と いう こと です か。`, `つまり、 仕事《しごと》 に 集中《しゅうちゅう》 できない と いう こと です か。`], 2, `気《き》 が 散《ち》る is being unable to focus, and 〜と いう こと です か checks your summary.`],
       [`Which phrase means "if you don't mind"?`, [`もし よければ`, `もう 一度《いちど》`, `つまり`], 0, `もし よければ softens a request or a sensitive question.`],
       [`How do you ask a patient to say something in simpler words?`, [`簡単《かんたん》 に なりました か。`, `簡単《かんたん》 な 言葉《ことば》 で 言《い》って いただけます か。`, `簡単《かんたん》 な 言葉《ことば》 を 書《か》きました。`], 1, `〜て いただけます か is a polite request, and 簡単《かんたん》 な 言葉《ことば》 で means "in simple words".`],
@@ -143,16 +143,16 @@ window.LESSONS.push(
 <li>Inside a clause the subject takes が or の, never は: 姉《あね》 が 作《つく》った 料理《りょうり》.</li>
 <li>Only こと with できます, あります and 趣味《しゅみ》 は 〜こと です; only の with 見《み》える and 聞《き》こえる.</li>
 <li>No だ or です before an inner か: 何《なん》 の 薬《くすり》 か; yes or no needs か どうか.</li>
-<li>Use the stem: 飲《の》みやすい, 高《たか》すぎる. 眠《ねむ》りにくい is "hard to sleep", not 眠《ねむ》れない.</li></ul>
+<li>Use the stem: 飲《の》みやすい, 高《たか》すぎる. 眠《ねむ》りにくい is "sleep is hard to get"; 眠《ねむ》れない is "cannot sleep".</li></ul>
 <h3>Putting it together</h3>
-<div class="ex"><b>眠《ねむ》りにくい 日《ひ》 は、 夜《よる》 何《なに》 を して いる か 教《おし》えて ください。</b><span>On days when it is hard to sleep, please tell me what you do at night.</span></div>
+<div class="ex"><b>眠《ねむ》りにくい 夜《よる》 は、 何《なに》 を して いる か 教《おし》えて ください。</b><span>Please tell me what you do on nights when it is hard to get to sleep.</span></div>
 <div class="ex"><b>夜《よる》 の 薬《くすり》 を 飲《の》む の を 忘《わす》れる こと が あります。</b><span>I sometimes forget to take my evening medicine.</span></div>
 <div class="ex"><b>一緒《いっしょ》 に 住《す》んで いる 方《かた》 が いる か どうか、 教《おし》えて ください。</b><span>Please tell me whether anyone lives with you.</span></div>
 <div class="ex"><b>考《かんが》えすぎる の を やめたい ん です が、 なかなか できません。</b><span>I want to stop thinking too much, but I just can't.</span></div>
-<div class="ex"><b>人《ひと》 に 話《はな》しにくい こと が あったら、 書《か》いて も いい です よ。</b><span>If there is something hard to say out loud, you can write it down.</span></div>`,
+<div class="ex"><b>人《ひと》 に 話《はな》しにくい こと が あったら、 書《か》いて も いい です よ。</b><span>If there is something that is hard to tell people, you can write it down.</span></div>`,
     quiz: [
       [`How do you say "the hospital I went to before"?`, [`前《まえ》 に 行《い》った の 病院《びょういん》`, `前《まえ》 に 行《い》った 病院《びょういん》`, `病院《びょういん》 前《まえ》 に 行《い》った`], 1, `The plain clause goes directly before the noun, with nothing between them.`],
-      [`弟《おとうと》 ＿ 書《か》いた 手紙《てがみ》 を 読《よ》みました。`, [`は`, `を`, `が`], 2, `The subject inside a noun clause takes が, not は.`],
+      [`私《わたし》 は 弟《おとうと》 ＿ 書《か》いた 手紙《てがみ》 を 読《よ》みました。 (I read the letter my younger brother wrote.)`, [`は`, `を`, `が`], 2, `The subject inside a noun clause takes が, not は.`],
       [`How do you say "I like cooking"?`, [`料理《りょうり》 を 作《つく》る の が 好《す》き です。`, `料理《りょうり》 を 作《つく》る が 好《す》き です。`, `料理《りょうり》 を 作《つく》って が 好《す》き です。`], 0, `An action needs の before が 好《す》き.`],
       [`外《そと》 で 雨《あめ》 が 降《ふ》って いる ＿ が 聞《き》こえます。`, [`こと`, `の`, `か`], 1, `With verbs of hearing and seeing, only の is used.`],
       [`How do you say "I don't know why I'm tired"?`, [`どうして 疲《つか》れて いる か どうか わかりません。`, `どうして 疲《つか》れて います か わかりません。`, `どうして 疲《つか》れて いる か わかりません。`], 2, `With a question word, use plain form + か alone.`],
@@ -182,7 +182,7 @@ window.LESSONS.push(
 <li>はず is an expectation, not advice.</li>
 <li>With patients, avoid 必《かなら》ず and 絶対《ぜったい》 about outcomes; 〜と 思《おも》います and 〜かも しれません are honest.</li></ul>
 <h3>Putting it together</h3>
-<div class="ex"><b>少《すこ》し つらそう です ね。 熱《ねつ》 が ある かも しれません。</b><span>You look a little unwell. You might have a fever.</span></div>
+<div class="ex"><b>少《すこ》し つらそう です ね。 熱《ねつ》 が ある かも しれません。</b><span>You look as if you are struggling a little. You might have a fever.</span></div>
 <div class="ex"><b>薬《くすり》 が 効《き》いて いる よう です。 たぶん 来週《らいしゅう》 は もっと 楽《らく》 に なる でしょう。</b><span>The medicine seems to be working. You will probably feel easier next week.</span></div>
 <div class="ex"><b>田中《たなか》さん は 来週《らいしゅう》 退院《たいいん》 する らしい です が、 まだ はっきり と は わかりません。</b><span>Apparently Mr. Tanaka is going home next week, but it isn't certain yet.</span></div>
 <div class="ex"><b>雨《あめ》 が 降《ふ》りそう です から、 午後《ごご》 の 散歩《さんぽ》 は 難《むずか》しい かも しれません。</b><span>It looks like rain, so the afternoon walk may be difficult.</span></div>`,
@@ -214,7 +214,7 @@ window.LESSONS.push(
 <tr><td>〜て いただけます か</td><td>polite request</td><td>ここ に お名前《なまえ》 を 書《か》いて いただけます か。</td></tr></table>
 <h3>Watch out</h3>
 <ul><li>くれる only comes toward me or my side: 私《わたし》 は 友達《ともだち》 に くれました is wrong.</li>
-<li>With くれる the giver or doer takes が; with もらう it takes に (or から), never が.</li>
+<li>With くれる the giver or doer is the subject (が or は); with もらう it takes に (or から), never が.</li>
 <li>Do not say 〜て あげます to a patient. Say ご説明《せつめい》 します or お持《も》ち しましょう か.</li>
 <li>The ます-form of くださる is くださいます.</li></ul>
 <h3>Putting it together</h3>

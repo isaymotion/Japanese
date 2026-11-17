@@ -77,7 +77,7 @@ window.LESSONS.push(
 <ul><li>一日《ついたち》 is the 1st of the month; 一日《いちにち》 is one day or "per day".</li>
 <li>Counting uses よん, なな and きゅう, but some fixed words do not: 四時《よじ》, 七時《しちじ》, 九時《くじ》, 四月《しがつ》, 九月《くがつ》.</li>
 <li>People: 一人《ひとり》, 二人《ふたり》, then 三人《さんにん》 and 四人《よにん》.</li>
-<li>10,000 is 一万《いちまん》, never "ten thousand".</li>
+<li>10,000 is 一万《いちまん》 (one 万《まん》), never "ten 千《せん》".</li>
 <li>Number and counter come after the noun and its particle: 薬《くすり》 を 二錠《にじょう》 飲《の》みます.</li></ul>
 <h3>Putting it together</h3>
 <div class="ex"><b>朝《あさ》 八時《はちじ》 と 夜《よる》 九時《くじ》 に 一錠《いちじょう》 飲《の》みます。</b><span>I take one tablet at eight in the morning and at nine at night.</span></div>
@@ -85,7 +85,7 @@ window.LESSONS.push(
 <div class="ex"><b>週《しゅう》 に 二回《にかい》、 一回《いっかい》 に 三十分《さんじゅっぷん》 ぐらい 散歩《さんぽ》します。</b><span>Twice a week I take a walk of about thirty minutes.</span></div>
 <div class="ex"><b>次《つぎ》 の 予約《よやく》 は 十月《じゅうがつ》 四日《よっか》、 午後《ごご》 二時《にじ》 です。</b><span>Your next appointment is October 4 at 2 p.m.</span></div>
 <div class="ex"><b>熱《ねつ》 は 二日前《ふつかまえ》 から です。</b><span>The fever started two days ago.</span></div>
-<div class="ex"><b>お酒《さけ》 は 一日《いちにち》 に ビール を 二本《にほん》 ぐらい です。</b><span>As for alcohol, about two bottles of beer a day.</span></div>
+<div class="ex"><b>お酒《さけ》 は 一日《いちにち》 に ビール を 二本《にほん》 ぐらい 飲《の》みます。</b><span>As for alcohol, I drink about two bottles of beer a day.</span></div>
 <div class="note">When a number sounds odd, say it slowly in beats: a small っ or a long vowel is a full beat. Check the special readings for dates 1 to 10, 14, 20 and 24 before you write an appointment card.</div>`,
     quiz: [
       [`How do you say 1,500 yen?`, [`せんごひゃくえん`, `いちせんごひゃくえん`, `せんごびゃくえん`], 0, `千《せん》 needs no いち in front, and 五百《ごひゃく》 has no sound change.`],
@@ -99,7 +99,7 @@ window.LESSONS.push(
       [`How do you say "four people"?`, [`よんにん`, `よにん`, `しにん`], 1, `四人《よにん》 uses the reading よ.`],
       [`How do you say "twice a day"?`, [`一日《ついたち》 に 二回《にかい》`, `一日《いちにち》 に 二回《にかい》`, `二回《にかい》 の 一日《いちにち》`], 1, `"Per day" is 一日《いちにち》 に; 一日《ついたち》 is the 1st of the month.`],
       [`コーヒー は 一日《いちにち》 に ＿ 飲《の》みます か。 "How many cups of coffee do you drink a day?"`, [`何杯《なんばい》`, `何枚《なんまい》`, `何本《なんぼん》`], 0, `杯《はい》 counts cups; 枚《まい》 counts flat things and 本《ほん》 long things.`],
-      [`How do you say "ten cigarettes"?`, [`じゅうほん`, `じゅうぼん`, `じゅっぽん`], 2, `十本《じゅっぽん》 has a small っ and changes ほん to ぽん.`]
+      [`How do you say "ten cigarettes"?`, [`じゅうほん`, `じゅうぼん`, `じゅっぽん`], 2, `十本《じゅっぽん》 (also said じっぽん) has a small っ and changes ほん to ぽん.`]
     ] },
 
   /* ================= Review: Verbs ================= */
@@ -142,7 +142,7 @@ window.LESSONS.push(
       [`How do you say "There is a pharmacy next to the hospital"?`, [`病院《びょういん》 の となり に 薬局《やっきょく》 が あります。`, `病院《びょういん》 の となり で 薬局《やっきょく》 が あります。`, `病院《びょういん》 の となり に 薬局《やっきょく》 が います。`], 0, `Place に thing が あります; a pharmacy is a thing.`],
       [`トイレ は どこ に ＿ か。 "Where is the restroom?"`, [`います`, `します`, `あります`], 2, `A restroom is a thing, so あります.`],
       [`A nurse says 荷物《にもつ》 を 持《も》ちましょう か。 What is she doing?`, [`Asking you to carry her bag`, `Offering to carry your bag`, `Asking if you carried the bag`], 1, `〜ましょう か with the speaker acting is an offer: "Shall I carry your bag?"`],
-      [`A colleague asks 土曜日《どようび》 に 一緒《いっしょ》 に 映画《えいが》 を 見《み》ません か。 You are busy. What do you say?`, [`すみません、 土曜日《どようび》 は ちょっと…。`, `いいえ、 見《み》ません。`, `いいえ、 見《み》ません でした。`], 0, `〜ません か is an invitation; decline softly with すみません and ちょっと….`],
+      [`A colleague asks 土曜日《どようび》 に 一緒《いっしょ》 に 映画《えいが》 を 見《み》ません か。 You are busy. How do you decline politely?`, [`すみません、 土曜日《どようび》 は ちょっと…。`, `いいえ、 見《み》ません。`, `いいえ、 見《み》ません でした。`], 0, `〜ません か is an invitation; decline softly with すみません and ちょっと….`],
       [`How do you say "Let's have lunch together"?`, [`一緒《いっしょ》 に 昼《ひる》ご飯《はん》 で 食《た》べましょう。`, `一緒《いっしょ》 に 昼《ひる》ご飯《はん》 を 食《た》べました。`, `一緒《いっしょ》 に 昼《ひる》ご飯《はん》 を 食《た》べましょう。`], 2, `〜ましょう is "let's", and the food eaten takes を.`]
     ] },
 
@@ -184,7 +184,7 @@ window.LESSONS.push(
       [`Which phrase is correct for "a quiet room and a dark room"?`, [`静《しず》か 部屋《へや》 と 暗《くら》い な 部屋《へや》`, `静《しず》か な 部屋《へや》 と 暗《くら》い 部屋《へや》`, `静《しず》か な 部屋《へや》 と 暗《くら》い な 部屋《へや》`], 1, `A な-adjective takes な before a noun; an い-adjective goes straight before it.`],
       [`How do you say "It isn't clean"?`, [`きれくない です。`, `きれいくない です。`, `きれい では ありません。`], 2, `きれい is a な-adjective, so the negative is では ありません.`],
       [`＿ は あります か。 "Is there any food you dislike?"`, [`嫌《きら》い 食《た》べ物《もの》`, `嫌《きら》い な 食《た》べ物《もの》`, `嫌《きら》い の 食《た》べ物《もの》`], 1, `嫌《きら》い is a な-adjective, so な comes before the noun.`],
-      [`あまり ＿。 "I'm not very worried."`, [`心配《しんぱい》 では ありません`, `心配《しんぱい》 です`, `心配《しんぱい》 な です`], 0, `あまり needs a negative, and 心配《しんぱい》 is a な-adjective.`],
+      [`この 部屋《へや》 は あまり ＿。 "This room is not very quiet."`, [`静《しず》か では ありません`, `静《しず》か です`, `静《しず》か な です`], 0, `あまり needs a negative, and 静《しず》か is a な-adjective, so です becomes では ありません.`],
       [`Which adjective describes emotional pain that is hard to bear?`, [`だるい`, `眠《ねむ》い`, `つらい`], 2, `つらい is emotionally hard to bear; だるい is a heavy, sluggish body.`],
       [`Which pair are both い-adjectives?`, [`寂《さび》しい and 怖《こわ》い`, `きれい and 悲《かな》しい`, `有名《ゆうめい》 and 痛《いた》い`], 0, `きれい and 有名《ゆうめい》 are な-adjectives.`],
       [`What does 大丈夫《だいじょうぶ》 では ありません でした mean?`, [`I am not all right.`, `Were you all right?`, `I was not all right.`], 2, `では ありません でした is the past negative of a な-adjective.`],
@@ -215,7 +215,7 @@ window.LESSONS.push(
 <h3>Putting it together</h3>
 <div class="ex"><b>家《いえ》 に 帰《かえ》って から、 少《すこ》し 休《やす》んで ください。</b><span>After you get home, please rest a little.</span></div>
 <div class="ex"><b>姉《あね》 は 結婚《けっこん》して、 今《いま》 大阪《おおさか》 に 住《す》んで います。</b><span>My older sister got married and now lives in Osaka.</span></div>
-<div class="ex"><b>ご飯《はん》 を 食《た》べた 後《あと》 で、 この 薬《くすり》 を 飲《の》んで います か。</b><span>Are you taking this medicine after meals?</span></div>
+<div class="ex"><b>この 薬《くすり》 は ご飯《はん》 を 食《た》べた 後《あと》 で 飲《の》んで います か。</b><span>Are you taking this medicine after meals?</span></div>
 <div class="ex"><b>もう 一度《いちど》 ゆっくり 話《はな》して いただけます か。</b><span>Could you say that once more, slowly?</span></div>
 <div class="ex"><b>少《すこ》し お話《はなし》 を 聞《き》いて も いい です か。</b><span>May I ask you about a few things?</span></div>
 <div class="ex"><b>朝《あさ》 の 薬《くすり》 は まだ 飲《の》んで いません。</b><span>I haven't taken my morning medicine yet.</span></div>

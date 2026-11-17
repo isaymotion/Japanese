@@ -56,7 +56,7 @@ window.LESSONS.push(
       ["母《はは》 ＿ もう 少《すこ》し 休《やす》んで ほしい です。", ["を", "で", "に"], 2, "The person you want to act is marked with に."],
       ["先生《せんせい》 に 話《はなし》 を 聞《き》いて もらいたくて 来《き》ました means:", ["I came because I wanted to hear the doctor's talk.", "I came because I wanted the doctor to listen to me.", "I came because the doctor wanted to talk to me."], 1, "〜て もらいたい: the speaker wants to receive the doctor's action of listening."],
       ["Which sentence is a polite request (a question) asking a patient to come again next week?", ["来週《らいしゅう》 も 来《き》て ほしい です。", "来週《らいしゅう》 も 来《き》たい です か。", "来週《らいしゅう》 も 来《き》て いただけます か。"], 2, "〜て いただけます か asks politely; 来《き》て ほしい です only states your wish, and 来《き》たい です か asks what they want."],
-      ["会社《かいしゃ》 の 人《ひと》 に は 言《い》わないで ほしい です means:", ["I don't want you to tell the people at work.", "I don't want to tell the people at work.", "The people at work asked me not to tell."], 0, "〜ないで ほしい asks that someone else not do something; here, not tell people at work."]
+      ["会社《かいしゃ》 の 人《ひと》 に は 言《い》わないで ほしい です means:", ["I don't want you to tell the people at work.", "I don't want to tell the people at work.", "The people at work asked me not to tell."], 0, "〜ないで ほしい states the wish that someone else not do something; here, not tell people at work."]
     ] },
 
   { id: 'garu', level: 'N4', unit: 'Wishes, feelings and reported speech', after: 'te-hoshii', title: `〜がる, 〜たがる: describing other people's feelings`, summary: `Describe what someone else seems to feel or want with 〜がる and 〜たがる, and choose kinder wording for a patient in a chart or handover.`, draft: true,
@@ -86,9 +86,9 @@ window.LESSONS.push(
 <tr><td>Yourself</td><td>痛《いた》い です, 帰《かえ》りたい です</td></tr>
 <tr><td>The listener (a question)</td><td>痛《いた》い です か, 帰《かえ》りたい です か</td></tr>
 <tr><td>Someone else</td><td>痛《いた》がって います, 痛《いた》そう です, 痛《いた》い と 言《い》って います, 痛《いた》い よう です</td></tr></table>
-<p>Do not use 〜がる about yourself or in a question to the listener: 痛《いた》がって います か said to a patient is wrong; ask 痛《いた》み は どう です か. For 〜そう and 〜よう, see <a href="#/lessons/sou-you-mitai-rashii">Looks like, seems, apparently</a>.</p>
+<p>Normally do not use 〜がる about yourself or in a question to the listener: 痛《いた》がって います か said to a patient is wrong; ask 痛《いた》み は どう です か. For 〜そう and 〜よう, see <a href="#/lessons/sou-you-mitai-rashii">Looks like, seems, apparently</a>.</p>
 <h3>On the ward: kinder ways to describe a patient</h3>
-<p>〜がる describes a feeling from the outside, as behaviour. About your own child or parent it is ordinary family talk. About a patient, especially said in front of them, it can sound cold, as if the feeling were a fuss: 山田《やまだ》さん が 痛《いた》がって います can suggest "is making a fuss about pain". 〜たがる about a senior person is also impolite. In a chart, a handover or at the bedside, prefer the patient's own words, a clinical verb such as 訴《うった》える (complain of) or 希望《きぼう》する (wish for), or a careful observation with よう です.</p>
+<p>〜がる describes a feeling from the outside, as behaviour. About your own child or parent it is ordinary family talk. About an adult patient, especially said in front of them, it can sound distant, as if you were describing a child's behaviour rather than the patient's own experience. 〜たがる about a senior person is also impolite. In a chart, a handover or at the bedside, prefer the patient's own words, a clinical verb such as 訴《うった》える (complain of) or 希望《きぼう》する (wish for), both chart words above N4 worth learning as vocabulary, or a careful observation with よう です.</p>
 <div class="ex"><b>山田《やまだ》さん は 「腰《こし》 が 痛《いた》い」 と 言《い》って います。</b><span>Mr. Yamada says, "My lower back hurts."</span></div>
 <div class="ex"><b>山田《やまだ》さん は 腰《こし》 の 痛《いた》み を 訴《うった》えて います。</b><span>Mr. Yamada is complaining of lower back pain.</span></div>
 <div class="ex"><b>佐藤《さとう》さん は 早《はや》く 退院《たいいん》したい と おっしゃって います。</b><span>Ms. Sato says she would like to leave hospital soon.</span></div>
@@ -127,7 +127,7 @@ window.LESSONS.push(
 <div class="ex"><b>早《はや》く 元気《げんき》 に なりたい と いう 気持《きも》ち が 強《つよ》い です。</b><span>I have a strong wish to get well soon.</span></div>
 <div class="ex"><b>誰《だれ》 か に 見《み》られて いる と いう 感《かん》じ が します か。</b><span>Do you have a sense that someone is watching you?</span></div>
 <h3>〜と いう こと: the fact that, so you mean</h3>
-<p>Clause + と いう こと turns a statement into a noun: "the fact that …". You already use 〜と いう こと です か to check understanding (see <a href="#/lessons/interview-patterns">Sentence frames for the psychiatric interview</a>).</p>
+<p>Clause + と いう こと turns a statement into a noun: "the fact that …". You already use 〜と いう こと です か to check understanding (see <a href="#/lessons/interpreting">When your Japanese is not enough</a>).</p>
 <div class="ex"><b>病気《びょうき》 だ と いう こと を、 家族《かぞく》 に まだ 言《い》って いません。</b><span>I haven't told my family yet that I'm ill.</span></div>
 <div class="ex"><b>朝《あさ》 は どうしても 起《お》きられない と いう こと です ね。</b><span>So in the mornings you just can't get up.</span></div>
 <h3>って: casual と いう and と</h3>
@@ -209,11 +209,11 @@ window.LESSONS.push(
 <h3>Putting it together</h3>
 <div class="ex"><b>妻《つま》 は 私《わたし》 に お酒《さけ》 を やめて ほしい と 言《い》って います。</b><span>My wife says she wants me to stop drinking.</span></div>
 <div class="ex"><b>母《はは》 は 私《わたし》 に 早《はや》く 帰《かえ》って きて ほしがって います。</b><span>My mother wants me to come home soon.</span></div>
-<div class="ex"><b>家族《かぞく》 に 分《わ》かって ほしい と いう 気持《きも》ち が あります。</b><span>I have a feeling that I want my family to understand.</span></div>
-<div class="ex"><b>鈴木《すずき》 と いう 先生《せんせい》 に、 よく 眠《ねむ》る よう に 言《い》われました。</b><span>A doctor called Suzuki told me to sleep well.</span></div>
+<div class="ex"><b>家族《かぞく》 に 分《わ》かって ほしい と いう 気持《きも》ち が あります。</b><span>I do want my family to understand (I have that feeling).</span></div>
+<div class="ex"><b>鈴木《すずき》 と いう 先生《せんせい》 に、 早《はや》く 寝《ね》る よう に 言《い》われました。</b><span>A doctor called Suzuki told me to go to bed early.</span></div>
 <div class="ex"><b>佐藤《さとう》さん は 家《いえ》 に 帰《かえ》りたい と おっしゃって います。</b><span>Ms. Sato says she would like to go home.</span></div>`,
     quiz: [
-      ["母《はは》 に もっと 休《やす》んで ＿ です。", ["たい", "ほしい", "ほしがる"], 1, "て-form + ほしい: I want my mother to rest more."],
+      ["母《はは》 に もっと 休《やす》んで ＿ です。", ["もらう", "ほしい", "ほしがる"], 1, "て-form + ほしい: I want my mother to rest more. もらう and ほしがる cannot stand before です like this."],
       ["Which sentence naturally says \"My son wants a new game\"?", ["息子《むすこ》 は 新《あたら》しい ゲーム を ほしがって います。", "息子《むすこ》 は 新《あたら》しい ゲーム を ほしい です。", "息子《むすこ》 は 新《あたら》しい ゲーム が ほしがります です。"], 0, "For a third person, use ほしがって います with を."],
       ["「さくら」 ＿ 店《みせ》 を 知《し》って います か。", ["だ と いう", "の いう", "と いう"], 2, "A name goes straight before と いう, without だ."],
       ["夜《よる》 は 一人《ひとり》 で 歩《ある》かない よう に 言《い》われました means:", ["I was told not to walk alone at night.", "I said I would not walk alone at night.", "I was told to walk alone at night."], 0, "ない-form + よう に 言《い》われました = I was told not to."],
