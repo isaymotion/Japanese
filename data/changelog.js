@@ -3,6 +3,19 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.24.0', date: '2026-11-17', title: 'Picture words, signs and buttons, picture lessons',
+    items: [
+      { type: 'feature', text: 'Picture words (Practice → Pictures): 38 picture sets with 505 words, from N5 and N4. 23 labelled drawings (the body front and back, face, hand and arm, leg and foot, inside the body; the house, living room, kitchen, bathroom, bedroom; a street, a station, a hospital floor, position words; a dog and a bird; a car, a bicycle, a computer and phone; a meal tray; clothes; a landscape; a family tree) and 15 sets of picture cards (animals, vehicles, things on the ward, appliances, buildings, food and drink, colours, weather, seasons, feelings, the daily routine, the desk).' },
+      { type: 'feature', text: 'Four ways to practise each picture: Learn (tap a number or card to hear the word), Identify (read or hear the word, tap the right place), Label it (choose or type the word for the highlighted place) and Listen and point (378 recorded sentences: hear one, tap what it is about). Scores are on the Progress page.' },
+      { type: 'feature', text: 'Signs and buttons (Practice → Pictures): 120 real-style signs in seven groups (hospital, station, street, buildings, shops, toilets, the medicine bag), shown without furigana as on a real sign, with a quiz both ways; and ten machine panels (washing machine, air conditioner remote, toilet panel, ticket machine, cash machine, rice cooker, microwave, lift, vending machine, bed and nurse call) where you press the right control for each task.' },
+      { type: 'feature', text: 'Body map (Practice → Pictures, and from the Body pictures): the patient taps where it hurts on the front or back figure and the word is shown large in Japanese and English; eight questions about the pain and ten words for kinds of pain, all with sound. Nothing is saved. Prints as a one-page handout with a plain 0 to 10 number line.' },
+      { type: 'feature', text: 'Thirteen picture lessons in three new units, each with its pictures inside the lesson. N5: where things are (上, 下, 中, 前, 後ろ, 隣, 間); body words with 〜が 痛い; describing with 〜は 〜が; choosing the counter; colours and wearing verbs; giving directions; how to read signs. N4: machine instructions with 〜と and 〜方; describing how a room is (開いて います, 置いて あります); explaining with a diagram. A review ends each unit. 189 lessons in all.' },
+      { type: 'feature', text: 'Dictionary: 321 new words with an example sentence each (animals, things and machines, clothes, the house, the town, sign and button words), three new topics (Animals, Things and machines, Clothes) and ten new topic-matching sets (52 in all).' },
+      { type: 'feature', text: 'Print sheets: every picture set prints as a labelling sheet (numbered picture with blank lines, or filled in) with an answer key, on A4 or Letter.' },
+      { type: 'note', text: 'All Japanese in this version is a draft written and second-checked by AI, not yet reviewed by a native speaker. The drawings are simple line drawings made for this app; the picture cards use your device\'s own emoji, so they look a little different on each phone.' }
+    ]
+  },
+  {
     version: '0.23.0', date: '2026-11-17', title: 'More N5 and N4 grammar, unit reviews and six new drills',
     items: [
       { type: 'feature', text: 'More N5 grammar: ten new lessons in two units (N5 now has 38 lessons). Likes, amounts and frequency: liking, skill and understanding with が; how often and how much; だけ and しか; someone, no one, anything; まだ and もう. Linking and nuance: going somewhere to do something; rules and gentle ways to say no; adverbs from adjectives; linking words; ね and よ.' },

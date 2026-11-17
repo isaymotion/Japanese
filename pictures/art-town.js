@@ -38,6 +38,8 @@ window.PICTURE_ART['street'] = { vb: [400, 400], svg: '<g stroke="currentColor" 
   '<rect x="256" y="62" width="64" height="88" rx="3" fill="var(--surface)"/>' +
   '<rect x="270" y="72" width="36" height="24" rx="2" fill="currentColor" fill-opacity="0.12"/><path d="M270 73 L288 87 L306 73"/>' +
   '<rect x="280" y="122" width="16" height="28" rx="1"/><rect x="261" y="104" width="12" height="10" rx="1" stroke-width="2"/><rect x="303" y="104" width="12" height="10" rx="1" stroke-width="2"/>' +
+  /* a postbox in front of the post office */
+  '<path d="M302 154 L302 132 Q302 124 310 124 Q318 124 318 132 L318 154 Z" fill="var(--surface)"/><path d="M302 132 L318 132 M302 132 Q302 124 310 124 Q318 124 318 132 Z" fill="currentColor" fill-opacity="0.2"/><path d="M306 139 L314 139" stroke-width="2"/>' +
   /* school with a clock tower */
   '<rect x="330" y="62" width="62" height="88" rx="2" fill="var(--surface)"/><path d="M348 62 L348 36 L361 26 L374 36 L374 62" fill="var(--surface)"/>' +
   '<circle cx="361" cy="46" r="7"/><path d="M361 46 L361 41 M361 46 L365 48" stroke-width="1.5"/>' +
@@ -176,8 +178,8 @@ window.PICTURE_ART['hospital-floor'] = { vb: [420, 440], svg: '<g stroke="curren
   '<path d="M292 422 L292 410 M288 406 Q292 400 296 406 Q292 412 288 406 Z" stroke-width="1.5"/>' +
   '</g>' };
 
-/* positions: a shelf (cup, clock, book), a window with a bird outside, a table (cat on it, ball under it, chair next to it),
-   a box (apples in it, a dog behind it, a bag in front of it) */
+/* positions: a shelf (cup, clock, book), a window with a bird outside, a table (cat on it, ball under it), a small box next to
+   a big box (apples in it, a dog behind it, a bag in front of it) */
 window.PICTURE_ART['positions'] = { vb: [420, 400], svg: '<g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none">' +
   '<line x1="6" y1="355" x2="414" y2="355" stroke-width="2"/>' +
   /* shelf with a cup, a clock and a book */
@@ -198,9 +200,9 @@ window.PICTURE_ART['positions'] = { vb: [420, 400], svg: '<g stroke="currentColo
   '<path d="M86 175 L84 160 L95 170 M98 170 L108 160 L107 176" fill="var(--surface)"/><circle cx="96" cy="182" r="14" fill="var(--surface)"/>' +
   '<path d="M91 180 L91 182 M101 180 L101 182 M93 188 Q96 191 99 188" stroke-width="2"/>' +
   '<circle cx="95" cy="333" r="20" fill="currentColor" fill-opacity="0.15"/><path d="M76 326 C88 338 104 338 114 324 M84 315 C92 324 100 324 108 316" stroke-width="2"/>' +
-  /* chair next to the table */
-  '<rect x="180" y="288" width="48" height="8" rx="2" fill="currentColor" fill-opacity="0.15"/><rect x="220" y="232" width="8" height="56" rx="2"/>' +
-  '<path d="M185 296 L185 355 M223 296 L223 355"/>' +
+  /* a small closed box next to the big box (two boxes side by side) */
+  '<path d="M200 315 L210 305 L254 305 L244 315 Z" fill="currentColor" fill-opacity="0.2"/><rect x="200" y="315" width="44" height="40" fill="var(--surface)"/>' +
+  '<path d="M244 315 L254 305 L254 345 L244 355 Z" fill="currentColor" fill-opacity="0.1"/><path d="M222 315 L222 327 M217 310 L232 310" stroke-width="2"/>' +
   /* a dog behind the box: only its head shows above the box */
   '<path d="M342 250 L339 272 L373 272 L370 250" fill="var(--surface)" stroke="none"/><path d="M342 250 L339 272 M370 250 L373 272"/><circle cx="356" cy="236" r="17" fill="var(--surface)"/>' +
   '<path d="M343 225 C330 230 331 250 341 254 Z M369 225 C382 230 381 250 371 254 Z" fill="currentColor" fill-opacity="0.15"/>' +
