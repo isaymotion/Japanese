@@ -1,7 +1,8 @@
 """Audio pack: (1) with a stubbed manifest the recorded clip is played, by the right file name; (2) coverage:
 every Listen button on every page has a clip in tools/texts.json, except the conjugation tables on dictionary
 word pages (device voice by design). Expect "play checks 0 failed", "missing 0" and "errors []".
-usage (from the site folder, server on :8765): python3 ../devtools/qa/audio.py [-v]"""
+usage (from the site folder, server on :8765): python3 ../devtools/qa/audio.py [-v] [--quick]
+--quick (0.23.0): coverage only for the 0.23.0 drill pages and lessons with an `after` field, click-through only the drill pages."""
 import asyncio, json, sys
 from playwright.async_api import async_playwright
 TEXTS=json.load(open('tools/texts.json',encoding='utf-8'))
@@ -12,7 +13,7 @@ class A{constructor(src){this.src=src;window.__played.push(src);}play(){setTimeo
 window.Audio=A;window.__device=new Set();
 if(window.speechSynthesis){const s=window.speechSynthesis;s.speak=(u)=>{window.__spoken.push(u.text);if(!/^en/.test(u.lang))window.__device.add(u.text);setTimeout(()=>u.onend&&u.onend(),5);};s.cancel=()=>{};}})()"""
 async def main():
-    verbose='-v' in sys.argv
+    verbose='-v' in sys.argv; quick='--quick' in sys.argv
     async with async_playwright() as p:
         b=await p.chromium.launch()
         ctx=await b.new_context(viewport={'width':390,'height':844})
@@ -73,13 +74,15 @@ async def main():
         print('play checks',len(fails),'failed')
 
         # Coverage: every [data-say] on every page.
-        routes=await pg.evaluate("""(()=>{const r=['#/kana','#/kana?script=k','#/verbs','#/verbs?tab=adj','#/particles','#/particles?tab=guide','#/dict','#/kanji','#/kanji?tab=list','#/speak','#/reading','#/psych','#/psych/cases','#/psych/interp','#/psych/point','#/psych/listen','#/psych/mood','#/psych/sud','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/mse-sheet','#/psych/mcases','#/psych/dcases','#/flash','#/settings'];
+        # 0.23.0 drill pages
+        DRILLS=['#/build','#/cloze','#/cloze?tab=lessons','#/transform','#/test','#/pairs','#/pairs?tab=learn','#/pairs?tab=quiz','#/sounds','#/sounds?tab=learn','#/sounds?tab=quiz','#/vocab']
+        routes=DRILLS+await pg.evaluate("""(quick)=>{if(quick)return LESSONS.filter(l=>l.after).map(l=>'#/lessons/'+l.id);const r=['#/kana','#/kana?script=k','#/verbs','#/verbs?tab=adj','#/particles','#/particles?tab=guide','#/dict','#/kanji','#/kanji?tab=list','#/speak','#/reading','#/psych','#/psych/cases','#/psych/interp','#/psych/point','#/psych/listen','#/psych/mood','#/psych/sud','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/mse-sheet','#/psych/mcases','#/psych/dcases','#/flash','#/settings'];
           LESSONS.forEach(l=>r.push('#/lessons/'+l.id));READING.forEach(x=>r.push('#/reading/'+x.id));DIALOGUES.forEach(d=>r.push('#/speak/'+d.id));PSYCH_CASES.forEach(c=>r.push('#/speak/case-'+c.id,'#/psych/case/'+c.id));
           PSYCH_SECTIONS.forEach(s=>r.push('#/psych/s/'+s.id,'#/psych/point?s='+s.id));
           JA_VERBS.forEach((v,i)=>r.push('#/verbs/v/'+i));JA_ADJ.forEach((v,i)=>r.push('#/verbs/a/'+i));
           App.KANJI.forEach(x=>r.push('#/kanji/k/'+encodeURIComponent(x.k)));
           (window.PSYCH_MSE_CASES||[]).forEach(c=>r.push('#/psych/mcase/'+c.id));(window.PSYCH_DISCHARGE_CASES||[]).forEach(c=>r.push('#/psych/dcase/'+c.id));
-          return r})()""")
+          return r}""",quick)
         res=await pg.evaluate("""async(routes)=>{const miss={},seen=new Set();let buttons=0;
           for(const r of routes){location.hash=r;await new Promise(x=>setTimeout(x,90));
             document.querySelectorAll('#view details').forEach(d=>d.open=true);
@@ -94,6 +97,9 @@ async def main():
           t('phrases',PSYCH_SECTIONS.flatMap(s=>s.phrases.flatMap(p=>[p.f,p.c])));
           t('replies',PSYCH_ANSWERS.common.flatMap(g=>g.items.map(i=>i[3]||i[0])).concat(Object.values(PSYCH_ANSWERS.sections).flatMap(l=>l.map(i=>i[0]))));
           t('interp',PSYCH_INTERP.map(x=>x[0]));t('cases',PSYCH_CASES.flatMap(c=>c.steps.flatMap(s=>[s.line[0]].concat(s.choices.map(x=>x.tl)))));
+          t('lesson extras',Object.values(window.LESSON_EXTRA||{}).flatMap(x=>(x.more||[]).map(m=>m[0]).concat((x.mistakes||[]).map(m=>m[1]))));
+          t('grammar cloze',(window.GRAMMAR_CLOZE||[]).map(c=>App.fillBlank(c.s,c.a)));t('grammar transform',(window.GRAMMAR_TRANSFORM||[]).flatMap(x=>[].concat(x.from||[],x.to,x.alt||[])));
+          t('word pairs',(window.WORD_PAIRS||[]).flatMap(p=>[p.a,p.b].concat(p.type==='col'?[p.a+' '+p.b]:[])));t('sound words',((window.SOUND_WORDS||{}).items||[]).flatMap(x=>[x.w,x.ex]));
           t('practice',(window.PSYCH_MSE_CASES||[]).flatMap(c=>[c.cc&&c.cc.ans[0]].concat(Object.values(c.domains).flatMap(d=>Object.values(d.ans||{}).map(a=>a[0])))).concat((window.PSYCH_DISCHARGE_CASES||[]).flatMap(c=>Object.values(c.fields).flatMap(f=>Object.values(f.ans||{}).map(a=>a[0])))));
           return out})()""")
         missing=0
@@ -105,7 +111,7 @@ async def main():
         # clip, and nothing Japanese may reach the device voice.
         await pg.evaluate("window.__device.clear()")
         click={}
-        for r in ['#/psych/sud','#/psych/mood','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/point','#/psych/listen','#/psych/interp','#/kana?tab=drill','#/kanji?tab=drill','#/verbs','#/verbs?tab=adj','#/flash/lv-N5','#/psych/s/suicide','#/lessons/te-form','#/reading/jikoshoukai','#/speak/hajimemashite']+[x for x in routes if '/mcase/' in x or '/dcase/' in x or '/psych/case/' in x]:
+        for r in (DRILLS if quick else DRILLS+['#/psych/sud','#/psych/mood','#/psych/withdrawal','#/psych/deesc','#/psych/discharge','#/psych/point','#/psych/listen','#/psych/interp','#/kana?tab=drill','#/kanji?tab=drill','#/verbs','#/verbs?tab=adj','#/flash/lv-N5','#/psych/s/suicide','#/lessons/te-form','#/reading/jikoshoukai','#/speak/hajimemashite']+[x for x in routes if '/mcase/' in x or '/dcase/' in x or '/psych/case/' in x]):
             await pg.evaluate("h=>{location.hash=h}", r); await pg.wait_for_timeout(250)
             for i in range(140):
                 await pg.evaluate("""i=>{const bs=[...document.querySelectorAll('#view button, #view summary, #view .opt, #view .flashcard')].filter(b=>!b.disabled&&b.offsetParent&&!/Reset|Start over|Copy|new one|Print|Record|Erase|Export|Import/i.test(b.textContent)&&!b.dataset.pin&&!b.dataset.addcard);const b=bs[(i*7)%Math.max(1,bs.length)];if(b)b.click();

@@ -81,7 +81,11 @@ def run(p, name, vp, scheme):
         if i == 0: pg.screenshot(path=f'{OUT}/listen_dict_{name}.png')
         if mode in ('tiles', 'backspace', 'wrongtiles'):
             chars = list(ans)
-            if mode == 'wrongtiles': chars = chars[::-1] if len(set(chars)) > 1 else chars[:-1]
+            if mode == 'wrongtiles':
+                # an order that really spells something else (reversing a palindrome such as うたう spells the same word)
+                import itertools
+                alt = next((list(p) for p in itertools.islice(itertools.permutations(chars), 5000) if ''.join(p) != ans), None)
+                chars = alt if alt else chars[:-1]
             for c in chars:
                 pg.locator('.lp-tile:not([disabled])', has_text=c).first.click()
             if mode == 'backspace':
@@ -106,7 +110,7 @@ def run(p, name, vp, scheme):
     expect = [m not in ('wrong', 'wrongtiles') for m in modes]
     if [g[2] for g in got] != expect:
         # a word with one repeated character reversed is still right; flag only real mismatches
-        bad = [g for g, e in zip(got, expect) if g[2] != e and not (g[0] == 'wrongtiles' and len(set(g[1])) == 1)]
+        bad = [g for g, e in zip(got, expect) if g[2] != e and not (g[0] == 'wrongtiles' and len(g[1]) == 1)]
         if bad: errs.append(f'{name} dict mismatch {bad}')
     print(name, 'dict score', pg.locator('#lpbody h3').inner_text(), 'saved', pg.evaluate("App.state.done.listen2['dict:N5']"), 'mistakes', pg.evaluate("App.state.mistakes.length"))
     # romaji normaliser spot checks

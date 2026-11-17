@@ -1,0 +1,9 @@
+Writers' own doubts, by file (check these first):
+extra-1: desu "私 は 医者。" called blunt; no-mo-to wrong line "…です と 母 は…"; お母様 as a distractor; 何 か 飲みます か gloss; 一週間前 から 眠れません; 昨日 は 何時 に 寝ました か; counters 一日 で 三回 → 一日 に 三回; 身長 は 百六十 センチ です spacing.
+extra-2: wa-vs-ga mistake 3 (私 が ナバロ です); invitations mistake 2 (いいえ、 行きます needs context); i-adjectives quiz 3; wa-vs-ga quiz 2; particles-core quiz 6; 昼 は 食欲 が あります; 頭 は もう 痛くない です か; 会います and 呼びます not yet taught.
+extra-3: 要ります in kanji; te-kudasai mistake 2 (bare て request as a register error); 雨 は もう 降って いません; linking quiz 1 and 4; 検査 の 前 は 何 も 食べないで ください; ta-form-plain quiz 4 one answer only.
+extra-4: can mistakes 1 and 3 (眠られません, 集中されません); wanting quiz 2 distractor; comparing-changing quiz 4 distractor; 頭痛 が 少し 軽く なりました; thinking-saying examples (出ない そう です; 「誰 も 私 を わからない」); keigo examples (お呼び します spacing; 何 を なさって います か); when-if quiz 2.
+extra-5: the suicide-question mistake pair in interview-patterns (wrong: blunt 自殺 したい です か; right: 皆さん に お聞き して います が、 死にたい と 思う こと は あります か): check wording, tone and safety; どうして 眠れない か わかりません; いつ から 眠れて いません か; 落ち込んで いる の？; nominalizers mistake 3; noun-clauses mistake 1; mixed する-noun spacing.
+extra-6: te-iku-kuru-aru mistake 2 (出て いきました with 最近); 用意 して あります; quiz 2 (きます vs いきます); te-shimau-oku-miru quiz 5; yasui quiz 4 distractor; おいしいそう; 迎え に 来て くれました spacing.
+extra-7: volitional mistake 2 (通う と 思います); koto-ni-suru-naru mistake 3 and quiz 4; 結果 が 出た ところ です; 声 は どんな こと を しろ と 言います か (keep general, no content of commands); 頭 の 検査; 不安 を 忘れる ため に お酒 を 飲みます (make sure it is not presented as advice); デイケア.
+extra-8: 夫 に 毎晩 遅く 帰られて、 不安 に なります; restaurant smoking scene; 荷物 は 看護師 に 確認 されます; passive quiz 5 (potential vs honorific); 食べさされました; sonkeigo mistake 1 using 参る; 説明書 for a medicine leaflet; kenjougo mistake 3 (humble for your own director); concession 痛い でも. Causatives must never read as forcing a patient.

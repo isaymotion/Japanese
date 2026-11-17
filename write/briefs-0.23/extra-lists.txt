@@ -1,0 +1,9 @@
+56
+1 desu, no-mo-to, kosoado, question-words, numbers, time-dates, counters
+2 verbs-masu, particles-core, wa-vs-ga, arimasu-imasu, invitations, i-adjectives, na-adjectives
+3 verb-groups, te-form, te-kudasai, te-imasu, linking, nai-form, ta-form-plain
+4 wanting, reasons, thinking-saying, can, comparing-changing, when-if, keigo
+5 conversation-habits, distress-words, interview-patterns, interpreting, noun-clauses, nominalizers, embedded-questions
+6 yasui-nikui-sugiru, sou-you-mitai-rashii, probability, ageru-kureru-morau, te-ageru-kureru-morau, te-shimau-oku-miru, te-iku-kuru-aru
+7 transitive-intransitive, nagara-mama-tokoro-bakari, volitional, koto-ni-suru-naru, advice, commands, purpose
+8 concession, passive, passive-suffering, causative, causative-passive, sonkeigo, kenjougo

@@ -1,0 +1,27 @@
+/* QA fixture for js/pairs.js (not app data). */
+window.WORD_PAIRS = [
+  { id:'p-n5-001', lv:'N5', type:'opp', a:'大《おお》きい', ea:'big', b:'小《ちい》さい', eb:'small' },
+  { id:'p-n5-002', lv:'N5', type:'opp', a:'高《たか》い', ea:'expensive; high', b:'安《やす》い', eb:'cheap' },
+  { id:'p-n5-003', lv:'N5', type:'opp', a:'暑《あつ》い', ea:'hot (weather)', b:'寒《さむ》い', eb:'cold (weather)' },
+  { id:'p-n5-004', lv:'N5', type:'opp', a:'新《あたら》しい', ea:'new', b:'古《ふる》い', eb:'old' },
+  { id:'p-n5-005', lv:'N5', type:'opp', a:'早《はや》い', ea:'early', b:'遅《おそ》い', eb:'late' },
+  { id:'p-n5-006', lv:'N5', type:'opp', a:'多《おお》い', ea:'many', b:'少《すく》ない', eb:'few' },
+  { id:'p-n5-007', lv:'N5', type:'opp', a:'長《なが》い', ea:'long', b:'短《みじか》い', eb:'short' },
+  { id:'p-n5-041', lv:'N5', type:'col', a:'薬《くすり》 を', ea:'medicine', b:'飲《の》む', eb:'to take (medicine)', en:'to take medicine' },
+  { id:'p-n5-042', lv:'N5', type:'col', a:'熱《ねつ》 が', ea:'a fever', b:'ある', eb:'to have', en:'to have a fever' },
+  { id:'p-n5-043', lv:'N5', type:'col', a:'お風呂《ふろ》 に', ea:'the bath', b:'入《はい》る', eb:'to get in', en:'to take a bath' },
+  { id:'p-n5-044', lv:'N5', type:'col', a:'写真《しゃしん》 を', ea:'a photo', b:'撮《と》る', eb:'to take', en:'to take a photo' },
+  { id:'p-n5-045', lv:'N5', type:'col', a:'電話《でんわ》 を', ea:'a phone call', b:'かける', eb:'to make', en:'to make a phone call' },
+  { id:'p-n4-021', lv:'N4', type:'syn', a:'始《はじ》める', ea:'to begin (something)', b:'開始《かいし》する', eb:'to start (formal)', note:'開始する is formal and written; 始める is everyday.', l:'desu' },
+  { id:'p-n4-022', lv:'N4', type:'syn', a:'準備《じゅんび》', ea:'preparation', b:'用意《ようい》', eb:'getting ready', note:'用意 is more about having things ready; 準備 is broader.' },
+  { id:'p-n4-023', lv:'N4', type:'syn', a:'美《うつく》しい', ea:'beautiful', b:'きれい', eb:'pretty; clean', note:'美しい is more literary.' },
+  { id:'p-n4-024', lv:'N4', type:'syn', a:'答《こた》える', ea:'to answer', b:'返事《へんじ》 する', eb:'to reply', note:'返事 is a reply to a call or letter.' },
+  { id:'p-n4-001', lv:'N4', type:'opp', a:'増《ふ》える', ea:'to increase', b:'減《へ》る', eb:'to decrease' },
+  { id:'p-n4-002', lv:'N4', type:'opp', a:'勝《か》つ', ea:'to win', b:'負《ま》ける', eb:'to lose' },
+  { id:'p-n3-001', lv:'N3', type:'opp', a:'賛成《さんせい》', ea:'agreement', b:'反対《はんたい》', eb:'opposition' },
+  { id:'p-n3-002', lv:'N3', type:'opp', a:'成功《せいこう》', ea:'success', b:'失敗《しっぱい》', eb:'failure' },
+  { id:'p-n3-041', lv:'N3', type:'col', a:'診察《しんさつ》 を', ea:'an examination', b:'受《う》ける', eb:'to undergo', en:'to see a doctor' },
+  { id:'p-n2-001', lv:'N2', type:'opp', a:'拡大《かくだい》', ea:'expansion', b:'縮小《しゅくしょう》', eb:'reduction' },
+  { id:'p-n2-002', lv:'N2', type:'opp', a:'需要《じゅよう》', ea:'demand', b:'供給《きょうきゅう》', eb:'supply' },
+  { id:'p-n2-041', lv:'N2', type:'col', a:'症状《しょうじょう》 が', ea:'symptoms', b:'治《おさ》まる', eb:'to settle down', en:'the symptoms settle' }
+];
