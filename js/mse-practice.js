@@ -143,7 +143,7 @@
 
     const draw = () => {
       el.innerHTML = '<div class="breadcrumb"><a href="#/psych">Psychiatry</a> / <a href="#/psych/mcases">MSE practice</a> / ' + esc(C.title) + '</div><h1>' + esc(C.title) + '</h1>' +
-        '<div class="notice info">' + esc(C.setting) + '</div>' + chartCard() + nav() +
+        '<div class="notice info">' + esc(C.setting) + '</div>' + (App.listenCaseLink ? App.listenCaseLink('mse-' + C.id) : '') + chartCard() + nav() +
         '<div style="margin-top:12px">' + (cur === 0 ? ccView() : cur <= N ? domainView(F[cur - 1], cur - 1) : compareView()) + '</div>';
       bind();
     };

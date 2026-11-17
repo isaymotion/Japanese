@@ -130,6 +130,16 @@
     if (mode === 'en-ja') return { id: x.id, fb, wide: true, html: '<div class="muted small">Which sign means …</div><div class="sg-q">' + esc(x.en) + '</div>', opts: opts.map((y) => ({ h: board(y, 'sg-sm'), ok: y === x, x: y, lab: JA.speak(y.ja) })) };
     return { id: x.id, fb, html: '<div class="muted small">What does this sign mean?</div><div class="sg-qboard">' + board(x) + '</div>', opts: opts.map((y) => ({ h: esc(y.en), ok: y === x, x: y })) };
   }
+  // 0.25.0: questions for Today's practice (js/today.js, shared shape of App.drillRun): App.signsQs([sign ids]); sign → meaning,
+  // built by makeQ above; a right answer takes the sign off the mistakes.
+  App.signsQs = (ids) => {
+    const xs = signsAll(), known = new Set(groupsAll().map((g) => g.id)), gOf = (x) => (known.has(x.g) ? x.g : 'other');
+    return (Array.isArray(ids) ? ids : []).map((id) => xs.find((x) => x.id === id)).filter(Boolean).map((x) => {
+      const q = makeQ(x, 'ja-en', xs, gOf);
+      return q && Object.assign(q, { drill: 'signs', lv: x.lv, done: (ok) => noteMiss(x.id, ok) });
+    }).filter(Boolean);
+  };
+
   function quiz(box, gseg, c) {
     const st = S().settings;
     let n = st.signsN === 20 ? 20 : 10;

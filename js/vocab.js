@@ -197,6 +197,24 @@
     });
   }
 
+  // 0.25.0: Meaning questions for Today's practice (js/today.js, shared shape of App.drillRun): App.vocabQs([dictionary ids])
+  // (from My mistakes) or App.vocabQs(lv, n) (new words of one level). Options as in the Meaning mode (others() above).
+  // A right answer takes the word off My mistakes (state.mistakes); a wrong one puts it there (App.recordAnswer).
+  const drillQ = (e) => {
+    const pool = App.DICT.filter((x) => x.lv === e.lv && usable(x)), o = others(e, pool.length >= 8 ? pool : App.DICT);
+    if (o.length < 3) return null;
+    return { drill: 'vocab', id: e.id, lv: e.lv,
+      html: '<div class="muted small">What does this word mean?</div><div class="row vq-tw"><span class="tl vq-word">' + esc(e.tl) + '</span>' + App.sayBtn(e.tl, e.tl) + '</div>' + (App.POS[e.pos] ? '<div class="muted small">' + esc(App.POS[e.pos]) + '</div>' : ''),
+      opts: shuffle([e].concat(o)).map((x) => ({ h: esc(x.en), ok: x === e, x })),
+      fb: (ok, ch) => '<div class="row vq-tw"><span class="tl">' + esc(e.tl) + '</span>' + App.sayBtn(e.tl, e.tl) + '<span>= ' + esc(e.en) + '</span></div>' + (e.note ? '<div class="small muted">' + esc(e.note) + '</div>' : '') +
+        (!ok && ch ? '<div class="small muted">Your choice means the word <span class="tl">' + esc(ch.x.tl) + '</span>.</div>' : '') + '<div class="small"><a href="#/dict/' + esc(e.id) + '">Word page</a></div>',
+      done: (ok) => { App.recordAnswer(ok, e.id); if (ok) S().mistakes = (S().mistakes || []).filter((x) => x !== e.id); } };
+  };
+  App.vocabQs = (lv, n) => {
+    if (Array.isArray(lv)) return lv.map((id) => App.dictById[id]).filter(usable).map(drillQ).filter(Boolean);
+    return pick(App.DICT.filter((e) => usable(e) && (!lv || lv === 'all' || e.lv === lv)), n || 10).map(drillQ).filter(Boolean);
+  };
+
   function quiz(el) {
     const decks = deckList(), st = S().settings;
     let deck = decks.find((d) => d.id === st.vocabDeck) || decks.find((d) => d.id === 'lv-N5') || decks[0];

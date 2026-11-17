@@ -158,6 +158,9 @@ window.STRINGS = {
     'item.sounds': '擬音語《ぎおんご》・擬態語《ぎたいご》',
     'item.pictures': '絵《え》 で 覚《おぼ》える 言葉《ことば》',
     'item.signs': '看板《かんばん》 と ボタン',
+    'item.errors': '間違《まちが》い 探《さが》し',
+    'item.reply': '聞《き》いて 答《こた》える',
+    'item.today': '今日《きょう》 の 練習《れんしゅう》',
     'item.placement': 'レベル チェック テスト',
     'item.psych': '精神科《せいしんか》 の 日本語《にほんご》',
     'item.p-cases': '症例《しょうれい》 シミュレーション',
@@ -217,6 +220,7 @@ window.STRINGS = {
     'head.Clinical dialogues': '臨床《りんしょう》 の 会話《かいわ》',
     // 0.23.0: Practice page section and the lesson extras
     'head.Grammar drills': '文法《ぶんぽう》 ドリル',
+    'head.Listening': '聞《き》き取《と》り',
     'head.Common mistakes': 'よく ある 間違《まちが》い',
     'head.More examples': '追加《ついか》 の 例文《れいぶん》',
     'head.More practice': '追加《ついか》 の 練習《れんしゅう》',

@@ -88,7 +88,56 @@ function checkKanji(blocks, f) {
 // SIGN_PANELS are one file each (new globals). pictures/art-*.js hold no Japanese and are never read here.
 // DICT_RAW: each dictionary block is checked once, under the file that pushed it (before 0.24.0 every dictionary file
 // re-checked all earlier blocks, so the same few warnings were counted once per dictionary file).
-const SHARED = new Set(['LESSONS', 'LESSON_EXTRA', 'GRAMMAR_CLOZE', 'GRAMMAR_TRANSFORM', 'WORD_PAIRS', 'PICTURE_SETS', 'DICT_EX', 'TOPIC_SETS']);
+// 0.25.0: also GRAMMAR_ERRORS (grammar-errors-*.js) and LISTEN_REPLY (listen-reply-*.js), whose entries also get the shape
+// checks below (SHAPE), under the file that added them.
+const SHARED = new Set(['LESSONS', 'LESSON_EXTRA', 'GRAMMAR_CLOZE', 'GRAMMAR_TRANSFORM', 'WORD_PAIRS', 'PICTURE_SETS', 'DICT_EX', 'TOPIC_SETS', 'GRAMMAR_ERRORS', 'LISTEN_REPLY']);
+// Lesson ids for GRAMMAR_ERRORS `l`: from window.LESSONS when loaded, else read once from js/data/lessons-*.js in a side context.
+let lessonIds = null;
+const lessonSet = () => {
+  if (lessonIds) return lessonIds;
+  let L = ctx.LESSONS;
+  if (!Array.isArray(L) || !L.length) {
+    const side = { console: { log() {}, warn() {}, error() {} } }; side.window = side; side.globalThis = side; vm.createContext(side);
+    fs.readdirSync(path.join(rootDir, 'js/data')).filter((x) => /^lessons-.*\.js$/.test(x)).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })).forEach((x) => { try { vm.runInContext(fs.readFileSync(path.join(rootDir, 'js/data', x), 'utf8'), side); } catch (e) { /* skip */ } });
+    L = side.LESSONS || [];
+  }
+  lessonIds = new Set(L.map((l) => l && l.id));
+  return lessonIds;
+};
+const noRuby = (t) => String(t || '').replace(new RegExp(JA.RUBY_SRC, 'g'), (m, a, b) => (a || b || '').replace(/｜/g, '')).replace(/｜/g, '');
+const isStr = (x) => typeof x === 'string' && x.trim() !== '';
+const LV4 = /^(N5|N4|N3|N2)$/;
+const ERR_TYPES = /^(particle|verb-form|adj-form|tense|counter|pair|give-receive|keigo|connector|word-choice)$/;
+const SHAPE = {
+  GRAMMAR_ERRORS: (x, f) => {
+    const id = x && x.id, E = (m) => { errors++; console.log('ERROR ' + f + ' GRAMMAR_ERRORS ' + (id || '?') + ': ' + m); };
+    if (!x || typeof x !== 'object') return E('entry is not an object');
+    if (!isStr(id)) E('id missing');
+    if (!LV4.test(x.lv || '')) E('lv must be N5, N4, N3 or N2');
+    if (!ERR_TYPES.test(x.type || '')) E('unknown type "' + x.type + '"');
+    if (!isStr(x.bad) || !isStr(x.fix)) return E('bad and fix must be non-empty strings');
+    const n = x.bad.trim().split(/ +/).length;
+    if (!Number.isInteger(x.i) || x.i < 0 || x.i >= n) E('i = ' + x.i + ' is not a word index of bad (' + n + ' words)');
+    if (noRuby(x.bad).replace(/\s+/g, '') === noRuby(x.fix).replace(/\s+/g, '')) E('bad and fix are the same once furigana is removed');
+    if (x.l != null && !lessonSet().has(x.l)) E('l = "' + x.l + '" is not a lesson id');
+    if (!isStr(x.en)) E('en missing');
+    if (!isStr(x.why)) E('why missing');
+  },
+  LISTEN_REPLY: (x, f) => {
+    const id = x && x.id, E = (m) => { errors++; console.log('ERROR ' + f + ' LISTEN_REPLY ' + (id || '?') + ': ' + m); };
+    if (!x || typeof x !== 'object') return E('entry is not an object');
+    if (!isStr(id)) E('id missing');
+    if (!LV4.test(x.lv || '')) E('lv must be N5, N4, N3 or N2');
+    if (typeof x.clin !== 'boolean') E('clin must be true or false');
+    if (!isStr(x.say)) E('say missing');
+    if (!isStr(x.en)) E('en missing');
+    if (!Array.isArray(x.opts) || x.opts.length !== 4) return E('opts must have exactly 4 options');
+    x.opts.forEach((o, k) => { if (!o || !isStr(o.ja) || !isStr(o.en)) E('option ' + k + ' needs ja and en'); });
+    if (!Number.isInteger(x.a) || x.a < 0 || x.a > 3) E('a must be 0, 1, 2 or 3');
+    const plain = x.opts.map((o) => noRuby(o && o.ja).replace(/\s+/g, ''));
+    if (new Set(plain).size !== plain.length) E('two options are the same once furigana is removed');
+  }
+};
 let dictDone = 0;
 const sharedSeen = new WeakSet();
 function walkShared(n, v, f) {
@@ -96,6 +145,7 @@ function walkShared(n, v, f) {
   Object.keys(v).forEach((k) => {
     const x = v[k];
     if (x && typeof x === 'object') { if (sharedSeen.has(x)) return; sharedSeen.add(x); }
+    if (SHAPE[n] && Array.isArray(v)) SHAPE[n](x, f);
     walk(x, f + ':' + n + (Array.isArray(v) ? '[' + k + ']' : '.' + k), new Set());
   });
 }

@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.25.0', date: '2026-11-18', title: 'Today\'s practice, Find the mistake, Listen and reply, listening on every case',
+    items: [
+      { type: 'type', text: 'text' },
+      { type: 'type', text: 'text' },
+      { type: 'type', text: 'text' },
+      { type: 'type', text: 'text' },
+      { type: 'type', text: 'text' },
+      { type: 'type', text: 'text' }
+    ]
+  },
+  {
     version: '0.24.0', date: '2026-11-17', title: 'Picture words, signs and buttons, picture lessons',
     items: [
       { type: 'feature', text: 'Picture words (Practice → Pictures): 38 picture sets with 505 words, from N5 and N4. 23 labelled drawings (the body front and back, face, hand and arm, leg and foot, inside the body; the house, living room, kitchen, bathroom, bedroom; a street, a station, a hospital floor, position words; a dog and a bird; a car, a bicycle, a computer and phone; a meal tray; clothes; a landscape; a family tree) and 15 sets of picture cards (animals, vehicles, things on the ward, appliances, buildings, food and drink, colours, weather, seasons, feelings, the daily routine, the desk).' },

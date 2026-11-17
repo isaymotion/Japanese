@@ -204,6 +204,21 @@
     paint();
   }
 
+  // 0.25.0: quiz questions for Today's practice (js/today.js, shared shape of App.drillRun): App.pairsQs([pair ids]); the same
+  // question, options and feedback as the Quiz tab; a right answer takes the pair off the mistakes.
+  App.pairsQs = (ids) => {
+    const data = all();
+    return (Array.isArray(ids) ? ids : []).map((id) => data.find((p) => p.id === id)).filter(Boolean).map((p) => {
+      const o = others(p, data);
+      if (o.length < 3) return null;
+      return { drill: 'pairs', id: p.id, lv: p.lv,
+        html: '<div class="muted small">' + esc(ASK[p.type]) + '</div><div class="tl pr-q">' + esc(p.a) + '</div><div class="muted">' + esc(p.ea) + ' · ' + esc(TYPE_NAME[p.type]) + '</div>',
+        opts: shuffle([p.b].concat(o)).map((x) => ({ h: '<span class="tl">' + esc(x) + '</span>', ok: x === p.b, t: x })),
+        fb: (ok, ch) => pairLine(p) + '<div class="small">' + esc(reason(p)) + '</div>' + (!ok && ch ? '<div class="small muted">Your choice: <span class="tl">' + esc(ch.t) + '</span></div>' : '') + (p.l ? '<div>' + lessonLink(p) + '</div>' : ''),
+        done: (ok) => noteMiss(p.id, ok) };
+    }).filter(Boolean);
+  };
+
   /* ---------- A small multiple-choice runner (progress bar, feedback with speakers, keys 1-4 and Enter) ---------- */
   // qs: [{ id, html, opts: [{ h, ok }], fb(ok, chosenOpt) → html, play }]; opts.onAnswer(q, ok); opts.onDone(right, n) → buttons html; opts.bind(el).
   function drill(el, qs, o) {

@@ -23,7 +23,7 @@
     compareTitle: 'Your discharge vs the model',
     decision: { key: 'discharge', ask: 'From what you found, should the patient go home today?', yes: 'Discharge today', no: 'Defer discharge', yesSaid: 'discharge today', noSaid: 'defer discharge' },
     links: (C) => ((window.PSYCH_MSE_CASES || []).some((m) => m.id === C.id) ? '<a class="btn" href="#/psych/mcase/' + C.id + '">Admission MSE of this patient</a>' : '') + '<a class="btn" href="#/psych/discharge">Real discharge assessment</a>',
-    extra: () => '', speaker: () => 'Patient'
+    extra: () => '', speaker: () => 'Patient', listen: 'dis-'   // 0.25.0: listening questions key prefix (LISTEN_Q)
   };
 
   // Grade a set of picks against a case field. need: strings or arrays ("any one of").
@@ -152,7 +152,7 @@
 
     const draw = () => {
       el.innerHTML = '<div class="breadcrumb"><a href="#/psych">Psychiatry</a> / <a href="' + X.list + '">' + esc(X.listTitle) + '</a> / ' + esc(C.title) + '</div><h1>' + esc(C.title) + '</h1>' +
-        '<div class="notice info">' + esc(C.setting) + '</div>' + chartCard() + nav() +
+        '<div class="notice info">' + esc(C.setting) + '</div>' + (X.listen && App.listenCaseLink ? App.listenCaseLink(X.listen + C.id) : '') + chartCard() + nav() +
         '<div style="margin-top:12px">' + (cur < F.length ? fieldView(F[cur], cur) : compareView()) + '</div>';
       bind();
     };

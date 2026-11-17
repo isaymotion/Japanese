@@ -94,6 +94,16 @@
     if (kind === 'listen') return Object.assign(base, { play: x.w, html: '<div class="listen-q"><button class="btn primary" data-act="play" aria-label="Play again">' + icons.sound + ' Play again</button><span class="muted small">Listen, then choose the meaning.</span></div><div class="tl sw-q" data-qtext hidden>' + esc(x.w) + '</div>', opts: optsEn });
     return Object.assign(base, { html: '<div class="spread"><div class="muted small">What does this word mean?</div></div><div class="row"><span class="tl sw-q">' + esc(x.w) + '</span>' + App.sayBtn(x.w, x.w) + '</div>', opts: optsEn });
   }
+  // 0.25.0: questions for Today's practice (js/today.js, shared shape of App.drillRun): App.soundsQs([ids]); word → meaning
+  // or listen → meaning, built by makeQ above; a right answer takes the word off the mistakes.
+  App.soundsQs = (ids) => {
+    const xs = itemsAll(), known = new Set(groupsAll().map((g) => g.id)), gOf = (x) => (known.has(x.g) ? x.g : '_other');
+    return (Array.isArray(ids) ? ids : []).map((id) => xs.find((x) => x.id === id)).filter(Boolean).map((x, i) => {
+      const q = makeQ(x, i % 2 ? 'listen' : 'wm', xs, gOf);
+      return q && Object.assign(q, { drill: 'sounds', lv: x.lv, norj: !!q.play, done: (ok) => noteMiss(x.id, ok) });
+    }).filter(Boolean);
+  };
+
   function quiz(box, pool, c) {
     const st = S().settings;
     let n = st.soundsN === 20 ? 20 : 10;

@@ -283,6 +283,27 @@
     draw();
   }
 
+  // 0.25.0: Identify questions for Today's practice (js/today.js, shared shape of App.drillRun): App.picturesQs(['<set>:<part>', …]).
+  // The word is shown and spoken; tap its pin or card (sets whose picture is missing are skipped). A right answer takes the
+  // part off the mistakes.
+  const picturesQs = (keys) => (Array.isArray(keys) ? keys : []).map((key) => {
+    const at = String(key).indexOf(':'), s = at > 0 ? byId(String(key).slice(0, at)) : null;
+    const p = s && partsOf(s).find((x) => x.id === String(key).slice(at + 1));
+    if (!p || look(s) === 'list' || partsOf(s).length < 2) return null;
+    const lk = look(s);
+    return { drill: 'pictures', id: key, lv: p.lv || s.lv, play: p.w,
+      html: '<div class="pic-prow"><div class="pic-prompt" data-norj><span class="tl pic-big">' + esc(p.w) + '</span></div><button type="button" class="btn sm" data-act="play">Play again</button></div>' +
+        '<div class="muted small">' + esc(s.title || '') + ': tap the ' + (lk === 'svg' ? 'pin' : 'picture') + ' of this word.</div>' + pictureHtml(s, { quiz: true }),
+      mount: (card, answer) => bindPick(card, (pid) => answer(pid === p.id, pid, elOf(card, pid))),
+      reveal: (card, ok, ch) => { mark(card, p.id, 'good'); if (!ok) shake(elOf(card, ch)); },
+      fb: (ok, ch) => { const c = ch && ch !== p.id ? ps(s).find((x) => x.id === ch) : null;
+        return '<div class="row" style="gap:8px;align-items:flex-start">' + (lk === 'svg' ? '<span class="pic-num">' + numOf(s, p.id) + '</span>' : '<span class="pic-remo" aria-hidden="true">' + esc(p.pic) + '</span>') + wordCard(p) + '</div>' +
+          (c ? '<div class="small muted">You chose ' + (lk === 'svg' ? 'pin ' + numOf(s, c.id) + ': ' : '') + '<span class="tl">' + esc(c.w) + '</span> (' + esc(c.en || '') + ')</div>' : ''); },
+      done: (ok) => { noteMiss(key, ok); App.recordAnswer(ok); } };
+  }).filter(Boolean);
+  const ps = (s) => partsOf(s);
+  App.picturesQs = picturesQs;
+
   /* ---------- Pages ---------- */
   function listPage(el) {
     const st = S().settings, all = sets();

@@ -22,6 +22,25 @@
   const bestOf = (key) => { const v = store()[key]; return typeof v === 'number' ? v : null; };
   const pctPill = (v) => (v == null ? '' : '<span class="pill ' + (v >= 80 ? 'good' : '') + '">' + v + '%</span>');
 
+  // 0.25.0: questions for Today's practice (js/today.js, shared shape of App.drillRun). App.clozeQs([ids]) or App.clozeQs(lv, n);
+  // the same sentence, options, feedback and mistakes bookkeeping as a round here (newest first; a right answer takes the id off).
+  const noteMiss = (id, ok) => { const ms = misses(), at = ms.indexOf(id); if (at >= 0) ms.splice(at, 1); if (!ok) { ms.unshift(id); if (ms.length > MISS_MAX) ms.length = MISS_MAX; } };
+  const drillQ = (x) => {
+    const at = x.s.indexOf('＿'), before = x.s.slice(0, at).trim(), after = x.s.slice(at + 1).trim(), full = App.fillBlank(x.s, x.a), l = x.l ? lessonOf(x.l) : null;
+    return { drill: 'cloze', id: x.id, lv: x.lv,
+      html: '<div class="muted small">Choose the word that fills the blank.</div><div class="cz-sent tl" data-norj><span>' + esc(before) + '</span> <span class="cz-blank" aria-label="blank">＿＿</span> <span>' + esc(after) + '</span></div>',
+      opts: shuffle(x.opts.slice()).map((o) => ({ h: '<span class="tl">' + esc(o) + '</span>', ok: o === x.a, t: o })),
+      fb: (ok) => (ok ? '' : '<div>The answer is <span class="tl">' + esc(x.a) + '</span>.</div>') + '<div class="cz-full"><span class="tl">' + esc(full) + '</span>' + App.sayBtn(full, full) + '</div>' +
+        (x.en ? '<div>' + esc(x.en) + '</div>' : '') + (x.why ? '<div class="muted small">' + esc(x.why) + '</div>' : '') +
+        (l ? '<div class="small"><a href="#/lessons/' + encodeURIComponent(l.id) + '">Lesson: ' + esc(l.title) + '</a></div>' : ''),
+      done: (ok) => noteMiss(x.id, ok) };
+  };
+  App.clozeQs = (lv, n) => {
+    const all = items();
+    if (Array.isArray(lv)) return lv.map((id) => all.find((x) => x.id === id)).filter(Boolean).map(drillQ);
+    return App.pick(all.filter((x) => !lv || lv === 'all' || x.lv === lv), n || 10).map(drillQ);
+  };
+
   App.lessonLinks = App.lessonLinks || [];
   App.lessonLinks.push((l) => (l && items().some((x) => x.l === l.id) ? '<a class="btn" href="#/cloze?l=' + encodeURIComponent(l.id) + '">' + icons.pen + ' Practise this grammar</a>' : ''));
 

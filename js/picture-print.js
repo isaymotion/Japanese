@@ -132,7 +132,9 @@
         '<span class="small muted">' + (o.key ? '2 pages' : '1 page') + '</span></div></div>' +
         '<div class="' + paperClass(o) + '" id="ppPaper" data-norj>' + paperHtml(set, o) + '</div>';
     };
-    el.onclick = (e) => {
+    // el may be the shared #view: once this sheet's markup has left the page the handler removes itself (0.25.0).
+    const onSheet = (e) => {
+      if (!el.querySelector('#ppPaper')) { if (el.onclick === onSheet) el.onclick = null; return; }
       const b = e.target.closest('[data-pp-set]');
       if (b && el.contains(b)) {
         const k = b.dataset.ppSet, v = b.dataset.v;
@@ -141,6 +143,7 @@
       }
       if (e.target.closest('#ppPrint')) printNow(o.paper, '12mm');
     };
+    el.onclick = onSheet;
     draw();
   };
 
@@ -202,7 +205,10 @@
       const s = getSet(pick.set), p = s && partsOf(s).find((x) => x.id === pick.part);
       if (p) App.speak(p.w);
     };
-    el.onclick = (e) => {
+    // el is the shared #view: each handler removes itself once the body map's markup has left the page (0.25.0).
+    const mine = () => !!el.querySelector('#ppBmShow');
+    const onClick = (e) => {
+      if (!mine()) { if (el.onclick === onClick) el.onclick = null; if (el.onkeydown === onKey) el.onkeydown = null; return; }
       const g = e.target.closest('[data-pp-part]');
       if (g && el.contains(g)) { choose(g); return; }
       const w = e.target.closest('[data-pp-word]');
@@ -211,10 +217,12 @@
       if (b) { o.paper = b.dataset.v; keep(o); draw(); return; }
       if (e.target.closest('#ppBmPrint')) printNow(o.paper, '10mm');
     };
-    el.onkeydown = (e) => {
+    const onKey = (e) => {
+      if (!mine()) { if (el.onkeydown === onKey) el.onkeydown = null; if (el.onclick === onClick) el.onclick = null; return; }
       const g = e.target.closest && e.target.closest('[data-pp-part]');
       if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); choose(g); const f = el.querySelector('[data-pp-part="' + g.dataset.ppPart + '"]'); if (f) f.focus(); }
     };
+    el.onclick = onClick; el.onkeydown = onKey;
     draw();
   };
 

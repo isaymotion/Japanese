@@ -95,6 +95,8 @@
         tile('#/kana', 'Kana trainer', kanaKnown ? kanaKnown + ' kana learned' : 'Learn hiragana', 'Tap a kana to hear it, then drill a row at a time.') +
         tile('#/settings', 'Reading aids', 'Furigana, romaji, spacing', 'Switch each one off as you stop needing it.') + '</div>' : '') +
       '<h2 style="margin-top:22px">Today</h2><div class="grid">' +
+      (V.today ? (() => { const tb = App.todayBest ? App.todayBest() : null, tm = App.todayMistakes ? App.todayMistakes() : 0;   // 0.25.0
+        return tile('#/today', tb != null ? 'Done today: ' + tb + '%' : 'Daily round', "Today's practice", tm ? tm + ' mistake' + (tm === 1 ? '' : 's') + ' waiting in the drills; 12 questions, mistakes first.' : '12 mixed questions at your level; your mistakes come first once you have some.'); })() : '') +
       (due ? tile('#/flash/due', 'Review', due + ' cards due', 'Spaced repetition keeps words fresh.') : tile('#/flash', 'Flashcards', 'Start a deck', 'Vocabulary and psychiatry phrases.')) +
       (qd ? tile(qd[0], 'Quick practice', qd[1], qd[2]) : '') +
       (nextLesson ? tile('#/lessons/' + nextLesson.id, 'Next lesson · ' + esc(nextLesson.level), esc(nextLesson.title), esc(nextLesson.summary)) : '') +
@@ -576,6 +578,18 @@
         else if (c[0] === 'panel' && c.length >= 2) rows.push(['Panel: ' + pT(c.slice(1).join(':')), num(st[k])]);
       });
       out.push(block('Signs and buttons', '#/signs', 'Open', rows.length ? tbl(['Quiz or panel', 'Best'], rows.map((r) => [esc(r[0]), pctPill(r[1])])) : ''));
+    }
+    // 0.25.0: done.errors['<lv>' | 'all'], done.reply['<everyday|clinical|all>:<lv|all>'], done.today['YYYY-MM-DD'] = best %.
+    oneCol('Find the mistake', 'errors', '#/errors', 'Level', lvName);
+    {
+      const st = store('reply'), KN = { everyday: 'Everyday', clinical: 'Clinical', all: 'All' }, rows = {};
+      Object.keys(st).forEach((k) => { if (num(st[k]) == null) return; const c = k.split(':'); if (c.length !== 2 || !KN[c[0]]) return; (rows[c[1]] = rows[c[1]] || {})[c[0]] = num(st[k]); });
+      const xs = Object.keys(rows).sort(lvSort);
+      out.push(block('Listen and reply', '#/reply', 'Open', xs.length ? tbl(['Level'].concat(Object.values(KN)), xs.map((x) => [esc(lvName(x))].concat(Object.keys(KN).map((m) => pctPill(rows[x][m]))))) : ''));
+    }
+    {
+      const st = store('today'), ds = Object.keys(st).filter((k) => /^\d{4}-\d{2}-\d{2}$/.test(k) && num(st[k]) != null).sort().reverse();
+      out.push(block("Today's practice", '#/today', 'Open', ds.length ? bar('Days done in the last 90', ds.length, 90, 'average ' + avg(ds.map((d) => st[d])) + '%') + tbl(['Day', 'Best'], ds.slice(0, 7).map((d) => [esc(d), pctPill(st[d])])) : ''));
     }
     // Case simulations, admission MSE, discharge practice: done[store][id] = best %
     [['Case simulations', 'cases', window.PSYCH_CASES, '#/psych/cases'], ['Admission MSE practice', 'mcases', window.PSYCH_MSE_CASES, '#/psych/mcases'], ['Discharge practice', 'dcases', window.PSYCH_DISCHARGE_CASES, '#/psych/dcases'], ['End-of-treatment review', 'ecases', window.PSYCH_EOT_CASES, '#/psych/eot']].forEach(([t, key, list, href]) => {

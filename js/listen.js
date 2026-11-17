@@ -4,7 +4,8 @@
    pairs           sound pairs (window.SOUND_PAIRS): hear one of two near-identical words and choose which
    story           questions on whole dialogues, readings and case simulations (window.LISTEN_Q keyed by DIALOGUES / READING id,
                    or 'case-<case id>' from js/data/listen-questions-2.js, 0.18.0: the best-path dialogue of App.caseDialogue;
-                   0.20.0: 'mse-<id>' (App.mseDialogue) and 'dis-<id>' (App.dischargeDialogue) from js/data/listen-questions-3.js; ?id=)
+                   0.20.0: 'mse-<id>' (App.mseDialogue) and 'dis-<id>' (App.dischargeDialogue) from js/data/listen-questions-3.js;
+                   0.25.0: 'eot-<id>' (App.eotDialogue, end-of-treatment reviews) from js/data/listen-questions-6.js; ?id=)
    Level (Starter, N5, N4, N3, N2) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
    Modelled on V.psychListen (js/point-listen.js). */
 (function () {
@@ -295,6 +296,13 @@
     ((window.PSYCH_DISCHARGE || {}).fields || []).forEach((f) => { const cf = (c.fields || {})[f.id]; if (cf && f.kind !== 'sign') qaLines(lines, f.refs || f.ask || [], cf.ans, who); });
     return { id: 'dis-' + c.id, level: c.level, title: c.title, roles: ['Doctor', who], you: 0, lines, setting: c.setting };
   };
+  // 0.25.0: an end-of-treatment review case (PSYCH_EOT form + PSYCH_EOT_CASES), keyed 'eot-<id>', built like a discharge case.
+  App.eotDialogue = (c) => {
+    const m = (window.PSYCH_MSE_CASES || []).find((x) => x.id === c.id);
+    const who = c.speaker || patientName(m) || 'Patient', lines = [];
+    ((window.PSYCH_EOT || {}).fields || []).forEach((f) => { const cf = (c.fields || {})[f.id]; if (cf && f.kind !== 'sign') qaLines(lines, f.refs || f.ask || [], cf.ans, who); });
+    return { id: 'eot-' + c.id, level: c.level, title: c.title, roles: ['Doctor', who], you: 0, lines, setting: c.setting };
+  };
   const storyItems = () => {
     const out = [];
     (window.DIALOGUES || []).forEach((d) => { if ((LQ()[d.id] || []).length) out.push({ kind: 'd', id: d.id, level: d.level, title: d.title, sub: '', obj: d }); });
@@ -302,19 +310,23 @@
     (window.PSYCH_CASES || []).forEach((c) => { const id = 'case-' + c.id; if ((LQ()[id] || []).length && App.caseDialogue) out.push({ kind: 'c', id, caseId: c.id, level: c.level, title: c.title, sub: '', nurse: c.role === 'nurse', obj: App.caseDialogue(c) }); });
     (window.PSYCH_MSE_CASES || []).forEach((c) => { const id = 'mse-' + c.id; if ((LQ()[id] || []).length) out.push({ kind: 'm', id, caseId: c.id, level: c.level, title: c.title, sub: c.dx || '', obj: App.mseDialogue(c) }); });
     (window.PSYCH_DISCHARGE_CASES || []).forEach((c) => { const id = 'dis-' + c.id; if ((LQ()[id] || []).length) out.push({ kind: 'x', id, caseId: c.id, level: c.level, title: c.title, sub: c.dx || '', obj: App.dischargeDialogue(c) }); });
+    (window.PSYCH_EOT_CASES || []).forEach((c) => { const id = 'eot-' + c.id; if ((LQ()[id] || []).length) out.push({ kind: 'e', id, caseId: c.id, level: c.level, title: c.title, sub: c.dx || '', obj: App.eotDialogue(c) }); });
     return out;
   };
   App.listenStoryIds = () => storyItems().map((x) => x.id);   // for the Progress page
+  // 0.25.0: a link from a practice case page (admission MSE 'mse-', discharge 'dis-', end of treatment 'eot-') to its
+  // listening questions, or '' when the case has none.
+  App.listenCaseLink = (key) => ((LQ()[key] || []).length ? '<div class="row lp-caselink"><a class="btn sm" href="#/listen?tab=story&id=' + encodeURIComponent(key) + '">' + icons.sound + ' Listening questions on this interview</a></div>' : '');
   const drawStoryList = (box) => {
     const items = storyItems();
     if (!items.length) { box.innerHTML = '<div class="notice">The listening questions are not written yet.</div>'; return; }
     const tile = (x) => {
       const b = bestOf('story:' + x.id);
-      return '<a class="tile" href="#/listen?tab=story&id=' + encodeURIComponent(x.id) + '"><div class="row"><span class="pill lv">' + esc(x.level) + '</span>' + (x.kind === 'c' || x.kind === 'm' || x.kind === 'x' ? '<span class="pill warn">clinical</span>' + (x.nurse ? '<span class="pill">nurse</span>' : '') : '') + (b != null ? '<span class="pill good">' + b + '%</span>' : '') + '</div>' +
+      return '<a class="tile" href="#/listen?tab=story&id=' + encodeURIComponent(x.id) + '"><div class="row"><span class="pill lv">' + esc(x.level) + '</span>' + (x.kind === 'c' || x.kind === 'm' || x.kind === 'x' || x.kind === 'e' ? '<span class="pill warn">clinical</span>' + (x.nurse ? '<span class="pill">nurse</span>' : '') : '') + (b != null ? '<span class="pill good">' + b + '%</span>' : '') + '</div>' +
         '<h3 style="margin-top:6px"' + (x.kind === 'r' ? ' class="tl"' : '') + '>' + esc(x.title) + '</h3><p>' + (x.sub ? esc(x.sub) + ' · ' : '') + LQ()[x.id].length + ' questions</p></a>';
     };
     const group = (k, title) => { const g = items.filter((x) => x.kind === k); return g.length ? '<h2 style="margin-top:14px">' + title + '</h2><div class="grid">' + g.map(tile).join('') + '</div>' : ''; };
-    box.innerHTML = group('d', 'Dialogues') + group('r', 'Readings') + group('c', 'Case simulations') + group('m', 'First-visit and admission MSE cases') + group('x', 'Discharge cases');
+    box.innerHTML = group('d', 'Dialogues') + group('r', 'Readings') + group('c', 'Case simulations') + group('m', 'First-visit and admission MSE cases') + group('x', 'Discharge cases') + group('e', 'End-of-treatment reviews');
   };
   const drawStory = (box, id) => {
     const x = storyItems().find((s) => s.id === id);
@@ -323,9 +335,9 @@
     const lines = dl
       ? x.obj.lines.map((l) => ({ who: l[4] || (x.obj.roles || [])[l[0]] || '', ja: l[1], en: l[2] }))
       : x.obj.tl.map((t, k) => ({ who: '', ja: t, en: (x.obj.en || [])[k] || '' }));
-    const back = x.kind === 'c' ? ['#/psych/case/' + x.caseId, 'Open the case'] : x.kind === 'm' ? ['#/psych/mcase/' + x.caseId, 'Open the MSE case'] : x.kind === 'x' ? ['#/psych/dcase/' + x.caseId, 'Open the discharge case'] : x.kind === 'd' ? ['#/speak/' + x.id, 'Open the dialogue'] : ['#/reading/' + x.id, 'Open the reading'];
+    const back = x.kind === 'c' ? ['#/psych/case/' + x.caseId, 'Open the case'] : x.kind === 'm' ? ['#/psych/mcase/' + x.caseId, 'Open the MSE case'] : x.kind === 'x' ? ['#/psych/dcase/' + x.caseId, 'Open the discharge case'] : x.kind === 'e' ? ['#/psych/ecase/' + x.caseId, 'Open the end-of-treatment case'] : x.kind === 'd' ? ['#/speak/' + x.id, 'Open the dialogue'] : ['#/reading/' + x.id, 'Open the reading'];
     let shown = false;
-    box.innerHTML = '<div class="row"><span class="pill lv">' + esc(x.level) + '</span><span class="muted small">' + (x.kind === 'c' ? 'Case simulation' + (x.nurse ? ' · you are the ward nurse' : '') : x.kind === 'm' ? 'First-visit / admission MSE case · you are the doctor' : x.kind === 'x' ? 'Discharge case · you are the doctor' : x.kind === 'd' ? 'Dialogue' : 'Reading') + '</span></div>' +
+    box.innerHTML = '<div class="row"><span class="pill lv">' + esc(x.level) + '</span><span class="muted small">' + (x.kind === 'c' ? 'Case simulation' + (x.nurse ? ' · you are the ward nurse' : '') : x.kind === 'm' ? 'First-visit / admission MSE case · you are the doctor' : x.kind === 'x' ? 'Discharge case · you are the doctor' : x.kind === 'e' ? 'End-of-treatment review · you are the doctor' : x.kind === 'd' ? 'Dialogue' : 'Reading') + '</span></div>' +
       '<h2 style="margin-top:6px"' + (x.kind === 'r' ? ' class="tl"' : '') + '>' + esc(x.title) + '</h2>' + (x.sub ? '<p class="muted">' + esc(x.sub) + '</p>' : '') +
       '<div class="row lp-ctl"><button class="btn primary" id="lpall">' + icons.sound + ' Play all</button><button class="btn" id="lpstop">Stop</button><button class="btn" id="lpshow" aria-expanded="false">Show the text</button><span class="muted small" id="lpstat" aria-live="polite"></span></div>' +
       '<div id="lptext" hidden></div><h2 style="margin-top:16px">Questions</h2><div id="lpq"></div>' +

@@ -96,6 +96,10 @@ from('picture words', () => arr(ctx.PICTURE_SETS).forEach((s) => { if (!s) retur
 from('signs', () => arr((ctx.SIGNS || {}).signs).forEach((x) => x && add(x.ja)));
 from('machine panels', () => arr(ctx.SIGN_PANELS).forEach((p) => p && arr(p.rows).forEach((r) => arr(r).forEach((c) => c && add(c.ja)))));
 from('body map', () => { const B = ctx.PICTURE_BODYMAP || {}; arr(B.ask).concat(arr(B.words)).forEach((x) => x && add(x.ja)); });
+// 0.25.0: Find the mistake (only the corrected sentence `fix`: the wrong sentence `bad` is never spoken or recorded) and
+// Listen and reply (what is said, `say`, and every reply option, each of which has its own speaker).
+from('find the mistake', () => arr(ctx.GRAMMAR_ERRORS).forEach((x) => x && add(x.fix)));
+from('listen and reply', () => arr(ctx.LISTEN_REPLY).forEach((x) => { if (!x) return; add(x.say); arr(x.opts).forEach((o) => o && add(o.ja)); }));
 
 /* ---------- Psychiatry ---------- */
 from('interview phrases', () => (ctx.PSYCH_SECTIONS || []).forEach((s) => s.phrases.forEach((p) => { add(p.f); add(p.c); (p.answers || []).forEach((a) => add(a[0])); })));
@@ -105,6 +109,8 @@ from('case simulations', () => (ctx.PSYCH_CASES || []).forEach((c) => c.steps.fo
 from('interpretation drill', () => (ctx.PSYCH_INTERP || []).forEach((x) => add(x[0])));
 from('practice cases', () => {
   (ctx.PSYCH_DISCHARGE_CASES || []).forEach((c) => Object.values(c.fields).forEach((f) => Object.values(f.ans || {}).forEach((a) => add(a[0]))));
+  // 0.25.0: end-of-treatment review answers (spoken on the case page and in the eot-<id> listening story)
+  (ctx.PSYCH_EOT_CASES || []).forEach((c) => Object.values(c.fields || {}).forEach((f) => Object.values((f && f.ans) || {}).forEach((a) => Array.isArray(a) && add(a[0]))));
   (ctx.PSYCH_MSE_CASES || []).forEach((c) => { if (c.cc) add(c.cc.ans[0]); Object.values(c.domains).forEach((d) => Object.values(d.ans || {}).forEach((a) => add(a[0]))); });
   // The default answer of a simulated patient is a constant in each practice module.
   ['js/mse-practice.js', 'js/discharge-practice.js'].forEach((f) => { const m = read(f).match(/DEFAULT_ANS = \['([^']+)'/); if (m) add(m[1]); });

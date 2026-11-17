@@ -31,7 +31,7 @@
     decision: { key: 'end', ask: 'Can regular sessions end today?', yes: 'End regular sessions', no: 'Continue treatment', yesSaid: 'end regular sessions', noSaid: 'continue treatment' },
     links: (C) => (mseOf(C) ? '<a class="btn" href="#/psych/mcase/' + C.id + '">Compare with the first-visit MSE</a>' : '') +
       ((window.PSYCH_SECTIONS || []).some((s) => s.id === 'eot') ? '<a class="btn" href="#/psych/s/eot">Questions for the review</a>' : ''),
-    extra: firstVisit, speaker
+    extra: firstVisit, speaker, listen: 'eot-'   // 0.25.0: listening questions key prefix (LISTEN_Q)
   };
   V.eotCases = (el) => App.formCases(el, EOT);
   V.eotCase = (el, params) => App.formCase(el, params, EOT);

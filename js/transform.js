@@ -89,6 +89,21 @@
   const lessonLink = (x) => { const l = x.l && (window.LESSONS || []).find((y) => y.id === x.l); return l ? '<a class="small" href="#/lessons/' + esc(l.id) + '">Lesson: ' + esc(l.title) + '</a>' : ''; };
   const fromHtml = (x) => (Array.isArray(x.from) ? x.from : [x.from]).map((s) => '<div class="tr-from"><span class="tl">' + esc(s) + '</span> ' + App.sayBtn(s) + '</div>').join('');
 
+  // 0.25.0: Choose questions for Today's practice (js/today.js, shared shape of App.drillRun): App.transformQs([ids]) or
+  // App.transformQs(lv, n). Same instruction, options and feedback as a Choose round here; wrong sentences are never spoken.
+  const drillQ = (x) => ({ drill: 'transform', id: x.id, lv: x.lv, norj: true,
+    html: '<div class="tr-instr">' + esc(x.instr) + '</div><div class="tr-froms">' + fromHtml(x) + '</div>',
+    opts: shuffle([x.to].concat(x.wrong.filter(isStr).slice(0, 3))).map((o) => ({ h: '<span class="tl">' + esc(o) + '</span>', ok: o === x.to })),
+    fb: () => { const others = alts(x).slice(1); return '<div class="tr-to"><span class="tl">' + esc(x.to) + '</span> ' + App.sayBtn(x.to) + '</div>' +
+      (others.length ? '<div class="small"><span class="muted">Also right:</span> ' + others.map((t) => '<span class="tl">' + esc(t) + '</span> ' + App.sayBtn(t)).join(' ') + '</div>' : '') +
+      (isStr(x.en) ? '<div>' + esc(x.en) + '</div>' : '') + lessonLink(x); },
+    done: (ok) => (ok ? dropMiss(x.id) : addMiss(x.id)) });
+  App.transformQs = (lv, n) => {
+    const all = items().filter(canChoose);
+    if (Array.isArray(lv)) return lv.map((id) => all.find((x) => x.id === id)).filter(Boolean).map(drillQ);
+    return pick(all.filter((x) => !lv || lv === 'all' || x.lv === lv), n || 10).map(drillQ);
+  };
+
   V.transform = (el) => {
     const st = S().settings;
     const mode = () => (MODES.some((m) => m[0] === st.transformMode) ? st.transformMode : 'choose');
