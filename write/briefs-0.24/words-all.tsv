@@ -1,0 +1,273 @@
+へそ	navel, belly button	N3	pic:body/body-front	
+太《ふと》もも	thigh	N3	pic:body/body-front	
+ふくらはぎ	calf	N3	pic:body/body-back	
+かかと	heel	N3	pic:body/body-back	
+頬《ほお》	cheek	N3	pic:body/face	
+あご	chin, jaw	N3	pic:body/face	
+親指《おやゆび》	thumb	N4	pic:body/hand-arm	
+人差《ひとさ》し指《ゆび》	index finger	N4	pic:body/hand-arm	
+中指《なかゆび》	middle finger	N4	pic:body/hand-arm	
+薬指《くすりゆび》	ring finger	N4	pic:body/hand-arm	
+小指《こゆび》	little finger	N4	pic:body/hand-arm	
+ベランダ	balcony	N3	pic:home/house-outside	
+ポスト	mailbox	N5	pic:home/house-outside	
+エアコン	air conditioner	N4	pic:home/living-room	
+カーテン	curtain	N4	pic:home/living-room	
+本棚《ほんだな》	bookshelf	N4	pic:home/living-room	
+ソファー	sofa	N4	pic:home/living-room	
+流《なが》し	kitchen sink	N4	pic:home/kitchen	
+包丁《ほうちょう》	kitchen knife	N3	pic:home/kitchen	
+フライパン	frying pan	N4	pic:home/kitchen	
+コンロ	cooker, stove	N3	pic:home/kitchen	
+洗面台《せんめんだい》	washbasin	N3	pic:home/bathroom	
+体重計《たいじゅうけい》	bathroom scales	N3	pic:home/bathroom	
+シャワー	shower	N4	pic:home/bathroom	
+シャンプー	shampoo	N4	pic:home/bathroom	
+トイレットペーパー	toilet paper	N4	pic:home/bathroom	
+電気《でんき》スタンド	lamp, desk lamp	N4	pic:home/bedroom	
+目覚《めざ》まし時計《どけい》	alarm clock	N4	pic:home/bedroom	
+スリッパ	slippers	N4	pic:home/bedroom	
+ラジオ	radio	N5	pic:home/appliances	
+プリンター	printer	N4	pic:home/appliances	
+ファックス	fax machine	N4	pic:home/appliances	
+携帯電話《けいたいでんわ》	mobile phone	N4	pic:home/appliances	
+カメラ	camera	N5	pic:home/appliances	
+ヘッドホン	headphones	N4	pic:home/appliances	
+電球《でんきゅう》	light bulb	N3	pic:home/appliances	
+懐中電灯《かいちゅうでんとう》	torch, flashlight	N3	pic:home/appliances	
+ゲーム	video game	N4	pic:home/appliances	
+ベンチ	bench	N4	pic:town/station	
+会計《かいけい》	cashier (where you pay)	N3	pic:town/hospital-floor	
+ナースステーション	nurses' station	N4	pic:town/hospital-floor	
+うさぎ	rabbit	N4	pic:animals/pets-farm	
+ハムスター	hamster	N4	pic:animals/pets-farm	
+ねずみ	mouse, rat	N4	pic:animals/pets-farm	
+亀《かめ》	turtle, tortoise	N3	pic:animals/pets-farm	
+豚《ぶた》	pig	N4	pic:animals/pets-farm	
+鶏《にわとり》	chicken	N4	pic:animals/pets-farm	
+羊《ひつじ》	sheep	N3	pic:animals/pets-farm	
+ヤギ	goat	N3	pic:animals/pets-farm	
+ライオン	lion	N4	pic:animals/zoo	
+トラ	tiger	N4	pic:animals/zoo	
+キリン	giraffe	N4	pic:animals/zoo	
+パンダ	panda	N4	pic:animals/zoo	
+猿《さる》	monkey	N4	pic:animals/zoo	KANA-MATCH
+ゴリラ	gorilla	N4	pic:animals/zoo	
+熊《くま》	bear	N4	pic:animals/zoo	
+シマウマ	zebra	N3	pic:animals/zoo	
+カバ	hippopotamus	N3	pic:animals/zoo	
+ワニ	crocodile	N3	pic:animals/zoo	
+ヘビ	snake	N4	pic:animals/zoo	
+コアラ	koala	N4	pic:animals/zoo	
+カンガルー	kangaroo	N4	pic:animals/zoo	
+ペンギン	penguin	N4	pic:animals/birds-insects-sea	
+フクロウ	owl	N3	pic:animals/birds-insects-sea	
+チョウ	butterfly	N4	pic:animals/birds-insects-sea	
+ハチ	bee	N4	pic:animals/birds-insects-sea	
+アリ	ant	N4	pic:animals/birds-insects-sea	
+蚊《か》	mosquito	N4	pic:animals/birds-insects-sea	KANA-MATCH
+クモ	spider	N4	pic:animals/birds-insects-sea	
+イルカ	dolphin	N4	pic:animals/birds-insects-sea	
+クジラ	whale	N3	pic:animals/birds-insects-sea	
+サメ	shark	N3	pic:animals/birds-insects-sea	
+タコ	octopus	N4	pic:animals/birds-insects-sea	
+カニ	crab	N4	pic:animals/birds-insects-sea	
+エビ	shrimp, prawn	N4	pic:animals/birds-insects-sea	
+しっぽ	tail	N3	pic:animals/animal-parts	
+くちばし	beak	N3	pic:animals/animal-parts	
+タイヤ	tyre	N4	pic:machines/car	
+ハンドル	steering wheel	N4	pic:machines/car	
+ライト	headlight	N4	pic:machines/car	
+ミラー	mirror	N4	pic:machines/car	
+ワイパー	windscreen wiper	N4	pic:machines/car	
+トランク	boot, trunk	N4	pic:machines/car	
+バンパー	bumper	N4	pic:machines/car	
+サドル	saddle	N4	pic:machines/bicycle	
+ベル	bell	N4	pic:machines/bicycle	
+かご	basket	N4	pic:machines/bicycle	
+ブレーキ	brake lever	N4	pic:machines/bicycle	
+ペダル	pedal	N4	pic:machines/bicycle	
+チェーン	chain	N4	pic:machines/bicycle	
+荷台《にだい》	rear rack	N3	pic:machines/bicycle	
+スタンド	kickstand	N4	pic:machines/bicycle	
+キーボード	keyboard	N4	pic:machines/computer-phone	
+電源《でんげん》	power button	N3	pic:machines/computer-phone	
+マウス	mouse	N4	pic:machines/computer-phone	
+アプリ	app	N4	pic:machines/computer-phone	
+ボタン	button	N5	pic:machines/computer-phone	
+コード	cable	N4	pic:machines/computer-phone	
+充電器《じゅうでんき》	charger	N3	pic:machines/computer-phone	
+イヤホン	earphones	N4	pic:machines/computer-phone	
+トラック	lorry, truck	N4	pic:machines/vehicles	
+バイク	motorbike	N4	pic:machines/vehicles	
+パトカー	police car	N3	pic:machines/vehicles	
+ヘリコプター	helicopter	N4	pic:machines/vehicles	
+ばんそうこう	sticking plaster	N3	pic:machines/ward-things	
+聴診器《ちょうしんき》	stethoscope	N3	pic:machines/ward-things	
+マスク	mask	N4	pic:machines/ward-things	
+はさみ	scissors	N4	pic:machines/ward-things	
+ぶどう	grapes	N4	pic:food/fruit-veg	KANA-MATCH
+すいか	watermelon	N4	pic:food/fruit-veg	
+レモン	lemon	N4	pic:food/fruit-veg	
+メロン	melon	N4	pic:food/fruit-veg	
+トマト	tomato	N5	pic:food/fruit-veg	
+にんじん	carrot	N5	pic:food/fruit-veg	
+じゃがいも	potato	N5	pic:food/fruit-veg	
+玉《たま》ねぎ	onion	N5	pic:food/fruit-veg	
+キャベツ	cabbage	N5	pic:food/fruit-veg	
+きゅうり	cucumber	N4	pic:food/fruit-veg	
+とうもろこし	corn	N3	pic:food/fruit-veg	
+きのこ	mushroom	N3	pic:food/fruit-veg	
+ご飯《はん》	cooked rice, meal	N5	pic:food/meals-drinks	
+お弁当《べんとう》	boxed lunch	N5	pic:food/meals-drinks	KANA-MATCH
+すし	sushi	N4	pic:food/meals-drinks	KANA-MATCH
+お盆《ぼん》	tray	N3	pic:food/table-setting	
+おわん	soup bowl	N4	pic:food/table-setting	
+お皿《さら》	plate	N5	pic:food/table-setting	KANA-MATCH
+ナイフ	knife	N4	pic:food/table-setting	
+湯飲《ゆの》み	teacup	N3	pic:food/table-setting	
+急須《きゅうす》	teapot	N3	pic:food/table-setting	
+しょうゆ	soy sauce	N4	pic:food/table-setting	KANA-MATCH
+ポケット	pocket	N5	pic:clothes/clothes	
+ベルト	belt	N4	pic:clothes/clothes	
+コート	coat	N5	pic:clothes/clothes	
+スカート	skirt	N5	pic:clothes/clothes	
+オレンジ	orange (noun)	N5	pic:clothes/accessories-colours	
+紫《むらさき》	purple (noun)	N3	pic:clothes/accessories-colours	
+マフラー	scarf (for warmth)	N4	pic:clothes/accessories-colours	
+ネクタイ	necktie	N5	pic:clothes/accessories-colours	
+田《た》んぼ	rice field	N3	pic:nature/landscape	
+虹《にじ》	rainbow	N3	pic:nature/weather	
+ひまわり	sunflower	N3	pic:nature/seasons-plants	
+安心《あんしん》する	to feel relieved	N4	pic:daily/feelings	
+勉強《べんきょう》する	to study	N5	pic:daily/daily-routine	
+料理《りょうり》する	to cook	N5	pic:daily/daily-routine	
+洗濯《せんたく》する	to do the laundry	N5	pic:daily/daily-routine	
+掃除《そうじ》する	to clean	N5	pic:daily/daily-routine	
+ペン	pen	N5	pic:daily/school-office	
+ノート	notebook	N5	pic:daily/school-office	
+カレンダー	calendar	N4	pic:daily/school-office	
+定規《じょうぎ》	ruler	N3	pic:daily/school-office	
+クリップ	paper clip	N4	pic:daily/school-office	
+ファイル	file, folder	N4	pic:daily/school-office	
+再来《さいらい》	(part of sign: Return-visit reception)	N3	sign:hospital	
+検査室《けんさしつ》	Testing room	N3	sign:hospital	
+手指《しゅし》	(part of sign: Hand sanitizer (clean your hands))	N3	sign:hospital	
+着用《ちゃくよう》	(part of sign: Masks required)	N3	sign:hospital	
+禁止《きんし》	(part of sign: No mobile phones)	N4	sign:hospital	
+精算機《せいさんき》	Fare adjustment machine	N3	sign:station	
+｜3番線《さんばんせん》	Platform 3	N4	sign:station	
+各駅《かくえき》	(part of sign: Local train (stops at every station))	N3	sign:station	
+停車《ていしゃ》	(part of sign: Local train (stops at every station))	N3	sign:station	
+快速《かいそく》	Rapid train	N3	sign:station	
+終点《しゅうてん》	Last stop (end of the line)	N3	sign:station	
+優先席《ゆうせんせき》	Priority seats	N4	sign:station	
+専用車《せんようしゃ》	(part of sign: Women-only car)	N3	sign:station	
+足元《あしもと》	(part of sign: Mind your step (mind the gap))	N4	sign:station	
+ご注意《ちゅうい》	(part of sign: Mind your step (mind the gap))	N4	sign:station	KANA-MATCH
+ください	(part of sign: Mind your step (mind the gap))	N4	sign:station	
+乗《の》り場《ば》	(part of sign: Taxi stand)	N4	sign:station	
+止《と》まれ	Stop	N4	sign:street	
+徐行《じょこう》	Slow down	N3	sign:street	
+一方《いっぽう》	(part of sign: One way)	N3	sign:street	
+通行《つうこう》	(part of sign: One way)	N3	sign:street	
+通行止《つうこうど》め	Road closed	N3	sign:street	
+工事中《こうじちゅう》	Under construction (road works)	N3	sign:street	
+立入《たちいり》	(part of sign: Keep out (no entry))	N3	sign:street	
+横断《おうだん》	(part of sign: Pedestrian crossing)	N4	sign:street	KANA-MATCH
+歩行者《ほこうしゃ》	(part of sign: Pedestrians only)	N3	sign:street	
+専用《せんよう》	(part of sign: Pedestrians only)	N3	sign:street	
+駐輪《ちゅうりん》	(part of sign: No bicycle parking)	N3	sign:street	
+ポイ捨《す》て	(part of sign: No littering)	N3	sign:street	
+開《ひらく》	Open (door button)	N4	sign:building	
+閉《しめる》	Close (door button)	N4	sign:building	KANA-MATCH
+消火器《しょうかき》	Fire extinguisher	N3	sign:building	KANA-MATCH
+火災《かさい》	(part of sign: Fire alarm)	N3	sign:building	
+報知器《ほうちき》	(part of sign: Fire alarm)	N3	sign:building	
+関係者《かんけいしゃ》	(part of sign: Staff only)	N3	sign:building	
+以外《いがい》	(part of sign: Staff only)	N3	sign:building	KANA-MATCH
+土足《どそく》	(part of sign: No outdoor shoes)	N3	sign:building	
+喫煙所《きつえんじょ》	Smoking area	N3	sign:building	
+使用中《しようちゅう》	In use (occupied)	N3	sign:building	
+故障中《こしょうちゅう》	Out of order	N3	sign:building	
+準備中《じゅんびちゅう》	Closed (getting ready)	N3	sign:building	
+定休日《ていきゅうび》	Regular closing day	N3	sign:building	
+お知《し》らせ	Notice	N4	sign:building	
+｜3割引《さんわりびき》	30% off	N3	sign:shop	
+半額《はんがく》	Half price	N3	sign:shop	
+値下《ねさ》げ	Price reduced	N3	sign:shop	
+税込《ぜいこみ》	Tax included	N3	sign:shop	KANA-MATCH
+税抜《ぜいぬき》	Before tax	N3	sign:shop	
+新商品《しんしょうひん》	New product	N3	sign:shop	
+売《う》り切《き》れ	Sold out	N4	sign:shop	
+お一人様《ひとりさま》	(part of sign: Limit one per customer)	N3	sign:shop	
+一点《いってん》	(part of sign: Limit one per customer)	N3	sign:shop	
+限《かぎ》り	(part of sign: Limit one per customer)	N3	sign:shop	
+試着室《しちゃくしつ》	Fitting room	N3	sign:shop	
+お会計《かいけい》	Checkout (pay here)	N4	sign:shop	
+のみ	(part of sign: Cash only)	N4	sign:shop	
+クレジットカード	(part of sign: Credit cards accepted)	N4	sign:shop	
+使《つか》えます	(part of sign: Credit cards accepted)	N4	sign:shop	
+レジ袋《ぶくろ》	(part of sign: Plastic bags cost extra)	N3	sign:shop	
+多目的《たもくてき》	(part of sign: Accessible toilet (multipurpose))	N3	sign:toilet	
+大《だい》	Full flush	N5	sign:toilet	KANA-MATCH
+小《しょう》	Half flush	N5	sign:toilet	KANA-MATCH
+おしり	Rear wash	N4	sign:toilet	
+ビデ	Front wash (bidet)	N4	sign:toilet	
+止《とめ》	Stop	N4	sign:toilet	
+呼出《よびだし》	Call for help	N3	sign:toilet	
+湯《ゆ》	Hot water	N4	sign:toilet	KANA-MATCH
+流《なが》さないで	(part of sign: Flush nothing but toilet paper)	N4	sign:toilet	
+お名前《なまえ》	Name	N5	sign:medicine-bag	KANA-MATCH
+内服薬《ないふくやく》	Medicine to take by mouth	N3	sign:medicine-bag	
+飲《の》み薬《ぐすり》	Medicine to take by mouth	N4	sign:medicine-bag	
+外用薬《がいようやく》	Medicine for external use	N3	sign:medicine-bag	
+用法《ようほう》	How to take	N3	sign:medicine-bag	
+食間《しょっかん》	Between meals	N3	sign:medicine-bag	
+夕《ゆう》	Evening (dinner)	N4	sign:medicine-bag	
+｜7日分《なのかぶん》	For 7 days	N4	sign:medicine-bag	
+調剤日《ちょうざいび》	Date dispensed	N3	sign:medicine-bag	
+スタート	start	N4	panel:washer	
+一時停止《いちじていし》	pause	N4	panel:washer	
+洗《あら》い	wash	N4	panel:washer	KANA-MATCH
+すすぎ	rinse	N4	panel:washer	
+コース	wash programme	N4	panel:washer	
+除湿《じょしつ》	dehumidify	N4	panel:aircon	
+風量《ふうりょう》	fan speed	N4	panel:aircon	
+風向《ふうこう》	air direction	N4	panel:aircon	
+切《きり》タイマー	off timer	N4	panel:aircon	
+水勢《すいせい》	(part of control: water pressure down)	N4	panel:toilet	
+弱《よわ》	(part of control: water pressure down)	N4	panel:toilet	
+強《つよ》	(part of control: water pressure up)	N4	panel:toilet	
+きっぷ	ticket	N4	panel:ticket	KANA-MATCH
+チャージ	top up IC card	N4	panel:ticket	
+こども	child	N4	panel:ticket	KANA-MATCH
+取消《とりけし》	cancel	N4	panel:ticket	
+お引《ひ》き出《だ》し	withdrawal	N4	panel:atm	KANA-MATCH
+お預《あず》け入《い》れ	deposit	N4	panel:atm	
+残高《ざんだか》	(part of control: balance enquiry)	N4	panel:atm	
+照会《しょうかい》	(part of control: balance enquiry)	N4	panel:atm	KANA-MATCH
+お振込《ふりこ》み	bank transfer	N4	panel:atm	
+通帳《つうちょう》	(part of control: update passbook)	N4	panel:atm	
+訂正《ていせい》	correct (clear)	N4	panel:atm	
+炊飯《すいはん》	cook rice	N4	panel:rice-cooker	
+保温《ほおん》	keep warm	N4	panel:rice-cooker	
+切《きり》	(part of control: off / cancel)	N4	panel:rice-cooker	KANA-MATCH
+おかゆ	rice porridge	N4	panel:rice-cooker	
+あたため	auto reheat	N4	panel:microwave	
+解凍《かいとう》	defrost	N4	panel:microwave	KANA-MATCH
+レンジ	microwave (manual)	N4	panel:microwave	
+オーブン	oven (bake)	N4	panel:microwave	
+非常《ひじょう》	(part of control: emergency call)	N4	panel:lift	
+満員《まんいん》	full	N4	panel:lift	
+つめたい	cold	N4	panel:vending	KANA-MATCH
+あたたかい	hot	N4	panel:vending	KANA-MATCH
+売切《うりきれ》	sold out	N4	panel:vending	
+通話中《つうわちゅう》	line open	N4	panel:bed-call	
+背上《せあ》げ	back up	N4	panel:bed-call	
+背下《せさ》げ	back down	N4	panel:bed-call	
+脚上《あしあ》げ	legs up	N4	panel:bed-call	
+脚下《あしさ》げ	legs down	N4	panel:bed-call	
+高《たか》さ	(part of control: bed higher)	N4	panel:bed-call	
+上《あ》げ	(part of control: bed higher)	N4	panel:bed-call	
+下《さ》げ	(part of control: bed lower)	N4	panel:bed-call	
