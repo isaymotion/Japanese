@@ -1,0 +1,174 @@
+{
+ "extras": {
+  "9": "aida-uchi tabi-toori-tsuide irai-totan-shidai dake-shika-sae hodo-kurai compound-verbs",
+  "10": "tame-okage-sei wake beki-mono-koto hypotheticals compound-particles-1 compound-particles-2",
+  "11": "contrast even-supposing hearsay certainty-risk tendencies to-iu",
+  "12": "strong-feelings without-doing trying koto-patterns casual-speech written-style",
+  "13": "n2-ni-tsurete n2-tsutsu n2-ue-de n2-ni-kagirazu n2-bakari-ka n2-wo-hajime",
+  "14": "n2-kara-miru-to n2-ni-motozuite n2-ni-oite n2-kara-koso n2-kara-ni-wa n2-amari",
+  "15": "n2-kanenai n2-ni-suginai n2-ppanashi n2-zaru-wo-enai n2-te-wa-irarenai n2-kagiri-da",
+  "16": "n2-mono n2-koto n2-tokoro n2-ni-shite-wa n2-mushiro n2-to-wa",
+  "17": "n2-ka-to-omou-to n2-saichuu n2-wo-kikkake-ni n2-ni-hanshite n2-nimo-kakawarazu n2-to-shitara",
+  "18": "n2-ge-darake n2-gatai n2-ka-no-you-ni n2-to-ieba n2-shidai-de n2-ue-ni",
+  "19": "n2-koto-wa-nai n2-you-dewa-nai-ka n2-mai n2-te-koso n2-dake n2-nuku",
+  "20": "n2-keigo-2 n2-tegami n2-karute n2-setsuzokushi n2-wa-tomokaku n2-wo-komete"
+ },
+ "reviews": {
+  "39": [
+   [
+    "review-n3-time",
+    "N3",
+    "Time and sequence",
+    "irai-totan-shidai"
+   ],
+   [
+    "review-n3-limits",
+    "N3",
+    "Limits and extent",
+    "compound-verbs"
+   ],
+   [
+    "review-n3-causes",
+    "N3",
+    "Causes and obligations",
+    "beki-mono-koto"
+   ],
+   [
+    "review-n3-conditions",
+    "N3",
+    "Conditions and relations",
+    "compound-particles-2"
+   ]
+  ],
+  "40": [
+   [
+    "review-n3-contrast",
+    "N3",
+    "Contrast and concession",
+    "even-supposing"
+   ],
+   [
+    "review-n3-hearsay",
+    "N3",
+    "Hearsay and judgement",
+    "to-iu"
+   ],
+   [
+    "review-n3-feelings",
+    "N3",
+    "Feelings and attempts",
+    "koto-patterns"
+   ],
+   [
+    "review-n3-styles",
+    "N3",
+    "Casual and written styles",
+    "written-style"
+   ]
+  ],
+  "41": [
+   [
+    "review-n2-change",
+    "N2",
+    "Change and progress",
+    "n2-ue-de"
+   ],
+   [
+    "review-n2-scope",
+    "N2",
+    "Scope and range",
+    "n2-wo-hajime"
+   ],
+   [
+    "review-n2-viewpoint",
+    "N2",
+    "Viewpoint and basis",
+    "n2-ni-oite"
+   ],
+   [
+    "review-n2-reasons",
+    "N2",
+    "Reasons and results",
+    "n2-amari"
+   ]
+  ],
+  "42": [
+   [
+    "review-n2-possibility",
+    "N2",
+    "Possibility and limits",
+    "n2-ppanashi"
+   ],
+   [
+    "review-n2-nochoice",
+    "N2",
+    "No choice and strong feeling",
+    "n2-kagiri-da"
+   ],
+   [
+    "review-n2-mono-koto",
+    "N2",
+    "もの, こと and ところ",
+    "n2-tokoro"
+   ],
+   [
+    "review-n2-comparison",
+    "N2",
+    "Comparison and surprise",
+    "n2-to-wa"
+   ]
+  ],
+  "43": [
+   [
+    "review-n2-timing",
+    "N2",
+    "Timing and turning points",
+    "n2-wo-kikkake-ni"
+   ],
+   [
+    "review-n2-contrast",
+    "N2",
+    "Contrast and supposition",
+    "n2-to-shitara"
+   ],
+   [
+    "review-n2-appearance",
+    "N2",
+    "Appearance and difficulty",
+    "n2-ka-no-you-ni"
+   ],
+   [
+    "review-n2-topic",
+    "N2",
+    "Topic, dependence and addition",
+    "n2-ue-ni"
+   ]
+  ],
+  "44": [
+   [
+    "review-n2-advice",
+    "N2",
+    "Advice, wishes and negative guesses",
+    "n2-mai"
+   ],
+   [
+    "review-n2-emphasis",
+    "N2",
+    "Emphasis and limits",
+    "n2-nuku"
+   ],
+   [
+    "review-n2-keigo",
+    "N2",
+    "Keigo, letters and chart style",
+    "n2-karute"
+   ],
+   [
+    "review-n2-connectors",
+    "N2",
+    "Connectors and set phrases",
+    "n2-wo-komete"
+   ]
+  ]
+ }
+}

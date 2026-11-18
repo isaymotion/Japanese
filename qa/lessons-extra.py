@@ -39,7 +39,7 @@ def run(p, name, vp, scheme, uiLang=None):
         raw = pg.evaluate("(document.querySelector('#view').innerText.match(/[《》｜]/g)||[]).length")
         chk(not ov, tag + ' horizontal overflow'); chk(raw == 0, tag + ' raw notation %d' % raw)
         return ov, raw
-    order = pg.evaluate("(()=>{const ids=LESSONS.map(l=>l.id);const i=ids.indexOf('desu');return ids.slice(i,i+5).concat(['|', ids.indexOf('tmp-unknown'), ids.length, ids.indexOf('n2-wo-komete')])})()")
+    order = pg.evaluate("(()=>{const ids=LESSONS.map(l=>l.id);const i=ids.indexOf('desu');return ids.slice(i,i+5).concat(['|', ids.indexOf('tmp-unknown'), ids.length, ids.indexOf('review-n2-connectors')])})()")
     print(name, 'order', order)
     chk(order[:5] == ['desu', 'tmp-review', 'tmp-after', 'tmp-chain', 'no-mo-to'], 'order after desu ' + str(order[:5]))
     chk(order[6] == order[7] - 1 and order[8] == order[7] - 2, 'unknown after should stay in place (end of the file order)')

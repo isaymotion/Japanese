@@ -1,0 +1,10 @@
+Writer's unsure list (lessons-44):
+- Emphasis Q12 option 3: 頑張りかけて ください meant to be wrong; 耐え抜いて こられました ね meant to be natural.
+- Emphasis table: 量 こそ 少ない が、 毎日 食べる; 駅 まで 歩き通した.
+- Connectors table: 前置き は さておき、 結論 です。; 外出 可。 ただし 夕方 まで。 (notice style on purpose).
+- Advice table: the まい row's model sentence shows only では あるまい か.
+- Keigo: 当院 で 経過 を 診て おります 方 を ご紹介 いたします (is 診て natural?).
+- Keigo Q3: is 申し訳 ございません が the only defensible cushion for "visiting time is over"?
+- Connectors Q11: 疲れて いない ふう を 装って いた.
+- Advice Q5: 熱 が ある じゃ ない か glossed "Why, you have a fever!"
+Bodies were trimmed to stay under 3,000 characters; some small patterns have no table row.

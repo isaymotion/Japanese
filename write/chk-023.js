@@ -48,7 +48,7 @@ L.forEach((l) => {
   if (!l || !isStr(l.id)) return E(f, 'lesson without an id');
   if (lById.has(l.id)) E(f, 'lesson id twice: ' + l.id + ' (also in ' + F(lById.get(l.id)) + ')'); else lById.set(l.id, l);
 });
-const NEWFILE = /^lessons-(2[89]|3\d)\.js$/;
+const NEWFILE = /^lessons-(2[89]|3\d|4\d)\.js$/;
 L.forEach((l) => {
   if (!l || !l.id) return;
   const f = F(l), where = 'lesson ' + l.id;

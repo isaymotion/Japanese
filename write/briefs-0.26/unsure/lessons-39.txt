@@ -1,0 +1,9 @@
+Writer's unsure list (lessons-39):
+1. Limits quiz 10: 毎朝 歩き出す 予定 です and 薬 を 減らし出しましょう counted wrong (lesson rule: 〜出す not for plans or suggestions); the first may be only odd.
+2. Causes quiz 7: 謝る ＿ です with はず as a distractor (a native might accept はず as an expectation).
+3. Causes quiz 4: それ で 料理 が 上手 な わけ です ね: check that はず was rightly left out of the options.
+4. Causes mixed example: 眠気 が 出る こと が ある ため、 服用中 は 運転 を 控える こと (written instruction style).
+5. Time mixed example: 外来 の たび に 体重 を 測って います.
+6. Limits mixed example: お茶 さえ 飲めない ほど でした (さえ + ほど redundant?).
+7. Conditions table: 子ども に 対して 厳しい です (bare).
+8. Spacing: 間 に 合いました (repo convention in sentences: 間《ま》に合《あ》います joined).
