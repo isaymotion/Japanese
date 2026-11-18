@@ -1,0 +1,1 @@
+Write lesson extras for Hanashimashō 1.0.0. Read /home/claude/work/briefs-1.0/W-extra-1.0.md and follow it (it points to the common rules). Your file: /home/claude/work/new-1.0/lesson-extra-21.js (stub exists; fill it). Lesson ids, in this order: n1-ga-hayai-ka n1-te-kara-to-iu-mono n1-katawara n1-ni-itaru n1-kiwamarinai n1-sura. In the check commands F = lesson-extra-21.js.

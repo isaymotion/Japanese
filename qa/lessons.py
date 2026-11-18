@@ -23,7 +23,7 @@ async def main():
             if lv in ('all','N3','N2'): await pg.screenshot(path=f'/tmp/qa-out/lessons_{lv}.png')
         if await pg.evaluate("LESSONS.some(l=>l.level==='N1')"):
             UNITS=['The moment something happens','Reaching the extreme','If and only if','Even so','Grounds and standards','How it looks and sounds','Must, must not, cannot','Judging and summing up','Purpose, dependence and defiance','Occasions, pretexts and turning points','Surprise, emphasis and giving up','Concession and half-commitment','Relations, lists and word-building','Limits, missed chances and restraint','Old forms that are still alive','Formal Japanese at work']
-            o=await pg.evaluate("""()=>{const a=LESSONS.map(l=>l.level),f=a.indexOf('N1'),lN2=a.lastIndexOf('N2');return {f,lN2,stray:LESSONS.slice(f).filter(l=>l.level!=='N1').map(l=>l.id),after:LESSONS.filter(l=>l.level==='N1'&&l.after).map(l=>l.id),units:[...new Set(LESSONS.filter(l=>l.level==='N1').map(l=>l.unit))],first:LESSONS[f].id,prev:LESSONS[f-1].id}}""")
+            o=await pg.evaluate("""()=>{const a=LESSONS.map(l=>l.level),f=a.indexOf('N1'),lN2=a.lastIndexOf('N2');return {f,lN2,stray:LESSONS.slice(f).filter(l=>l.level!=='N1').map(l=>l.id),after:LESSONS.filter(l=>l.level==='N1'&&l.after&&!l.review).map(l=>l.id),units:[...new Set(LESSONS.filter(l=>l.level==='N1').map(l=>l.unit))],first:LESSONS[f].id,prev:LESSONS[f-1].id}}""")
             print('N1 order: first',o['first'],'at',o['f'],'last N2 at',o['lN2'],'prev',o['prev'],'| stray',o['stray'],'| with after',o['after'],'| units',o['units'])
             if o['f']<o['lN2'] or o['stray'] or o['after']: errs.append('N1 lessons not after N2')
             if o['units']!=UNITS[:len(o['units'])]: errs.append('N1 units out of plan order')

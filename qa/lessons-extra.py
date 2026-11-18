@@ -42,8 +42,9 @@ def run(p, name, vp, scheme, uiLang=None):
     order = pg.evaluate("(()=>{const ids=LESSONS.map(l=>l.id);const i=ids.indexOf('desu');return ids.slice(i,i+5).concat(['|', ids.indexOf('tmp-unknown'), ids.length, ids.indexOf('review-n2-connectors')])})()")
     print(name, 'order', order)
     chk(order[:5] == ['desu', 'tmp-review', 'tmp-after', 'tmp-chain', 'no-mo-to'], 'order after desu ' + str(order[:5]))
+    # 1.0.0: N1 unit reviews carry `after` and sit among the N1 lessons, so every N1 lesson is ignored here
     # 0.28.0: the N1 lessons (no `after`, files after lessons-28.js) now follow it, so it is no longer last
-    tail = pg.evaluate("(()=>{const i=LESSONS.findIndex(l=>l.id==='tmp-unknown');return LESSONS.slice(i+1).filter(l=>!(l.level==='N1'&&!l.after)).map(l=>l.id)})()")
+    tail = pg.evaluate("(()=>{const i=LESSONS.findIndex(l=>l.id==='tmp-unknown');return LESSONS.slice(i+1).filter(l=>l.level!=='N1').map(l=>l.id)})()")
     chk(order[8] == order[6] - 1 and not tail, 'unknown after should stay in place (end of the file order, before the N1 lessons) ' + str(tail[:3]))
     # Lessons list: review pill, one heading per unit
     go('#/lessons?lv=all')

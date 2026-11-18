@@ -1,0 +1,118 @@
+{
+ "extras": {
+  "21": "n1-ga-hayai-ka n1-te-kara-to-iu-mono n1-katawara n1-ni-itaru n1-kiwamarinai n1-sura",
+  "22": "n1-to-areba n1-nakushite n1-ga-saigo n1-to-iedomo n1-de-are n1-ni-hikikae",
+  "23": "n1-yue n1-ni-sokushite n1-nari-ni n1-meku n1-to-bakari-ni n1-tsu-tsu",
+  "24": "n1-bekarazu n1-wo-yoginaku n1-ni-katakunai n1-de-nakute-nan-darou n1-kirai-ga-aru n1-ni-shite",
+  "25": "n1-n-ga-tame n1-ikan n1-wo-mono-tomo-sezu n1-ni-kakotsukete n1-wo-hete n1-to-mo-naru-to",
+  "26": "n1-to-ittara-nai n1-tada-nomi n1-ba-sore-made n1-ta-tokoro-de n1-nai-mono-demo-nai n1-to-omoikiya",
+  "27": "n1-ni-kakawaru n1-to-ii-to-ii n1-nami-gurumi n1-te-made n1-zu-jimai n1-ni-wa-ataranai",
+  "28": "n1-zaru-nu n1-ikanaru n1-te-shikarubeki n1-keigo-3 n1-ronbun n1-aisatsu"
+ },
+ "reviews": {
+  "61": [
+   [
+    "review-n1-moment",
+    "N1",
+    "The moment something happens",
+    "n1-katawara"
+   ],
+   [
+    "review-n1-extreme",
+    "N1",
+    "Reaching the extreme",
+    "n1-sura"
+   ],
+   [
+    "review-n1-if-only",
+    "N1",
+    "If and only if",
+    "n1-ga-saigo"
+   ],
+   [
+    "review-n1-even-so",
+    "N1",
+    "Even so",
+    "n1-ni-hikikae"
+   ]
+  ],
+  "62": [
+   [
+    "review-n1-grounds",
+    "N1",
+    "Grounds and standards",
+    "n1-nari-ni"
+   ],
+   [
+    "review-n1-looks-sounds",
+    "N1",
+    "How it looks and sounds",
+    "n1-tsu-tsu"
+   ],
+   [
+    "review-n1-must",
+    "N1",
+    "Must, must not, cannot",
+    "n1-ni-katakunai"
+   ],
+   [
+    "review-n1-judging",
+    "N1",
+    "Judging and summing up",
+    "n1-ni-shite"
+   ]
+  ],
+  "63": [
+   [
+    "review-n1-purpose",
+    "N1",
+    "Purpose, dependence and defiance",
+    "n1-wo-mono-tomo-sezu"
+   ],
+   [
+    "review-n1-occasions",
+    "N1",
+    "Occasions, pretexts and turning points",
+    "n1-to-mo-naru-to"
+   ],
+   [
+    "review-n1-surprise",
+    "N1",
+    "Surprise, emphasis and giving up",
+    "n1-ba-sore-made"
+   ],
+   [
+    "review-n1-concession",
+    "N1",
+    "Concession and half-commitment",
+    "n1-to-omoikiya"
+   ]
+  ],
+  "64": [
+   [
+    "review-n1-relations",
+    "N1",
+    "Relations, lists and word-building",
+    "n1-nami-gurumi"
+   ],
+   [
+    "review-n1-limits",
+    "N1",
+    "Limits, missed chances and restraint",
+    "n1-ni-wa-ataranai"
+   ],
+   [
+    "review-n1-old-forms",
+    "N1",
+    "Old forms that are still alive",
+    "n1-te-shikarubeki"
+   ],
+   [
+    "review-n1-formal-work",
+    "N1",
+    "Formal Japanese at work",
+    "n1-aisatsu"
+   ]
+  ]
+ }
+}
