@@ -219,7 +219,7 @@
     lessons: HAS.lessons ? (window.LESSONS || []).length + ' grammar lessons from zero, each with a quiz' : later, kana: 'Hiragana and katakana charts with sound, and a drill', kanji: (App.KANJI || []).length ? App.KANJI.length + ' kanji by level, with readings, example words and a drill' : later, reading: HAS.reading ? 'Graded passages with furigana' : later, speak: HAS.speak ? 'Dialogues with listening and recording' : later,
     vocab: 'Meaning, recall and reading quizzes on any deck, and sound-to-meaning matching by topic', listen: 'Hear words and sentences, dictation with kana tiles, sound pairs, questions on dialogues and readings', numbers: 'Numbers, times, dates and counters with their sound changes',
     build: 'Put the words of a sentence in order, from the lessons and example sentences, by level', cloze: 'Choose the word or ending that fills the blank, by level or by lesson',
-    transform: 'Change a sentence as asked: negative, past, polite, joined and more', test: 'A timed mixed review of one level, N5 to N2',
+    transform: 'Change a sentence as asked: negative, past, polite, joined and more', test: 'A timed mixed review of one level, N5 to N1',
     pairs: 'Opposites, near-synonyms and words that go together: match and quiz', sounds: 'Giongo and gitaigo for pain, sleep, mood and more, with examples',
     pictures: 'Words from pictures: tap to learn, find, label and point, a printable body map', signs: 'Signs in the hospital, station and street, and the buttons on machines',
     errors: 'Tap the one wrong word in a sentence, then see it put right', reply: 'Hear what someone says and choose the natural reply, everyday and on the ward',

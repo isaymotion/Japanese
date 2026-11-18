@@ -134,7 +134,7 @@
   }));
   App.KANJI = KANJI;
   App.kanjiBy = Object.fromEntries(KANJI.map((x) => [x.k, x]));
-  App.KANJI_LEVELS = [['N5', 'N5'], ['N4', 'N4'], ['N3', 'N3'], ['N2', 'N2'], ['C', 'Clinical']].filter(([lv]) => KANJI.some((x) => x.lv === lv));
+  App.KANJI_LEVELS = [['N5', 'N5'], ['N4', 'N4'], ['N3', 'N3'], ['N2', 'N2'], ['N1', 'N1'], ['C', 'Clinical']].filter(([lv]) => KANJI.some((x) => x.lv === lv));
   App.kanjiHref = (k) => '#/kanji/k/' + encodeURIComponent(k);
   // Readings as one line: on-readings in katakana, kun-readings with the okurigana after a middle dot.
   App.kanjiReadings = (x) => x.on.concat(x.kun.map((r) => r.r + (r.o ? '・' + r.o : ''))).join('、 ');
@@ -148,7 +148,7 @@
     emotions: 'Emotions', health: 'Health & symptoms', mind: 'Mind & perception', risk: 'Risk & safety (clinical)', substance: 'Alcohol & substances',
     meds: 'Medication', hospital: 'Hospital & care', clinical: 'Clinical terms', mimetic: 'Sound-symbolic words (イライラ, ドキドキ…)', idioms: 'Expressions of distress (気, 心, 胸…)'
   };
-  App.LEVELS = { N5: 'JLPT N5 (beginner)', N4: 'JLPT N4', N3: 'JLPT N3', N2: 'JLPT N2', C: 'Clinical / advanced' };
+  App.LEVELS = { N5: 'JLPT N5 (beginner)', N4: 'JLPT N4', N3: 'JLPT N3', N2: 'JLPT N2', N1: 'JLPT N1', C: 'Clinical / advanced' };
   // Dictionary browser rows (あ か さ た な は ま や ら わ): the row of a reading's first kana, voiced marks folded in.
   const ROWS = { 'あ': 'あいうえおぁぃぅぇぉゔ', 'か': 'かきくけこがぎぐげご', 'さ': 'さしすせそざじずぜぞ', 'た': 'たちつてとだぢづでどっ', 'な': 'なにぬねの', 'は': 'はひふへほばびぶべぼぱぴぷぺぽ', 'ま': 'まみむめも', 'や': 'やゆよゃゅょ', 'ら': 'らりるれろ', 'わ': 'わをんゎ' };
   App.kanaRow = (kn) => { const c = (kn || '')[0]; return Object.keys(ROWS).find((r) => ROWS[r].includes(c)) || ''; };

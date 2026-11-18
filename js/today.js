@@ -120,15 +120,17 @@
     return out.slice(0, PER_DRILL).map((q) => Object.assign(q, { tag: q.tag || label, src: 'miss', drill: q.drill || k }));
   });
   const robin = (lists, n) => { const out = []; for (let r = 0; out.length < n && lists.some((l) => l.length > r); r++) lists.forEach((l) => { if (out.length < n && l[r]) out.push(l[r]); }); return out; };
-  const userLevel = () => { const lv = String(S().level || ''); return /^N[2-5]/.test(lv) ? lv.slice(0, 2) : 'N5'; };
+  const userLevel = () => { const lv = String(S().level || ''); return /^N[1-5]/.test(lv) ? lv.slice(0, 2) : 'N5'; };
   const fill = (n, have) => {
     if (n <= 0) return [];
     const lv = userLevel(), seen = new Set(have.map((q) => q.drill + ':' + q.id));
+    // 0.28.0: a drill with no N1 items yet gives N2 items to an N1 learner.
+    const at = (fn) => { const r = safe(() => fn(lv)); return r.length || lv !== 'N1' ? r : safe(() => fn('N2')); };
     const lists = [
-      safe(() => App.clozeQs ? App.clozeQs(lv, n) : []).map((q) => Object.assign(q, { tag: 'Fill the blank' })),
-      safe(() => App.errorsQs ? App.errorsQs(lv, n) : []).map((q) => Object.assign(q, { tag: 'Find the mistake' })),
-      safe(() => App.replyQs ? App.replyQs('all', lv, n) : []).map((q) => Object.assign(q, { tag: 'Listen and reply' })),
-      safe(() => App.vocabQs ? App.vocabQs(lv, n) : []).map((q) => Object.assign(q, { tag: 'Vocabulary' }))
+      at((v) => App.clozeQs ? App.clozeQs(v, n) : []).map((q) => Object.assign(q, { tag: 'Fill the blank' })),
+      at((v) => App.errorsQs ? App.errorsQs(v, n) : []).map((q) => Object.assign(q, { tag: 'Find the mistake' })),
+      at((v) => App.replyQs ? App.replyQs('all', v, n) : []).map((q) => Object.assign(q, { tag: 'Listen and reply' })),
+      at((v) => App.vocabQs ? App.vocabQs(v, n) : []).map((q) => Object.assign(q, { tag: 'Vocabulary' }))
     ].map((l) => l.filter((q) => !seen.has(q.drill + ':' + q.id)).map((q) => Object.assign(q, { src: 'new' })));
     return robin(lists, n);
   };

@@ -13,7 +13,7 @@
   const { esc, shuffle, pick, icons } = App;
   const V = App.views, S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const ROUND = 10, MISS_MAX = 200;
   const TYPES = { particle: 'Particle', 'verb-form': 'Verb form', 'adj-form': 'Adjective form', tense: 'Tense', counter: 'Counter', pair: 'Transitive or intransitive',
     'give-receive': 'Giving and receiving', keigo: 'Keigo', connector: 'Joining', 'word-choice': 'Word choice' };

@@ -1,5 +1,5 @@
 /* Stroke-order diagrams for kanji and kana.
-   Data: strokes/<set>.js (kana, n5, n4, n3, c), adapted from KanjiVG (CC BY-SA 3.0, see strokes/LICENSE.md) by
+   Data: strokes/<set>.js (kana, n5, n4, n3, n2, n1, c), adapted from KanjiVG (CC BY-SA 3.0, see strokes/LICENSE.md) by
    strokes/build-strokes.py. A set is loaded the first time one of its characters is shown.
    STROKES[字] = "path|path|…@x,y x,y …" on a 109 x 109 grid: strokes in writing order, then where each number sits.
    Use: put App.strokes.slot('食') in a page's HTML, then call App.strokes.mount(el). The kana chart (js/kana.js) is
@@ -10,7 +10,7 @@
   const { esc } = App;
   const NS = 'http://www.w3.org/2000/svg';
   const isKana = (ch) => /[ぁ-ゖァ-ヺー]/.test(ch);
-  const setOf = (ch) => (isKana(ch) ? 'kana' : { N5: 'n5', N4: 'n4', N3: 'n3', N2: 'n2', C: 'c' }[((App.kanjiBy || {})[ch] || {}).lv] || null);
+  const setOf = (ch) => (isKana(ch) ? 'kana' : { N5: 'n5', N4: 'n4', N3: 'n3', N2: 'n2', N1: 'n1', C: 'c' }[((App.kanjiBy || {})[ch] || {}).lv] || null);
   const loading = {};
   const load = (set) => loading[set] || (loading[set] = new Promise((ok, fail) => {
     const s = document.createElement('script'); s.src = 'strokes/' + set + '.js';

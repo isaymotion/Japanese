@@ -6,14 +6,14 @@
                    or 'case-<case id>' from js/data/listen-questions-2.js, 0.18.0: the best-path dialogue of App.caseDialogue;
                    0.20.0: 'mse-<id>' (App.mseDialogue) and 'dis-<id>' (App.dischargeDialogue) from js/data/listen-questions-3.js;
                    0.25.0: 'eot-<id>' (App.eotDialogue, end-of-treatment reviews) from js/data/listen-questions-6.js; ?id=)
-   Level (Starter, N5, N4, N3, N2) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
+   Level (Starter, N5, N4, N3, N2, N1) is remembered in state.settings.listenLv; best scores in state.done.listen2[tab + ':' + variant].
    Modelled on V.psychListen (js/point-listen.js). */
 (function () {
   const { esc, shuffle, pick, icons, norm } = App;
   const V = App.views;
   const S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LEVELS = ['Starter', 'N5', 'N4', 'N3', 'N2'];
+  const LEVELS = ['Starter', 'N5', 'N4', 'N3', 'N2', 'N1'];
   const SPEEDS = [['slow', 'Slower', 0.7], ['natural', 'Natural', 0.9], ['fast', 'Fast', 1.05]];
   const TABS = [['hear', 'Hear'], ['dict', 'Dictation'], ['pairs', 'Sound pairs'], ['story', 'Dialogues and readings']];
   const INTRO = {

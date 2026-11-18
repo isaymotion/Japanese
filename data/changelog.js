@@ -3,6 +3,16 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.28.0', date: '2026-11-18', title: 'N1, first half: 24 lessons, the first 600 N1 kanji, 1,324 dictionary words',
+    items: [
+      { type: 'feature', text: 'N1 lessons, first half: 24 new grammar lessons in eight units (237 lessons in all): The moment something happens, Reaching the extreme, If and only if, Even so, Grounds and standards, How it looks and sounds, Must, must not, cannot, Judging and summing up. Most N1 forms belong to notices, speeches, case reports and the careful speech of older patients, so each one is marked say or understand and comes with the plain form to say instead; each lesson has clinical examples and a quiz.' },
+      { type: 'feature', text: 'N1 kanji, first 600: the 600 most frequent N1 kanji (1,649 in all) on a new N1 chart, each with its page, readings, example words, stroke-order diagram and writing sheet, in the kanji drill and as flashcard decks. The other N1 kanji come in the next version; 56 N1 kanji were already in the Clinical set and the N1 chart links to them.' },
+      { type: 'content', text: 'Dictionary: 1,324 words from the new kanji pages (about 6,050 in all), so they can be searched, studied as flashcards and used in the vocabulary quiz.' },
+      { type: 'update', text: 'Placement test: five N1 questions (35 in all) and an N1 result that points to the first N1 lesson.' },
+      { type: 'update', text: 'N1 in the level filters of the lessons, kanji chart, writing sheet, dictionary, vocabulary quiz, listening practice, sentence builder and level review test. The other drills, readings and dialogues get N1 in the next version.' }
+    ]
+  },
+  {
     version: '0.27.0', date: '2026-11-18', title: 'More picture sets, Picture mode in the Vocabulary quiz, two drawings redrawn',
     items: [
       { type: 'feature', text: 'Six new picture sets, each with its own line drawing (Picture words): a shopping street (13 words: bakery, greengrocer, fish shop, butcher, florist, bookshop, shoe shop, barber\'s, supermarket, till, bag, shop assistant, vending machine), the pharmacy counter (16 words: pharmacist, prescription, medicine bag, medicine notebook, tablet, capsule, powder, syrup, eye drops, ointment, compress and more; kinds of medicine only, no names or doses), kitchen tools (14), a bed space on the ward (14: curtain, pillow, sheet, blanket, nurse call button, over-bed table, drawer, locker and more), sports and hobbies (16) and the clock and calendar (14: yesterday, today, tomorrow, last week, this week, next week, weekend, public holiday and more). 87 new words and 60 new Listen and point sentences; Picture words now has 44 sets, 592 words and 29 drawings. Every set has Learn, Identify, Label it, Listen and point and a print sheet.' },

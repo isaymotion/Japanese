@@ -9,7 +9,7 @@
   const { esc, shuffle, pick, icons } = App;
   const V = App.views, S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LEVELS = ['N5', 'N4', 'N3', 'N2'];
+  const LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const MODES = [['choose', 'Choose'], ['type', 'Type']];
   const MISS_CAP = 200;
   // Human groups of the data's `type` values; anything unknown goes to Other.

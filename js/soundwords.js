@@ -11,7 +11,7 @@
   const { esc, shuffle, pick, icons, norm } = App;
   const V = App.views, S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const TABS = [['learn', 'Learn'], ['quiz', 'Quiz'], ['match', 'Match']];
   const QT = [['mix', 'Mixed'], ['wm', 'Word → meaning'], ['mw', 'Meaning → word'], ['listen', 'Listen']];
   const MISS_MAX = 200;

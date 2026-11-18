@@ -1,4 +1,4 @@
-/* Placement test. PLACEMENT = [[level, question, options, correctIndex]]; level is 'S' (kana and greetings), 'N5a', 'N5b', 'N4', 'N3' or 'N2'. DRAFT FOR REVIEW. */
+/* Placement test. PLACEMENT = [[level, question, options, correctIndex]]; level is 'S' (kana and greetings), 'N5a', 'N5b', 'N4', 'N3', 'N2' or 'N1'. DRAFT FOR REVIEW. */
 window.PLACEMENT = [
   ['S', "Which of these is written <i>sushi</i>?", ["すき", "すし", "しす"], 1],
   ['S', "What do you say to greet someone in the morning?", ["こんばんは", "おやすみなさい", "おはよう ございます"], 2],
@@ -33,5 +33,11 @@ window.PLACEMENT = [
   ['N2', "What does この 病院《びょういん》 で は、 患者《かんじゃ》さん に 限《かぎ》らず、 ご家族《かぞく》 も 相談《そうだん》 できます mean?", ["At this hospital, only patients can ask for advice, not their families.", "At this hospital, families can ask for advice only when the patient is there.", "At this hospital, not only patients but also their families can ask for advice."], 2],
   ['N2', "What does 無理《むり》 を 続《つづ》ける と、 体調《たいちょう》 を 崩《くず》しかねません mean?", ["If you keep pushing yourself, you could well become unwell.", "Even if you keep pushing yourself, you will not become unwell.", "You cannot keep pushing yourself, because you are already unwell."], 0],
   ['N2', "What does 熱《ねつ》 が 下《さ》がらない ので、 今日《きょう》 の 外出《がいしゅつ》 は 中止《ちゅうし》 せざる を 得《え》ません mean?", ["The fever has not gone down, but there is no need to cancel today's outing.", "The fever has not gone down, so we have no choice but to cancel today's outing.", "The fever has not gone down, so please do not cancel today's outing."], 1],
-  ['N2', "Choose the best word: 昨夜《さくや》 は ゆっくり 休《やす》める ＿、 一睡《いっすい》 も できません でした。", ["どころ か", "に つれて", "から こそ"], 0]
+  ['N2', "Choose the best word: 昨夜《さくや》 は ゆっくり 休《やす》める ＿、 一睡《いっすい》 も できません でした。", ["どころ か", "に つれて", "から こそ"], 0],
+
+  ['N1', "Choose the best word: 入院《にゅういん》 して から と いう ＿、 夜《よる》 は よく 眠《ねむ》れる よう に なりました。", ["もの", "こと", "ところ"], 0],
+  ['N1', "What does ご家族《かぞく》 の 支《ささ》え なくして は、 ここ まで の 回復《かいふく》 は ありません でした mean?", ["Even without the family's support, the recovery went this far.", "Because there was no family support, there has been no recovery.", "Without the family's support, the recovery so far would not have happened."], 2],
+  ['N1', "What does 一人《ひとり》 で 歩《ある》く こと は おろか、 起《お》き上《あ》がる こと すら できません でした mean?", ["He could not walk alone, but he could sit up.", "He could not even sit up, let alone walk alone.", "He could sit up only after walking alone."], 1],
+  ['N1', "Choose the best word: 手術《しゅじゅつ》 の 後《あと》、 父《ちち》 は 一《いっ》か月《げつ》 の 入院《にゅういん》 を ＿ されました。", ["余儀《よぎ》なく", "やまなく", "難《かた》く"], 0],
+  ['N1', "What does ご家族《かぞく》 の 不安《ふあん》 は 想像《そうぞう》 に 難《かた》く ありません mean?", ["The family's worry is hard to imagine.", "The family's worry is easy to imagine.", "There is no need to imagine the family's worry."], 1]
 ];

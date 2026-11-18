@@ -1,5 +1,5 @@
 /* Sentence builder (#/build, 0.23.0). Data: no new data: lesson .ex blocks, LESSON_EXTRA[id].more and DICT_EX, by level.
-   Best scores: state.done.build['<lv>'] = best % (lv N5 | N4 | N3 | N2 | all); numbers only (the Progress page, V.progress in js/views.js, shows them under "Practice scores").
+   Best scores: state.done.build['<lv>'] = best % (lv N5 | N4 | N3 | N2 | N1 | all); numbers only (the Progress page, V.progress in js/views.js, shows them under "Practice scores").
    Missed sentences: state.done.build.miss = [sentence ids] (newest last, at most 200); a sentence id is 'b' + a hash of its plain text,
    so it survives data edits that do not change the sentence. Settings: state.settings.buildLv, buildSrc (lesson | word | both),
    buildCount (10 | 20), buildFuri (furigana on the tiles), buildHear (hear the sentence before building).
@@ -11,7 +11,7 @@
   const { esc, shuffle, pick, icons, norm } = App;
   const V = App.views, S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LEVELS = ['N5', 'N4', 'N3', 'N2'];
+  const LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const SRCS = [['lesson', 'Lessons'], ['word', 'Word examples'], ['both', 'Both']];
   const MIN = 4, MAX = 12, MISS_CAP = 200;
 

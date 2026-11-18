@@ -1,4 +1,4 @@
-/* Level review test (#/test, 0.23.0). A mixed test for one level (N5, N4, N3, N2) built at start from existing data:
+/* Level review test (#/test, 0.23.0). A mixed test for one level (N5, N4, N3, N2, N1) built at start from existing data:
      Grammar         10 from the level's lesson quizzes (LESSONS[].quiz and LESSON_EXTRA[id].quiz) + 6 from GRAMMAR_CLOZE
      Sentence order  4 lesson example sentences (lesson .ex blocks and LESSON_EXTRA.more) of 5+ words cut into 4 chunks,
                      one slot marked ★ (the JLPT style). Particles and endings stay on the word before them; the ★ chunk
@@ -14,13 +14,13 @@
 (function () {
   const { esc, shuffle, pick, norm, icons } = App;
   const V = App.views, S = () => App.state;
-  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const TIME = 25 * 60;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
   const AREAS = [['grammar', 'Grammar'], ['order', 'Sentence order'], ['vocab', 'Vocabulary'], ['kanji', 'Kanji'], ['reading', 'Reading']];
   const AREA_NAME = Object.fromEntries(AREAS);
   const DRILL = {
-    grammar: (lv) => ['#/cloze?lv=' + lv, 'Fill the blank (' + lv + ')'], order: () => ['#/build', 'Sentence builder'],
+    grammar: (lv) => (arr(window.GRAMMAR_CLOZE).some((x) => x && x.lv === lv) ? ['#/cloze?lv=' + lv, 'Fill the blank (' + lv + ')'] : ['#/lessons?lv=' + lv, lv + ' lessons']), order: () => ['#/build', 'Sentence builder'],
     vocab: () => ['#/vocab', 'Vocabulary quiz'], kanji: () => ['#/kanji?tab=drill', 'Kanji drill'], reading: (lv) => ['#/reading?lv=' + lv, 'Reading passages (' + lv + ')']
   };
   const arr = (x) => (Array.isArray(x) ? x : []);

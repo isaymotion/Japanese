@@ -463,7 +463,7 @@
   V.placement = (el) => {
     if (!PLACEMENT.length) { el.innerHTML = '<h1>Placement test</h1>' + soon('The placement test'); return; }
     const LV = LANG.placementLevels, keys = LV.map((x) => x[0]);
-    el.innerHTML = '<h1>Placement test</h1><p class="muted">' + PLACEMENT.length + ' questions from the kana to JLPT N2. If you are new to Japanese, skip this and start with Lesson 1. Choose "I don\'t know" rather than guessing; guessing only hides your real level.</p><div id="pq" data-norj></div>';
+    el.innerHTML = '<h1>Placement test</h1><p class="muted">' + PLACEMENT.length + ' questions from the kana to JLPT N1. If you are new to Japanese, skip this and start with Lesson 1. Choose "I don\'t know" rather than guessing; guessing only hides your real level.</p><div id="pq" data-norj></div>';
     const qs = PLACEMENT.map(([lv, q, opts, a]) => ({ lv, q, opts: opts.concat(["I don't know"]), a }));
     let i = 0; const got = {}, tot = {};
     keys.forEach((k) => { got[k] = 0; tot[k] = 0; });
@@ -474,12 +474,13 @@
         // Your level is the first band you have not yet mastered (80% for the starter band, 60% after).
         let n = 0;
         while (n < keys.length && tot[keys[n]] && got[keys[n]] / tot[keys[n]] >= (n === 0 ? 0.8 : 0.6)) n++;
-        const level = n === 0 ? 'Starter' : n <= 2 ? 'N5' : n === 3 ? 'N4' : n === 4 ? 'N3' : n === 5 ? 'N2' : 'N2+';
+        const level = n === 0 ? 'Starter' : n <= 2 ? 'N5' : n === 3 ? 'N4' : n === 4 ? 'N3' : n === 5 ? 'N2' : n === 6 ? 'N1' : 'N1+';
         S().level = level; App.activity(20);
         const firstOf = (unit) => { const l = LESSONS.find((x) => x.unit === unit); return l ? '#/lessons/' + l.id : '#/lessons'; };
         const rec = [['#/lessons/writing-systems', 'Start with the first lessons and the kana trainer.'], [firstOf('First sentences'), 'You can read kana. Start at First sentences and work through the particles.'], [firstOf('Adjectives'), 'Review adjectives and the て-form, then the plain forms.'],
           [firstOf('Plain forms'), 'Work through the plain forms and Saying more, then open the psychiatry track.'], [firstOf('Time and sequence'), 'You have the N4 grammar. Start the N3 lessons at Time and sequence; you can open the psychiatry track alongside them.'],
-          [firstOf('Change and progress'), 'You have the N3 grammar. Start the N2 lessons at Change and progress; you can open the psychiatry track alongside them.'], ['#/psych', 'You are ready for the psychiatry track. Use the N2 lessons and readings as review.']][n];
+          [firstOf('Change and progress'), 'You have the N3 grammar. Start the N2 lessons at Change and progress; you can open the psychiatry track alongside them.'],
+          [firstOf('The moment something happens'), 'You have the N2 grammar. Start the N1 lessons at The moment something happens; you can open the psychiatry track alongside them.'], ['#/psych', 'You are ready for the psychiatry track. Use the N1 lessons as review.']][n];
         box.innerHTML = '<div class="card stack"><span class="eyebrow">Your level</span><h2 style="margin:0">' + level + '</h2>' +
           '<div class="tablewrap"><table><tr><th>Band</th><th>Score</th></tr>' + LV.map(([k, name]) => '<tr><td>' + esc(name) + '</td><td>' + got[k] + ' / ' + tot[k] + '</td></tr>').join('') + '</table></div>' +
           '<p>' + rec[1] + '</p><div class="row"><a class="btn primary" href="' + rec[0] + '">Go there</a><a class="btn" href="#/">Home</a></div></div>';
@@ -535,7 +536,7 @@
     // done.transform['<lv>:<mode>'] (choose | type), done.pairs['<mode>:<lv>'] (match | quiz), done.sounds['<mode>:<group | all>'] (quiz | match).
     const num = (v) => (typeof v === 'number' ? v : v && typeof v === 'object' && typeof v.p === 'number' ? v.p : null);
     const lvName = (k) => (k === 'all' ? 'All levels' : k);
-    const LV_ORDER = ['Starter', 'N5', 'N4', 'N3', 'N2', 'all'];
+    const LV_ORDER = ['Starter', 'N5', 'N4', 'N3', 'N2', 'N1', 'all'];
     const lvSort = (a, b) => { const x = LV_ORDER.indexOf(a), y = LV_ORDER.indexOf(b); return (x < 0 ? 99 : x) - (y < 0 ? 99 : y) || String(a).localeCompare(String(b)); };
     const store = (k) => (done[k] && typeof done[k] === 'object' ? done[k] : {});
     const oneCol = (title, key, href, head, label, sortFn) => {

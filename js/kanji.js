@@ -1,13 +1,13 @@
 /* Kanji study: a chart by level and group, a page for each kanji, and a multiple-choice drill.
    Data: js/data/kanji-*.js, parsed in js/core.js into App.KANJI (format in tools/AUTHORING.md).
    Progress: state.kanji[字] = correct answers in a row (3 or more = learned). Flashcards use ids "k:字" (js/core.js).
-   Routes: #/kanji (?lv=N5|N4|N3|N2|C, ?tab=drill) and #/kanji/k/<字>. */
+   Routes: #/kanji (?lv=N5|N4|N3|N2|N1|C, ?tab=drill) and #/kanji/k/<字>. */
 (function () {
   const { esc, shuffle, pick, icons } = App;
   const V = App.views, S = () => App.state;
   const ALL = App.KANJI || [], BY = App.kanjiBy || {};
   const LEVELS = App.KANJI_LEVELS || [];
-  const LV_NAME = { N5: 'JLPT N5', N4: 'JLPT N4', N3: 'JLPT N3', N2: 'JLPT N2', C: 'Clinical set' };
+  const LV_NAME = { N5: 'JLPT N5', N4: 'JLPT N4', N3: 'JLPT N3', N2: 'JLPT N2', N1: 'JLPT N1', C: 'Clinical set' };
   const prog = () => S().kanji || (S().kanji = {});
   const learned = (k) => (prog()[k] || 0) >= 3;
   const ofLevel = (lv) => ALL.filter((x) => x.lv === lv);
@@ -33,16 +33,18 @@
     };
     // 0.21.0: JLPT N2 kanji that were already in the clinical set stay there (level C); the N2 chart links to them.
     const N2_IN_C = [...'皮血弱競令周固材毒門専鼻焼胸脳禁減混乱震圧査腕触量販効汗逆移預普臓伸療依膚'];
+    // 0.28.0: the same for JLPT N1 kanji already in the clinical set; the N1 chart links to them.
+    const N1_IN_C = [...'整器泣保幻嫌検罰脱応態護看張影響激独睡症健康診僚緊離救興傷秘筋糖吐射酔避妊娠抑銃剤頻隣肝霊棟黙憶麻殴奮仰尿錠痢妄'];
     const cellHTML = (x) => '<a class="kj-cell' + (learned(x.k) ? ' known' : '') + '" href="' + href(x.k) + '" aria-label="' + esc(x.k + ': ' + x.mean.join(', ')) + '"><b lang="ja">' + esc(x.k) + '</b><small>' + esc(x.mean[0] || '') + '</small></a>';
-    const n2InC = () => {
-      const ks = N2_IN_C.map((k) => BY[k]).filter((x) => x && x.lv === 'C');
-      return ks.length ? '<p class="small muted" style="margin:18px 0 0">' + ks.length + ' more N2 kanji are in the Clinical set:</p><div class="kj-grid" data-noja>' + ks.map(cellHTML).join('') + '</div>' : '';
+    const inC = (list, name) => {
+      const ks = list.map((k) => BY[k]).filter((x) => x && x.lv === 'C');
+      return ks.length ? '<p class="small muted" style="margin:18px 0 0">' + ks.length + ' more ' + name + ' kanji are in the Clinical set:</p><div class="kj-grid" data-noja>' + ks.map(cellHTML).join('') + '</div>' : '';
     };
     const chart = () => groupsOf(lv).map((g) => {
       const ks = ofLevel(lv).filter((x) => x.group === g), n = ks.filter((x) => learned(x.k)).length;
       return '<div class="spread" style="margin-top:18px"><h2 style="margin:0">' + esc(g) + '</h2><span class="muted small">' + n + ' / ' + ks.length + '</span></div><div class="kj-grid" data-noja>' +
         ks.map(cellHTML).join('') + '</div>';
-    }).join('') + (lv === 'N2' ? n2InC() : '') + '<p class="small muted" style="margin-top:14px">Tap a kanji for its readings and example words. Green kanji are ones you have answered correctly three times in a row in the drill.</p>';
+    }).join('') + (lv === 'N2' ? inC(N2_IN_C, 'N2') : lv === 'N1' ? inC(N1_IN_C, 'N1') + '<p class="small muted" style="margin:14px 0 0">These are the 600 most frequent of about 1,230 N1 kanji; the rest come in the next version.</p>' : '') + '<p class="small muted" style="margin-top:14px">Tap a kanji for its readings and example words. Green kanji are ones you have answered correctly three times in a row in the drill.</p>';
     // A study list to read or print: one table per group, with readings and example words.
     const list = () => '<div class="row noprint" style="margin:10px 0 0"><button class="btn sm primary" id="kjprint">' + icons.book + ' Print or save as PDF</button><span class="small muted">Prints the ' + esc(LV_NAME[lv] || lv) + ' list with the furigana and romaji settings you have now.</span></div>' +
       '<div class="kj-list"><div class="kj-list-head"><b>' + esc(APP_META.name) + ': ' + esc(LV_NAME[lv] || lv) + ' kanji</b><span>' + ofLevel(lv).length + ' kanji · draft for review · ' + esc(APP_META.attribution) + '</span></div>' +
@@ -117,7 +119,7 @@
         '<div class="seg" role="group" aria-label="View">' + [['chart', 'Chart'], ['drill', 'Drill'], ['list', 'List']].map(([k, t]) => '<button data-tab="' + k + '" class="' + (tab === k ? 'on' : '') + '">' + t + '</button>').join('') + '</div>' +
         '<span class="pill ' + (n === ks.length ? 'good' : '') + '">' + esc(LV_NAME[lv] || lv) + ': ' + n + ' / ' + ks.length + ' learned</span>' +
         '<a class="btn sm" href="#/flash/kanji-' + lv + '">' + icons.cards + ' Flashcards</a></div>' +
-        (lv === 'C' ? '<p class="small muted" style="margin:10px 0 0">Kanji that are not in this app\'s N5–N2 lists but appear often in its psychiatry phrases. Some of them are JLPT N2 kanji; the N2 chart links to those.</p>' : '') +
+        (lv === 'C' ? '<p class="small muted" style="margin:10px 0 0">Kanji that are not in this app\'s N5–N1 lists but appear often in its psychiatry phrases. Some of them are JLPT N2 or N1 kanji; the N2 and N1 charts link to those.</p>' : '') +
         '<div style="margin-top:8px">' + (tab === 'chart' ? chart() : tab === 'list' ? list() : drill()) + '</div>' +
         '<p class="small muted" style="margin-top:14px">Draft for review: readings, meanings and example words are pending review by a native Japanese speaker. JLPT levels for kanji are approximate; there is no official list.</p>';
       el.querySelectorAll('[data-lv]').forEach((b) => (b.onclick = () => { lv = b.dataset.lv; S().kanjiLevel = lv; App.save(); picked = null; draw(); }));

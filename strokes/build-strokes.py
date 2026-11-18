@@ -6,7 +6,7 @@
 
 Reads the kanji of js/data/kanji-*.js and every kana, takes the stroke paths and stroke-number positions
 of each from KanjiVG's kanji/<5-hex>.svg, rounds the coordinates to one decimal and writes
-strokes/<set>.js (kana, n5, n4, n3, n2, c; js/strokes.js loads a set when one of its characters is first shown):  STROKES["日"] = "path|path|…@x,y x,y …"   (109 x 109 grid, strokes in writing order).
+strokes/<set>.js (kana, n5, n4, n3, n2, n1, c; js/strokes.js loads a set when one of its characters is first shown):  STROKES["日"] = "path|path|…@x,y x,y …"   (109 x 109 grid, strokes in writing order).
 The output is an adaptation of KanjiVG (c) Ulrich Apel, CC BY-SA 3.0; see strokes/LICENSE.md.
 Prints stroke counts that differ from the app's own kanji data, and characters KanjiVG does not have.
 """
@@ -51,7 +51,8 @@ HIRA = [chr(c) for c in range(0x3041, 0x3097)]
 KATA = [chr(c) for c in range(0x30a1, 0x30fb)] + ['ー']
 SETS = [('kana', [(c, None) for c in HIRA + KATA]), ('n5', kanji_of('kanji-n5.js')), ('n4', kanji_of('kanji-n4.js')),
         ('n3', kanji_of('kanji-n3a.js') + kanji_of('kanji-n3b.js') + kanji_of('kanji-n3c.js')),
-        ('n2', kanji_of('kanji-n2a.js') + kanji_of('kanji-n2b.js') + kanji_of('kanji-n2c.js')), ('c', kanji_of('kanji-clinical.js'))]
+        ('n2', kanji_of('kanji-n2a.js') + kanji_of('kanji-n2b.js') + kanji_of('kanji-n2c.js')),
+        ('n1', kanji_of('kanji-n1a.js') + kanji_of('kanji-n1b.js') + kanji_of('kanji-n1c.js') + kanji_of('kanji-n1d.js') + kanji_of('kanji-n1e.js')), ('c', kanji_of('kanji-clinical.js'))]
 index, missing, differ = {}, [], []
 for name, rows in SETS:
     data = {}

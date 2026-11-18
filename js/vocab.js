@@ -4,7 +4,7 @@
    Best % per deck and mode in state.done.vocab['<deckId>:<mode>']; the last deck in state.settings.vocabDeck.
    Matching: window.TOPIC_SETS (js/data/topic-sets.js); rounds of 6 sounds against 6 meanings. Best result in
    state.done.vocab['match:<setId>'] = { m: misses, t: seconds }.
-   0.20.0: a level filter (All, N5, N4, N3, N2 (0.21.0); state.settings.matchLv): a set's words at a level are those whose dictionary
+   0.20.0: a level filter (All, N5, N4, N3, N2 (0.21.0), N1 (0.28.0, once a set has N1 words); state.settings.matchLv): a set's words at a level are those whose dictionary
    level is at or below it (C or no level: All only); sets with fewer than 6 such words are hidden; best results in
    'match:<setId>' (All) or 'match:<setId>@N5' etc. Set page modes Match / Quiz (?mode=quiz): multiple choice on the
    set's words, Meaning or Recall (state.settings.matchQuizMode), best % in 'topic:<setId>@<lv>:<mode>'.
@@ -146,7 +146,7 @@
     return out;
   }
   const CTX_HINT = 'Choose the word; it may change its ending in the sentence.';
-  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const perLevel = (ws) => { const c = {}; ws.forEach((e) => { const k = LVS.includes(e.lv) ? e.lv : 'other'; c[k] = (c[k] || 0) + 1; }); return LVS.concat('other').filter((k) => c[k]).map((k) => (k === 'other' ? 'other ' : k + ' ') + c[k]).join(' · '); };
   App.vocabContextOf = ctxOf;
   App.vocabContextCount = () => { const c = {}; App.DICT.filter(usable).forEach((e) => { if (ctxOf(e)) c[e.lv || '-'] = (c[e.lv || '-'] || 0) + 1; }); return c; };   // for QA and the report
@@ -388,18 +388,21 @@
   // Split into rounds of at most 6, as even as possible (13 words → 5, 4, 4), so no round is a single pair.
   const rounds = (ws) => { const n = Math.ceil(ws.length / 6), out = []; let at = 0; for (let r = 0; r < n; r++) { const k = Math.ceil((ws.length - at) / (n - r)); out.push(ws.slice(at, at + k)); at += k; } return out; };
 
-  // Level filter (0.20.0). N5 < N4 < N3 < N2; C (clinical) or no level counts as above N2, so such words show only under All.
-  const MLV = ['All', 'N5', 'N4', 'N3', 'N2'];
-  const LV_RANK = { N5: 1, N4: 2, N3: 3, N2: 4 };
+  // Level filter (0.20.0). N5 < N4 < N3 < N2 < N1; C (clinical) or no level counts as above N1, so such words show only under All.
+  // 0.28.0: N1 is offered only once some topic set has an N1 word (until then it would list the same sets as N2).
+  const MLV_ALL = ['All', 'N5', 'N4', 'N3', 'N2', 'N1'];
+  let mlvCache = null;
+  const mlv = () => mlvCache || (mlvCache = MLV_ALL.filter((k) => k !== 'N1' || (window.TOPIC_SETS || []).some((s) => setWords(s).some((e) => e.lv === 'N1'))));
+  const LV_RANK = { N5: 1, N4: 2, N3: 3, N2: 4, N1: 5 };
   const MIN_LV = 6;
-  const matchLv = () => (MLV.includes(S().settings.matchLv) ? S().settings.matchLv : 'All');
+  const matchLv = () => (mlv().includes(S().settings.matchLv) ? S().settings.matchLv : 'All');
   const atLevel = (e, lv) => lv === 'All' || (LV_RANK[e.lv] || 99) <= LV_RANK[lv];
   const levelWords = (s, lv) => setWords(s).filter((e) => atLevel(e, lv));
   const shown = (s, lv) => levelWords(s, lv).length >= (lv === 'All' ? 2 : MIN_LV);
   const matchKey = (s, lv) => 'match:' + s.id + (lv === 'All' ? '' : '@' + lv);
   const quizKey = (s, lv, m) => 'topic:' + s.id + '@' + lv + ':' + m;
   const QMODES = MODES.filter((m) => m[0] === 'meaning' || m[0] === 'recall');
-  const lvSeg = (cur, avail) => '<div class="seg vm-lv" role="group" aria-label="Level" data-norj>' + MLV.map((k) => '<button type="button" data-mlv="' + k + '" aria-pressed="' + (cur === k) + '" class="' + (cur === k ? 'on' : '') + '"' + (avail && !avail.includes(k) ? ' disabled' : '') + '>' + k + '</button>').join('') + '</div>';
+  const lvSeg = (cur, avail) => '<div class="seg vm-lv" role="group" aria-label="Level" data-norj>' + mlv().map((k) => '<button type="button" data-mlv="' + k + '" aria-pressed="' + (cur === k) + '" class="' + (cur === k ? 'on' : '') + '"' + (avail && !avail.includes(k) ? ' disabled' : '') + '>' + k + '</button>').join('') + '</div>';
   const bindLv = (el, redraw) => el.querySelectorAll('[data-mlv]').forEach((b) => (b.onclick = () => { S().settings.matchLv = b.dataset.mlv; App.save(); redraw(); }));
 
   function match(el, q) {
@@ -421,7 +424,7 @@
       return;
     }
     const st = S().settings;
-    const avail = MLV.filter((k) => shown(set, k));
+    const avail = mlv().filter((k) => shown(set, k));
     const words0 = levelWords(set, lv);
     const mode = q.mode === 'quiz' ? 'quiz' : 'match';
     const base = '#/vocab?tab=match&set=' + encodeURIComponent(set.id);

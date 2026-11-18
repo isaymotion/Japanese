@@ -19,7 +19,7 @@
 
   V.verbs = (el, p, q) => {
     let kind = q.tab === 'adj' ? 'a' : 'v', set = SETS[kind][0][0], mode = 'make', clinOnly = false, lvf = '';
-    const LVS = [['', 'All levels'], ['N5', 'N5'], ['N4', 'N4'], ['N3', 'N3'], ['N2', 'N2'], ['C', 'Clinical set']];   // only levels with at least one word are shown
+    const LVS = [['', 'All levels'], ['N5', 'N5'], ['N4', 'N4'], ['N3', 'N3'], ['N2', 'N2'], ['N1', 'N1'], ['C', 'Clinical set']];   // only levels with at least one word are shown
     const list = () => (kind === 'a' ? ADJS : VERBS);
     if (!VERBS.length && !ADJS.length) { el.innerHTML = '<h1>Verb trainer</h1><div class="notice info">The verb list arrives in a later release.</div>'; return; }
     const runDrill = () => {

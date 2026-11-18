@@ -14,7 +14,7 @@
   const { esc, pick, shuffle, icons } = App;
   const V = App.views, S = () => App.state;
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
-  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const KINDS = [['everyday', 'Everyday'], ['clinical', 'Clinical'], ['all', 'All']];
   const ROUND = 10, MISS_MAX = 200;
   const isStr = (x) => typeof x === 'string' && x.trim() !== '';

@@ -9,7 +9,7 @@
 (function () {
   const { esc, shuffle, icons } = App;
   const V = App.views, S = () => App.state;
-  const LVS = ['N5', 'N4', 'N3', 'N2'];
+  const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
   const crumb = (items) => '<div class="breadcrumb">' + items.map(([t, h]) => (h ? '<a href="' + h + '">' + esc(t) + '</a>' : esc(t))).join(' / ') + '</div>';
   const MISS_MAX = 200;
 
