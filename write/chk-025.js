@@ -33,7 +33,7 @@ const plain = (t) => (JA ? JA.speak(String(t || '')) : String(t || '')).replace(
 const lessons = new Set((ctx.LESSONS || []).map((l) => l && l.id));
 
 /* ---------- Find the mistake ---------- */
-const EFILES = { 'grammar-errors-n5.js': { N5: 60 }, 'grammar-errors-n4.js': { N4: 60 }, 'grammar-errors-n3n2.js': { N3: 40, N2: 40 } };
+const EFILES = { 'grammar-errors-n5.js': { N5: 60 }, 'grammar-errors-n4.js': { N4: 60 }, 'grammar-errors-n3n2.js': { N3: 40, N2: 40 }, 'grammar-errors-n1.js': { N1: 40 } };
 const TYPES = new Set(['particle', 'verb-form', 'adj-form', 'tense', 'counter', 'pair', 'give-receive', 'keigo', 'connector', 'word-choice']);
 const GE = Array.isArray(ctx.GRAMMAR_ERRORS) ? ctx.GRAMMAR_ERRORS : [];
 const eIds = new Map(), eCount = {};
@@ -43,7 +43,7 @@ GE.forEach((x, k) => {
   if (!x || typeof x !== 'object') return E(f, 'entry ' + k + ' is not an object');
   if (!isStr(id)) return E(f, 'entry ' + k + ' has no id');
   if (eIds.has(id)) E(f, 'duplicate id ' + id + ' (also in ' + eIds.get(id) + ')'); else eIds.set(id, f);
-  const m = /^e-(n5|n4|n3|n2)-(\d{3})$/.exec(id);
+  const m = /^e-(n5|n4|n3|n2|n1)-(\d{3})$/.exec(id);
   if (!m) E(f, 'id ' + id + ' is not e-<n5|n4|n3|n2>-NNN');
   else if (('N' + m[1].slice(1)) !== x.lv) E(f, id + ': id level does not match lv ' + x.lv);
   if (!EFILES[f] || !(x.lv in EFILES[f])) E(f, id + ': level ' + x.lv + ' does not belong in this file');
@@ -75,7 +75,7 @@ Object.entries(EFILES).forEach(([f, want]) => Object.entries(want).forEach(([lv,
 if (GE.length && nMissing > GE.length / 10) W('grammar-errors', nMissing + ' items with a missing or extra word (plan: under a tenth)');
 
 /* ---------- Listen and reply ---------- */
-const RFILES = { 'listen-reply-1.js': { from: 1, to: 80, clin: false, lv: { N5: 25, N4: 25, N3: 20, N2: 10 } }, 'listen-reply-2.js': { from: 101, to: 180, clin: true, lv: { N5: 15, N4: 25, N3: 25, N2: 15 } } };
+const RFILES = { 'listen-reply-1.js': { from: 1, to: 80, clin: false, lv: { N5: 25, N4: 25, N3: 20, N2: 10 } }, 'listen-reply-2.js': { from: 101, to: 180, clin: true, lv: { N5: 15, N4: 25, N3: 25, N2: 15 } }, 'listen-reply-3.js': { from: 201, to: 230, lv: { N1: 30 } } };
 const LR = Array.isArray(ctx.LISTEN_REPLY) ? ctx.LISTEN_REPLY : [];
 const rIds = new Map(), rCount = {}, aPos = {};
 LR.forEach((x, k) => {
@@ -86,8 +86,8 @@ LR.forEach((x, k) => {
   const m = /^r-(\d{3})$/.exec(id);
   if (!m) E(f, 'id ' + id + ' is not r-NNN');
   else if (spec && (+m[1] < spec.from || +m[1] > spec.to)) E(f, id + ': outside r-' + String(spec.from).padStart(3, '0') + '…r-' + spec.to);
-  if (spec && x.clin !== spec.clin) E(f, id + ': clin must be ' + spec.clin);
-  if (!/^(N5|N4|N3|N2)$/.test(x.lv || '')) E(f, id + ': lv ' + x.lv);
+  if (spec && spec.clin !== undefined && x.clin !== spec.clin) E(f, id + ': clin must be ' + spec.clin);
+  if (!/^(N5|N4|N3|N2|N1)$/.test(x.lv || '')) E(f, id + ': lv ' + x.lv);
   (rCount[f] = rCount[f] || {})[x.lv] = ((rCount[f] || {})[x.lv] || 0) + 1;
   if (!isStr(x.say) || !isStr(x.en)) E(f, id + ': say and en needed');
   if (!isStr(x.who)) W(f, id + ': who missing');

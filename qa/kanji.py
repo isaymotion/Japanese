@@ -28,7 +28,7 @@ async def main():
                     r=await pg.evaluate("""()=>{const p=[...document.querySelectorAll('#view p')].find(x=>/more N1 kanji are in the Clinical set/.test(x.textContent));if(!p)return 'no line';const g=p.nextElementSibling;const a=[...g.querySelectorAll('a.kj-cell')];return p.textContent.trim()+' links '+a.length+' bad '+a.filter(x=>{const k=decodeURIComponent(x.getAttribute('href').split('/k/')[1]||'');return !App.kanjiBy[k]||App.kanjiBy[k].lv!=='C'}).length}""")
                     print('  N1 in clinical set:',r)
                     if 'no line' in r or ' bad 0' not in r: errs.append('N1 clinical block: '+r)
-                    if not await pg.evaluate("[...document.querySelectorAll('#view p')].some(x=>/600 most frequent of about 1,230 N1 kanji/.test(x.textContent))"): errs.append('no N1 600 line')
+                    if await pg.evaluate("[...document.querySelectorAll('#view p')].some(x=>/600 most frequent/.test(x.textContent))"): errs.append('stale N1 600 line')
                 if lv=='C': print('  C note:',await pg.evaluate("([...document.querySelectorAll('#view p.small')].find(p=>/psychiatry phrases/.test(p.textContent))||{}).textContent"))
             # every kanji page renders (desktop only, quick), no raw notation, no overflow
             if name=='desk':

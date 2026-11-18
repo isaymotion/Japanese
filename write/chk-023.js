@@ -38,7 +38,7 @@ const sp = (s) => JA.speak(String(s == null ? '' : s)).trim();
 const hira = (s) => JA.toHira(JA.compact(JA.kana(String(s || ''))));
 const F = (o) => fileOf.get(o) || '?';
 const isStr = (s) => typeof s === 'string' && s.trim().length > 0;
-const LVS = ['N5', 'N4', 'N3', 'N2'];
+const LVS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
 /* ---------- Lessons ---------- */
 const L = ctx.LESSONS || [];
@@ -207,7 +207,7 @@ items.forEach((it) => {
   const k = sp(it.w);
   if (wordSeen.has(k)) E(f, where + ': word ' + it.w + ' twice (also ' + wordSeen.get(k) + ')'); else wordSeen.set(k, it.id);
   if (!gids.has(it.g)) E(f, where + ': group ' + it.g + ' does not exist');
-  if (!['N5', 'N4', 'N3', 'N2', 'C'].includes(it.lv)) E(f, where + ': lv ' + it.lv);
+  if (!['N5', 'N4', 'N3', 'N2', 'N1', 'C'].includes(it.lv)) E(f, where + ': lv ' + it.lv);
   ['en', 'ex', 'exen'].forEach((x) => { if (!isStr(it[x])) E(f, where + ': missing ' + x); });
   if (isStr(it.ex) && !hira(it.ex).includes(hira(it.w))) E(f, where + ': the example does not contain ' + it.w);
 });
