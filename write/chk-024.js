@@ -52,14 +52,14 @@ const isNum = (v) => typeof v === 'number' && isFinite(v);
 /* ---------- PLAN C: the set ids of each group ---------- */
 const PLAN = {
   body: ['body-front', 'body-back', 'face', 'hand-arm', 'leg-foot', 'inside'],
-  home: ['house-outside', 'living-room', 'kitchen', 'bathroom', 'bedroom', 'appliances'],
-  town: ['street', 'station', 'buildings', 'hospital-floor', 'positions'],
+  home: ['house-outside', 'living-room', 'kitchen', 'bathroom', 'bedroom', 'appliances', 'kitchen-tools'],
+  town: ['street', 'station', 'buildings', 'hospital-floor', 'positions', 'shops', 'pharmacy-counter', 'ward-room'],
   animals: ['pets-farm', 'zoo', 'birds-insects-sea', 'animal-parts'],
   machines: ['car', 'bicycle', 'computer-phone', 'vehicles', 'ward-things'],
   food: ['fruit-veg', 'meals-drinks', 'table-setting'],
   clothes: ['clothes', 'accessories-colours'],
   nature: ['landscape', 'weather', 'seasons-plants'],
-  daily: ['feelings', 'daily-routine', 'school-office', 'family-tree']
+  daily: ['feelings', 'daily-routine', 'school-office', 'family-tree', 'sports-hobbies', 'clock-calendar']
 };
 const PLANNED = new Set([].concat(...Object.values(PLAN)));
 

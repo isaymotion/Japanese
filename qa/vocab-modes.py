@@ -32,7 +32,7 @@ def run(b, w, h, name, dark):
     go('#/vocab'); check('quiz tab')
     if name == 'phone': print('usable In context words per level:', pg.evaluate("JSON.stringify(App.vocabContextCount())"))
     segs = pg.evaluate("[...document.querySelectorAll('[data-vm]')].map(b=>b.dataset.vm)")
-    if segs != ['meaning', 'recall', 'reading', 'context', 'type']: problems.append(f'{name} mode seg {segs}')
+    if segs != ['meaning', 'recall', 'reading', 'context', 'type', 'picture']: problems.append(f'{name} mode seg {segs}')
     decks = ['lv-N5', 'c-health'] + (['lv-N3'] if name == 'desk' else [])
     for deck in decks:
         go('#/vocab'); pg.select_option('#vqdeck', deck); pg.locator('[data-vm=context]').click(); pg.locator('[data-vc="10"]').click()
