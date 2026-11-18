@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '1.0.0', date: '2026-11-19', title: 'Version 1.0: N1 with common mistakes, more practice and unit reviews; the course from kana to N1 is complete',
+    items: [
+      { type: 'feature', text: 'Version 1.0: the course from the kana to N1 is complete. Every level from N5 to N1 now has its grammar lessons with common mistakes, extra examples and a second quiz, a review at the end of every unit, kanji with stroke order, dictionary words, readings, dialogues, listening and drills, next to the full psychiatric interview, practice cases and clinical tools. 1.0 means the build is complete; it does not mean the Japanese has been approved (see the note below).' },
+      { type: 'feature', text: 'Deeper N1 lessons: each of the 48 N1 lessons now has three common mistakes (the wrong form struck through, the right one with sound and the reason), six more example sentences (three clinical, three everyday) and a second quiz, More practice, of six new questions. That is 144 mistakes, 288 examples and 288 questions.' },
+      { type: 'feature', text: 'Unit reviews for N1: each of the 16 N1 units now ends with a review lesson: one table of the unit\'s patterns with the register of each (say or understand; spoken, formal or written) and the plain form to say instead, the commonest mix-ups, mixed examples that set two patterns side by side, and a quiz of 12. 16 new reviews, 192 questions; 277 lessons in all (Starter 6, N5 47, N4 64, N3 32, N2 64, N1 64), 64 of them reviews.' },
+      { type: 'update', text: 'The new examples and review sentences also feed the Sentence builder, the listening sentences and the Level review test at N1, and the right line of every mistake pair is recorded. Forms that criticise (such as 〜始末 だ and 〜きらい が ある) appear about a patient or family only as a struck-through mistake or a wrong option, with the neutral wording to use instead.' },
+      { type: 'update', text: 'About page: a short note on what version 1.0 means.' },
+      { type: 'content', text: 'All Japanese is still a draft until a native Japanese-speaking clinician has reviewed it, and the nurse sections are still pending Nursing Service review. Every new file was written by one writer and checked by a separate reviewer.' }
+    ]
+  },
+  {
     version: '0.29.0', date: '2026-11-18', title: 'N1 complete: 24 more lessons, the other 576 kanji, readings, dialogues and drills',
     items: [
       { type: 'feature', text: 'N1 lessons, second half: 24 new grammar lessons in eight units (261 lessons in all; N1 has 48): Purpose, dependence and defiance; Occasions, pretexts and turning points; Surprise, emphasis and giving up; Concession and half-commitment; Relations, lists and word-building; Limits, missed chances and restraint; Old forms that are still alive; Formal Japanese at work (top-level keigo, the written style of case reports, speeches and formal greetings). Each form is marked say or understand, with the plain form to say instead.' },
