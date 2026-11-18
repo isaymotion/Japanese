@@ -3,6 +3,15 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '0.26.0', date: '2026-11-18', title: 'Deeper N3 and N2 lessons',
+    items: [
+      { type: 'feature', text: 'Deeper N3 and N2 lessons: each of the 72 N3 and N2 lessons now has three common mistakes (the wrong form struck through, the right one with sound and the reason), six more example sentences (three clinical, three everyday) and a second quiz, More practice, of six new questions. That is 216 mistakes, 432 examples and 432 questions, the same extras the N5 and N4 lessons got in 0.23.0.' },
+      { type: 'feature', text: 'Unit reviews for N3 and N2: every one of the 8 N3 units and 16 N2 units now ends with a review lesson: one table of the unit\'s patterns (for N2 with the register: say or understand, spoken, formal or written), the commonest mix-ups, mixed examples that set two patterns side by side, and a quiz of 12. 24 new reviews, 288 questions; 213 lessons in all (Starter 6, N5 47, N4 64, N3 32, N2 64), 48 of them reviews.' },
+      { type: 'improvement', text: 'The new examples and review sentences also feed the Sentence builder, the listening sentences and the Level review test for N3 and N2, and the right line of every mistake pair is recorded. A mistake is only shown as a mistake when most native speakers would reject it; where a line is grammatical but the wrong register for a patient, the note says so.' },
+      { type: 'note', text: 'All new Japanese is a draft: written by AI and checked by a second, independent AI pass, not yet reviewed by a native Japanese-speaking clinician.' }
+    ]
+  },
+  {
     version: '0.25.0', date: '2026-11-18', title: 'Today\'s practice, Find the mistake, Listen and reply, listening on every case',
     items: [
       { type: 'type', text: 'text' },
