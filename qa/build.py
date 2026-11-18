@@ -66,6 +66,9 @@ def run(p, name, vp, scheme, full):
             pg.locator(f'[data-bl="{lv}"]').click(); pg.wait_for_timeout(100)
             counts.append(lv + ' ' + pg.locator('#bdset p.small').inner_text().split(' ')[0])
         if full: print(name, 'source', src, counts)
+        if src == 'both' and 'N1' in lvs:   # 0.28.0: N1 (lesson examples only in 0.28.0) gives a round that can be played
+            pg.locator('[data-bl="N1"]').click(); pg.wait_for_timeout(100)
+            if full: print(name, 'N1 sentences', pg.evaluate("App.buildChunks ? 1 : 0"), pg.locator('#bdset p.small').inner_text()[:80])
     check('settings')
     pg.screenshot(path=f'{OUT}/build_settings_{name}.png', full_page=True)
 

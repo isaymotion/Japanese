@@ -1,0 +1,1333 @@
+N1 | 第 | 第一《だいいち》 | first, number one
+N1 | 第 | 第二《だいに》 | second
+N1 | 第 | 次第《しだい》 | depending on
+N1 | 級 | 一級《いっきゅう》 | first grade
+N1 | 級 | 高級《こうきゅう》 | high-class
+N1 | 級 | 同級生《どうきゅうせい》 | classmate
+N1 | 率 | 確率《かくりつ》 | probability
+N1 | 率 | 効率《こうりつ》 | efficiency
+N1 | 率 | 率直《そっちょく》 | frank
+N1 | 昭 | 昭和《しょうわ》 | Showa era (1926 to 1989)
+N1 | 昭 | 昭和時代《しょうわじだい》 | the Showa period
+N1 | 紀 | 世紀《せいき》 | century
+N1 | 紀 | 二十一世紀《にじゅういっせいき》 | 21st century
+N1 | 紀 | 紀元前《きげんぜん》 | BC
+N1 | 氏 | 氏名《しめい》 | full name
+N1 | 氏 | 田中氏《たなかし》 | Mr. Tanaka
+N1 | 士 | 弁護士《べんごし》 | lawyer
+N1 | 士 | 栄養士《えいようし》 | dietitian
+N1 | 郎 | 新郎《しんろう》 | bridegroom
+N1 | 雄 | 英雄《えいゆう》 | hero
+N1 | 雄 | 雄《おす》 | male (animal)
+N1 | 雄 | 雄大《ゆうだい》 | grand, magnificent
+N1 | 佐 | 補佐《ほさ》 | assistant, aide
+N1 | 佐 | 大佐《たいさ》 | colonel
+N1 | 司 | 司会《しかい》 | chairing, master of ceremonies
+N1 | 司 | 司法《しほう》 | judiciary
+N1 | 障 | 故障《こしょう》 | breakdown
+N1 | 障 | 支障《ししょう》 | hindrance
+N1 | 視 | 視力《しりょく》 | eyesight
+N1 | 聴 | 聴力《ちょうりょく》 | hearing
+N1 | 姿 | 姿《すがた》 | figure, appearance
+N1 | 姿 | 容姿《ようし》 | looks
+N1 | 訴 | 訴《うった》える | to complain of, appeal
+N1 | 訴 | 訴訟《そしょう》 | lawsuit
+N1 | 核 | 結核《けっかく》 | tuberculosis
+N1 | 核 | 核《かく》 | nucleus, nuclear
+N1 | 核 | 中核《ちゅうかく》 | core
+N1 | 衛 | 衛生《えいせい》 | hygiene
+N1 | 衛 | 精神衛生《せいしんえいせい》 | mental hygiene
+N1 | 衛 | 防衛《ぼうえい》 | defense
+N1 | 系 | 神経系《しんけいけい》 | nervous system
+N1 | 系 | 系統《けいとう》 | system, lineage
+N1 | 系 | 日系《にっけい》 | of Japanese descent
+N1 | 臨 | 臨時《りんじ》 | temporary, extra
+N1 | 抗 | 抵抗《ていこう》 | resistance
+N1 | 抗 | 抗生物質《こうせいぶっしつ》 | antibiotic
+N1 | 松 | 松《まつ》 | pine tree
+N1 | 藤 | 藤《ふじ》 | wisteria
+N1 | 沢 | 沢《さわ》 | mountain stream
+N1 | 浜 | 浜《はま》 | beach
+N1 | 浜 | 砂浜《すなはま》 | sandy beach
+N1 | 江 | 入《い》り江《え》 | inlet
+N1 | 江 | 江戸《えど》 | Edo, old name of Tokyo
+N1 | 江 | 長江《ちょうこう》 | Yangtze River
+N1 | 環 | 循環《じゅんかん》 | circulation
+N1 | 環 | 環状線《かんじょうせん》 | loop line
+N1 | 井 | 井戸《いど》 | well
+N1 | 宮 | 子宮《しきゅう》 | uterus
+N1 | 塁 | 一塁《いちるい》 | first base
+N1 | 塁 | 本塁打《ほんるいだ》 | home run
+N1 | 塁 | 満塁《まんるい》 | bases loaded
+N1 | 邦 | 連邦《れんぽう》 | federation
+N1 | 邦 | 邦画《ほうが》 | Japanese film
+N1 | 邦 | 邦人《ほうじん》 | Japanese national
+N1 | 案 | 提案《ていあん》 | proposal
+N1 | 授 | 教授《きょうじゅ》 | professor
+N1 | 授 | 授乳《じゅにゅう》 | breastfeeding
+N1 | 博 | 博士《はかせ》 | doctor (PhD)
+N1 | 博 | 博覧会《はくらんかい》 | exposition
+N1 | 就 | 就労《しゅうろう》 | working, employment
+N1 | 企 | 企業《きぎょう》 | company, enterprise
+N1 | 企 | 企画《きかく》 | plan, project
+N1 | 企 | 企《くわだ》てる | to plan, scheme
+N1 | 提 | 前提《ぜんてい》 | premise
+N1 | 討 | 検討《けんとう》 | consideration, review
+N1 | 討 | 討論《とうろん》 | debate
+N1 | 討 | 討議《とうぎ》 | discussion
+N1 | 催 | 開催《かいさい》 | holding (an event)
+N1 | 催 | 催《もよお》し | event
+N1 | 催 | 催眠《さいみん》 | hypnosis
+N1 | 監 | 監督《かんとく》 | supervision, director
+N1 | 監 | 監視《かんし》 | monitoring
+N1 | 監 | 監査《かんさ》 | audit
+N1 | 督 | 督促《とくそく》 | reminder (to pay)
+N1 | 幹 | 幹部《かんぶ》 | executive
+N1 | 幹 | 幹《みき》 | tree trunk
+N1 | 締 | 締結《ていけつ》 | conclusion (of a treaty)
+N1 | 標 | 標準《ひょうじゅん》 | standard
+N1 | 標 | 標識《ひょうしき》 | road sign
+N1 | 挙 | 挙《あ》げる | to give (an example)
+N1 | 挙 | 挙手《きょしゅ》 | raising one's hand
+N1 | 援 | 援助《えんじょ》 | aid
+N1 | 施 | 実施《じっし》 | implementation
+N1 | 施 | 施《ほどこ》す | to give, perform
+N1 | 展 | 発展《はってん》 | development
+N1 | 展 | 展開《てんかい》 | unfolding, development
+N1 | 展 | 展覧会《てんらんかい》 | exhibition
+N1 | 推 | 推測《すいそく》 | guess
+N1 | 推 | 推定《すいてい》 | estimate
+N1 | 推 | 推《お》す | to recommend, support
+N1 | 請 | 請求《せいきゅう》 | claim, billing
+N1 | 請 | 下請《したう》け | subcontracting, subcontractor
+N1 | 攻 | 攻撃《こうげき》 | attack
+N1 | 攻 | 攻《せ》める | to attack
+N1 | 攻 | 専攻《せんこう》 | major (field of study)
+N1 | 撃 | 衝撃《しょうげき》 | shock, impact
+N1 | 撃 | 目撃《もくげき》 | witnessing
+N1 | 及 | 普及《ふきゅう》 | spread, popularization
+N1 | 及 | 及《およ》び | and (formal)
+N1 | 及 | 言及《げんきゅう》 | mention
+N1 | 摘 | 指摘《してき》 | pointing out
+N1 | 摘 | 摘出《てきしゅつ》 | surgical removal
+N1 | 摘 | 摘《つ》む | to pick
+N1 | 拡 | 拡大《かくだい》 | expansion, enlargement
+N1 | 拡 | 拡張《かくちょう》 | extension, dilation
+N1 | 拡 | 拡散《かくさん》 | spread
+N1 | 振 | 振動《しんどう》 | vibration
+N1 | 振 | 振戦《しんせん》 | tremor
+N1 | 従 | 従業員《じゅうぎょういん》 | employee
+N1 | 従 | 服従《ふくじゅう》 | obedience
+N1 | 踏 | 踏《ふ》む | to step on
+N1 | 踏 | 足踏《あしぶ》み | marking time, stalling
+N1 | 壊 | 崩壊《ほうかい》 | collapse
+N1 | 迫 | 迫《せま》る | to approach, press
+N1 | 迫 | 圧迫《あっぱく》 | pressure, compression
+N1 | 迫 | 強迫《きょうはく》 | compulsion
+N1 | 継 | 継続《けいぞく》 | continuation
+N1 | 継 | 中継《ちゅうけい》 | relay, live broadcast
+N1 | 闘 | 闘《たたか》う | to fight
+N1 | 闘 | 戦闘《せんとう》 | battle
+N1 | 闘 | 闘病《とうびょう》 | fighting an illness
+N1 | 撤 | 撤回《てっかい》 | retraction
+N1 | 撤 | 撤退《てったい》 | withdrawal, retreat
+N1 | 撤 | 撤去《てっきょ》 | removal
+N1 | 削 | 削減《さくげん》 | reduction
+N1 | 削 | 削《けず》る | to shave, cut down
+N1 | 遣 | 派遣《はけん》 | dispatch
+N1 | 遣 | 小遣《こづか》い | pocket money
+N1 | 遣 | 気遣《きづか》い | consideration, concern
+N1 | 異 | 異《こと》なる | to differ
+N1 | 異 | 異性《いせい》 | the opposite sex
+N1 | 鮮 | 鮮明《せんめい》 | clear, vivid
+N1 | 厳 | 厳重《げんじゅう》 | strict, tight
+N1 | 厳 | 尊厳《そんげん》 | dignity
+N1 | 密 | 密度《みつど》 | density
+N1 | 善 | 最善《さいぜん》 | the best
+N1 | 善 | 善悪《ぜんあく》 | good and evil
+N1 | 吉 | 大吉《だいきち》 | great good luck
+N1 | 吉 | 不吉《ふきつ》 | ominous
+N1 | 盛 | 大盛《おおも》り | large serving
+N1 | 模 | 模様《もよう》 | pattern
+N1 | 模 | 規模《きぼ》 | scale
+N1 | 模 | 模範《もはん》 | model, example
+N1 | 弁 | 関西弁《かんさいべん》 | Kansai dialect
+N1 | 房 | 乳房《にゅうぼう》 | breast (medical term)
+N1 | 製 | 製品《せいひん》 | product
+N1 | 製 | 日本製《にほんせい》 | made in Japan
+N1 | 製 | 製薬《せいやく》 | pharmaceutical manufacturing
+N1 | 素 | 酸素《さんそ》 | oxygen
+N1 | 素 | 要素《ようそ》 | element, factor
+N1 | 株 | 株《かぶ》 | stock, share
+N1 | 株 | 株式会社《かぶしきがいしゃ》 | corporation
+N1 | 株 | 株価《かぶか》 | stock price
+N1 | 織 | 織《お》る | to weave
+N1 | 織 | 織物《おりもの》 | textile
+N1 | 惑 | 困惑《こんわく》 | bewilderment
+N1 | 執 | 執着《しゅうちゃく》 | attachment, fixation
+N1 | 執 | 固執《こしつ》 | persistence, clinging
+N1 | 執 | 執筆《しっぴつ》 | writing
+N1 | 統 | 統計《とうけい》 | statistics
+N1 | 策 | 対策《たいさく》 | measures
+N1 | 策 | 政策《せいさく》 | policy
+N1 | 策 | 散策《さんさく》 | stroll
+N1 | 基 | 基《もと》づく | to be based on
+N1 | 価 | 価格《かかく》 | price
+N1 | 評 | 批評《ひひょう》 | review, critique
+N1 | 裁 | 裁判《さいばん》 | trial
+N1 | 裁 | 裁判所《さいばんしょ》 | court
+N1 | 裁 | 裁《さば》く | to judge
+N1 | 証 | 証拠《しょうこ》 | evidence
+N1 | 条 | 条約《じょうやく》 | treaty
+N1 | 条 | 第一条《だいいちじょう》 | Article 1
+N1 | 審 | 審査《しんさ》 | screening, review
+N1 | 審 | 審判《しんぱん》 | referee, judgment
+N1 | 審 | 不審《ふしん》 | suspicious
+N1 | 義 | 意義《いぎ》 | significance
+N1 | 閣 | 内閣《ないかく》 | cabinet
+N1 | 閣 | 閣僚《かくりょう》 | cabinet minister
+N1 | 閣 | 金閣寺《きんかくじ》 | Kinkakuji (Golden Pavilion)
+N1 | 衆 | 民衆《みんしゅう》 | the people
+N1 | 衆 | 観衆《かんしゅう》 | audience
+N1 | 衆 | 衆議院《しゅうぎいん》 | House of Representatives
+N1 | 票 | 一票《いっぴょう》 | one vote
+N1 | 票 | 伝票《でんぴょう》 | slip, voucher
+N1 | 渉 | 交渉《こうしょう》 | negotiation
+N1 | 憲 | 憲法《けんぽう》 | constitution
+N1 | 憲 | 憲章《けんしょう》 | charter
+N1 | 盟 | 同盟《どうめい》 | alliance
+N1 | 盟 | 連盟《れんめい》 | league, federation
+N1 | 盟 | 加盟《かめい》 | joining (as a member)
+N1 | 隊 | 部隊《ぶたい》 | unit, troops
+N1 | 隊 | 救助隊《きゅうじょたい》 | rescue team
+N1 | 隊 | 自衛隊《じえいたい》 | Self-Defense Forces
+N1 | 献 | 文献《ぶんけん》 | literature, references
+N1 | 献 | 献血《けんけつ》 | blood donation
+N1 | 献 | 貢献《こうけん》 | contribution
+N1 | 維 | 維持《いじ》 | maintenance
+N1 | 維 | 繊維《せんい》 | fiber
+N1 | 維 | 明治維新《めいじいしん》 | Meiji Restoration
+N1 | 遺 | 遺伝《いでん》 | heredity
+N1 | 遺 | 遺族《いぞく》 | bereaved family
+N1 | 遺 | 遺言《ゆいごん》 | will, last words
+N1 | 益 | 利益《りえき》 | profit
+N1 | 益 | 有益《ゆうえき》 | beneficial
+N1 | 益 | ご利益《りやく》 | divine favor
+N1 | 宣 | 宣言《せんげん》 | declaration
+N1 | 宣 | 宣伝《せんでん》 | advertising
+N1 | 宣 | 宣告《せんこく》 | pronouncement
+N1 | 廃 | 廃止《はいし》 | abolition
+N1 | 廃 | 廃棄《はいき》 | disposal
+N1 | 廃 | 廃棄物《はいきぶつ》 | waste
+N1 | 皇 | 天皇《てんのう》 | emperor of Japan
+N1 | 皇 | 皇居《こうきょ》 | Imperial Palace
+N1 | 皇 | 皇室《こうしつ》 | imperial family
+N1 | 債 | 債務《さいむ》 | debt
+N1 | 債 | 国債《こくさい》 | government bond
+N1 | 債 | 負債《ふさい》 | liabilities
+N1 | 源 | 起源《きげん》 | origin
+N1 | 儀 | 儀式《ぎしき》 | ceremony
+N1 | 儀 | 行儀《ぎょうぎ》 | manners
+N1 | 儀 | 葬儀《そうぎ》 | funeral service
+N1 | 創 | 創造《そうぞう》 | creation
+N1 | 創 | 創立《そうりつ》 | founding
+N1 | 創 | 創傷《そうしょう》 | wound
+N1 | 葬 | 葬式《そうしき》 | funeral
+N1 | 葬 | 火葬《かそう》 | cremation
+N1 | 逮 | 逮捕《たいほ》 | arrest
+N1 | 逮 | 逮捕状《たいほじょう》 | arrest warrant
+N1 | 融 | 金融《きんゆう》 | finance
+N1 | 融 | 融合《ゆうごう》 | fusion
+N1 | 融 | 融通《ゆうずう》 | flexibility
+N1 | 故 | 事故《じこ》 | accident
+N1 | 故 | 故郷《こきょう》 | hometown
+N1 | 項 | 項目《こうもく》 | item
+N1 | 項 | 事項《じこう》 | matter, item
+N1 | 項 | 条項《じょうこう》 | clause
+N1 | 併 | 合併症《がっぺいしょう》 | complication
+N1 | 併 | 併用《へいよう》 | combined use
+N1 | 併 | 併《あわ》せて | in addition
+N1 | 括 | 一括《いっかつ》 | all at once
+N1 | 括 | 包括的《ほうかつてき》 | comprehensive
+N1 | 括 | 括弧《かっこ》 | brackets
+N1 | 縮 | 縮《ちぢ》む | to shrink
+N1 | 縮 | 短縮《たんしゅく》 | shortening
+N1 | 縮 | 縮小《しゅくしょう》 | reduction
+N1 | 銭 | 小銭《こぜに》 | small change
+N1 | 銭 | 金銭《きんせん》 | money
+N1 | 誕 | 誕生日《たんじょうび》 | birthday
+N1 | 誕 | 誕生《たんじょう》 | birth
+N1 | 誕 | 生誕《せいたん》 | birth (of a famous person)
+N1 | 至 | 至急《しきゅう》 | urgently
+N1 | 至 | 至《いた》る | to reach
+N1 | 至 | 至《いた》るところ | everywhere
+N1 | 還 | 還暦《かんれき》 | 60th birthday
+N1 | 還 | 返還《へんかん》 | return (of something)
+N1 | 還 | 生還《せいかん》 | coming back alive
+N1 | 我 | 我々《われわれ》 | we
+N1 | 我 | 自我《じが》 | ego, self
+N1 | 伴 | 伴《ともな》う | to accompany, come with
+N1 | 伴 | 同伴《どうはん》 | accompanying
+N1 | 伴 | 伴奏《ばんそう》 | accompaniment (music)
+N1 | 養 | 養子《ようし》 | adopted child
+N1 | 養 | 養《やしな》う | to support, raise
+N1 | 俊 | 俊敏《しゅんびん》 | agile
+N1 | 俊 | 俊足《しゅんそく》 | fast runner
+N1 | 智 | 智恵《ちえ》 | wisdom
+N1 | 弘 | 弘法大師《こうぼうだいし》 | Kōbō Daishi (a monk)
+N1 | 染 | 感染症《かんせんしょう》 | infectious disease
+N1 | 染 | 染《そ》める | to dye
+N1 | 握 | 握力《あくりょく》 | grip strength
+N1 | 排 | 排除《はいじょ》 | exclusion
+N1 | 透 | 透析《とうせき》 | dialysis
+N1 | 透 | 透《す》き通《とお》る | to be see-through, clear
+N1 | 緩 | 緩和《かんわ》ケア | palliative care
+N1 | 敏 | 機敏《きびん》 | alert, quick
+N1 | 尾 | 尾《お》 | tail
+N1 | 尾 | 尾骨《びこつ》 | tailbone
+N1 | 尾 | 末尾《まつび》 | end (of a text)
+N1 | 裂 | 分裂《ぶんれつ》 | split
+N1 | 裂 | 破裂《はれつ》 | rupture
+N1 | 裂 | 裂《さ》ける | to tear
+N1 | 災 | 震災《しんさい》 | earthquake disaster
+N1 | 宙 | 宙《ちゅう》 | midair
+N1 | 樹 | 樹木《じゅもく》 | trees
+N1 | 樹 | 果樹《かじゅ》 | fruit tree
+N1 | 樹 | 街路樹《がいろじゅ》 | roadside trees
+N1 | 稲 | 稲《いね》 | rice plant
+N1 | 稲 | 稲作《いなさく》 | rice farming
+N1 | 稲 | 稲妻《いなずま》 | lightning
+N1 | 芝 | 芝生《しばふ》 | lawn
+N1 | 芝 | 芝《しば》 | lawn grass
+N1 | 芝 | 芝居《しばい》 | play, drama
+N1 | 露 | 露《つゆ》 | dew
+N1 | 露 | 露出《ろしゅつ》 | exposure
+N1 | 露 | 露天風呂《ろてんぶろ》 | open-air bath
+N1 | 鹿 | 馬鹿《ばか》 | fool
+N1 | 沖 | 沖《おき》 | offshore
+N1 | 沖 | 沖合《おきあい》 | offshore waters
+N1 | 津 | 津波《つなみ》 | tsunami
+N1 | 津 | 興味津々《きょうみしんしん》 | very curious
+N1 | 浦 | 浦《うら》 | inlet
+N1 | 街 | 街《まち》 | town, streets
+N1 | 街 | 街道《かいどう》 | highway
+N1 | 壁 | 壁紙《かべがみ》 | wallpaper
+N1 | 壁 | 障壁《しょうへき》 | barrier
+N1 | 端 | 端《はし》 | edge, end
+N1 | 端 | 途端《とたん》 | just as
+N1 | 郡 | 郡《ぐん》 | district, county
+N1 | 郡 | 郡部《ぐんぶ》 | rural districts
+N1 | 邸 | 邸宅《ていたく》 | mansion
+N1 | 邸 | 官邸《かんてい》 | official residence
+N1 | 邸 | 首相官邸《しゅしょうかんてい》 | Prime Minister's residence
+N1 | 奈 | 奈落《ならく》 | abyss
+N1 | 賀 | 年賀状《ねんがじょう》 | New Year card
+N1 | 賀 | 祝賀《しゅくが》 | celebration
+N1 | 塚 | 塚《つか》 | mound
+N1 | 訳 | 翻訳《ほんやく》 | translation
+N1 | 訳 | 言《い》い訳《わけ》 | excuse
+N1 | 典 | 古典《こてん》 | classics
+N1 | 典 | 特典《とくてん》 | benefit, perk
+N1 | 析 | 分析《ぶんせき》 | analysis
+N1 | 析 | 解析《かいせき》 | analysis (of data)
+N1 | 択 | 選択肢《せんたくし》 | options
+N1 | 択 | 採択《さいたく》 | adoption
+N1 | 契 | 契約書《けいやくしょ》 | written contract
+N1 | 契 | 契機《けいき》 | opportunity, trigger
+N1 | 賃 | 賃金《ちんぎん》 | wages
+N1 | 購 | 購入《こうにゅう》 | purchase
+N1 | 購 | 購読《こうどく》 | subscription
+N1 | 購 | 購買《こうばい》 | purchasing
+N1 | 需 | 需要《じゅよう》 | demand
+N1 | 需 | 必需品《ひつじゅひん》 | necessities
+N1 | 需 | 需給《じゅきゅう》 | supply and demand
+N1 | 納 | 納《おさ》める | to pay, deliver
+N1 | 載 | 記載《きさい》 | entry (in a record)
+N1 | 載 | 掲載《けいさい》 | publication
+N1 | 載 | 載《の》せる | to put on, print
+N1 | 掲 | 掲示板《けいじばん》 | notice board
+N1 | 掲 | 掲《かか》げる | to hold up, hoist
+N1 | 携 | 連携《れんけい》 | cooperation
+N1 | 携 | 携《たずさ》わる | to be involved in
+N1 | 撮 | 撮影《さつえい》 | photography
+N1 | 撮 | 撮影禁止《さつえいきんし》 | no photography
+N1 | 託 | 委託《いたく》 | entrusting
+N1 | 託 | 託児所《たくじしょ》 | daycare center
+N1 | 託 | 信託《しんたく》 | trust
+N1 | 措 | 措置《そち》 | measure, step
+N1 | 措 | 応急措置《おうきゅうそち》 | first-aid measure
+N1 | 謝 | 代謝《たいしゃ》 | metabolism
+N1 | 描 | 描《か》く | to draw
+N1 | 描 | 描写《びょうしゃ》 | description
+N1 | 扱 | 扱《あつか》い | treatment, handling
+N1 | 扱 | 取《と》り扱《あつか》い | handling
+N1 | 繰 | 繰《く》り返《かえ》し | repetition
+N1 | 繰 | 繰《く》り上《あ》げる | to move up
+N1 | 誘 | 誘導《ゆうどう》 | guidance, induction
+N1 | 誘 | 誘因《ゆういん》 | trigger, cause
+N1 | 勧 | 勧《すす》める | to recommend
+N1 | 勧 | 勧誘《かんゆう》 | solicitation
+N1 | 勧 | 勧告《かんこく》 | official recommendation
+N1 | 促 | 促《うなが》す | to urge, prompt
+N1 | 促 | 促進《そくしん》 | promotion
+N1 | 促 | 催促《さいそく》 | reminder, demand
+N1 | 控 | 控《ひか》え室《しつ》 | waiting room
+N1 | 控 | 控除《こうじょ》 | deduction
+N1 | 操 | 操作《そうさ》 | operation
+N1 | 操 | 操《あやつ》る | to manipulate
+N1 | 駆 | 駆《か》け足《あし》 | running
+N1 | 駆 | 駆《か》けつける | to rush to
+N1 | 駆 | 駆除《くじょ》 | extermination (of pests)
+N1 | 譲 | 譲歩《じょうほ》 | concession
+N1 | 譲 | 謙譲語《けんじょうご》 | humble language
+N1 | 挑 | 挑《いど》む | to take on
+N1 | 挑 | 挑発《ちょうはつ》 | provocation
+N1 | 奏 | 演奏《えんそう》 | performance
+N1 | 奏 | 合奏《がっそう》 | ensemble
+N1 | 奏 | 奏《かな》でる | to play (music)
+N1 | 騒 | 騒音《そうおん》 | noise
+N1 | 弾 | 弾《ひ》く | to play (piano or guitar)
+N1 | 弾 | 弾力《だんりょく》 | elasticity
+N1 | 弾 | 弾《はず》む | to bounce
+N1 | 充 | 充実《じゅうじつ》 | fulfilment
+N1 | 充 | 補充《ほじゅう》 | refilling
+N1 | 致 | 一致《いっち》 | agreement, match
+N1 | 致 | 致《いた》す | to do (humble)
+N1 | 致 | 合致《がっち》 | agreement
+N1 | 拒 | 拒絶《きょぜつ》 | rejection
+N1 | 拒 | 拒《こば》む | to refuse
+N1 | 却 | 却下《きゃっか》 | rejection (of a request)
+N1 | 却 | 返却《へんきゃく》 | returning
+N1 | 却 | 冷却《れいきゃく》 | cooling
+N1 | 揮 | 発揮《はっき》 | display (of ability)
+N1 | 揮 | 指揮《しき》 | command, conducting
+N1 | 揮 | 指揮者《しきしゃ》 | conductor
+N1 | 躍 | 活躍《かつやく》 | being active, doing well
+N1 | 躍 | 飛躍《ひやく》 | leap
+N1 | 躍 | 躍《おど》る | to leap
+N1 | 獲 | 獲得《かくとく》 | acquisition
+N1 | 獲 | 捕獲《ほかく》 | capture
+N1 | 獲 | 漁獲《ぎょかく》 | catch (of fish)
+N1 | 奪 | 争奪《そうだつ》 | struggle for
+N1 | 奪 | 剥奪《はくだつ》 | deprivation (of a right or title)
+N1 | 棄 | 放棄《ほうき》 | abandonment
+N1 | 棄 | 棄権《きけん》 | abstention
+N1 | 侵 | 侵入《しんにゅう》 | intrusion
+N1 | 侵 | 侵害《しんがい》 | infringement
+N1 | 侵 | 侵襲《しんしゅう》 | invasiveness (of a procedure)
+N1 | 戒 | 警戒《けいかい》 | caution, alert
+N1 | 戒 | 戒《いまし》める | to admonish
+N1 | 戒 | 戒律《かいりつ》 | religious precepts
+N1 | 顧 | 顧客《こきゃく》 | customer
+N1 | 顧 | 顧問《こもん》 | adviser
+N1 | 顧 | 回顧《かいこ》 | looking back
+N1 | 貴 | 貴重品《きちょうひん》 | valuables
+N1 | 貴 | 貴族《きぞく》 | aristocrat
+N1 | 秀 | 秀才《しゅうさい》 | brilliant student
+N1 | 秀 | 秀逸《しゅういつ》 | outstanding
+N1 | 裕 | 裕福《ゆうふく》 | wealthy
+N1 | 裕 | 富裕層《ふゆうそう》 | the wealthy (class)
+N1 | 堅 | 堅《かた》い | firm, solid
+N1 | 堅 | 堅実《けんじつ》 | steady, reliable
+N1 | 堅 | 中堅《ちゅうけん》 | mid-level, core
+N1 | 渋 | 渋《しぶ》い | astringent, tasteful
+N1 | 仮 | 仮《かり》の | temporary
+N1 | 仮 | 仮定《かてい》 | assumption
+N1 | 仮 | 仮病《けびょう》 | feigned illness
+N1 | 幕 | 幕《まく》 | curtain
+N1 | 幕 | 字幕《じまく》 | subtitles
+N1 | 幕 | 幕府《ばくふ》 | shogunate
+N1 | 枠 | 枠《わく》 | frame
+N1 | 枠 | 窓枠《まどわく》 | window frame
+N1 | 枠 | 枠組《わくぐ》み | framework
+N1 | 鈴 | 鈴《すず》 | bell
+N1 | 鈴 | 呼《よ》び鈴《りん》 | doorbell
+N1 | 綱 | 綱《つな》 | rope
+N1 | 綱 | 綱引《つなひ》き | tug-of-war
+N1 | 綱 | 横綱《よこづな》 | grand champion (sumo)
+N1 | 盤 | 基盤《きばん》 | foundation, base
+N1 | 盤 | 地盤《じばん》 | ground
+N1 | 盤 | 胎盤《たいばん》 | placenta
+N1 | 志 | 意志《いし》 | will
+N1 | 志 | 志望《しぼう》 | aspiration, first choice
+N1 | 志 | 志《こころざし》 | ambition
+N1 | 恵 | 恵《めぐ》まれる | to be blessed with
+N1 | 恵 | 知恵《ちえ》 | wisdom
+N1 | 恵 | 恩恵《おんけい》 | benefit
+N1 | 慮 | 配慮《はいりょ》 | consideration
+N1 | 慮 | 考慮《こうりょ》 | taking into account
+N1 | 歓 | 歓迎会《かんげいかい》 | welcome party
+N1 | 歓 | 歓声《かんせい》 | cheer
+N1 | 焦 | 焦点《しょうてん》 | focus
+N1 | 衝 | 衝突《しょうとつ》 | collision
+N1 | 慎 | 慎《つつし》む | to be careful about, refrain
+N1 | 慎 | 不謹慎《ふきんしん》 | indiscreet, inappropriate
+N1 | 喪 | 喪失《そうしつ》 | loss
+N1 | 喪 | 喪失体験《そうしつたいけん》 | experience of loss
+N1 | 喪 | 喪服《もふく》 | mourning clothes
+N1 | 誉 | 名誉《めいよ》 | honor
+N1 | 誉 | 栄誉《えいよ》 | honor, glory
+N1 | 誉 | 名誉教授《めいよきょうじゅ》 | professor emeritus
+N1 | 功 | 功績《こうせき》 | achievement
+N1 | 功 | 功労《こうろう》 | meritorious service
+N1 | 宗 | 改宗《かいしゅう》 | religious conversion
+N1 | 宗 | 宗家《そうけ》 | head family (of a school)
+N1 | 祉 | 社会福祉《しゃかいふくし》 | social welfare
+N1 | 祉 | 福祉施設《ふくししせつ》 | welfare facility
+N1 | 属 | 所属《しょぞく》 | affiliation
+N1 | 属 | 金属《きんぞく》 | metal
+N1 | 属 | 属《ぞく》する | to belong
+N1 | 拠 | 拠点《きょてん》 | base
+N1 | 徴 | 象徴《しょうちょう》 | symbol
+N1 | 徴 | 徴候《ちょうこう》 | sign (of illness)
+N1 | 為 | 行為《こうい》 | act, behavior
+N1 | 為 | 人為的《じんいてき》 | artificial
+N1 | 為 | 為替《かわせ》 | currency exchange
+N1 | 是 | 是非《ぜひ》 | by all means
+N1 | 是 | 是正《ぜせい》 | correction
+N1 | 是 | 是認《ぜにん》 | approval
+N1 | 刑 | 刑事《けいじ》 | detective
+N1 | 刑 | 刑法《けいほう》 | criminal law
+N1 | 刑 | 刑務所《けいむしょ》 | prison
+N1 | 陣 | 陣痛《じんつう》 | labor pains
+N1 | 陣 | 報道陣《ほうどうじん》 | press corps
+N1 | 陣 | 円陣《えんじん》 | circle, huddle
+N1 | 紛 | 紛失《ふんしつ》 | loss (of an item)
+N1 | 紛 | 紛争《ふんそう》 | dispute
+N1 | 紛 | 紛《まぎ》らわしい | confusing
+N1 | 償 | 補償《ほしょう》 | compensation
+N1 | 償 | 弁償《べんしょう》 | paying for damage
+N1 | 償 | 償《つぐな》う | to make up for
+N1 | 徹 | 徹底《てってい》 | thoroughness
+N1 | 徹 | 徹底的《てっていてき》 | thorough
+N1 | 徹 | 徹夜《てつや》 | staying up all night
+N1 | 懸 | 懸念《けねん》 | concern
+N1 | 懸 | 懸賞《けんしょう》 | prize competition
+N1 | 貢 | 年貢《ねんぐ》 | land tax (historical)
+N1 | 貢 | 貢《みつ》ぐ | to give gifts to
+N1 | 称 | 名称《めいしょう》 | name, title
+N1 | 称 | 愛称《あいしょう》 | nickname
+N1 | 訟 | 医療訴訟《いりょうそしょう》 | medical lawsuit
+N1 | 甲 | 手《て》の甲《こう》 | back of the hand
+N1 | 甲 | 甲高《かんだか》い | high-pitched
+N1 | 範 | 範囲《はんい》 | range, scope
+N1 | 範 | 規範《きはん》 | norm
+N1 | 斉 | 一斉《いっせい》に | all at once
+N1 | 斉 | 斉唱《せいしょう》 | singing in unison
+N1 | 斉 | 均斉《きんせい》 | symmetry, balance
+N1 | 距 | 距離《きょり》 | distance
+N1 | 距 | 遠距離《えんきょり》 | long distance
+N1 | 距 | 距離感《きょりかん》 | sense of distance
+N1 | 縦 | 縦《たて》 | length, vertical
+N1 | 縦 | 縦書《たてが》き | vertical writing
+N1 | 縦 | 操縦《そうじゅう》 | steering, piloting
+N1 | 軸 | 軸《じく》 | axis
+N1 | 軸 | 縦軸《たてじく》 | vertical axis
+N1 | 軸 | 横軸《よこじく》 | horizontal axis
+N1 | 較 | 比較的《ひかくてき》 | relatively
+N1 | 較 | 比較検討《ひかくけんとう》 | comparative study
+N1 | 既 | 既婚《きこん》 | married
+N1 | 暫 | 暫《しばら》く | for a while
+N1 | 暫 | 暫定《ざんてい》 | provisional
+N1 | 暫 | 暫定的《ざんていてき》 | tentative
+N1 | 即 | 即日《そくじつ》 | the same day
+N1 | 即 | 即座《そくざ》に | at once
+N1 | 即 | 即時《そくじ》 | immediate
+N1 | 瞬 | 瞬間《しゅんかん》 | moment
+N1 | 瞬 | 一瞬《いっしゅん》 | an instant
+N1 | 瞬 | 瞬《またた》く間《ま》に | in the blink of an eye
+N1 | 旬 | 上旬《じょうじゅん》 | first ten days of a month
+N1 | 旬 | 中旬《ちゅうじゅん》 | middle of a month
+N1 | 旬 | 旬《しゅん》 | peak season (of a food)
+N1 | 序 | 順序《じゅんじょ》 | order, sequence
+N1 | 序 | 序論《じょろん》 | introduction
+N1 | 序 | 秩序《ちつじょ》 | order (in society)
+N1 | 僕 | 僕《ぼく》たち | we (male)
+N1 | 僕 | 公僕《こうぼく》 | public servant
+N1 | 己 | 自己《じこ》 | self
+N1 | 己 | 利己的《りこてき》 | selfish
+N1 | 孤 | 孤児《こじ》 | orphan
+N1 | 斎 | 書斎《しょさい》 | study (room)
+N1 | 斎 | 斎場《さいじょう》 | funeral hall
+N1 | 俳 | 俳優《はいゆう》 | actor
+N1 | 俳 | 俳句《はいく》 | haiku
+N1 | 俳 | 俳人《はいじん》 | haiku poet
+N1 | 仙 | 仙人《せんにん》 | mountain hermit
+N1 | 仙 | 仙骨《せんこつ》 | sacrum
+N1 | 帝 | 皇帝《こうてい》 | emperor
+N1 | 帝 | 帝国《ていこく》 | empire
+N1 | 帝 | 帝王切開《ていおうせっかい》 | cesarean section
+N1 | 脚 | 脚《あし》 | leg
+N1 | 脚 | 脚力《きゃくりょく》 | leg strength
+N1 | 脚 | 脚本《きゃくほん》 | screenplay
+N1 | 炎 | 炎症《えんしょう》 | inflammation
+N1 | 炎 | 肺炎《はいえん》 | pneumonia
+N1 | 炎 | 炎《ほのお》 | flame
+N1 | 免 | 免疫《めんえき》 | immunity
+N1 | 免 | 免除《めんじょ》 | exemption
+N1 | 微 | 顕微鏡《けんびきょう》 | microscope
+N1 | 酸 | 胃酸《いさん》 | stomach acid
+N1 | 腐 | 腐《くさ》る | to rot
+N1 | 腐 | 腐敗《ふはい》 | decay, corruption
+N1 | 滑 | 円滑《えんかつ》 | smooth (of a process)
+N1 | 滑 | 平滑筋《へいかつきん》 | smooth muscle
+N1 | 杉 | 杉《すぎ》 | Japanese cedar
+N1 | 杉 | 杉花粉《すぎかふん》 | cedar pollen
+N1 | 梅 | 梅《うめ》 | Japanese plum
+N1 | 梅 | 梅干《うめぼ》し | pickled plum
+N1 | 桜 | 夜桜《よざくら》 | cherry blossoms at night
+N1 | 柳 | 柳《やなぎ》 | willow
+N1 | 柳 | 川柳《せんりゅう》 | senryu (comic verse)
+N1 | 茂 | 茂《しげ》る | to grow thick
+N1 | 茂 | 茂《しげ》み | thicket
+N1 | 茂 | 生《お》い茂《しげ》る | to grow thickly
+N1 | 繁 | 繁華街《はんかがい》 | busy downtown area
+N1 | 繁 | 繁殖《はんしょく》 | breeding
+N1 | 熊 | 白熊《しろくま》 | polar bear
+N1 | 竜 | 竜《りゅう》 | dragon
+N1 | 竜 | 恐竜《きょうりゅう》 | dinosaur
+N1 | 竜 | 竜巻《たつまき》 | tornado
+N1 | 翼 | 翼《つばさ》 | wing
+N1 | 翼 | 右翼《うよく》 | right wing
+N1 | 翼 | 左翼《さよく》 | left wing
+N1 | 潮 | 潮《しお》 | tide
+N1 | 潮 | 満潮《まんちょう》 | high tide
+N1 | 潮 | 紅潮《こうちょう》 | flushing (of the face)
+N1 | 瀬 | 瀬戸際《せとぎわ》 | brink, verge
+N1 | 潟 | 干潟《ひがた》 | tidal flat
+N1 | 噴 | 噴火《ふんか》 | eruption
+N1 | 噴 | 噴水《ふんすい》 | fountain
+N1 | 噴 | 噴《ふ》き出《だ》す | to spurt out
+N1 | 郷 | 郷土《きょうど》 | native region
+N1 | 郷 | 帰郷《ききょう》 | returning home
+N1 | 沿 | 沿《そ》う | to run along
+N1 | 沿 | 沿岸《えんがん》 | coast
+N1 | 沿 | 川沿《かわぞ》い | along the river
+N1 | 圏 | 首都圏《しゅとけん》 | greater Tokyo area
+N1 | 圏 | 圏外《けんがい》 | out of range (no signal)
+N1 | 圏 | 大気圏《たいきけん》 | atmosphere
+N1 | 舎 | 校舎《こうしゃ》 | school building
+N1 | 舎 | 宿舎《しゅくしゃ》 | lodging, dormitory
+N1 | 倉 | 倉《くら》 | storehouse
+N1 | 詩 | 詩《し》 | poem
+N1 | 詩 | 詩人《しじん》 | poet
+N1 | 詩 | 漢詩《かんし》 | Chinese poem
+N1 | 句 | 語句《ごく》 | words and phrases
+N1 | 索 | 検索《けんさく》 | search (online)
+N1 | 索 | 索引《さくいん》 | index
+N1 | 詳 | 詳細《しょうさい》 | details
+N1 | 詳 | 不詳《ふしょう》 | unknown
+N1 | 釈 | 解釈《かいしゃく》 | interpretation
+N1 | 釈 | 注釈《ちゅうしゃく》 | annotation
+N1 | 釈 | 会釈《えしゃく》 | a nod, slight bow
+N1 | 哲 | 哲学《てつがく》 | philosophy
+N1 | 哲 | 哲学者《てつがくしゃ》 | philosopher
+N1 | 哲 | 哲学的《てつがくてき》 | philosophical
+N1 | 兼 | 兼《か》ねる | to double as
+N1 | 兼 | 兼任《けんにん》 | holding two posts
+N1 | 兼 | 気兼《きが》ね | hesitation, reserve
+N1 | 薦 | 推薦《すいせん》 | recommendation
+N1 | 薦 | 推薦状《すいせんじょう》 | letter of recommendation
+N1 | 薦 | 薦《すす》める | to recommend
+N1 | 励 | 激励《げきれい》 | encouragement
+N1 | 励 | 奨励《しょうれい》 | promotion, encouragement
+N1 | 稼 | 稼働《かどう》 | operation (of machines)
+N1 | 稼 | 共稼《ともかせ》ぎ | double income
+N1 | 蓄 | 蓄《たくわ》える | to store up
+N1 | 蓄 | 蓄積《ちくせき》 | accumulation
+N1 | 揺 | 揺《ゆ》れ | shaking
+N1 | 揺 | 動揺《どうよう》 | being upset, agitation
+N1 | 隠 | 隠居《いんきょ》 | retirement
+N1 | 襲 | 襲《おそ》う | to strike, attack
+N1 | 襲 | 世襲《せしゅう》 | hereditary succession
+N1 | 襲 | 襲名《しゅうめい》 | taking on a predecessor's name
+N1 | 喚 | 喚起《かんき》 | arousing (attention)
+N1 | 喚 | 召喚《しょうかん》 | summons
+N1 | 喚 | 注意喚起《ちゅういかんき》 | call for caution
+N1 | 唱 | 合唱《がっしょう》 | chorus
+N1 | 唱 | 提唱《ていしょう》 | proposal, advocacy
+N1 | 唱 | 唱《とな》える | to chant, to advocate
+N1 | 貫 | 貫《つらぬ》く | to pierce, to stick to
+N1 | 貫 | 一貫《いっかん》 | consistency
+N1 | 貫 | 貫通《かんつう》 | penetration
+N1 | 飾 | 装飾《そうしょく》 | decoration
+N1 | 飾 | 首飾《くびかざ》り | necklace
+N1 | 敷 | 敷《し》く | to spread out
+N1 | 敷 | 敷地《しきち》 | premises, site
+N1 | 敷 | 屋敷《やしき》 | mansion
+N1 | 擁 | 擁護《ようご》 | protection, advocacy
+N1 | 擁 | 抱擁《ほうよう》 | embrace
+N1 | 擁 | 擁立《ようりつ》 | backing (a candidate)
+N1 | 滅 | 絶滅《ぜつめつ》 | extinction
+N1 | 滅 | 点滅《てんめつ》 | blinking (of a light)
+N1 | 滅 | 滅多《めった》に | rarely (with a negative)
+N1 | 尽 | 尽《つ》くす | to do one's utmost
+N1 | 尽 | 尽《つ》きる | to run out
+N1 | 尽 | 理不尽《りふじん》 | unreasonable
+N1 | 脅 | 脅迫《きょうはく》 | threat, intimidation
+N1 | 脅 | 脅威《きょうい》 | threat
+N1 | 阻 | 阻止《そし》 | prevention, blocking
+N1 | 阻 | 阻害《そがい》 | inhibition
+N1 | 阻 | 阻害薬《そがいやく》 | inhibitor
+N1 | 陥 | 陥《おちい》る | to fall into (a state)
+N1 | 陥 | 欠陥《けっかん》 | defect
+N1 | 陥 | 陥没《かんぼつ》 | cave-in, depression (of a surface)
+N1 | 輝 | 輝《かがや》く | to shine
+N1 | 輝 | 輝《かがや》き | brilliance
+N1 | 輝 | 輝《かがや》かしい | brilliant, glorious
+N1 | 巡 | 巡回《じゅんかい》 | rounds, patrol
+N1 | 巡 | 巡査《じゅんさ》 | police officer
+N1 | 巡 | 一巡《いちじゅん》 | one round
+N1 | 唆 | 示唆《しさ》 | suggestion, implication
+N1 | 唆 | 示唆的《しさてき》 | suggestive
+N1 | 唆 | 唆《そそのか》す | to incite, egg on
+N1 | 摩 | 摩擦《まさつ》 | friction
+N1 | 摩 | 摩耗《まもう》 | wear
+N1 | 妙 | 妙《みょう》 | strange
+N1 | 豪 | 豪雨《ごうう》 | heavy rain
+N1 | 豪 | 豪州《ごうしゅう》 | Australia
+N1 | 雅 | 優雅《ゆうが》 | elegant
+N1 | 雅 | 雅楽《ががく》 | gagaku (court music)
+N1 | 華 | 華《はな》やか | showy, brilliant
+N1 | 華 | 中華《ちゅうか》 | Chinese (food)
+N1 | 彩 | 色彩《しきさい》 | color
+N1 | 彩 | 多彩《たさい》 | varied
+N1 | 彩 | 彩《いろど》り | coloring
+N1 | 泰 | 安泰《あんたい》 | security, peace
+N1 | 泰 | 泰然《たいぜん》 | calm, composed
+N1 | 泰 | 泰平《たいへい》 | peace, tranquility
+N1 | 網 | 網《あみ》 | net
+N1 | 網 | 網膜《もうまく》 | retina
+N1 | 網 | 交通網《こうつうもう》 | transport network
+N1 | 鎖 | 鎖《くさり》 | chain
+N1 | 鎖 | 閉鎖《へいさ》 | closure
+N1 | 旗 | 旗《はた》 | flag
+N1 | 旗 | 国旗《こっき》 | national flag
+N1 | 旗 | 旗手《きしゅ》 | standard-bearer
+N1 | 砲 | 大砲《たいほう》 | cannon
+N1 | 砲 | 鉄砲《てっぽう》 | gun, musket
+N1 | 砲 | 水鉄砲《みずでっぽう》 | water pistol
+N1 | 縄 | 縄《なわ》 | rope
+N1 | 縄 | 縄文《じょうもん》 | Jomon (period)
+N1 | 柄 | 柄《がら》 | pattern
+N1 | 柄 | 人柄《ひとがら》 | personality, character
+N1 | 柄 | 横柄《おうへい》 | arrogant
+N1 | 鋼 | 鉄鋼《てっこう》 | iron and steel
+N1 | 鋼 | 鋼鉄《こうてつ》 | steel
+N1 | 鋼 | 鋼《はがね》 | steel
+N1 | 驚 | 驚《おどろ》き | surprise
+N1 | 驚 | 驚異的《きょういてき》 | astonishing
+N1 | 慰 | 慰謝料《いしゃりょう》 | compensation for emotional distress
+N1 | 慰 | 慰問《いもん》 | visit to comfort
+N1 | 誇 | 誇《ほこ》り | pride
+N1 | 誇 | 誇張《こちょう》 | exaggeration
+N1 | 魅 | 魅力《みりょく》 | charm, appeal
+N1 | 魅 | 魅力的《みりょくてき》 | attractive
+N1 | 魅 | 魅了《みりょう》 | fascination
+N1 | 趣 | 趣旨《しゅし》 | purpose, gist
+N1 | 趣 | 趣《おもむき》 | charm, flavor
+N1 | 懇 | 懇談会《こんだんかい》 | informal meeting
+N1 | 懇 | 懇親会《こんしんかい》 | social gathering
+N1 | 懇 | 懇切《こんせつ》 | kind and thorough
+N1 | 誠 | 誠意《せいい》 | sincerity
+N1 | 誠 | 誠《まこと》に | truly
+N1 | 威 | 威厳《いげん》 | dignity
+N1 | 威 | 猛威《もうい》 | fury (of a storm or epidemic)
+N1 | 妥 | 妥協《だきょう》 | compromise
+N1 | 妥 | 妥当《だとう》 | appropriate, valid
+N1 | 妥 | 妥当性《だとうせい》 | validity
+N1 | 忠 | 忠実《ちゅうじつ》 | faithful
+N1 | 忠 | 忠告《ちゅうこく》 | advice, warning
+N1 | 忠 | 忠誠《ちゅうせい》 | loyalty
+N1 | 徳 | 道徳《どうとく》 | morals
+N1 | 徳 | 美徳《びとく》 | virtue
+N1 | 隆 | 隆起《りゅうき》 | swelling, protrusion
+N1 | 隆 | 隆盛《りゅうせい》 | prosperity
+N1 | 犠 | 犠牲《ぎせい》 | sacrifice
+N1 | 犠 | 犠牲者《ぎせいしゃ》 | victim
+N1 | 犠 | 犠牲的《ぎせいてき》 | self-sacrificing
+N1 | 秩 | 無秩序《むちつじょ》 | disorder, chaos
+N1 | 秩 | 社会秩序《しゃかいちつじょ》 | social order
+N1 | 敵 | 敵《てき》 | enemy, opponent
+N1 | 敵 | 敵意《てきい》 | hostility
+N1 | 偽 | 偽物《にせもの》 | fake
+N1 | 偽 | 偽陽性《ぎようせい》 | false positive
+N1 | 偽 | 偽薬《ぎやく》 | placebo
+N1 | 覇 | 覇権《はけん》 | hegemony
+N1 | 覇 | 覇者《はしゃ》 | champion
+N1 | 覇 | 連覇《れんぱ》 | consecutive championships
+N1 | 抵 | 大抵《たいてい》 | usually
+N1 | 抵 | 抵抗感《ていこうかん》 | reluctance
+N1 | 礎 | 基礎《きそ》 | foundation, basics
+N1 | 礎 | 基礎疾患《きそしっかん》 | underlying condition
+N1 | 礎 | 礎《いしずえ》 | cornerstone
+N1 | 賠 | 賠償《ばいしょう》 | compensation
+N1 | 賠 | 損害賠償《そんがいばいしょう》 | damages
+N1 | 賠 | 賠償金《ばいしょうきん》 | compensation (money)
+N1 | 賄 | 賄賂《わいろ》 | bribe
+N1 | 賄 | 収賄《しゅうわい》 | taking bribes
+N1 | 賄 | 賄《まかな》う | to cover (costs)
+N1 | 滞 | 滞在《たいざい》 | stay
+N1 | 滞 | 滞《とどこお》る | to be delayed
+N1 | 旨 | 要旨《ようし》 | summary
+N1 | 旨 | 旨《むね》 | effect, purport
+N1 | 閥 | 派閥《はばつ》 | faction
+N1 | 閥 | 学閥《がくばつ》 | school clique
+N1 | 閥 | 財閥《ざいばつ》 | zaibatsu (business group)
+N1 | 聖 | 聖書《せいしょ》 | Bible
+N1 | 聖 | 神聖《しんせい》 | sacred
+N1 | 聖 | 聖地《せいち》 | holy place
+N1 | 祥 | 不祥事《ふしょうじ》 | scandal
+N1 | 祥 | 発祥《はっしょう》 | origin
+N1 | 祥 | 発祥地《はっしょうち》 | birthplace (of something)
+N1 | 丁 | 丁度《ちょうど》 | exactly
+N1 | 丁 | 一丁目《いっちょうめ》 | 1-chome (city block 1)
+N1 | 径 | 直径《ちょっけい》 | diameter
+N1 | 径 | 半径《はんけい》 | radius
+N1 | 剰 | 過剰《かじょう》 | excess
+N1 | 剰 | 余剰《よじょう》 | surplus
+N1 | 剰 | 過剰反応《かじょうはんのう》 | overreaction
+N1 | 概 | 概念《がいねん》 | concept
+N1 | 概 | 概要《がいよう》 | outline, summary
+N1 | 概 | 概《おおむ》ね | generally, mostly
+N1 | 往 | 往診《おうしん》 | house call
+N1 | 暇 | 休暇《きゅうか》 | vacation, leave
+N1 | 暇 | 暇《ひま》つぶし | killing time
+N1 | 暑 | 猛暑《もうしょ》 | intense heat
+N1 | 暑 | 残暑《ざんしょ》 | late-summer heat
+N1 | 恒 | 恒例《こうれい》 | annual custom
+N1 | 恒 | 恒久的《こうきゅうてき》 | permanent
+N1 | 恒 | 恒常性《こうじょうせい》 | homeostasis
+N1 | 隔 | 間隔《かんかく》 | interval
+N1 | 隔 | 隔週《かくしゅう》 | every other week
+N1 | 輩 | 同輩《どうはい》 | peer
+N1 | 縁 | 縁《えん》 | connection, fate
+N1 | 縁 | 血縁《けつえん》 | blood relation
+N1 | 縁 | 額縁《がくぶち》 | picture frame
+N1 | 仁 | 仁義《じんぎ》 | humanity and duty
+N1 | 仁 | 仁術《じんじゅつ》 | benevolent art
+N1 | 仁 | 仁王《におう》 | temple guardian kings
+N1 | 陛 | 陛下《へいか》 | His or Her Majesty
+N1 | 陛 | 天皇陛下《てんのうへいか》 | His Majesty the Emperor
+N1 | 陛 | 両陛下《りょうへいか》 | Their Majesties
+N1 | 貞 | 貞節《ていせつ》 | fidelity
+N1 | 貞 | 不貞《ふてい》 | infidelity
+N1 | 彰 | 表彰《ひょうしょう》 | commendation, award
+N1 | 彰 | 表彰状《ひょうしょうじょう》 | certificate of merit
+N1 | 肺 | 肺《はい》がん | lung cancer
+N1 | 胞 | 胞子《ほうし》 | spore
+N1 | 胞 | 同胞《どうほう》 | compatriot
+N1 | 胆 | 胆石《たんせき》 | gallstone
+N1 | 胆 | 大胆《だいたん》 | bold
+N1 | 胆 | 落胆《らくたん》 | discouragement
+N1 | 膨 | 膨《ふく》らむ | to swell
+N1 | 膨 | 膨張《ぼうちょう》 | expansion
+N1 | 膨 | 膨大《ぼうだい》 | enormous
+N1 | 拍 | 心拍数《しんぱくすう》 | heart rate
+N1 | 拍 | 拍子《ひょうし》 | rhythm, beat
+N1 | 漏 | 漏《も》れる | to leak
+N1 | 漏 | 尿漏《にょうも》れ | urine leakage
+N1 | 漏 | 漏電《ろうでん》 | electrical leakage
+N1 | 浸 | 浸《ひた》す | to soak
+N1 | 浸 | 浸潤《しんじゅん》 | infiltration
+N1 | 浸 | 浸水《しんすい》 | flooding
+N1 | 繊 | 食物繊維《しょくもつせんい》 | dietary fiber
+N1 | 繊 | 繊細《せんさい》 | delicate, sensitive
+N1 | 粘 | 粘膜《ねんまく》 | mucous membrane
+N1 | 粘 | 粘《ねば》る | to be sticky, to persist
+N1 | 粘 | 粘土《ねんど》 | clay
+N1 | 熟 | 成熟《せいじゅく》 | maturity
+N1 | 熟 | 半熟《はんじゅく》 | soft-boiled
+N1 | 衰 | 衰《おとろ》える | to weaken
+N1 | 衰 | 衰弱《すいじゃく》 | debility
+N1 | 衰 | 老衰《ろうすい》 | decline of old age
+N1 | 慢 | 自慢《じまん》 | pride, boasting
+N1 | 耐 | 忍耐《にんたい》 | patience
+N1 | 菊 | 菊《きく》 | chrysanthemum
+N1 | 菊 | 菊《きく》の花《はな》 | chrysanthemum flower
+N1 | 梨 | 梨《なし》 | Japanese pear
+N1 | 梨 | 洋梨《ようなし》 | Western pear
+N1 | 亀 | 海亀《うみがめ》 | sea turtle
+N1 | 亀 | 亀裂《きれつ》 | crack, rift
+N1 | 鶴 | 鶴《つる》 | crane
+N1 | 鶴 | 千羽鶴《せんばづる》 | a thousand paper cranes
+N1 | 鶴 | 折《お》り鶴《づる》 | paper crane
+N1 | 磯 | 磯《いそ》 | rocky shore
+N1 | 岳 | 山岳《さんがく》 | mountains
+N1 | 岳 | 山岳地帯《さんがくちたい》 | mountainous region
+N1 | 岳 | 岳《たけ》 | high peak
+N1 | 丘 | 丘《おか》 | hill
+N1 | 丘 | 砂丘《さきゅう》 | sand dune
+N1 | 丘 | 丘陵《きゅうりょう》 | hills
+N1 | 壌 | 土壌《どじょう》 | soil
+N1 | 壌 | 土壌汚染《どじょうおせん》 | soil pollution
+N1 | 旭 | 旭日《きょくじつ》 | rising sun
+N1 | 暖 | 温暖化《おんだんか》 | global warming
+N1 | 穴 | 穴《あな》 | hole
+N1 | 穴 | 落《お》とし穴《あな》 | pitfall
+N1 | 穴 | 穴場《あなば》 | little-known good spot
+N1 | 殖 | 増殖《ぞうしょく》 | proliferation
+N1 | 殖 | 生殖《せいしょく》 | reproduction
+N1 | 堀 | 堀《ほり》 | moat
+N1 | 堀 | 外堀《そとぼり》 | outer moat
+N1 | 岐 | 分岐《ぶんき》 | branching
+N1 | 岐 | 岐路《きろ》 | crossroads
+N1 | 舗 | 店舗《てんぽ》 | store
+N1 | 舗 | 舗装《ほそう》 | paving
+N1 | 舗 | 老舗《しにせ》 | long-established shop
+N1 | 緯 | 緯度《いど》 | latitude
+N1 | 緯 | 北緯《ほくい》 | north latitude
+N1 | 緯 | 経緯《けいい》 | details, background
+N1 | 陰 | 日陰《ひかげ》 | shade
+N1 | 陰 | 陰性《いんせい》 | negative (test result)
+N1 | 陰 | お陰《かげ》で | thanks to
+N1 | 墓 | 墓《はか》 | grave
+N1 | 墓 | 墓地《ぼち》 | cemetery
+N1 | 墓 | 墓参《はかまい》り | visiting a family grave
+N1 | 牧 | 牧場《ぼくじょう》 | ranch, farm
+N1 | 牧 | 放牧《ほうぼく》 | grazing
+N1 | 牧 | 牧師《ぼくし》 | pastor
+N1 | 玄 | 玄米《げんまい》 | brown rice
+N1 | 玄 | 玄人《くろうと》 | expert
+N1 | 塾 | 塾《じゅく》 | cram school
+N1 | 塾 | 学習塾《がくしゅうじゅく》 | tutoring school
+N1 | 塾 | 私塾《しじゅく》 | private school
+N1 | 准 | 准教授《じゅんきょうじゅ》 | associate professor
+N1 | 准 | 准看護師《じゅんかんごし》 | assistant nurse (a nursing licence)
+N1 | 准 | 批准《ひじゅん》 | ratification
+N1 | 稿 | 原稿《げんこう》 | manuscript
+N1 | 稿 | 投稿《とうこう》 | post, submission
+N1 | 稿 | 草稿《そうこう》 | draft
+N1 | 簿 | 名簿《めいぼ》 | list of names
+N1 | 簿 | 帳簿《ちょうぼ》 | account book
+N1 | 簿 | 家計簿《かけいぼ》 | household budget book
+N1 | 諮 | 諮問《しもん》 | formal consultation
+N1 | 諮 | 諮問機関《しもんきかん》 | advisory body
+N1 | 奨 | 推奨《すいしょう》 | recommendation
+N1 | 啓 | 啓発《けいはつ》 | awareness raising
+N1 | 啓 | 拝啓《はいけい》 | Dear (letter opening)
+N1 | 啓 | 啓示《けいじ》 | revelation
+N1 | 鑑 | 鑑定《かんてい》 | expert evaluation
+N1 | 鑑 | 図鑑《ずかん》 | illustrated reference book
+N1 | 鑑 | 年鑑《ねんかん》 | yearbook
+N1 | 諭 | 諭《さと》す | to admonish gently
+N1 | 諭 | 教諭《きょうゆ》 | schoolteacher
+N1 | 諭 | 説諭《せつゆ》 | admonition
+N1 | 帳 | 手帳《てちょう》 | pocket notebook
+N1 | 撲 | 撲滅《ぼくめつ》 | eradication
+N1 | 撲 | 相撲《すもう》 | sumo wrestling
+N1 | 絞 | 絞《しぼ》り込《こ》む | to narrow down
+N1 | 揚 | 唐揚《からあ》げ | fried chicken
+N1 | 揚 | 高揚《こうよう》 | elation, uplift
+N1 | 冒 | 冒険《ぼうけん》 | adventure
+N1 | 冒 | 冒頭《ぼうとう》 | beginning, opening
+N1 | 冒 | 冒《おか》す | to risk, to affect
+N1 | 潜 | 潜《もぐ》る | to dive
+N1 | 潜 | 潜在的《せんざいてき》 | latent
+N1 | 潜 | 潜伏期《せんぷくき》 | incubation period
+N1 | 拘 | 拘束《こうそく》 | restraint
+N1 | 遇 | 待遇《たいぐう》 | treatment, pay
+N1 | 遇 | 遭遇《そうぐう》 | encounter
+N1 | 遇 | 境遇《きょうぐう》 | circumstances
+N1 | 尋 | 尋常《じんじょう》 | ordinary
+N1 | 尋 | 尋問《じんもん》 | questioning
+N1 | 遂 | 遂《と》げる | to accomplish
+N1 | 遂 | 成《な》し遂《と》げる | to achieve
+N1 | 遂 | 遂行《すいこう》 | carrying out
+N1 | 覆 | 覆《おお》う | to cover
+N1 | 覆 | 覆面《ふくめん》 | mask
+N1 | 覆 | 転覆《てんぷく》 | capsizing
+N1 | 飼 | 飼《か》う | to keep (a pet)
+N1 | 飼 | 飼《か》い主《ぬし》 | pet owner
+N1 | 飼 | 飼育《しいく》 | raising animals
+N1 | 培 | 培養《ばいよう》 | culture (laboratory)
+N1 | 培 | 栽培《さいばい》 | cultivation
+N1 | 培 | 培《つちか》う | to foster
+N1 | 披 | 披露《ひろう》 | announcement, showing
+N1 | 披 | 披露宴《ひろうえん》 | wedding reception
+N1 | 没 | 没頭《ぼっとう》 | absorption (in a task)
+N1 | 没 | 没収《ぼっしゅう》 | confiscation
+N1 | 没 | 出没《しゅつぼつ》 | frequent appearance
+N1 | 騰 | 高騰《こうとう》 | sharp rise (in prices)
+N1 | 騰 | 暴騰《ぼうとう》 | price surge
+N1 | 抽 | 抽選《ちゅうせん》 | lottery, drawing
+N1 | 抽 | 抽出《ちゅうしゅつ》 | extraction
+N1 | 抽 | 抽象的《ちゅうしょうてき》 | abstract
+N1 | 浄 | 浄化《じょうか》 | purification
+N1 | 浄 | 清浄《せいじょう》 | clean, pure
+N1 | 浄 | 浄水器《じょうすいき》 | water purifier
+N1 | 屈 | 理屈《りくつ》 | logic, argument
+N1 | 屈 | 屈伸《くっしん》 | bending and stretching
+N1 | 随 | 随時《ずいじ》 | at any time, as needed
+N1 | 随 | 付随《ふずい》 | accompanying
+N1 | 随 | 随筆《ずいひつ》 | essay
+N1 | 唯 | 唯一《ゆいいつ》 | the only
+N1 | 唯 | 唯一無二《ゆいいつむに》 | one and only
+N1 | 唯 | 唯物論《ゆいぶつろん》 | materialism
+N1 | 猛 | 猛烈《もうれつ》 | fierce, intense
+N1 | 猛 | 猛反対《もうはんたい》 | strong opposition
+N1 | 烈 | 強烈《きょうれつ》 | intense
+N1 | 烈 | 熱烈《ねつれつ》 | passionate
+N1 | 芳 | 芳香《ほうこう》 | fragrance
+N1 | 芳 | 芳《かんば》しい | fragrant, favorable
+N1 | 芳 | 芳名《ほうめい》 | (your) name (honorific)
+N1 | 奇 | 好奇心《こうきしん》 | curiosity
+N1 | 奇 | 奇数《きすう》 | odd number
+N1 | 殊 | 特殊《とくしゅ》 | special, unusual
+N1 | 殊 | 殊《こと》に | especially
+N1 | 淡 | 淡《あわ》い | pale, faint
+N1 | 淡 | 冷淡《れいたん》 | cold, indifferent
+N1 | 淡 | 淡水《たんすい》 | fresh water
+N1 | 狭 | 狭心症《きょうしんしょう》 | angina
+N1 | 狭 | 偏狭《へんきょう》 | narrow-minded
+N1 | 偏 | 偏頭痛《へんずつう》 | migraine
+N1 | 偏 | 偏《かたよ》る | to be biased
+N1 | 寛 | 寛大《かんだい》 | generous
+N1 | 寛 | 寛容《かんよう》 | tolerance
+N1 | 朗 | 明朗《めいろう》 | bright, open
+N1 | 朗 | 朗読《ろうどく》 | reading aloud
+N1 | 漫 | 漫画《まんが》 | manga
+N1 | 漫 | 散漫《さんまん》 | scattered
+N1 | 漫 | 注意散漫《ちゅういさんまん》 | distractibility
+N1 | 丹 | 丹念《たんねん》 | painstaking
+N1 | 丹 | 丹精《たんせい》 | care, diligence
+N1 | 須 | 必須《ひっす》 | essential, required
+N1 | 須 | 必須条件《ひっすじょうけん》 | prerequisite
+N1 | 豆 | 豆《まめ》 | bean
+N1 | 豆 | 大豆《だいず》 | soybean
+N1 | 糧 | 食糧《しょくりょう》 | food supply
+N1 | 糧 | 糧《かて》 | food, sustenance
+N1 | 剣 | 剣道《けんどう》 | kendo
+N1 | 剣 | 剣《つるぎ》 | sword
+N1 | 矢 | 矢《や》 | arrow
+N1 | 矢 | 矢先《やさき》 | just as, the moment
+N1 | 錦 | 錦《にしき》 | brocade
+N1 | 駒 | 駒《こま》 | game piece
+N1 | 炉 | 暖炉《だんろ》 | fireplace
+N1 | 炉 | 原子炉《げんしろ》 | nuclear reactor
+N1 | 炉 | 炉《ろ》 | furnace
+N1 | 卓 | 食卓《しょくたく》 | dining table
+N1 | 卓 | 卓球《たっきゅう》 | table tennis
+N1 | 卓 | 卓越《たくえつ》 | excellence
+N1 | 棋 | 将棋《しょうぎ》 | shogi
+N1 | 棋 | 棋士《きし》 | professional shogi or go player
+N1 | 艇 | 救命艇《きゅうめいてい》 | lifeboat
+N1 | 艇 | 艦艇《かんてい》 | naval vessels
+N1 | 悟 | 悟《さと》る | to realize
+N1 | 悟 | 覚悟《かくご》 | readiness, resolve
+N1 | 悟 | 悟《さと》り | enlightenment
+N1 | 虚 | 虚《むな》しい | empty, futile
+N1 | 虚 | 空虚感《くうきょかん》 | feeling of emptiness
+N1 | 虚 | 虚偽《きょぎ》 | falsehood
+N1 | 恩 | 恩《おん》 | debt of gratitude
+N1 | 恩 | 恩人《おんじん》 | benefactor
+N1 | 恩 | 恩返《おんがえ》し | repaying a kindness
+N1 | 狂 | 狂《くる》う | to go wrong, to go mad
+N1 | 狂 | 熱狂《ねっきょう》 | enthusiasm
+N1 | 狂 | 狂言《きょうげん》 | kyogen (comic theater)
+N1 | 慶 | 慶事《けいじ》 | happy event
+N1 | 慶 | 慶弔《けいちょう》 | congratulations and condolences
+N1 | 慶 | 慶弔休暇《けいちょうきゅうか》 | leave for weddings and funerals
+N1 | 懲 | 懲《こ》りる | to learn one's lesson
+N1 | 懲 | 懲戒《ちょうかい》 | disciplinary action
+N1 | 懲 | 懲罰《ちょうばつ》 | punishment
+N1 | 克 | 克服《こくふく》 | overcoming
+N1 | 克 | 克明《こくめい》 | detailed, faithful
+N1 | 克 | 相克《そうこく》 | conflict
+N1 | 雰 | 雰囲気作《ふんいきづく》り | creating a good atmosphere
+N1 | 銘 | 感銘《かんめい》 | deep impression
+N1 | 銘 | 座右《ざゆう》の銘《めい》 | personal motto
+N1 | 銘 | 銘柄《めいがら》 | brand
+N1 | 倫 | 倫理《りんり》 | ethics
+N1 | 倫 | 倫理委員会《りんりいいんかい》 | ethics committee
+N1 | 倫 | 不倫《ふりん》 | extramarital affair
+N1 | 陳 | 陳述《ちんじゅつ》 | statement
+N1 | 陳 | 陳列《ちんれつ》 | display
+N1 | 陳 | 新陳代謝《しんちんたいしゃ》 | metabolism
+N1 | 廷 | 法廷《ほうてい》 | courtroom
+N1 | 廷 | 宮廷《きゅうてい》 | imperial court
+N1 | 廷 | 出廷《しゅってい》 | appearing in court
+N1 | 艦 | 軍艦《ぐんかん》 | warship
+N1 | 艦 | 艦隊《かんたい》 | fleet
+N1 | 艦 | 潜水艦《せんすいかん》 | submarine
+N1 | 謀 | 陰謀《いんぼう》 | conspiracy
+N1 | 謀 | 無謀《むぼう》 | reckless
+N1 | 謀 | 謀反《むほん》 | rebellion
+N1 | 俵 | 土俵《どひょう》 | sumo ring
+N1 | 俵 | 米俵《こめだわら》 | rice bale
+N1 | 俵 | 一俵《いっぴょう》 | one bale
+N1 | 徐 | 徐脈《じょみゃく》 | bradycardia
+N1 | 尚 | 時期尚早《じきしょうそう》 | premature, too early
+N1 | 尚 | 高尚《こうしょう》 | refined, lofty
+N1 | 尚 | 尚更《なおさら》 | all the more
+N1 | 涯 | 生涯《しょうがい》 | lifetime
+N1 | 涯 | 生涯学習《しょうがいがくしゅう》 | lifelong learning
+N1 | 涯 | 天涯孤独《てんがいこどく》 | all alone in the world
+N1 | 曙 | 曙《あけぼの》 | dawn
+N1 | 曙 | 曙光《しょこう》 | first light of dawn
+N1 | 辰 | 辰年《たつどし》 | Year of the Dragon
+N1 | 辰 | 辰《たつ》 | the Dragon (zodiac sign)
+N1 | 嫁 | 嫁《よめ》 | bride, daughter-in-law
+N1 | 嫁 | 花嫁《はなよめ》 | bride
+N1 | 嫁 | 責任転嫁《せきにんてんか》 | shifting the blame
+N1 | 姫 | 姫《ひめ》 | princess
+N1 | 姫 | お姫様《ひめさま》 | princess
+N1 | 后 | 皇后《こうごう》 | empress
+N1 | 后 | 皇后陛下《こうごうへいか》 | Her Majesty the Empress
+N1 | 后 | 皇太后《こうたいごう》 | empress dowager
+N1 | 稚 | 幼稚《ようち》 | childish
+N1 | 稚 | 稚魚《ちぎょ》 | young fish
+N1 | 那 | 旦那《だんな》 | husband, master
+N1 | 那 | 刹那《せつな》 | instant, moment
+N1 | 聡 | 聡明《そうめい》 | wise, intelligent
+N1 | 聡 | 聡《さと》い | quick-witted
+N1 | 脈 | 不整脈《ふせいみゃく》 | arrhythmia
+N1 | 眼 | 眼科《がんか》 | ophthalmology
+N1 | 眼 | 眼球《がんきゅう》 | eyeball
+N1 | 疾 | 精神疾患《せいしんしっかん》 | mental illness
+N1 | 疾 | 疾病《しっぺい》 | illness
+N1 | 菌 | 細菌《さいきん》 | bacteria
+N1 | 菌 | 殺菌《さっきん》 | sterilization
+N1 | 菌 | 無菌《むきん》 | sterile
+N1 | 肥 | 肥大《ひだい》 | enlargement, hypertrophy
+N1 | 肥 | 肥料《ひりょう》 | fertilizer
+N1 | 鎮 | 鎮静《ちんせい》 | sedation
+N1 | 鎮 | 鎮痛剤《ちんつうざい》 | painkiller
+N1 | 鎮 | 鎮《しず》める | to calm, quell
+N1 | 擦 | 擦《す》り傷《きず》 | graze, abrasion
+N1 | 擦 | 擦《こす》る | to rub
+N1 | 沼 | 沼《ぬま》 | swamp, marsh
+N1 | 沼 | 沼地《ぬまち》 | marshland
+N1 | 沼 | 湖沼《こしょう》 | lakes and marshes
+N1 | 滝 | 滝《たき》 | waterfall
+N1 | 鯨 | 鯨《くじら》 | whale
+N1 | 鯨 | 捕鯨《ほげい》 | whaling
+N1 | 鯨 | 鯨肉《げいにく》 | whale meat
+N1 | 雷 | 落雷《らくらい》 | lightning strike
+N1 | 雷 | 雷雨《らいう》 | thunderstorm
+N1 | 霞 | 霞《かすみ》 | haze, mist
+N1 | 霞 | 霞《かす》む | to become hazy
+N1 | 萩 | 萩《はぎ》 | bush clover
+N1 | 栗 | 栗《くり》 | chestnut
+N1 | 栗 | 栗色《くりいろ》 | chestnut brown
+N1 | 鳩 | 鳩《はと》 | pigeon, dove
+N1 | 鳩 | 伝書鳩《でんしょばと》 | carrier pigeon
+N1 | 洞 | 洞窟《どうくつ》 | cave
+N1 | 洞 | 空洞《くうどう》 | cavity
+N1 | 洞 | 洞察《どうさつ》 | insight
+N1 | 漠 | 漠然《ばくぜん》とした | vague
+N1 | 漠 | 漠然《ばくぜん》とした不安《ふあん》 | vague anxiety
+N1 | 晶 | 結晶《けっしょう》 | crystal
+N1 | 晶 | 水晶《すいしょう》 | quartz crystal
+N1 | 晶 | 液晶《えきしょう》 | liquid crystal
+N1 | 栽 | 盆栽《ぼんさい》 | bonsai
+N1 | 穫 | 収穫《しゅうかく》 | harvest
+N1 | 穫 | 収穫期《しゅうかくき》 | harvest season
+N1 | 巣 | 巣《す》 | nest
+N1 | 巣 | 病巣《びょうそう》 | lesion, focus of disease
+N1 | 亜 | 亜熱帯《あねったい》 | subtropics
+N1 | 亜 | 亜鉛《あえん》 | zinc
+N1 | 亜 | 東亜《とうあ》 | East Asia
+N1 | 斜 | 斜《なな》め | diagonal
+N1 | 斜 | 斜面《しゃめん》 | slope
+N1 | 斜 | 傾斜《けいしゃ》 | incline
+N1 | 荘 | 別荘《べっそう》 | holiday home
+N1 | 荘 | 山荘《さんそう》 | mountain lodge
+N1 | 荘 | 荘厳《そうごん》 | solemn, majestic
+N1 | 廊 | 渡《わた》り廊下《ろうか》 | connecting corridor
+N1 | 廊 | 回廊《かいろう》 | cloister
+N1 | 垣 | 垣根《かきね》 | hedge, fence
+N1 | 垣 | 石垣《いしがき》 | stone wall
+N1 | 垣 | 生《い》け垣《がき》 | hedge
+N1 | 亭 | 料亭《りょうてい》 | traditional Japanese restaurant
+N1 | 亭 | 亭主《ていしゅ》 | husband, host
+N1 | 亭 | 亭主関白《ていしゅかんぱく》 | domineering husband
+N1 | 獄 | 地獄《じごく》 | hell
+N1 | 獄 | 監獄《かんごく》 | prison
+N1 | 獄 | 脱獄《だつごく》 | prison escape
+N1 | 壇 | 花壇《かだん》 | flower bed
+N1 | 壇 | 壇上《だんじょう》 | on the stage
+N1 | 壇 | 仏壇《ぶつだん》 | household Buddhist altar
+N1 | 軌 | 軌道《きどう》 | orbit, track
+N1 | 軌 | 軌道修正《きどうしゅうせい》 | course correction
+N1 | 軌 | 常軌《じょうき》 | normal course
+N1 | 滋 | 滋養《じよう》 | nourishment
+N1 | 鎌 | 鎌《かま》 | sickle
+N1 | 鎌 | 鎌倉時代《かまくらじだい》 | Kamakura period
+N1 | 班 | 班《はん》 | group, squad
+N1 | 班 | 班長《はんちょう》 | group leader
+N1 | 班 | 救護班《きゅうごはん》 | first-aid team
+N1 | 欄 | 欄《らん》 | column, section
+N1 | 欄 | 空欄《くうらん》 | blank space
+N1 | 欄 | 記入欄《きにゅうらん》 | space to fill in
+N1 | 覧 | 一覧《いちらん》 | list
+N1 | 覧 | ご覧《らん》ください | please look
+N1 | 履 | 履歴《りれき》 | history, record
+N1 | 酬 | 報酬《ほうしゅう》 | reward, fee
+N1 | 酬 | 報酬系《ほうしゅうけい》 | reward system (brain)
+N1 | 酬 | 応酬《おうしゅう》 | exchange (of words)
+N1 | 卸 | 卸売市場《おろしうりしじょう》 | wholesale market
+N1 | 卸 | 卸《おろ》す | to sell wholesale
+N1 | 卸 | 卸値《おろしね》 | wholesale price
+N1 | 据 | 据《す》える | to set, install
+N1 | 据 | 据《す》え置《お》き | leaving unchanged
+N1 | 据 | 見据《みす》える | to look steadily at
+N1 | 翻 | 翻訳者《ほんやくしゃ》 | translator
+N1 | 翻 | 翻《ひるがえ》す | to flip, reverse
+N1 | 墜 | 墜落《ついらく》 | crash (of an aircraft)
+N1 | 墜 | 墜落事故《ついらくじこ》 | plane crash
+N1 | 墜 | 失墜《しっつい》 | loss (of trust or authority)
+N1 | 搭 | 搭乗《とうじょう》 | boarding
+N1 | 搭 | 搭乗券《とうじょうけん》 | boarding pass
+N1 | 搭 | 搭載《とうさい》 | being equipped with
+N1 | 妨 | 妨《さまた》げる | to hinder
+N1 | 妨 | 妨害《ぼうがい》 | obstruction
+N1 | 妨 | 安眠妨害《あんみんぼうがい》 | disturbing sleep
+N1 | 漂 | 漂《ただよ》う | to drift
+N1 | 漂 | 漂流《ひょうりゅう》 | drifting at sea
+N1 | 漂 | 漂白《ひょうはく》 | bleaching
+N1 | 浪 | 放浪《ほうろう》 | wandering
+N1 | 浪 | 浪人《ろうにん》 | student retaking entrance exams
+N1 | 添 | 添付《てんぷ》 | attachment
+N1 | 添 | 添《そ》える | to add, attach
+N1 | 釣 | 釣《つ》り | fishing
+N1 | 釣 | 釣《つ》る | to fish
+N1 | 釣 | お釣《つ》り | change (money)
+N1 | 遭 | 遭《あ》う | to meet with (an accident)
+N1 | 遭 | 遭難《そうなん》 | getting lost or caught in a disaster
+N1 | 架 | 担架《たんか》 | stretcher
+N1 | 架 | 高架《こうか》 | elevated (railway)
+N1 | 架 | 架空《かくう》 | fictional
+N1 | 誓 | 誓《ちか》う | to vow
+N1 | 誓 | 宣誓《せんせい》 | oath
+N1 | 誓 | 誓約書《せいやくしょ》 | written pledge
+N1 | 把 | 把握《はあく》 | grasp, understanding
+N1 | 把 | 状況把握《じょうきょうはあく》 | grasp of the situation
+N1 | 践 | 実践《じっせん》 | practice
+N1 | 践 | 実践的《じっせんてき》 | practical
+N1 | 呈 | 呈《てい》する | to show, present
+N1 | 呈 | 贈呈《ぞうてい》 | presentation (of a gift)
+N1 | 呈 | 露呈《ろてい》 | coming to light
+N1 | 砕 | 砕《くだ》く | to crush
+N1 | 砕 | 砕《くだ》ける | to break, become informal
+N1 | 砕 | 粉砕《ふんさい》 | pulverizing
+N1 | 伏 | 伏《ふ》せる | to lay face down
+N1 | 伏 | 起伏《きふく》 | ups and downs
+N1 | 彫 | 彫《ほ》る | to carve
+N1 | 彫 | 彫刻《ちょうこく》 | sculpture
+N1 | 彫 | 木彫《きぼ》り | wood carving
+N1 | 拓 | 開拓《かいたく》 | pioneering, development
+N1 | 拓 | 干拓《かんたく》 | land reclamation
+N1 | 拓 | 開拓者《かいたくしゃ》 | pioneer
+N1 | 逸 | 逸脱《いつだつ》 | deviation
+N1 | 逸 | 逸話《いつわ》 | anecdote
+N1 | 逸 | 逸《そ》れる | to stray, go off course
+N1 | 惨 | 悲惨《ひさん》 | tragic
+N1 | 惨 | 惨事《さんじ》 | disaster
+N1 | 穏 | 平穏《へいおん》 | peace and quiet
+N1 | 顕 | 顕著《けんちょ》 | marked, striking
+N1 | 顕 | 顕在化《けんざいか》 | becoming apparent
+N1 | 巧 | 巧《たく》み | skillful
+N1 | 巧 | 技巧《ぎこう》 | technique
+N1 | 巧 | 精巧《せいこう》 | elaborate, precise
+N1 | 愚 | 愚《おろ》か | foolish
+N1 | 愚 | 愚痴《ぐち》 | complaining, grumbling
+N1 | 愚 | 愚問《ぐもん》 | silly question
+N1 | 剛 | 筋強剛《きんきょうごう》 | muscle rigidity
+N1 | 剛 | 剛直《ごうちょく》 | upright, unbending
+N1 | 剛 | 質実剛健《しつじつごうけん》 | simple and sturdy
+N1 | 潔 | 潔《いさぎよ》い | graceful in accepting
+N1 | 酷 | 残酷《ざんこく》 | cruel
+N1 | 酷 | 過酷《かこく》 | harsh
+N1 | 酷 | 酷《ひど》い | terrible
+N1 | 佳 | 佳作《かさく》 | fine work, honorable mention
+N1 | 佳 | 佳境《かきょう》 | the best part, climax
+N1 | 朴 | 純朴《じゅんぼく》 | simple and honest
+N1 | 怪 | 怪我《けが》 | injury
+N1 | 怪 | 怪物《かいぶつ》 | monster
+N1 | 邪 | 邪魔《じゃま》 | hindrance
+N1 | 邪 | 無邪気《むじゃき》 | innocent
+N1 | 紫 | 紫色《むらさきいろ》 | purple
+N1 | 紫 | 紫外線《しがいせん》 | ultraviolet rays
+N1 | 鏡 | 内視鏡《ないしきょう》 | endoscope
+N1 | 冠 | 冠《かんむり》 | crown
+N1 | 冠 | 王冠《おうかん》 | crown
+N1 | 冠 | 冠動脈《かんどうみゃく》 | coronary artery
+N1 | 碁 | 囲碁《いご》 | go
+N1 | 碁 | 碁石《ごいし》 | go stone
+N1 | 碁 | 碁盤《ごばん》 | go board
+N1 | 煮 | 煮物《にもの》 | simmered dish
+N1 | 煮 | 煮沸《しゃふつ》 | boiling (to sterilize)
+N1 | 墨 | 墨《すみ》 | ink stick, ink
+N1 | 墨 | 水墨画《すいぼくが》 | ink painting
+N1 | 墨 | 墨汁《ぼくじゅう》 | liquid ink
+N1 | 琴 | 琴《こと》 | koto
+N1 | 琴 | 木琴《もっきん》 | xylophone
+N1 | 琴 | 琴線《きんせん》 | heartstrings
+N1 | 棚 | 戸棚《とだな》 | cupboard
+N1 | 紋 | 指紋《しもん》 | fingerprint
+N1 | 紋 | 家紋《かもん》 | family crest
+N1 | 紋 | 波紋《はもん》 | ripple
+N1 | 駄 | 駄目《だめ》 | no good
+N1 | 駄 | 下駄《げた》 | wooden clogs
+N1 | 懐 | 懐《ふところ》 | bosom, pocket
+N1 | 懐 | 懐疑的《かいぎてき》 | skeptical
+N1 | 勘 | 勘《かん》 | intuition
+N1 | 勘 | 勘定《かんじょう》 | bill, account
+N1 | 嘆 | 嘆《なげ》く | to lament
+N1 | 嘆 | 悲嘆《ひたん》 | grief
+N1 | 嘆 | 感嘆《かんたん》 | admiration
+N1 | 惜 | 惜《お》しむ | to value, begrudge
+N1 | 惜 | 惜敗《せきはい》 | narrow defeat
+N1 | 憂 | 憂慮《ゆうりょ》 | concern
+N1 | 憂 | 憂《うれ》い | grief, anxiety
+N1 | 寂 | 静寂《せいじゃく》 | silence
+N1 | 謙 | 謙遜《けんそん》 | modesty
+N1 | 劣 | 劣《おと》る | to be inferior
+N1 | 劣 | 劣化《れっか》 | deterioration
+N1 | 魔 | 悪魔《あくま》 | devil
+N1 | 魔 | 魔法《まほう》 | magic
+N1 | 鬼 | 鬼《おに》 | ogre, demon
+N1 | 鬼 | 鬼《おに》ごっこ | tag (game)
+N1 | 鬼 | 鬼才《きさい》 | genius
+N1 | 粛 | 自粛《じしゅく》 | voluntary restraint
+N1 | 粛 | 静粛《せいしゅく》 | silence, quiet
+N1 | 粛 | 粛々《しゅくしゅく》と | solemnly, steadily
+N1 | 疎 | 意思疎通《いしそつう》 | communication
+N1 | 疎 | 過疎《かそ》 | depopulation
+N1 | 疎 | 疎《うと》い | unfamiliar with, out of touch
+N1 | 虐 | 児童虐待《じどうぎゃくたい》 | child abuse
+N1 | 虐 | 残虐《ざんぎゃく》 | cruelty
+N1 | 庶 | 庶民《しょみん》 | ordinary people
+N1 | 庶 | 庶民的《しょみんてき》 | down to earth
+N1 | 庶 | 庶務《しょむ》 | general affairs
+N1 | 宰 | 宰相《さいしょう》 | prime minister
+N1 | 宰 | 主宰《しゅさい》 | presiding, organizing
+N1 | 征 | 征服《せいふく》 | conquest
+N1 | 征 | 遠征《えんせい》 | expedition, away game
+N1 | 勲 | 勲章《くんしょう》 | decoration, medal
+N1 | 勲 | 文化勲章《ぶんかくんしょう》 | Order of Culture
+N1 | 奉 | 奉仕《ほうし》 | service
+N1 | 奉 | 奉仕活動《ほうしかつどう》 | volunteer work
+N1 | 奉 | 奉行《ぶぎょう》 | magistrate (Edo period)
+N1 | 俗 | 民俗《みんぞく》 | folk customs
+N1 | 俗 | 俗語《ぞくご》 | slang
+N1 | 俗 | 世俗的《せぞくてき》 | worldly
+N1 | 詐 | 詐欺《さぎ》 | fraud
+N1 | 詐 | 詐病《さびょう》 | malingering
+N1 | 詐 | 詐称《さしょう》 | false claim
+N1 | 欺 | 詐欺師《さぎし》 | swindler
+N1 | 欺 | 欺《あざむ》く | to deceive
+N1 | 拐 | 誘拐《ゆうかい》 | kidnapping
+N1 | 拐 | 誘拐事件《ゆうかいじけん》 | kidnapping case
+N1 | 諾 | 承諾《しょうだく》 | consent
+N1 | 諾 | 承諾書《しょうだくしょ》 | consent form
+N1 | 諾 | 許諾《きょだく》 | permission
+N1 | 謡 | 童謡《どうよう》 | children's song
+N1 | 謡 | 民謡《みんよう》 | folk song
+N1 | 謡 | 歌謡曲《かようきょく》 | popular song
+N1 | 盾 | 矛盾《むじゅん》 | contradiction
+N1 | 盾 | 盾《たて》 | shield
+N1 | 盾 | 後《うし》ろ盾《だて》 | backing, support
+N1 | 矛 | 矛《ほこ》 | spear
+N1 | 矛 | 矛先《ほこさき》 | spearhead, target of criticism

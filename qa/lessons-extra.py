@@ -42,7 +42,9 @@ def run(p, name, vp, scheme, uiLang=None):
     order = pg.evaluate("(()=>{const ids=LESSONS.map(l=>l.id);const i=ids.indexOf('desu');return ids.slice(i,i+5).concat(['|', ids.indexOf('tmp-unknown'), ids.length, ids.indexOf('review-n2-connectors')])})()")
     print(name, 'order', order)
     chk(order[:5] == ['desu', 'tmp-review', 'tmp-after', 'tmp-chain', 'no-mo-to'], 'order after desu ' + str(order[:5]))
-    chk(order[6] == order[7] - 1 and order[8] == order[7] - 2, 'unknown after should stay in place (end of the file order)')
+    # 0.28.0: the N1 lessons (no `after`, files after lessons-28.js) now follow it, so it is no longer last
+    tail = pg.evaluate("(()=>{const i=LESSONS.findIndex(l=>l.id==='tmp-unknown');return LESSONS.slice(i+1).filter(l=>!(l.level==='N1'&&!l.after)).map(l=>l.id)})()")
+    chk(order[8] == order[6] - 1 and not tail, 'unknown after should stay in place (end of the file order, before the N1 lessons) ' + str(tail[:3]))
     # Lessons list: review pill, one heading per unit
     go('#/lessons?lv=all')
     r = pg.evaluate("""()=>{const t=document.querySelector('a.tile[href="#/lessons/tmp-review"]');const hs=[...document.querySelectorAll('#view h2')].map(h=>h.dataset.en||h.textContent.trim());

@@ -48,11 +48,11 @@ L.forEach((l) => {
   if (!l || !isStr(l.id)) return E(f, 'lesson without an id');
   if (lById.has(l.id)) E(f, 'lesson id twice: ' + l.id + ' (also in ' + F(lById.get(l.id)) + ')'); else lById.set(l.id, l);
 });
-const NEWFILE = /^lessons-(2[89]|3\d|4\d)\.js$/;
+const NEWFILE = /^lessons-(2[89]|3\d|4[0-4])\.js$/;
 L.forEach((l) => {
   if (!l || !l.id) return;
   const f = F(l), where = 'lesson ' + l.id;
-  if (!['Starter', 'N5', 'N4', 'N3', 'N2'].includes(l.level)) E(f, where + ': level ' + l.level);
+  if (!['Starter', 'N5', 'N4', 'N3', 'N2', 'N1'].includes(l.level)) E(f, where + ': level ' + l.level);
   ['unit', 'title', 'summary', 'body'].forEach((k) => { if (!isStr(l[k])) E(f, where + ': missing ' + k); });
   if (l.after != null) {
     if (l.after === l.id) E(f, where + ': after names itself');

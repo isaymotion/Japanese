@@ -1,6 +1,8 @@
 """Stroke-order diagrams: kanji page (play, next stroke, step pictures, numbers), every kanji has a diagram whose
 stroke count matches the app's data, kana chart tap panel (single and combination kana), offline message, dark theme.
-Expect "errors []", "kanji without a matching diagram []". Screenshots in /tmp/qa-out/strokes_*.png."""
+Expect "errors []", "kanji without a matching diagram []". Screenshots in /tmp/qa-out/strokes_*.png.
+0.28.0: one N1 kanji page at 360 px loads strokes/n1.js and draws its diagram (screenshot /tmp/qa-n1/shots/kanji_n1_page.png)."""
+import os
 import asyncio, urllib.parse
 from playwright.async_api import async_playwright
 B='http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/index.html'
@@ -24,6 +26,14 @@ async def main():
             await pg.locator('[data-step="5"]').click(); print(' step 5:',await pg.locator('.so-count').inner_text(),'visible',await pg.evaluate("[...document.querySelectorAll('.so-big .so-p')].filter(p=>p.style.visibility!=='hidden').length"),'numbers',await pg.evaluate("[...document.querySelectorAll('.so-n')].filter(t=>t.style.display!=='none').length"))
             await pg.screenshot(path=f'/tmp/qa-out/strokes_step_{name}.png')
             await pg.locator('[data-so-act=nums]').click(); print(' numbers off:',await pg.evaluate("[...document.querySelectorAll('.so-n')].filter(t=>t.style.display!=='none').length"))
+            if name=='phone' and await pg.evaluate("App.KANJI.some(k=>k.lv==='N1')"):
+                k1=await pg.evaluate("(App.kanjiBy['統']&&App.kanjiBy['統'].lv==='N1')?'統':App.KANJI.find(k=>k.lv==='N1').k")
+                await pg.set_viewport_size({'width':360,'height':780}); await go('#/kanji/k/'+urllib.parse.quote(k1)); await pg.wait_for_selector('.so-big')
+                r=await pg.evaluate("k=>({paths:document.querySelectorAll('.so-big .so-p').length,want:App.kanjiBy[k].strokes,set:[...document.scripts].some(s=>/strokes\/n1\.js/.test(s.src)),ov:document.documentElement.scrollWidth>innerWidth})",k1)
+                print(' N1 page',k1,r)
+                if r['paths']!=r['want'] or not r['set'] or r['ov']: errors.append('N1 stroke diagram: '+str(r))
+                os.makedirs('/tmp/qa-n1/shots',exist_ok=True); await pg.screenshot(path='/tmp/qa-n1/shots/kanji_n1_page.png',full_page=True)
+                await pg.set_viewport_size(vp)
             # kana
             await go('#/kana'); await pg.locator('.kana-cell[data-say="き"]').click(); await pg.wait_for_selector('.so-kana .so-big')
             print(' kana き paths',await pg.locator('.so-kana .so-big .so-p').count()); await pg.wait_for_timeout(500); await pg.screenshot(path=f'/tmp/qa-out/strokes_kana_{name}.png')

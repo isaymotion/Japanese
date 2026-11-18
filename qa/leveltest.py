@@ -7,7 +7,7 @@ import os
 _HERE = os.path.dirname(os.path.abspath(__file__))
 FXD = next((d for d in (os.path.join(_HERE, 'fixtures-0.23'), os.path.join(_HERE, '..', 'fixtures')) if os.path.isdir(d)), None)   # devtools/qa/fixtures-0.23 or work/fixtures
 from playwright.sync_api import sync_playwright
-URL = 'http://localhost:8765/index.html'
+URL = 'http://localhost:' + os.environ.get('QA_PORT', '8765') + '/index.html'
 FIX = os.path.join(FXD, 'cloze.js')
 os.makedirs('/tmp/qa-out', exist_ok=True)
 problems = []

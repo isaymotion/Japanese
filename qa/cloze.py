@@ -6,7 +6,7 @@ import os
 _HERE = os.path.dirname(os.path.abspath(__file__))
 FXD = next((d for d in (os.path.join(_HERE, 'fixtures-0.23'), os.path.join(_HERE, '..', 'fixtures')) if os.path.isdir(d)), None)   # devtools/qa/fixtures-0.23 or work/fixtures
 from playwright.sync_api import sync_playwright
-URL = 'http://localhost:8765/index.html'
+URL = 'http://localhost:' + os.environ.get('QA_PORT', '8765') + '/index.html'
 FIX = os.path.join(FXD, 'cloze.js')
 os.makedirs('/tmp/qa-out', exist_ok=True)
 problems = []
@@ -61,6 +61,9 @@ def run(b, w, h, name, dark=False):
     pg.screenshot(path=f'/tmp/qa-out/cloze_mixed_{name}.png', full_page=True)
     lvs = pg.evaluate("[...document.querySelectorAll('[data-lv]')].map(b=>b.dataset.lv)")
     print(name, 'levels', lvs)
+    # 0.28.0: a level is offered only when it has items (N1 has none in 0.28.0)
+    want = pg.evaluate("['N5','N4','N3','N2','N1'].filter(l=>(window.GRAMMAR_CLOZE||[]).some(x=>x&&x.lv===l))")
+    if [x for x in lvs if x != 'all'] != want: problems.append(f'{name} levels {lvs} but items at {want}')
     for lv in lvs:
         pg.locator(f'[data-lv="{lv}"]').click(); pg.wait_for_timeout(80); check('lv ' + lv)
     pg.locator('[data-lv="all"]').click(); pg.locator('[data-n="10"]').click(); pg.wait_for_timeout(60)

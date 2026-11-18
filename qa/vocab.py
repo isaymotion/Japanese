@@ -17,7 +17,7 @@ def run(b, w, h, name, dark=False):
         if ov or raw: problems.append(f'{name} {tag} overflow={ov} raw={raw}')
     go('#/vocab'); check('quiz tab')
     pg.screenshot(path=f'/tmp/qa-out/vocab_quiz_{name}.png', full_page=True)
-    decks = ['lv-N5', 'c-health'] + (['lv-N2'] if pg.locator('#vqdeck option[value="lv-N2"]').count() else [])   # N2 once its words are in
+    decks = ['lv-N5', 'c-health'] + [d for d in ['lv-N2', 'lv-N1'] if pg.locator(f'#vqdeck option[value="{d}"]').count()]   # N2, N1 once their words are in
     print(name, 'decks tested', decks)
     for deck in decks:
         for mode in ['meaning', 'recall', 'reading']:

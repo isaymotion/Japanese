@@ -1,4 +1,5 @@
-"""0.20.0 topic matching level filter and set Quiz mode (#/vocab?tab=match). Prints "errors [...]" last."""
+"""0.20.0 topic matching level filter and set Quiz mode (#/vocab?tab=match). Prints "errors [...]" last.
+0.28.0: N1 is offered exactly when some topic set has an N1 word; when offered it is tested like the others."""
 import os
 from playwright.sync_api import sync_playwright
 
@@ -6,7 +7,7 @@ BASE = 'http://localhost:'+__import__('os').environ.get('QA_PORT','8765')+'/inde
 OUT = '/tmp/qa-out'
 os.makedirs(OUT, exist_ok=True)
 errs = []
-RANK = "({N5:1,N4:2,N3:3,N2:4})"
+RANK = "({N5:1,N4:2,N3:3,N2:4,N1:5})"
 
 
 def run(p, name, vp, scheme):
@@ -30,7 +31,12 @@ def run(p, name, vp, scheme):
         if ov or raw: errs.append(f'{name} {label}: overflow={ov} raw={raw}')
 
     go('#/vocab?tab=match')
-    for lv in ['All', 'N5', 'N4', 'N3', 'N2']:
+    has_n1 = pg.evaluate("(()=>{const by=new Map(App.DICT.map(e=>[e.tl+'|'+e.en,e]));return TOPIC_SETS.some(s=>s.words.some(k=>(by.get(k)||{}).lv==='N1'))})()")
+    shown_n1 = pg.locator('[data-mlv="N1"]').count() > 0
+    print(name, 'N1 words in sets', has_n1, '| N1 button', shown_n1)
+    if has_n1 != shown_n1: errs.append(f'{name}: N1 button shown={shown_n1} but sets with N1 words={has_n1}')
+    LVS = ['All', 'N5', 'N4', 'N3', 'N2'] + (['N1'] if shown_n1 else [])
+    for lv in LVS:
         pg.locator(f'[data-mlv="{lv}"]').click(); pg.wait_for_timeout(250)
         tiles = pg.locator('#view .grid .tile').count()
         exp = pg.evaluate("""lv=>{const R=""" + RANK + """;const by=new Map(App.DICT.map(e=>[e.tl+'|'+e.en,e]));return TOPIC_SETS.filter(s=>{const ws=[...new Set(s.words.map(k=>by.get(k)).filter(Boolean))];const n=ws.filter(e=>lv==='All'||(R[e.lv]||99)<=R[lv]).length;return n>=(lv==='All'?2:6)}).length}""", lv)
@@ -42,7 +48,7 @@ def run(p, name, vp, scheme):
         check('list ' + lv)
         if lv in ('All', 'N5'): pg.screenshot(path=f'{OUT}/topiclv_list_{lv}_{name}.png')
 
-    for lv in ['N5', 'N4', 'N3', 'N2', 'All']:
+    for lv in LVS[1:] + ['All']:
         go('#/vocab?tab=match'); pg.locator(f'[data-mlv="{lv}"]').click(); pg.wait_for_timeout(200)
         href = pg.locator('#view .grid .tile').first.get_attribute('href')
         sid = href.split('set=')[1]

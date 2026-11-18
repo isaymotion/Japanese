@@ -38,12 +38,19 @@ async def main():
             await go('#/kanji/k/'+urllib.parse.quote('薬')); await pg.wait_for_selector('.so-big'); await pg.locator('a[href^="#/write?c="]').click(); await pg.wait_for_selector('.ws-char[data-ws="薬"]'); print(' from kanji page',await n())
             await go('#/kana'); await pg.locator('.kana-cell[data-say="きゃ"]').click(); await pg.wait_for_selector('.so-sheet'); await pg.locator('.so-sheet a >> nth=0').click(); await pg.wait_for_selector('.ws-char[data-ws="ゃ"]'); print(' from kana panel',await n())
             await go('#/write?lv=N4'); await pg.wait_for_selector('.ws-char'); print(' ?lv=N4',await n(),await pg.locator('.ws-head').inner_text()); await go('#/write?set=k'); await pg.wait_for_selector('.ws-char'); print(' ?set=k',await pg.locator('.ws-char >> nth=0').get_attribute('data-ws'))
+            if await pg.evaluate("App.KANJI_LEVELS.some(x=>x[0]==='N1')"):   # 0.28.0: ?lv=N1 and the level seg at 360 px
+                await go('#/write?lv=N1'); await pg.wait_for_selector('.ws-char')
+                if name=='phone': await pg.set_viewport_size({'width':360,'height':780}); await pg.wait_for_timeout(200)
+                r=await pg.evaluate("(()=>{const b=document.querySelector('[data-ws-set=lv][data-v=N1]');const s=b&&b.parentElement;return {on:!!(b&&b.classList.contains('on')),seg:s?[...s.children].map(x=>x.textContent).join(' '):'',segov:s?(s.scrollWidth>s.clientWidth+1||[...s.children].some(x=>x.getBoundingClientRect().right>innerWidth+1)):null,first:(document.querySelector('.ws-char')||{dataset:{}}).dataset.ws,lv:(App.kanjiBy[(document.querySelector('.ws-char')||{dataset:{}}).dataset.ws]||{}).lv}})()")
+                print(' ?lv=N1',await n(),r,'overflow',await ov())
+                if not r['on'] or r['segov'] or r['lv']!='N1' or await ov(): errors.append('writing sheet N1: '+str(r))
+                if name=='phone': await pg.set_viewport_size(vp)
             await go('#/lessons'); await pg.locator('#view a >> nth=0').click(); await pg.wait_for_timeout(300); print(' other pages still take clicks:',await pg.evaluate("location.hash")!='#/lessons')
             if name=='desk':
                 bad=await pg.evaluate("""async()=>{const out=[];for(const [lv] of App.KANJI_LEVELS){App.state.writeSheet={src:'kj',lv,groups:[...new Set(App.KANJI.filter(x=>x.lv===lv).map(x=>x.group))].slice(0,3)};location.hash='#/write?x='+lv;await new Promise(r=>setTimeout(r,900));
                   const want=App.KANJI.filter(x=>x.lv===lv&&App.state.writeSheet.groups.includes(x.group)).slice(0,100);const got=[...document.querySelectorAll('.ws-char')];
                   if(got.length!==want.length||want.some((x,i)=>got[i].dataset.ws!==x.k||got[i].querySelectorAll('.ws-model .ws-p').length!==x.strokes)||document.documentElement.scrollWidth>innerWidth)out.push(lv+' '+got.length+'/'+want.length);}return out}""")
-                print('levels with a missing block',bad,'| levels tested',await pg.evaluate("App.KANJI_LEVELS.map(x=>x[0]).join(' ')"),'(N2 is tested once kanji-n2*.js have kanji)')
+                print('levels with a missing block',bad,'| levels tested',await pg.evaluate("App.KANJI_LEVELS.map(x=>x[0]).join(' ')"),'(N1 is tested once kanji-n1*.js have kanji)')
                 await pg.evaluate("App.state.writeSheet={src:'kj',lv:'N3',groups:[...new Set(App.KANJI.filter(x=>x.lv==='N3').map(x=>x.group))]};location.hash='#/write?y=1'"); await pg.wait_for_timeout(2500); print(' over the limit:',await n(),'|',await pg.locator('#wscount').inner_text())
                 for paper,src in [('A4',"{src:'h',rows:['a','ka','sa']}"),('Letter',"{src:'kj',lv:'N5',groups:null,size:'l',lines:3,paper:'LETTER'}"),('A4s',"{src:'own',own:'鬱躁薬眠',size:'s',lines:4,trace:99}")]:
                     await pg.evaluate("App.state.writeSheet="+src+";location.hash='#/write?z="+paper+"'"); await pg.wait_for_timeout(900)
