@@ -507,7 +507,7 @@
     const done = s.done || {}, vocab = done.vocab || {}, l2 = done.listen2 || {}, nums = done.numbers || {};
     const out = [];
     // Vocabulary quiz: '<deckId>:<mode>' = best %
-    const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading'], ['context', 'In context'], ['type', 'Type it']];
+    const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading'], ['context', 'In context'], ['type', 'Type it'], ['picture', 'Picture']];
     const decks = {}; try { App.decks().forEach((d) => (decks[d.id] = d.name)); } catch (e) { /* decks need the dictionary */ }
     const vd = {};
     Object.keys(vocab).forEach((k) => { if (k.startsWith('match:') || typeof vocab[k] !== 'number') return; const at = k.lastIndexOf(':'); if (at < 0) return; (vd[k.slice(0, at)] = vd[k.slice(0, at)] || {})[k.slice(at + 1)] = vocab[k]; });

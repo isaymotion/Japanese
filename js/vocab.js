@@ -11,12 +11,19 @@
    0.23.0: two more deck modes. In context ('<deckId>:context'): a word's example sentence (App.exampleFor) with the
    word's token blanked; choose the word in dictionary form among four of the same part of speech and level. The token is
    found by the kanji stem (or the kana stem for words in kana) and the word is skipped unless exactly one token matches.
-   Type it ('<deckId>:type'): the English and part of speech; type the reading in kana or romaji (or the word in kanji). */
+   Type it ('<deckId>:type'): the English and part of speech; type the reading in kana or romaji (or the word in kanji).
+   0.27.0: a sixth deck mode, Picture ('<deckId>:picture'). Pool: the deck's usable words that have a picture, i.e. some
+   part of a picture set (App.pictures, js/pictures.js) has part.w === e.tl exactly (map tl → [{ set, part }] built once,
+   lazily, skipping diagram sets whose art is missing). The question is the picture: a cards set's emoji, large, or a
+   diagram set's drawing with only that part's pin shown, highlighted (App.pictures.svg, pins 'dots'; the CSS hides the
+   others); one set at random when a word has several. Four Japanese options: other parts of the same set first (same
+   level or lower first; never the answer's plain text, reading or English twice), filled from the deck, then the
+   dictionary. Runs in App.drillRun (js/today.js); misses go to My mistakes through App.recordAnswer. */
 (function () {
   const { esc, norm, shuffle, pick, icons } = App;
   const V = App.views, S = () => App.state;
   const GROUPS = ['Review', 'By level', 'Vocabulary', 'Clinical vocabulary'];
-  const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading'], ['context', 'In context'], ['type', 'Type it']];
+  const MODES = [['meaning', 'Meaning'], ['recall', 'Recall'], ['reading', 'Reading'], ['context', 'In context'], ['type', 'Type it'], ['picture', 'Picture']];
   const KANJI_RE = new RegExp('[' + JA.KANJI + ']');
   const yomi = (tl) => JA.compact(JA.kana(tl)).trim();                 // reading in kana, as written (katakana kept)
   const hasKanji = (e) => KANJI_RE.test(JA.plain(e.tl));
@@ -34,7 +41,61 @@
   /* ---------- Quiz ---------- */
   const deckList = () => App.decks().filter((d) => GROUPS.includes(d.group) && (d.group !== 'Review' || d.id === 'mistakes'));
   const wordsOf = (d) => d.ids.filter((id) => id.startsWith('d')).map((id) => App.dictById[id]).filter(usable);
-  const poolFor = (words, mode) => (mode === 'reading' ? words.filter(hasKanji) : mode === 'context' ? words.filter((e) => ctxOf(e)) : words);
+  const poolFor = (words, mode) => (mode === 'reading' ? words.filter(hasKanji) : mode === 'context' ? words.filter((e) => ctxOf(e)) : mode === 'picture' ? words.filter((e) => picsOf(e).length) : words);
+
+  /* ---------- Picture (0.27.0) ---------- */
+  // tl → [{ set, part }] over every picture set whose picture can be shown (cards with an emoji, diagrams with art).
+  let picMap = null;
+  const picOk = (s, p) => p && p.id && p.w && (s.kind === 'cards' ? !!p.pic : typeof p.x === 'number' && typeof p.y === 'number');
+  function picIndex() {
+    if (picMap) return picMap;
+    const P = App.pictures;
+    if (!P || typeof P.sets !== 'function') return new Map();          // js/pictures.js not loaded (yet): try again later
+    picMap = new Map();
+    P.sets().forEach((s) => {
+      if (s.kind !== 'cards' && !P.svg(s, { pins: 'none' })) return;   // a diagram whose art is missing
+      (s.parts || []).forEach((p) => { if (!picOk(s, p)) return; const k = String(p.w).trim(); if (!picMap.has(k)) picMap.set(k, []); picMap.get(k).push({ set: s, part: p }); });
+    });
+    return picMap;
+  }
+  const picsOf = (e) => (e && picIndex().get(e.tl)) || [];
+  const LV_N = { N5: 1, N4: 2, N3: 3, N2: 4, N1: 5 };
+  const lvN = (lv) => LV_N[lv] || 9;
+  const EMOJI_FONT = "'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Segoe UI Symbol',sans-serif";
+  const picHtml = (s, p) => (s.kind === 'cards'
+    ? '<div class="pic-cards one vq-pcard" data-norj><div class="pic-card hl" role="img" aria-label="Picture"><span class="pic-emo" aria-hidden="true" style="font-family:' + EMOJI_FONT.replace(/'/g, '&#39;') + '">' + esc(p.pic) + '</span></div></div>'
+    : '<div class="pic-wrap vq-pwrap">' + App.pictures.svg(s, { pins: 'dots', highlight: p.id, quiz: true, cls: 'vq-psvg' }) + '</div>');
+  // Three wrong options { tl, en }: other parts of the same set (same level or lower first), then the deck, then the
+  // dictionary; never the answer's (or another option's) plain text, reading or English.
+  function picOthers(e, s, words) {
+    const out = [], pl = new Set(), kn = new Set(), ens = new Set();
+    const key = (tl, en) => [JA.plain(tl).replace(/\s+/g, ''), JA.toHira(JA.kana(tl)).replace(/\s+/g, ''), norm(en || '')];
+    const free = (tl, en) => { const [a, b, c] = key(tl, en); return a && !pl.has(a) && !kn.has(b) && !(c && ens.has(c)); };
+    const add = (tl, en) => { const [a, b, c] = key(tl, en); pl.add(a); kn.add(b); if (c) ens.add(c); };
+    add(e.tl, e.en);
+    const take = (list) => { for (const x of list) { if (out.length >= 3) break; if (!free(x.tl, x.en)) continue; out.push(x); add(x.tl, x.en); } };
+    const mine = lvN(e.lv);
+    const parts = shuffle((s.parts || []).filter((p) => picOk(s, p) && p.w !== e.tl)).map((p) => { const d = App.DICT.find((x) => x.tl === p.w); return { tl: p.w, en: p.en || (d && d.en) || '', lv: (d && d.lv) || p.lv }; });
+    take(parts.filter((x) => lvN(x.lv) <= mine)); take(parts);
+    const deck = shuffle(words.filter((x) => x !== e && usable(x)));
+    take(deck.filter((x) => lvN(x.lv) <= mine)); take(deck);
+    if (out.length < 3) take(shuffle(App.DICT.filter((x) => usable(x) && lvN(x.lv) <= mine)).slice(0, 200));
+    return out;
+  }
+  function picQs(words, n) {
+    return pick(poolFor(words, 'picture'), n).map((e) => {
+      const { set: s, part: p } = pick(picsOf(e), 1)[0], o = picOthers(e, s, words);
+      const opts = shuffle([{ tl: e.tl, en: e.en, ok: true }].concat(o)).map((x) => ({ h: '<span class="tl">' + esc(x.tl) + '</span>', ok: !!x.ok, x }));
+      return { drill: 'vocab-picture', id: e.id, lv: e.lv,
+        html: '<div class="muted small vq-pq">What is this? (' + esc(s.title || '') + ')</div>' + picHtml(s, p),
+        opts,
+        fb: (ok, ch) => '<div class="row vq-tw"><a class="tl vq-word" href="#/dict/' + esc(e.id) + '">' + esc(e.tl) + '</a>' + App.sayBtn(e.tl, e.tl) + '<span>= ' + esc(e.en) + '</span></div>' + (e.note ? '<div class="small muted">' + esc(e.note) + '</div>' : '') +
+          (!ok && ch && ch.x ? '<div class="row vq-tw small"><span class="muted">You chose</span><span class="tl">' + esc(ch.x.tl) + '</span>' + App.sayBtn(ch.x.tl, ch.x.tl) + '<span class="muted">= ' + esc(ch.x.en || '') + '</span></div>' : '') +
+          '<div class="row small vq-plinks"><a href="#/dict/' + esc(e.id) + '">Word page</a><a href="#/pictures/' + esc(s.id) + '">Open the picture</a></div>',
+        done: (ok) => App.recordAnswer(ok, e.id) };
+    });
+  }
+  App.vocabPictureCount = (lv) => App.DICT.filter((e) => usable(e) && (!lv || e.lv === lv) && picsOf(e).length).length;   // for QA
 
   /* ---------- In context (0.23.0) ---------- */
   // The example sentence of word e with the one token that is the word (in any form) blanked, or null.
@@ -225,13 +286,14 @@
     const modeSeg = () => MODES.map(([k, t]) => { const b = best()[deck.id + ':' + k]; return '<button type="button" data-vm="' + k + '" aria-pressed="' + (mode === k) + '" class="' + (mode === k ? 'on' : '') + '">' + t + (b != null ? ' <small class="vq-best">' + b + '%</small>' : '') + '</button>'; }).join('');
     const status = () => {
       const words = wordsOf(deck), n = poolFor(words, mode).length;
-      if (n < 4) return '<div class="notice">' + (deck.id === 'mistakes' && !words.length ? 'No dictionary words in My mistakes yet. Words you miss in any quiz or flashcard land there.' : 'This deck has ' + n + ' word' + (n === 1 ? '' : 's') + ' usable for ' + (mode === 'reading' ? 'the Reading mode (words written with kanji)' : 'this quiz') + '; at least 4 are needed. Choose another deck or mode.') + '</div>';
+      if (n < 4) return '<div class="notice">' + (deck.id === 'mistakes' && !words.length ? 'No dictionary words in My mistakes yet. Words you miss in any quiz or flashcard land there.' : 'This deck has ' + n + ' word' + (n === 1 ? '' : 's') + ' usable for ' + (mode === 'reading' ? 'the Reading mode (words written with kanji)' : mode === 'picture' ? 'the Picture mode (words that appear in Picture words)' : 'this quiz') + '; at least 4 are needed. Choose another deck or mode.') + '</div>';
       if (mode === 'context') return '<p class="muted small" style="margin:0">' + n + ' words in this deck have an example sentence with the word in it (' + perLevel(poolFor(words, mode)) + ')' + (n < count ? '; the quiz uses all of them' : '') + '.</p><p class="small" style="margin:4px 0 0">' + CTX_HINT + '</p>';
+      if (mode === 'picture') return '<p class="muted small" style="margin:0">' + n + ' words in this deck have a picture' + (n < count ? '; the quiz uses all of them' : '') + '.</p>';
       if (mode === 'type') return '<p class="muted small" style="margin:0">' + n + ' words in this deck' + (n < count ? '; the quiz uses all of them' : '') + '. Read the English, type the word in kana or romaji (kanji also counts).</p>';
       return '<p class="muted small" style="margin:0">' + n + ' words in this deck' + (mode === 'reading' ? ' are written with kanji' : '') + (n < count ? '; the quiz uses all of them' : '') + '.</p>';
     };
     el.innerHTML = '<h1>Vocabulary quiz</h1>' + tabs('quiz') +
-      '<p class="muted">Test the words of any deck five ways: <b>Meaning</b> (read the Japanese, choose the English), <b>Recall</b> (from the English, choose the Japanese), <b>Reading</b> (kanji without furigana, choose the reading), <b>In context</b> (choose the word missing from an example sentence) and <b>Type it</b> (from the English, type the word). Misses go to <b>My mistakes</b> in the flashcards.</p>' +
+      '<p class="muted">Test the words of any deck six ways: <b>Meaning</b> (read the Japanese, choose the English), <b>Recall</b> (from the English, choose the Japanese), <b>Reading</b> (kanji without furigana, choose the reading), <b>In context</b> (choose the word missing from an example sentence), <b>Type it</b> (from the English, type the word) and <b>Picture</b> (see the picture, choose the word). Misses go to <b>My mistakes</b> in the flashcards.</p>' +
       '<div class="card stack" id="vqset"><label class="small muted" for="vqdeck">Deck</label><select class="input" id="vqdeck">' +
       Object.entries(groups).map(([g, ds]) => '<optgroup label="' + esc(g) + '">' + ds.map((d) => '<option value="' + esc(d.id) + '"' + (d === deck ? ' selected' : '') + '>' + esc(d.name) + '</option>').join('') + '</optgroup>').join('') + '</select>' +
       '<div class="row" style="flex-wrap:wrap;gap:8px"><div class="seg" role="group" aria-label="Mode" data-norj id="vqmode">' + modeSeg() + '</div>' +
@@ -263,6 +325,17 @@
         if (el.querySelector('#vqmode')) refresh();
         return pct;
       };
+      App.keyHandler = keys;                     // a Picture round (App.drillRun) installs its own; take the page's back
+      if (m === 'picture') {
+        box.removeAttribute('data-norj'); box.onclick = null;
+        return App.drillRun(box, picQs(words, count), {
+          onDone: (r, n) => {
+            saveBest(r, n); App.keyHandler = keys;
+            return '<button type="button" class="btn primary" data-act="retry">New round</button><a class="btn" href="#/flash/mistakes">My mistakes</a>';
+          },
+          bind: (c) => { const a = c.querySelector('[data-act=retry]'); if (a) a.onclick = run; }
+        });
+      }
       if (m === 'type') {
         box.removeAttribute('data-norj'); box.onclick = null;
         return typeRun(box, words, count, (r, n) => {
@@ -297,11 +370,12 @@
     };
     el.querySelector('#vqgo').onclick = () => { run(); box.scrollIntoView({ block: 'start', behavior: 'smooth' }); };
     // Keyboard: 1-4 choose an option, Enter goes on (outside the typing field, which has its own Enter).
-    App.keyHandler = (ev) => {
+    const keys = (ev) => {
       if (ev.altKey || ev.ctrlKey || ev.metaKey || ev.target.matches('input,textarea,select')) return;
       if (/^[1-4]$/.test(ev.key)) { const o = box.querySelectorAll('.opt:not(:disabled)')[+ev.key - 1]; if (o) { ev.preventDefault(); o.click(); } return; }
       if (ev.key === 'Enter' && !ev.target.closest('button,a')) { const nx = box.querySelector('[data-act=next]'); if (nx) { ev.preventDefault(); nx.click(); } }
     };
+    App.keyHandler = keys;
     refresh();
   }
 

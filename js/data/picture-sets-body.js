@@ -103,17 +103,17 @@ window.PICTURE_SETS = (window.PICTURE_SETS || []).concat([
   { id: 'hand-arm', group: 'body', title: 'The arm and hand', lv: 'N4', kind: 'diagram', art: 'hand-arm',
     intro: 'The arm from the shoulder to the fingertips, with the name of each finger.',
     parts: [
-      { id: 'kata', w: '肩《かた》', en: 'shoulder', lv: 'N4', x: 36, y: 262 },
-      { id: 'ude', w: '腕《うで》', en: 'arm', lv: 'N4', x: 92, y: 270 },
-      { id: 'hiji', w: '肘《ひじ》', en: 'elbow', lv: 'N3', x: 128, y: 292 },
-      { id: 'tekubi', w: '手首《てくび》', en: 'wrist', lv: 'N4', x: 262, y: 212 },
-      { id: 'te', w: '手《て》', en: 'hand', lv: 'N5', x: 262, y: 168 },
-      { id: 'oyayubi', w: '親指《おやゆび》', en: 'thumb', lv: 'N4', x: 180, y: 140 },
-      { id: 'hitosashiyubi', w: '人差《ひとさ》し指《ゆび》', en: 'index finger', lv: 'N4', x: 217, y: 84 },
-      { id: 'nakayubi', w: '中指《なかゆび》', en: 'middle finger', lv: 'N4', x: 248, y: 70 },
-      { id: 'kusuriyubi', w: '薬指《くすりゆび》', en: 'ring finger', lv: 'N4', x: 280, y: 82 },
-      { id: 'koyubi', w: '小指《こゆび》', en: 'little finger', lv: 'N4', x: 310, y: 108 },
-      { id: 'tsume', w: '爪《つめ》', en: 'nail', lv: 'N3', x: 248, y: 36 }
+      { id: 'kata', w: '肩《かた》', en: 'shoulder', lv: 'N4', x: 124, y: 300 },
+      { id: 'ude', w: '腕《うで》', en: 'arm', lv: 'N4', x: 200, y: 350 },
+      { id: 'hiji', w: '肘《ひじ》', en: 'elbow', lv: 'N3', x: 304, y: 368 },
+      { id: 'tekubi', w: '手首《てくび》', en: 'wrist', lv: 'N4', x: 290, y: 226 },
+      { id: 'te', w: '手《て》', en: 'hand', lv: 'N5', x: 296, y: 160 },
+      { id: 'oyayubi', w: '親指《おやゆび》', en: 'thumb', lv: 'N4', x: 242, y: 158 },
+      { id: 'hitosashiyubi', w: '人差《ひとさ》し指《ゆび》', en: 'index finger', lv: 'N4', x: 252, y: 92 },
+      { id: 'nakayubi', w: '中指《なかゆび》', en: 'middle finger', lv: 'N4', x: 289, y: 82 },
+      { id: 'kusuriyubi', w: '薬指《くすりゆび》', en: 'ring finger', lv: 'N4', x: 326, y: 94 },
+      { id: 'koyubi', w: '小指《こゆび》', en: 'little finger', lv: 'N4', x: 352, y: 126 },
+      { id: 'tsume', w: '爪《つめ》', en: 'nail', lv: 'N3', x: 310, y: 44 }
     ],
     say: [
       { ja: '重《おも》い 荷物《にもつ》 を 持《も》って、 腕《うで》 が 疲《つか》れました。', en: 'I carried heavy luggage and my arms are tired.', p: 'ude' },

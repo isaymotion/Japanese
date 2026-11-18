@@ -1503,3 +1503,13 @@ button.er-tile:focus-visible { outline: 3px solid var(--accent); outline-offset:
 .rp-ens li { overflow-wrap: anywhere; }
 .rp-ens li.rp-right { font-weight: 600; }
 .rp-ens li .pill { vertical-align: middle; }
+
+/* 0.27.0 vocabulary picture mode */
+.vq-pq { margin: 0; }
+.vq-pwrap { width: 100%; max-width: 420px; }
+.vq-psvg .pic-pin:not(.hl) { display: none; }
+.vq-psvg .pic-pin { cursor: default; }
+.vq-psvg .pic-pin.hl .pic-ring { stroke-width: 4; fill-opacity: .22; }
+.vq-psvg .pic-pin.hl .pic-dot { stroke-width: 3; }
+.vq-pcard .pic-card { cursor: default; }
+.vq-plinks { gap: 14px; flex-wrap: wrap; }
