@@ -44,7 +44,7 @@
       const ks = ofLevel(lv).filter((x) => x.group === g), n = ks.filter((x) => learned(x.k)).length;
       return '<div class="spread" style="margin-top:18px"><h2 style="margin:0">' + esc(g) + '</h2><span class="muted small">' + n + ' / ' + ks.length + '</span></div><div class="kj-grid" data-noja>' +
         ks.map(cellHTML).join('') + '</div>';
-    }).join('') + (lv === 'N2' ? inC(N2_IN_C, 'N2') : lv === 'N1' ? inC(N1_IN_C, 'N1') + '<p class="small muted" style="margin:14px 0 0">These are the 600 most frequent of about 1,230 N1 kanji; the rest come in the next version.</p>' : '') + '<p class="small muted" style="margin-top:14px">Tap a kanji for its readings and example words. Green kanji are ones you have answered correctly three times in a row in the drill.</p>';
+    }).join('') + (lv === 'N2' ? inC(N2_IN_C, 'N2') : lv === 'N1' ? inC(N1_IN_C, 'N1') : '') + '<p class="small muted" style="margin-top:14px">Tap a kanji for its readings and example words. Green kanji are ones you have answered correctly three times in a row in the drill.</p>';
     // A study list to read or print: one table per group, with readings and example words.
     const list = () => '<div class="row noprint" style="margin:10px 0 0"><button class="btn sm primary" id="kjprint">' + icons.book + ' Print or save as PDF</button><span class="small muted">Prints the ' + esc(LV_NAME[lv] || lv) + ' list with the furigana and romaji settings you have now.</span></div>' +
       '<div class="kj-list"><div class="kj-list-head"><b>' + esc(APP_META.name) + ': ' + esc(LV_NAME[lv] || lv) + ' kanji</b><span>' + ofLevel(lv).length + ' kanji · draft for review · ' + esc(APP_META.attribution) + '</span></div>' +

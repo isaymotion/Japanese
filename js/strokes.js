@@ -10,7 +10,10 @@
   const { esc } = App;
   const NS = 'http://www.w3.org/2000/svg';
   const isKana = (ch) => /[ぁ-ゖァ-ヺー]/.test(ch);
-  const setOf = (ch) => (isKana(ch) ? 'kana' : { N5: 'n5', N4: 'n4', N3: 'n3', N2: 'n2', N1: 'n1', C: 'c' }[((App.kanjiBy || {})[ch] || {}).lv] || null);
+  // 0.29.0: the N1 kanji are in two stroke files; the first 600 (in file order) are in n1.js, the rest in n1b.js.
+  let n1bSet = null;
+  const inN1b = (ch) => (n1bSet || (n1bSet = new Set((App.KANJI || []).filter((x) => x.lv === 'N1').slice(600).map((x) => x.k)))).has(ch);
+  const setOf = (ch) => { if (isKana(ch)) return 'kana'; const s = { N5: 'n5', N4: 'n4', N3: 'n3', N2: 'n2', N1: 'n1', C: 'c' }[((App.kanjiBy || {})[ch] || {}).lv] || null; return s === 'n1' && inN1b(ch) ? 'n1b' : s; };
   const loading = {};
   const load = (set) => loading[set] || (loading[set] = new Promise((ok, fail) => {
     const s = document.createElement('script'); s.src = 'strokes/' + set + '.js';
