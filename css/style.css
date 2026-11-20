@@ -1513,3 +1513,41 @@ button.er-tile:focus-visible { outline: 3px solid var(--accent); outline-offset:
 .vq-psvg .pic-pin.hl .pic-dot { stroke-width: 3; }
 .vq-pcard .pic-card { cursor: default; }
 .vq-plinks { gap: 14px; flex-wrap: wrap; }
+
+/* 1.1.0 immersion */
+.imm-net { margin: -4px 0 12px; }
+.imm-look { margin-bottom: 14px; }
+.imm-look > summary { min-height: 44px; display: flex; align-items: center; }
+.imm-hits { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
+.imm-hit { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 44px; padding: 6px 12px; border: 1px solid var(--rule); border-radius: var(--r-md); text-decoration: none; color: inherit; background: var(--surface); }
+.imm-hit:hover { border-color: var(--ink-3); }
+.imm-hw { font-weight: 600; font-size: 1.08rem; }
+.imm-gl { flex: 1 1 6em; min-width: 0; color: var(--muted); font-size: .92rem; overflow-wrap: anywhere; }
+.imm-none { margin-top: 10px; }
+.imm-seg a, .imm-seg button { min-height: 44px; }
+.imm-tabs { margin-bottom: 12px; }
+.imm-filters { gap: 8px; margin-bottom: 12px; }
+.imm-tipbox { margin-bottom: 12px; }
+.imm-cc { margin-bottom: 12px; gap: 8px; }
+.imm-off { margin-bottom: 12px; }
+.imm-list { gap: 10px; margin-bottom: 8px; }
+.imm-src, .imm-capcard { display: grid; gap: 8px; }
+.imm-top { display: flex; align-items: flex-start; gap: 10px; justify-content: space-between; }
+.imm-names { min-width: 0; }
+.imm-t { margin: 0; font: 700 1.05rem/1.25 var(--sans); overflow-wrap: anywhere; }
+.imm-ja { margin-top: 2px; font-size: .98rem; }
+.imm-star { flex: none; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--rule); border-radius: 50%; background: var(--surface); color: var(--muted); cursor: pointer; }
+.imm-star svg { width: 22px; height: 22px; }
+.imm-star:hover { border-color: var(--ink-3); }
+.imm-star.on { color: var(--gold-ink); border-color: var(--gold); }
+.imm-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.imm-pills .pill { white-space: normal; }
+.imm-en, .imm-tip { margin: 0; }
+.imm-acts .btn svg { width: 18px; height: 18px; }
+.imm-player { display: grid; gap: 8px; margin-top: 4px; }
+.imm-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: var(--r-md); overflow: hidden; }
+.imm-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.imm-pbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; justify-content: space-between; }
+.imm-pbar p { flex: 1 1 16em; min-width: 0; }
+.imm-steps { margin: 0; padding-left: 22px; display: grid; gap: 4px; }
+.imm-foot { margin-top: 20px; }

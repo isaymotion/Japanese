@@ -94,6 +94,7 @@
     [/^\/signs$/, V.signs, 'signs'],
     [/^\/errors$/, V.errors, 'errors'],
     [/^\/reply$/, V.reply, 'reply'],
+    [/^\/immersion$/, V.immersion, 'immersion'],
     [/^\/today$/, V.today, 'today'],
     [/^\/placement$/, V.placement, 'placement'],
     [/^\/progress$/, V.progress, 'progress'],
@@ -101,14 +102,14 @@
     [/^\/new$/, V.whatsnew, 'new'],
     [/^\/about$/, V.about, 'about']
   ];
-  const TITLES = { home: '', practice: 'Practice', kana: 'Kana', kanji: 'Kanji', write: 'Writing practice', verbs: 'Verb trainer', particles: 'Particles', vocab: 'Vocabulary quiz', listen: 'Listening', numbers: 'Numbers and counters', build: 'Sentence builder', cloze: 'Fill the blank', transform: 'Transform the sentence', test: 'Level review test', pairs: 'Word pairs', sounds: 'Sound-symbolic words', pictures: 'Picture words', signs: 'Signs and buttons', errors: 'Find the mistake', reply: 'Listen and reply', today: "Today's practice", dict: 'Dictionary', flash: 'Flashcards', lessons: 'Lessons', reading: 'Reading', speak: 'Speaking', psych: 'Psychiatry', placement: 'Placement', progress: 'Progress', settings: 'Settings', new: "What's New", about: 'About' };
+  const TITLES = { home: '', practice: 'Practice', kana: 'Kana', kanji: 'Kanji', write: 'Writing practice', verbs: 'Verb trainer', particles: 'Particles', vocab: 'Vocabulary quiz', listen: 'Listening', numbers: 'Numbers and counters', build: 'Sentence builder', cloze: 'Fill the blank', transform: 'Transform the sentence', test: 'Level review test', pairs: 'Word pairs', sounds: 'Sound-symbolic words', pictures: 'Picture words', signs: 'Signs and buttons', errors: 'Find the mistake', reply: 'Listen and reply', immersion: 'Immersion', today: "Today's practice", dict: 'Dictionary', flash: 'Flashcards', lessons: 'Lessons', reading: 'Reading', speak: 'Speaking', psych: 'Psychiatry', placement: 'Placement', progress: 'Progress', settings: 'Settings', new: "What's New", about: 'About' };
 
   /* ---------- Navigation: one grouped list for the desktop rail, the phone drawer (More) and the #/more page ----------
      [key, href, label, icon]. Group labels are shell strings (data/strings.js); item labels are the app's own. */
   const NAV = [
     ['', [['home', '#/', 'Home', icons.home], ['practice', '#/practice', 'Practice', icons.target], ['today', '#/today', "Today's practice", icons.spark]]],
     ['nav.learn', [['lessons', '#/lessons', 'Lessons', icons.lesson], ['kana', '#/kana', 'Kana trainer', icons.affix], ['kanji', '#/kanji', 'Kanji', icons.kanji], ['write', '#/write', 'Writing practice sheet', icons.pen], ['reading', '#/reading', 'Reading', icons.read], ['speak', '#/speak', 'Speaking', icons.speak], ['dict', '#/dict', 'Dictionary', icons.book]]],
-    ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['vocab', '#/vocab', 'Vocabulary quiz', icons.book], ['pairs', '#/pairs', 'Word pairs', icons.cards], ['sounds', '#/sounds', 'Sound-symbolic words', icons.ear], ['pictures', '#/pictures', 'Picture words', icons.eye], ['signs', '#/signs', 'Signs and buttons', icons.info], ['listen', '#/listen', 'Listening practice', icons.sound], ['reply', '#/reply', 'Listen and reply', icons.ear], ['numbers', '#/numbers', 'Numbers and counters', icons.chart], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['build', '#/build', 'Sentence builder', icons.affix], ['cloze', '#/cloze', 'Fill the blank', icons.pen], ['transform', '#/transform', 'Transform the sentence', icons.verb], ['errors', '#/errors', 'Find the mistake', icons.eye], ['test', '#/test', 'Level review test', icons.check], ['placement', '#/placement', 'Placement test', icons.target]]],
+    ['nav.drill', [['flash', '#/flash', 'Flashcards', icons.cards], ['vocab', '#/vocab', 'Vocabulary quiz', icons.book], ['pairs', '#/pairs', 'Word pairs', icons.cards], ['sounds', '#/sounds', 'Sound-symbolic words', icons.ear], ['pictures', '#/pictures', 'Picture words', icons.eye], ['signs', '#/signs', 'Signs and buttons', icons.info], ['listen', '#/listen', 'Listening practice', icons.sound], ['reply', '#/reply', 'Listen and reply', icons.ear], ['immersion', '#/immersion', 'Immersion', icons.play || icons.sound], ['numbers', '#/numbers', 'Numbers and counters', icons.chart], ['verbs', '#/verbs', 'Verb and adjective trainer', icons.verb], ['particles', '#/particles', 'Particle drill', icons.spark], ['build', '#/build', 'Sentence builder', icons.affix], ['cloze', '#/cloze', 'Fill the blank', icons.pen], ['transform', '#/transform', 'Transform the sentence', icons.verb], ['errors', '#/errors', 'Find the mistake', icons.eye], ['test', '#/test', 'Level review test', icons.check], ['placement', '#/placement', 'Placement test', icons.target]]],
     ['nav.interview', [['psych', '#/psych', 'Psychiatry ' + LANG.name, icons.brain], ['p-cases', '#/psych/cases', 'Case simulations', icons.case], ['p-interp', '#/psych/interp', 'What is the patient saying?', icons.ear], ['p-listen', '#/psych/listen', 'Listening drill', icons.sound], ['p-mcases', '#/psych/mcases', 'Admission MSE practice', icons.eye], ['p-dcases', '#/psych/dcases', 'Discharge practice', icons.check], ['p-eot', '#/psych/eot', 'End-of-treatment review', icons.check]]],
     ['nav.tools', [['p-point', '#/psych/point', 'Point board', icons.speak], ['p-mood', '#/psych/mood', 'Mood episode checker', icons.chart], ['p-sud', '#/psych/sud', 'Substance use screen', icons.target], ['p-wd', '#/psych/withdrawal', 'Withdrawal and agitation', icons.spark], ['p-deesc', '#/psych/deesc', 'De-escalation', icons.speak], ['p-discharge', '#/psych/discharge', 'Discharge assessment', icons.check], ['p-mse', '#/psych/mse-sheet', 'MSE interviewer sheet', icons.lesson], ['p-ho', '#/psych/handout', 'Printable handout', icons.read]]],
     ['nav.app', [['progress', '#/progress', 'Progress', icons.chart], ['settings', '#/settings', 'Settings', icons.gear], ['new', '#/new', "What's New", icons.spark], ['about', '#/about', 'About', icons.info]]]
@@ -223,6 +224,7 @@
     pairs: 'Opposites, near-synonyms and words that go together: match and quiz', sounds: 'Giongo and gitaigo for pain, sleep, mood and more, with examples',
     pictures: 'Words from pictures: tap to learn, find, label and point, a printable body map', signs: 'Signs in the hospital, station and street, and the buttons on machines',
     errors: 'Tap the one wrong word in a sentence, then see it put right', reply: 'Hear what someone says and choose the natural reply, everyday and on the ward',
+    immersion: 'YouTube, radio, podcasts and easy reading by level, with a look-up box for words you hear',
     today: 'One mixed round of 12 from your mistakes in every drill',
     write: 'Printable stroke-order sheets for kana and kanji, with squares to trace and write in',
     verbs: 'Conjugation tables and drills for verbs and adjectives', particles: 'A guide to each particle and a fill-in drill',
@@ -257,6 +259,8 @@
       '<h2 style="margin-top:18px">Listening</h2><div class="grid">' +
       T('#/reply', 'Listen', 'Listen and reply', 'Hear what someone says, choose the natural reply.') +
       T('#/listen', 'Listen', 'Listening practice', 'Words and sentences by level, dictation, sound pairs.') + '</div>' +
+      '<h2 style="margin-top:18px">Immersion</h2><div class="grid">' +
+      T('#/immersion', 'Watch · listen · read', 'Immersion', 'Real ' + esc(LANG.name) + ' by level: YouTube, radio, podcasts and easy news, with a look-up box.') + '</div>' +
       '<h2 style="margin-top:18px">Vocabulary and skills</h2><div class="grid">' +
       T('#/flash/due', 'Review', due ? due + ' cards due' : 'Flashcards', 'Spaced repetition across every deck.') +
       T('#/flash', 'Decks', 'Vocabulary decks', 'By topic and by JLPT level.') +
@@ -285,7 +289,7 @@
   };
   routes.push([/^\/more$/, V.more, 'more']);
   routes.push([/^\/practice$/, V.practice, 'practice']);
-  const MORE_KEYS = ['flash', 'vocab', 'listen', 'numbers', 'build', 'cloze', 'transform', 'test', 'pairs', 'sounds', 'pictures', 'signs', 'errors', 'reply', 'today', 'dict', 'kana', 'kanji', 'write', 'verbs', 'particles', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
+  const MORE_KEYS = ['flash', 'vocab', 'listen', 'numbers', 'build', 'cloze', 'transform', 'test', 'pairs', 'sounds', 'pictures', 'signs', 'errors', 'reply', 'immersion', 'today', 'dict', 'kana', 'kanji', 'write', 'verbs', 'particles', 'reading', 'speak', 'placement', 'progress', 'settings', 'new', 'about', 'more'];
   App.HAS = HAS;
 
   /* ---------- Header height -> --top (the search drops to a second row on phones) ---------- */

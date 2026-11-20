@@ -3,6 +3,17 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '1.1.0', date: '2026-11-21', title: 'Immersion: watch, listen and read real Japanese, with a captions guide and a look-up box',
+    items: [
+      { type: 'feature', text: 'Immersion (Practice → Immersion): real Japanese to watch, hear and read, sorted by level from Starter to N1. Watch: 36 YouTube channels (lessons explained in English, lessons in easy Japanese, JLPT grammar and workplace Japanese, official news channels, cooking and science, public health channels). Listen: 15 podcasts for learners and for Japanese listeners, and 3 radio sources. Read: easy news, free graded readers and courses, magazines and libraries, dictionaries, and health and care Japanese. 71 sources, each with its level, a one-line description and a tip on how to use it.' },
+      { type: 'feature', text: 'Play here: YouTube channels can play inside the app with captions switched on, in English or in Japanese. Nothing is loaded from YouTube until you tap Play here, and every source also opens in its own site or app.' },
+      { type: 'feature', text: 'Captions and translation guide (Immersion → Captions): the app cannot translate speech itself, so this tab shows the free tools that can, step by step: YouTube captions and Auto-translate, Live Captions on iPhone and iPad, Live Caption on Android, Chrome, Windows 11 and Mac, and the Google Translate app held near a speaker. Each card says plainly where Japanese or an English translation is not available, and links to the maker\'s own help page.' },
+      { type: 'feature', text: 'Look up a word you hear: a box at the top of the Immersion page searches this app\'s dictionary by kana, kanji, romaji or English and opens the word\'s page; when the word is not there it offers a search on Jisho.org.' },
+      { type: 'update', text: 'Star the sources you use and they collect under Mine; your stars are part of the backup. Choose a level to see a short note on how to immerse at that level.' },
+      { type: 'content', text: 'Immersion needs internet and opens other sites, which this app does not control. Every link was opened and checked twice on 20 November 2026; tell us if one stops working. Most radio from Japan plays only inside Japan, and the public broadcaster\'s easy news may ask for a region on first visit. The Japanese names of the sources carry draft readings, like all Japanese in the app.' }
+    ]
+  },
+  {
     version: '1.0.0', date: '2026-11-19', title: 'Version 1.0: N1 with common mistakes, more practice and unit reviews; the course from kana to N1 is complete',
     items: [
       { type: 'feature', text: 'Version 1.0: the course from the kana to N1 is complete. Every level from N5 to N1 now has its grammar lessons with common mistakes, extra examples and a second quiz, a review at the end of every unit, kanji with stroke order, dictionary words, readings, dialogues, listening and drills, next to the full psychiatric interview, practice cases and clinical tools. 1.0 means the build is complete; it does not mean the Japanese has been approved (see the note below).' },
