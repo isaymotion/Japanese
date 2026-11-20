@@ -1,0 +1,327 @@
+{
+ "bucket": "yt-beginner",
+ "date": "2026-11-20",
+ "reviewed": "2026-11-20",
+ "sources": [
+  {
+   "g": "w-english",
+   "kind": "youtube",
+   "title": "Japanese Ammo with Misa",
+   "url": "https://www.youtube.com/@JapaneseAmmowithMisa",
+   "yt": {
+    "list": "UUBSyd8tXJoEJKIXfrwkPdbA"
+   },
+   "lv": [
+    "N5",
+    "N3"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "A Japanese teacher explains particles, grammar and listening in English, with JLPT practice and game-based lessons.",
+   "tip": "Start with the older particle and N5 grammar videos in her playlists; save the N3 practice and game lessons for later.",
+   "active": "2026",
+   "notes": "Channel page opened via /channel/ id; id UCBSyd8tXJoEJKIXfrwkPdbA matches yt.list. vidIQ upload list fetched 2026-11-20: uploads 2026-06 to 2026-10-10 (N3 practice, origami listening, Sekiro language lessons). Teaching in English judged from titles and page keywords (kana, N5, N4). Most recent upload is a personal appeal about being harassed online, not a lesson.",
+   "opened": "https://www.youtube.com/channel/UCBSyd8tXJoEJKIXfrwkPdbA"
+  },
+  {
+   "g": "w-english",
+   "kind": "youtube",
+   "title": "Learn Japanese with JapanesePod101.com",
+   "url": "https://www.youtube.com/@JapanesePod101",
+   "yt": {
+    "list": "UU0ox9NuTHYeRys63yZpBFuA"
+   },
+   "lv": [
+    "Starter",
+    "N4"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free+paid",
+   "en": "Short vocabulary, phrase and situation lessons in English from a course company; the videos are free, the full course is paid.",
+   "tip": "Pick one N5 vocabulary playlist and follow it in order; repeat each word aloud and ignore the sign-up prompts.",
+   "active": "2026",
+   "notes": "Channel page opened via /channel/ id; id UC0ox9NuTHYeRys63yZpBFuA matches. vidIQ upload list fetched 2026-11-20: near-daily uploads, latest 2026-11-18 (N5 vocabulary; also a phrases video on saying you feel sick). English-explained; level from titles. Channel promotes paid plans.",
+   "opened": "https://www.youtube.com/channel/UC0ox9NuTHYeRys63yZpBFuA"
+  },
+  {
+   "g": "w-english",
+   "kind": "youtube",
+   "title": "PuniPuniJapan",
+   "url": "https://www.youtube.com/@PuniPuniJapan",
+   "yt": {
+    "list": "UUf-4NeJ3ACc0e-md-dPgkbg"
+   },
+   "lv": [
+    "Starter",
+    "N4"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free+paid",
+   "en": "Cartoon-style beginner quizzes on vocabulary and particles, with short phrase and travel clips.",
+   "tip": "After you study a topic, play the matching quiz and pause to answer each question before the reveal.",
+   "active": "2026",
+   "notes": "Opened @PuniPuniJapan and /channel/UCf-4NeJ3ACc0e-md-dPgkbg; id matches yt.list. vidIQ upload list fetched 2026-11-20: latest 2026-11-20 (wa or ga quiz for beginners), 2026-11-13 colours quiz. Page promotes paid tutoring and free kana ebooks. Instruction language English judged from titles.",
+   "opened": "https://www.youtube.com/channel/UCf-4NeJ3ACc0e-md-dPgkbg"
+  },
+  {
+   "g": "w-english",
+   "kind": "youtube",
+   "title": "Learn Japanese with Masa Sensei",
+   "url": "https://www.youtube.com/@MasaSensei",
+   "yt": {
+    "list": "UU3ZrSg_QdMexvDREPuiCXqA"
+   },
+   "lv": [
+    "N5",
+    "N2"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Grammar lessons explained in English with illustrated example sentences, from beginner points up to N2 grammar.",
+   "tip": "Search the channel for a grammar point you just met in the app and watch that one lesson; the older catalogue covers N5 and N4.",
+   "active": "2026",
+   "notes": "Channel page opened via /channel/ id; id UC3ZrSg_QdMexvDREPuiCXqA matches. Page says beginners to N3 and weekly uploads. vidIQ upload list fetched 2026-11-20: two series, latest 2026-11-07; recent ones are N3 and labelled N2 grammar, so top raised to N2.",
+   "opened": "https://www.youtube.com/channel/UC3ZrSg_QdMexvDREPuiCXqA"
+  },
+  {
+   "g": "w-english",
+   "kind": "youtube",
+   "title": "ToKini Andy",
+   "url": "https://www.youtube.com/@ToKiniAndy",
+   "yt": {
+    "list": "UUsHzgQRjPzOz_w4HSrNLIVw"
+   },
+   "lv": [
+    "N5",
+    "N4"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Textbook-style lessons that follow Genki and Quartet, plus a live N4 kanji series.",
+   "tip": "If you use Genki, watch the matching lesson video after each chapter; take the N4 kanji series one lesson a week.",
+   "active": "2026",
+   "notes": "Opened @ToKiniAndy; id UCsHzgQRjPzOz_w4HSrNLIVw matches. Page says he teaches with Genki, Quartet and own lessons. vidIQ upload list fetched 2026-11-20: live N4 kanji lessons through 2026-11-03. Teaching language not stated on page; English judged from English titles.",
+   "opened": "https://www.youtube.com/@ToKiniAndy"
+  },
+  {
+   "g": "w-english",
+   "kind": "youtube",
+   "title": "Learn Japanese From Zero!",
+   "url": "https://www.youtube.com/@JapaneseFromZero",
+   "yt": {
+    "list": "UUxuZNRnlprC70l1bnI0n-XQ"
+   },
+   "lv": [
+    "Starter",
+    "N4"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free+paid",
+   "en": "Beginner course videos in English from a long-running teaching site, starting with kana and basic grammar.",
+   "tip": "Use the numbered lesson playlist from the start, one video per sitting; recent uploads are livestreams, not lessons.",
+   "active": "2026",
+   "notes": "Opened @JapaneseFromZero; id UCxuZNRnlprC70l1bnI0n-XQ matches. Page is from FromZero.com with paid membership and books. vidIQ upload list fetched 2026-11-20: uploads through 2026-10-29 but mostly livestreams and announcements; lessons are the older catalogue.",
+   "opened": "https://www.youtube.com/@JapaneseFromZero"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Natural Japanese (NIJ)",
+   "url": "https://www.youtube.com/@nijapanese",
+   "yt": {
+    "list": "UUXo8kuCtqLjL1EH6m4FJJNA"
+   },
+   "lv": [
+    "Starter",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Comprehensible-input videos in slow Japanese, each labelled by level from complete beginner to advanced.",
+   "tip": "Watch videos labelled Complete Beginner; replay one until you can follow it, then move to Beginner.",
+   "active": "2026",
+   "notes": "Opened /channel/UCXo8kuCtqLjL1EH6m4FJJNA (formerly Comprehensible Japanese); id matches. Page mentions transcripts with furigana on its own site; YouTube captions not confirmed. vidIQ upload list fetched 2026-11-20: latest 2026-05-26, weekly until then, levels from complete beginner to advanced; no upload seen after May 2026.",
+   "opened": "https://www.youtube.com/channel/UCXo8kuCtqLjL1EH6m4FJJNA"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Japanese with Shun",
+   "url": "https://www.youtube.com/@JapanesewithShun",
+   "yt": {
+    "list": "UUu6sZrHyl4hSS2PvlUo2XZA"
+   },
+   "lv": [
+    "N5",
+    "N3"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free+paid",
+   "en": "Easy Japanese vlogs, street interviews and a beginner podcast, built on textbook-level grammar.",
+   "tip": "Start with the N5-N4 podcast episodes; once those feel easy, try the N4 street interviews.",
+   "active": "2026",
+   "notes": "Opened @JapanesewithShun; id UCu6sZrHyl4hSS2PvlUo2XZA matches. Page says easy Japanese immersion for N5, N4 and N3 using Genki grammar. vidIQ upload list fetched 2026-11-20: daily uploads, latest 2026-11-19; also promotes a paid bootcamp. Range kept N5-N3 to fit the whole channel (also listed in the intermediate bucket). Captions not stated.",
+   "opened": "https://www.youtube.com/@JapanesewithShun"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Nihongo no Jikan",
+   "ja": "にほんご の じかん",
+   "url": "https://www.youtube.com/@nihongo-no-jikan",
+   "yt": {
+    "list": "UUdZHET-9_Comx6UaVTSETiQ"
+   },
+   "lv": [
+    "Starter",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Comprehensible-input channel in slow, simple Japanese: vlogs, folk tales, quizzes and game play, each tagged by level.",
+   "tip": "Choose videos tagged Complete Beginner, such as the vlogs; if lost, read the transcript on the channel's website.",
+   "active": "2026",
+   "notes": "Opened /channel/UCdZHET-9_Comx6UaVTSETiQ; id matches. Page name is written in kana; teacher Yuki; all levels from complete beginner to advanced; transcripts on its website. vidIQ upload list fetched 2026-11-20: daily uploads, latest 2026-11-19, tagged Complete Beginner to Advanced. Range Starter-N2 to fit the whole channel (also in intermediate bucket). YouTube captions not confirmed.",
+   "opened": "https://www.youtube.com/channel/UCdZHET-9_Comx6UaVTSETiQ"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Chienowa Japanese",
+   "url": "https://www.youtube.com/@chienowajapanese1101",
+   "yt": {
+    "list": "UUm0_bMpdJ8966au9PvrNaRw"
+   },
+   "lv": [
+    "Starter",
+    "N4"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Picture-based lessons for absolute beginners, taught only in Japanese with gestures, drawings and stories.",
+   "tip": "Begin with the from-zero picture series; watch each lesson twice and use subtitles only as a backup.",
+   "active": "2026",
+   "notes": "Opened /channel/UCm0_bMpdJ8966au9PvrNaRw; id matches. Page says comprehensible input for absolute beginners and beginners, subtitles as backup; older intermediate playlists archived. vidIQ upload list fetched 2026-11-20: weekly uploads, latest 2026-11-15.",
+   "opened": "https://www.youtube.com/channel/UCm0_bMpdJ8966au9PvrNaRw"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Slow Japanese Listening",
+   "url": "https://www.youtube.com/@SlowJapaneseKaiwa",
+   "yt": {
+    "list": "UUbD78bfxT7taUJsTLA2CkKw"
+   },
+   "lv": [
+    "Starter",
+    "N4"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Short daily-conversation listening practice at slow and normal speed, with romaji and English translation on screen.",
+   "tip": "Listen once without reading, then again with the translation, and say the slow lines aloud after the speaker.",
+   "active": "2026",
+   "notes": "Opened @SlowJapaneseKaiwa; id UCbD78bfxT7taUJsTLA2CkKw matches. Page says sub-channel of the creator's main channel, romaji subtitles, English translation, several speeds. vidIQ upload list fetched 2026-11-20: near-daily, latest 2026-11-18, titles say from zero and N5-N4. Japanese captions not confirmed.",
+   "opened": "https://www.youtube.com/@SlowJapaneseKaiwa"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "The Nihongo Nook",
+   "url": "https://www.youtube.com/@TheNihongoNook",
+   "yt": {
+    "list": "UUYGUwnflqHJ3MlCAbaggqSQ"
+   },
+   "lv": [
+    "N5",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "JLPT-style listening practice tests with answers, plus learning tips and virtual tours of places in Japan.",
+   "tip": "Try the N5 listening test after a few months of study; replay each missed item with the answer shown.",
+   "active": "2026",
+   "notes": "Opened @TheNihongoNook; id UCYGUwnflqHJ3MlCAbaggqSQ matches. Page keywords cover N5 to N1. vidIQ upload list fetched 2026-11-20: N5 and N4 tests 2026-11-06/07, N3 2026-10-17, N2 2026-02-08, so top set to N2. Narration language and captions not stated; who wrote the test material not stated.",
+   "opened": "https://www.youtube.com/@TheNihongoNook"
+  }
+ ],
+ "removed": [],
+ "unverified": [
+  {
+   "title": "Minori Education (N5-N4)",
+   "url": "https://www.youtube.com/channel/UCrJyTHTBHFtTH4X_FBr94Lw",
+   "why": "Reviewer opened the channel page (beginner N5-N4 lessons, id matches) but found no dated 2026 upload: vidIQ page would not open and one web search showed none."
+  },
+  {
+   "title": "Japanization",
+   "url": "https://www.youtube.com/channel/UCRgh_wUBWHTUFLvqnQlTKwg",
+   "why": "Reviewer opened the page: mixed channel (English for Japanese viewers, Japanese for others), no learner level stated, no dated 2026 upload found."
+  },
+  {
+   "title": "HeyJapan Global",
+   "url": "https://www.youtube.com/channel/UCscgd11Rj4RcQwBfQ3xQiuQ",
+   "why": "Reviewer opened the page (kana-to-JLPT path, anime dialogues, promotes a paid app); no dated 2026 upload found in vidIQ or one search."
+  },
+  {
+   "title": "Nihongonomori (English)",
+   "url": "https://www.youtube.com/@nihongonomorienglish",
+   "why": "Reviewer opened the page (N5-N4, id UCg0s9TFYjCyYIiA4QMwoquw); researcher saw last upload October 2025 and one search found no 2026 upload."
+  },
+  {
+   "title": "Miku Real Japanese",
+   "url": "https://www.youtube.com/channel/UCsQCbl3a9FtYvA55BxdzYiQ",
+   "why": "Not reopened: researcher found it active in 2026 but N3-N1, so it belongs to the intermediate bucket, not here."
+  },
+  {
+   "title": "Learn Japanese with Moon-chan",
+   "url": "https://www.youtube.com/c/learnjapanesewithmoonchan",
+   "why": "Not reopened: researcher found recent uploads intermediate, so it belongs to the intermediate bucket."
+  },
+  {
+   "title": "Yuyu Sensei Learn Japanese",
+   "url": "https://www.youtube.com/channel/UCJZdiKn3s6etGFWmNKk7nrg",
+   "why": "Reviewer opened the page (game playthrough lessons N5-N2, paid lessons offered); no dated 2026 upload found."
+  }
+ ],
+ "suggested_groups": [
+  {
+   "id": "w-english",
+   "title": "Lessons explained in English",
+   "note": "Misa, JapanesePod101, PuniPuni, Masa Sensei, ToKini Andy, From Zero."
+  },
+  {
+   "id": "w-japanese",
+   "title": "Lessons in easy Japanese",
+   "note": "NIJ, Shun, Nihongo no Jikan, Chienowa, Slow Japanese Listening, Nihongo Nook."
+  },
+  {
+   "id": "(missing) w-listening",
+   "title": "Listening practice and JLPT tests",
+   "note": "Proposed: Slow Japanese Listening and The Nihongo Nook fit poorly in w-japanese; w-jlpt is N3-N1 grammar only."
+  }
+ ]
+}

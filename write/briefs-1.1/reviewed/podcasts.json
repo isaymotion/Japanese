@@ -1,0 +1,382 @@
+{
+ "bucket": "podcasts",
+ "date": "2026-11-20",
+ "reviewed": "2026-11-20",
+ "sources": [
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Kanami Sensei no Nihongo: Beginners (Pre JLPT N5)",
+   "url": "https://podcasts.apple.com/podcast/id1896848844",
+   "lv": [
+    "Starter",
+    "N5"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "Short, very slow talks in simple Japanese about daily life, made for absolute beginners; free transcripts on the teacher's site.",
+   "tip": "Listen once with no text, then read the free transcript and say each sentence aloud after her.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: by Kanami Sensei / Japademy Japanese Learning Inc., years active 2026, episodes from May 30 to Oct 30 (one on the 2026 World Cup), 6 to 13 min. Page says free transcripts on Japademy site and English subtitles throughout; cc left empty because the schema has no value for English-only subtitles. Paid courses are promoted but the show is free. ja dropped: the show writes its name as Kanami Sensei の Nihongo, no Japanese name in kanji.",
+   "opened": "https://podcasts.apple.com/podcast/id1896848844"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Kanami Sensei no Nihongo: JLPT N5",
+   "url": "https://podcasts.apple.com/podcast/id1896863198",
+   "lv": [
+    "N5",
+    "N5"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "Slow, clear N5-level talks about everyday life in Japan from a Japanese teacher, with free transcripts on her site.",
+   "tip": "Play one episode three times: first with no text, then with the transcript, then with no text again.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: Japademy Japanese Learning Inc. (c) 2026, episodes Jun 2 to Oct 2 incl. 2026 World Cup topic. Free transcripts on Japademy site; English subtitles stated, cc left empty (no schema value). Sister show of the Pre-N5 one, separate feed.",
+   "opened": "https://podcasts.apple.com/podcast/id1896863198"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Japanese with Shun",
+   "url": "https://podcasts.apple.com/podcast/id1550709885",
+   "lv": [
+    "N5",
+    "N4"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free+paid",
+   "active": "2026",
+   "en": "Clear, slow Japanese-only episodes for beginners on everyday topics, with occasional special talks about learning.",
+   "tip": "Start with the episodes marked N5-N4 and replay one until you can follow it without the transcript.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: host Shunsuke Otani, years active 2021-2026, episodes Nov 13, Nov 6, Oct 23 and a special 6 days earlier. Transcript link goes to Patreon (free or paid not stated); paid courses promoted, so free+paid.",
+   "opened": "https://podcasts.apple.com/podcast/id1550709885"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Nihongo con Teppei (Japanese podcast for beginners)",
+   "url": "https://podcasts.apple.com/us/podcast/id1471500012",
+   "lv": [
+    "N5",
+    "N4"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "Short daily talks in Japanese only, told simply and with much repetition; good for building a daily listening habit.",
+   "tip": "Listen to one short episode a day; do not pause to look words up, just follow the story.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: host Teppei, updated daily, active 2019-2026, newest episodes 1 to 5 days old plus Nov 1-8. Description says content is kept free; donations via Patreon and Ko-fi. No transcripts mentioned. Level from title and reviews.",
+   "opened": "https://podcasts.apple.com/us/podcast/id1471500012"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Slow Japanese",
+   "url": "https://podcasts.apple.com/podcast/id1585564276",
+   "lv": [
+    "N4",
+    "N3"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free+paid",
+   "active": "2026",
+   "en": "Short episodes by a Japanese speaker, spoken slowly, on customs, culture and daily life in Japan.",
+   "tip": "Pick one episode and write down five words you hear before you look them up.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: by Akari (Mochifika), years active 2021-2026, episodes Sep 28 to Nov 9 and one 4 days old. Page says A1 to B1/B2. Transcripts via Patreon; episodes 1-5 free on the show site. One episode is about the host's depression (personal story).",
+   "opened": "https://podcasts.apple.com/podcast/id1585564276"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "NHK Easy-Language News (radio)",
+   "ja": "NHKやさしいことばニュース",
+   "url": "https://podcasts.apple.com/jp/podcast/nhk%E3%83%A9%E3%82%B8%E3%82%AA-nhk%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E3%81%93%E3%81%A8%E3%81%B0%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/id6786932456?l=en-US",
+   "lv": [
+    "N4",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A short daily NHK radio news bulletin in plain Japanese, made for listeners who find everyday news hard to follow.",
+   "tip": "Listen to one bulletin twice, then read the same story on an easy-news site to check what you caught.",
+   "notes": "Added by reviewer. Found via WebSearch; opened Apple page 20 Nov 2026: NHK (Japan Broadcasting Corporation), years active 2026, updated daily, 5 episodes kept, dated 16 to 20 Nov 2026, 5 min each. Description: news with few technical words, for foreigners, older people, children and disabled people. No transcripts mentioned. Show site nhk.jp/p/rs/34PY344RPJ/ could not be opened (blocked). Level is reviewer judgement (plain wording, broadcast pace).",
+   "opened": "https://podcasts.apple.com/jp/podcast/nhk%E3%83%A9%E3%82%B8%E3%82%AA-nhk%E3%82%84%E3%81%95%E3%81%97%E3%81%84%E3%81%93%E3%81%A8%E3%81%B0%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/id6786932456?l=en-US"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Easy Japanese: Conversation Lessons (NHK WORLD-JAPAN)",
+   "url": "https://podcasts.apple.com/podcast/id1482221142",
+   "lv": [
+    "Starter",
+    "N5"
+   ],
+   "speaks": "ja+en",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "archive",
+   "en": "A finished beginner course from NHK WORLD-JAPAN following a student in Japan; each lesson teaches one useful phrase.",
+   "tip": "Do one lesson a day in order and repeat the key phrase aloud until you can say it without the audio.",
+   "notes": "Moved from unverified by reviewer. Opened Apple page 20 Nov 2026: NHK WORLD-JAPAN, 48 lessons of about 10 min, 2019-2020, marked free, still online. Explanation language not stated on the page; the course is the English edition, so ja+en is reviewer judgement from the listing being in English.",
+   "opened": "https://podcasts.apple.com/podcast/id1482221142"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Beppu Kurashi: Intermediate Japanese JLPT N3",
+   "url": "https://podcasts.apple.com/us/podcast/id1889066626",
+   "lv": [
+    "N3",
+    "N3"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "Short talks about life in Beppu and Oita that stick to N3 grammar and words, each with a Japanese summary in the notes.",
+   "tip": "Read the Japanese summary first, then listen and pick out the details it leaves out.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: creator Kieran Ebert, years active 2026, 11 episodes Mar 26 to Oct 19, 5 to 13 min. Host says he made it to improve his own speaking, so he is likely a learner, not a native speaker (main chat to decide). No transcripts, no price.",
+   "opened": "https://podcasts.apple.com/us/podcast/id1889066626"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Sayuri Saying: Everyday Japanese Podcast",
+   "url": "https://podcasts.apple.com/us/podcast/sayuri-saying-everyday-japanese-podcast/id1518230589",
+   "lv": [
+    "N3",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free+paid",
+   "active": "2026",
+   "en": "Natural talk about daily life and social customs in Japan for intermediate learners; transcripts are on the host's site.",
+   "tip": "Listen to the whole episode for the gist, then read the transcript and note the casual forms.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: Sayuri Saying, years active 2020-2026, episodes Aug 31 to Oct 12 and one 5 days old. Transcripts and video at sayurisaying.com; a paid membership for bonus content, so free+paid.",
+   "opened": "https://podcasts.apple.com/us/podcast/sayuri-saying-everyday-japanese-podcast/id1518230589"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Nihongo Thatsdan",
+   "ja": "にほんご ザッツ談《だん》",
+   "url": "https://podcasts.apple.com/podcast/id1466661456",
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "archive",
+   "en": "Unscripted chats between a Japanese couple about daily life, with a Japanese transcript for every episode.",
+   "tip": "Read the transcript while you listen to see how spoken Japanese shortens and drops words.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: by Chiyoshi, years active 2019-2025, 224 episodes, last 20 Apr 2025; still online, so archive. Transcripts on note.com/nihongothatsdan. Description: for intermediate and advanced learners. No price shown.",
+   "opened": "https://podcasts.apple.com/podcast/id1466661456"
+  },
+  {
+   "g": "l-learner",
+   "kind": "podcast",
+   "title": "Advanced Japanese Podcast with SAYAS",
+   "url": "https://podcasts.apple.com/podcast/id1781687281",
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free+paid",
+   "active": "2026",
+   "en": "Long talks in natural Japanese on culture, society and wellbeing, for upper-intermediate and advanced learners.",
+   "tip": "Split a long episode into two sittings and keep a list of words for feelings and stress.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: SAYAS Japanese, years active 2024-2026, episodes Aug 21 to Nov 13 and one 5 hours old. Transcripts via Patreon, paid lessons promoted. One episode on burnout and perfectionism (personal view, not a health source).",
+   "opened": "https://podcasts.apple.com/podcast/id1781687281"
+  },
+  {
+   "g": "l-native",
+   "kind": "podcast",
+   "title": "NHK Radio News",
+   "ja": "NHKラジオニュース",
+   "url": "https://podcasts.apple.com/in/podcast/id400203229",
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "Short NHK radio news bulletins in standard broadcast Japanese, posted through the day.",
+   "tip": "Listen to a 5-minute bulletin, then find one of its stories in text and compare.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: NHK (Japan Broadcasting Corporation), NHK Podcast channel, updated daily, years active 2010-2026; listed episodes dated 9 Nov 2026 (the page copy seen may be cached). No region limit stated. No transcripts.",
+   "opened": "https://podcasts.apple.com/in/podcast/id400203229"
+  },
+  {
+   "g": "l-native",
+   "kind": "podcast",
+   "title": "News School (Asahi Shimbun Podcast)",
+   "ja": "ニュースの 学校《がっこう》",
+   "url": "https://podcasts.apple.com/jp/podcast/id1551595534",
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A daily Asahi Shimbun show that explains one news keyword in friendly conversation, each episode with a link to an article.",
+   "tip": "Pick a keyword you already know in English so the explanation is easier to follow.",
+   "notes": "Replaced podwise.ai link. Podnews gave Apple id 1551595534; reviewer opened that Apple page 20 Nov 2026: publisher Asahi Shimbun Podcast, host Daisuke Kanda, daily, episodes from Nov 10 to 20 hours old, 9 to 15 min. Asahi podcast site is asahi.com/special/podcasts/ (not opened).",
+   "opened": "https://podcasts.apple.com/jp/podcast/id1551595534"
+  },
+  {
+   "g": "l-native",
+   "kind": "podcast",
+   "title": "NIKKEI PrimeVOICE",
+   "ja": "日経《にっけい》 プライムボイス",
+   "url": "https://podcasts.apple.com/podcast/id1745049978",
+   "lv": [
+    "N1",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A weekly business-news podcast where Nikkei editors explain one story each; formal, dense vocabulary.",
+   "tip": "Read a short English summary of the topic first, then listen for the key terms.",
+   "notes": "Reviewer opened Apple page (us and jp) 20 Nov 2026: NIKKEI PrimeVOICE (日経プライムボイス), Nikkei Inc., years active 2024-2026, episodes Sep 28 to Nov 10 and one 2 days old, 6 to 14 min. Episodes play without sign-in; Nikkei Prime membership is for the newspaper, not the podcast.",
+   "opened": "https://podcasts.apple.com/podcast/id1745049978"
+  },
+  {
+   "g": "l-native",
+   "kind": "podcast",
+   "title": "Tonari no Zatsudan (TBS Radio)",
+   "ja": "となりの 雑談《ざつだん》",
+   "url": "https://podcasts.apple.com/jp/podcast/id1669681273",
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A weekly unscripted chat between two TBS Radio hosts with no set theme, like overhearing friends in a cafe.",
+   "tip": "Do not try to catch every word; follow when the topic changes and how the hosts react.",
+   "notes": "Replaced podwise.ai link. Apple id from Podcast Republic search result; reviewer opened Apple page 20 Nov 2026: TBS RADIO / TBS Podcast, hosts Naoko Sakurabayashi and Jane Su, years active 2023-2026, EP.194 to EP.201 (Sep 29 to 3 days old, one titled autumn 26), 17 to 33 min. TBS own page tbsradio.jp/kikimimi was blocked.",
+   "opened": "https://podcasts.apple.com/jp/podcast/id1669681273"
+  },
+  {
+   "g": "l-native",
+   "kind": "podcast",
+   "title": "Scientalk",
+   "ja": "サイエントーク",
+   "url": "https://podcasts.apple.com/podcast/id1566371326",
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A researcher and an illustrator talk about science history, researchers and science news in relaxed Japanese.",
+   "tip": "Choose an episode on a topic you already know; the background helps you follow.",
+   "notes": "Reviewer opened Apple page 20 Nov 2026: hosts Ren and EMMA, site scien-talk.com, years active 2021-2026, episodes Oct 28 to Nov 11 and one 1 day old. Listed also as Video, so cc unknown. Independent show; general science, not health.",
+   "opened": "https://podcasts.apple.com/podcast/id1566371326"
+  },
+  {
+   "g": "l-native",
+   "kind": "podcast",
+   "title": "Doctor Salon (Radio NIKKEI)",
+   "ja": "ドクターサロン",
+   "url": "https://podcasts.apple.com/jp/podcast/id1459332778",
+   "lv": [
+    "N1",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "clin": true,
+   "en": "A Radio NIKKEI programme for clinicians in which specialist doctors answer questions from practising doctors.",
+   "tip": "Use it once your clinical vocabulary is solid; pick a topic from your own rotation and listen twice.",
+   "notes": "Own page radionikkei.jp/dr_salon/ opened 20 Nov 2026: Radio NIKKEI medical information programme for clinicians, sponsored by Kyorin Pharmaceutical; episodes go out as a podcast about a week after broadcast; no fee or registration mentioned (its schedule list shown was old, 2022). Apple page (id from Podnews) opened: Radio NIKKEI, 2019-2026, episodes Oct 27 to 1 day old; plays with no sign-in or price. URL set to Apple because it plays in a phone browser.",
+   "opened": "https://www.radionikkei.jp/dr_salon/ ; https://podcasts.apple.com/jp/podcast/id1459332778"
+  }
+ ],
+ "removed": [],
+ "unverified": [
+  {
+   "title": "JLPT N5 Japanese Podcast for Beginners - Meg's Diary",
+   "url": "https://podcasts.apple.com/us/podcast/jlpt-n5-japanese-podcast-for-beginners-megs-diary/id1736653108",
+   "why": "Reviewer could not open the Apple page (client error) on 20 Nov 2026; researcher saw no episode dates and paid transcripts."
+  },
+  {
+   "title": "Japanese with Kei",
+   "url": "https://podcasts.apple.com/podcast/id1561883540",
+   "why": "Opened by reviewer: page says full audio and transcripts need Patreon support; latest episodes dated Mar without year. Not free to start."
+  },
+  {
+   "title": "Learn Japanese with Sally",
+   "url": "https://podcasts.apple.com/pk/podcast/learn-japanese-with-sally-intermediate-japanese/id1821624614",
+   "why": "Opened by reviewer: real, free, active 2026 (kanji and kana mini-lessons of 2-7 min); not added because it is mainly short course promos. Main chat may add it to l-learner (Starter-N5)."
+  },
+  {
+   "title": "Japanese Mania Podcast",
+   "url": "https://podcasts.apple.com/podcast/id1550365059",
+   "why": "Researcher: last episode Dec 2021, no 2026 activity. Not reopened."
+  },
+  {
+   "title": "JAXA Space and Astronautical Science Podcast",
+   "url": "https://www.buzzsprout.com/1886301/episodes",
+   "why": "Researcher: 0 episodes, English-language. Not reopened."
+  },
+  {
+   "title": "Kurosan and Tetchan Healthy Radio",
+   "url": "https://podnews.net/podcast/ifsc2",
+   "why": "Health show by individuals, not a public body; fails the health-source rule."
+  }
+ ],
+ "suggested_groups": [
+  {
+   "id": "l-learner",
+   "title": "Podcasts for learners"
+  },
+  {
+   "id": "l-native",
+   "title": "Native podcasts"
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+  "bucket": "radio",
+  "date": "2026-11-20",
+  "reviewed": "2026-11-20",
+  "sources": [
+    {
+      "g": "l-radio",
+      "kind": "radio",
+      "title": "SBS Japanese",
+      "ja": "SBS 日本語《にほんご》 放送《ほうそう》",
+      "url": "https://www.sbs.com.au/language/japanese/ja/listen",
+      "lv": [
+        "N3",
+        "Native"
+      ],
+      "speaks": "ja",
+      "cc": "",
+      "geo": "",
+      "cost": "free",
+      "active": "2026",
+      "en": "Japanese-language radio from Australia's multicultural public broadcaster: news, interviews and features you can play or download.",
+      "tip": "Pick one short episode on a topic you know, listen once for gist, then again pausing to note new words.",
+      "notes": "Reviewer opened /language/japanese/ja/listen: page titled 日本語ラジオ＆ポッドキャスト, calls the broadcast SBS日本語放送; lists live broadcast times on SBS Radio 3 and dated episodes 12/11/2026 to 20/11/2026 with MP3 Download links. Also opened /language/japanese/ja/podcast/sbs-japanese: newest episode published 20/11/2026, MP3 links, no region limit stated, no paywall, optional login. No transcripts seen on the list page. Domestic public broadcaster serving Japanese speakers in Australia (not an outlet speaking for a foreign government). Not in podcasts.json.",
+      "opened": "https://www.sbs.com.au/language/japanese/ja/listen ; https://www.sbs.com.au/language/japanese/ja/podcast/sbs-japanese"
+    },
+    {
+      "g": "l-radio",
+      "kind": "radio",
+      "title": "radiko",
+      "url": "https://radiko.jp/",
+      "lv": [
+        "N3",
+        "Native"
+      ],
+      "speaks": "ja",
+      "cc": "none",
+      "geo": "Japan only",
+      "cost": "free+paid",
+      "active": "2026",
+      "en": "Shared web player for Japanese commercial radio, with a past-week replay. It plays only inside Japan, so it is useful on a trip there.",
+      "tip": "While in Japan, try a morning talk show for ten minutes and write down three phrases you caught.",
+      "notes": "Reviewer opened radiko.jp: English notice says the service is available only in Japan and cannot be accessed from the current location. Describes タイムフリー (replay of the past week) and paid radiko Premium for nationwide stations; free tier covers local-area stations. One WebSearch showed 2026-dated press releases (Oct 2026) mentioning radiko. The station entries InterFM897, J-WAVE, FM Yokohama and Radio NIKKEI were removed because their own sites send live listening to radiko; this entry covers them. No Japanese name (Latin only), so no ja.",
+      "opened": "https://radiko.jp/"
+    },
+    {
+      "g": "l-radio",
+      "kind": "radio",
+      "title": "JCBA Internet Simulcast Radio",
+      "ja": "JCBA インターネット サイマルラジオ",
+      "url": "https://www.jcbasimul.com/",
+      "lv": [
+        "N3",
+        "Native"
+      ],
+      "speaks": "ja",
+      "cc": "none",
+      "geo": "Japan only",
+      "cost": "free",
+      "active": "unknown",
+      "en": "Portal that streams Japan's local community FM stations, listed by region. It plays only inside Japan, so it is useful on a trip there.",
+      "tip": "On a trip, open the station for the town you are in and listen to its local news and event talk.",
+      "notes": "Reviewer opened the home page: run by the Japan Community Broadcasting Association; stations grouped by region (Hokkaido to Kyushu) with LISTEN links; only 2026 date is the copyright line, no dated news, so active left 'unknown'. Opened /faq/: says listening from overseas is restricted except for some programmes, and that it is free apart from data costs.",
+      "opened": "https://www.jcbasimul.com/ ; https://www.jcbasimul.com/faq/"
+    }
+  ],
+  "removed": [
+    {
+      "title": "CGTN Japanese - audio (CRI)",
+      "url": "https://japanese.cri.cn/radio/",
+      "why": "Main chat decision: a state outlet of another country is not an immersion source for this app."
+    },
+    {
+      "title": "InterFM897",
+      "url": "https://www.interfm.co.jp/",
+      "why": "Reviewer opened the home page: a 'listen now' button but no player shown on the site and no statement on where it plays; could not confirm an on-site player. Live listening is expected via radiko, which the radiko entry covers."
+    },
+    {
+      "title": "J-WAVE",
+      "url": "https://www.j-wave.co.jp/",
+      "why": "Reviewer opened the home page: no own player; says programmes on air can be heard on radiko (Japan only). Covered by the radiko entry."
+    },
+    {
+      "title": "FM Yokohama",
+      "url": "https://www.fmyokohama.co.jp/",
+      "why": "Reviewer opened the home page: no own player; live buttons go to radiko. Podcast link goes to a separate domain (fmyokohama.jp/podcast/), not opened. Covered by the radiko entry."
+    },
+    {
+      "title": "Radio NIKKEI",
+      "url": "https://www.radionikkei.jp/",
+      "why": "Reviewer opened the home page: no embedded player; live and replay go to radiko; also carries horse-racing programmes. Its medical podcast (Doctor Salon) is already in podcasts.json."
+    },
+    {
+      "title": "Radio Taiwan International (Japanese)",
+      "url": "https://www.rti.org.tw/",
+      "why": "Not reopened: government-funded international broadcaster of another country, same reason as the CGTN removal (main chat to confirm)."
+    },
+    {
+      "title": "KBS World Radio Japanese",
+      "url": "https://world.kbs.co.kr/service/index.htm?lang=j",
+      "why": "Not reopened: international service of another country's state broadcaster, same reason as the CGTN removal (main chat to confirm)."
+    },
+    {
+      "title": "Voice of Vietnam Japanese (VOV World)",
+      "url": "https://vovworld.vn/ja-JP",
+      "why": "Not reopened: state international broadcaster of another country, same reason as the CGTN removal."
+    }
+  ],
+  "unverified": [
+    {
+      "title": "NHK WORLD-JAPAN Japanese radio and news audio (Radio Japan)",
+      "url": "https://www3.nhk.or.jp/nhkworld/ja/radio/",
+      "why": "Could not be opened from here (reviewer tried once on 2026-11-20: SITE_BLOCKED)."
+    },
+    {
+      "title": "NHK Radio Radiru (らじる★らじる) live and listen-again",
+      "url": "https://www.nhk.or.jp/radio/",
+      "why": "Could not be opened from here (NHK domains blocked)."
+    },
+    {
+      "title": "NHK news audio (NHKニュース) on demand",
+      "url": "https://www3.nhk.or.jp/news/",
+      "why": "Could not be opened from here (NHK domains blocked)."
+    },
+    {
+      "title": "KZOO Radio (Honolulu, Japanese-language)",
+      "url": "https://www.kzoohawaii.com/",
+      "why": "Official site opened (kzoo.org from the research list could not be opened; official domain taken from Wikipedia). Japanese-language station in Hawaii, site posts dated Nov 2026, November timetable, no region limit stated. But the site has no visible player: its only stream link (us7.maindigitalstream.com/2716/) returned a 404, and listening is via its app. Not added because playback from its own site could not be confirmed."
+    },
+    {
+      "title": "Shonan Beach FM 78.9",
+      "url": "https://www.beachfm.co.jp/",
+      "why": "Candidate (community FM said to stream on its own site); official site failed to load (client error)."
+    },
+    {
+      "title": "TJS Radio (Los Angeles, Japanese-language internet radio)",
+      "url": "http://www.tjsla.com",
+      "why": "Candidate found via a Discover Nikkei article; official site could not be opened (robots.txt unreachable)."
+    },
+    {
+      "title": "TBS Radio",
+      "url": "https://www.tbsradio.jp/",
+      "why": "Could not be opened (site blocked). Likely radiko-based like the other Tokyo stations."
+    },
+    {
+      "title": "Listen Radio (listenradio.jp)",
+      "url": "https://www.listenradio.jp/",
+      "why": "Could not be opened (robots.txt unreachable)."
+    }
+  ],
+  "suggested_groups": [
+    {
+      "id": "l-radio",
+      "title": "Radio",
+      "note": "All three kept sources use the fixed l-radio group. The researcher's radio-abroad / radio-japan split is not in the fixed list; the geo field already shows which ones play only in Japan."
+    }
+  ]
+}

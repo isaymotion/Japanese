@@ -1,0 +1,319 @@
+{
+ "bucket": "reading",
+ "date": "2026-11-20",
+ "reviewed": "2026-11-20",
+ "sources": [
+  {
+   "g": "r-news",
+   "kind": "news",
+   "title": "NHK Easy Japanese News",
+   "ja": "NHK やさしい ことば ニュース",
+   "url": "https://news.web.nhk/news/easy/",
+   "lv": [
+    "N4",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "may be Japan only",
+   "cost": "free",
+   "active": "2026",
+   "en": "Short news items from the public broadcaster, rewritten in plain Japanese for foreign residents and children.",
+   "tip": "On first visit the site asks you to tick a terms box and choose a use type and a region; then read one short item a day.",
+   "notes": "Opened the top page and an article (URL dated 13 Aug 2026; topic: technical intern system change). Both show an NHK ONE gate: tick a terms checkbox, choose a use type (household, business or school) and a region/broadcast station, then a start button; a decline link and a login link are also shown. The terms say anyone may use NHK ONE but give no statement about use from outside Japan, so geo stays may be Japan only. No furigana toggle or audio visible in my fetch (page body behind the gate). Old www3.nhk.or.jp address blocked for me. 2026 evidence: the dated article URL.",
+   "opened": "https://news.web.nhk/news/easy/ ; https://news.web.nhk/news/easy/20260813de43596/20260813de43596.html"
+  },
+  {
+   "g": "r-readers",
+   "kind": "reader",
+   "title": "Tadoku free graded readers",
+   "ja": "にほんご たどく",
+   "url": "https://tadoku.org/japanese/en/free-books-en/",
+   "lv": [
+    "Starter",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "Free graded readers from a non-profit, from hiragana-only starter books up to upper-intermediate, to read online or print.",
+   "tip": "Start one level below what feels comfortable and read many short books quickly, without stopping for a dictionary.",
+   "notes": "Opened: site titled にほんごたどく by NPO 多言語多読; page says these books are free to read, also as PDF, print or YouTube; levels Start, 0 to 5; some marked with furigana, some hiragana-only, some with read-aloud audio. Last modified 7 Mar 2026. Paid series are on a separate page, not this one.",
+   "opened": "https://tadoku.org/japanese/en/free-books-en/"
+  },
+  {
+   "g": "r-readers",
+   "kind": "site",
+   "title": "Irodori: Japanese for Life in Japan",
+   "ja": "いろどり",
+   "url": "https://www.irodori.jpf.go.jp/en/index.html",
+   "lv": [
+    "Starter",
+    "N3"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A Japan Foundation course in everyday Japanese with downloadable books, word lists and lesson audio, from complete beginner.",
+   "tip": "Work through one lesson a week: listen to its audio first, then read the PDF pages and review the word list.",
+   "notes": "Opened the English top and about pages: run by the Japan Foundation Japanese-Language Institute, Urawa; Starter, Elementary 1, Elementary 2, Pre-Intermediate; PDFs and MP3 audio; A1 to B1. Price not stated on the site itself, but the Japan Foundation news item (opened, jpf.go.jp/e/.../news/202606.html) says it is free online and announces the new Pre-Intermediate (A2/B1) volume, which is the 2026 evidence. Japanese name いろどり seen in a JF search-result title; furigana not confirmed. Japanese site page failed to load.",
+   "opened": "https://www.irodori.jpf.go.jp/en/index.html ; https://www.irodori.jpf.go.jp/en/about.html ; https://www.jpf.go.jp/e/project/japanese/teach/tsushin/news/202606.html"
+  },
+  {
+   "g": "r-library",
+   "kind": "site",
+   "title": "Hirogaru (Japan Foundation Kansai)",
+   "ja": "ひろがる",
+   "url": "https://www.hirogaru-nihongo.jpf.go.jp/",
+   "lv": [
+    "N3",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "unknown",
+   "en": "A free Japan Foundation reading site of Japanese articles grouped by hobby, such as cafes, martial arts, music and the night sky.",
+   "tip": "Pick a hobby you already know well, read one article for the gist, then read it again with a dictionary.",
+   "notes": "Opened the top page: 日本語学習ウェブサイト「ひろがる」, made by the Japan Foundation Kansai International Center, describes itself as a free learning site built around hobbies; themed sections in Japanese with romanised labels. No level, furigana, audio or dates shown, so level is my estimate (intermediate) and 2026 activity is not confirmed; one search found no dated 2026 item.",
+   "opened": "https://www.hirogaru-nihongo.jpf.go.jp/"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "Nihongo de Care-navi (Japan Foundation)",
+   "ja": "日本語《にほんご》 で ケアナビ",
+   "url": "https://nihongodecarenavi.jp/",
+   "lv": [
+    "N4",
+    "N2"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "unknown",
+   "clin": true,
+   "en": "A Japan Foundation word and phrase bank for nursing and care work, with example sentences by scene and an English mode.",
+   "tip": "Use the English mode, browse example sentences for one care scene, and read them aloud before a ward shift.",
+   "notes": "Opened the global top (by Japan Foundation Japanese-Language Institute, Kansai; links to 日本語/English and 日本語/Bahasa) and the English version (eng.nihongodecarenavi.jp/eng/index.php): word search, tags, example sentences by scene or by person spoken to, quizzes, Kanji 200, counters, a column. No login or payment seen, but price not stated. No dates; JF Kansai page lists papers about it from 2008 to 2018, so 2026 activity unknown. Care and nursing focus, not psychiatry. Level is my estimate.",
+   "opened": "https://nihongodecarenavi.jp/ ; https://eng.nihongodecarenavi.jp/eng/index.php"
+  },
+  {
+   "g": "r-readers",
+   "kind": "site",
+   "title": "JF Japanese e-Learning Minato",
+   "ja": "みなと",
+   "url": "https://minato-jf.jp",
+   "lv": [
+    "Starter",
+    "N2"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free+paid",
+   "active": "2026",
+   "en": "A Japan Foundation learning platform with online courses from beginner to upper-intermediate; most self-study courses are free.",
+   "tip": "Make a free account and choose one self-study course at your level; filter the course list by fee to see only free ones.",
+   "notes": "Opened the home page: Japan Foundation platform; courses on JF Standard levels (listings now A1 to B2), many marked Free, a few charged, fee filter; registration needed; many explanation languages including English. Maintenance notice dated 26 Nov 2026 is the 2026 evidence. Japanese name みなと per the page.",
+   "opened": "https://minato-jf.jp"
+  },
+  {
+   "g": "r-library",
+   "kind": "site",
+   "title": "MATCHA Easy Japanese",
+   "ja": "MATCHA やさしい 日本語《にほんご》",
+   "url": "https://matcha-jp.com/easy/",
+   "lv": [
+    "N4",
+    "N3"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "unknown",
+   "en": "A travel and culture magazine written in simple Japanese, with readings over the kanji and some English words in brackets.",
+   "tip": "Read an article about a place or food you are curious about; note the words in brackets, then reread without them.",
+   "notes": "Opened: easy-Japanese edition of the MATCHA travel site; ruby readings above kanji in titles; some English glosses in brackets. Only article date visible was 2020; 2026 strings appear only in image paths, so 2026 activity unconfirmed (one search found nothing dated). No gambling or adult content seen; promotes its own apps and an eSIM, and has some alcohol articles (e.g. shochu). Free to read, no login seen.",
+   "opened": "https://matcha-jp.com/easy/"
+  },
+  {
+   "g": "r-library",
+   "kind": "reader",
+   "title": "Nippon Talk",
+   "url": "https://www.nippontalk.com/en",
+   "lv": [
+    "N4",
+    "N2"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "archive",
+   "en": "An archive of short Japanese texts on life in Japan, each paragraph followed by an English translation, with furigana options.",
+   "tip": "Read each Japanese paragraph before its English line; once that feels easy, hide the furigana and read again.",
+   "notes": "Opened: loads properly; post on Japanese daycares shown in full with furigana over kanji and English after each paragraph; Hide / Display / Big Furigana options listed. Archive runs March 2013 to October 2016, so finished but online. No ads or spam seen; a donation button only. Some social icons lack labels. Level is my estimate.",
+   "opened": "https://www.nippontalk.com/en"
+  },
+  {
+   "g": "r-library",
+   "kind": "site",
+   "title": "Aozora Bunko",
+   "ja": "青空文庫《あおぞらぶんこ》",
+   "url": "https://www.aozora.gr.jp/",
+   "lv": [
+    "N1",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A volunteer-run online library of Japanese literature whose copyright has ended, readable free in the browser.",
+   "tip": "Choose a short modern story and read it with a pop-up dictionary; much of the language is older and has no glosses.",
+   "notes": "Opened: news item dated 23 Aug 2026 (server maintenance) and a new work listed 20 Aug; free digital library (page says linking is free; file use has its own rules). No furigana mention on the top page; older-style language in many works.",
+   "opened": "https://www.aozora.gr.jp/"
+  },
+  {
+   "g": "r-tools",
+   "kind": "site",
+   "title": "Jisho.org",
+   "url": "https://jisho.org/",
+   "lv": [
+    "Starter",
+    "Native"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "unknown",
+   "en": "An online Japanese-English dictionary for words, kanji, example sentences and names, with JLPT tags and handwriting input.",
+   "tip": "Paste a sentence you cannot read to see it split into words; look up unknown kanji by drawing them or by their parts.",
+   "notes": "Opened the home page and the researcher opened /about: searches for words, kanji, sentences and names; radical and handwriting kanji lookup; JLPT filters; built on open dictionary data. No price seen. No dated 2026 item on the page and one search found none, so active is unknown.",
+   "opened": "https://jisho.org/"
+  },
+  {
+   "g": "r-tools",
+   "kind": "site",
+   "title": "Yomitan",
+   "url": "https://yomitan.wiki/",
+   "lv": [
+    "N5",
+    "Native"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "active": "2026",
+   "en": "A free pop-up dictionary extension for computer browsers (Chrome, Firefox, Edge): point at Japanese text to see its meaning.",
+   "tip": "Install it on a computer, add a free Japanese dictionary as its guide explains, then read easy news or Aozora pages with it.",
+   "notes": "Opened yomitan.wiki: project site linking to the yomidevs/yomitan GitHub repo and to Chrome, Firefox and Edge store pages; says it also works on Android devices (through a mobile browser), not iOS. Dictionaries must be added separately; it is not a furigana generator. GitHub releases page (opened) shows versions 26.4 to 26.10 (Apr to Oct 2026).",
+   "opened": "https://yomitan.wiki/ ; https://github.com/yomidevs/yomitan/releases"
+  }
+ ],
+ "removed": [
+  {
+   "title": "Wa Tanoshii (和タのＣ)",
+   "url": "https://watanoc.com",
+   "why": "Opens, but newest post Nov 2016; list excerpts are garbled (words missing), an N4 article I opened gives readings for almost no kanji and shows no English text, and article pages carry unmoderated spam and abusive comments, not suitable for a hospital audience."
+  }
+ ],
+ "unverified": [
+  {
+   "title": "NHK Easy Japanese Lessons (NHK WORLD-JAPAN)",
+   "url": "https://www.nhk.or.jp/lesson/en/",
+   "why": "Reviewer retry 20 Nov 2026: site blocked for WebFetch, could not be opened. (Lessons would belong on the watch/listen tabs anyway.)"
+  },
+  {
+   "title": "NHKやさしいことばニュース old address",
+   "url": "https://www3.nhk.or.jp/news/easy/",
+   "why": "Reviewer retry: site blocked, could not be opened; the current address news.web.nhk/news/easy/ is listed instead."
+  },
+  {
+   "title": "NHK for School / NHK ONE for School",
+   "url": "https://www.nhk.or.jp/school/",
+   "why": "Host blocked; children’s content could not be checked for furigana or country limits."
+  },
+  {
+   "title": "Mainichi Shogakusei Shimbun (Maisho)",
+   "url": "https://mainichi.jp/maisho/",
+   "why": "Blocked by tool; kids newspapers are mostly paid, so not confirmed free."
+  },
+  {
+   "title": "Kumanichi Kumatomo News Nazenani",
+   "url": "https://www.kumanichi.com/kumatomo/news_nazenani",
+   "why": "Active (article dated 20 Nov 2026) but a regional kids e-edition; free status and furigana not shown."
+  },
+  {
+   "title": "Todaii Japanese",
+   "url": "https://japanese.todaiinews.com/",
+   "why": "Reviewer opened it: commercial app by a Hanoi company with Upgrade and Refund links; free tier not stated, and it is not the rights-holder of the news it uses. Not added."
+  },
+  {
+   "title": "Marugoto: Japanese Language and Culture",
+   "url": "https://marugoto.jpf.go.jp/en/",
+   "why": "Reviewer opened it: shows only news (latest Jun 2024) and vocabulary-list corrections; free status and reading material not shown. Not added."
+  },
+  {
+   "title": "Erin's Challenge! I Can Speak Japanese",
+   "url": "https://www.erin.jpf.go.jp/en/",
+   "why": "Opened, video lessons with PDFs, better for the watch tab; free status not stated."
+  },
+  {
+   "title": "International Library of Children's Literature (NDL)",
+   "url": "https://www.kodomo.go.jp/",
+   "why": "Opened but page did not show free e-books or furigana; not confirmed as a reading source."
+  },
+  {
+   "title": "Asunaro (Hinoki Project)",
+   "url": "https://hinoki-project.org/",
+   "why": "Reading-assist tool mentioned, but I found no direct tool URL or confirmation it is free or working."
+  },
+  {
+   "title": "Kids Web Japan",
+   "url": "https://web-japan.org/kidsweb/",
+   "why": "Reviewer retry: failed to load (client error); also English-oriented."
+  }
+ ],
+ "suggested_groups": [
+  {
+   "title": "Easy news",
+   "note": "Current events in plain Japanese."
+  },
+  {
+   "title": "Graded readers",
+   "note": "Free books sorted by difficulty."
+  },
+  {
+   "title": "Courses and textbooks",
+   "note": "Free materials from the Japan Foundation."
+  },
+  {
+   "title": "Easy magazines and blogs",
+   "note": "Short texts with readings or English."
+  },
+  {
+   "title": "Advanced library",
+   "note": "Literature for N1 readers."
+  },
+  {
+   "title": "Reading aids",
+   "note": "Dictionary tools for reading."
+  },
+  {
+   "title": "NHK radio easy news (listen tab)",
+   "note": "Podcast NHKやさしいことばニュース had episodes through 17 Nov 2026 on Apple Podcasts (about 5 min); good for the listen bucket."
+  }
+ ]
+}

@@ -1,0 +1,345 @@
+{
+ "bucket": "yt-native",
+ "date": "2026-11-20",
+ "reviewed": "2026-11-20",
+ "sources": [
+  {
+   "g": "w-news",
+   "kind": "youtube",
+   "title": "ANNnewsCH",
+   "url": "https://www.youtube.com/@ANNnewsCH",
+   "yt": {
+    "list": "UUGCZAYq5Xxojl_tSXcVJhiQ"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "TV Asahi's official news channel: daily news, weather, press conferences and live streams in broadcast Japanese.",
+   "tip": "At N2, pick one short single-story clip, read the on-screen headline first, then replay the anchor's opening sentence until you catch every word.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: handle @ANNnewsCH, channel id UCGCZAYq5Xxojl_tSXcVJhiQ matches yt.list; About says official channel of TV Asahi news department. Page shows no upload dates or caption info (cc left unknown). 2026 activity: vidIQ stats page (third-party) for this channel id lists latest upload dated 2026-10-23 (video title dated 2026-10-24). No Japanese name on page, so ja removed.",
+   "opened": "https://www.youtube.com/@ANNnewsCH"
+  },
+  {
+   "g": "w-news",
+   "kind": "youtube",
+   "title": "TBS NEWS DIG Powered by JNN",
+   "url": "https://www.youtube.com/@tbsnewsdig",
+   "yt": {
+    "list": "UU6AG81pAkf6Lbi_1VC5NmPA"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Official TBS and JNN news channel: breaking-news live streams plus reports made only for YouTube, in standard broadcast Japanese.",
+   "tip": "At N2, choose short reports and use the on-screen captions and headlines as a reading aid; at N1, try a live stream for a few minutes.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: name 'TBS NEWS DIG Powered by JNN', id UC6AG81pAkf6Lbi_1VC5NmPA matches yt.list; About says official TBS/JNN news channel. No dates or caption info on page. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-18.",
+   "opened": "https://www.youtube.com/@tbsnewsdig"
+  },
+  {
+   "g": "w-news",
+   "kind": "youtube",
+   "title": "Nippon TV News",
+   "ja": "日《にっ》テレ NEWS",
+   "url": "https://www.youtube.com/@ntv_news",
+   "yt": {
+    "list": "UUuTAXTexrhetbOe3zgskJBQ"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Official channel of Nippon TV's news department: latest news, longer reports and live broadcasts.",
+   "tip": "At N2, pick a story you already know from English news, then listen for its key words before checking the captions.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: name 日テレNEWS, handle @ntv_news, id UCuTAXTexrhetbOe3zgskJBQ matches yt.list; About says official channel of Nippon TV news department. No dates or caption info on page. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-19 (morning news roundup).",
+   "opened": "https://www.youtube.com/@ntv_news"
+  },
+  {
+   "g": "w-news",
+   "kind": "youtube",
+   "title": "FNN Prime Online",
+   "ja": "FNN プライムオンライン",
+   "url": "https://www.youtube.com/@FNNnewsCH",
+   "yt": {
+    "list": "UUoQBJMzcwmXrRSHBFAlTsIw"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "News channel of the Fuji TV network's online outlet: politics, economy, society, world news and sport.",
+   "tip": "At N2, read the headline, watch a short clip once without captions, then again with them, and shadow one sentence.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: name FNNプライムオンライン, handle @FNNnewsCH, id UCoQBJMzcwmXrRSHBFAlTsIw matches yt.list; About says digital news outlet run by Fuji TV network stations. No dates or caption info on page. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-18 (evening news round-up).",
+   "opened": "https://www.youtube.com/@FNNnewsCH"
+  },
+  {
+   "g": "w-news",
+   "kind": "youtube",
+   "title": "TV Tokyo BIZ Digest",
+   "ja": "テレ東《とう》BIZ ダイジェスト",
+   "url": "https://www.youtube.com/@tvtokyobiz",
+   "yt": {
+    "list": "UUkKVQ_GNjd8FbAuT6xDcWgg"
+   },
+   "lv": [
+    "N1",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free+paid",
+   "en": "TV Tokyo's business and economy news channel: market and policy stories, analysis and original segments.",
+   "tip": "Use it at N1 once general news feels easy; keep a list of economy words from each clip and look them up afterwards.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: name テレ東BIZ ダイジェスト, handle @tvtokyobiz, id UCkKVQ_GNjd8FbAuT6xDcWgg matches yt.list; About covers economy, business and analysis. Page promotes a 14-day free trial of a paid service, so cost set to free+paid; the channel videos themselves play free. No dates or caption info on page. 2026 activity: vidIQ stats page (by handle) shows latest upload 2026-11-17.",
+   "opened": "https://www.youtube.com/@tvtokyobiz"
+  },
+  {
+   "g": "w-news",
+   "kind": "youtube",
+   "title": "Yomiuri Telecasting Corporation News Channel",
+   "ja": "読売《よみうり》テレビ ニュース",
+   "url": "https://www.youtube.com/@ytv_news",
+   "yt": {
+    "list": "UUv7_krlrre3GQi79d4guxHQ"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Official news channel of Yomiuri TV in Osaka: news and features from the Kansai region, with some Kansai-accented speech.",
+   "tip": "Try it at N2 after standard Tokyo news feels easy, and listen for how the Kansai speakers end their sentences.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: name YOMIURI TELECASTING CORPORATION NEWS CHANNEL, handle @ytv_news, id UCv7_krlrre3GQi79d4guxHQ matches yt.list; About says official YTV news channel covering the six Kansai prefectures. No dates or caption info on page. 2026 activity: vidIQ stats page (by handle) shows latest upload 2026-11-02. Japanese name 読売テレビニュース taken from the vidIQ page title, not the YouTube page.",
+   "opened": "https://www.youtube.com/@ytv_news"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "NHK",
+   "url": "https://www.youtube.com/@nhk",
+   "yt": {
+    "list": "UUip8ve30-AoX2y2OtAAmqFA"
+   },
+   "lv": [
+    "N3",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "NHK's own public-relations channel: trailers, programme openings and short clips from Japan's public broadcaster.",
+   "tip": "At N3, watch short trailers and Shorts twice: once for the story, once to catch the title words. Full programmes are not here.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: handle @NHK, id UCip8ve30-AoX2y2OtAAmqFA matches yt.list; About says NHK publishes it for public relations. Not a news channel. No dates or caption info on page. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-18 (a Short).",
+   "opened": "https://www.youtube.com/@nhk"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "Kurashiru",
+   "ja": "クラシル",
+   "url": "https://www.youtube.com/@kurashiru",
+   "yt": {
+    "list": "UUE40kwov-UdhGikwAowjAAQ"
+   },
+   "lv": [
+    "N4",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Official channel of the Kurashiru recipe app: home-cooking recipe videos with steps shown as text on screen.",
+   "tip": "At N4, pause on each on-screen step and match the verb (cut, mix, fry) to what the hands are doing.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: handle @Kurashiru, id UCE40kwov-UdhGikwAowjAAQ matches yt.list; About says official channel of the Kurashiru recipe app. Level raised from N5 to N4: on-screen text uses kanji and native-speed narration where present. Captions not confirmed. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-18.",
+   "opened": "https://www.youtube.com/@kurashiru"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "Tasty Japan",
+   "url": "https://www.youtube.com/@TastyJapan",
+   "yt": {
+    "list": "UUilGprjH_UBgR5vLVXPff3Q"
+   },
+   "lv": [
+    "N4",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Japanese edition of the Tasty food brand: quick cooking videos with Japanese text on screen and little speech.",
+   "tip": "At N4, write down the food words and units from the ingredient card, then rewatch and say each step aloud.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: handle @TastyJapan, id UCilGprjH_UBgR5vLVXPff3Q matches yt.list; About says Japanese edition of Tasty (BuzzFeed). Speech and captions not confirmed. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-18.",
+   "opened": "https://www.youtube.com/@TastyJapan"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "SCIENCE CHANNEL (JST)",
+   "ja": "サイエンスチャンネル",
+   "url": "https://www.youtube.com/@jstsciencechannel",
+   "yt": {
+    "list": "UUHpFyLQgg4h9VZuFyby7RbQ"
+   },
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Video library of the Japan Science and Technology Agency: short science news, how-it's-made films, experiments and nature.",
+   "tip": "At N2, start with the short science news videos; note the science terms, then watch again with Japanese captions if offered.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: handle @jstsciencechannel, id UCHpFyLQgg4h9VZuFyby7RbQ matches yt.list; About says run by JST and that the library was folded into the Science Portal site in Nov 2020. Not just an archive: vidIQ stats page (by handle) shows latest upload 2026-10-09 (a Science Portal video news item). Level raised to N2: news videos are dense. Captions not confirmed.",
+   "opened": "https://www.youtube.com/@jstsciencechannel"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "MiraikanChannel",
+   "ja": "日本《にほん》 科学《かがく》 未来館《みらいかん》",
+   "url": "https://www.youtube.com/@MiraikanChannel",
+   "yt": {
+    "list": "UUdBvq7IgL4U6u3CzeZaeoFg"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Official channel of Miraikan, the national science museum in Tokyo: videos about its exhibitions, events and researchers.",
+   "tip": "At N3, choose exhibition videos first, since the pictures carry the meaning; leave the longer talks for N2 and up.",
+   "active": "2026",
+   "notes": "Opened channel page 2026-11-20: handle @MiraikanChannel, id UCdBvq7IgL4U6u3CzeZaeoFg matches yt.list; About says official channel of the National Museum of Emerging Science and Innovation. Captions not confirmed. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-16.",
+   "opened": "https://www.youtube.com/@MiraikanChannel"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "JAXA",
+   "ja": "JAXA 宇宙《うちゅう》 航空《こうくう》 研究《けんきゅう》 開発《かいはつ》 機構《きこう》",
+   "url": "https://www.youtube.com/@JAXA-HQ",
+   "yt": {
+    "list": "UUfMIdADo6FQayQCOkLYGhrQ"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Official channel of Japan's space agency: mission updates, project explainers, launch footage and some videos for children.",
+   "tip": "At N2, watch launch and mission explainers where the footage shows what is said; pick the children's videos if the adult ones feel fast.",
+   "active": "2026",
+   "notes": "ADDED by reviewer (researcher's unverified @JAXA failed). Opened https://www.youtube.com/user/jaxachannel 2026-11-20: name 'JAXA | 宇宙航空研究開発機構', handle @JAXA-HQ, id UCfMIdADo6FQayQCOkLYGhrQ; About says JAXA shares its own videos and holds copyright. Japanese with an English About. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-11-17. Captions not confirmed.",
+   "opened": "https://www.youtube.com/user/jaxachannel"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "JAXA Space Education Center",
+   "ja": "JAXA 宇宙《うちゅう》 教育《きょういく》 センター",
+   "url": "https://www.youtube.com/@JAXA-spaceedu",
+   "yt": {
+    "list": "UU8qJpbAlemL_kx2t4XqVqgg"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "JAXA's space-education channel: lessons and talks about space and science made for school-age learners.",
+   "tip": "At N3, choose a short lesson video; the slower teaching style and diagrams make it easier than news. Note one new science word per video.",
+   "active": "2026",
+   "notes": "ADDED by reviewer (children's education). Channel linked from JAXA's own edu.jaxa.jp video page footer (/channel/UC8qJpbAlemL_kx2t4XqVqgg), which confirms it is official. Opened that channel page 2026-11-20: name JAXA宇宙教育センター, handle @JAXA-spaceedu; no About text on page. 2026 activity: vidIQ stats page (third-party) for this channel id shows latest upload 2026-08-26 (a JAXA Academy lesson). Captions not confirmed.",
+   "opened": "https://www.youtube.com/channel/UC8qJpbAlemL_kx2t4XqVqgg"
+  }
+ ],
+ "removed": [],
+ "unverified": [
+  {
+   "title": "inainaibaa (いないいないばあっ!)",
+   "url": "https://www.youtube.com/@inainaibaa",
+   "why": "Reviewer reopened 2026-11-20: page shows name and id UCR0icdsLtgxHjSBb7KFhxHg but no About text; a WebSearch found no NHK page confirming it is NHK's own channel, and the vidIQ page failed to open. Ownership unconfirmed."
+  },
+  {
+   "title": "NHK for School",
+   "url": "https://www.nhk.or.jp/school/",
+   "why": "Reviewer could not open it 2026-11-20 (site blocked to the fetch tool); @nhkforschool on YouTube also failed. Searches found no official NHK for School YouTube channel; it appears to be a website, which would belong in a site/video bucket if someone can open it."
+  },
+  {
+   "title": "Weathernews",
+   "url": "https://www.youtube.com/@weathernews",
+   "why": "Reviewer reopened 2026-11-20: page shows only the name, no id or About; Weathernews' own caster page mentions YouTube but links no channel. Ownership and id unconfirmed."
+  },
+  {
+   "title": "NHK documentary / TV Tokyo main",
+   "url": "",
+   "why": "Researcher's handles failed to open; reviewer did not find official handles to try."
+  },
+  {
+   "title": "visit japan (JNTO)",
+   "url": "https://www.youtube.com/@visitjapan1216",
+   "why": "Reviewer opened 2026-11-20 (id UCAF3bpYrvw_3RIkZ3OUnMNA): calls itself Japan's official channel, but the page does not name JNTO as operator and the About is in English; promotional travel films with little Japanese speech. Not added; main chat may decide."
+  },
+  {
+   "title": "NHKエデュケーショナル",
+   "url": "https://www.youtube.com/@nhk5856",
+   "why": "Researcher opened (id UCRQEogztxPsiQfSnvAQZSsA): event-information channel, not learning content. Left out."
+  }
+ ],
+ "suggested_groups": [
+  {
+   "title": "News",
+   "note": "Official TV news channels in broadcast Japanese; maps to w-news."
+  },
+  {
+   "title": "Everyday Japan: cooking, science, culture",
+   "note": "Cooking, science museum, space agency and NHK PR channels; maps to w-life. No existing group fits children's education or travel; w-life used."
+  }
+ ]
+}

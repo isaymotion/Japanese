@@ -1,0 +1,172 @@
+{
+  "date": "2026-11-20",
+  "summary": "Japanese captions are easy to get: on YouTube and with the live-caption tools built into iPhone, iPad, Pixel 4 or newer and selected other Android phones, Windows 11 and Mac. English translations of those captions for any audio exist only on some devices: Pixel 6 or newer phones, Copilot+ Windows 11 PCs and Chrome's Live Translate (Japanese not confirmed there outside Chromebook Plus), and never on iPhone, iPad or Mac. For most people, YouTube's own Auto-translate is the way to read English captions on a Japanese video.",
+  "captions": [
+    {
+      "id": "cap-youtube-app",
+      "title": "YouTube app: captions and Auto-translate",
+      "device": "YouTube app (iPhone, iPad, Android)",
+      "steps": [
+        "Tap the playing video once so the controls show.",
+        "Tap the CC button to switch captions on; if there is no CC button, the video has no captions.",
+        "Open the More menu at the top right of the player, tap Captions and pick Japanese.",
+        "For English, pick Auto-translate in that captions list, then English.",
+        "Android: to show captions every time, tap your profile picture, then Settings, Captions, and switch on Show captions.",
+        "iPhone or iPad: to show captions every time, open the Settings app, then Accessibility, Subtitles & Captioning, and switch on Closed Captions + SDH."
+      ],
+      "note": "YouTube's help writes the language and Auto-translate steps in computer wording, so the app's menu may look a little different. Automatic captions are made by machine and can get words wrong, and on live streams they are English only.",
+      "link": {
+        "label": "YouTube Help: Manage subtitle settings",
+        "url": "https://support.google.com/youtube/answer/100078?hl=en"
+      },
+      "evidence": "Checked 2026-11-20. https://support.google.com/youtube/answer/100078?hl=en&co=GENIE.Platform%3DAndroid and &co=GENIE.Platform%3DiOS: tap the player once, tap Closed captions to switch on or off; 'If you don't see Closed captions, then Closed Captions (CC) aren't available for this video'; choose a language: top right of the player, More, Captions, select a language; 'If the language isn't listed when you click Subtitles/CC': Auto-translate, select a language (these two sections use 'click' wording and name no device). Android default: profile picture, Settings, Captions, Show captions. iPhone/iPad default: device Settings, Accessibility, Subtitles & Captioning, Closed Captions + SDH. https://support.google.com/youtube/answer/6373554?hl=en: automatic captions are made by machine learning, 'quality of the captions may vary' and may misrepresent speech; Japanese is in the automatic-caption list for long-form videos and Shorts; live-stream automatic captions are English only.",
+      "confidence": "medium"
+    },
+    {
+      "id": "cap-youtube-web",
+      "title": "YouTube in a web browser",
+      "device": "Computer or laptop (any browser)",
+      "steps": [
+        "Open the video on youtube.com and look for the CC button at the bottom right of the player.",
+        "Click CC to switch captions on, and click it again to switch them off.",
+        "Click Settings (the gear) at the bottom right of the player, then Subtitles/CC, and pick Japanese.",
+        "For English, pick Auto-translate in the same Subtitles/CC list, then English."
+      ],
+      "note": "Only videos with captions show the CC button, and automatic captions (Japanese included) are made by machine, so expect some wrong words. Automatic captions on live streams are English only.",
+      "link": {
+        "label": "YouTube Help: Manage subtitle settings",
+        "url": "https://support.google.com/youtube/answer/100078?hl=en"
+      },
+      "evidence": "Checked 2026-11-20. https://support.google.com/youtube/answer/100078?hl=en (Computer tab): CC appears at the bottom right 'If Closed Captions (CC) are available'; click to switch on, click again to switch off; Settings at the bottom right of the player, Subtitles/CC, Options for style. The language and Auto-translate steps are in the page's device-neutral section ('If the language isn't listed when you click Subtitles/CC: Click Auto-translate. Select a language'); the Computer tab does not spell out the language picker, so step 3 combines the Computer tab's Settings > Subtitles/CC path with that section. https://support.google.com/youtube/answer/6373554?hl=en: machine-learning captions, quality may vary; Japanese listed for long-form videos and Shorts; live streams English only; captions may be missing for complex or poor audio, unsupported language, very long videos, long silence at the start, overlapping speakers.",
+      "confidence": "medium"
+    },
+    {
+      "id": "cap-iphone-ipad",
+      "title": "iPhone and iPad: Live Captions",
+      "device": "iPhone 11 or later; supported iPads",
+      "steps": [
+        "Open the Settings app, tap Accessibility, then Live Captions, and switch Live Captions on.",
+        "In the Live Captions panel, choose iPhone Audio (or iPad Audio) rather than Microphone.",
+        "Play the Japanese video or podcast and read the words in the floating panel.",
+        "To change the text size or colour, tap Appearance in the Live Captions settings."
+      ],
+      "note": "Apple lists Japanese for Live Captions in iOS and iPadOS 27, but its guide does not show where to pick the caption language, and the captions are never translated (Apple's Live Translation covers only Messages, Phone, FaceTime and AirPods conversations). Apple says the accuracy may vary.",
+      "link": {
+        "label": "iPhone User Guide: Get live captions of spoken audio",
+        "url": "https://support.apple.com/guide/iphone/iphe0990f7bb/ios"
+      },
+      "evidence": "Checked 2026-11-20. https://support.apple.com/guide/iphone/iphe0990f7bb/ios: Settings, Accessibility, Live Captions, turn on; 'Tap Live Captions, then tap iPhone Audio' (or Microphone for in-person); Appearance for text, size and colour; iPhone 11 or later; not in all languages, countries or regions; accuracy may vary; no language picker described; no translation; no statement on on-device processing. https://support.apple.com/guide/ipad/get-live-captions-of-spoken-audio-ipad0bbca12e/ipados: same with iPad Audio; supported models. https://www.apple.com/ios/feature-availability/ (iOS and iPadOS 27): Live Captions languages include Japanese; Live Translation entries only for Messages, Phone and FaceTime, and AirPods (Japanese in each); no media translation entry. https://support.apple.com/en-in/123720: Live Translation in Messages, Phone, FaceTime. https://support.apple.com/en-us/123185: AirPods Live Translation is for in-person conversation; iPhone 15 Pro or later, iOS 26 or later, Apple Intelligence on, supported AirPods.",
+      "confidence": "medium"
+    },
+    {
+      "id": "cap-android",
+      "title": "Android: Live Caption",
+      "device": "Android phone (Pixel, Samsung Galaxy, others)",
+      "steps": [
+        "Press a volume button, tap More under the volume slider, then choose Live Caption.",
+        "Or open Settings, then Accessibility, then Live Caption (on a Samsung Galaxy: Accessibility, then Hearing enhancements, then Live Caption).",
+        "In the Live Caption settings, open Languages & translation, tap Add a language, choose Japanese and download it.",
+        "On a Pixel 6 or newer, set Translate captions to English and choose Automatically translate or Ask to translate.",
+        "Play the Japanese video, podcast or radio stream and read the captions on screen."
+      ],
+      "note": "Google lists Japanese for Pixel 4 or newer and selected other Android phones, says captions are made on the phone and never sent to Google, and offers caption translation only on Pixel 6 or newer. Samsung's pages give no language list, so on a Galaxy Japanese is not confirmed here: look for it in the language list.",
+      "link": {
+        "label": "Android Accessibility Help: Use Live Caption",
+        "url": "https://support.google.com/accessibility/android/answer/9350862?hl=en"
+      },
+      "evidence": "Checked 2026-11-20. https://support.google.com/accessibility/android/answer/9350862?hl=en: volume button, More under the volume controls, Live Caption; or Settings, Accessibility, Live Caption. Pixel 2/3 English only; Pixel 4/5 and selected Android phones: English, French, German, Italian, Japanese, Hindi, Spanish; Pixel 6+ and selected phones on Android U+: longer list including Japanese. Languages & translation, Add a language, Download. Translation: Preferred language, Translate captions to, Ask to translate / Automatically translate / Don't translate; 'only available on Pixel 6+ devices' and needs Live Translate on. 'All captions are processed locally, never stored, and never leave your device'; not sent to Google; first language pack needs Wi-Fi. https://www.samsung.com/us/support/answer/ANS10003704/ and https://www.samsung.com/ae/support/mobile-devices/how-to-activate-live-caption: Settings, Accessibility, Hearing enhancements, Live Caption, Use Live Caption; select devices only; no language list; no translation mentioned; may be unable to change to preferred language. https://support.google.com/pixelphone/answer/11209263?hl=en: 'Live Translate for media' translates the audio (not captions) on Pixel 11 series in YouTube and select apps; no language list; does not translate music.",
+      "confidence": "high"
+    },
+    {
+      "id": "cap-chrome",
+      "title": "Chrome on a computer: Live Caption",
+      "device": "Chrome on Windows, Mac or Chromebook",
+      "steps": [
+        "In Chrome, open the three-dot menu, then Settings, then Accessibility (on a Chromebook: Settings, Accessibility, Manage accessibility features, Audio and captions).",
+        "Switch on Live Caption.",
+        "Next to Manage languages, choose Add languages and add Japanese if it is listed.",
+        "Set Japanese as the Preferred caption language.",
+        "For English, switch on Live Translate in the same Accessibility page and choose English next to Translate to.",
+        "Play the Japanese audio or video in a Chrome tab."
+      ],
+      "note": "Google names Japanese only for Chromebook Plus; for Windows and Mac, Japanese is not confirmed here: look for it in the language list. Live Caption stays on your computer, but Live Translate sends the caption text to Google to translate it.",
+      "link": {
+        "label": "Chrome Help: Use Live Caption and Live Translate in Chrome",
+        "url": "https://support.google.com/chrome/answer/10538231?hl=en"
+      },
+      "evidence": "Checked 2026-11-20. https://support.google.com/chrome/answer/10538231?hl=en: Windows/Mac: More, Settings, Accessibility, Live Caption (Linux: Accessibility, Captions); Chromebook: Settings, Accessibility, Manage accessibility features, Audio and captions. Windows/Mac/Linux: next to 'Manage languages', Add languages (downloads language packs), then 'Preferred caption language'. Live Translate on Windows/Mac/Linux: toggle Live Translate in Accessibility, choose a language next to 'Translate to'. Only the Chromebook Plus section lists languages (including Japanese). Live Caption: 'All audio and captions are processed locally, are never stored, and never leave your device.' Live Translate: 'You can send captions to Google to automatically translate them.'",
+      "confidence": "medium"
+    },
+    {
+      "id": "cap-windows",
+      "title": "Windows 11: Live captions",
+      "device": "Windows 11 laptop or PC (22H2 or later)",
+      "steps": [
+        "Press the Windows key + Ctrl + L, or switch on Live captions in Quick settings.",
+        "The first time, agree to on-device voice processing and download the language files.",
+        "In the captions window, click Settings (the gear), choose Change language, pick Japanese and click Continue.",
+        "On a Copilot+ PC, pick English (United States) there instead to see an English translation of the Japanese.",
+        "Play the Japanese audio in any app or browser and read the captions."
+      ],
+      "note": "Japanese is one of the 21 caption languages, and only Copilot+ PCs on Windows 11 24H2 or later translate it into English. Microsoft says audio and captions never leave the PC.",
+      "link": {
+        "label": "Microsoft Support: Use live captions to better understand audio",
+        "url": "https://support.microsoft.com/en-us/windows/use-live-captions-to-better-understand-audio-b52da59c-14b8-4031-aeeb-f6a47e6055df"
+      },
+      "evidence": "Checked 2026-11-20. https://support.microsoft.com/en-us/windows/use-live-captions-to-better-understand-audio-b52da59c-14b8-4031-aeeb-f6a47e6055df: Windows 11 22H2 and later; start with Windows logo key + Ctrl + L, Quick settings, Settings > Accessibility > Captions, or Start > All apps > Accessibility; first use asks consent to process voice data on device and to download language files; captions window Settings, Change language, choose, Continue (download if needed); 21 languages including Japanese. 'The ability to translate is available on Copilot+ PCs running Windows 11, version 24H2 and later'; there is no separate translate switch: 'you also automatically see translation when using English (United States) or Chinese (Simplified) as the output language'; over 40 languages into English, Japanese included. 'Audio, voice data, and captions never leave your device and are not shared to the cloud or with Microsoft'; works offline after download.",
+      "confidence": "high"
+    },
+    {
+      "id": "cap-mac",
+      "title": "Mac: Live Captions",
+      "device": "Mac with Apple silicon",
+      "steps": [
+        "Open the Apple menu, choose System Settings, then Accessibility, then Live Captions (scroll down if needed).",
+        "Switch Live Captions on, and stay online the first time so the Mac can download language data.",
+        "Click the Live Captions icon in the menu bar and choose Computer Audio, not Microphone.",
+        "To stop the window hiding in quiet moments, choose Keep Onscreen from the same menu bar icon.",
+        "Play the Japanese audio and read the captions."
+      ],
+      "note": "Apple lists Japanese for Live Captions on macOS, but its guide does not show where to pick the caption language, and Live Captions never translate. Apple says the audio is processed on the Mac.",
+      "link": {
+        "label": "Mac User Guide: Use Live Captions on Mac",
+        "url": "https://support.apple.com/guide/mac-help/mchldd11f4fd"
+      },
+      "evidence": "Checked 2026-11-20. https://support.apple.com/guide/mac-help/mchldd11f4fd: Apple menu, System Settings, Accessibility, Live Captions (may need to scroll); language data downloads the first time (needs internet); switch between computer audio and microphone with the Microphone icon in the window or the menu bar icon (Computer Audio / Microphone); window hides when no audio, menu bar icon > Keep Onscreen; Apple silicon only; 'Audio is processed on device'; accuracy may vary; not in all languages or regions; no language picker described; no translation. https://www.apple.com/ph/macos/feature-availability/ (titled 'macOS Golden Gate - Feature Availability', no version number): Live Captions languages include Japanese; Live Translation only in Messages, and Phone and FaceTime.",
+      "confidence": "high"
+    },
+    {
+      "id": "cap-anywhere",
+      "title": "Any phone: Google Translate app",
+      "device": "Any phone or tablet with Google Translate",
+      "steps": [
+        "Install or update the free Google Translate app.",
+        "Open it and tap live translate at the bottom of the screen.",
+        "Choose the Text only mode, with Japanese as the spoken language and English as the translation.",
+        "Play the Japanese audio on another device and hold the phone close to its speaker.",
+        "Tap Speak to pause or resume, and tap Back at the top to stop."
+      ],
+      "note": "Google lists Japanese among the live translate languages. Offline use works only on Pixel 9, 10 and 11, for a few language pairs with English (Japanese included).",
+      "link": {
+        "label": "Google Translate Help: Hear live speech to speech translations with live translate",
+        "url": "https://support.google.com/translate/answer/6142474?hl=en&co=GENIE.Platform%3DiOS"
+      },
+      "evidence": "Checked 2026-11-20. https://support.google.com/translate/answer/6142474?hl=en&co=GENIE.Platform%3DiOS (iPhone & iPad) and ...&co=GENIE.Platform%3DAndroid: 'At the bottom, tap live translate'; select mode and languages; Listening (headphones), Conversation (plays aloud), Text only ('Read translations. No audio plays.'); Speak to pause or resume, Back at the top to exit; Japanese in the supported list; keep the app updated. Android tab: offline live translation only for Pixel 9, 10 and 11, pairs with English including Japanese; iOS tab says nothing on offline. Neither tab says whether audio is processed on the phone, so the note says nothing about it. Holding the phone near another speaker is our own method, not from Google.",
+      "confidence": "medium"
+    }
+  ],
+  "embed_notes": "Checked https://developers.google.com/youtube/player_parameters, https://developers.google.com/youtube/iframe_api_reference, https://developers.google.com/youtube/iframe_api_revision_history, https://developers.google.com/youtube/terms/required-minimum-functionality, https://support.google.com/youtube/answer/171780?hl=en, https://developers.google.com/youtube/v3/docs/channels on 2026-11-20. cc_load_policy=1: shows captions by default even if the viewer turned them off (default otherwise follows the viewer's preference). cc_lang_pref: ISO 639-1 code or BCP 47 tag; with cc_load_policy=1 the captions load in that language; without it, that language is used only if the viewer turns captions on. Note: if the video has no track in that language (e.g. no English track), the docs do not promise auto-translation; expect YouTube to pick another track or none. hl: player interface language (tooltips) and also affects the default caption track; YouTube may still choose a different caption language from the viewer's own preferences. So hl=en can nudge captions towards English; consider not forcing hl when the learner picks Japanese captions, or set hl to match cc_lang_pref. playsinline=1: inline playback on iOS (mobile browsers, and WebViews with allowsInlineMediaPlayback); default 0 = fullscreen, default may change. rel=0: since 25 Sept 2018 related videos cannot be turned off; rel=0 only limits them to the same channel. Playlists: the documented forms are /embed?listType=playlist&list=PLAYLIST_ID (docs say playlist IDs start with PL) and /embed?listType=user_uploads&list=USERNAME (user_uploads not deprecated; only listType=search was dropped on 15 Nov 2020). The /embed/videoseries?list=... path is NOT mentioned in the current developer docs (it is what YouTube's own Share > Embed produces for playlists, but undocumented), and UU... channel-upload playlist IDs are not mentioned in the player docs either; the Data API channels resource does describe contentDetails.relatedPlaylists.uploads as 'the ID of the playlist that contains the channel's uploaded videos'. Status: works in practice, not officially documented; the documented alternative is /embed?listType=playlist&list=UU... (still a non-PL ID, so also unconfirmed). Test each source in the app and keep the 'Open on YouTube' link. Privacy-enhanced mode (YouTube Help 171780): use youtube-nocookie.com; embedded views do not influence the viewer's YouTube recommendations and ads shown are non-personalised; only for embeds on websites; leaving the embed to another site is outside it. Things that stop playback in an embed: owner unticked 'Allow embedding' (onError 101 or 150); age-restricted videos cannot be watched on most third-party sites and send the viewer to YouTube; removed/private video (100); invalid ID (2); missing HTTP Referer or client identity (153, added 9 July 2025). Required Minimum Functionality: embedders must send the Referer header (do not set a Referrer-Policy that suppresses it, e.g. no referrerpolicy='no-referrer' on the iframe; strict-origin-when-cross-origin is recommended; do not use noreferrer with window.open); WebViews must identify themselves another way (origin parameter is the fallback for SFSafariViewController, and the docs recommend always setting origin when using the IFrame API); player viewport at least 200x200 px (480x270 recommended for 16:9); nothing may overlay or obscure the player or its controls; no autoplay until more than half the player is visible, and only one autoplaying player per page; do not change the player in ways the API docs do not describe. Opening an embed URL directly in the address bar usually has no Referer and shows error 153. Made-for-kids content turns some embedded player features off. Network admins may need to allow both youtube.com and youtube-nocookie.com.",
+  "not_possible": [
+    "Translated captions on iPhone or iPad for video, podcast or radio audio: Live Captions only transcribe, and Apple's Live Translation is limited to Messages, Phone, FaceTime and in-person conversation with AirPods. https://support.apple.com/guide/iphone/iphe0990f7bb/ios ; https://support.apple.com/en-in/123720 ; https://support.apple.com/en-us/123185 ; https://www.apple.com/ios/feature-availability/",
+    "Translated captions on a Mac from Live Captions: Live Captions transcribe only; Live Translation on Mac is for Messages, Phone and FaceTime. https://support.apple.com/guide/mac-help/mchldd11f4fd ; https://www.apple.com/ph/macos/feature-availability/",
+    "Live Captions on Intel Macs: Apple silicon only. https://support.apple.com/guide/mac-help/mchldd11f4fd",
+    "Windows 11 caption translation on ordinary (non-Copilot+) PCs: translation needs a Copilot+ PC on Windows 11 24H2 or later. https://support.microsoft.com/en-us/windows/use-live-captions-to-better-understand-audio-b52da59c-14b8-4031-aeeb-f6a47e6055df",
+    "Translating Live Caption captions on Android phones other than Pixel 6 and newer: Google says caption translation is Pixel 6+ only, and Samsung's Live Caption pages do not mention translation (Samsung's Live Translate page describes calls and conversations). https://support.google.com/accessibility/android/answer/9350862?hl=en ; https://www.samsung.com/us/support/answer/ANS10003704/ ; https://www.samsung.com/ae/support/mobile-devices/how-many-languages-does-the-live-translate-feature-support/",
+    "Automatic Japanese captions on YouTube live streams: YouTube's automatic captions for live streams are English only. https://support.google.com/youtube/answer/6373554?hl=en",
+    "Captions on every YouTube video: only videos that have captions show the CC button; automatic captions can be missing for poor audio, overlapping speakers, very long videos or long silence at the start. https://support.google.com/youtube/answer/100078?hl=en ; https://support.google.com/youtube/answer/6373554?hl=en",
+    "Hiding all related videos at the end of an embedded YouTube video: since September 2018 rel=0 only limits them to the same channel. https://developers.google.com/youtube/player_parameters",
+    "Playing age-restricted or embedding-disabled videos inside the app: these cannot be played in most embeds; use Open on YouTube. https://support.google.com/youtube/answer/171780?hl=en ; https://developers.google.com/youtube/iframe_api_reference",
+    "Offline Google Translate live translate on most phones: offline mode is Pixel 9, 10 and 11 only, for a few English language pairs. https://support.google.com/translate/answer/6142474",
+    "Japanese for Pixel 11 'Live Translate for media' (translated audio for YouTube and some apps): Google's page lists no languages, so not confirmed for Japanese. https://support.google.com/pixelphone/answer/11209263?hl=en"
+  ]
+}

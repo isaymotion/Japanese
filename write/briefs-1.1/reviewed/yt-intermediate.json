@@ -1,0 +1,292 @@
+{
+ "bucket": "yt-intermediate",
+ "date": "2026-11-20",
+ "reviewed": "2026-11-20",
+ "sources": [
+  {
+   "g": "w-jlpt",
+   "kind": "youtube",
+   "title": "Nihongo no Mori",
+   "ja": "日本語《にほんご》 の 森《もり》",
+   "url": "https://www.youtube.com/@nihongonomori2013",
+   "yt": {
+    "list": "UUVx6RFaEAg46xfAsD2zz16w"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Japanese teachers explain JLPT grammar, vocabulary and reading in Japanese, with playlists arranged by level.",
+   "tip": "At N3 and above, pick the playlist for your level and watch one lesson twice: first for the idea, then pausing to say the examples aloud.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name 日本語の森, handle @nihongonomori2013, id UCVx6RFaEAg46xfAsD2zz16w matches yt.list; Japanese; keywords JLPT N1-N3, EJU. No upload dates on page; RSS feed blocked (robots); one search gave no dated 2026 evidence.",
+   "opened": "https://www.youtube.com/channel/UCVx6RFaEAg46xfAsD2zz16w",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-jlpt",
+   "kind": "youtube",
+   "title": "Sambon Juku",
+   "ja": "三本塾《さんぼんじゅく》",
+   "url": "https://www.youtube.com/channel/UC0ujXryUUwILURRKt9Eh7Nw",
+   "yt": {
+    "list": "UU0ujXryUUwILURRKt9Eh7Nw"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Two qualified Japanese teachers give short lessons on single JLPT grammar points, with many example sentences.",
+   "tip": "When your textbook introduces a grammar point, find the matching short lesson here and copy two of its example sentences into your notes.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name 三本塾, handle @sambonjuku, id UC0ujXryUUwILURRKt9Eh7Nw matches; teachers Akkie and Ayano; mainly Japanese with an English section. No upload dates on page; RSS blocked; search gave nothing dated. speaks kept 'ja' (main language Japanese).",
+   "opened": "https://www.youtube.com/channel/UC0ujXryUUwILURRKt9Eh7Nw",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-jlpt",
+   "kind": "youtube",
+   "title": "Nihongo Benkyou Channel",
+   "ja": "日本語《にほんご》 勉強《べんきょう》 チャンネル",
+   "url": "https://www.youtube.com/@satojapan",
+   "yt": {
+    "list": "UUcLwh0oGeEeV73UW5zglzig"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "A teacher named Sato explains N3 to N1 grammar entirely in Japanese, aimed at learners preparing for the JLPT.",
+   "tip": "Use the long review videos for your level as a checklist of grammar points, then rewatch only the points you could not explain yourself.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name 日本語勉強チャンネル, handle @satojapan, id UCcLwh0oGeEeV73UW5zglzig matches; videos entirely in Japanese, intermediate and above, JLPT N1-N3 grammar. No dates on page; RSS blocked; search gave nothing dated.",
+   "opened": "https://www.youtube.com/channel/UCcLwh0oGeEeV73UW5zglzig",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Arai-sensei's Japanese Channel",
+   "ja": "あらい 先生《せんせい》 の 日本語《にほんご》 チャンネル",
+   "url": "https://www.youtube.com/channel/UC8TGHIsPBfnQXK39qXpPKZg",
+   "yt": {
+    "list": "UU8TGHIsPBfnQXK39qXpPKZg"
+   },
+   "lv": [
+    "N4",
+    "N3"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "A Japanese teacher explains N4 and N3 grammar in simple spoken Japanese, a step from English-medium lessons to Japanese-only ones.",
+   "tip": "At N4, watch a lesson on grammar you already met in your textbook so you can follow the Japanese explanation, then try a new point.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name あらい先生の日本語チャンネル, id UC8TGHIsPBfnQXK39qXpPKZg matches; About text in English; focus JLPT N3 and N4 grammar. Keigo and 'no English' claims came from a second-hand Tofugu entry, not seen by me, so removed from en. No dates; RSS blocked; search gave nothing dated.",
+   "opened": "https://www.youtube.com/channel/UC8TGHIsPBfnQXK39qXpPKZg",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Akane's Japanese Class",
+   "ja": "あかね 的《てき》 日本語《にほんご》 教室《きょうしつ》",
+   "url": "https://www.youtube.com/@Akane-JapaneseClass",
+   "yt": {
+    "list": "UUh-GhnQ7qDQmS6Bz3pGc1Mw"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "A language-school teacher talks in Japanese about study, daily life and Japan for learners who want to listen to natural explanations.",
+   "tip": "At N3, watch with Japanese captions if offered, then once more without; note three new words from each video.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name あかね的日本語教室, handle @Akane-JapaneseClass, id UCh-GhnQ7qDQmS6Bz3pGc1Mw matches; host is a teacher at a Japanese language school; Japanese with some English in description; links to her podcast, Patreon and books. Captions not visible to me, so cc reset to '' (researcher's ja+en was second-hand). No dates; RSS blocked.",
+   "opened": "https://www.youtube.com/@Akane-JapaneseClass",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-jlpt",
+   "kind": "youtube",
+   "title": "kt Japanese Learning",
+   "url": "https://www.youtube.com/@satokoyano120",
+   "yt": {
+    "list": "UUL-4q2Mxgi_DNl_84MsBnww"
+   },
+   "lv": [
+    "N3",
+    "N2"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "A Japanese teacher gives lessons on business Japanese, keigo practice, shadowing and everyday phrases that textbooks leave out.",
+   "tip": "At N3 to N2, do the keigo practice videos aloud: pause before each answer, say yours, then compare with the teacher.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name kt Japanese Learning, handle @satokoyano120, id UCL-4q2Mxgi_DNl_84MsBnww matches; Japanese; business Japanese, keigo, JLPT, shadowing, parenting Japanese; teacher also offers paid private lessons elsewhere (channel itself free, cost 'free'). Page says uploads slow during school breaks. No dates; RSS blocked; search gave nothing relevant.",
+   "opened": "https://www.youtube.com/@satokoyano120",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-jlpt",
+   "kind": "youtube",
+   "title": "Business Japanese Conversation",
+   "ja": "ビジネス にほんご かいわ",
+   "url": "https://www.youtube.com/@shigoto-nihongo",
+   "yt": {
+    "list": "UUXJCCZWn-K-uZrKdOUKyw8w"
+   },
+   "lv": [
+    "N4",
+    "N3"
+   ],
+   "speaks": "ja+en",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Short workplace conversations for meetings, phone calls, emails, reporting and polite language, shown in kana-only and kanji versions.",
+   "tip": "At N4 to N3, learn the set phrases for phone calls and reporting to a senior; say each line aloud with the video.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name Business Japanese Conversation (ビジネスにほんごかいわ), handle @shigoto-nihongo, id UCXJCCZWn-K-uZrKdOUKyw8w matches; presenter Shogo Endo; for international professionals; introduction in English, lessons in Japanese with hiragana and kanji versions. speaks kept ja+en because the intro is English; spoken mix not confirmed. No dates; RSS blocked.",
+   "opened": "https://www.youtube.com/channel/UCXJCCZWn-K-uZrKdOUKyw8w/about",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "Meshclass Japanese",
+   "url": "https://www.youtube.com/@meshclass",
+   "yt": {
+    "list": "UUrOSvD4kmjTXzR7ov5zwT-A"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Teachers explain phrases and grammar for conversation, business, study abroad and the JLPT, mostly in Japanese.",
+   "tip": "At N3, use the business and formal-phrase videos to build polite set phrases, and leave a request in the comments for topics you need.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name Meshclass Japanese, handle @meshclass, id UCrOSvD4kmjTXzR7ov5zwT-A matches; page in English; topics conversation, business, study abroad, JLPT, anime and manga; keywords N1-N5. No paid courses mentioned on the page, so cost changed to 'free'. 'Mostly Japanese' is from the researcher's second-hand note. No dates; RSS blocked.",
+   "opened": "https://www.youtube.com/channel/UCrOSvD4kmjTXzR7ov5zwT-A",
+   "tab": "watch",
+   "active": "unknown"
+  },
+  {
+   "g": "w-life",
+   "kind": "youtube",
+   "title": "QuizKnock",
+   "url": "https://www.youtube.com/@QuizKnock",
+   "yt": {
+    "list": "UUQ_MqAw18jFTlBB-f8BP7dw"
+   },
+   "lv": [
+    "N2",
+    "Native"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "A Japanese quiz and knowledge group makes puzzle, science and trivia videos for native speakers at natural speed.",
+   "tip": "Not made for learners: at N2 and above, pick a short quiz video, turn on Japanese captions if they exist, and replay the parts you missed.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name QuizKnock, handle @QuizKnock, id UCQ_MqAw18jFTlBB-f8BP7dw matches; Japanese 'intellectual entertainment' group; description marks its 10th anniversary on 2 October 2026 (dated 2026 evidence). Captions not confirmed. Only the main channel listed.",
+   "opened": "https://www.youtube.com/@QuizKnock",
+   "tab": "watch",
+   "active": "2026"
+  },
+  {
+   "g": "w-japanese",
+   "kind": "youtube",
+   "title": "JLPT N1 Nihongo Kikihajime",
+   "ja": "JLPT N1 日本語《にほんご》 ききはじめ",
+   "url": "https://www.youtube.com/@nihongo_kiki_hajime",
+   "yt": {
+    "list": "UUHaUQg3iUfER81diRQPzq0w"
+   },
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Casual talks about Japan at natural speed with slightly simplified wording, for learners aiming at N1 or study in Japan.",
+   "tip": "At N2, listen to one talk without captions, write down what you understood, then listen again to check.",
+   "notes": "Reviewer opened 2026-11-20 via WebFetch: name JLPT N1 日本語ききはじめ, handle @nihongo_kiki_hajime, id UCHaUQg3iUfER81diRQPzq0w (moved from researcher's unverified list; id now found). Japanese; aimed at N1 and graduate-study learners; natural speed, slightly simplified grammar and vocabulary. No dates on page.",
+   "opened": "https://www.youtube.com/@nihongo_kiki_hajime",
+   "tab": "watch",
+   "active": "unknown"
+  }
+ ],
+ "removed": [
+  {
+   "title": "Japanese with Shun",
+   "url": "https://www.youtube.com/@JapanesewithShun",
+   "why": "Removed on instruction from the main chat: kept in the beginner file only."
+  },
+  {
+   "title": "Nihongo no Jikan (Japanese Comprehensible Input)",
+   "url": "https://www.youtube.com/@nihongo-no-jikan",
+   "why": "Removed on instruction from the main chat: kept in the beginner file only."
+  },
+  {
+   "title": "Mushimegane's Broadcasting Club",
+   "url": "https://www.youtube.com/@mushimeganeradio",
+   "why": "Opened (id UCbSIiNFWbJCW8ERBbkNMfwQ matches): personal channel of a member of the entertainment group Tokai OnAir (not student-run, as first written), unscripted talk about listener letters. No episode content could be seen (RSS blocked, search gave no titles), so suitability for a hospital audience could not be confirmed; removed per the main chat's rule."
+  }
+ ],
+ "unverified": [
+  {
+   "title": "Moshimoshi Yusuke",
+   "url": "https://www.youtube.com/@moshimoshi.yusuke",
+   "why": "Opened 2026-11-20 (id UCcCeJ3pQYFgvfVuMxVRWhoA): the page says he is currently taking a break from YouTube; not a finished series and no dated activity, so not added."
+  },
+  {
+   "title": "Comprehensible Japanese (Yuki, cijapanese.com)",
+   "url": "https://www.youtube.com/@cijapanese",
+   "why": "Not opened by reviewer; mainly beginner to lower-intermediate, so belongs to the beginner bucket if anywhere."
+  },
+  {
+   "title": "Nihongo con Teppei",
+   "url": "https://www.tofugu.com/japanese-learning-resources-database/nihongo-con-teppei/",
+   "why": "Not opened by reviewer; podcast-first and beginner-level, belongs to the podcasts bucket."
+  }
+ ],
+ "suggested_groups": [
+  {
+   "id": "w-jlpt",
+   "title": "N3 to N1 grammar and keigo"
+  },
+  {
+   "id": "w-japanese",
+   "title": "Lessons in easy Japanese"
+  },
+  {
+   "id": "w-life",
+   "title": "Everyday Japan: cooking, science, culture"
+  }
+ ]
+}

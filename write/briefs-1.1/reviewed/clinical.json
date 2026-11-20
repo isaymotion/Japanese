@@ -1,0 +1,255 @@
+{
+ "bucket": "clinical",
+ "date": "2026-11-20",
+ "reviewed": "2026-11-20",
+ "sources": [
+  {
+   "g": "w-health",
+   "kind": "youtube",
+   "title": "Ministry of Health, Labour and Welfare (YouTube)",
+   "ja": "厚生労働省《こうせいろうどうしょう》",
+   "url": "https://www.youtube.com/@MHLWchannel",
+   "yt": {
+    "list": "UUVgZUHlkoN51FOwoNMBGjfw"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "The health ministry's own video channel on health, care, work and welfare; a steady source of formal public-health Japanese.",
+   "tip": "N3 and up: pick a short clip, listen once without captions, then once with them, and note the polite set phrases.",
+   "clin": true,
+   "active": "unknown",
+   "notes": "Reviewer 20 Nov 2026: channel page opened; says it is the ministry's official account and that some videos can be watched with subtitles (type not stated, so cc left ''). Channel id UCVgZUHlkoN51FOwoNMBGjfw read on the page; UU list matches. No upload dates shown; RSS feed refused by robots; one search found no dated 2026 upload.",
+   "opened": "https://www.youtube.com/@MHLWchannel ; https://www.youtube.com/@MHLWchannel/videos"
+  },
+  {
+   "g": "w-health",
+   "kind": "youtube",
+   "title": "NCNPchannel",
+   "url": "https://www.youtube.com/@NCNPchannel",
+   "yt": {
+    "list": "UUMs949XIbvDRgcbM_sz6NMQ"
+   },
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "",
+   "geo": "",
+   "cost": "free",
+   "en": "Channel of a national neurology and psychiatry centre, with centre introductions and recorded public lectures on mental health.",
+   "tip": "N2 and up: start with a short centre introduction, then try part of one lecture with captions on and note the clinical terms.",
+   "clin": true,
+   "active": "unknown",
+   "notes": "Reviewer 20 Nov 2026: channel page and /videos opened; describes centre introduction videos and public lectures. Channel name is Latin only, so ja left out. Channel id UCMs949XIbvDRgcbM_sz6NMQ read on the page; UU list matches. No upload dates or caption info visible; RSS refused by robots; one search found no dated 2026 upload.",
+   "opened": "https://www.youtube.com/@NCNPchannel ; https://www.youtube.com/@NCNPchannel/videos"
+  },
+  {
+   "g": "w-health",
+   "kind": "youtube",
+   "title": "National Cancer Center Japan official channel",
+   "ja": "国立《こくりつ》 がん 研究《けんきゅう》 センター 公式《こうしき》 チャンネル",
+   "url": "https://www.youtube.com/@NationalCancerCenterJapan",
+   "yt": {
+    "list": "UUicLjKtxm1uIyHKw12RW1Qw"
+   },
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "auto",
+   "geo": "",
+   "cost": "free",
+   "en": "A national cancer centre's channel with hospital and patient-education videos; useful for hearing how staff explain care.",
+   "tip": "N3 and up: choose a patient-facing video and shadow one sentence at a time; the automatic captions can get medical terms wrong.",
+   "clin": true,
+   "active": "unknown",
+   "notes": "Reviewer 20 Nov 2026: channel page and /videos opened; official channel of the centre; page states the captions are made by automatic speech recognition (cc auto). Channel id UCicLjKtxm1uIyHKw12RW1Qw read on the page; UU list matches. No upload dates visible; RSS refused by robots; search found the centre's 2026 news list but no dated 2026 upload.",
+   "opened": "https://www.youtube.com/@NationalCancerCenterJapan ; https://www.youtube.com/@NationalCancerCenterJapan/videos"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "Kokoro no Mimi: mental illness explanations",
+   "ja": "こころ の 耳《みみ》",
+   "url": "https://kokoro.mhlw.go.jp/mental-illness",
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "en": "Public information pages on mental health in plain Japanese, with short entries on common mental illnesses and related terms.",
+   "tip": "N2 and up: read one entry, list its symptom words, then use them in a mock interview question.",
+   "clin": true,
+   "active": "2026",
+   "notes": "Reviewer 20 Nov 2026: url changed from the top page (which has a prominent consultation block) to the ministry-run glossary page /mental-illness, an information page of short illness entries in kana-row order; no furigana; consultation links only in the sidebar. Top page showed news dated Nov 2026.",
+   "opened": "https://kokoro.mhlw.go.jp/mental-illness ; https://kokoro.mhlw.go.jp/"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "Kokoro no Joho Site (mental health information)",
+   "ja": "こころ の 情報《じょうほう》 サイト",
+   "url": "https://kokoro.ncnp.go.jp/#mental_illness",
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "en": "Public information pages on mental health in plain Japanese, with one page per illness such as depression, schizophrenia and insomnia.",
+   "tip": "N2 and up: compare the lay wording for one disorder with the textbook term you already know, and note the patient-friendly phrases.",
+   "clin": true,
+   "active": "2026",
+   "notes": "Reviewer 20 Nov 2026: the researcher's ministry url (mhlw.go.jp/kokoro, Minna no Mental Health) is the old site; its illness index now shows only a notice that the content moved in April 2023 to this site, made by the National Center of Neurology and Psychiatry's Institute of Mental Health (a public body). url points to the illness list anchor; the top page also has a consultation section, which we do not link. 2026 notice about the Kumamoto earthquake seen.",
+   "opened": "https://kokoro.ncnp.go.jp/ ; https://www.mhlw.go.jp/kokoro/about/index.html ; https://www.mhlw.go.jp/kokoro/know/index.html"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "JSPN: for the general public",
+   "ja": "日本精神神経学会《にほんせいしんしんけいがっかい》 一般《いっぱん》 の 方《かた》 へ",
+   "url": "https://www.jspn.or.jp/modules/forpublic/",
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "en": "A psychiatry society's public section: questions about visiting a psychiatrist, illness information and specialist interviews.",
+   "tip": "N2 and up: read the clinic-visit questions; they show how patients put their worries into words before an interview.",
+   "clin": true,
+   "active": "2026",
+   "notes": "Reviewer 20 Nov 2026: public index opened; run by the Japanese Society of Psychiatry and Neurology; Q&A on visiting a psychiatrist, illness information, specialist interviews, provider search; no helpline list; no dates on this page. Society home page lists news dated Aug to Oct 2026.",
+   "opened": "https://www.jspn.or.jp/modules/forpublic/ ; https://www.jspn.or.jp/"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "Japan Medical Association: for the public",
+   "ja": "日本医師会《にほんいしかい》 国民《こくみん》 の みなさま へ",
+   "url": "https://www.med.or.jp/people/index.html",
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "en": "A physicians' association's public pages, including a regular short health bulletin on everyday medical topics.",
+   "tip": "N2 and up: open one bulletin issue, underline body-part and symptom words, and add them to your own word list.",
+   "clin": true,
+   "active": "2026",
+   "notes": "Reviewer 20 Nov 2026: url changed from the home page to the public section (people/index.html), which lists the Kenko Plaza bulletin and other health pages; no helpline list. Home page shows a bulletin issue dated 2026.11.20.",
+   "opened": "https://www.med.or.jp/people/index.html ; https://www.med.or.jp/"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "Japanese Nursing Association",
+   "ja": "日本看護協会《にほんかんごきょうかい》",
+   "url": "https://www.nurse.or.jp/",
+   "lv": [
+    "N2",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "en": "The national nursing association's site, with news, education and practice topics written for nurses.",
+   "tip": "N2 and up, for nurses: skim the news list and read one item a week for professional vocabulary in real use.",
+   "clin": true,
+   "active": "2026",
+   "notes": "Reviewer 20 Nov 2026: home page opened; professional association; news dated up to 18 Nov 2026; sections for nurses, students and the public. Membership and some courses exist but the site is free to read.",
+   "opened": "https://www.nurse.or.jp/"
+  },
+  {
+   "g": "r-health",
+   "kind": "site",
+   "title": "National Center for Global Health and Medicine (JIHS)",
+   "ja": "国立国際医療《こくりつこくさいいりょう》 センター",
+   "url": "https://www.hosp.jihs.go.jp/",
+   "lv": [
+    "N3",
+    "N1"
+   ],
+   "speaks": "ja",
+   "cc": "none",
+   "geo": "",
+   "cost": "free",
+   "en": "A national hospital's public site with outpatient, inpatient and visiting guides, plus some pages in English.",
+   "tip": "N3 and up: read a Japanese patient guide, then its English page side by side to learn hospital notice phrasing.",
+   "clin": true,
+   "active": "2026",
+   "notes": "Reviewer 20 Nov 2026: opened; page title gives the hospital name 国立国際医療センター under the Japan Institute for Health Security; patient guides, public lectures, English and Chinese buttons; news dated Oct 2026 and a job post dated 16 Nov 2026.",
+   "opened": "https://www.hosp.jihs.go.jp/"
+  }
+ ],
+ "removed": [
+  {
+   "title": "Practice worksheet: rephrasing clinical phrases into easy Japanese",
+   "url": "https://www.asahikawa-med.ac.jp/ncsc/wp/wp-content/uploads/2025/11/173a2a152e7eb1a49a57044a33b10b27.pdf",
+   "why": "PDF opens (nursing career support centre, university domain) but has no statement that it is meant for public use and no named audience; a single loose file, so removed per the task."
+  }
+ ],
+ "unverified": [
+  {
+   "title": "Nihongo o manabou (Japanese for care work)",
+   "url": "https://aft.kaigo-nihongo.jp/",
+   "why": "Opened; footer credits the Japan Association of Certified Care Workers but page text did not show cost, languages or furigana; robots check failed on www.kaigo-nihongo.jp. Reviewer 20 Nov 2026: reopened; only a 2017 footer, no cost, languages or content shown; still unverified."
+  },
+  {
+   "title": "NHK health pages (kenko), NHK NEWS WEB EASY, NHK welfare site",
+   "url": "https://www.nhk.or.jp/kenko/",
+   "why": "Fetch tool blocked all NHK hosts; not opened. Reviewer 20 Nov 2026: still blocked (site blocked)."
+  },
+  {
+   "title": "Cancer Information Service (ganjoho.jp)",
+   "url": "https://www.ganjoho.jp/public/index.html",
+   "why": "Not opened; robots.txt unreachable. Reviewer 20 Nov 2026: still robots unreachable."
+  },
+  {
+   "title": "Tokyo Metropolitan Bureau of Health: easy Japanese for medical settings",
+   "url": "https://www.hokeniryo.metro.tokyo.lg.jp/iryo/iryo_hoken/gaikokujin/gaikokujintaiou/yasashiinihongo",
+   "why": "Only a maintenance page on 20 Nov 2026; content unseen. Recheck later (search result suggests easy-Japanese material). Reviewer 20 Nov 2026: still a planned-maintenance page."
+  },
+  {
+   "title": "NINJAL hospital words made plain",
+   "url": "https://www.ninjal.ac.jp/byoin/",
+   "why": "Fetch failed; not opened. Reviewer 20 Nov 2026: still fails to open."
+  },
+  {
+   "title": "JICWELS (EPA nurse and care candidate support)",
+   "url": "https://jicwels.or.jp/",
+   "why": "Opened; no free Japanese study material visible, books appear sold (not re-opened by reviewer; not free study material, so not a candidate)."
+  }
+ ],
+ "groups_used": [
+  {
+   "id": "w-health",
+   "tab": "watch",
+   "title": "Health and medicine"
+  },
+  {
+   "id": "r-health",
+   "tab": "read",
+   "title": "Health and care Japanese"
+  }
+ ]
+}
