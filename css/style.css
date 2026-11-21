@@ -1551,3 +1551,7 @@ button.er-tile:focus-visible { outline: 3px solid var(--accent); outline-offset:
 .imm-pbar p { flex: 1 1 16em; min-width: 0; }
 .imm-steps { margin: 0; padding-left: 22px; display: grid; gap: 4px; }
 .imm-foot { margin-top: 20px; }
+
+/* Ko-fi support link under the attribution line */
+.support-line{margin:0 0 10px}
+.support-line a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-weight:600;text-underline-offset:3px}

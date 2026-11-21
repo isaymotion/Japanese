@@ -3,6 +3,12 @@
    For every release: add an entry here, then bump APP_META.version (data/app-meta.js) and VERSION in sw.js. */
 window.APP_CHANGELOG = [
   {
+    version: '1.1.1', date: '2026-11-21', title: 'Support this app',
+    items: [
+      { type: 'update', text: 'This app stays free. If it helps you, there is now a “Support this app on Ko-fi” link at the bottom of every page.' }
+    ]
+  },
+  {
     version: '1.1.0', date: '2026-11-21', title: 'Immersion: watch, listen and read real Japanese, with a captions guide and a look-up box',
     items: [
       { type: 'feature', text: 'Immersion (Practice → Immersion): real Japanese to watch, hear and read, sorted by level from Starter to N1. Watch: 36 YouTube channels (lessons explained in English, lessons in easy Japanese, JLPT grammar and workplace Japanese, official news channels, cooking and science, public health channels). Listen: 15 podcasts for learners and for Japanese listeners, and 3 radio sources. Read: easy news, free graded readers and courses, magazines and libraries, dictionaries, and health and care Japanese. 71 sources, each with its level, a one-line description and a tip on how to use it.' },
