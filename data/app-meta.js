@@ -4,7 +4,7 @@ window.APP_META = {
   short: 'Hanashimashō',
   nameNative: '話しましょう',
   tagline: 'Japanese from zero, for clinicians',
-  version: '1.1.1',
+  version: '1.1.2',
   kofi: 'https://ko-fi.com/isaymotion',   // support link shown in the footer
   repo: 'Japanese',
   updated: 'November 2026',
